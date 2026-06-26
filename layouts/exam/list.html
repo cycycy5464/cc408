@@ -8,7 +8,7 @@
     <input type="text" id="filter-search" placeholder="搜索题目...">
   </div>
   <div style="display:grid;gap:1rem">
-    {{ range .Pages }}
+    {{ range where .Site.RegularPages "Section" "exam" }}
     <a href="{{ .RelPermalink }}" class="card" data-subject="{{ .Params.subject }}" data-difficulty="{{ .Params.difficulty }}">
       <div style="font-weight:600;margin-bottom:.5rem">{{ .Title }}</div>
       <div style="display:flex;gap:.5rem;flex-wrap:wrap">

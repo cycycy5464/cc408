@@ -4,7 +4,7 @@
   {{ .Content }}
   <h2 style="margin-top:2rem">知识点列表</h2>
   <div style="display:grid;gap:1rem">
-    {{ range .Pages }}
+    {{ range where .Site.RegularPages "Section" "docs" }}
     <a href="{{ .RelPermalink }}" class="card">
       <div style="font-weight:600;margin-bottom:.5rem">{{ .Title }}</div>
       <div style="display:flex;gap:.5rem;flex-wrap:wrap">
