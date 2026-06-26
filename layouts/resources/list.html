@@ -1,21 +1,14 @@
 {{ define "main" }}
-<div class="content-area" style="max-width: 900px;">
+<div class="content-area content-area-wide">
   <h1>{{ .Title }}</h1>
   {{ .Content }}
-
-  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; margin-top: 2rem;">
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin-top:2rem">
     {{ range .Pages }}
-    <div class="card-glass" style="padding: 1.5rem;">
-      <div style="font-weight: 600; margin-bottom: 0.5rem;">{{ .Title }}</div>
-      <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;">
-        {{ with .Params.file_size }}📁 {{ . }}{{ end }}
-      </div>
-      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
-        {{ range .Params.tags }}
-        <span class="tag">{{ . }}</span>
-        {{ end }}
-      </div>
-      <a href="{{ .RelPermalink }}" class="btn-outline" style="font-size: 0.85rem;">查看详情 →</a>
+    <div class="card">
+      <div style="font-weight:600;margin-bottom:.5rem">{{ .Title }}</div>
+      <div style="font-size:var(--fs-sm);color:var(--text-muted);margin-bottom:.5rem">{{ with .Params.file_size }}📁 {{ . }}{{ end }}</div>
+      <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem">{{ range .Params.tags }}<span class="tag">{{ . }}</span>{{ end }}</div>
+      <a href="{{ .RelPermalink }}" class="btn btn-ghost" style="font-size:var(--fs-xs)">查看详情 →</a>
     </div>
     {{ end }}
   </div>
