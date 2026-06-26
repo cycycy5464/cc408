@@ -1,0 +1,11 @@
+# Build output
+public/
+.hugo_build.lock
+
+# Module cache
+hugo_cache/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
