@@ -3,9 +3,9 @@
   <button class="navbar-toggle" aria-label="菜单" onclick="this.parentElement.querySelector('.navbar-links').classList.toggle('open')">☰</button>
   <div class="navbar-links" role="menubar">
     {{ $current := .RelPermalink }}
-    {{ $section := .Section }}
     {{ range .Site.Menus.main }}
-    <a href="{{ .URL | relURL }}" role="menuitem" class="{{ if eq .URL (printf "/%s/" $section) }}active{{ else if and (eq .URL "/") (eq $current "/cc408/") }}active{{ end }}">
+    {{ $menuURL := .URL | relURL }}
+    <a href="{{ $menuURL }}" role="menuitem" class="{{ if hasPrefix $current $menuURL }}active{{ else if and (eq $menuURL "/") (eq $current "/cc408/") }}active{{ end }}">
       {{ .Name }}
     </a>
     {{ end }}
