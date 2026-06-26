@@ -1,7 +1,3 @@
-# Hugo configuration
-module:
-  hugoVersion:
-    extended: true
-    min: "0.135.0"
-  imports:
-    - path: github.com/HugoBlox/hugo-blox-builder/modules/blox-tailwind
+module github.com/cycycy5464/cc408
+
+go 1.21
