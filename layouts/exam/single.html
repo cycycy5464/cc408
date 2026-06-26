@@ -1,40 +1,20 @@
 {{ define "main" }}
 <div class="content-area">
-  <div class="meta-info">
-    <span class="meta-item">📝 题型: {{ with .Params.type }}{{ . | title }}{{ else }}综合{{ end }}</span>
-    <span class="meta-item">📅 {{ with .Params.source }}{{ . }}{{ else }}未标注{{ end }}</span>
-    <span class="meta-item">
-      <span class="difficulty-stars">
-        {{ $d := default 1 .Params.difficulty }}
-        {{ range seq 1 3 }}
-          {{ if le . $d }}★{{ else }}<span class="empty">☆</span>{{ end }}
-        {{ end }}
-      </span>
-    </span>
-    {{ range .Params.tags }}
-    <span class="tag">{{ . }}</span>
-    {{ end }}
+  <div class="meta-row">
+    <span class="tag">{{ with .Params.type }}{{ . | title }}{{ else }}综合{{ end }}</span>
+    <span style="color:var(--text-muted)">📅 {{ with .Params.source }}{{ . }}{{ else }}未标注{{ end }}</span>
+    <span>{{ $d := default 1 .Params.difficulty }}{{ range seq 1 3 }}{{ if le . $d }}<span class="diff-star">★</span>{{ else }}<span class="diff-star-empty">☆</span>{{ end }}{{ end }}</span>
+    {{ range .Params.tags }}<span class="tag">{{ . }}</span>{{ end }}
   </div>
-
-  <article>
-    {{ .Content }}
-  </article>
-
-  <!-- Related knowledge -->
+  <article>{{ .Content }}</article>
   {{ with .Params.related_knowledge }}
-  <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+  <div style="margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border-color)">
     <h3>📎 关联知识点</h3>
-    <ul>
-      {{ range . }}
-      {{ $page := site.GetPage . }}
-      <li><a href="{{ $page.RelPermalink }}" class="btn-outline" style="font-size: 0.85rem;">{{ $page.Title }}</a></li>
-      {{ end }}
-    </ul>
+    <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.75rem">
+      {{ range . }}{{ $page := site.GetPage . }}<a href="{{ $page.RelPermalink }}" class="btn btn-ghost" style="font-size:var(--fs-xs)">{{ $page.Title }}</a>{{ end }}
+    </div>
   </div>
   {{ end }}
-
-  <div style="margin-top: 2rem;">
-    <a href="/exam/" class="btn-outline">← 返回刷题中心</a>
-  </div>
+  <div style="margin-top:2rem"><a href="/exam/" class="btn btn-ghost">← 返回刷题中心</a></div>
 </div>
 {{ end }}

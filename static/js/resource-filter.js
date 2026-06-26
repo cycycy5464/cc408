@@ -13,7 +13,7 @@
     var subject = subjectSelect.value;
     var difficulty = difficultySelect.value;
 
-    var cards = document.querySelectorAll('.card-glass[data-subject]');
+    var cards = document.querySelectorAll('.card[data-subject]');
     cards.forEach(function(card) {
       var cardSubject = card.getAttribute('data-subject');
       var cardDifficulty = card.getAttribute('data-difficulty');

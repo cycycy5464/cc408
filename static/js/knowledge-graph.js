@@ -8,12 +8,12 @@
   var width = container.clientWidth;
   var height = container.clientHeight;
 
-  // Subject color mapping
+  // Subject color mapping - updated to match design system
   var subjectColors = {
-    'data-structure': '#58d6c0',
-    'computer-org': '#f59e0b',
-    'os': '#8b5cf6',
-    'network': '#3b82f6'
+    'data-structure': '#39bae6',
+    'computer-org': '#ff8f40',
+    'os': '#a277ff',
+    'network': '#95e6cb'
   };
 
   var subjectNames = {
