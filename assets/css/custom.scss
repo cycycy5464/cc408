@@ -1,0 +1,349 @@
+/* CC408 Custom Styles - Dark Tech Theme */
+
+/* === Color Variables === */
+:root {
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-card: #1c2128;
+  --accent: #58d6c0;
+  --accent-end: #3b82f6;
+  --text-primary: #e6edf3;
+  --text-secondary: #8b949e;
+  --border-color: #30363d;
+
+  /* Subject Colors */
+  --color-ds: #58d6c0;
+  --color-co: #f59e0b;
+  --color-os: #8b5cf6;
+  --color-cn: #3b82f6;
+}
+
+/* === Global Reset & Base === */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Noto Sans SC', 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', 'Space Grotesk', sans-serif;
+  font-weight: 700;
+}
+
+a {
+  color: var(--accent);
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-end);
+}
+
+/* === Gradient Text === */
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent), var(--accent-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* === Hero Section === */
+.hero-section {
+  background: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(88, 214, 192, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* === Glassmorphism Cards === */
+.card-glass {
+  background: rgba(28, 33, 40, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.card-glass:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 20px rgba(88, 214, 192, 0.15);
+  transform: translateY(-2px);
+}
+
+/* === Hero Entry Cards === */
+.hero-entry-card {
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.hero-entry-card .icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-entry-card .title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.hero-entry-card .desc {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+/* === Side Navigation === */
+.side-nav {
+  width: 280px;
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border-color);
+  padding: 1rem;
+  overflow-y: auto;
+  height: calc(100vh - 60px);
+  position: sticky;
+  top: 60px;
+}
+
+.side-nav .nav-item {
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--text-secondary);
+  text-decoration: none;
+  display: block;
+}
+
+.side-nav .nav-item:hover {
+  background: rgba(88, 214, 192, 0.1);
+  color: var(--text-primary);
+}
+
+.side-nav .nav-item.active {
+  background: rgba(88, 214, 192, 0.15);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.side-nav .nav-group {
+  margin-bottom: 0.5rem;
+}
+
+.side-nav .nav-group-title {
+  font-weight: 700;
+  color: var(--text-primary);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+}
+
+.side-nav .nav-group-children {
+  padding-left: 1rem;
+}
+
+/* === Content Area === */
+.content-area {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.content-area h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.content-area h2 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.content-area h3 {
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/* === Code Blocks === */
+.content-area pre {
+  background: var(--bg-secondary) !important;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+.content-area code {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.9em;
+}
+
+.content-area p code {
+  background: rgba(88, 214, 192, 0.1);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  color: var(--accent);
+}
+
+/* === Tags === */
+.tag {
+  display: inline-block;
+  padding: 0.2em 0.6em;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  background: rgba(88, 214, 192, 0.1);
+  color: var(--accent);
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* === Difficulty Stars === */
+.difficulty-stars {
+  color: #f59e0b;
+  font-size: 0.9rem;
+}
+
+.difficulty-stars .empty {
+  color: var(--text-secondary);
+}
+
+/* === Button Styles === */
+.btn-outline {
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  background: transparent;
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.btn-outline:hover {
+  background: rgba(88, 214, 192, 0.1);
+  color: var(--accent);
+}
+
+.btn-solid {
+  background: linear-gradient(135deg, var(--accent), var(--accent-end));
+  color: #0d1117;
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: inline-block;
+  border: none;
+}
+
+.btn-solid:hover {
+  opacity: 0.9;
+  color: #0d1117;
+}
+
+/* === Metadata === */
+.meta-info {
+  display: flex;
+  gap: 1rem;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.meta-info .meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .side-nav {
+    width: 100%;
+    height: auto;
+    position: static;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .content-area {
+    padding: 1rem;
+  }
+}
+
+/* === Watermark Layer === */
+.watermark-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background-repeat: repeat;
+  background-size: 300px 300px;
+}
+
+/* === Details/Summary (for exam solutions) === */
+.content-area details {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.content-area details summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.content-area details[open] summary {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+/* === Hero Block Custom === */
+.hero-landing-block {
+  text-align: center;
+  padding: 6rem 2rem;
+  background: var(--bg-primary);
+}
+
+.hero-landing-block h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-landing-block .subtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.hero-landing-block .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}

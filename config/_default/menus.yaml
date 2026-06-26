@@ -1,0 +1,17 @@
+# Navigation Links
+main:
+  - name: 首页
+    url: /
+    weight: 10
+  - name: 知识点
+    url: /docs/
+    weight: 20
+  - name: 刷题
+    url: /exam/
+    weight: 30
+  - name: 知识图谱
+    url: /graph/
+    weight: 40
+  - name: 资源
+    url: /resources/
+    weight: 50

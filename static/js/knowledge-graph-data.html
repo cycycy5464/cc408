@@ -1,0 +1,32 @@
+{{/* Generate knowledge graph JSON data from docs content */}}
+{{ $nodes := slice }}
+{{ $links := slice }}
+
+{{ range where .Site.RegularPages "Section" "docs" }}
+  {{ $node := dict
+    "id" .RelPermalink
+    "label" .Title
+    "subject" (default "data-structure" .Params.subject)
+    "difficulty" (default 1 .Params.difficulty)
+    "prerequisites" .Params.prerequisites
+    "slug" .File.TranslationBaseName
+  }}
+  {{ $nodes = $nodes | append $node }}
+{{ end }}
+
+{{/* Generate links from prerequisites by matching prerequisite strings to node labels */}}
+{{ range where .Site.RegularPages "Section" "docs" }}
+  {{ $sourceId := .RelPermalink }}
+  {{ range .Params.prerequisites }}
+    {{ $prereq := . }}
+    {{ range where .Site.RegularPages "Section" "docs" }}
+      {{ if eq .Title $prereq }}
+        {{ $link := dict "source" $sourceId "target" .RelPermalink }}
+        {{ $links = $links | append $link }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ $data := dict "nodes" $nodes "links" $links }}
+{{ $data | jsonify | safeJSON }}

@@ -1,0 +1,9 @@
+# Languages
+build:
+  hugo_version: '0.135.0'
+
+# Default language
+zh:
+  languageCode: zh-CN
+  title: CC408
+  contentDir: content

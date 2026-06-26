@@ -1,0 +1,42 @@
+{{ define "main" }}
+<div class="content-area">
+  <!-- Meta Info -->
+  <div class="meta-info">
+    {{ with .Params.subject }}
+    <span class="meta-item">
+      <span class="tag">{{ . | title }}</span>
+    </span>
+    {{ end }}
+    {{ with .Params.chapter_title }}
+    <span class="meta-item">📂 {{ . }}</span>
+    {{ end }}
+    {{ with .Params.difficulty }}
+    <span class="meta-item">
+      <span class="difficulty-stars">
+        {{ $stars := "" }}
+        {{ range seq 1 3 }}
+          {{ if le . $.Params.difficulty }}★{{ else }}<span class="empty">☆</span>{{ end }}
+        {{ end }}
+      </span>
+    </span>
+    {{ end }}
+    {{ with .Params.tags }}
+    <span class="meta-item">
+      {{ range . }}
+      <span class="tag">{{ . }}</span>
+      {{ end }}
+    </span>
+    {{ end }}
+  </div>
+
+  <!-- Content -->
+  <article>
+    {{ .Content }}
+  </article>
+
+  <!-- Back to list -->
+  <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+    <a href="/docs/" class="btn-outline">← 返回知识点列表</a>
+  </div>
+</div>
+{{ end }}

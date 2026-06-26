@@ -1,0 +1,51 @@
+{{ define "main" }}
+<div class="content-area" style="max-width: 900px;">
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+
+  <!-- Filter bar placeholder -->
+  <div style="margin: 2rem 0; padding: 1rem; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px;">
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+      <select id="filter-subject" style="padding: 0.5rem; background: var(--bg-card); color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 4px;">
+        <option value="">所有科目</option>
+        <option value="data-structure">数据结构</option>
+        <option value="computer-org">计算机组成原理</option>
+        <option value="os">操作系统</option>
+        <option value="network">计算机网络</option>
+      </select>
+      <select id="filter-difficulty" style="padding: 0.5rem; background: var(--bg-card); color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 4px;">
+        <option value="">所有难度</option>
+        <option value="1">⭐</option>
+        <option value="2">⭐⭐</option>
+        <option value="3">⭐⭐⭐</option>
+      </select>
+      <input type="text" id="filter-search" placeholder="搜索题目..." style="flex: 1; min-width: 200px; padding: 0.5rem; background: var(--bg-card); color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 4px;">
+    </div>
+  </div>
+
+  <!-- Questions list -->
+  <div style="display: grid; gap: 1rem;">
+    {{ range .Pages }}
+    <div class="card-glass" data-subject="{{ .Params.subject }}" data-difficulty="{{ .Params.difficulty }}" style="padding: 1.5rem;">
+      <div style="font-weight: 600; margin-bottom: 0.5rem;">{{ .Title }}</div>
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+        {{ with .Params.source }}
+        <span class="tag">{{ . }}</span>
+        {{ end }}
+        {{ with .Params.year }}
+        <span class="tag">{{ . }}</span>
+        {{ end }}
+        <span class="difficulty-stars">
+          {{ range seq 1 3 }}
+            {{ if le . $.Params.difficulty }}★{{ else }}<span class="empty">☆</span>{{ end }}
+          {{ end }}
+        </span>
+      </div>
+      <a href="{{ .RelPermalink }}" class="btn-outline" style="font-size: 0.85rem;">查看详情 →</a>
+    </div>
+    {{ end }}
+  </div>
+</div>
+
+<script src="/js/resource-filter.js"></script>
+{{ end }}

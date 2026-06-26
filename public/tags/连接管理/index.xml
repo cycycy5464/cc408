@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>连接管理 on CC408</title>
+    <link>http://localhost:1313/cc408/tags/%E8%BF%9E%E6%8E%A5%E7%AE%A1%E7%90%86/</link>
+    <description>Recent content in 连接管理 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 25 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/cc408/tags/%E8%BF%9E%E6%8E%A5%E7%AE%A1%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TCP 三次握手与四次挥手</title>
+      <link>http://localhost:1313/cc408/docs/network/ch01-tcp/tcp-handshake/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/cc408/docs/network/ch01-tcp/tcp-handshake/</guid>
+      <description>&lt;h2 id=&#34;tcp-连接建立三次握手&#34;&gt;TCP 连接建立（三次握手）&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Client                          Server&#xA;  |  SYN=1, seq=x               |&#xA;  |----------------------------&amp;gt;|  LISTEN&#xA;  |                             |  SYN=1, seq=y&#xA;  |                             |  ACK=1, ack=x+1&#xA;  |&amp;lt;----------------------------|&#xA;  |  ACK=1, ack=y+1, seq=x+1    |&#xA;  |----------------------------&amp;gt;|  ESTABLISHED&#xA;  |                             |  ESTABLISHED&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;为什么要三次握手&#34;&gt;为什么要三次握手？&lt;/h3&gt;&#xA;&lt;p&gt;防止已失效的连接请求报文段突然又传送到了服务端，产生错误连接。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

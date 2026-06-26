@@ -1,0 +1,38 @@
+{{ define "main" }}
+<div class="content-area">
+  <h1>{{ .Title }}</h1>
+
+  <div class="meta-info">
+    <span class="meta-item">📁 {{ .Params.file_size }}</span>
+    <span class="meta-item">📄 {{ .Params.file_type | upper }}</span>
+    {{ range .Params.tags }}
+    <span class="tag">{{ . }}</span>
+    {{ end }}
+  </div>
+
+  {{ .Content }}
+
+  <div style="margin-top: 2rem; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; text-align: center;">
+    {{ if eq .Params.type "free" }}
+    {{ $filePath := printf "resources/%s" .File.TranslationBaseName }}
+    <a href="/{{ $filePath }}" class="btn-solid" download>
+      ⬇️ 下载资源（带水印）
+    </a>
+    <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.75rem;">
+      下载的文件将自动添加 CC408 水印
+    </p>
+    {{ else }}
+    <p style="color: var(--text-secondary);">
+      🔒 高质量资源仅支持在线预览
+    </p>
+    <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem;">
+      （获取下载权限功能即将开放）
+    </p>
+    {{ end }}
+  </div>
+
+  <div style="margin-top: 2rem;">
+    <a href="/resources/" class="btn-outline">← 返回资源列表</a>
+  </div>
+</div>
+{{ end }}

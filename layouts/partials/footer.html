@@ -1,0 +1,8 @@
+<footer style="padding: 2rem; text-align: center; color: var(--text-secondary);
+               font-size: 0.85rem; border-top: 1px solid var(--border-color);
+               background: var(--bg-secondary);">
+  <p>{{ replace .Site.Params.footer.copyright.notice "{year}" (printf "%d" now.Year) | default (printf "© %d CC408" now.Year) | safeHTML }}</p>
+  <p style="margin-top: 0.5rem; font-size: 0.75rem;">
+    Powered by Hugo &amp; HugoBlox
+  </p>
+</footer>
