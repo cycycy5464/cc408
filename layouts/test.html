@@ -1,0 +1,8 @@
+{{ define "main" }}
+<div id="test">
+<p>BaseURL: {{ .Site.BaseURL }}</p>
+<p>relURL /docs/: {{ "/docs/" | relURL }}</p>
+<p>relURL /exam/: {{ "/exam/" | relURL }}</p>
+<p>relURL /resources/: {{ "/resources/" | relURL }}</p>
+</div>
+{{ end }}

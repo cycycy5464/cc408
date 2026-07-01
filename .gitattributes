@@ -1,0 +1,6 @@
+# Ignore binary image files from CRLF warnings
+*.svg binary
+*.png binary
+*.jpg binary
+*.webp binary
+*.gif binary

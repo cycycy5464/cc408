@@ -1,141 +1,179 @@
 ---
-title: "线性表"
+title: "顺序表"
 date: 2026-06-25
-weight: 1
-tags: [线性表, 顺序表, 链表]
-difficulty: 1
+weight: 5
+tags: [线性表]
+difficulty: 2
 prerequisites: []
 subject: data-structure
 chapter: 1
-chapter_title: "线性表"
-exam_points:
-  - "顺序表操作"
-  - "链表操作"
+chapter_title: "顺序表"
 ---
 
-## 概述
+🔥 高优先级
 
-线性表是最基本、最简单、也是最常用的一种数据结构。线性表中数据元素之间的关系是一对一的关系，即除了第一个和最后一个数据元素之外，其它数据元素都是首尾相接的。
+关于顺序表，一般不会直接考察本节中介绍的这些操作，因为太简单了。更多的是考察基于顺序表（数组）的 **算法设计** ，但是这些操作是更高级算法设计的基础。
 
-## 顺序表
+### 顺序表定义
 
-顺序表是用一段物理地址连续的存储单元依次存储数据元素的线性结构，一般情况下采用数组存储。
+**顺序表（Sequential List）** 是一种常见的数据结构，用于存储一组元素，并按照它们在内存中的物理顺序来排列和访问这些元素。顺序表通常由一个 **数组** 或 **列表** 构成，其中每个元素都占据一个连续的内存位置，并且可以通过索引值来访问。
 
-### 基本操作
+假设线性表 A 存储的其实位置为 `LOC(A)`，每个元素占用的存储空间的大小为 `sizeof(Elem)`，则 A 所对应的顺序存储结构为：
 
+![](/images/docs/data-structure/69a2847b52.svg)
+
+  * 顺序表 **优点** ：
+```c
+* **随机访问性强** ：顺序表支持通过索引直接访问元素，访问速度快，时间复杂度为 **_O\(1\)_** 。
+* **空间使用连续** ：顺序表中的元素存储在连续的内存块中，这有助于提高缓存的局部性，从而提高访问速度。
+* **操作简单** ：无需处理复杂的指针操作。
+```
+
+  * 顺序表 **缺点** ：
+```c
+* **固定大小或调整大小的开销** ：对于静态数组，大小是固定的，如果预分配的空间不足或过大，会导致内存浪费或数组溢出。动态数组可以重新分配大小，但这会增加时间和空间开销。
+* **插入和删除的时间开销** ：如果要在顺序表的中间插入或删除元素，可能需要移动大量的元素，时间复杂度为 **_O\(n\)_** 。
+```
+
+
+### 操作
+
+#### 数据结构定义
+
+
+![](/images/docs/data-structure/0b383715a7.svg)
+
+以下代码定义了一个顺序表 `SeqList`，它使用 **固定大小的数组** `data` 来存储元素，`length` 记录当前表的长度。`InitList` 函数初始化顺序表，设置 _长度为 0_ ，表示空表。    
 ```c
 #define MAXSIZE 100
-typedef int ElemType;
-
 typedef struct {
-    ElemType data[MAXSIZE];
+    ElementType data[MAXSIZE];
     int length;
-} SqList;
+} SeqList;
 
-// 初始化
-void InitList(SqList *L) {
+void InitList(SeqList *L) {
     L->length = 0;
 }
+```
 
-// 插入元素 (在第i个位置插入e)
-int ListInsert(SqList *L, int i, ElemType e) {
-    if (i < 1 || i > L->length + 1) return 0;
-    if (L->length >= MAXSIZE) return 0;
-    for (int j = L->length; j >= i; j--) {
-        L->data[j] = L->data[j-1];
+
+
+​    
+
+
+
+#### 插入
+
+![](/images/docs/data-structure/image-20260611231618428.png)
+
+在第 `pos` 个位置 **插入新元素** `e`。首先检查 **插入位置合法性** 和 **空间是否已满** ，然后从尾部向后移动元素，为插入留出位置，最后将元素插入并更新长度。
+    
+```c
+bool Insert(SeqList *L, int pos, ElementType e) {
+    if (L->length == MAXSIZE || pos < 1 || pos > L->length + 1) {
+        return false;
     }
-    L->data[i-1] = e;
+    for (int i = L->length; i >= pos; i--) {
+        L->data[i] = L->data[i - 1];
+    }
+    L->data[pos - 1] = e;
     L->length++;
-    return 1;
+    return true;
 }
+```
 
-// 查找元素
-int LocateElem(SqList L, ElemType e) {
+
+#### 删除
+
+![](/images/docs/data-structure/image-20260611231641535.png)
+
+**删除第`pos` 个元素**，并通过指针返回删除的元素值。删除后将该位置后的所有元素 **前移** ，最后更新长度。
+
+```c
+bool Delete(SeqList *L, int pos, ElementType *e) {
+    if (pos < 1 || pos > L->length) {
+        return false;
+    }
+    *e = L->data[pos - 1];
+    for (int i = pos; i < L->length; i++) {
+        L->data[i - 1] = L->data[i];
+    }
+    L->length--;
+    return true;
+}bool Delete(SeqList *L, int pos, ElementType *e) {
+
+    ![](/images/docs/data-structure/06a5ee8d55.svg)
+
+    *e = L->data[pos - 1];
+```
+
+
+
+#### 查找操作
+
+在线性表中 **顺序查找** 第一个值等于 `e` 的元素，返回其**逻辑位置** （从 1 开始）；若未找到，返回 0。
+```c
+int LocateElem(SeqList L, ElementType e) {
     for (int i = 0; i < L.length; i++) {
-        if (L.data[i] == e) return i + 1;
+        if (L.data[i] == e) {
+            return i + 1;
+        }
     }
     return 0;
 }
 ```
 
-### 复杂度分析
 
-- 插入/删除：平均 $O(n)$，最坏 $O(n)$
-- 查找：$O(n)$
+#### 获取元素
 
-## 链表
-
-链表用一组任意的存储单元存储线性表的数据元素。
-
-### 单链表
-
+**获取顺序表中第`pos` 个元素**，返回值通过指针 `*e` 输出。若位置非法则返回 _false_ 。
+    
+    
 ```c
-typedef struct LNode {
-    ElemType data;
-    struct LNode *next;
-} LNode, *LinkList;
-
-// 头插法建表
-LinkList CreateHead(LinkList *L) {
-    *L = (LinkList)malloc(sizeof(LNode));
-    (*L)->next = NULL;
-    ElemType e;
-    scanf("%d", &e);
-    while (e != 9999) {
-        LNode *p = (LNode*)malloc(sizeof(LNode));
-        p->data = e;
-        p->next = (*L)->next;
-        (*L)->next = p;
-        scanf("%d", &e);
+bool GetElem(SeqList L, int pos, ElementType *e) {
+    if (pos < 1 || pos > L.length) {
+        return false;
     }
-    return *L;
-}
-
-// 按值查找
-LNode* LocateNode(LinkList L, ElemType e) {
-    LNode *p = L->next;
-    while (p && p->data != e) {
-        p = p->next;
-    }
-    return p;
+    *e = L.data[pos - 1];
+    return true;
 }
 ```
 
-### 双向链表
 
+
+#### 判空
+
+**判断顺序表是否为空** ，直接判断 `length` 是否为 _0_ 。
+    
+    
 ```c
-typedef struct DuLNode {
-    ElemType data;
-    struct DuLNode *prior, *next;
-} DuLNode, *DuLinkList;
+bool IsEmpty(SeqList L) {
+    return L.length == 0;
+}
 ```
 
-## 栈与队列
 
-### 栈（Stack）
 
-先进后出（LIFO）
+#### 清空
 
+**清空顺序表** ，只需将 `length` _置 0_ ，无需实际删除元素，等价于逻辑上的清空。
+    
+    
 ```c
-#define STACK_MAX 100
-typedef struct {
-    ElemType data[STACK_MAX];
-    int top;
-} SqStack;
+void ClearList(SeqList *L) {
+    L->length = 0;
+}
 ```
 
-### 队列（Queue）
 
-先进先出（FIFO）
 
+#### 长度
+
+**返回当前顺序表的长度** ，即有效元素个数。
+    
+    
 ```c
-#define QUEUE_MAX 100
-typedef struct {
-    ElemType data[QUEUE_MAX];
-    int front, rear;
-} SqQueue;
+int Length(SeqList L) {
+    return L.length;
+}
 ```
-
-## 相关题目
-
-- [2023年408真题 - 应用题第1题](/exam/application/2023-q1/)

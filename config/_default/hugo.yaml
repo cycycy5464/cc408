@@ -5,7 +5,7 @@
 # Website name
 title: CC408
 # Website URL
-baseURL: ''
+baseURL: 'https://cycycy5464.github.io/cc408/'
 
 ############################
 ## LANGUAGE
@@ -22,6 +22,7 @@ removePathAccents: true
 
 build:
   writeStats: true
+  hugo_version: '0.135.0'
 enableGitInfo: false
 summaryLength: 30
 pagination:
