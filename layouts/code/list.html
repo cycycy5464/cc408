@@ -1,0 +1,20 @@
+{{ define "main" }}
+<div class="content-area content-area-wide">
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin-top:2rem">
+    {{ range .Pages }}
+    <a href="{{ .RelPermalink }}" class="card" style="text-decoration:none;color:var(--text-primary)">
+      <div style="font-weight:600;margin-bottom:.5rem">{{ .Title }}</div>
+      <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.5rem">
+        {{ range .Params.tags }}<span class="tag">{{ . }}</span>{{ end }}
+      </div>
+      <div style="font-size:var(--fs-sm);color:var(--text-muted)">
+        {{ .Summary | truncate 100 }}
+      </div>
+    </a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

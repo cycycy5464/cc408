@@ -6,6 +6,9 @@ main:
   - name: 知识点
     url: /docs/
     weight: 20
+  - name: 真题
+    url: /exam/408quiz/
+    weight: 25
   - name: 刷题
     url: /exam/
     weight: 30
