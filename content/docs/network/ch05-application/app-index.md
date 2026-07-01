@@ -1,0 +1,58 @@
+---
+title: "应用层"
+date: 2026-06-25
+weight: 27
+tags: [应用层]
+difficulty: 3
+prerequisites: []
+subject: network
+chapter: 3
+chapter_title: "应用层"
+---
+
+可能会在选择题中考察，主要涉及到一些应用层协议的基本概念。
+
+学习思维导图：
+   ![](/images/docs/network/image-20260613072827253.png)
+```c
+## 网络应用模型
+
+- C/S模型
+- P2P模型
+
+## DNS系统
+
+- 层次域名空间
+- 域名服务器
+- 域名解析过程
+
+## FTP
+
+- FTP协议的工作原理
+- 控制连接和数据连接
+
+## 电子邮件
+
+- 电子邮件系统的组成结构
+- 电子邮件格式和MIME
+- SMTP协议与POP3协议
+
+## WWW
+
+- 概念和组成结构
+- HTTP协议
+```
+
+
+
+* * *
+
+##### [网络应用模型](</computer_network/application/model/>)
+
+##### [DNS](</computer_network/application/dns/>)
+
+##### [FTP](</computer_network/application/ftp/>)
+
+##### [电子邮件](</computer_network/application/mail/>)
+
+##### [万维网](</computer_network/application/www/>)
