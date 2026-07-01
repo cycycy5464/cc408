@@ -185,6 +185,166 @@ type: section
     print(f'\nConverted {count} code algorithms')
     return count
 
+def convert_exercise():
+    """Convert exercise content to cc408 format"""
+    ex_src = f'{SRC}/study_methods/exercise'
+    ex_dst = f'{DST_EXAM}/exercise'
+    os.makedirs(ex_dst, exist_ok=True)
+
+    subject_map = {
+        'data_structure': '数据结构', 'architecture': '组成原理',
+        'network': '计算机网络', 'os': '操作系统',
+    }
+    tag_map = {
+        'data_structure': 'data-structure', 'architecture': 'computer-org',
+        'network': 'network', 'os': 'os',
+    }
+
+    count = 0
+    # Walk all content.md files
+    for root, dirs, files in os.walk(ex_src):
+        if 'content.md' not in files:
+            continue
+        src_file = os.path.join(root, 'content.md')
+        rel = os.path.relpath(root, ex_src)
+        parts = rel.split(os.sep)
+
+        with open(src_file, 'r', encoding='utf-8') as f:
+            text = f.read()
+
+        title_match = re.search(r'^# (.+)', text)
+        title = title_match.group(1).strip() if title_match else parts[-1]
+
+        text = clean_content(text)
+        text = re.sub(r'^# .+\n?', '', text, count=1)
+
+        # Determine subject and path
+        subject = parts[0] if parts[0] in tag_map else 'data-structure'
+        sub_path = '-'.join(parts[1:]) if len(parts) > 1 else parts[-1]
+        slug = f'{subject}/{sub_path}' if sub_path != subject else subject
+        dst_dir = os.path.join(ex_dst, subject)
+        os.makedirs(dst_dir, exist_ok=True)
+
+        fm = f'''---
+title: "{title}"
+date: 2026-07-01
+type: exercise
+subject: {tag_map.get(subject, subject)}
+tags: [习题, {tag_map.get(subject, subject)}]
+difficulty: 2
+---
+
+'''
+        dst_file = os.path.join(ex_dst, subject, f'{sub_path if sub_path != subject else "index"}.md')
+        with open(dst_file, 'w', encoding='utf-8') as f:
+            f.write(fm + text.strip() + '\n')
+        count += 1
+        print(f'  OK {rel}')
+
+    index = f'''---
+title: "📝 分科习题"
+date: 2026-07-01
+type: section
+---
+
+按科目分类的练习题，共{count}组。
+'''
+    with open(f'{ex_dst}/_index.md', 'w', encoding='utf-8') as f:
+        f.write(index)
+
+    print(f'\nConverted {count} exercise groups')
+    return count
+
+def convert_methods():
+    """Convert study methods content"""
+    meth_src = f'{SRC}/study_methods/methods'
+    meth_dst = f'content/study-methods'
+    os.makedirs(meth_dst, exist_ok=True)
+
+    dirs = sorted([d for d in os.listdir(meth_src) if os.path.isdir(f'{meth_src}/{d}')])
+    count = 0
+
+    # Main index
+    src_main = f'{meth_src}/content.md'
+    if os.path.exists(src_main):
+        with open(src_main, 'r', encoding='utf-8') as f:
+            text = f.read()
+        title_match = re.search(r'^# (.+)', text)
+        title = title_match.group(1).strip() if title_match else '备考方法'
+        text = clean_content(text)
+        text = re.sub(r'^# .+\n?', '', text, count=1)
+        fm = f'''---
+title: "{title}"
+date: 2026-07-01
+type: section
+tags: [备考方法]
+---
+
+'''
+        with open(f'{meth_dst}/_index.md', 'w', encoding='utf-8') as f:
+            f.write(fm + text.strip() + '\n')
+        count += 1
+        print(f'  OK methods (index)')
+
+    for d in dirs:
+        src_file = f'{meth_src}/{d}/content.md'
+        if not os.path.exists(src_file):
+            continue
+        with open(src_file, 'r', encoding='utf-8') as f:
+            text = f.read()
+        title_match = re.search(r'^# (.+)', text)
+        title = title_match.group(1).strip() if title_match else d
+        text = clean_content(text)
+        text = re.sub(r'^# .+\n?', '', text, count=1)
+        fm = f'''---
+title: "{title}"
+date: 2026-07-01
+type: page
+tags: [备考方法]
+---
+
+'''
+        with open(f'{meth_dst}/{d}.md', 'w', encoding='utf-8') as f:
+            f.write(fm + text.strip() + '\n')
+        count += 1
+        print(f'  OK {d}')
+
+    print(f'\nConverted {count} method pages')
+    return count
+
+def convert_qa():
+    """Convert Q&A content"""
+    qa_src = f'{SRC}/study_methods/qa'
+    qa_dst = 'content/qa'
+    os.makedirs(qa_dst, exist_ok=True)
+
+    src_file = f'{qa_src}/content.md'
+    if not os.path.exists(src_file):
+        return 0
+
+    with open(src_file, 'r', encoding='utf-8') as f:
+        text = f.read()
+
+    title_match = re.search(r'^# (.+)', text)
+    title = title_match.group(1).strip() if title_match else '常见问题'
+
+    text = clean_content(text)
+    text = re.sub(r'^# .+\n?', '', text, count=1)
+
+    fm = f'''---
+title: "{title}"
+date: 2026-07-01
+type: section
+tags: [FAQ]
+---
+
+'''
+    with open(f'{qa_dst}/_index.md', 'w', encoding='utf-8') as f:
+        f.write(fm + text.strip() + '\n')
+    print(f'  OK Q&A')
+
+    return 1
+
 if __name__ == '__main__':
     print('=== Converting 408 Quiz ===')
     q = convert_quiz()
@@ -192,4 +352,10 @@ if __name__ == '__main__':
     s = convert_simulate()
     print('\n=== Converting Code ===')
     c = convert_code()
-    print(f'\n{"="*30}\nTotal: {q} quizzes, {s} simulations, {c} code files')
+    print('\n=== Converting Exercise ===')
+    e = convert_exercise()
+    print('\n=== Converting Methods ===')
+    m = convert_methods()
+    print('\n=== Converting Q&A ===')
+    qa = convert_qa()
+    print(f'\n{"="*30}\nTotal: {q} quizzes, {s} sims, {c} code, {e} exercises, {m} methods, {qa} qa')
