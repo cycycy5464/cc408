@@ -1,4 +1,14 @@
-# 2012 年 408 真题
+---
+title: "2012 年 408 真题"
+date: 2026-07-02
+type: exam_collection
+subject: "408"
+source: "408真题"
+year: 2012
+difficulty: 3
+tags: [真题, 408]
+---
+
 
 
 ### 选择题
