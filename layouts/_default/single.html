@@ -12,6 +12,24 @@
     {{ end }}
   </div>
   <article>{{ .Content }}</article>
+
+  {{/* 相关题目反向链接 */}}
+  {{ $currentPath := .File.Path }}
+  {{ $relatedExam := where (where .Site.RegularPages "Section" "exam") "Params.related_knowledge" "intersect" (slice $currentPath) }}
+  {{ with $relatedExam }}
+  <div style="margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border-color)">
+    <h3>📎 相关题目</h3>
+    <div style="display:flex;flex-direction:column;gap:.5rem;margin-top:.75rem">
+      {{ range . }}
+      <a href="{{ .RelPermalink }}" class="card" style="padding:.75rem 1rem;text-decoration:none;color:var(--text-primary)">
+        <div style="font-weight:600;font-size:var(--fs-sm)">{{ .Title }}</div>
+        <div style="font-size:var(--fs-xs);color:var(--text-muted);margin-top:.25rem">📅 {{ .Params.source }}</div>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+
   <div style="margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border-color)">
     <a href="{{ "docs/" | relURL }}" class="btn btn-ghost">← 返回知识点列表</a>
   </div>
