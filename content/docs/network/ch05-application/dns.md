@@ -33,27 +33,27 @@ chapter_title: "DNS"
 在 DNS 体系结构中，服务器按照层级划分，每一层负责不同的职责。下面按照从最高层到最低层的顺序，对四类常见的域名服务器进行说明：
 
   1. **根域名服务器** \(_Root Name Servers_\):
-```c
- * 这些服务器位于 DNS 解析的最顶端。它们不直接回答关于哪个域名映射到哪个 IP 地址的查询，而是告诉查询者下一步应该询问哪个顶级域名（TLD）服务器。
+* 这些服务器位于 DNS 解析的最顶端。它们不直接回答关于哪个域名映射到哪个 IP 地址的查询，而是告诉查询者下一步应该询问哪个顶级域名（TLD）服务器。
  * 根服务器的数量是有限的，并且它们的位置在全球都是已知的。
-```
+
+
 
   2. **顶级域名服务器** \(_Top-Level Domain Name Servers, TLD_\):
-```c
- * 这些服务器负责特定的顶级域名（如 `.com`, `.org`, `.net` 等）。它们为下一级的域名（如 `example.com`）提供有关权威名称服务器的信息。
-```
+* 这些服务器负责特定的顶级域名（如 `.com`, `.org`, `.net` 等）。它们为下一级的域名（如 `example.com`）提供有关权威名称服务器的信息。
+
+
 
   3. **权威域名服务器** \(_Authoritative Name Servers_\):
-```c
- * 这些服务器为特定的域名（如 `example.com`）提供详细的 DNS 记录信息（例如 A 记录、MX 记录等）。只有权威服务器才能为其负责的域名提供这些信息。
+* 这些服务器为特定的域名（如 `example.com`）提供详细的 DNS 记录信息（例如 A 记录、MX 记录等）。只有权威服务器才能为其负责的域名提供这些信息。
  * 大多数组织拥有权威 DNS服务器来为他们的域名提供解析服务。
-```
+
+
 
   4. **本地域名服务器** \(_Local Name Server_\)
-```c
- * 是在本地网络环境中运行的DNS服务器，它为该网络中的设备提供域名解析服务。
+* 是在本地网络环境中运行的DNS服务器，它为该网络中的设备提供域名解析服务。
  * 每个 **ISP** 或一所大学都可以有一个本地域名服务器。
-```
+
+
 
 
 ### 域名解析过程
@@ -84,8 +84,7 @@ chapter_title: "DNS"
 权限域名服务器的处理流程类似，这里不赘述了。最终，当本地域名服务器获得目标域名对应的 IP 地址后，会将结果返回给最初发起请求的主机。
     
     
-```c
-  participant Host as 主机
+participant Host as 主机
   participant Local as 本地域名服务器
   participant Root as 根域名服务器
   participant TLD as 顶级域名服务器 (TLD)
@@ -100,7 +99,8 @@ chapter_title: "DNS"
   Auth-->>Local: 7) 返回最终 IP 地址（例如 93.184.216.34）
   Local-->>Host: 8) 本地 DNS 将 IP 返回给主机
   Note right of Local: 本地域名服务器可能会把结果缓存一段时间
-```
+
+
 
 
 #### 递归查询
@@ -112,8 +112,7 @@ chapter_title: "DNS"
 因为该方法给根域名服务器造成的负载过大，所以实际中几乎不使用。
     
     
-```c
-  participant Host as 主机
+participant Host as 主机
   participant Local as 本地域名服务器
   participant Root as 根域名服务器
   participant TLD as 顶级域名服务器 (TLD)
@@ -127,7 +126,8 @@ chapter_title: "DNS"
   TLD-->>Root: 6) TLD 把结果返回给根服务器
   Root-->>Local: 7) 根服务器把最终 IP 地址交给本地 DNS
   Local-->>Host: 8) 本地 DNS 返回结果给主机
-```
+
+
 
 
 * * *

@@ -175,24 +175,24 @@ Data Segment| DS| -| -| Segment
 ###### Intel 格式
 
 
-```c
 mov     eax,1
 mov     ebx,0ffh
 mov     eax,[ebx]
 mov     eax,[ebx+3]
-```
+
+
 
 
 
 ###### AT&T 格式
 
 
-```c
 movl    $1,%eax
 movl    $0xff,%ebx
 movl    (%ebx),%eax
 movl    3(%ebx),%eax
-```
+
+
 
 
 

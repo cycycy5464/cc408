@@ -23,27 +23,27 @@ chapter_title: "ICMP协议"
 
 
   1. **类型** `(Type)` ： _8_ 位
-```c
- * 用于指定 ICMP 消息 的类型。
+* 用于指定 ICMP 消息 的类型。
  * 例如， `Echo Request` 的类型为 `8` ， `Echo Reply` 的类型为 `0` 。
-```
+
+
 
   2. **代码** `(Code)` ： _8_ 位
-```c
- * 为更进一步 **细分** 某个特定类型的 ICMP 消息而设置。
+* 为更进一步 **细分** 某个特定类型的 ICMP 消息而设置。
  * 例如，对于 **“目的地不可达”** （ `Destination Unreachable` ）类型的消息，代码可以用来指定具体的不可达原因，如网络不可达、主机不可达等。
-```
+
+
 
   3. **检验和** `(Checksum)` ： _16_ 位
-```c
- * 用于验证 ICMP 消息在传输过程中没有被损坏。这个检验和涵盖了整个 ICMP 消息。
-```
+* 用于验证 ICMP 消息在传输过程中没有被损坏。这个检验和涵盖了整个 ICMP 消息。
+
+
 
   4. **其它字段**
-```c
- * 这些字段的内容取决于 **ICMP 消息** 的 **类型** 和 **代码** 。
+* 这些字段的内容取决于 **ICMP 消息** 的 **类型** 和 **代码** 。
  * 例如，对于 `Echo Request` 和 `Echo Reply` 消息，接下来的字段包括一个标识符（ `Identifier` ）和一个序列号（ `Sequence Number` ）。
-```
+
+
 
 
 ### 消息类型
@@ -60,8 +60,7 @@ chapter_title: "ICMP协议"
 **ICMP** 的 **差错报文** 分为五大类型：
 
   1. **终点不可达** （`Destination Unreachable`）
-```c
- * 当数据不能被传送到目的地时，发送此消息。
+* 当数据不能被传送到目的地时，发送此消息。
  * 下面是一些常见的“不可达”子类型：
    * `Network Unreachable:` 无法到达目标网络。
    * `Host Unreachable:` 无法到达目标主机。
@@ -71,29 +70,30 @@ chapter_title: "ICMP协议"
    * `Source Route Failed:` 源路由指定的路径失败。
    * `Network Unknown:` 目标网络未知。
    * `Host Unknown:` 目标主机未知。
-```
+
+
 
   2. **源点抑制** （`Source Quench`）
-```c
- * 网络中出现拥塞，请发送主机放慢发送数据包的速度。
-```
+* 网络中出现拥塞，请发送主机放慢发送数据包的速度。
+
+
 
   3. **路由重定向** （`Redirect`）
-```c
- * 告诉发送主机存在更好的路由。
-```
+* 告诉发送主机存在更好的路由。
+
+
 
   4. **超时** （`Time Exceeded`）
-```c
- * 当数据包在网络中传输的时间太长或超过了其 `TTL` （生存时间）时发送。有两种主要的子类型：
+* 当数据包在网络中传输的时间太长或超过了其 `TTL` （生存时间）时发送。有两种主要的子类型：
    * `TTL Exceeded in Transit:` 数据包在传输过程中 `TTL` 达到零。
    * `Fragment Reassembly Time Exceeded:` 分片重新组装超时。
-```
+
+
 
   5. **参数错误** （`Parameter Problem`）
-```c
- * 当 `IP` 头包含错误或不可识别的信息时，发送此消息。
-```
+* 当 `IP` 头包含错误或不可识别的信息时，发送此消息。
+
+
 
 
 #### 查询报文
@@ -101,20 +101,20 @@ chapter_title: "ICMP协议"
 **查询报文** 包含以下类型：
 
   1. `Echo Request `和 `Echo Reply (ping)`
-```c
- * `Echo Request:` 通常被称为 **ping** 请求。用于测试目的地是否可达。
+* `Echo Request:` 通常被称为 **ping** 请求。用于测试目的地是否可达。
  * `Echo Reply:` 通常被称为 **ping** 回应。是对 `Echo Request` 的回应。
-```
+
+
 
   2. `Timestamp Request and Timestamp Reply`
-```c
- * 用于报告当前的时间。
-```
+* 用于报告当前的时间。
+
+
 
   3. `Address Mask Request and Address Mask Reply`
-```c
- * 用于请求和响应子网地址掩码。
-```
+* 用于请求和响应子网地址掩码。
+
+
 
 
 ### 应用
@@ -143,17 +143,17 @@ Traceroute 用于跟踪数据包从源到目标的 **路径** ，显示沿途经
 Traceroute 利用 ICMP 的 **Time Exceeded** 消息和 IP 数据包的 **TTL** （Time To Live） 字段：
 
   1. **逐步增加 TTL** ：
-```c
- * Traceroute 发送一系列 UDP 数据包（或 **ICMP Echo Request** ，取决于实现），从 TTL=1 开始，每次递增 1。每台路由器在转发数据包时将 **TTL** 减 1。当 **TTL** 减为 0 时，路由器丢弃数据包并返回一个 **ICMP Time Exceeded** 消息（类型 _11_ ，代码 _0_ ）。
-```
+* Traceroute 发送一系列 UDP 数据包（或 **ICMP Echo Request** ，取决于实现），从 TTL=1 开始，每次递增 1。每台路由器在转发数据包时将 **TTL** 减 1。当 **TTL** 减为 0 时，路由器丢弃数据包并返回一个 **ICMP Time Exceeded** 消息（类型 _11_ ，代码 _0_ ）。
+
+
 
   2. **记录跳点** ：
-```c
- * Traceroute 记录发送 **Time Exceeded** 消息的路由器 IP 地址和响应时间。
+* Traceroute 记录发送 **Time Exceeded** 消息的路由器 IP 地址和响应时间。
  * 重复此过程，直到数据包到达 **目标主机** （目标返回 **ICMP Echo Reply** 或 UDP 端口不可达消息）。
-```
+
+
 
   3. **显示路径** ：
-```c
- * Traceroute 将每跳的路由器 IP 和 **延迟** 显示出来，构成从源到目标的完整 **路径** 。
-```
+* Traceroute 将每跳的路由器 IP 和 **延迟** 显示出来，构成从源到目标的完整 **路径** 。
+
+

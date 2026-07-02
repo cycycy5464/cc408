@@ -14,7 +14,6 @@ chapter_title: "应用层"
 
 学习思维导图：
    ![](/images/docs/network/image-20260613072827253.png)
-```c
 ## 网络应用模型
 
 - C/S模型
@@ -41,7 +40,8 @@ chapter_title: "应用层"
 
 - 概念和组成结构
 - HTTP协议
-```
+
+
 
 
 

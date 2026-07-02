@@ -108,13 +108,13 @@ chapter_title: "内部排序"
 
 ```
 BubbleSort(arr)
-```c
 n ← arr.length
 for i from 0 to n - 1
     for j from 0 to n - i - 2
         if arr[j] > arr[j + 1]
             swap arr[j], arr[j + 1]
-```
+
+
 
 ```
 
@@ -130,16 +130,15 @@ for i from 0 to n - 1
 
 ```
 QuickSort(arr, low, high)
-```c
 if low < high
     pivotIndex ← Partition(arr, low, high)
     QuickSort(arr, low, pivotIndex - 1)
     QuickSort(arr, pivotIndex + 1, high)
-```
+
+
 
 
 Partition(arr, low, high)
-```c
 pivot ← arr[high]
 i ← low - 1
 for j from low to high - 1
@@ -148,13 +147,13 @@ for j from low to high - 1
         swap arr[i], arr[j]
 swap arr[i + 1], arr[high]
 return i + 1
-```
+
+
 
 ```
 
   * 堆排序
 
-```c
 ```
 HeapSort(arr)
     BuildMaxHeap(arr)
@@ -178,7 +177,8 @@ MaxHeapify(arr, i, n)
     if largest ≠ i
         swap arr[i], arr[largest]
         MaxHeapify(arr, largest, n)
-```
+
+
 ```
 
 
@@ -324,10 +324,10 @@ int quickSelect(int a[], int low, int high, int k) {
 
   1. **结构性质** ：堆总是一颗 **完全二叉树** ，即除了最后一层之外的其他每一层都被元素填满，且最后一层的元素都尽可能地靠左排列。
   2. **有序性质** ：树中的每个结点 相对于 子结点 都保证有序关系，要么父结点的值都 **大于等于** 子结点的值，要么都 **小于等于** 子结点的值，按照这种有序关系堆可以分为两种类型：
-```c
- * 大根堆 （Max Heap）：堆中的任意结点，其值都 **≥** 其子结点的值。这意味着 **根结点是最大值** 。
+* 大根堆 （Max Heap）：堆中的任意结点，其值都 **≥** 其子结点的值。这意味着 **根结点是最大值** 。
  * 小根堆 （Min Heap）：堆中的任意结点，其值都 **≤** 其子结点的值。这意味着 **根结点是最小值** 。
-```
+
+
 
 
 
@@ -541,31 +541,31 @@ for (int i = size - 1; i >= 0; i--) {
 希尔排序的过程如下所示：
 
   1. **确定初始步长（增量）** ：
-```c
- * 选择一个初始步长（gap），通常可以 **取数组长度的一半** （例如 `gap = n/2`）。
-```
+* 选择一个初始步长（gap），通常可以 **取数组长度的一半** （例如 `gap = n/2`）。
+
+
 
   2. **分组插入排序** ：
-```c
- * 将数组按步长 `gap` 分成若干组，每组内的元素相距 `gap` 个位置。
+* 将数组按步长 `gap` 分成若干组，每组内的元素相距 `gap` 个位置。
  * 对每组进行插入排序。例如，若 `gap=4`，比较和排序索引为 `0,4,8...` 的元素，`1,5,9...` 的元素，依此类推。
-```
+
+
 
   3. **减小步长** ：
-```c
- * 将步长缩小（通常除以 2 或按增量序列递减），例如 `gap = gap/2`。
+* 将步长缩小（通常除以 2 或按增量序列递减），例如 `gap = gap/2`。
  * 重复步骤 2，对新的分组进行插入排序。
-```
+
+
 
   4. **重复直到步长为 1** ：
-```c
- * 当步长减小到 1 时，相当于对整个数组进行一次标准插入排序。此时数组已接近有序，插入排序的效率较高。
-```
+* 当步长减小到 1 时，相当于对整个数组进行一次标准插入排序。此时数组已接近有序，插入排序的效率较高。
+
+
 
   5. **排序完成** ：
-```c
- * 步长为 1 的插入排序完成后，数组完全有序。
-```
+* 步长为 1 的插入排序完成后，数组完全有序。
+
+
 
 
 注意

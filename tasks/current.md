@@ -4,10 +4,10 @@
 
 ## [高] 部署与验证
 
-- [ ] 推送 cc408 repo 到 GitHub（`git push`）
-- [ ] 验证 GitHub Actions 构建通过
-- [ ] 确认 `https://cycycy5464.github.io/cc408/` 可访问
-- [ ] 验证所有页面链接正确（首页、知识点、刷题、图谱、资源）
+- [x] 推送 cc408 repo 到 GitHub（`git push`）
+- [x] 验证 GitHub Actions 构建通过
+- [x] 确认 `https://cycycy5464.github.io/cc408/` 可访问
+- [x] 验证所有页面链接正确（首页、知识点、刷题、图谱、资源）
 
 ## [高] 导航功能完善
 

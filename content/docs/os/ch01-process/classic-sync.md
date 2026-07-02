@@ -36,7 +36,6 @@ chapter_title: "经典同步问题"
 关键的挑战在于确保生产者不会在缓冲区满时添加数据，同时确保消费者不会在缓冲区空时尝试消费数据。
     
     
-```c
 semaphore mutex = 1;          // 临界区互斥信号量
 semaphore empty = n;          // 空闲缓冲区数量
 semaphore full  = 0;          // 忙缓冲区数量
@@ -52,7 +51,8 @@ semaphore full  = 0;          // 忙缓冲区数量
         ...                  // 从缓冲区取出数据项并消费
         V(mutex)              // 离开临界区，释放mutex
         V(empty)              // 增加一个空位置的计数
-```
+
+
 
 
 

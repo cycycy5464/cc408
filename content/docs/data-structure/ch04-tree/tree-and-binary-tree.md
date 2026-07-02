@@ -15,7 +15,6 @@ chapter_title: "树与二叉树"
 学习思维导图
 ![](/images/docs/data-structure/image-20260612092437321.png)
 
-```c
 ## 树的基本概念
 
 ## 二叉树
@@ -35,7 +34,8 @@ chapter_title: "树与二叉树"
 
 - 哈夫曼树和哈夫曼编码
 - 并查集及其应用
-```
+
+
 
 
 

@@ -12,7 +12,6 @@ chapter_title: "I/O管理"
 
 内容与[总线和输入输出系统](</constitution_principle/bus/>)关联很大，放在一起对比复习。应熟练掌握磁盘的调度算法。
 ![](/images/docs/os/image-20260611223626016.png)
-```c
 ## I/O管理基础
 
 - 设备的基本概念
@@ -31,7 +30,8 @@ chapter_title: "I/O管理"
 
 - 磁盘
 - 固态硬盘
-```
+
+
 
 
 

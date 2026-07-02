@@ -28,13 +28,13 @@ chapter_title: "图的算法和应用"
 ![](/images/docs/data-structure/image-20260612140738926.png)
 
 图中 **DFS** 实现的框架与 [树的遍历](</data_structure/tree/tree/#%e6%a0%91%e7%9a%84%e9%81%8d%e5%8e%86>) 类似，不同点在于需要使用 `visit` 数组记录已经访问过的节点，避免重复遍历：
-```c
 function DFS(G, v, visited):
     visited[v] ← true
     for each neighbor u of v in G.adjacent[v]:
         if not visited[u]:
             DFS(G, u, visited)
-```
+
+
 
 
 
@@ -115,13 +115,12 @@ void dfs(struct Graph* graph, int start) {
 
 ```
 function BFS(G, start):
-```c
 visited[start] ← true
 enqueue(Q, start)
-```
 
 
-```c
+
+
 while Q is not empty:
     v ← dequeue(Q)
     process(v)
@@ -129,7 +128,8 @@ while Q is not empty:
         if not visited[u]:
             visited[u] ← true
             enqueue(Q, u)
-```
+
+
 
 ```
 
@@ -316,43 +316,42 @@ prim 算法和 dijkstra 算法的核心步骤十分类似：
 🛠️ dijkstra 算法需要定义以下 数据结构 ：
 
   * `dist[]`：数组，`dist[v]` 表示起点到节点 `v` 的 **当前已知最短路径长度** 。
-```c
 * 初始化时：`dist[source] = 0`，其余节点均为 `∞`。
-```
+
+
 
   * `visited[]`：布尔数组，表示某个节点的最短路径是否已经被最终确定。
-```c
 * 初始时：所有节点均为 `false`。
-```
+
+
 
 
 ✨ dijkstra 算法流程 如下：
 
   1. **初始化**
-```c
- * 设起点为 `source`。
+* 设起点为 `source`。
  * `dist[source] ← 0`
  * 对于其他顶点 `v`，`dist[v] ← ∞`
  * `visited[v] ← false`
-```
+
+
 
   2. **主循环（重复 |V| 次，即所有顶点都被处理完）**
-```c
- * 从所有 **未访问** 的顶点中，找到一个 `dist[]` 值最小的顶点 `u`。 （这意味着：当前已知路径中，`u` 是离起点最近的尚未确定的节点。）
+* 从所有 **未访问** 的顶点中，找到一个 `dist[]` 值最小的顶点 `u`。 （这意味着：当前已知路径中，`u` 是离起点最近的尚未确定的节点。）
  * 将该顶点标记为已访问：`visited[u] ← true`。
  * 对于 `u` 的每个邻居 `v`：
    * 如果 `v` 未被访问，并且通过 `u` 到达 `v` 的路径更短（即 `dist[u] + w(u,v) < dist[v]`）， 则更新：
          
          dist[v] ← dist[u] + w(u,v)
-     
-```
+
+
 
 
 （这一步就是“松弛操作”，表示尝试通过 `u` 改进到 `v` 的最短路径。）
   3. **结束**
-```c
- * 当所有顶点都被访问后，`dist[v]` 就保存了起点到各个顶点的最短路径长度。
-```
+* 当所有顶点都被访问后，`dist[v]` 就保存了起点到各个顶点的最短路径长度。
+
+
 
 
 Dijkstra 算法流程可以通过以下流程图理解：
@@ -360,7 +359,6 @@ Dijkstra 算法流程可以通过以下流程图理解：
 ![](/images/docs/data-structure/654e91721f.svg)
 
 Dijkstra 的考察侧重于手工模拟其过程，代码实现一般不会考察，这里给出算法的简单 **伪代码实现** ，帮助各位理清其中的处理细节。
-```c
 function Dijkstra_Simple(Graph, source):
     对于图中每个顶点 v:
         dist[v] ← ∞          // 起点到 v 的距离初始化为无穷大
@@ -377,7 +375,8 @@ function Dijkstra_Simple(Graph, source):
                 dist[v] ← dist[u] + weight  // 通过 u 到 v 更短，更新最短路径
 
     return dist[] // 表示起点到所有顶点的最短路径
-```
+
+
 
 
 
@@ -399,25 +398,23 @@ dist\[i\]\[j\]=min\(dist\[i\]\[j\],dist\[i\]\[k\]+dist\[k\]\[j\]\)
 
   1. **初始化距离矩阵** `dist`：
 
-```c
- * `dist[i][j] = 0`（若 `i=j`）
+* `dist[i][j] = 0`（若 `i=j`）
  * `dist[i][j] = 边权`（若 `i→j` 有边）
  * `dist[i][j] = ∞`（其余情况）
- 
-```
+
+
 
   2. **三重循环更新最短路径**
      
-```c
-   ```
+```
    for k in 所有顶点:
        for i in 所有顶点:
            for j in 所有顶点:
                if dist[i][k] + dist[k][j] < dist[i][j]:
                  dist[i][j] ← dist[i][k] + dist[k][j]
  ```
- 
-```
+
+
 
   3. **输出 dist 矩阵** ：表示所有顶点对之间的最短路径长度。
 

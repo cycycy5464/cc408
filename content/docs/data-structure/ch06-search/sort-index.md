@@ -14,7 +14,6 @@ chapter_title: "排序概述"
 
 ![](/images/docs/data-structure/image-20260612142423265.png)
 
-```c
 ## 排序的基本概念
 
 ## 内部排序
@@ -32,7 +31,8 @@ chapter_title: "排序概述"
 ## 外部排序
 
 ## 排序算法的分析
-```
+
+
 
 
 

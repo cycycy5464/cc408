@@ -15,7 +15,6 @@ chapter_title: "图概述"
 学习思维导图：
 ![](/images/docs/data-structure/image-20260612103007668.png)
     
-```c
 ## 图的基本概念
 
 ## 图的存储结构及基本操作
@@ -35,7 +34,8 @@ chapter_title: "图概述"
 - 最短路径
 - 拓扑排序
 - 关键路径
-```
+
+
 
 
 
