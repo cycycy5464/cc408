@@ -1,7 +1,9 @@
-{{/* Generate knowledge graph JSON data from docs content */}}
+{{/* Generate knowledge graph JSON - O(n) build, O(n*k) query */}}
 {{ $nodes := slice }}
 {{ $links := slice }}
+{{ $titleIdx := dict }}
 
+{{/* Pass 1: build nodes + title→URL index */}}
 {{ range where .Site.RegularPages "Section" "docs" }}
   {{ $node := dict
     "id" .RelPermalink
@@ -12,18 +14,15 @@
     "slug" .File.TranslationBaseName
   }}
   {{ $nodes = $nodes | append $node }}
+  {{ $titleIdx = merge $titleIdx (dict .Title .RelPermalink) }}
 {{ end }}
 
-{{/* Generate links from prerequisites by matching prerequisite strings to node labels */}}
+{{/* Pass 2: build links from prerequisites using index lookup O(k) per page */}}
 {{ range where .Site.RegularPages "Section" "docs" }}
   {{ $sourceId := .RelPermalink }}
   {{ range .Params.prerequisites }}
-    {{ $prereq := . }}
-    {{ range where .Site.RegularPages "Section" "docs" }}
-      {{ if eq .Title $prereq }}
-        {{ $link := dict "source" $sourceId "target" .RelPermalink }}
-        {{ $links = $links | append $link }}
-      {{ end }}
+    {{ with index $titleIdx . }}
+      {{ $links = $links | append (dict "source" $sourceId "target" .) }}
     {{ end }}
   {{ end }}
 {{ end }}
