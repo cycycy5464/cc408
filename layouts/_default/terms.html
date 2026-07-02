@@ -1,0 +1,14 @@
+{{ define "main" }}
+<div class="content-area content-area-wide">
+  <h1>🏷️ 标签</h1>
+  <p style="color:var(--text-muted);margin-bottom:2rem">按标签浏览所有知识点和题目</p>
+  <div style="display:flex;flex-wrap:wrap;gap:.5rem">
+    {{ range .Pages }}
+    {{ $count := len .Pages }}
+    <a href="{{ .RelPermalink }}" class="tag" style="font-size:{{ if gt $count 10 }}1rem{{ else if gt $count 5 }}.9rem{{ else }}.8rem{{ end }};padding:.4em .9em">
+      {{ .Title }} ({{ $count }})
+    </a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

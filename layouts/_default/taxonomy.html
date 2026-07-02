@@ -1,0 +1,20 @@
+{{ define "main" }}
+<div class="content-area content-area-wide">
+  <h1>🏷️ 标签: {{ .Title }}</h1>
+  <div class="exam-paper-grid" style="margin-top:2rem">
+    {{ range .Pages }}
+    <a href="{{ .RelPermalink }}" class="exam-paper-card">
+      <div class="title">{{ .Title }}</div>
+      <div class="meta">
+        <span class="tag">{{ .Section }}</span>
+        {{ with .Params.difficulty }}
+        <span>{{ range seq 1 3 }}{{ if le . $ }}★{{ else }}☆{{ end }}{{ end }}</span>
+        {{ end }}
+      </div>
+    </a>
+    {{ else }}
+    <p style="color:var(--text-muted)">暂无内容</p>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

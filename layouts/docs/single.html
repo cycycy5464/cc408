@@ -2,21 +2,26 @@
 <div class="docs-layout">
   <aside class="side-nav">
     {{ $currentPath := .RelPermalink }}
-    {{ range (slice 
+    {{ $currentSubject := "" }}
+    {{ range (slice "data-structure" "computer-org" "os" "network") }}
+      {{ if hasPrefix $currentPath (print "/cc408/docs/" . "/") }}{{ $currentSubject = . }}{{ end }}
+    {{ end }}
+    {{ range (slice
       (dict "key" "data-structure" "icon" "📊" "label" "数据结构")
       (dict "key" "computer-org" "icon" "⚙️" "label" "计算机组成原理")
       (dict "key" "os" "icon" "🖥️" "label" "操作系统")
       (dict "key" "network" "icon" "🌐" "label" "计算机网络")
     ) }}
-    <div class="side-nav-group">
-      <div style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem">
+    {{ $expanded := or (eq .key $currentSubject) (not $currentSubject) }}
+    <details class="side-nav-group" {{ if $expanded }}open{{ end }}>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
         <span>{{ .icon }}</span><span>{{ .label }}</span>
-      </div>
+      </summary>
       {{ $subject := .key }}
       {{ range where $.Site.RegularPages "Params.subject" $subject }}
       <a href="{{ .RelPermalink }}" class="side-nav-link {{ if eq .RelPermalink $currentPath }}active{{ end }}">{{ .Title }}</a>
       {{ end }}
-    </div>
+    </details>
     {{ end }}
   </aside>
   <main class="content-area">
@@ -29,7 +34,6 @@
     </div>
     <article>{{ .Content }}</article>
 
-    {{/* 相关题目 - 反向链接 */}}
     {{ $currentPath := .File.Path }}
     {{ $relatedExam := where (where .Site.RegularPages "Section" "exam") "Params.related_knowledge" "intersect" (slice $currentPath) }}
     {{ with $relatedExam }}
@@ -48,4 +52,13 @@
     </div>
   </main>
 </div>
+
+<style>
+.side-nav-group[open] summary { color: var(--text-primary); }
+.side-nav-group summary::-webkit-details-marker { display: none; }
+.side-nav-group summary::after {
+  content: '▸'; margin-left: auto; font-size: var(--fs-xs); transition: transform .2s;
+}
+.side-nav-group[open] summary::after { transform: rotate(90deg); }
+</style>
 {{ end }}

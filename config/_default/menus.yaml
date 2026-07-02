@@ -15,6 +15,9 @@ main:
   - name: 知识图谱
     url: /graph/
     weight: 40
+  - name: 标签
+    url: /tags/
+    weight: 45
   - name: 资源
     url: /resources/
     weight: 50
