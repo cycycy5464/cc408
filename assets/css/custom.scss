@@ -76,7 +76,7 @@ a:hover{color:var(--accent2)}
 .card:hover{border-color:var(--accent);box-shadow:var(--shadow-glow);transform:translateY(-2px)}
 .card:hover::before{opacity:1}
 .card-link{text-decoration:none;color:inherit;display:block}
-.hero-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;max-width:900px;margin:0 auto;padding:0 2rem 4rem}
+.hero-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;max-width:900px;margin:0 auto;padding:0 2rem 4rem}
 .section-header{text-align:center;max-width:900px;margin:2rem auto 1.5rem;padding:0 2rem}
 .section-header h2{font-family:var(--font-display);font-size:var(--fs-h2);font-weight:800;margin-bottom:.5rem;border:none;padding:0}
 .section-header p{color:var(--text-muted);font-size:var(--fs-sm)}
@@ -185,10 +185,10 @@ details[open] summary{margin-bottom:1rem;border-bottom:1px solid var(--border-co
 .info-panel-close{position:absolute;top:.5rem;right:.5rem;background:none;border:none;color:var(--text-secondary);cursor:pointer;font-size:1.2rem}
 .site-footer{padding:2rem;text-align:center;color:var(--text-muted);font-size:var(--fs-xs);border-top:1px solid var(--border-color);background:var(--bg-secondary);letter-spacing:0.02em}
 .watermark-layer{position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.04;background-repeat:repeat;background-size:300px 300px}
-.graph-page{min-height:calc(100vh - 70px);background:var(--bg-primary)}
+.graph-page{min-height:calc(100vh - 70px);background:var(--bg-primary);padding-top:1rem;position:relative}
 .graph-search{position:absolute;top:90px;left:1.5rem;z-index:10}
 .graph-search input{padding:.5rem 1rem;background:var(--bg-card);color:var(--text-primary);border:1px solid var(--border-color);border-radius:var(--radius-md);width:250px;font-size:var(--fs-sm)}
-.graph-container{width:100%;height:70vh;position:relative}
+.graph-container{width:100%;height:70vh;position:relative;margin-top:1rem;min-height:500px}
 @media(max-width:768px){
   .navbar{padding:0 1rem}
   .navbar-links{display:none;position:absolute;top:60px;left:0;right:0;background:var(--bg-secondary);flex-direction:column;padding:1rem;gap:1rem;border-bottom:1px solid var(--border-color)}
