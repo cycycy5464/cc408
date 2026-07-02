@@ -31,6 +31,13 @@
   background: transparent; margin-left: .3rem; transition: all .2s;
 }
 .answer-reveal-btn:hover { background: rgba(57,186,230,.1); }
+.exam-option {
+  display: block; padding: .45rem .75rem; margin: .2rem 0;
+  border: 1px solid var(--border-color); border-radius: var(--radius-sm);
+  cursor: pointer; transition: all .15s;
+}
+.exam-option:hover { border-color: var(--accent); background: rgba(57,186,230,.06); }
+.exam-option.selected { border-color: var(--accent); background: rgba(57,186,230,.12); color: var(--accent); font-weight: 600; }
 </style>
 
 <script>
@@ -47,6 +54,24 @@
       /<h2[^>]*>(答案|解析)<\/h2>/g,
       '</div><button class="section-reveal-btn" onclick="var n=this.nextElementSibling;var h=n.style.display!=\"block\";n.style.display=h?\"block\":\"none\";this.textContent=(h?\"隐藏\":\"显示\")+this.dataset.section+\' ▾\';n.style.display=\'none\'" data-section="$1">显示$1 ▸</button><div class="section-fold" style="display:none"><h2>$1</h2>'
     );
+    // Pattern 3: Make choice options clickable (A. xxx B. xxx)
+    el.innerHTML = el.innerHTML.replace(
+      /<p>([A-D])[.、．]([^<]*)<\/p>/g,
+      '<div class="exam-option" data-opt="$1">$1. $2</div>'
+    );
+  });
+
+  // Handle option clicks
+  document.querySelectorAll('.exam-content').forEach(function(el) {
+    el.addEventListener('click', function(e) {
+      var opt = e.target.closest('.exam-option');
+      if (!opt) return;
+      // Deselect siblings
+      opt.parentElement.querySelectorAll('.exam-option').forEach(function(o) {
+        o.classList.remove('selected');
+      });
+      opt.classList.add('selected');
+    });
   });
 })();
 function toggleKnowlege(btn) {
