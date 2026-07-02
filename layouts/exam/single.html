@@ -7,28 +7,41 @@
     {{ range .Params.tags }}<span class="tag">{{ . }}</span>{{ end }}
   </div>
 
-  <article>{{ .Content }}</article>
+  <article class="exam-content">{{ .Content }}</article>
 
-  {{/* Related knowledge - hidden behind reveal button */}}
   {{ with .Params.related_knowledge }}
   <div class="related-section">
     <button class="reveal-btn" onclick="toggleKnowlege(this)">📎 显示关联知识点</button>
     <div id="related-knowledge" class="related-grid" style="display:none;margin-top:.75rem">
-      {{ range . }}
-      {{ $page := site.GetPage . }}
-      {{ with $page }}
-      <a href="{{ .RelPermalink }}" class="knowledge-card">{{ .Title }}</a>
-      {{ end }}
-      {{ end }}
+      {{ range . }}{{ $page := site.GetPage . }}{{ with $page }}<a href="{{ .RelPermalink }}" class="knowledge-card">{{ .Title }}</a>{{ end }}{{ end }}
     </div>
   </div>
   {{ end }}
 
   <div style="margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border-color)">
-    <a href="{{ "exam/" | relURL }}" class="btn-ghost">← 返回刷题中心</a>
+    <a href="{{ "exam/" | relURL }}" class="btn btn-ghost">← 返回刷题中心</a>
   </div>
 </div>
+
+<style>
+.exam-content .answer-fold { display: none; }
+.answer-reveal-btn {
+  cursor: pointer; color: var(--accent); font-size: var(--fs-sm);
+  padding: .15em .6em; border: 1px solid var(--accent); border-radius: 4px;
+  background: transparent; margin-left: .3rem; transition: all .2s;
+}
+.answer-reveal-btn:hover { background: rgba(57,186,230,.1); }
+</style>
+
 <script>
+(function() {
+  document.querySelectorAll('.exam-content').forEach(function(el) {
+    el.innerHTML = el.innerHTML.replace(
+      /(正确答案[：:]\s*[ABCDabcd])\s*/g,
+      '<span class="answer-fold">$1</span><button class="answer-reveal-btn" onclick="var s=this.previousElementSibling;var h=s.style.display!=\"inline\";s.style.display=h?\"inline\":\"none\";this.textContent=h?\"隐藏答案\":\"显示答案\"">显示答案</button> '
+    );
+  });
+})();
 function toggleKnowlege(btn) {
   var el = document.getElementById('related-knowledge');
   var hidden = el.style.display === 'none';
