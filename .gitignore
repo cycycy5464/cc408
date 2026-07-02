@@ -9,3 +9,4 @@ hugo_cache/
 __pycache__/
 *.pyc
 *.pyo
+id_ed25519*
