@@ -39,49 +39,6 @@
   font-size: var(--fs-sm);
   margin-bottom: .75rem;
 }
-.question-text {
-  font-weight: 500;
-  line-height: 1.7;
-  margin-bottom: .75rem;
-}
-.options-group {
-  margin: .75rem 0;
-}
-.exam-option {
-  display: flex;
-  align-items: center;
-  padding: .7rem .9rem;
-  margin: .4rem 0;
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  transition: all .2s;
-}
-.exam-option:hover {
-  border-color: var(--accent);
-  background: rgba(57,186,230,.06);
-}
-.exam-option.selected {
-  border-color: var(--accent);
-  background: rgba(57,186,230,.12);
-  color: var(--accent);
-  font-weight: 500;
-}
-.exam-option.correct {
-  border-color: var(--color-ds);
-  background: rgba(72,187,120,.15);
-  color: var(--color-ds);
-}
-.exam-option.wrong {
-  border-color: #e57373;
-  background: rgba(229,115,115,.15);
-  color: #e57373;
-}
-.option-label {
-  font-weight: 600;
-  margin-right: .5rem;
-  min-width: 1.5rem;
-}
 .question-actions {
   margin-top: .75rem;
   display: flex;
@@ -120,9 +77,6 @@
   color: var(--color-ds);
   margin-bottom: .5rem;
 }
-.answer-text {
-  line-height: 1.7;
-}
 .analysis-title {
   font-weight: 600;
   margin: .75rem 0 .5rem;
@@ -134,102 +88,160 @@
   const container = document.getElementById('exam-container');
   if (!container) return;
 
-  let html = container.innerHTML;
+  // 第一步：找到所有题目编号 <h5>1</h5> 和科目标题
+  let children = Array.from(container.childNodes);
+  let currentQuestionBlock = null;
+  let tempContainer = document.createElement('div');
 
-  // 1. 替换科目标题
-  html = html.replace(/<h5>(数据结构|组成原理|操作系统|计算机网络)<\/h5>/gi, 
-    '<h4 class="exam-section-title">$1</h4>'
-  );
-
-  // 2. 处理题目编号并添加题目块
-  html = html.replace(/<h5>(\d+)<\/h5>/g, function(match, num) {
-    return '<div class="question-block" id="q-' + num + '">' + 
-           '<div class="question-number">' + num + '</div>';
-  });
-
-  // 3. 正确答案处理
-  html = html.replace(/正确答案[：:]\s*([ABCDabcd])/g, 
-    '<div class="answer-panel" data-answer="$1" style="display:none">' +
-    '<div class="answer-title">正确答案：<strong>$1</strong></div>');
-
-  // 4. 解析处理
-  html = html.replace(/【解析】/g, '<div class="analysis-title">解析：</div>');
-
-  // 5. 选项处理
-  html = html.replace(/<p>([A-D])[.、．]([^<]*)<\/p>/g, 
-    '<div class="options-group"><div class="exam-option" data-opt="$1"><span class="option-label">$1.</span>$2</div></div>'
-  );
-
-  container.innerHTML = html;
-
-  // 6. 在每个题目块末尾添加操作按钮
-  document.querySelectorAll('.question-block').forEach(function(qBlock) {
-    var qNum = qBlock.querySelector('.question-number').textContent;
-
-    // 找到第一个选项组
-    var optionsGroup = qBlock.querySelector('.options-group');
-    if (optionsGroup) {
-        // 创建操作按钮容器
-        var actionsDiv = document.createElement('div');
-        actionsDiv.className = 'question-actions';
+  for (let i = 0; i < children.length; i++) {
+    const node = children[i];
+    
+    // 如果是 <h5> 标题
+    if (node.tagName === 'H5') {
+      const text = node.textContent.trim();
+      
+      // 判断是否是科目标题
+      if (['数据结构', '组成原理', '操作系统', '计算机网络'].includes(text)) {
+        if (currentQuestionBlock) {
+          tempContainer.appendChild(currentQuestionBlock);
+        }
+        node.className = 'exam-section-title';
+        tempContainer.appendChild(node);
+        currentQuestionBlock = null;
+      } 
+      // 判断是否是题目编号
+      else if (/^\d+$/.test(text)) {
+        if (currentQuestionBlock) {
+          tempContainer.appendChild(currentQuestionBlock);
+        }
         
-        // 查看答案按钮
-        var revealBtn = document.createElement('button');
-        revealBtn.className = 'reveal-btn';
-        revealBtn.textContent = '查看答案与解析';
-        revealBtn.onclick = function() {
-            var answers = qBlock.querySelectorAll('.answer-panel');
-            var isHidden = Array.from(answers).some(function(a) { return a.style.display === 'none'; });
-            answers.forEach(function(a) {
-                a.style.display = isHidden ? 'block' : 'none';
-            });
-            
-            if (isHidden) {
-                revealBtn.textContent = '隐藏答案与解析';
-                
-                // 显示正确答案
-                var answer = qBlock.querySelector('.answer-panel');
-                if (answer) {
-                    var correct = answer.getAttribute('data-answer');
-                    qBlock.querySelectorAll('.exam-option').forEach(function(opt) {
-                        if (opt.getAttribute('data-opt') === correct) {
-                            opt.classList.add('correct');
-                        } else if (opt.classList.contains('selected')) {
-                            opt.classList.add('wrong');
-                        }
-                    });
-                }
-            } else {
-                revealBtn.textContent = '查看答案与解析';
-                qBlock.querySelectorAll('.exam-option').forEach(function(opt) {
-                    opt.classList.remove('correct', 'wrong');
-                });
-            }
-        };
+        currentQuestionBlock = document.createElement('div');
+        currentQuestionBlock.className = 'question-block';
         
-        var favBtn = document.createElement('button');
-        favBtn.className = 'favorite-btn';
-        favBtn.innerHTML = '⭐ 收藏';
-        favBtn.onclick = function() {
-            favBtn.classList.toggle('active');
-            favBtn.innerHTML = favBtn.classList.contains('active') ? '★ 已收藏' : '⭐ 收藏';
-        };
-        
-        actionsDiv.appendChild(revealBtn);
-        actionsDiv.appendChild(favBtn);
-        optionsGroup.parentNode.insertBefore(actionsDiv, optionsGroup.nextSibling);
+        const numEl = document.createElement('div');
+        numEl.className = 'question-number';
+        numEl.textContent = text;
+        currentQuestionBlock.appendChild(numEl);
+      } else {
+        if (currentQuestionBlock) {
+          currentQuestionBlock.appendChild(node);
+        } else {
+          tempContainer.appendChild(node);
+        }
+      }
+    } else {
+      if (currentQuestionBlock) {
+        currentQuestionBlock.appendChild(node);
+      } else {
+        tempContainer.appendChild(node);
+      }
     }
-  });
+  }
+  
+  // 把最后一个题目块也加上
+  if (currentQuestionBlock) {
+    tempContainer.appendChild(currentQuestionBlock);
+  }
+  
+  // 替换原内容
+  container.innerHTML = '';
+  while (tempContainer.firstChild) {
+    container.appendChild(tempContainer.firstChild);
+  }
 
-  // 7. 选项点击事件
-  container.addEventListener('click', function(e) {
-    var opt = e.target.closest('.exam-option');
-    if (!opt) return;
-    var qBlock = opt.closest('.question-block');
-    qBlock.querySelectorAll('.exam-option').forEach(function(o) {
-        o.classList.remove('selected');
-    });
-    opt.classList.add('selected');
+  // 处理每个题目块
+  const questionBlocks = container.querySelectorAll('.question-block');
+  questionBlocks.forEach(function(qBlock) {
+    let answerEl = null;
+    let answerValue = '';
+    
+    // 查找正确答案
+    const walkNodes = function(el) {
+      for (let child = el.firstChild; child; child = child.nextSibling) {
+        if (child.nodeType === Node.TEXT_NODE) {
+          const match = child.textContent.match(/正确答案[：:]\s*([ABCDabcd])/);
+          if (match) {
+            answerValue = match[1].toUpperCase();
+            const beforeText = child.textContent.substring(0, match.index);
+            const afterText = child.textContent.substring(match.index + match[0].length);
+            
+            const answerContainer = document.createElement('div');
+            answerContainer.className = 'answer-panel';
+            answerContainer.style.display = 'none';
+            
+            const answerTitle = document.createElement('div');
+            answerTitle.className = 'answer-title';
+            answerTitle.innerHTML = '正确答案：<strong>' + answerValue + '</strong>';
+            answerContainer.appendChild(answerTitle);
+            
+            if (beforeText.trim()) {
+              child.textContent = beforeText;
+            } else {
+              el.removeChild(child);
+            }
+            
+            if (afterText.trim()) {
+              const textNode = document.createTextNode(afterText);
+              el.insertBefore(textNode, child.nextSibling);
+            }
+            
+            // 找到插入位置
+            el.insertBefore(answerContainer, child.nextSibling);
+            answerEl = answerContainer;
+            return true;
+          }
+        } else if (child.nodeType === Node.ELEMENT_NODE) {
+          if (walkNodes(child)) {
+            return true;
+          }
+        }
+      }
+      return false;
+    };
+    
+    walkNodes(qBlock);
+    
+    // 替换【解析】
+    const replaceAnalysis = function(el) {
+      for (let child = el.firstChild; child; child = child.nextSibling) {
+        if (child.nodeType === Node.TEXT_NODE && child.textContent.includes('【解析】')) {
+          const html = child.textContent.replace(/【解析】/g, '<div class="analysis-title">解析：</div>');
+          const temp = document.createElement('div');
+          temp.innerHTML = html;
+          el.replaceChild(temp.firstChild, child);
+        } else if (child.nodeType === Node.ELEMENT_NODE) {
+          replaceAnalysis(child);
+        }
+      }
+    };
+    
+    replaceAnalysis(qBlock);
+    
+    // 添加按钮
+    const actionsDiv = document.createElement('div');
+    actionsDiv.className = 'question-actions';
+    
+    const revealBtn = document.createElement('button');
+    revealBtn.className = 'reveal-btn';
+    revealBtn.textContent = '查看答案与解析';
+    revealBtn.onclick = function() {
+      const panels = qBlock.querySelectorAll('.answer-panel');
+      const isHidden = Array.from(panels).some(p => p.style.display === 'none');
+      panels.forEach(p => p.style.display = isHidden ? 'block' : 'none');
+      revealBtn.textContent = isHidden ? '隐藏答案与解析' : '查看答案与解析';
+    };
+    
+    const favBtn = document.createElement('button');
+    favBtn.className = 'favorite-btn';
+    favBtn.innerHTML = '⭐ 收藏';
+    favBtn.onclick = function() {
+      favBtn.classList.toggle('active');
+      favBtn.innerHTML = favBtn.classList.contains('active') ? '★ 已收藏' : '⭐ 收藏';
+    };
+    
+    actionsDiv.appendChild(revealBtn);
+    actionsDiv.appendChild(favBtn);
+    qBlock.appendChild(actionsDiv);
   });
 
 })();
