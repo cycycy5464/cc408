@@ -85,3 +85,20 @@
 - `goldmark.renderer.unsafe: true` 会增加 XSS 风险，推荐改为 false
 - 用 JS 在模板层做折叠（前端行为）优于在 markdown 内容写 `<details>`（内容污染）
 - 性能问题优先修 O(n²+) 嵌套循环，修完可带来量级提速
+
+### 15. 用户内容保护规则
+- **绝不覆盖用户手动修改的内容文件**。用户替换过 quiz 文件后，任何脚本都不应再次写入
+- 如果用户说"不要再还原了"，立即停止对该目录的所有修改性操作
+- 模板改动（`layouts/`）和内容改动（`content/`）要分开 commit，方便 revert 时隔离
+- `git revert` 会撤销 commit 中所有文件的改动，包括非预期的。如果只想还原部分文件，用 `git checkout` 或 `git restore`
+
+### 16. 考试内容目录结构
+- csgraduates 使用 `2024/content.md` 目录结构
+- Hugo 的 section 页面需要 `_index.md`，不能是 `content.md`
+- 扁平文件 `2024.md` 和目录 `2024/content.md` 不能共存，Hugo 会创建两个页面
+- 从 csgraduates 迁移后记得重命名 `content.md` 为 `_index.md`
+
+### 17. Hugo section 页文件名必须是 _index.md
+- `content/exam/408quiz/content.md` → Hugo 不识别为 section 页
+- `content/exam/408quiz/_index.md` → 正确，会生成 `/exam/408quiz/` 页面
+- 其他特殊 Hugo 文件名：`_index.md`（section）、`index.md`（单页 bundle）
