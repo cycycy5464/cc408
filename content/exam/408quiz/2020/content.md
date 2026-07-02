@@ -1,13 +1,7 @@
----
-title: "2020年408真题"
-date: 2026-07-01
-type: exam_collection
-subject: "408"
-source: "408真题"
-year: 2020
-difficulty: 3
-tags: [真题, 408]
----
+# 2020 年 408 真题
+
+
+- [2020 年 408 真题精讲](https://bilibili.com/video/BV1reukzaEoq)
 
 ### 选择题
 

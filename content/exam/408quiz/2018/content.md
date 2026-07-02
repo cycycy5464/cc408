@@ -1,13 +1,7 @@
----
-title: "2018年408真题"
-date: 2026-07-01
-type: exam_collection
-subject: "408"
-source: "408真题"
-year: 2018
-difficulty: 3
-tags: [真题, 408]
----
+# 2018 年 408 真题
+
+
+- [2018 年 408 真题精讲](https://bilibili.com/video/BV14KuCz6EwD)
 
 ### 选择题
 
