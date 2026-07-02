@@ -74,3 +74,14 @@
 - 所有文件用 `encoding='utf-8'` 打开（默认 gbk 会 crash）
 - `print()` 中文时避免用 emoji（gbk 编码限制）
 - PowerShell 变量 `$_` 在 bash heredoc 中需用 `'` 包裹防转义
+
+### 13. 知识图谱 O(n³) → O(n*k) 优化
+- 三层嵌套循环 `range pages → range prerequisites → range pages` 
+- **优化**: 先构建 `title → URL` 索引 (`merge dict`)，再用 `index $titleIdx .` O(1) 查找
+- Hugo 模板中 `dict` + `merge` 可以实现哈希表效果
+
+### 14. 代码审查优先级策略
+- SSH 公钥等敏感文件即使 `.pub` 也要立即从 git 历史清除
+- `goldmark.renderer.unsafe: true` 会增加 XSS 风险，推荐改为 false
+- 用 JS 在模板层做折叠（前端行为）优于在 markdown 内容写 `<details>`（内容污染）
+- 性能问题优先修 O(n²+) 嵌套循环，修完可带来量级提速

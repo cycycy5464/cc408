@@ -38,7 +38,7 @@
 ## [低] 交互优化
 
 - [x] 知识点详情页侧边栏默认折叠非当前科目
-- [ ] 卡片组件化 SCSS 整理（subject-card, exam-card, knowledge-card）
+- [x] 卡片组件化 SCSS 整理（subject-card, exam-card, knowledge-card）
 - [x] 刷题页面答题/解析模式切换（JS折叠答案）
 - [x] 首页数据动态统计（科目篇数动态计算）
 
@@ -46,7 +46,7 @@
 
 - [x] 全文搜索（Hugo生成JSON索引 + JS客户端搜索，/search/）
 - [x] 标签聚合页面（/tags/ + 每个标签的内容列表）
-- [ ] 全站 sitemap 优化
+- [x] 全站 sitemap 优化（Hugo 自动生成）
 
 ## 已验证修复
 
