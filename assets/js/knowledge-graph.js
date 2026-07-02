@@ -19,7 +19,9 @@
   // Inline data
   var data;
   try {
-    data = window.__GRAPH_DATA__;
+    var scriptTag = document.getElementById('graph-data');
+    if (!scriptTag) throw new Error('graph-data element not found');
+    data = JSON.parse(scriptTag.textContent);
   } catch(e) {
     console.error('Knowledge graph data error:', e);
     container.innerHTML = '<p style="color:var(--color-co);padding:2rem;text-align:center">图谱数据加载失败</p>';
@@ -56,7 +58,6 @@
     .text(function(d) { return d.label; });
 
   node.on('click', function(e, d) {
-    // On mobile, navigate directly. On desktop, show info panel.
     if (window.innerWidth <= 768) {
       window.location.href = d.id;
       return;
@@ -68,7 +69,6 @@
       '科目: ' + (subjectNames[d.subject] || d.subject) + '<br>难度: ' + '&#9733;'.repeat(d.difficulty || 1);
     document.getElementById('info-tags').innerHTML = d.prerequisites && d.prerequisites.length ?
       '<div style="font-size:0.8rem;color:#8b949e;">前置: ' + d.prerequisites.join(', ') + '</div>' : '';
-    // Build correct link
     document.getElementById('info-link').href = d.id;
     document.getElementById('node-info').style.display = 'block';
   });
