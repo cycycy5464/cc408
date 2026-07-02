@@ -1,0 +1,40 @@
+{{ define "main" }}
+<div class="content-area content-area-wide">
+  <h1>🔍 搜索</h1>
+  <div style="margin:2rem 0">
+    <input type="text" id="search-input" placeholder="输入关键词搜索知识点和题目..."
+      style="width:100%;padding:.75rem 1rem;background:var(--bg-card);color:var(--text-primary);border:1px solid var(--border-color);border-radius:var(--radius-md);font-size:1.1rem">
+    <div style="margin-top:.5rem;font-size:var(--fs-sm);color:var(--text-muted)">按标题、标签、内容搜索</div>
+  </div>
+  <div id="search-results"></div>
+</div>
+<script id="search-idx" type="application/json">{{ partial "search-index" . }}</script>
+<script>
+(function(){
+  var idx = JSON.parse(document.getElementById('search-idx').textContent);
+  var input = document.getElementById('search-input');
+  var results = document.getElementById('search-results');
+  function search(q) {
+    if (!q) { results.innerHTML = '<p style="color:var(--text-muted)">输入关键词开始搜索</p>'; return; }
+    var terms = q.toLowerCase().split(/\s+/).filter(Boolean);
+    var hits = idx.entries.filter(function(e) {
+      var text = (e.title + ' ' + (e.excerpt||'') + ' ' + (e.tags||[]).join(' ')).toLowerCase();
+      return terms.every(function(t) { return text.indexOf(t) !== -1; });
+    });
+    if (!hits.length) { results.innerHTML = '<p style="color:var(--text-muted)">未找到相关结果</p>'; return; }
+    results.innerHTML = '<p style="color:var(--text-secondary);margin-bottom:1rem">共 ' + hits.length + ' 条结果</p>' +
+      '<div class="exam-paper-grid">' +
+      hits.map(function(h) {
+        var subj = h.subject === 'data-structure' ? '数据结构' : h.subject === 'computer-org' ? '计算机组成原理' : h.subject === 'os' ? '操作系统' : h.subject === 'network' ? '计算机网络' : h.subject || '';
+        return '<a href="' + h.url + '" class="exam-paper-card">' +
+          '<div class="title">' + h.title + '</div>' +
+          '<div class="meta">' + (subj ? '<span class="tag">' + subj + '</span>' : '') +
+          (h.tags ? h.tags.map(function(t){return '<span class="tag">' + t + '</span>';}).join('') : '') +
+          '</div></a>';
+      }).join('') + '</div>';
+  }
+  input.addEventListener('input', function(){ search(this.value); });
+  search('');
+})();
+</script>
+{{ end }}

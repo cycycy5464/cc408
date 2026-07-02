@@ -1,0 +1,24 @@
+{{/* Generate search index JSON */}}
+{{ $entries := slice }}
+{{ range where .Site.RegularPages "Section" "docs" }}
+  {{ $entry := dict
+    "title" .Title
+    "url" .RelPermalink
+    "subject" (default "" .Params.subject)
+    "tags" (default slice .Params.tags)
+    "excerpt" (plainify (truncate 150 .RawContent))
+  }}
+  {{ $entries = $entries | append $entry }}
+{{ end }}
+{{ range where .Site.RegularPages "Section" "exam" }}
+  {{ $entry := dict
+    "title" .Title
+    "url" .RelPermalink
+    "subject" (default "408" .Params.subject)
+    "tags" (default slice .Params.tags)
+    "excerpt" (plainify (truncate 150 .RawContent))
+  }}
+  {{ $entries = $entries | append $entry }}
+{{ end }}
+{{ $data := dict "entries" $entries }}
+{{ $data | jsonify | safeJS }}
