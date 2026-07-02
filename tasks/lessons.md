@@ -56,3 +56,21 @@
 - 触发分支: `master`
 - Hugo 0.135 需要 Go 环境（Ubuntu runner 自带）
 - **注意**: `baseURL` 必须设为子路径 `/cc408/` 形式
+
+### 10. 代码块转换陷阱（4-space indent）
+- 源文件中的 4-space 缩进可能是列表项续行，不是代码块
+- **区分标准**：行首 `* `、`- `、`1. ` 开头的不是代码；含 `{` `;` `#include` 的才是代码
+- **转换**：先判断内容类型（代码 vs 散文 vs 列表），再决定是否包 ` ```c `
+- 批量转换后需执行 `fix-codeblocks.py` 清理误包
+
+### 11. 答案折叠设计
+- 真题答案批量用 `<details><summary>查看答案</summary>` 包裹
+- **正则策略**：用 `正确答案：` 行作为锚点，其后内容为折叠体
+- 个体题目（choice/application/comprehensive）用 `## 答案`、`## 解析` 做锚点
+- 避免在 regex replace 中使用 Python 的 `\U` emoji 转义
+
+### 12. Python 文件处理注意事项
+- 中文路径先用 PowerShell `Copy-Item` 复制到无中文名的临时目录
+- 所有文件用 `encoding='utf-8'` 打开（默认 gbk 会 crash）
+- `print()` 中文时避免用 emoji（gbk 编码限制）
+- PowerShell 变量 `$_` 在 bash heredoc 中需用 `'` 包裹防转义

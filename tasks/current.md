@@ -17,15 +17,23 @@
 
 ## [中] 内容补充
 
-- [ ] 为已有知识点补充 `prerequisites` 前置知识字段（知识图谱数据源）
-- [ ] 为题目补充 `related_knowledge` 关联知识点（现有 3 题有关联，其余缺失）
-- [ ] 编写质量校验脚本（已创建 verify-content.py，放入 CI 流程）
+- [x] 为已有知识点补充 `prerequisites` 前置知识字段（知识图谱数据源）
+- [x] 为题目补充 `related_knowledge` 关联知识点（现有 3 题有关联，其余缺失）
+- [x] 编写质量校验脚本（已创建 verify-content.py，放入 CI 流程）
+
+## [中] 内容修复
+
+- [x] 移除所有真题页面的 B站视频链接
+- [x] 真题答案改为折叠展示（<details> 下拉查看）
+- [x] 个体题目答案/解析均折叠
+- [x] 修复 94 个文件中的误包代码块（列表项被包在 ```c 中）
+- [ ] 检查 csgraduates 与 cc408 的内容质量差异，补充缺失内容
 
 ## [中] 知识图谱增强
 
-- [ ] 从 docs frontmatter 自动生成 `static/data/knowledge-graph.json`
-- [ ] 完善 Hugo partial `knowledge-graph-data.html`
-- [ ] D3.js 图谱增加学科聚类、科目图例、搜索功能
+- [x] 从 docs frontmatter 自动生成 `static/data/knowledge-graph.json`
+- [x] 完善 Hugo partial `knowledge-graph-data.html`
+- [x] D3.js 图谱增加学科聚类、科目图例、搜索功能
 
 ## [低] 交互优化
 
