@@ -89,6 +89,38 @@ a:hover{color:var(--accent2)}
 .subject-card-title{font-family:var(--font-display);font-weight:700;font-size:1.1rem;margin-bottom:.4rem}
 .subject-card-desc{color:var(--text-muted);font-size:var(--fs-sm);margin-bottom:.5rem}
 .subject-card-count{color:rgba(255,255,255,.3);font-size:var(--fs-xs)}
+
+/* === Card Component System === */
+
+/* Exam Paper Card - for quiz years, simulate sets */
+.exam-paper-card{display:block;padding:1rem 1.25rem;background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-md);text-decoration:none;color:var(--text-primary);transition:all .25s}
+.exam-paper-card:hover{border-color:var(--accent);box-shadow:var(--shadow-glow);transform:translateY(-1px)}
+.exam-paper-card .title{font-weight:600;margin-bottom:.35rem}
+.exam-paper-card .meta{display:flex;gap:.5rem;flex-wrap:wrap;font-size:var(--fs-sm);color:var(--text-muted)}
+
+/* Exam Paper Grid */
+.exam-paper-grid{display:grid;gap:.75rem}
+
+/* Question Card - for individual question items */
+.question-card{display:block;padding:1.25rem;background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-md);text-decoration:none;color:var(--text-primary);transition:all .25s}
+.question-card:hover{border-color:var(--accent);box-shadow:var(--shadow-glow)}
+.question-card .stem{font-weight:600;margin-bottom:.5rem;line-height:1.6}
+.question-card .meta{display:flex;gap:.5rem;flex-wrap:wrap;font-size:var(--fs-sm);color:var(--text-muted);margin-bottom:.5rem}
+
+/* Knowledge Card - for related knowledge items */
+.knowledge-card{display:block;padding:.5rem .75rem;background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-sm);text-decoration:none;color:var(--text-primary);font-size:var(--fs-sm);transition:all .2s}
+.knowledge-card:hover{border-color:var(--accent);color:var(--accent)}
+
+/* Related Section - sidebar-like block */
+.related-section{margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border-color)}
+.related-section h3{font-size:var(--fs-h3);margin-bottom:.75rem}
+.related-grid{display:flex;flex-wrap:wrap;gap:.5rem}
+
+/* Exam Mode Toggle */
+.exam-answer{display:none}
+.exam-answer.visible{display:block}
+.reveal-btn{cursor:pointer;padding:.5rem 1.25rem;background:rgba(57,186,230,.1);border:1px solid var(--accent);color:var(--accent);border-radius:var(--radius-sm);font-size:var(--fs-sm);transition:all .2s}
+.reveal-btn:hover{background:rgba(57,186,230,.2)}
 .recent-list{display:flex;flex-direction:column;gap:.75rem;max-width:900px;margin:0 auto;padding:0 2rem 2rem}
 .recent-item{display:flex;align-items:center;gap:1rem;text-align:left;padding:1rem 1.25rem}
 .recent-item-icon{font-size:1.5rem;flex-shrink:0}
