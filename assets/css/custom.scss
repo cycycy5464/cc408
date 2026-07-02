@@ -90,7 +90,18 @@ a:hover{color:var(--accent2)}
 .subject-card-desc{color:var(--text-muted);font-size:var(--fs-sm);margin-bottom:.5rem}
 .subject-card-count{color:rgba(255,255,255,.3);font-size:var(--fs-xs)}
 
-/* === Card Component System === */
+/* === Utility Classes === */
+.mt-section{margin-top:2rem}
+.mt-card{margin-top:1rem}
+.flex{display:flex}
+.flex-wrap{flex-wrap:wrap}
+.gap-sm{gap:.5rem}
+.gap-md{gap:1rem}
+.gap-lg{gap:1.5rem}
+.meta-sm{color:var(--text-muted);font-size:var(--fs-sm)}
+.meta-xs{color:var(--text-muted);font-size:var(--fs-xs)}
+
+/* === Card Component System */
 
 /* Exam Paper Card - for quiz years, simulate sets */
 .exam-paper-card{display:block;padding:1rem 1.25rem;background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-md);text-decoration:none;color:var(--text-primary);transition:all .25s}
