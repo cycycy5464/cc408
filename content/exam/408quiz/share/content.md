@@ -2,6 +2,7 @@
 title: "408 其他资源"
 date: 2026-07-02
 type: exam_collection
+layout: exam
 subject: "408"
 source: "408真题"
 year: 2009
