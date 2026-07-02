@@ -20,7 +20,7 @@
     ctx.translate(150, 150);
     ctx.rotate(-Math.PI / 4);
     ctx.font = '14px Inter, sans-serif';
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.04)';
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.10)';
     ctx.textAlign = 'center';
     ctx.fillText(WATERMARK_TEXT, 0, 0);
     ctx.restore();
@@ -48,7 +48,7 @@
       });
     });
 
-    observer.observe(document.body, { childList: true, subtree: true });
+    observer.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class'] });
   }
 
   // Start on DOM ready

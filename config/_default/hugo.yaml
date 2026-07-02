@@ -52,7 +52,7 @@ markup:
     lineNos: false
   goldmark:
     renderer:
-      unsafe: true
+      unsafe: false
 security:
   _merge: deep
 sitemap:

@@ -19,7 +19,14 @@
   // Inline data
   var script = document.getElementById('graph-data');
   if (!script) return;
-  var data = JSON.parse(script.textContent);
+  var data;
+  try {
+    data = JSON.parse(script.textContent);
+  } catch(e) {
+    console.error('知识图谱数据解析失败:', e);
+    container.innerHTML = '<p style="color:var(--color-co);padding:2rem;text-align:center">图谱数据加载失败，请刷新重试</p>';
+    return;
+  }
   if (!data.nodes || !data.nodes.length) return;
 
   var svg = d3.select('#knowledge-graph').append('svg').attr('width', width).attr('height', height);
@@ -59,14 +66,12 @@
     document.getElementById('info-tags').innerHTML = d.prerequisites && d.prerequisites.length ?
       '<div style="font-size:0.8rem;color:#8b949e;">前置: ' + d.prerequisites.join(', ') + '</div>' : '';
     // Build correct link
-    var parts = d.id.replace('/cc408/', '').split('/').filter(Boolean);
-    document.getElementById('info-link').href = '/' + parts.join('/') + '/';
+    document.getElementById('info-link').href = d.id;
     document.getElementById('node-info').style.display = 'block';
   });
 
   node.on('dblclick', function(e, d) {
-    var parts = d.id.replace('/cc408/', '').split('/').filter(Boolean);
-    window.location.href = '/' + parts.join('/') + '/';
+    window.location.href = d.id;
   });
 
   svg.on('click', function() { document.getElementById('node-info').style.display = 'none'; });

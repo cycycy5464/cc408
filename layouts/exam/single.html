@@ -35,10 +35,17 @@
 
 <script>
 (function() {
+  // Fold answers and analysis in exam content
   document.querySelectorAll('.exam-content').forEach(function(el) {
+    // Pattern 1: "正确答案：X" inline folding
     el.innerHTML = el.innerHTML.replace(
       /(正确答案[：:]\s*[ABCDabcd])\s*/g,
-      '<span class="answer-fold">$1</span><button class="answer-reveal-btn" onclick="var s=this.previousElementSibling;var h=s.style.display!=\"inline\";s.style.display=h?\"inline\":\"none\";this.textContent=h?\"隐藏答案\":\"显示答案\"">显示答案</button> '
+      '<span class="answer-fold">$1</span><button class="answer-reveal-btn" onclick="var s=this.previousElementSibling;var h=s.style.display!=\"inline\";s.style.display=h?\"inline\":\"none\";this.textContent=h?\"隐藏\":\"显示\"">显示</button> '
+    );
+    // Pattern 2: "## 答案" / "## 解析" section folding
+    el.innerHTML = el.innerHTML.replace(
+      /<h2[^>]*>(答案|解析)<\/h2>/g,
+      '</div><button class="section-reveal-btn" onclick="var n=this.nextElementSibling;var h=n.style.display!=\"block\";n.style.display=h?\"block\":\"none\";this.textContent=(h?\"隐藏\":\"显示\")+this.dataset.section+\' ▾\';n.style.display=\'none\'" data-section="$1">显示$1 ▸</button><div class="section-fold" style="display:none"><h2>$1</h2>'
     );
   });
 })();
