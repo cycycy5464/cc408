@@ -1,171 +1,87 @@
-// CC408 Knowledge Graph - Enhanced with real data loading
+// CC408 Knowledge Graph - Inline data from Hugo partial
 (function() {
   'use strict';
 
   var container = document.getElementById('knowledge-graph');
   if (!container) return;
-
   var width = container.clientWidth;
   var height = container.clientHeight;
 
-  // Subject color mapping
   var subjectColors = {
-    'data-structure': '#58d6c0',
-    'computer-org': '#f59e0b',
-    'os': '#8b5cf6',
-    'network': '#3b82f6'
+    'data-structure': '#58d6c0', 'computer-org': '#f59e0b',
+    'os': '#8b5cf6', 'network': '#3b82f6'
   };
-
   var subjectNames = {
-    'data-structure': '数据结构',
-    'computer-org': '计算机组成原理',
-    'os': '操作系统',
-    'network': '计算机网络'
+    'data-structure': '数据结构', 'computer-org': '计算机组成原理',
+    'os': '操作系统', 'network': '计算机网络'
   };
 
-  // Create SVG
-  var svg = d3.select('#knowledge-graph')
-    .append('svg')
-    .attr('width', width)
-    .attr('height', height);
+  // Inline data
+  var script = document.getElementById('graph-data');
+  if (!script) return;
+  var data = JSON.parse(script.textContent);
+  if (!data.nodes || !data.nodes.length) return;
 
-  // Zoom behavior
-  var zoom = d3.zoom()
-    .scaleExtent([0.1, 4])
-    .on('zoom', function(event) {
-      svg.attr('transform', event.transform);
-    });
-
+  var svg = d3.select('#knowledge-graph').append('svg').attr('width', width).attr('height', height);
+  var zoom = d3.zoom().scaleExtent([0.1, 4]).on('zoom', function(e) { g.attr('transform', e.transform); });
   svg.call(zoom);
-
   var g = svg.append('g');
 
-  // Load data
-  d3.json('/data/knowledge-graph.json').then(function(data) {
-    if (!data || !data.nodes.length) return;
+  var simulation = d3.forceSimulation(data.nodes)
+    .force('link', d3.forceLink(data.links).id(function(d) { return d.id; }).distance(100))
+    .force('charge', d3.forceManyBody().strength(-250))
+    .force('center', d3.forceCenter(width / 2, height / 2))
+    .force('collision', d3.forceCollide().radius(35));
 
-    // Force simulation
-    var simulation = d3.forceSimulation(data.nodes)
-      .force('link', d3.forceLink(data.links).id(function(d) { return d.id; }).distance(120))
-      .force('charge', d3.forceManyBody().strength(-300))
-      .force('center', d3.forceCenter(width / 2, height / 2))
-      .force('collision', d3.forceCollide().radius(40));
+  var link = g.selectAll('.link').data(data.links).enter().append('line')
+    .attr('stroke', '#30363d').attr('stroke-width', 1.5).attr('opacity', 0.6);
 
-    // Draw links
-    var link = g.selectAll('.link')
-      .data(data.links)
-      .enter().append('line')
-      .attr('class', 'link')
-      .attr('stroke', '#30363d')
-      .attr('stroke-width', 1.5);
+  var node = g.selectAll('.node').data(data.nodes).enter().append('g')
+    .attr('class', 'node').call(d3.drag().on('start', function(e, d) {
+      if (!e.active) simulation.alphaTarget(0.3).restart();
+      d.fx = d.x; d.fy = d.y;
+    }).on('drag', function(e, d) { d.fx = e.x; d.fy = e.y; })
+      .on('end', function(e, d) { if (!e.active) simulation.alphaTarget(0); d.fx = null; d.fy = null; }));
 
-    // Draw node groups
-    var node = g.selectAll('.node')
-      .data(data.nodes)
-      .enter().append('g')
-      .attr('class', 'node')
-      .call(d3.drag()
-        .on('start', dragStarted)
-        .on('drag', dragged)
-        .on('end', dragEnded));
+  node.append('circle').attr('r', function(d) { return 12 + (d.difficulty || 1) * 4; })
+    .attr('fill', function(d) { return subjectColors[d.subject] || '#888'; }).attr('opacity', 0.85).style('cursor', 'pointer');
 
-    // Node circles
-    node.append('circle')
-      .attr('r', function(d) { return 15 + (d.difficulty || 1) * 5; })
-      .attr('fill', function(d) { return subjectColors[d.subject] || '#888'; })
-      .attr('opacity', 0.8)
-      .style('cursor', 'pointer');
+  node.append('text').attr('dy', '0.35em').attr('text-anchor', 'middle')
+    .attr('fill', '#e6edf3').attr('font-size', '9px').style('pointer-events', 'none')
+    .text(function(d) { return d.label; });
 
-    // Node labels
-    node.append('text')
-      .attr('dy', function(d) { return 22 + (d.difficulty || 1) * 5; })
-      .attr('text-anchor', 'middle')
-      .attr('fill', '#e6edf3')
-      .attr('font-size', '11px')
-      .text(function(d) { return d.label; });
+  node.on('click', function(e, d) {
+    e.stopPropagation();
+    document.getElementById('info-title').textContent = d.label;
+    document.getElementById('info-title').style.color = subjectColors[d.subject] || '#888';
+    document.getElementById('info-meta').innerHTML =
+      '科目: ' + (subjectNames[d.subject] || d.subject) + '<br>难度: ' + '&#9733;'.repeat(d.difficulty || 1);
+    document.getElementById('info-tags').innerHTML = d.prerequisites && d.prerequisites.length ?
+      '<div style="font-size:0.8rem;color:#8b949e;">前置: ' + d.prerequisites.join(', ') + '</div>' : '';
+    // Build correct link
+    var parts = d.id.replace('/cc408/', '').split('/').filter(Boolean);
+    document.getElementById('info-link').href = '/' + parts.join('/') + '/';
+    document.getElementById('node-info').style.display = 'block';
+  });
 
-    // Click handler
-    node.on('click', function(event, d) {
-      event.stopPropagation();
-      showNodeInfo(d);
-    });
+  node.on('dblclick', function(e, d) {
+    var parts = d.id.replace('/cc408/', '').split('/').filter(Boolean);
+    window.location.href = '/' + parts.join('/') + '/';
+  });
 
-    // Double click
-    node.on('dblclick', function(event, d) {
-      event.preventDefault();
-      window.location.href = '/docs/' + d.subject + '/' + d.slug + '/';
-    });
+  svg.on('click', function() { document.getElementById('node-info').style.display = 'none'; });
 
-    function showNodeInfo(d) {
-      var panel = document.getElementById('node-info');
-      var title = document.getElementById('info-title');
-      var meta = document.getElementById('info-meta');
-      var tags = document.getElementById('info-tags');
-      var linkBtn = document.getElementById('info-link');
+  // Search
+  var searchInput = document.getElementById('graph-search');
+  if (searchInput) searchInput.addEventListener('input', function() {
+    var t = this.value.toLowerCase();
+    node.attr('opacity', function(d) { return !t || d.label.toLowerCase().indexOf(t) !== -1 ? 1 : 0.15; });
+    link.attr('opacity', t ? 0.05 : 0.6);
+  });
 
-      title.textContent = d.label;
-      title.style.color = subjectColors[d.subject];
-      meta.innerHTML = '<div>科目: ' + (subjectNames[d.subject] || d.subject) + '</div>' +
-                       '<div>难度: ' + '⭐'.repeat(d.difficulty || 1) + '</div>';
-      tags.innerHTML = '';
-      if (d.prerequisites && d.prerequisites.length > 0) {
-        tags.innerHTML = '<div style="margin-top: 0.5rem; font-size: 0.8rem; color: #8b949e;">前置知识: ' +
-                          d.prerequisites.join(', ') + '</div>';
-      }
-      linkBtn.href = '/docs/' + d.subject + '/' + d.slug + '/';
-      panel.style.display = 'block';
-    }
-
-    // Search
-    var searchInput = document.getElementById('graph-search');
-    if (searchInput) {
-      searchInput.addEventListener('input', function() {
-        var term = this.value.toLowerCase();
-        if (!term) {
-          node.attr('opacity', 1);
-          link.attr('opacity', 1);
-          return;
-        }
-        node.attr('opacity', function(d) {
-          return d.label.toLowerCase().indexOf(term) !== -1 ? 1 : 0.15;
-        });
-        link.attr('opacity', 0.1);
-      });
-    }
-
-    svg.on('click', function() {
-      document.getElementById('node-info').style.display = 'none';
-    });
-
-    simulation.on('tick', function() {
-      link
-        .attr('x1', function(d) { return d.source.x; })
-        .attr('y1', function(d) { return d.source.y; })
-        .attr('x2', function(d) { return d.target.x; })
-        .attr('y2', function(d) { return d.target.y; });
-
-      node.attr('transform', function(d) {
-        return 'translate(' + d.x + ',' + d.y + ')';
-      });
-    });
-
-    function dragStarted(event, d) {
-      if (!event.active) simulation.alphaTarget(0.3).restart();
-      d.fx = d.x;
-      d.fy = d.y;
-    }
-
-    function dragged(event, d) {
-      d.fx = event.x;
-      d.fy = event.y;
-    }
-
-    function dragEnded(event, d) {
-      if (!event.active) simulation.alphaTarget(0);
-      d.fx = null;
-      d.fy = null;
-    }
-  }).catch(function(err) {
-    console.warn('Knowledge graph data not found, using sample data:', err);
+  simulation.on('tick', function() {
+    link.attr('x1', function(d) { return d.source.x; }).attr('y1', function(d) { return d.source.y; })
+      .attr('x2', function(d) { return d.target.x; }).attr('y2', function(d) { return d.target.y; });
+    node.attr('transform', function(d) { return 'translate(' + d.x + ',' + d.y + ')'; });
   });
 })();
