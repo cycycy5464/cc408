@@ -15,17 +15,17 @@
     {{ $menuURL := .URL | relURL }}
     {{ $isActive := false }}
     {{ if eq $menuURL (print $baseRel) }}
-      {{ $isActive = or (eq $current "/") (eq $current "/cc408/") }}
-    {{ else if eq $menuURL "/cc408/docs/" }}
-      {{ $isActive = eq $section "docs" }}
-    {{ else if eq $menuURL "/cc408/exam/408quiz/" }}
-      {{ $isActive = eq $section "quiz" }}
-    {{ else if eq $menuURL "/cc408/exam/" }}
-      {{ $isActive = eq $section "exam" }}
-    {{ else if eq $menuURL "/cc408/graph/" }}
-      {{ $isActive = eq $section "graph" }}
-    {{ else if eq $menuURL "/cc408/resources/" }}
-      {{ $isActive = eq $section "resources" }}
+      {{ $isActive = or (eq $current "/") (eq $current (print $baseRel)) }}
+    {{ else if eq $section "docs" }}
+      {{ $isActive = eq $menuURL (print $baseRel "docs/") }}
+    {{ else if eq $section "quiz" }}
+      {{ $isActive = eq $menuURL (print $baseRel "exam/408quiz/") }}
+    {{ else if eq $section "exam" }}
+      {{ $isActive = eq $menuURL (print $baseRel "exam/") }}
+    {{ else if eq $section "graph" }}
+      {{ $isActive = eq $menuURL (print $baseRel "graph/") }}
+    {{ else if eq $section "resources" }}
+      {{ $isActive = eq $menuURL (print $baseRel "resources/") }}
     {{ end }}
     <a href="{{ $menuURL }}" role="menuitem" class="{{ if $isActive }}active{{ end }}" onclick="this.closest('.navbar-links').classList.remove('open')">
       {{ .Name }}
