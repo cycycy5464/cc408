@@ -15,12 +15,7 @@
   <h2>📖 四大科目</h2>
   <p>408考研涵盖四门核心科目，系统化学习</p>
 </div>
-{{ $subjects := slice
-  (dict "key" "data-structure" "icon" "📊" "label" "数据结构" "desc" "线性表 · 树 · 图 · 排序 · 查找" "cls" "ds")
-  (dict "key" "computer-org" "icon" "⚙️" "label" "计算机组成原理" "desc" "CPU · 存储 · 指令 · I/O" "cls" "co")
-  (dict "key" "os" "icon" "🖥️" "label" "操作系统" "desc" "进程 · 内存 · 文件 · I/O" "cls" "os")
-  (dict "key" "network" "icon" "🌐" "label" "计算机网络" "desc" "TCP/IP · HTTP · 网络层" "cls" "cn")
-}}
+{{ $subjects := .Site.Data.subjects }}
 <div class="hero-cards">
   {{ range $subjects }}
   {{ $count := len (where $.Site.RegularPages "Params.subject" .key) }}
