@@ -102,3 +102,10 @@
 - `content/exam/408quiz/content.md` → Hugo 不识别为 section 页
 - `content/exam/408quiz/_index.md` → 正确，会生成 `/exam/408quiz/` 页面
 - 其他特殊 Hugo 文件名：`_index.md`（section）、`index.md`（单页 bundle）
+
+### 18. 内容操作铁律
+- **只删指定行**：用精确正则匹配目标行，不要全局替换
+- **操作前确认文件路径**：目录结构变了（flat .md → dir/content.md）后，旧路径的操作会失效
+- **git add 前检查 diff**：`git diff --cached` 确认只有预期改动
+- _index.md 等关键文件修改后要立即检查内容完整性
+- 用户明确说了"其他不准动"，那就只改用户指定的内容行，用 `re.sub` 精确匹配行首模式
