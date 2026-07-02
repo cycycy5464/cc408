@@ -1,11 +1,35 @@
 {{ define "main" }}
+{{ if eq .CurrentSection .FirstSection }}
+{{/* Main docs page - subject entry cards */}}
+<div class="content-area content-area-wide">
+  <h1>📚 知识点</h1>
+  {{ .Content }}
+  {{ $subjects := slice
+    (dict "key" "data-structure" "icon" "📊" "label" "数据结构" "chapters" "线性表 · 树 · 图 · 查找 · 排序")
+    (dict "key" "computer-org" "icon" "⚙️" "label" "计算机组成原理" "chapters" "数据表示 · 存储 · CPU · 指令 · I/O")
+    (dict "key" "os" "icon" "🖥️" "label" "操作系统" "chapters" "进程 · 内存 · 文件 · I/O")
+    (dict "key" "network" "icon" "🌐" "label" "计算机网络" "chapters" "体系结构 · 网络层 · 传输层 · 应用层")
+  }}
+  <div class="hero-cards" style="margin-top:2rem">
+    {{ range $subjects }}
+    {{ $count := len (where $.Site.RegularPages "Params.subject" .key) }}
+    <a href="{{ .key | relURL }}" class="card subject-card {{ if eq .key "data-structure" }}ds{{ else if eq .key "computer-org" }}co{{ else if eq .key "os" }}os{{ else }}cn{{ end }}" style="text-decoration:none;color:var(--text-primary)">
+      <div class="subject-card-icon">{{ .icon }}</div>
+      <div class="subject-card-title">{{ .label }}</div>
+      <div class="subject-card-desc">{{ .chapters }}</div>
+      <div class="subject-card-count">共 {{ $count }} 篇知识点</div>
+    </a>
+    {{ end }}
+  </div>
+</div>
+{{ else }}
+{{/* Subject-specific page - filtered list */}}
 <div class="content-area content-area-wide">
   <h1>{{ .Title }}</h1>
   {{ .Content }}
-  <h2 style="margin-top:2rem">知识点列表</h2>
-  <div style="display:grid;gap:1rem">
-    {{ range where .Site.RegularPages "Section" "docs" }}
-    <a href="{{ .RelPermalink }}" class="card">
+  <div style="display:grid;gap:1rem;margin-top:2rem">
+    {{ range .RegularPages }}
+    <a href="{{ .RelPermalink }}" class="card" style="text-decoration:none;color:var(--text-primary)">
       <div style="font-weight:600;margin-bottom:.5rem">{{ .Title }}</div>
       <div style="display:flex;gap:.5rem;flex-wrap:wrap">
         {{ with .Params.difficulty }}{{ $d := . }}{{ range seq 1 3 }}{{ if le . $d }}<span class="diff-star">★</span>{{ else }}<span class="diff-star-empty">☆</span>{{ end }}{{ end }}{{ end }}
@@ -14,5 +38,9 @@
     </a>
     {{ end }}
   </div>
+  <div style="margin-top:2rem">
+    <a href="{{ "docs/" | relURL }}" class="btn btn-ghost">← 返回全部科目</a>
+  </div>
 </div>
+{{ end }}
 {{ end }}
