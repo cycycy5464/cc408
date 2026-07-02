@@ -1,31 +1,15 @@
-{{/* Generate knowledge graph JSON - O(n) build, O(n*k) query */}}
+{{/* Generate knowledge graph JSON data from docs content */}}
 {{ $nodes := slice }}
 {{ $links := slice }}
-{{ $titleIdx := dict }}
-
-{{/* Pass 1: build nodes + title→URL index */}}
 {{ range where .Site.RegularPages "Section" "docs" }}
-  {{ $node := dict
+  {{ $nodes = $nodes | append (dict
     "id" .RelPermalink
     "label" .Title
     "subject" (default "data-structure" .Params.subject)
     "difficulty" (default 1 .Params.difficulty)
-    "prerequisites" .Params.prerequisites
-    "slug" .File.TranslationBaseName
-  }}
-  {{ $nodes = $nodes | append $node }}
-  {{ $titleIdx = merge $titleIdx (dict .Title .RelPermalink) }}
+    "prerequisites" (default slice .Params.prerequisites)
+    "slug" (default "" .File.TranslationBaseName)
+  )}}
 {{ end }}
-
-{{/* Pass 2: build links from prerequisites using index lookup O(k) per page */}}
-{{ range where .Site.RegularPages "Section" "docs" }}
-  {{ $sourceId := .RelPermalink }}
-  {{ range .Params.prerequisites }}
-    {{ with index $titleIdx . }}
-      {{ $links = $links | append (dict "source" $sourceId "target" .) }}
-    {{ end }}
-  {{ end }}
-{{ end }}
-
 {{ $data := dict "nodes" $nodes "links" $links }}
 {{ $data | jsonify | safeJS }}

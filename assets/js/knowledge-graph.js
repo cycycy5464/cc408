@@ -17,17 +17,15 @@
   };
 
   // Inline data
-  var script = document.getElementById('graph-data');
-  if (!script) return;
   var data;
   try {
-    data = JSON.parse(script.textContent);
+    data = window.__GRAPH_DATA__;
   } catch(e) {
-    console.error('知识图谱数据解析失败:', e);
-    container.innerHTML = '<p style="color:var(--color-co);padding:2rem;text-align:center">图谱数据加载失败，请刷新重试</p>';
+    console.error('Knowledge graph data error:', e);
+    container.innerHTML = '<p style="color:var(--color-co);padding:2rem;text-align:center">图谱数据加载失败</p>';
     return;
   }
-  if (!data.nodes || !data.nodes.length) return;
+  if (!data || !data.nodes || !data.nodes.length) return;
 
   var svg = d3.select('#knowledge-graph').append('svg').attr('width', width).attr('height', height);
   var zoom = d3.zoom().scaleExtent([0.1, 4]).on('zoom', function(e) { g.attr('transform', e.transform); });

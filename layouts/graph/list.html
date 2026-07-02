@@ -11,7 +11,7 @@
     <button onclick="document.getElementById('node-info').style.display='none'" class="info-panel-close">✕</button>
   </div>
 </div>
-<script id="graph-data" type="application/json">{{ partial "knowledge-graph-data" . }}</script>
+<script>window.__GRAPH_DATA__ = {{ partial "knowledge-graph-data" . }};</script>
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script src="{{ "js/knowledge-graph.js" | relURL }}"></script>
 {{ end }}
