@@ -3,9 +3,30 @@
   <button class="navbar-toggle" aria-label="菜单" onclick="this.parentElement.querySelector('.navbar-links').classList.toggle('open')">☰</button>
   <div class="navbar-links" role="menubar">
     {{ $current := .RelPermalink }}
+    {{ $section := "" }}
+    {{ if hasPrefix $current "/cc408/docs/" }}{{ $section = "docs" }}
+    {{ else if hasPrefix $current "/cc408/exam/408quiz/" }}{{ $section = "quiz" }}
+    {{ else if hasPrefix $current "/cc408/exam/" }}{{ $section = "exam" }}
+    {{ else if hasPrefix $current "/cc408/graph/" }}{{ $section = "graph" }}
+    {{ else if hasPrefix $current "/cc408/resources/" }}{{ $section = "resources" }}
+    {{ end }}
     {{ range .Site.Menus.main }}
     {{ $menuURL := .URL | relURL }}
-    <a href="{{ $menuURL }}" role="menuitem" class="{{ if hasPrefix $current $menuURL }}active{{ else if and (eq $menuURL "/") (eq $current "/cc408/") }}active{{ end }}">
+    {{ $isActive := false }}
+    {{ if eq $menuURL "/cc408/" }}
+      {{ $isActive = or (eq $current "/") (eq $current "/cc408/") }}
+    {{ else if eq $menuURL "/cc408/docs/" }}
+      {{ $isActive = eq $section "docs" }}
+    {{ else if eq $menuURL "/cc408/exam/408quiz/" }}
+      {{ $isActive = eq $section "quiz" }}
+    {{ else if eq $menuURL "/cc408/exam/" }}
+      {{ $isActive = eq $section "exam" }}
+    {{ else if eq $menuURL "/cc408/graph/" }}
+      {{ $isActive = eq $section "graph" }}
+    {{ else if eq $menuURL "/cc408/resources/" }}
+      {{ $isActive = eq $section "resources" }}
+    {{ end }}
+    <a href="{{ $menuURL }}" role="menuitem" class="{{ if $isActive }}active{{ end }}">
       {{ .Name }}
     </a>
     {{ end }}
