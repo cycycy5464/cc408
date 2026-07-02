@@ -13,7 +13,7 @@
   --color-cn: #95e6cb;
   --text-primary: #e2e8f0;
   --text-secondary: #8899a9;
-  --text-muted: #5d6b7a;
+  --text-muted: #7a8896;
   --border-color: #232a35;
   --border-light: #2a3240;
   --font-display: "Inter","PingFang SC","Microsoft YaHei",sans-serif;
@@ -21,9 +21,14 @@
   --font-mono: "JetBrains Mono","Fira Code",monospace;
   --fs-hero: clamp(2.4rem,6vw,4.5rem);
   --fs-h1: clamp(1.8rem,4vw,2.8rem);
-  --fs-h2: 1.6rem; --fs-h3: 1.25rem;
-  --fs-body: 1rem; --fs-sm: 0.875rem; --fs-xs: 0.75rem;
-  --space-section: 4rem; --space-block: 2rem; --space-card: 1.5rem;
+  --fs-h2: 1.6rem;
+  --fs-h3: 1.25rem;
+  --fs-body: 1rem;
+  --fs-sm: 0.875rem;
+  --fs-xs: 0.75rem;
+  --space-section: 4rem;
+  --space-block: 2rem;
+  --space-card: 1.5rem;
   --radius-sm: 6px; --radius-md: 10px; --radius-lg: 16px;
   --shadow-glow: 0 0 24px rgba(57,186,230,0.15);
   --shadow-card: 0 2px 12px rgba(0,0,0,0.25);
@@ -100,6 +105,16 @@ a:hover{color:var(--accent2)}
 .gap-lg{gap:1.5rem}
 .meta-sm{color:var(--text-muted);font-size:var(--fs-sm)}
 .meta-xs{color:var(--text-muted);font-size:var(--fs-xs)}
+.fw-600{font-weight:600}
+.mb-sm{margin-bottom:.5rem}
+.mb-md{margin-bottom:1rem}
+.text-center{text-align:center}
+.block{display:block}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin-top:2rem}
+.border-top-section{margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border-color)}
+
+/* === Focus visible (accessibility) === */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:var(--radius-sm)}
 
 /* === Card Component System */
 

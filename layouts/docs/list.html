@@ -10,7 +10,7 @@
     (dict "key" "os" "icon" "🖥️" "label" "操作系统" "chapters" "进程 · 内存 · 文件 · I/O")
     (dict "key" "network" "icon" "🌐" "label" "计算机网络" "chapters" "体系结构 · 网络层 · 传输层 · 应用层")
   }}
-  <div class="hero-cards" style="margin-top:2rem">
+  <div class="hero-cards mt-section">
     {{ range $subjects }}
     {{ $count := len (where $.Site.RegularPages "Params.subject" .key) }}
     <a href="{{ .key | relURL }}" class="card subject-card {{ if eq .key "data-structure" }}ds{{ else if eq .key "computer-org" }}co{{ else if eq .key "os" }}os{{ else }}cn{{ end }}">

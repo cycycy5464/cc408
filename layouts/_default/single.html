@@ -17,7 +17,7 @@
   {{ $currentPath := .File.Path }}
   {{ $relatedExam := where (where .Site.RegularPages "Section" "exam") "Params.related_knowledge" "intersect" (slice $currentPath) }}
   {{ with $relatedExam }}
-  <div style="margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border-color)">
+  <div class="border-top-section">
     <h3>📎 相关题目</h3>
     <div style="display:flex;flex-direction:column;gap:.5rem;margin-top:.75rem">
       {{ range . }}
@@ -30,7 +30,7 @@
   </div>
   {{ end }}
 
-  <div style="margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border-color)">
+  <div class="border-top-section">
     <a href="{{ "docs/" | relURL }}" class="btn btn-ghost">← 返回知识点列表</a>
   </div>
 </div>

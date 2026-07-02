@@ -1,11 +1,11 @@
 {{ define "main" }}<div class="graph-page">
-  <h1 style="text-align:center;padding:1rem 0 0">🗺️ 408 知识图谱</h1>
-  <p style="text-align:center;color:var(--text-secondary);margin-bottom:.5rem;font-size:var(--fs-sm)">拖拽调整布局 · 滚轮缩放 · 点击查看详情 · 双击跳转</p>
+  <h1 class="text-center" style="padding:1rem 0 0">🗺️ 408 知识图谱</h1>
+  <p class="text-center meta-sm">拖拽调整布局 · 滚轮缩放 · 点击查看详情 · 双击跳转</p>
   <div class="graph-search"><input type="text" id="graph-search" placeholder="搜索知识点..."></div>
   <div class="graph-container" id="knowledge-graph"></div>
   <div class="info-panel" id="node-info">
     <h3 id="info-title"></h3>
-    <div id="info-meta" style="color:var(--text-secondary);font-size:var(--fs-sm)"></div>
+    <div id="info-meta" class="meta-sm"></div>
     <div id="info-tags" style="margin-top:.75rem"></div>
     <a id="info-link" href="#" class="btn btn-primary" style="margin-top:1rem;font-size:var(--fs-xs)">查看详情 →</a>
     <button onclick="document.getElementById('node-info').style.display='none'" class="info-panel-close">✕</button>
