@@ -58,6 +58,11 @@
     .text(function(d) { return d.label; });
 
   node.on('click', function(e, d) {
+    // On mobile, navigate directly. On desktop, show info panel.
+    if (window.innerWidth <= 768) {
+      window.location.href = d.id;
+      return;
+    }
     e.stopPropagation();
     document.getElementById('info-title').textContent = d.label;
     document.getElementById('info-title').style.color = subjectColors[d.subject] || '#888';
