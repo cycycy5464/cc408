@@ -81,6 +81,43 @@
   font-weight: 600;
   margin: .75rem 0 .5rem;
 }
+
+/* Exam options */
+.exam-option {
+  display: flex;
+  align-items: center;
+  padding: .7rem .9rem;
+  margin: .4rem 0;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all .2s;
+}
+.exam-option:hover {
+  border-color: var(--accent);
+  background: rgba(57,186,230,.06);
+}
+.exam-option.selected {
+  border-color: var(--accent);
+  background: rgba(57,186,230,.12);
+  color: var(--accent);
+  font-weight: 500;
+}
+.exam-option.correct {
+  border-color: #4ade80;
+  background: rgba(74,222,128,.15);
+  color: #4ade80;
+}
+.exam-option.wrong {
+  border-color: #f87171;
+  background: rgba(248,113,113,.15);
+  color: #f87171;
+}
+.opt-label {
+  font-weight: 600;
+  margin-right: .5rem;
+  min-width: 1.5rem;
+}
 </style>
 
 <script>
@@ -173,6 +210,7 @@
             answerTitle.className = 'answer-title';
             answerTitle.innerHTML = '正确答案：<strong>' + answerValue + '</strong>';
             answerContainer.appendChild(answerTitle);
+            answerContainer.setAttribute('data-answer', answerValue);
             
             if (beforeText.trim()) {
               child.textContent = beforeText;
@@ -200,6 +238,22 @@
     };
     
     walkNodes(qBlock);
+
+    // 将选项 A./B./C./D. 转为可点击元素
+    qBlock.querySelectorAll('p').forEach(function(p) {
+      var m = p.textContent.trim().match(/^([A-D])[.、．]\s*(.+)/);
+      if (m) {
+        var opt = document.createElement('div');
+        opt.className = 'exam-option';
+        opt.setAttribute('data-opt', m[1]);
+        opt.innerHTML = '<span class="opt-label">' + m[1] + '.</span> <span class="opt-text">' + m[2] + '</span>';
+        opt.addEventListener('click', function() {
+          this.parentElement.querySelectorAll('.exam-option').forEach(function(o) { o.classList.remove('selected'); });
+          this.classList.add('selected');
+        });
+        p.parentNode.replaceChild(opt, p);
+      }
+    });
     
     // 替换【解析】
     const replaceAnalysis = function(el) {
@@ -229,6 +283,25 @@
       const isHidden = Array.from(panels).some(p => p.style.display === 'none');
       panels.forEach(p => p.style.display = isHidden ? 'block' : 'none');
       revealBtn.textContent = isHidden ? '隐藏答案与解析' : '查看答案与解析';
+
+      // 显示/清除选项的正确/错误状态
+      const answer = qBlock.querySelector('.answer-panel');
+      if (answer && isHidden) {
+        var correct = answer.getAttribute('data-answer');
+        if (correct) {
+          qBlock.querySelectorAll('.exam-option').forEach(function(opt) {
+            if (opt.getAttribute('data-opt') === correct) {
+              opt.classList.add('correct');
+            } else if (opt.classList.contains('selected')) {
+              opt.classList.add('wrong');
+            }
+          });
+        }
+      } else {
+        qBlock.querySelectorAll('.exam-option').forEach(function(opt) {
+          opt.classList.remove('correct', 'wrong');
+        });
+      }
     };
     
     const favBtn = document.createElement('button');
