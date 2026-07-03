@@ -65,6 +65,15 @@
   cursor: pointer;
   font-size: var(--fs-sm);
   transition: all .2s;
+  color: var(--text-primary);
+}
+.favorite-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.favorite-btn.active {
+  color: #f0c040;
+  border-color: #f0c040;
 }
 .answer-panel {
   margin-top: 1rem;
@@ -167,6 +176,10 @@
         }
       }
     } else {
+      // 隐藏 [tag_link] 标记段落（保留在 DOM 中供大题折叠使用）
+      if (node.tagName === 'P' && node.textContent.trim() === '[tag_link]') {
+        node.style.display = 'none';
+      }
       if (currentQuestionBlock) {
         currentQuestionBlock.appendChild(node);
       } else {
@@ -239,6 +252,23 @@
     
     walkNodes(qBlock);
 
+    // 将答案后的解析内容（blockquote 等兄弟节点）也折叠到 answer-panel 中
+    // walkNodes 把 answer-panel 插入到 "正确答案" 所在 <p> 内部（JS DOM API 不会自动闭合 <p>），
+    // 后续解析是 <p> 的兄弟节点，需通过 answerEl.parentNode（即该 <p>）取 nextSibling 移入
+    if (answerEl && answerEl.parentNode && answerEl.parentNode.tagName === 'P') {
+      var parentP = answerEl.parentNode;
+      // 将 <p> 后的兄弟节点（blockquote 等解析内容）移入 answer-panel
+      var sib = parentP.nextSibling;
+      while (sib) {
+        var next = sib.nextSibling;
+        answerEl.appendChild(sib);
+        sib = next;
+      }
+      // 把 answer-panel 从空的 <p> 中提升到 question-block 层级，然后删除空 <p>
+      parentP.parentNode.insertBefore(answerEl, parentP);
+      parentP.parentNode.removeChild(parentP);
+    }
+
     // 大题折叠：没有"正确答案"的大题，找到标签节点后的内容作为答案折叠
     if (!answerEl) {
       var allNodes = Array.from(qBlock.childNodes);
@@ -246,6 +276,10 @@
       for (var i = allNodes.length - 1; i >= 0; i--) {
         var n = allNodes[i];
         if (n.nodeType === Node.ELEMENT_NODE && n.tagName === 'A') {
+          tagIdx = i; break;
+        }
+        // Check for hidden [tag_link] marker (大题答案折叠标记)
+        if (n.nodeType === Node.ELEMENT_NODE && n.tagName === 'P' && n.textContent.trim() === '[tag_link]') {
           tagIdx = i; break;
         }
         // Also check for text-only "tags" - short Chinese term isolated in text
