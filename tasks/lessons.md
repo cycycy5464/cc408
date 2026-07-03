@@ -109,3 +109,19 @@
 - **git add 前检查 diff**：`git diff --cached` 确认只有预期改动
 - _index.md 等关键文件修改后要立即检查内容完整性
 - 用户明确说了"其他不准动"，那就只改用户指定的内容行，用 `re.sub` 精确匹配行首模式
+
+### 19. Hugo type 决定模板选择
+- `type: exam_collection` → Hugo 查找 `layouts/exam_collection/single.html`
+- `type: exam` → Hugo 查找 `layouts/exam/single.html`
+- 用户自定义 type 需要对应创建模板文件，否则回退到 `_default/`
+- `layout` 参数在 frontmatter 中指定的是**模板文件名**，不是路径。`layout: exam` 会找 `layouts/xxx/exam.html`
+
+### 20. Hugo 页面路径与 section 传播
+- `content/exam/408quiz/2009/content.md` → section 是 `408quiz`（因为 `_index.md` 在 408quiz 目录）
+- section 不会向父级传播，`exam/single.html` 不会默认影响 408quiz 下的页面
+- 解决方法：设 `type: exam` 让 Hugo 使用 exam 类型的模板
+
+### 21. 模板文件必须单独处理
+- 内容文件（`content/`）和模板文件（`layouts/`）应该分开 git add/commit
+- `git add -A` 会同时添加内容和模板的改动，revert 时无法隔离
+- 用户手动修改过的内容，永远不应该被工具自动覆盖
