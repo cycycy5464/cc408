@@ -239,6 +239,43 @@
     
     walkNodes(qBlock);
 
+    // 大题折叠：没有"正确答案"的大题，找到标签节点后的内容作为答案折叠
+    if (!answerEl) {
+      var allNodes = Array.from(qBlock.childNodes);
+      var tagIdx = -1;
+      for (var i = allNodes.length - 1; i >= 0; i--) {
+        var n = allNodes[i];
+        if (n.nodeType === Node.ELEMENT_NODE && n.tagName === 'A') {
+          tagIdx = i; break;
+        }
+        // Also check for text-only "tags" - short Chinese term isolated in text
+        if (n.nodeType === Node.TEXT_NODE) {
+          var t = n.textContent.trim();
+          if (t.length >= 2 && t.length <= 8 && /[一-鿿]/.test(t) && !t.includes('。') && !t.includes('，') && !t.includes(',')) {
+            tagIdx = i;
+          }
+        }
+      }
+      if (tagIdx > 0 && tagIdx < allNodes.length - 2) {
+        var answerWrap = document.createElement('div');
+        answerWrap.className = 'answer-panel';
+        answerWrap.style.display = 'none';
+        for (var j = tagIdx + 1; j < allNodes.length; j++) {
+          answerWrap.appendChild(allNodes[j].cloneNode(true));
+        }
+        // Remove original nodes
+        for (var j = tagIdx + 1; j < allNodes.length; j++) {
+          if (allNodes[j].parentNode) allNodes[j].parentNode.removeChild(allNodes[j]);
+        }
+        // Only add fold button if there's substantial answer content
+        if (answerWrap.textContent.trim().length > 50) {
+          qBlock.appendChild(document.createElement('br'));
+          qBlock.appendChild(answerWrap);
+          answerEl = answerWrap;
+        }
+      }
+    }
+
     // 将选项 A./B./C./D. 转为可点击元素
     qBlock.querySelectorAll('p').forEach(function(p) {
       var m = p.textContent.trim().match(/^([A-D])[.、．]\s*(.+)/);
