@@ -1,7 +1,7 @@
 ---
 title: "模拟卷 4"
 date: 2026-07-01
-type: exam_collection
+type: exam
 subject: "408"
 source: "模拟题"
 difficulty: 3
