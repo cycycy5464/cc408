@@ -46,6 +46,9 @@ taxonomies:
   author: authors
   tag: tags
   publication_type: publication_types
+  year: years
+  subject: subjects
+  knowledge_point: knowledge_points
 markup:
   _merge: deep
   highlight:

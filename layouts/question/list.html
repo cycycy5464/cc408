@@ -1,0 +1,115 @@
+{{ define "main" }}
+<div class="content-area content-area-wide">
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+
+  <div class="question-toolbar">
+    <select id="filter-year">
+      <option value="">全部年份</option>
+      {{ range where .Site.RegularPages "Section" "question" }}
+        {{ range .Params.years }}
+          <option value="{{ . }}">{{ . }}</option>
+        {{ end }}
+      {{ end }}
+    </select>
+    <select id="filter-subject">
+      <option value="">全部科目</option>
+      {{ range where .Site.RegularPages "Section" "question" }}
+        {{ range .Params.subjects }}
+          <option value="{{ . }}">{{ . }}</option>
+        {{ end }}
+      {{ end }}
+    </select>
+    <select id="filter-type">
+      <option value="">全部题型</option>
+      <option value="choice">选择题</option>
+      <option value="comprehensive">解答题</option>
+    </select>
+    <input type="text" id="filter-search" placeholder="搜索题目…">
+  </div>
+
+  <div class="question-grid" id="question-grid">
+    {{ range (where .Site.RegularPages "Section" "question").ByParam "number" }}
+    <a href="{{ .RelPermalink }}" class="question-card"
+       data-year="{{ delimit .Params.years "," }}"
+       data-subject="{{ delimit .Params.subjects "," }}"
+       data-type="{{ .Params.question_type }}">
+      <div class="meta">
+        <span class="tag">{{ range .Params.years }}{{ . }}{{ end }}</span>
+        <span class="tag tag-accent">{{ range .Params.subjects }}{{ . }}{{ end }}</span>
+        <span class="tag tag-warm">{{ if eq .Params.question_type "comprehensive" }}解答{{ else }}选择{{ end }}</span>
+        <span>{{ $d := default 1 .Params.difficulty }}{{ range seq 1 4 }}{{ if le . $d }}★{{ else }}☆{{ end }}{{ end }}</span>
+      </div>
+      <div class="stem">{{ .Title }}</div>
+    </a>
+    {{ end }}
+  </div>
+
+  <div class="border-top-section">
+    <a href="{{ "exam/" | relURL }}" class="btn btn-ghost">← 返回刷题中心</a>
+  </div>
+</div>
+
+<style>
+.question-toolbar {
+  display: flex; gap: .75rem; flex-wrap: wrap; align-items: center;
+  padding: 1rem; background: var(--bg-secondary);
+  border: 1px solid var(--border-color); border-radius: var(--radius-md);
+  margin-bottom: 1.5rem;
+}
+.question-toolbar select, .question-toolbar input {
+  padding: .45rem .75rem; background: var(--bg-card); color: var(--text-primary);
+  border: 1px solid var(--border-color); border-radius: var(--radius-sm);
+  font-size: var(--fs-sm); font-family: var(--font-body);
+}
+.question-toolbar input { flex: 1; min-width: 180px; }
+.question-toolbar select:focus, .question-toolbar input:focus { outline: none; border-color: var(--accent); }
+.question-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: .75rem; }
+.question-card {
+  display: block; padding: 1rem; background: var(--bg-card);
+  border: 1px solid var(--border-color); border-radius: var(--radius-md);
+  text-decoration: none; color: var(--text-primary); transition: all .25s;
+}
+.question-card:hover { border-color: var(--accent); box-shadow: var(--shadow-glow); }
+.question-card .meta { display: flex; gap: .35rem; flex-wrap: wrap; margin-bottom: .5rem; }
+.question-card .stem { font-size: var(--fs-sm); line-height: 1.5; }
+</style>
+
+<script>
+(function() {
+  const grid = document.getElementById('question-grid');
+  if (!grid) return;
+  const cards = Array.from(grid.querySelectorAll('.question-card'));
+  const yearSel = document.getElementById('filter-year');
+  const subjSel = document.getElementById('filter-subject');
+  const typeSel = document.getElementById('filter-type');
+  const search = document.getElementById('filter-search');
+
+  function filter() {
+    const y = yearSel.value, s = subjSel.value, t = typeSel.value, q = search.value.toLowerCase();
+    cards.forEach(function(c) {
+      const cy = c.getAttribute('data-year');
+      const cs = c.getAttribute('data-subject');
+      const ct = c.getAttribute('data-type');
+      const matchYear = !y || cy.includes(y);
+      const matchSubj = !s || cs.includes(s);
+      const matchType = !t || ct === t;
+      const matchSearch = !q || c.textContent.toLowerCase().includes(q);
+      c.style.display = (matchYear && matchSubj && matchType && matchSearch) ? 'block' : 'none';
+    });
+  }
+
+  yearSel.addEventListener('change', filter);
+  subjSel.addEventListener('change', filter);
+  typeSel.addEventListener('change', filter);
+  search.addEventListener('input', filter);
+
+  // Deduplicate filter options
+  function dedup(sel) {
+    var seen = {}; var opts = sel.querySelectorAll('option');
+    opts.forEach(function(o) { if (o.value && seen[o.value]) o.remove(); else if (o.value) seen[o.value] = true; });
+  }
+  dedup(yearSel); dedup(subjSel);
+})();
+</script>
+{{ end }}

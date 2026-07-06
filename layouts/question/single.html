@@ -1,0 +1,184 @@
+{{ define "main" }}
+<div class="content-area content-area-wide">
+  <div class="meta-row">
+    {{ range .Params.years }}<span class="tag">{{ . }}</span>{{ end }}
+    {{ range .Params.subjects }}<span class="tag tag-accent">{{ . }}</span>{{ end }}
+    {{ $d := default 1 .Params.difficulty }}{{ range seq 1 4 }}{{ if le . $d }}<span class="diff-star">★</span>{{ else }}<span class="diff-star-empty">☆</span>{{ end }}{{ end }}
+    {{ range .Params.knowledge_points }}<span class="tag tag-purple">{{ . }}</span>{{ end }}
+    {{ with .Params.question_type }}<span class="tag tag-warm">{{ if eq . "comprehensive" }}解答题{{ else }}选择题{{ end }}</span>{{ end }}
+  </div>
+
+  <div class="question-nav">
+    <a href="/cc408/question/" class="btn btn-ghost">← 题目列表</a>
+    <span id="q-navigation" class="nav-links"></span>
+  </div>
+
+  <article class="exam-content" id="exam-container">{{ .Content }}</article>
+
+  <div class="question-actions" id="q-actions"></div>
+
+  <div class="border-top-section" style="margin-top:2rem; display:flex; justify-content:space-between">
+    <a href="#" id="prev-q" class="btn btn-outline">← 上一题</a>
+    <a href="#" id="next-q" class="btn btn-outline">下一题 →</a>
+  </div>
+</div>
+
+<style>
+.question-nav { display:flex; align-items:center; gap:1rem; margin-bottom:1rem; flex-wrap:wrap; }
+.question-nav .nav-links { font-size:var(--fs-sm); color:var(--text-muted); }
+.question-actions { margin-top:1rem; display:flex; gap:.75rem; align-items:center; }
+.reveal-btn {
+  background: var(--accent); color: white; border: none;
+  padding: .4rem .9rem; border-radius: var(--radius-sm); cursor: pointer;
+  font-size: var(--fs-sm); font-weight: 500; transition: all .2s;
+}
+.reveal-btn:hover { opacity: .9; }
+.favorite-btn {
+  background: transparent; border: 1px solid var(--border-color);
+  padding: .4rem .9rem; border-radius: var(--radius-sm); cursor: pointer;
+  font-size: var(--fs-sm); transition: all .2s; color: var(--text-primary);
+}
+.favorite-btn:hover { color: var(--accent); border-color: var(--accent); }
+.favorite-btn.active { color: #f0c040; border-color: #f0c040; }
+.answer-panel { margin-top:1rem; padding-top:1rem; border-top:1px dashed var(--border-color); display:none; }
+.answer-title { font-weight:600; color:var(--color-ds); margin-bottom:.5rem; }
+.analysis-title { font-weight:600; margin:.75rem 0 .5rem; }
+
+/* Exam options */
+.exam-option {
+  display:flex; align-items:center; padding:.7rem .9rem; margin:.4rem 0;
+  border:1px solid var(--border-color); border-radius:var(--radius-sm);
+  cursor:pointer; transition:all .2s;
+}
+.exam-option:hover { border-color:var(--accent); background:rgba(57,186,230,.06); }
+.exam-option.selected { border-color:var(--accent); background:rgba(57,186,230,.12); color:var(--accent); font-weight:500; }
+.exam-option.correct { border-color:#4ade80; background:rgba(74,222,128,.15); color:#4ade80; }
+.exam-option.wrong { border-color:#f87171; background:rgba(248,113,113,.15); color:#f87171; }
+.opt-label { font-weight:600; margin-right:.5rem; min-width:1.5rem; }
+</style>
+
+<script>
+(function() {
+  const container = document.getElementById('exam-container');
+  if (!container) return;
+
+  // --- Step 1: Hide [tag_link] markers ---
+  container.querySelectorAll('p').forEach(function(p) {
+    if (p.textContent.trim() === '[tag_link]') p.style.display = 'none';
+  });
+
+  // --- Step 2: Fold answer ---
+  let answerEl = null;
+  let answerValue = '';
+
+  const findAnswer = function(el) {
+    for (let child = el.firstChild; child; child = child.nextSibling) {
+      if (child.nodeType === Node.TEXT_NODE) {
+        const m = child.textContent.match(/正确答案[：:]\s*([ABCDabcd])/);
+        if (m) {
+          answerValue = m[1].toUpperCase();
+          const before = child.textContent.substring(0, m.index);
+          const after = child.textContent.substring(m.index + m[0].length);
+
+          const panel = document.createElement('div');
+          panel.className = 'answer-panel';
+          panel.style.display = 'none';
+          const title = document.createElement('div');
+          title.className = 'answer-title';
+          title.innerHTML = '正确答案：<strong>' + answerValue + '</strong>';
+          panel.appendChild(title);
+          panel.setAttribute('data-answer', answerValue);
+
+          if (before.trim()) child.textContent = before;
+          else el.removeChild(child);
+          if (after.trim()) el.insertBefore(document.createTextNode(after), child.nextSibling);
+
+          el.insertBefore(panel, child.nextSibling);
+          answerEl = panel;
+
+          // Move subsequent siblings (blockquote 解析等) into panel
+          var p = panel.parentNode;
+          if (p && p.tagName === 'P') {
+            var sib = p.nextSibling;
+            while (sib) { var nxt = sib.nextSibling; panel.appendChild(sib); sib = nxt; }
+            p.parentNode.insertBefore(panel, p);
+            p.parentNode.removeChild(p);
+          }
+          return true;
+        }
+      } else if (child.nodeType === Node.ELEMENT_NODE) {
+        if (findAnswer(child)) return true;
+      }
+    }
+    return false;
+  };
+
+  findAnswer(container);
+
+  // --- Step 3: Convert options A./B./C./D. to clickable ---
+  container.querySelectorAll('p').forEach(function(p) {
+    var m = p.textContent.trim().match(/^([A-D])[.、．]\s*(.+)/);
+    if (m) {
+      var opt = document.createElement('div');
+      opt.className = 'exam-option';
+      opt.setAttribute('data-opt', m[1]);
+      opt.innerHTML = '<span class="opt-label">' + m[1] + '.</span> <span class="opt-text">' + m[2] + '</span>';
+      opt.addEventListener('click', function() {
+        this.parentElement.querySelectorAll('.exam-option').forEach(function(o) { o.classList.remove('selected'); });
+        this.classList.add('selected');
+      });
+      p.parentNode.replaceChild(opt, p);
+    }
+  });
+
+  // --- Step 4: Replace 【解析】 ---
+  const rp = function(el) {
+    for (let c = el.firstChild; c; c = c.nextSibling) {
+      if (c.nodeType === Node.TEXT_NODE && c.textContent.includes('【解析】')) {
+        const h = c.textContent.replace(/【解析】/g, '<div class="analysis-title">解析：</div>');
+        const t = document.createElement('div'); t.innerHTML = h;
+        el.replaceChild(t.firstChild, c);
+      } else if (c.nodeType === Node.ELEMENT_NODE) rp(c);
+    }
+  };
+  rp(container);
+
+  // --- Step 5: Add reveal button ---
+  const actions = document.getElementById('q-actions');
+  if (actions) {
+    const revealBtn = document.createElement('button');
+    revealBtn.className = 'reveal-btn';
+    revealBtn.textContent = '查看答案与解析';
+    revealBtn.onclick = function() {
+      const panels = container.querySelectorAll('.answer-panel');
+      const hidden = Array.from(panels).some(p => p.style.display === 'none');
+      panels.forEach(p => p.style.display = hidden ? 'block' : 'none');
+      revealBtn.textContent = hidden ? '隐藏答案与解析' : '查看答案与解析';
+
+      const ap = container.querySelector('.answer-panel');
+      if (ap && hidden) {
+        var correct = ap.getAttribute('data-answer');
+        if (correct) {
+          container.querySelectorAll('.exam-option').forEach(function(opt) {
+            if (opt.getAttribute('data-opt') === correct) opt.classList.add('correct');
+            else if (opt.classList.contains('selected')) opt.classList.add('wrong');
+          });
+        }
+      } else {
+        container.querySelectorAll('.exam-option').forEach(function(o) { o.classList.remove('correct','wrong'); });
+      }
+    };
+    actions.appendChild(revealBtn);
+
+    const favBtn = document.createElement('button');
+    favBtn.className = 'favorite-btn';
+    favBtn.innerHTML = '⭐ 收藏';
+    favBtn.onclick = function() {
+      favBtn.classList.toggle('active');
+      favBtn.innerHTML = favBtn.classList.contains('active') ? '★ 已收藏' : '⭐ 收藏';
+    };
+    actions.appendChild(favBtn);
+  }
+})();
+</script>
+{{ end }}
