@@ -136,3 +136,124 @@
 - `<button>` 元素不继承父元素的 `color`，而是使用浏览器默认的 `ButtonText`（通常为黑色）
 - 在深色主题下必须显式设置 `color` 属性
 - **规则**：所有自定义 `<button>` 都必须设置 `color: var(--text-primary)`
+
+### 24. Hugo `<script type="application/json">` 的转义陷阱
+- `{{ $data | jsonify | safeJS }}` 在 `<script>` 标签中会被双重转义
+  - `jsonify` 返回 JSON 字符串 → `safeJS` 标记为安全 JS → Hugo 在 script 上下文中包裹引号
+  - 输出: `>`**"**`{...}`（多了一层引号包裹，JSON.parse 会解析成字符串而非对象）
+- **修复**: 改用 `<div style="display:none">{{ $data | jsonify }}</div>`
+  - HTML 上下文中 `&#34;`（引号的 HTML 实体）被 `textContent` 自动解码回 `"`
+  - `JSON.parse(div.textContent)` 得到正确的对象
+
+### 25. Hugo 模板作用域与 Scratch（Hugo 0.135）
+- Hugo v0.135 下 `newScratch` 和 `$s.Get/Set` 可能触发解析错误：
+  ```
+  parse failed: undefined variable "$nodes"
+  ```
+  即使 `$s` 已定义且 `$nodes` 在代码后面才赋值，仍可能报错。
+- **修复**: 改用直接变量赋值，避开 Scratch API：
+  ```go
+  {{ $nodes := slice }}
+  {{ range ... }}
+    {{ $nodes = $nodes | append ... }}
+  {{ end }}
+  ```
+  这种写法在 Hugo 0.135 下可用。
+- **注意**: `range` 内修改外层变量用 `=`（赋值）而非 `:=`（声明+赋值）
+- 如果直接赋值仍然报错，尝试在 `range` 外层先声明一个空 `slice` 再赋值
+
+## 内容管理
+
+### 26. Junction 连接 Obsidian Vault 和 Hugo 项目
+- `mklink /J vault/cc408-content/ hugo-project/content/`
+- 实现实时双向同步，零拷贝
+- 需要排除 `_index.md`（Hugo 专属节页面）→ `userIgnoreFilters: ["_index.md"]`
+- 旧备份移出 vault 避免 Obsidian 索引（`D:\_archived_...\`）
+
+### 27. Obsidian 书签配置文件
+- 路径: `.obsidian/bookmarks.json`
+- 格式:
+  ```json
+  {
+    "items": [
+      { "type": "folder", "title": "📖 408考研", "path": "cc408-content" }
+    ]
+  }
+  ```
+
+## 内容操作
+
+### 28. 批量修改 frontmatter 的注意事项
+- **sed 分隔符冲突**: 标题含 `/`（如 `总线和I/O系统`）→ 用 `s|pat|rep|` 替代 `s/pat/rep/`
+- **PowerShell `-join` 优先级**: `"a" + (array) -join ","` 中 `+` 先执行，数组被转成空格字符串
+  - 正确: `'"prefix ["' + ($titles -join '", "') + '"]'`
+- **PowerShell IFS 陷阱**: `IFS='||'` 等价于 `IFS='|'`（IFS 是单字符集合）
+  - `A||B` 按 `|` 拆分得 `A, '', B`，中间出现空元素
+  - **修复**: 用单字符 `|` 作为分隔符
+
+### 29. 知识图谱 prerequisites 填充策略
+- 按章节顺序自动推断: chN 依赖 ch(N-1)
+- ch00 无前置知识，跳过
+- 每篇笔记的 frontmatter 自动更新 `prerequisites: ["前一章title1", "前一章title2"]`
+- 112 节点 + 451 连线，完全自动生成
+
+### 30. SCSS `@import` 含 `.css` 后缀不会内联
+- `@import "exam.css"` 在 Sass 中生成原生 CSS `@import url(exam.css)`，不会内联
+- 浏览器单独请求该文件，导致 404（文件不在 standalone 路径）
+- **修复**: 重命名为 `_exam.scss`，导入改为 `@import "exam"`（无后缀）
+- Sass 自动解析 `_exam.scss` 为 SCSS 部分文件并内联
+
+### 31. 文件截断导致 SCSS 编译错误
+- `assets/css/exam.css` 文件末尾被截断，`border: 1px solid v` 后缺失内容
+- 之前因为 `@import "exam.css"` 生成原生 CSS `@import`，SCSS 处理器未解析，所以未报错
+- 改为内联后，SCSS 处理器尝试解析截断的 CSS → 编译报错
+- **修复**: 补全截断的 CSS 规则
+### 32. `static/` vs `assets/` JS 冲突导致模板引用旧版本
+- Hugo 中 `static/` 下的文件直接复制到 `public/`，`assets/` 下的文件需经 Hugo 管线处理
+- `{{ "js/xxx.js" | relURL }}` 解析的是 **`static/js/xxx.js`**，不是 `assets/js/xxx.js`
+- 当两边各有一个同名 JS 文件时，`assets/` 的更新不会被模板感知
+- **根因**: 知识图谱 JS 从 `<script>` 标签改为 `<div>` 读取数据，但更新在 `assets/` 中，而模板引用的是 `static/` 旧版本
+- **修复**: 确认模板引用的具体路径，确保更新正确的文件
+
+### 33. 题目拆分脚本的关键边界处理
+- 源 content.md 中存在两种题目编号格式：`##### N`（标准 markdown header）和 `N. (N分)`（内联格式，含转义反斜杠）
+- 综合题（41-47）的科目按题号范围强制覆盖：41-42=DS, 43-44=CO, 45-46=OS, 47=CN
+- 源文件中 `#### 科目` 标题可能缺失或内联在文本中（如 "组成原理 43"），需用题号范围兜底
+- **修复**: 同时支持两种编号格式 + 大题科目按范围覆盖
+
+### 34. 标签数据的科目名称不一致
+- `tags_data.json` 和 `tags_pro_data.json` 中科目 key 使用简称「组成原理」而非全称「计算机组成原理」
+- 前端 JS 中使用的是全称做索引，导致该科目卡片和标签数据为空
+- **修复**: 统一使用源数据的 key 名称，用 `SUBJECT_FULL_NAMES` 映射表做显示转换
+
+### 35. Chart.js 大规模数据渲染
+- 247 个水平条形图需要足够的高度（64px/项 × 247 ≈ 15,800px）和 scroll 容器
+- 条形图中 `barThickness` 必须设为固定值，否则 Chart.js 自动压缩
+- 显示数据表格（表格在前）作为图表的文字替代，支持滚动和点击跳转
+- **交互**: 点击图表柱或表格行 → 跳转到 `/knowledge_points/<标签名>/`
+
+### 32. `static/` vs `assets/` JS 冲突导致模板引用旧版本
+- Hugo 中 `static/` 下的文件直接复制到 `public/`，`assets/` 下的文件需经 Hugo 管线处理
+- `{{ "js/xxx.js" | relURL }}` 解析的是 **`static/js/xxx.js`**，不是 `assets/js/xxx.js`
+- 当两边各有一个同名 JS 文件时，`assets/` 的更新不会被模板感知
+- **根因**: 知识图谱 JS 从 `<script>` 标签改为 `<div>` 读取数据，但更新在 `assets/` 中，而模板引用的是 `static/` 旧版本
+- **修复方案**: 
+  - 方案A: 更新 `static/` 中的对应文件（简单直接）
+  - 方案B: 模板改用 Hugo 资产管线：`{{ $js := resources.Get "js/xxx.js" }} → {{ $js.RelPermalink }}`
+- **规则**: 模板引用的 JS/CSS 文件，先确认它来自 `static/` 还是 `assets/`
+
+### 36. GitHub Actions Node.js 版本迁移
+- 当 Actions runner 警告 `target Node.js 20 but running on Node.js 24`，需升级 Action 的 major version
+- `actions/checkout@v4` → `@v5`（2025 年 9 月起 Node.js 20 废弃）
+- `actions/configure-pages@v5` → `@v6`
+- `actions/upload-pages-artifact@v3` → `@v4`
+- `actions/deploy-pages@v4` → `@v5`
+- **规则**: `git push` 后检查 Actions 运行日志，看到 deprecation warning 就升级对应 action
+- **无需改业务代码**，只改 workflow 文件的 `uses:` 行版本号
+
+### 37. IndexedDB → localStorage 迁移原因
+- `IDBObjectStore.createIndex()` 返回 `IDBIndex`，**没有** `createIndex` 方法（`IDBIndex` 不可再创索引）
+- `tagIdx.createIndex("subject", "subject")` 在第 2 次数据库打开时（`onupgradeneeded` 不触发）不会报错，但首次创建时抛 `TypeError`，导致数据库创建失败
+- **修复**: 改用 `localStorage`（同步 API，零版本冲突，两脚本共用同一 key `quiz_collections`）
+- **教训**: IndexedDB 的 `onupgradeneeded` 中任何 JS 错误都会导致数据库创建中止且不易调试
+- 如果必须用 IndexedDB，schema 变更需递增版本号，且 `createIndex` 必须在 store 上调用，不能在已返回的 index 上调用
