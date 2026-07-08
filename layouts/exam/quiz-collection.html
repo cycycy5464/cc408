@@ -1,0 +1,42 @@
+{{ define "main" }}
+<div class="content-area content-area-wide" style="padding-top:3rem">
+  <div id="quiz-collection-app">
+    <div class="qc-header">
+      <h1>📌 我的题目收藏</h1>
+      <p class="qc-subtitle">管理和复习你收藏的所有题目</p>
+    </div>
+    <div class="qc-stats" id="qc-stats"></div>
+    <div class="qc-toolbar" id="qc-toolbar">
+      <div class="qc-toolbar-row">
+        <input type="text" class="qc-search" id="qc-search" placeholder="搜索题目内容、标签、科目..." />
+        <div class="qc-mode-group">
+          <button class="qc-mode-btn active" data-mode="practice">练习</button>
+          <button class="qc-mode-btn" data-mode="display">显示</button>
+        </div>
+        <div class="qc-layout-group">
+          <button class="qc-layout-btn" data-cols="1">≡</button>
+          <button class="qc-layout-btn active" data-cols="2">▦</button>
+          <button class="qc-layout-btn" data-cols="3">■</button>
+        </div>
+      </div>
+      <div class="qc-toolbar-row">
+        <button class="qc-action-btn" id="qc-export">📥 导出</button>
+        <button class="qc-action-btn" id="qc-import">📤 导入</button>
+        <button class="qc-action-btn qc-danger" id="qc-clear">🗑 清空全部</button>
+      </div>
+    </div>
+    <div class="qc-filters" id="qc-filters" style="display:none">
+      <div class="qc-filter-section" id="qc-subject-filters"></div>
+      <div class="qc-filter-section" id="qc-tag-filters"></div>
+    </div>
+    <div class="qc-grid" id="qc-grid"></div>
+    <div class="qc-empty" id="qc-empty">
+      <div class="qc-empty-icon">📌</div>
+      <h3>还没有收藏任何题目</h3>
+      <p>在题目页面点击"收藏"按钮即可添加到这里</p>
+    </div>
+  </div>
+</div>
+{{ $js := resources.Get "js/quiz-collection.js" | resources.Minify | resources.Fingerprint }}
+<script src="{{ $js.RelPermalink }}"></script>
+{{ end }}

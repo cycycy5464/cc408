@@ -6,12 +6,12 @@ main:
   - name: 知识点
     url: /docs/
     weight: 20
-  - name: 真题
-    url: /exam/408quiz/
-    weight: 25
   - name: 刷题
     url: /exam/
     weight: 30
+  - name: 收藏
+    url: /exam/quiz-collection/
+    weight: 35
   - name: 知识图谱
     url: /graph/
     weight: 40

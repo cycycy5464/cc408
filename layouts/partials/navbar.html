@@ -6,8 +6,10 @@
     {{ $baseRel := "" | relURL }}
     {{ $section := "" }}
     {{ if hasPrefix $current (print $baseRel "docs/") }}{{ $section = "docs" }}
-    {{ else if hasPrefix $current (print $baseRel "exam/408quiz/") }}{{ $section = "quiz" }}
+    {{ else if hasPrefix $current (print $baseRel "exam/408quiz/") }}{{ $section = "exam" }}
+    {{ else if hasPrefix $current (print $baseRel "exam/quiz-collection/") }}{{ $section = "quiz-collection" }}
     {{ else if hasPrefix $current (print $baseRel "exam/") }}{{ $section = "exam" }}
+    {{ else if hasPrefix $current (print $baseRel "question/") }}{{ $section = "exam" }}
     {{ else if hasPrefix $current (print $baseRel "graph/") }}{{ $section = "graph" }}
     {{ else if hasPrefix $current (print $baseRel "resources/") }}{{ $section = "resources" }}
     {{ end }}
@@ -18,8 +20,8 @@
       {{ $isActive = or (eq $current "/") (eq $current (print $baseRel)) }}
     {{ else if eq $section "docs" }}
       {{ $isActive = eq $menuURL (print $baseRel "docs/") }}
-    {{ else if eq $section "quiz" }}
-      {{ $isActive = eq $menuURL (print $baseRel "exam/408quiz/") }}
+    {{ else if eq $section "quiz-collection" }}
+      {{ $isActive = eq $menuURL (print $baseRel "exam/quiz-collection/") }}
     {{ else if eq $section "exam" }}
       {{ $isActive = eq $menuURL (print $baseRel "exam/") }}
     {{ else if eq $section "graph" }}

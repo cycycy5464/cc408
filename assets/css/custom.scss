@@ -1,4 +1,5 @@
-@import "exam.css";
+@import "exam";
+@import "quiz-collection";
 
 /* ==== CC408 Design System ==== */
 :root {
@@ -191,6 +192,10 @@ details[open] summary{margin-bottom:1rem;border-bottom:1px solid var(--border-co
 .graph-search{position:absolute;top:90px;left:1.5rem;z-index:10}
 .graph-search input{padding:.5rem 1rem;background:var(--bg-card);color:var(--text-primary);border:1px solid var(--border-color);border-radius:var(--radius-md);width:250px;font-size:var(--fs-sm)}
 .graph-container{width:100%;height:70vh;position:relative;margin-top:1rem;min-height:500px}
+.graph-tabs{display:flex;justify-content:center;gap:.5rem;margin-top:1rem}
+.graph-tab{padding:.5rem 1.5rem;background:var(--bg-card);color:var(--text-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);font-size:var(--fs-sm);font-weight:500;cursor:pointer;transition:all .25s;font-family:var(--font-body)}
+.graph-tab:hover{border-color:var(--accent);color:var(--text-primary)}
+.graph-tab.active{background:rgba(57,186,230,.12);border-color:var(--accent);color:var(--accent)}
 @media(max-width:768px){
   .navbar{padding:0 1rem}
   .navbar-links{display:none;position:absolute;top:60px;left:0;right:0;background:var(--bg-secondary);flex-direction:column;padding:1rem;gap:1rem;border-bottom:1px solid var(--border-color)}
