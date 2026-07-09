@@ -311,3 +311,28 @@
 - `createQuizCard` 中 `tags.split(",")` 对数组类型抛 TypeError，对 JSON 数组字符串产生带方括号/引号的碎片标签
 - **修复**: 先用正则 `\["[^\]]*"\]` 匹配 JSON 数组，解析失败再回退逗号拆分 + `replace(/^\[|"|\]$/g, '')` 清理
 - **教训**: 用户 localStorage 中的数据格式不受代码版本控制，展示时必须做多格式兼容
+
+## SVG 还原
+
+### 47. HTML 包裹的 SVG 提取
+- csgraduates 的 SVG 以 HTML 片段形式出现：`<div class=svg-wrapper>` 包裹 `<svg>`
+- 提取时用 `lastIndexOf("</svg>")` 而非 `indexOf("</svg>")`，因为内部可能有嵌套 SVG
+- 非贪婪正则 `<svg[\s\S]*?</svg>` 匹配到嵌套 SVG 的第一个 `</svg>`，返回不完整 SVG
+- **修复**: 用 `lastIndexOf("</svg>")` 找主 SVG 的闭合标签
+
+### 48. HTML 无引号属性 → XML/SVG 错误
+- csgraduates 的 HTML 属性无引号（如 `x=2 y=30.5`），这在 HTML5 中合法
+- SVG 以 `image/svg+xml` MIME 提供时必须是合法 XML，所有属性值必须用引号包裹
+- 批量修复正则 `/\s([a-zA-Z][\w-]*)=([^\s>"']+)/g` 可能产生双重引号（`=""0""`）
+- **修复**: 加引号后必须执行 `replace(/""/g, '"')` 清理双重引号
+
+### 49. SVG 路径缺少 stroke 属性
+- 从 HTML 提取后，部分路径的 `stroke` 属性可能丢失
+- 连接线 `M x y L x y` 格式的路径需要显式 `stroke="#000000" stroke-width="2"`
+- 带 `fill="none"` 无 `stroke` 的路径完全不可见
+- **检测**: 渲染后看不到连线或边框 → 检查 `<path>` 的 stroke 属性
+
+### 50. 在线获取 vs 本地备份的 SVG 完整性
+- csgraduates 的内联 SVG 可能被 HTML 分割（部分图形元素在 SVG 外作为独立 HTML）
+- 从 svg-wrapper HTML 备份中提取的 SVG 比在线页面直接提取的更完整
+- **策略**: 优先使用本地备份版本，而非在线页面提取的 SVG
