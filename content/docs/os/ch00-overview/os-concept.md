@@ -1,5 +1,6 @@
 ---
 title: "操作系统概念"
+aliases: ["操作系统概念"]
 date: 2026-06-25
 weight: 1
 tags: [基础概念]

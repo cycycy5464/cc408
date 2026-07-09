@@ -1,10 +1,11 @@
 ---
 title: "数据链路层设备"
+aliases: ["数据链路层设备"]
 date: 2026-06-25
 weight: 15
 tags: [设备管理]
 difficulty: 2
-prerequisites: []
+prerequisites: ["通信概念", "物理层设备", "编码与调制", "物理层", "交换方式"]
 subject: network
 chapter: 2
 chapter_title: "数据链路层设备"
@@ -84,3 +85,12 @@ chapter_title: "数据链路层设备"
 **性能**|  软件转发，处理能力较弱| 硬件转发（ASIC 芯片），转发速度更快  
 **功能**|  简单地转发帧，适合小型或实验网络| 支持 **VLAN** 、端口镜像、链路聚合等高级功能  
 **使用场景**|  用于连接两个小型网络| 用于构建现代企业内部网络（LAN）
+
+
+## 相关笔记
+
+- [[communication|通信概念]]
+- [[devices|物理层设备]]
+- [[encoding|编码与调制]]
+- [[phy-index|物理层]]
+- [[switching|交换方式]]

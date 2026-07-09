@@ -1,10 +1,11 @@
 ---
 title: "DHCP协议"
+aliases: ["DHCP协议"]
 date: 2026-06-25
 weight: 20
 tags: [体系结构]
 difficulty: 2
-prerequisites: []
+prerequisites: ["数据链路层设备", "数据链路层", "差错控制", "流量控制", "组帧", "局域网与广域网", "介质访问控制"]
 subject: network
 chapter: 3
 chapter_title: "DHCP协议"
@@ -45,3 +46,14 @@ Here is your...Text is not SVG - cannot display
 * 提供所选 IP 地址的 DHCP 服务器收到 **DHCP REQUEST** 消息后，会发送一个 **DHCP ACK** 给客户端，确认IP 地址和配置信息的租约。如果由于某种原因导致该 IP 地址不再可用或者有其他问题，DHCP 服务器可能会发送一个 **DHCP NAK** 。
 
 
+
+
+## 相关笔记
+
+- [[devices|数据链路层设备]]
+- [[dl-index|数据链路层]]
+- [[error-control|差错控制]]
+- [[flow-control|流量控制]]
+- [[framing|组帧]]
+- [[lan-wan|局域网与广域网]]
+- [[mac|介质访问控制]]

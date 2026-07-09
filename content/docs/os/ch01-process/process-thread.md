@@ -1,10 +1,11 @@
 ---
 title: "进程与线程"
+aliases: ["进程与线程"]
 date: 2026-06-25
 weight: 5
 tags: [进程管理]
 difficulty: 1
-prerequisites: []
+prerequisites: ["计算机系统概述", "操作系统概念", "操作系统结构", "程序运行环境"]
 subject: os
 chapter: 1
 chapter_title: "进程与线程"
@@ -301,3 +302,11 @@ PCB 主要包含以下几类信息：
   * **一对一** ：每一个用户级线程都对应一个内核级线程。
   * **多对一** ：多个用户级线程映射到同一个内核级线程上。
   * **多对多** ：多个用户级线程映射到多个内核级线程上。
+
+
+## 相关笔记
+
+- [[computer-overview|计算机系统概述]]
+- [[os-concept|操作系统概念]]
+- [[os-structure|操作系统结构]]
+- [[program-env|程序运行环境]]

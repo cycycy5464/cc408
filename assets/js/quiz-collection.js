@@ -260,51 +260,52 @@
 
     createQuizCard(quiz) {
       var isChoice = quiz.type === "choice";
-      var badgeClass = isChoice ? "choice-type" : "answer-type";
-      var badgeText = isChoice ? "选择题" : "解答题";
+      var isDisplay = this.mode === "display";
+      var num = quiz.quizNumber || "?";
       var date = new Date(quiz.collectedAt).toLocaleDateString("zh-CN");
-
-      var tags = "";
-      if (quiz.tags) {
-        tags = quiz.tags.split(",").map(function (t) { return t.trim(); }).filter(Boolean).map(function (t) { return '<span class="qc-card-tag">' + t + "</span>"; }).join("");
-      }
 
       var optionsHtml = "";
       if (isChoice && quiz.options) {
-        var isMulti = quiz.multiple;
-        optionsHtml = '<div class="qc-options">' +
-          quiz.options.map(function (opt, i) {
-            var letter = String.fromCharCode(65 + i);
-            var markerClass = isMulti ? "multi" : "";
-            return '<button class="qc-option ' + markerClass + '" data-opt-index="' + i + '" data-opt-letter="' + letter + '"><span class="qc-option-marker"></span><span>' + opt + "</span></button>";
-          }).join("") +
-          "</div>" +
-          (isMulti ? '<div class="qc-multiple-hint">可多选</div>' : "");
+        optionsHtml = quiz.options.map(function (opt, i) {
+          var letter = String.fromCharCode(65 + i);
+          return '<div class="exam-option" data-opt="' + letter + '"><span class="opt-label">' + letter + '.</span><span class="opt-text">' + opt + "</span></div>";
+        }).join("");
       }
 
       var questionHtml = typeof quiz.question === "string" ? quiz.question : Array.isArray(quiz.question) ? quiz.question.join("<br>") : "";
 
-      return '<div class="qc-card" data-quiz-id="' + quiz.id + '">' +
-        '<div class="qc-card-header">' +
-        '<span class="qc-type-badge ' + badgeClass + '">' + badgeText + '</span>' +
-        '<span class="qc-subject-tag">' + (quiz.subject || "") + '</span>' +
-        "</div>" +
-        '<div class="qc-card-meta">' +
-        (quiz.pageTitle ? '<a href="' + (quiz.pageUrl || "#") + '" target="_blank" rel="noopener">' + quiz.pageTitle + "</a>" : "") +
-        "<span>" + date + "</span>" +
-        "</div>" +
-        (tags ? '<div class="qc-card-tags">' + tags + "</div>" : "") +
-        '<div class="qc-question-text">' + questionHtml + "</div>" +
+      var tags = "";
+      if (quiz.tags) {
+        var tagStr = typeof quiz.tags === 'string' ? quiz.tags : Array.isArray(quiz.tags) ? quiz.tags.join(",") : String(quiz.tags);
+        var tagList = [];
+        var jsonRe = /\["[^\]]*"\]/g;
+        var m;
+        while ((m = jsonRe.exec(tagStr)) !== null) {
+          try { JSON.parse(m[0]).forEach(function(t) { if (t) tagList.push(t); }); } catch(e) {}
+        }
+        if (tagList.length === 0) {
+          tagList = tagStr.split(",").map(function (t) { return t.replace(/^\[|"|\]$/g, '').trim(); }).filter(Boolean);
+        }
+        tags = '<div class="qc-card-tags">' + tagList.map(function (t) { return '<span class="tag">' + t + '</span>' }).join("") + '</div>';
+      }
+
+      var sourceLabel = quiz.pageTitle || '';
+      var source = sourceLabel ? '<div class="qc-card-source"><a href="' + (quiz.pageUrl || "#") + '" target="_blank" rel="noopener">📎 ' + sourceLabel + "</a><span>" + date + "</span></div>" : "";
+
+      return '<div class="question-block" data-quiz-id="' + quiz.id + '">' +
+        '<div class="question-number">' + num + "</div>" +
+        source +
+        tags +
+        questionHtml.split("\n").filter(Boolean).map(function (p) { return "<p>" + p + "</p>"; }).join("") +
         (isChoice ? optionsHtml : "") +
-        '<div class="qc-answer">' +
-        (this.mode === "display" ? '<div class="qc-answer-text">正确答案：' + quiz.answer + "</div>" : "") +
-        (this.mode === "display" ? '<div class="qc-explanation">' + (quiz.explanation || "") + "</div>" : "") +
-        (this.mode === "practice" && !isChoice ? '<button class="qc-check-answer-btn">👁 查看答案</button>' : "") +
-        (this.mode === "practice" && !isChoice ? '<div class="qc-explanation hidden">' + (quiz.explanation || "") + "</div>" : "") +
-        '<div class="qc-result-message" style="display:none"></div>' +
+        '<div class="answer-panel" style="display:' + (isDisplay ? "block" : "none") + '">' +
+        (quiz.answer ? '<div class="answer-title">正确答案：<strong>' + quiz.answer + "</strong></div>" : "") +
+        (quiz.explanation ? '<div class="analysis-title">解析：</div><div class="qc-explanation-text">' + quiz.explanation + "</div>" : "") +
         "</div>" +
-        '<div class="qc-card-actions">' +
-        '<button class="qc-card-btn danger" data-action="delete">🗑 删除</button>' +
+        '<div class="question-actions">' +
+        (isChoice || quiz.explanation ? '<button class="reveal-btn" data-action="reveal">' + (isDisplay ? "隐藏答案与解析" : "查看答案与解析") + '</button>' : "") +
+        '<button class="favorite-btn active">★ 已收藏</button>' +
+        '<button class="favorite-btn danger" data-action="delete" style="margin-left:auto">🗑 删除</button>' +
         "</div>" +
         "</div>";
     }
@@ -312,6 +313,7 @@
     bindCardEvents(card, quiz) {
       var isChoice = quiz.type === "choice";
       var self = this;
+      var answerPanel = card.querySelector(".answer-panel");
 
       card.querySelector('[data-action="delete"]').addEventListener("click", async function () {
         await self.store.remove(quiz.id);
@@ -319,8 +321,29 @@
         await self.loadQuizzes();
       });
 
+      var revealBtn = card.querySelector('[data-action="reveal"]');
+      if (revealBtn && answerPanel) {
+        revealBtn.addEventListener("click", function () {
+          var hidden = answerPanel.style.display === "none";
+          answerPanel.style.display = hidden ? "block" : "none";
+          revealBtn.textContent = hidden ? "隐藏答案与解析" : "查看答案与解析";
+
+          if (hidden && isChoice) {
+            var correct = quiz.answer;
+            if (correct) {
+              card.querySelectorAll(".exam-option").forEach(function (opt) {
+                if (opt.dataset.opt === correct) opt.classList.add("correct");
+                else if (opt.classList.contains("selected")) opt.classList.add("wrong");
+              });
+            }
+          } else {
+            card.querySelectorAll(".exam-option").forEach(function (o) { o.classList.remove("correct", "wrong"); });
+          }
+        });
+      }
+
       if (isChoice) {
-        var options = card.querySelectorAll(".qc-option");
+        var options = card.querySelectorAll(".exam-option");
         if (this.mode === "practice") {
           options.forEach(function (opt) {
             opt.addEventListener("click", function () { self.selectOption(card, quiz, opt); });
@@ -329,73 +352,47 @@
           this.showDisplayOptions(card, quiz);
         }
       }
+    }
 
-      if (!isChoice && this.mode === "practice") {
-        var checkBtn = card.querySelector(".qc-check-answer-btn");
-        var explanation = card.querySelector(".qc-explanation");
-        if (checkBtn && explanation) {
-          checkBtn.addEventListener("click", function () {
-            var hidden = explanation.classList.toggle("hidden");
-            checkBtn.textContent = hidden ? "👁 查看答案" : "🙈 隐藏答案";
-          });
+    selectOption(card, quiz, opt) {
+      var letter = opt.dataset.opt;
+      var allOptions = card.querySelectorAll(".exam-option");
+
+      if (quiz.multiple) {
+        opt.classList.toggle("selected");
+      } else {
+        allOptions.forEach(function (o) { o.classList.remove("selected"); });
+        opt.classList.add("selected");
+        this.checkAnswer(card, quiz, letter);
+      }
+    }
+
+    checkAnswer(card, quiz, selectedLetter) {
+      var correct = (quiz.answer || "").toUpperCase().trim();
+      var answerPanel = card.querySelector(".answer-panel");
+
+      card.querySelectorAll(".exam-option").forEach(function (o) {
+        o.style.pointerEvents = "none";
+        if (o.dataset.opt === correct) o.classList.add("correct");
+        else if (o.classList.contains("selected")) o.classList.add("wrong");
+      });
+
+      if (answerPanel) {
+        answerPanel.style.display = "block";
+        var title = answerPanel.querySelector(".answer-title");
+        var isCorrect = selectedLetter === correct;
+        if (title) {
+          title.innerHTML = "正确答案：<strong>" + correct + "</strong> " + (isCorrect ? "✅" : "❌");
         }
       }
     }
 
-    selectOption(card, quiz, opt) {
-      var isMulti = quiz.multiple;
-      var idx = opt.dataset.optIndex;
-      var allOptions = card.querySelectorAll(".qc-option");
-      var resultMsg = card.querySelector(".qc-result-message");
-
-      if (!this.selections[quiz.id]) this.selections[quiz.id] = [];
-      var selected = this.selections[quiz.id];
-
-      if (isMulti) {
-        var pos = selected.indexOf(idx);
-        if (pos > -1) selected.splice(pos, 1);
-        else selected.push(idx);
-        allOptions.forEach(function (o) {
-          o.classList.toggle("selected", selected.indexOf(o.dataset.optIndex) !== -1);
-        });
-      } else {
-        selected = [idx];
-        this.selections[quiz.id] = selected;
-        allOptions.forEach(function (o) {
-          o.classList.toggle("selected", o.dataset.optIndex === idx);
-        });
-        this.checkAnswer(card, quiz, selected, resultMsg);
-      }
-    }
-
-    checkAnswer(card, quiz, selected, resultMsg) {
-      var correctAnswers = quiz.answer.split(/[,，\s]+/).map(function (a) { return a.trim().toUpperCase(); }).filter(Boolean);
-      var selectedLetters = selected.map(function (i) { return String.fromCharCode(65 + parseInt(i)); });
-      var allOptions = card.querySelectorAll(".qc-option");
-
-      var isCorrect = correctAnswers.length === selectedLetters.length && correctAnswers.every(function (a) { return selectedLetters.indexOf(a) !== -1; });
-
-      allOptions.forEach(function (o) {
-        o.style.pointerEvents = "none";
-        var letter = o.dataset.optLetter;
-        if (correctAnswers.indexOf(letter) !== -1) o.classList.add("correct");
-        else if (selected.indexOf(o.dataset.optIndex) !== -1 && correctAnswers.indexOf(letter) === -1) o.classList.add("wrong");
-      });
-
-      resultMsg.style.display = "block";
-      resultMsg.className = "qc-result-message " + (isCorrect ? "correct" : "wrong");
-      resultMsg.textContent = isCorrect ? "✅ 正确！" : "❌ 错误，正确答案是：" + quiz.answer;
-    }
-
     showDisplayOptions(card, quiz) {
-      var correctAnswers = quiz.answer.split(/[,，\s]+/).map(function (a) { return a.trim().toUpperCase(); }).filter(Boolean);
-      card.querySelectorAll(".qc-option").forEach(function (o) {
+      var correctAnswers = (quiz.answer || "").split(/[,，\s]+/).map(function (a) { return a.trim().toUpperCase(); }).filter(Boolean);
+      card.querySelectorAll(".exam-option").forEach(function (o) {
         o.classList.add("display-mode");
-        var letter = o.dataset.optLetter;
-        if (correctAnswers.indexOf(letter) !== -1) {
+        if (correctAnswers.indexOf(o.dataset.opt) !== -1) {
           o.classList.add("correct-shown");
-          var marker = o.querySelector(".qc-option-marker");
-          if (marker) marker.textContent = "✓";
         } else {
           o.classList.add("wrong-shown");
         }

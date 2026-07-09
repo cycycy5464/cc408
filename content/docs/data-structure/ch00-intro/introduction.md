@@ -1,5 +1,6 @@
 ---
 title: "绪论"
+aliases: ["绪论"]
 date: 2026-06-25
 weight: 0
 tags: [基础概念]

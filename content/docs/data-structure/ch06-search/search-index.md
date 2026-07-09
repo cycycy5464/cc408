@@ -1,10 +1,11 @@
 ---
 title: "查找概述"
+aliases: ["查找概述"]
 date: 2026-06-25
 weight: 22
 tags: [基础概念]
 difficulty: 1
-prerequisites: []
+prerequisites: ["图的算法和应用", "图的定义", "图概述"]
 subject: data-structure
 chapter: 3
 chapter_title: "查找概述"
@@ -45,3 +46,10 @@ chapter_title: "查找概述"
 ##### [树形查找](</data_structure/search/tree/>)
 
 ##### [散列表查找](</data_structure/search/hash/>)
+
+
+## 相关笔记
+
+- [[algorithms|图的算法和应用]]
+- [[definition|图的定义]]
+- [[graph-index|图概述]]

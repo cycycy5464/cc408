@@ -1,10 +1,11 @@
 ---
 title: "文件"
+aliases: ["文件"]
 date: 2026-06-25
 weight: 14
 tags: [文件管理]
 difficulty: 2
-prerequisites: []
+prerequisites: ["内存管理概念", "内存管理", "虚拟内存管理"]
 subject: os
 chapter: 2
 chapter_title: "文件"
@@ -277,3 +278,10 @@ write(fd, "Hello", 5);              // offset 从 0 到 5
   * **三级间接索引块** （Triple indirect）：层层递进，最终定位到数据块号。
 
 通过这种 **直接块 + 多级间接块** 的混合方案，系统能够在保证大文件可用的同时，避免小文件因占用完整索引块而造成的磁盘空间浪费，从而显著提升磁盘块的利用率并减少文件碎片的产生。
+
+
+## 相关笔记
+
+- [[concepts|内存管理概念]]
+- [[memory-index|内存管理]]
+- [[virtual|虚拟内存管理]]

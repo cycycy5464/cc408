@@ -1,10 +1,11 @@
 ---
 title: "线性表定义与基本操作"
+aliases: ["线性表定义与基本操作"]
 date: 2026-06-25
 weight: 4
 tags: [线性表]
 difficulty: 1
-prerequisites: []
+prerequisites: ["算法基本概念", "数据结构基本概念", "绪论"]
 subject: data-structure
 chapter: 1
 chapter_title: "线性表定义与基本操作"
@@ -58,3 +59,10 @@ L=\(a1​,a2​,⋯,ai​,ai+1​,⋯,an​\)
   * **判空** \(`IsEmpty`\): 判断线性表是否 **为空** 。
   * **清空** \(`ClearList`\): **清除** 线性表中的 **所有元素** 。
   * **遍历** \(`Traverse`\): 对线性表中的 **每个元素** 执行 **某种操作** 。
+
+
+## 相关笔记
+
+- [[algorithm-concepts|算法基本概念]]
+- [[basic-concepts|数据结构基本概念]]
+- [[introduction|绪论]]

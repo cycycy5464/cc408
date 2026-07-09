@@ -1,16 +1,18 @@
 {{ define "main" }}
 <div class="content-area content-area-wide">
+  <div class="question-nav">
+    <a href="{{ "question/" | relURL }}" class="btn btn-ghost">← 题目列表</a>
+    <span id="q-navigation" class="nav-links"></span>
+  </div>
+
+  <div class="q-number">第 {{ .Params.number }} 题</div>
+
   <div class="meta-row">
     {{ range .Params.years }}<span class="tag">{{ . }}</span>{{ end }}
     {{ range .Params.subjects }}<span class="tag tag-accent">{{ . }}</span>{{ end }}
     {{ $d := default 1 .Params.difficulty }}{{ range seq 1 4 }}{{ if le . $d }}<span class="diff-star">★</span>{{ else }}<span class="diff-star-empty">☆</span>{{ end }}{{ end }}
     {{ range .Params.knowledge_points }}<span class="tag tag-purple">{{ . }}</span>{{ end }}
     {{ with .Params.question_type }}<span class="tag tag-warm">{{ if eq . "comprehensive" }}解答题{{ else }}选择题{{ end }}</span>{{ end }}
-  </div>
-
-  <div class="question-nav">
-    <a href="{{ "question/" | relURL }}" class="btn btn-ghost">← 题目列表</a>
-    <span id="q-navigation" class="nav-links"></span>
   </div>
 
   <article class="exam-content" id="exam-container">{{ .Content }}</article>
@@ -55,6 +57,7 @@
 .exam-option.correct { border-color:#4ade80; background:rgba(74,222,128,.15); color:#4ade80; }
 .exam-option.wrong { border-color:#f87171; background:rgba(248,113,113,.15); color:#f87171; }
 .opt-label { font-weight:600; margin-right:.5rem; min-width:1.5rem; }
+.q-number { font-size: 1rem; font-weight: 700; color: var(--accent); margin-bottom: .75rem; }
 </style>
 
 <script>
@@ -126,17 +129,28 @@ window.quizMeta = {
 
   // --- Step 3: Convert options A./B./C./D. to clickable ---
   container.querySelectorAll('p').forEach(function(p) {
-    var m = p.textContent.trim().match(/^([A-D])[.、．]\s*(.+)/);
-    if (m) {
-      var opt = document.createElement('div');
-      opt.className = 'exam-option';
-      opt.setAttribute('data-opt', m[1]);
-      opt.innerHTML = '<span class="opt-label">' + m[1] + '.</span> <span class="opt-text">' + m[2] + '</span>';
-      opt.addEventListener('click', function() {
-        this.parentElement.querySelectorAll('.exam-option').forEach(function(o) { o.classList.remove('selected'); });
-        this.classList.add('selected');
-      });
-      p.parentNode.replaceChild(opt, p);
+    var txt = p.textContent.trim();
+    var optParts = txt.match(/([A-D])[.、．]\s*(.*?)(?=\s*[A-D][.、．]|$)/g);
+    if (optParts && optParts.length > 0) {
+      var fragment = document.createDocumentFragment();
+      var created = false;
+      for (var oi3 = 0; oi3 < optParts.length; oi3++) {
+        var part = optParts[oi3].trim();
+        var pm = part.match(/^([A-D])[.、．]\s*(.*)/);
+        if (pm) {
+          created = true;
+          var opt = document.createElement('div');
+          opt.className = 'exam-option';
+          opt.setAttribute('data-opt', pm[1]);
+          opt.innerHTML = '<span class="opt-label">' + pm[1] + '.</span> <span class="opt-text">' + pm[2] + '</span>';
+          opt.addEventListener('click', function() {
+            this.parentElement.querySelectorAll('.exam-option').forEach(function(o) { o.classList.remove('selected'); });
+            this.classList.add('selected');
+          });
+          fragment.appendChild(opt);
+        }
+      }
+      if (created) p.parentNode.replaceChild(fragment, p);
     }
   });
 

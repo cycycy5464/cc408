@@ -88,7 +88,7 @@
     var ps = container.querySelectorAll("p");
     for (var i = 0; i < ps.length; i++) {
       var p = ps[i];
-      if (p.querySelector(".answer-panel")) continue;
+      if (p.closest(".answer-panel")) continue;
       if (p.style.display === "none") continue;
       var txt = p.textContent.trim();
       if (txt === "[tag_link]") continue;

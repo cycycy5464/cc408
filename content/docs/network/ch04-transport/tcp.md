@@ -1,10 +1,11 @@
 ---
 title: "TCP"
+aliases: ["TCP"]
 date: 2026-06-25
 weight: 25
 tags: [传输层]
 difficulty: 3
-prerequisites: []
+prerequisites: ["ARP协议", "网络层设备", "DHCP协议", "ICMP协议", "IP协议", "网络层", "路由算法", "SDN"]
 subject: network
 chapter: 3
 chapter_title: "TCP"
@@ -597,3 +598,15 @@ sequenceDiagram
 
 
   * 如果启用了快速重传，并且收到 3 个与先前重复的 ACK（总共收到 4 个相同的 ACK），则不用等待超时器 **RTO** 结束，可以马上重传该数据包，`cwnd` 可能会减少（这里不考察）
+
+
+## 相关笔记
+
+- [[arp|ARP协议]]
+- [[devices|网络层设备]]
+- [[dhcp|DHCP协议]]
+- [[icmp|ICMP协议]]
+- [[ip|IP协议]]
+- [[nw-index|网络层]]
+- [[routing|路由算法]]
+- [[sdn|SDN]]

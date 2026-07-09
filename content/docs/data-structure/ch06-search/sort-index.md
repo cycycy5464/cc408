@@ -1,10 +1,11 @@
 ---
 title: "排序概述"
+aliases: ["排序概述"]
 date: 2026-06-25
 weight: 26
 tags: [基础概念]
 difficulty: 1
-prerequisites: []
+prerequisites: ["图的算法和应用", "图的定义", "图概述"]
 subject: data-structure
 chapter: 3
 chapter_title: "排序概述"
@@ -41,3 +42,10 @@ chapter_title: "排序概述"
 ##### [内部排序](</data_structure/sort/internal/>)
 
 ##### [外部排序](</data_structure/sort/external/>)
+
+
+## 相关笔记
+
+- [[algorithms|图的算法和应用]]
+- [[definition|图的定义]]
+- [[graph-index|图概述]]

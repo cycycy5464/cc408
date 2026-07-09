@@ -1,10 +1,11 @@
 ---
 title: "数据表示与计算"
+aliases: ["数据表示与计算"]
 date: 2026-06-25
 weight: 3
 tags: [数据表示]
 difficulty: 1
-prerequisites: []
+prerequisites: ["概论", "计算机性能指标", "计算机系统层次结构"]
 subject: computer-org
 chapter: 1
 chapter_title: "数据表示与计算"
@@ -45,3 +46,10 @@ chapter_title: "数据表示与计算"
 ##### [运算电路](</constitution_principle/representation/circuit/>)
 
 ##### [类型转换](</constitution_principle/representation/conversion/>)
+
+
+## 相关笔记
+
+- [[introduction|概论]]
+- [[performance|计算机性能指标]]
+- [[system-hierarchy|计算机系统层次结构]]

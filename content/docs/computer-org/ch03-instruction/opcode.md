@@ -1,10 +1,11 @@
 ---
 title: "指令操作码"
+aliases: ["指令操作码"]
 date: 2026-06-25
 weight: 18
 tags: [指令系统]
 difficulty: 2
-prerequisites: []
+prerequisites: ["Cache", "外存", "存储系统", "存储系统概述", "内存", "虚拟存储器"]
 subject: computer-org
 chapter: 2
 chapter_title: "指令操作码"
@@ -665,3 +666,13 @@ cmpsd  ; 比较 4 字节
 ### 总结
 
 指令类别![](/images/docs/computer-org/image-20260612231116277.png)
+
+
+## 相关笔记
+
+- [[cache|Cache]]
+- [[external|外存]]
+- [[memory-index|存储系统]]
+- [[overview|存储系统概述]]
+- [[ram|内存]]
+- [[virtual|虚拟存储器]]

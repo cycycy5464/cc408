@@ -1,10 +1,11 @@
 ---
 title: "顺序表"
+aliases: ["顺序表"]
 date: 2026-06-25
 weight: 5
 tags: [线性表]
 difficulty: 2
-prerequisites: []
+prerequisites: ["算法基本概念", "数据结构基本概念", "绪论"]
 subject: data-structure
 chapter: 1
 chapter_title: "顺序表"
@@ -177,3 +178,10 @@ int Length(SeqList L) {
     return L.length;
 }
 ```
+
+
+## 相关笔记
+
+- [[algorithm-concepts|算法基本概念]]
+- [[basic-concepts|数据结构基本概念]]
+- [[introduction|绪论]]

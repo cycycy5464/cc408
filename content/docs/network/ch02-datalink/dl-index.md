@@ -1,10 +1,11 @@
 ---
 title: "数据链路层"
+aliases: ["数据链路层"]
 date: 2026-06-25
 weight: 9
 tags: [数据链路层]
 difficulty: 1
-prerequisites: []
+prerequisites: ["通信概念", "物理层设备", "编码与调制", "物理层", "交换方式"]
 subject: network
 chapter: 1
 chapter_title: "数据链路层"
@@ -103,3 +104,12 @@ chapter_title: "数据链路层"
 ##### [局域网和广域网](</computer_network/datalink/lan/>)
 
 ##### [数据链路层设备](</computer_network/datalink/dev/>)
+
+
+## 相关笔记
+
+- [[communication|通信概念]]
+- [[devices|物理层设备]]
+- [[encoding|编码与调制]]
+- [[phy-index|物理层]]
+- [[switching|交换方式]]

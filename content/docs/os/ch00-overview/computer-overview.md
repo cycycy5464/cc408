@@ -1,5 +1,6 @@
 ---
 title: "计算机系统概述"
+aliases: ["计算机系统概述"]
 date: 2026-06-25
 weight: 0
 tags: [基础概念]

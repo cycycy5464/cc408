@@ -1,10 +1,11 @@
 ---
 title: "控制器"
+aliases: ["控制器"]
 date: 2026-06-25
 weight: 22
 tags: [CPU]
 difficulty: 3
-prerequisites: []
+prerequisites: ["数据对齐", "指令格式与寻址方式", "高级语言与机器码", "指令系统", "指令操作码", "指令集种类"]
 subject: computer-org
 chapter: 3
 chapter_title: "控制器"
@@ -419,3 +420,13 @@ C11| R0 ← T2| `T2out`, `R0in`| 将计算结果写回 R0
 **C8**| `MDR ← M(MAR)`| 微指令 H| `MemR`, `MDRin`  
 **C9**| `T1 ← R0`| 微指令 I| `R0out`, `T1in`  
 **C10**| `T2 ← MDR + T1`| 微指令 J| `MDRout`, `T1out_to_ALU_input`, `Add`, `T2in`
+
+
+## 相关笔记
+
+- [[data-alignment|数据对齐]]
+- [[format-addressing|指令格式与寻址方式]]
+- [[hll-machine|高级语言与机器码]]
+- [[instruction-index|指令系统]]
+- [[opcode|指令操作码]]
+- [[types|指令集种类]]

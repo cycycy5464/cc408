@@ -1,10 +1,11 @@
 ---
 title: "CPU功能与结构"
+aliases: ["CPU功能与结构"]
 date: 2026-06-25
 weight: 21
 tags: [基础概念]
 difficulty: 3
-prerequisites: []
+prerequisites: ["数据对齐", "指令格式与寻址方式", "高级语言与机器码", "指令系统", "指令操作码", "指令集种类"]
 subject: computer-org
 chapter: 3
 chapter_title: "CPU功能与结构"
@@ -450,3 +451,13 @@ A16/S3–A19/S6| 输出| 高位地址线与状态线复用
 其中，**READY** 信号的作用是支持不同速度的外设。当某些设备处理速度较慢时，**CPU** 会检测到 **READY** 为低电平，从而暂停当前操作，等待设备准备就绪，避免数据错误。
 
 而 **HOLD** 与 **HLDA** 是总线请求/响应配对信号，用于支持 **DMA** 等技术，使得外设可以在不经过 **CPU** 的情况下直接访问内存，从而提升数据传输效率。
+
+
+## 相关笔记
+
+- [[data-alignment|数据对齐]]
+- [[format-addressing|指令格式与寻址方式]]
+- [[hll-machine|高级语言与机器码]]
+- [[instruction-index|指令系统]]
+- [[opcode|指令操作码]]
+- [[types|指令集种类]]

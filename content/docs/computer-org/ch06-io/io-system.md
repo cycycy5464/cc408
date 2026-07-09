@@ -1,10 +1,11 @@
 ---
 title: "I/O系统"
+aliases: ["I/O系统"]
 date: 2026-06-25
 weight: 28
 tags: [总线, I/O]
 difficulty: 3
-prerequisites: []
+prerequisites: ["总线和I/O系统", "总线"]
 subject: computer-org
 chapter: 3
 chapter_title: "I/O系统"
@@ -432,3 +433,9 @@ DMA 进行 I/O 传输包含如下过程：
 当 CPU 和 DMA 都需要访问主存时，**DMA 控制器可以优先获得总线使用权** ：
 
 因为磁盘一旦开始读写，就必须按时完成数据传送，否则数据缓冲区中的数据会发生丢失。
+
+
+## 相关笔记
+
+- [[bus-io|总线和I/O系统]]
+- [[bus|总线]]

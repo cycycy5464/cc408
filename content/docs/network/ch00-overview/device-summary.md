@@ -1,5 +1,6 @@
 ---
 title: "网络设备总结"
+aliases: ["网络设备总结"]
 date: 2026-06-25
 weight: 3
 tags: [设备管理]

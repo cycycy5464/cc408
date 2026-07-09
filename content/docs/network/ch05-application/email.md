@@ -1,10 +1,11 @@
 ---
 title: "电子邮件"
+aliases: ["电子邮件"]
 date: 2026-06-25
 weight: 31
 tags: [应用层]
 difficulty: 3
-prerequisites: []
+prerequisites: ["TCP", "传输层", "UDP"]
 subject: network
 chapter: 4
 chapter_title: "电子邮件"
@@ -132,3 +133,10 @@ Please find the meeting schedule attached.
 * 一封邮件可以同时包含文本和附件，甚至不同格式的内容（例如纯文本和 HTML 格式的正文）。
 
 
+
+
+## 相关笔记
+
+- [[tcp|TCP]]
+- [[tp-index|传输层]]
+- [[udp|UDP]]

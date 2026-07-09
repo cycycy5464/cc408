@@ -1,10 +1,11 @@
 ---
 title: "万维网"
+aliases: ["万维网"]
 date: 2026-06-25
 weight: 32
 tags: [应用层]
 difficulty: 3
-prerequisites: []
+prerequisites: ["TCP", "传输层", "UDP"]
 subject: network
 chapter: 4
 chapter_title: "万维网"
@@ -131,3 +132,10 @@ Cookie: sessionId=abc123
 ```
 
 当 **HTTP** **服务器** 接收到带有 **Cookie** 的请求时，它就可以区分这个请求是来自于那个客户端的了。
+
+
+## 相关笔记
+
+- [[tcp|TCP]]
+- [[tp-index|传输层]]
+- [[udp|UDP]]

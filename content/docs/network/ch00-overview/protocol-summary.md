@@ -1,5 +1,6 @@
 ---
 title: "各层协议总结"
+aliases: ["各层协议总结"]
 date: 2026-06-25
 weight: 2
 tags: [体系结构]

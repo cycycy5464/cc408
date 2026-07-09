@@ -1,10 +1,11 @@
 ---
 title: "经典同步问题"
+aliases: ["经典同步问题"]
 date: 2026-06-25
 weight: 8
 tags: [进程管理]
 difficulty: 1
-prerequisites: []
+prerequisites: ["计算机系统概述", "操作系统概念", "操作系统结构", "程序运行环境"]
 subject: os
 chapter: 1
 chapter_title: "经典同步问题"
@@ -280,3 +281,11 @@ void philosopher(int i) {
 ![](/images/docs/os/image-20260611221818129.png)
 
 ![](/images/docs/os/image-20260611221830941.png)
+
+
+## 相关笔记
+
+- [[computer-overview|计算机系统概述]]
+- [[os-concept|操作系统概念]]
+- [[os-structure|操作系统结构]]
+- [[program-env|程序运行环境]]

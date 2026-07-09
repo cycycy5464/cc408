@@ -1,10 +1,11 @@
 ---
 title: "串的定义与实现"
+aliases: ["串的定义与实现"]
 date: 2026-06-25
 weight: 12
 tags: [串, 字符串]
 difficulty: 2
-prerequisites: []
+prerequisites: ["栈和队列的应用", "线性数据结构", "队列", "栈"]
 subject: data-structure
 chapter: 2
 chapter_title: "串的定义与实现"
@@ -147,3 +148,11 @@ void initBlockString(BlockString *s) {
 * 释放串的存储空间并将其设置为 **空字符串** 。
 
 
+
+
+## 相关笔记
+
+- [[application|栈和队列的应用]]
+- [[linear-data-structure|线性数据结构]]
+- [[queue|队列]]
+- [[stack|栈]]

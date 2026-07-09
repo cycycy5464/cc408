@@ -1,10 +1,11 @@
 ---
 title: "同步与互斥"
+aliases: ["同步与互斥"]
 date: 2026-06-25
 weight: 7
 tags: [进程管理]
 difficulty: 1
-prerequisites: []
+prerequisites: ["计算机系统概述", "操作系统概念", "操作系统结构", "程序运行环境"]
 subject: os
 chapter: 1
 chapter_title: "同步与互斥"
@@ -521,3 +522,11 @@ semphore S = 0;  // 将信号量的初始值设置为 0
   * **条件变量** ：用于控制 **线程** 的执行顺序，让 **线程** 在某些条件下等待，或通知等待的 **线程** 继续执行。
 
 举个实际例子说明什么是管程，比如我们可以用用管程封装[生产者消费者问题](</code/monitor/>)。 管程其实就是对 OS 底层接口的封装，为程序员提供一些更加简单易用的接口。
+
+
+## 相关笔记
+
+- [[computer-overview|计算机系统概述]]
+- [[os-concept|操作系统概念]]
+- [[os-structure|操作系统结构]]
+- [[program-env|程序运行环境]]

@@ -1,10 +1,11 @@
 ---
 title: "磁盘"
+aliases: ["磁盘"]
 date: 2026-06-25
 weight: 20
 tags: [设备管理]
 difficulty: 2
-prerequisites: []
+prerequisites: ["目录", "文件", "文件管理", "文件系统"]
 subject: os
 chapter: 3
 chapter_title: "磁盘"
@@ -164,3 +165,11 @@ SSTF| 通常比 FCFS 更高效
 **最小化磁盘臂的移动**|  可能导致某些请求长时间延迟或饿死  
 SCAN| **避免长时间等待**|  磁盘两端可能经历不公平的等待时间  
 C-SCAN| **提供更均匀的等待时间**|  中间部分的请求可能会被经过两次而不进行服务，直到磁头再次回来
+
+
+## 相关笔记
+
+- [[directory|目录]]
+- [[file-basics|文件]]
+- [[file-index|文件管理]]
+- [[filesystem|文件系统]]

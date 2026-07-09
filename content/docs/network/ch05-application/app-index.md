@@ -1,10 +1,11 @@
 ---
 title: "应用层"
+aliases: ["应用层"]
 date: 2026-06-25
 weight: 27
 tags: [应用层]
 difficulty: 3
-prerequisites: []
+prerequisites: ["TCP", "传输层", "UDP"]
 subject: network
 chapter: 3
 chapter_title: "应用层"
@@ -56,3 +57,10 @@ chapter_title: "应用层"
 ##### [电子邮件](</computer_network/application/mail/>)
 
 ##### [万维网](</computer_network/application/www/>)
+
+
+## 相关笔记
+
+- [[tcp|TCP]]
+- [[tp-index|传输层]]
+- [[udp|UDP]]

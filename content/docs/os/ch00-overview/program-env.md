@@ -1,5 +1,6 @@
 ---
 title: "程序运行环境"
+aliases: ["程序运行环境"]
 date: 2026-06-25
 weight: 3
 tags: [基础概念]

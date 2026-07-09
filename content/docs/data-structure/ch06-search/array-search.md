@@ -1,10 +1,11 @@
 ---
 title: "数组查找"
+aliases: ["数组查找"]
 date: 2026-06-25
 weight: 23
 tags: [查找, 哈希]
 difficulty: 3
-prerequisites: []
+prerequisites: ["图的算法和应用", "图的定义", "图概述"]
 subject: data-structure
 chapter: 3
 chapter_title: "数组查找"
@@ -172,3 +173,10 @@ int BinarySearchRecursive(int A[], int low, int high, int value) {
 
 
 ![](/images/docs/data-structure/image-20260612141548244.png)
+
+
+## 相关笔记
+
+- [[algorithms|图的算法和应用]]
+- [[definition|图的定义]]
+- [[graph-index|图概述]]

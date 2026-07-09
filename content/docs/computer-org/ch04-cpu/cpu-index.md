@@ -1,10 +1,11 @@
 ---
 title: "中央处理器"
+aliases: ["中央处理器"]
 date: 2026-06-25
 weight: 20
 tags: [CPU]
 difficulty: 2
-prerequisites: []
+prerequisites: ["数据对齐", "指令格式与寻址方式", "高级语言与机器码", "指令系统", "指令操作码", "指令集种类"]
 subject: computer-org
 chapter: 3
 chapter_title: "中央处理器"
@@ -74,3 +75,13 @@ chapter_title: "中央处理器"
 ##### [指令流水线](</constitution_principle/cpu/pipeline/>)
 
 ##### [多处理器](</constitution_principle/cpu/multicore/>)
+
+
+## 相关笔记
+
+- [[data-alignment|数据对齐]]
+- [[format-addressing|指令格式与寻址方式]]
+- [[hll-machine|高级语言与机器码]]
+- [[instruction-index|指令系统]]
+- [[opcode|指令操作码]]
+- [[types|指令集种类]]

@@ -1,10 +1,11 @@
 ---
 title: "虚拟存储器"
+aliases: ["虚拟存储器"]
 date: 2026-06-25
 weight: 13
 tags: [存储系统]
 difficulty: 2
-prerequisites: []
+prerequisites: ["运算电路", "数据表示与计算", "浮点数表示", "整数的表示", "类型转换"]
 subject: computer-org
 chapter: 2
 chapter_title: "虚拟存储器"
@@ -493,3 +494,12 @@ TLB 未命中时：
 
 
 ![](/images/docs/computer-org/b82f79118c.svg)
+
+
+## 相关笔记
+
+- [[circuits|运算电路]]
+- [[data-index|数据表示与计算]]
+- [[float|浮点数表示]]
+- [[integers|整数的表示]]
+- [[type-conversion|类型转换]]

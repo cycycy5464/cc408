@@ -1,10 +1,11 @@
 ---
 title: "栈和队列的应用"
+aliases: ["栈和队列的应用"]
 date: 2026-06-25
 weight: 9
 tags: [栈, 队列]
 difficulty: 2
-prerequisites: []
+prerequisites: ["线性表定义与基本操作", "线性表概述", "链表", "顺序表"]
 subject: data-structure
 chapter: 1
 chapter_title: "栈和队列的应用"
@@ -315,3 +316,11 @@ Cn​=n+11​\(n2n​\)
 ```c
      ()()   (())
 ```
+
+
+## 相关笔记
+
+- [[definition|线性表定义与基本操作]]
+- [[linear-list-index|线性表概述]]
+- [[linked-list|链表]]
+- [[sequential-list|顺序表]]

@@ -1,10 +1,11 @@
 ---
 title: "树形查找"
+aliases: ["树形查找"]
 date: 2026-06-25
 weight: 24
 tags: [树, 二叉树]
 difficulty: 3
-prerequisites: []
+prerequisites: ["图的算法和应用", "图的定义", "图概述"]
 subject: data-structure
 chapter: 3
 chapter_title: "树形查找"
@@ -318,3 +319,10 @@ AVL| \\\(O\(\log\_2\{n\}\)\\\)| \\\(O\(\log\_2\{n\}\)\\\)| 通过严格的平衡
 稳定性| 关键字位置可能会频繁变动| 数据位置相对稳定  
 应用场景| 适用于小至中等规模的数据存储系统| 更常见于大型数据库系统和文件系统  
 查找效率| 在内部节点找到关键字后，查找即完成| 查找必须遍历到 **叶子节点** ，但由于通常高度较低，效率也很高
+
+
+## 相关笔记
+
+- [[algorithms|图的算法和应用]]
+- [[definition|图的定义]]
+- [[graph-index|图概述]]

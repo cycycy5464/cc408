@@ -1,10 +1,11 @@
 ---
 title: "树的应用"
+aliases: ["树的应用"]
 date: 2026-06-25
 weight: 18
 tags: [树, 二叉树]
 difficulty: 2
-prerequisites: []
+prerequisites: ["数组和特殊矩阵", "串的定义与实现", "串的模式匹配", "串概述"]
 subject: data-structure
 chapter: 2
 chapter_title: "树的应用"
@@ -275,3 +276,11 @@ int rank[MAXN];    // 秩
     }
 }
 ```
+
+
+## 相关笔记
+
+- [[array-matrix|数组和特殊矩阵]]
+- [[definition|串的定义与实现]]
+- [[pattern-matching|串的模式匹配]]
+- [[string-index|串概述]]

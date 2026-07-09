@@ -1,10 +1,11 @@
 ---
 title: "总线"
+aliases: ["总线"]
 date: 2026-06-25
 weight: 26
 tags: [总线, I/O]
 difficulty: 3
-prerequisites: []
+prerequisites: ["控制器", "中央处理器", "异常与中断", "CPU功能与结构", "多处理器", "指令流水线"]
 subject: computer-org
 chapter: 3
 chapter_title: "总线"
@@ -298,3 +299,13 @@ chapter_title: "总线"
   * **全互锁** ：从 **半互锁** 的基础上，从设备接收到来自于主设备的回答后停止发送回答。
 
 ![](/images/docs/computer-org/image-20260612233912845.png)
+
+
+## 相关笔记
+
+- [[controller|控制器]]
+- [[cpu-index|中央处理器]]
+- [[exceptions|异常与中断]]
+- [[function-structure|CPU功能与结构]]
+- [[multiprocessor|多处理器]]
+- [[pipeline|指令流水线]]

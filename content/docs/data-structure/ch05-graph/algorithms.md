@@ -1,10 +1,11 @@
 ---
 title: "图的算法和应用"
+aliases: ["图的算法和应用"]
 date: 2026-06-25
 weight: 21
 tags: [基础概念]
 difficulty: 3
-prerequisites: []
+prerequisites: ["二叉树", "树与二叉树", "树的应用", "树"]
 subject: data-structure
 chapter: 3
 chapter_title: "图的算法和应用"
@@ -616,3 +617,11 @@ vl\(k\)=vj​∈Succ\(vk​\)min​\{vl\(j\)−weight\(vk​,vj​\)\}
 比如对于表达式 `(x + y) * ((x + y) / x)`，用二叉树和 **DAG** 的表示如下图：
 
 ![](/images/docs/data-structure/de1d3ffa80.svg)
+
+
+## 相关笔记
+
+- [[binary-tree|二叉树]]
+- [[tree-and-binary-tree|树与二叉树]]
+- [[tree-applications|树的应用]]
+- [[tree|树]]

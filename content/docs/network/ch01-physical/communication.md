@@ -1,10 +1,11 @@
 ---
 title: "通信概念"
+aliases: ["通信概念"]
 date: 2026-06-25
 weight: 5
 tags: [基础概念]
 difficulty: 1
-prerequisites: []
+prerequisites: ["计算机网络体系结构", "网络设备总结", "分层结构", "各层协议总结"]
 subject: network
 chapter: 1
 chapter_title: "通信概念"
@@ -246,3 +247,11 @@ S/NdB​=10⋅log10​NS​
 NS​=1010S/NdB​​
 
 出现在香农公式 C=B∗log2​\(1+NS​\) 中的 NS​ 是 **线性比值，不是分贝！**
+
+
+## 相关笔记
+
+- [[arch-index|计算机网络体系结构]]
+- [[device-summary|网络设备总结]]
+- [[layered|分层结构]]
+- [[protocol-summary|各层协议总结]]

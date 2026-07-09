@@ -1,10 +1,11 @@
 ---
 title: "传输层"
+aliases: ["传输层"]
 date: 2026-06-25
 weight: 24
 tags: [传输层]
 difficulty: 3
-prerequisites: []
+prerequisites: ["ARP协议", "网络层设备", "DHCP协议", "ICMP协议", "IP协议", "网络层", "路由算法", "SDN"]
 subject: network
 chapter: 3
 chapter_title: "传输层"
@@ -53,3 +54,15 @@ chapter_title: "传输层"
 ##### [TCP](</computer_network/transport/tcp/>)
 
 ##### [UDP](</computer_network/transport/udp/>)
+
+
+## 相关笔记
+
+- [[arp|ARP协议]]
+- [[devices|网络层设备]]
+- [[dhcp|DHCP协议]]
+- [[icmp|ICMP协议]]
+- [[ip|IP协议]]
+- [[nw-index|网络层]]
+- [[routing|路由算法]]
+- [[sdn|SDN]]

@@ -1,10 +1,11 @@
 ---
 title: "线性表概述"
+aliases: ["线性表概述"]
 date: 2026-06-25
 weight: 3
 tags: [基础概念]
 difficulty: 1
-prerequisites: []
+prerequisites: ["算法基本概念", "数据结构基本概念", "绪论"]
 subject: data-structure
 chapter: 1
 chapter_title: "线性表概述"
@@ -24,3 +25,10 @@ chapter_title: "线性表概述"
 ##### [顺序表示](</data_structure/linearlist/sequential/>)
 
 ##### [链式表示](</data_structure/linearlist/linked/>)
+
+
+## 相关笔记
+
+- [[algorithm-concepts|算法基本概念]]
+- [[basic-concepts|数据结构基本概念]]
+- [[introduction|绪论]]

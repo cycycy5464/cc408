@@ -1,10 +1,11 @@
 ---
 title: "二叉树"
+aliases: ["二叉树"]
 date: 2026-06-25
 weight: 17
 tags: [树, 二叉树]
 difficulty: 2
-prerequisites: []
+prerequisites: ["数组和特殊矩阵", "串的定义与实现", "串的模式匹配", "串概述"]
 subject: data-structure
 chapter: 2
 chapter_title: "二叉树"
@@ -832,3 +833,11 @@ return node;
   2. 根节点和叶结点是黑色的。
   3. 不存在两个相邻的红结点。
   4. 对每个结点，从该结点到任一叶结点的简单路径上，所含黑结点的数量相同。
+
+
+## 相关笔记
+
+- [[array-matrix|数组和特殊矩阵]]
+- [[definition|串的定义与实现]]
+- [[pattern-matching|串的模式匹配]]
+- [[string-index|串概述]]

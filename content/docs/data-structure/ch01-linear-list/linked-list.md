@@ -1,10 +1,11 @@
 ---
 title: "链表"
+aliases: ["链表"]
 date: 2026-06-25
 weight: 6
 tags: [线性表]
 difficulty: 2
-prerequisites: []
+prerequisites: ["算法基本概念", "数据结构基本概念", "绪论"]
 subject: data-structure
 chapter: 1
 chapter_title: "链表"
@@ -390,3 +391,10 @@ SNode list[MAXSIZE];
 ---|---  
 **单向循环链表**|  每个节点只有一个 `next` 指针，最后一个节点的 `next` 指向头节点  
 **双向循环链表**|  每个节点有 `prev` 和 `next`，首尾相连，前后都可以循环遍历
+
+
+## 相关笔记
+
+- [[algorithm-concepts|算法基本概念]]
+- [[basic-concepts|数据结构基本概念]]
+- [[introduction|绪论]]

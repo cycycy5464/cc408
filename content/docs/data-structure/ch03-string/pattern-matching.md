@@ -1,10 +1,11 @@
 ---
 title: "串的模式匹配"
+aliases: ["串的模式匹配"]
 date: 2026-06-25
 weight: 13
 tags: [串, 字符串]
 difficulty: 2
-prerequisites: []
+prerequisites: ["栈和队列的应用", "线性数据结构", "队列", "栈"]
 subject: data-structure
 chapter: 2
 chapter_title: "串的模式匹配"
@@ -275,3 +276,11 @@ if (next[i] == -1) {
   * `nextval[5] = 3`（`pattern[5] = a, pattern[next[5]] = pattern[3] = b`，不相等，保留原值）
 
 其实 **kmp** 的现代实现中一般使用 **next 数组** 就足够了，`nextval` 主要是优化了极少数情况下的性能，特别是在大量重复字符的 **模式串** 里效果明显。
+
+
+## 相关笔记
+
+- [[application|栈和队列的应用]]
+- [[linear-data-structure|线性数据结构]]
+- [[queue|队列]]
+- [[stack|栈]]

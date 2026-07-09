@@ -1,5 +1,6 @@
 ---
 title: "计算机性能指标"
+aliases: ["计算机性能指标"]
 date: 2026-06-25
 weight: 2
 tags: [数据表示]

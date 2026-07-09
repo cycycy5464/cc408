@@ -1,10 +1,11 @@
 ---
 title: "外部排序"
+aliases: ["外部排序"]
 date: 2026-06-25
 weight: 28
 tags: [排序]
 difficulty: 3
-prerequisites: []
+prerequisites: ["数组查找", "散列表查找", "查找概述", "排序概述", "树形查找"]
 subject: data-structure
 chapter: 3
 chapter_title: "外部排序"
@@ -208,3 +209,12 @@ chapter_title: "外部排序"
 在使用 **败者树** 的时候，每个新元素上升时，只需要获得父节点并比较即可（访存 1 次）。
 
 所以总的来说， _减少了访存的时间_ ，进而 **提高了程序运行的效率** 。
+
+
+## 相关笔记
+
+- [[array-search|数组查找]]
+- [[hash-search|散列表查找]]
+- [[search-index|查找概述]]
+- [[sort-index|排序概述]]
+- [[tree-search|树形查找]]

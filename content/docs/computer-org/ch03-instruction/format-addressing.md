@@ -1,10 +1,11 @@
 ---
 title: "指令格式与寻址方式"
+aliases: ["指令格式与寻址方式"]
 date: 2026-06-25
 weight: 16
 tags: [指令系统]
 difficulty: 2
-prerequisites: []
+prerequisites: ["Cache", "外存", "存储系统", "存储系统概述", "内存", "虚拟存储器"]
 subject: computer-org
 chapter: 2
 chapter_title: "指令格式与寻址方式"
@@ -371,3 +372,13 @@ chapter_title: "指令格式与寻址方式"
 **变址寻址**|  通过基址寄存器和索引寄存器的和来确定操作数地址，常用于数组操作。| `MOV R1, [R2 + R3]` （R2 与 R3 相加）  
 **相对寻址**|  操作数地址通过程序计数器（PC）当前值加上指令中的偏移量计算，常用于跳转指令。| `JMP LABEL` （跳转到相对地址）  
 **堆栈寻址**|  通过堆栈顶指针（SP）来访问操作数，常用于函数调用和返回。| `PUSH R1` （将 R1 压入堆栈）
+
+
+## 相关笔记
+
+- [[cache|Cache]]
+- [[external|外存]]
+- [[memory-index|存储系统]]
+- [[overview|存储系统概述]]
+- [[ram|内存]]
+- [[virtual|虚拟存储器]]

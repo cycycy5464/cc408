@@ -1,10 +1,11 @@
 ---
 title: "物理层"
+aliases: ["物理层"]
 date: 2026-06-25
 weight: 4
 tags: [物理层]
 difficulty: 1
-prerequisites: []
+prerequisites: ["计算机网络体系结构", "网络设备总结", "分层结构", "各层协议总结"]
 subject: network
 chapter: 1
 chapter_title: "物理层"
@@ -45,3 +46,11 @@ chapter_title: "物理层"
 ##### [交换方式](</computer_network/physical/switching/>)
 
 ##### [物理层设备](</computer_network/physical/dev/>)
+
+
+## 相关笔记
+
+- [[arch-index|计算机网络体系结构]]
+- [[device-summary|网络设备总结]]
+- [[layered|分层结构]]
+- [[protocol-summary|各层协议总结]]

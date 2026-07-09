@@ -375,12 +375,90 @@
       }
     };
     
-    const favBtn = document.createElement('button');
+    var qNum = qBlock.querySelector('.question-number');
+    var qNumber = qNum ? qNum.textContent.trim() : '';
+
+    var subject = '';
+    var prev = qBlock.previousElementSibling;
+    while (prev) {
+      if (prev.classList.contains('exam-section-title')) {
+        subject = prev.textContent.trim();
+        break;
+      }
+      prev = prev.previousElementSibling;
+    }
+
+    var yearMatch = document.title.match(/(20\d{2})/);
+    var year = yearMatch ? yearMatch[1] : '';
+    var tags = [];
+    if (subject) tags.push(subject);
+    if (year) tags.push(year);
+    tags.push('真题');
+
+    var favId = 'fav-' + location.pathname.replace(/\//g, '-') + '-' + qNumber;
+
+    var opts = [];
+    qBlock.querySelectorAll('.exam-option').forEach(function(o) {
+      var t = o.querySelector('.opt-text');
+      if (t) opts.push(t.textContent.trim());
+    });
+    var ap = qBlock.querySelector('.answer-panel');
+    var ans = ap ? ap.getAttribute('data-answer') || '' : '';
+    var exp = ap ? ap.textContent.replace('正确答案：' + ans, '').trim() : '';
+
+    var questionText = '';
+    qBlock.querySelectorAll('p').forEach(function(p) {
+      if (p.closest('.answer-panel')) return;
+      if (p.style.display !== 'none') questionText += p.textContent.trim() + '\n';
+    });
+    questionText = questionText.replace(/【解析】/g, '').replace(/正确答案[：:].*/g, '').trim();
+
+    var favBtn = document.createElement('button');
     favBtn.className = 'favorite-btn';
+    favBtn.dataset.quizId = favId;
     favBtn.innerHTML = '⭐ 收藏';
+
+    try {
+      var saved = JSON.parse(localStorage.getItem('quiz_collections') || '[]');
+      if (saved.some(function(s) { return s.id === favId; })) {
+        favBtn.classList.add('active');
+        favBtn.innerHTML = '★ 已收藏';
+      }
+    } catch(e) {}
+
     favBtn.onclick = function() {
-      favBtn.classList.toggle('active');
-      favBtn.innerHTML = favBtn.classList.contains('active') ? '★ 已收藏' : '⭐ 收藏';
+      try {
+        var all = JSON.parse(localStorage.getItem('quiz_collections') || '[]');
+        var idx = -1;
+        for (var i = 0; i < all.length; i++) {
+          if (all[i].id === favId) { idx = i; break; }
+        }
+        if (idx > -1) {
+          all.splice(idx, 1);
+          favBtn.classList.remove('active');
+          favBtn.innerHTML = '⭐ 收藏';
+        } else {
+          var quizData = {
+            id: favId,
+            type: opts.length > 0 ? 'choice' : 'answer',
+            multiple: false,
+            subject: subject,
+            quizNumber: parseInt(qNumber) || 0,
+            question: questionText,
+            options: opts.length > 0 ? opts : undefined,
+            answer: ans,
+            explanation: exp,
+            tags: tags.join(','),
+            pageUrl: location.pathname,
+            pageTitle: year + (subject ? ' ' + subject : '') + ' 第' + qNumber + '题',
+            collectedAt: new Date().toISOString()
+          };
+          all.push(quizData);
+          favBtn.classList.add('active');
+          favBtn.innerHTML = '★ 已收藏';
+        }
+        localStorage.setItem('quiz_collections', JSON.stringify(all));
+      } catch(e) {}
     };
     
     actionsDiv.appendChild(revealBtn);

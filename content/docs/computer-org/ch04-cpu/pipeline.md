@@ -1,10 +1,11 @@
 ---
 title: "指令流水线"
+aliases: ["指令流水线"]
 date: 2026-06-25
 weight: 24
 tags: [指令系统]
 difficulty: 3
-prerequisites: []
+prerequisites: ["数据对齐", "指令格式与寻址方式", "高级语言与机器码", "指令系统", "指令操作码", "指令集种类"]
 subject: computer-org
 chapter: 3
 chapter_title: "指令流水线"
@@ -433,3 +434,13 @@ S≈k
 >   * **超标量：硬件很“聪明”**
 >   * **超流水线：时钟切得很“细”**
 >   * **VLIW：编译器很“聪明”**
+
+
+## 相关笔记
+
+- [[data-alignment|数据对齐]]
+- [[format-addressing|指令格式与寻址方式]]
+- [[hll-machine|高级语言与机器码]]
+- [[instruction-index|指令系统]]
+- [[opcode|指令操作码]]
+- [[types|指令集种类]]

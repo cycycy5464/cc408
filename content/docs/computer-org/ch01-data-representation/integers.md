@@ -1,10 +1,11 @@
 ---
 title: "整数的表示"
+aliases: ["整数的表示"]
 date: 2026-06-25
 weight: 4
 tags: [数据表示]
 difficulty: 1
-prerequisites: []
+prerequisites: ["概论", "计算机性能指标", "计算机系统层次结构"]
 subject: computer-org
 chapter: 1
 chapter_title: "整数的表示"
@@ -242,3 +243,10 @@ S=2n−U=Uˉ+1
   * 在进行算术运算时，正数和负数需要不同的处理，这使得硬件设计变得复杂。
 
 由于上述的缺点，**原码** 并不是计算机中最常用的表示法。在现代计算机中，**补码** 是更常用的方式来表示 **有符号整数** ，因为它简化了算术运算的处理，并且没有 **+0** 和 **-0** 的冗余表示。
+
+
+## 相关笔记
+
+- [[introduction|概论]]
+- [[performance|计算机性能指标]]
+- [[system-hierarchy|计算机系统层次结构]]

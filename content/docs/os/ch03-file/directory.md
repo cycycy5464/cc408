@@ -1,10 +1,11 @@
 ---
 title: "目录"
+aliases: ["目录"]
 date: 2026-06-25
 weight: 15
 tags: [文件管理]
 difficulty: 2
-prerequisites: []
+prerequisites: ["内存管理概念", "内存管理", "虚拟内存管理"]
 subject: os
 chapter: 2
 chapter_title: "目录"
@@ -159,3 +160,10 @@ pwd                   # 显示当前 路径
   * 软链接 **可以跨文件系统使用** ，也可以链接 **目录** ，灵活性更高；
   * 访问软链接时，系统会先读取其 **路径内容** ，再根据该路径查找目标文件；
   * **文件属性** 显示中，软链接使用 `l` 类型标识，显示类似 `L -> A` 的引用关系。
+
+
+## 相关笔记
+
+- [[concepts|内存管理概念]]
+- [[memory-index|内存管理]]
+- [[virtual|虚拟内存管理]]

@@ -1,10 +1,11 @@
 ---
 title: "I/O管理"
+aliases: ["I/O管理"]
 date: 2026-06-25
 weight: 17
 tags: [总线, I/O]
 difficulty: 2
-prerequisites: []
+prerequisites: ["目录", "文件", "文件管理", "文件系统"]
 subject: os
 chapter: 2
 chapter_title: "I/O管理"
@@ -42,3 +43,11 @@ chapter_title: "I/O管理"
 ##### [设备管理](</operating_system/io_device/management/>)
 
 ##### [磁盘](</operating_system/io_device/disks/>)
+
+
+## 相关笔记
+
+- [[directory|目录]]
+- [[file-basics|文件]]
+- [[file-index|文件管理]]
+- [[filesystem|文件系统]]

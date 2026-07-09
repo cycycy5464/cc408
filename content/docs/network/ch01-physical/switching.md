@@ -1,10 +1,11 @@
 ---
 title: "交换方式"
+aliases: ["交换方式"]
 date: 2026-06-25
 weight: 7
 tags: [基础概念]
 difficulty: 1
-prerequisites: []
+prerequisites: ["计算机网络体系结构", "网络设备总结", "分层结构", "各层协议总结"]
 subject: network
 chapter: 1
 chapter_title: "交换方式"
@@ -183,3 +184,11 @@ Ttotal​=Tsetup​+Ttransmission​
 例子| Internet 中的 IP 分组| 早期电话网络、ATM 网络  
 
 数据报和虚电路是两种不同的通信服务模型，适用于不同的通信需求和网络类型。数据报适合于互联网等不保证可靠传输的环境，而虚电路适合于对可靠性要求较高的电路交换和 ATM 等网络。选择合适的通信模型取决于应用需求和网络设计。
+
+
+## 相关笔记
+
+- [[arch-index|计算机网络体系结构]]
+- [[device-summary|网络设备总结]]
+- [[layered|分层结构]]
+- [[protocol-summary|各层协议总结]]

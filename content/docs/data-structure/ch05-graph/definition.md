@@ -1,10 +1,11 @@
 ---
 title: "图的定义"
+aliases: ["图的定义"]
 date: 2026-06-25
 weight: 20
 tags: [图]
 difficulty: 3
-prerequisites: []
+prerequisites: ["二叉树", "树与二叉树", "树的应用", "树"]
 subject: data-structure
 chapter: 3
 chapter_title: "图的定义"
@@ -317,3 +318,11 @@ void addEdge(struct Graph* graph, int src, int dest) {
 
 
 ![](/images/docs/data-structure/image-20260612140601621.png)
+
+
+## 相关笔记
+
+- [[binary-tree|二叉树]]
+- [[tree-and-binary-tree|树与二叉树]]
+- [[tree-applications|树的应用]]
+- [[tree|树]]

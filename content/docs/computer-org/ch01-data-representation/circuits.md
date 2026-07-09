@@ -1,10 +1,11 @@
 ---
 title: "运算电路"
+aliases: ["运算电路"]
 date: 2026-06-25
 weight: 7
 tags: [数据表示]
 difficulty: 1
-prerequisites: []
+prerequisites: ["概论", "计算机性能指标", "计算机系统层次结构"]
 subject: computer-org
 chapter: 1
 chapter_title: "运算电路"
@@ -187,3 +188,10 @@ unsigned int multiply(unsigned int a, unsigned int b) {
 在 **除法电路** 中，在每次迭代中我们将当前 **余数** 左移一位，并引入 **被除数** 的下一位，然后执行 **余数减去除数** 的操作，接下来通过条件判断检测 **减法结果** 的符号以确定 **商** 的当前位。
 
 在每次迭代中，我们可以输出 **除法结果** 中的一位，重复直到处理完所有位后，可以得到 **商** 和 **余数** 的结果。
+
+
+## 相关笔记
+
+- [[introduction|概论]]
+- [[performance|计算机性能指标]]
+- [[system-hierarchy|计算机系统层次结构]]

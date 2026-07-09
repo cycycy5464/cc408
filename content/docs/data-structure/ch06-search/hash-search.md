@@ -1,10 +1,11 @@
 ---
 title: "散列表查找"
+aliases: ["散列表查找"]
 date: 2026-06-25
 weight: 25
 tags: [查找, 哈希]
 difficulty: 3
-prerequisites: []
+prerequisites: ["图的算法和应用", "图的定义", "图概述"]
 subject: data-structure
 chapter: 3
 chapter_title: "散列表查找"
@@ -225,3 +226,10 @@ Hi​=\(Hash1​\(key\)+i×Hash2​\(key\)\)modn
 ![](/images/docs/data-structure/image-20260612142357323.png)
 
 ![](/images/docs/data-structure/image-20260612142402790.png)
+
+
+## 相关笔记
+
+- [[algorithms|图的算法和应用]]
+- [[definition|图的定义]]
+- [[graph-index|图概述]]

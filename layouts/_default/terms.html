@@ -2,6 +2,14 @@
 <div class="content-area content-area-wide">
   <h1>🏷️ 标签</h1>
   <p style="color:var(--text-muted);margin-bottom:2rem">按标签浏览所有知识点和题目</p>
+
+  {{ if eq .Data.Singular "tag" }}
+  <div style="display:flex;gap:.75rem;margin-bottom:2rem;flex-wrap:wrap">
+    <a href="{{ "study-methods/tag-analysis/" | relURL }}" class="btn btn-outline" style="font-size:var(--fs-sm)">📊 真题分析报告</a>
+    <a href="{{ "study-methods/tag-index/" | relURL }}" class="btn btn-outline" style="font-size:var(--fs-sm)">🏷️ 真题标签索引</a>
+  </div>
+  {{ end }}
+
   <div style="display:flex;flex-wrap:wrap;gap:.5rem">
     {{ range .Pages }}
     {{ $count := len .Pages }}

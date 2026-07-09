@@ -1,10 +1,11 @@
 ---
 title: "外存"
+aliases: ["外存"]
 date: 2026-06-25
 weight: 12
 tags: [存储系统]
 difficulty: 2
-prerequisites: []
+prerequisites: ["运算电路", "数据表示与计算", "浮点数表示", "整数的表示", "类型转换"]
 subject: computer-org
 chapter: 2
 chapter_title: "外存"
@@ -143,3 +144,12 @@ RAID 的实现涉及以下核心技术：
 重量与体积| 轻薄，适合移动设备| 较重，体积较大  
 碎片化问题| 无需碎片整理| 需定期碎片整理以维持性能  
 适用场景| 系统盘、高性能计算、移动设备| 大容量存储、备份、成本敏感场景
+
+
+## 相关笔记
+
+- [[circuits|运算电路]]
+- [[data-index|数据表示与计算]]
+- [[float|浮点数表示]]
+- [[integers|整数的表示]]
+- [[type-conversion|类型转换]]

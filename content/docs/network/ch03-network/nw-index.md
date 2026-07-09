@@ -1,10 +1,11 @@
 ---
 title: "网络层"
+aliases: ["网络层"]
 date: 2026-06-25
 weight: 16
 tags: [网络层]
 difficulty: 2
-prerequisites: []
+prerequisites: ["数据链路层设备", "数据链路层", "差错控制", "流量控制", "组帧", "局域网与广域网", "介质访问控制"]
 subject: network
 chapter: 2
 chapter_title: "网络层"
@@ -91,3 +92,14 @@ chapter_title: "网络层"
 ##### [SDN](</computer_network/network/sdn/>)
 
 ##### [网络层设备](</computer_network/network/dev/>)
+
+
+## 相关笔记
+
+- [[devices|数据链路层设备]]
+- [[dl-index|数据链路层]]
+- [[error-control|差错控制]]
+- [[flow-control|流量控制]]
+- [[framing|组帧]]
+- [[lan-wan|局域网与广域网]]
+- [[mac|介质访问控制]]

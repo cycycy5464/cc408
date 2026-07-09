@@ -1,0 +1,161 @@
+{{ define "main" }}
+<div class="content-area content-area-wide">
+  <h1>{{ .Title }}</h1>
+
+  {{ $year := .Params.year | string }}
+  {{ $allQ := where .Site.RegularPages "Section" "question" }}
+  {{ $yearQ := slice }}
+  {{ range $allQ }}
+    {{ if in .Params.years $year }}
+      {{ $yearQ = $yearQ | append . }}
+    {{ end }}
+  {{ end }}
+  {{ $yearQ = sort $yearQ "Params.number" "asc" }}
+
+  {{ $subjectOrder := slice "数据结构" "计算机组成原理" "操作系统" "计算机网络" }}
+
+  <div class="exam-content" id="exam-container">
+    {{ range $subjectIndex, $subject := $subjectOrder }}
+      {{ $subjectQ := slice }}
+      {{ range $yearQ }}
+        {{ if in .Params.subjects $subject }}
+          {{ $subjectQ = $subjectQ | append . }}
+        {{ end }}
+      {{ end }}
+
+      {{ if $subjectQ }}
+        <h2 class="exam-section-title">{{ $subject }}（共 {{ len $subjectQ }} 题）</h2>
+        {{ range $qIndex, $q := $subjectQ }}
+          <div class="question-block" data-subject="{{ $subject }}" data-number="{{ $q.Params.number }}">
+            {{ $q.Content }}
+          </div>
+          {{ if lt (add $qIndex 1) (len $subjectQ) }}
+            <hr class="q-separator">
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  </div>
+
+  <div class="question-actions" style="margin-top:1.5rem; display:flex; gap:.75rem; align-items:center;">
+    <button class="reveal-btn" id="reveal-all-btn">查看全部答案与解析</button>
+    <button class="reveal-btn" style="background:var(--text-muted)" id="hide-all-btn" onclick="document.querySelectorAll('.answer-panel').forEach(function(p){p.style.display='none';});document.querySelectorAll('.exam-option').forEach(function(o){o.classList.remove('correct','wrong');});this.previousElementSibling.textContent='查看全部答案与解析';">隐藏全部答案</button>
+  </div>
+
+  <div class="mt-section" style="margin-top:2rem;">
+    <a href="{{ "exam/408quiz/" | relURL }}" class="btn-ghost">← 返回真题列表</a>
+  </div>
+</div>
+
+<style>
+.q-separator { margin: 1.5rem 0; border: none; border-top: 1px solid var(--border-color); }
+.exam-section-title { font-size: 1.2rem; color: var(--accent); margin: 1.5rem 0 1rem; padding-bottom: .5rem; border-bottom: 2px solid var(--accent); }
+.question-block { margin-bottom: .5rem; }
+</style>
+
+<script>
+(function() {
+  const container = document.getElementById('exam-container');
+  if (!container) return;
+
+  container.querySelectorAll('p').forEach(function(p) {
+    if (p.textContent.trim() === '[tag_link]') p.style.display = 'none';
+  });
+
+  container.querySelectorAll('.question-block').forEach(function(block) {
+    var findAnswer = function(el) {
+      for (let child = el.firstChild; child; child = child.nextSibling) {
+        if (child.nodeType === Node.TEXT_NODE) {
+          const m = child.textContent.match(/正确答案[：:]\s*([ABCDabcd])/);
+          if (m) {
+            var answerValue = m[1].toUpperCase();
+            var before = child.textContent.substring(0, m.index);
+            var after = child.textContent.substring(m.index + m[0].length);
+
+            var panel = document.createElement('div');
+            panel.className = 'answer-panel';
+            panel.style.display = 'none';
+            var title = document.createElement('div');
+            title.className = 'answer-title';
+            title.innerHTML = '正确答案：<strong>' + answerValue + '</strong>';
+            panel.appendChild(title);
+            panel.setAttribute('data-answer', answerValue);
+
+            if (before.trim()) child.textContent = before;
+            else el.removeChild(child);
+            if (after.trim()) el.insertBefore(document.createTextNode(after), child.nextSibling);
+
+            el.insertBefore(panel, child.nextSibling);
+
+            var p = panel.parentNode;
+            if (p && p.tagName === 'P') {
+              var sib = p.nextSibling;
+              while (sib) { var nxt = sib.nextSibling; panel.appendChild(sib); sib = nxt; }
+              p.parentNode.insertBefore(panel, p);
+              p.parentNode.removeChild(p);
+            }
+            return true;
+          }
+        } else if (child.nodeType === Node.ELEMENT_NODE) {
+          if (findAnswer(child)) return true;
+        }
+      }
+      return false;
+    };
+
+    findAnswer(block);
+
+    block.querySelectorAll('p').forEach(function(p) {
+      var m = p.textContent.trim().match(/^([A-D])[.、．]\s*(.+)/);
+      if (m) {
+        var opt = document.createElement('div');
+        opt.className = 'exam-option';
+        opt.setAttribute('data-opt', m[1]);
+        opt.innerHTML = '<span class="opt-label">' + m[1] + '.</span> <span class="opt-text">' + m[2] + '</span>';
+        opt.addEventListener('click', function() {
+          this.parentElement.querySelectorAll('.exam-option').forEach(function(o) { o.classList.remove('selected'); });
+          this.classList.add('selected');
+        });
+        p.parentNode.replaceChild(opt, p);
+      }
+    });
+
+    var rp = function(el) {
+      for (let c = el.firstChild; c; c = c.nextSibling) {
+        if (c.nodeType === Node.TEXT_NODE && c.textContent.includes('【解析】')) {
+          const h = c.textContent.replace(/【解析】/g, '<div class="analysis-title">解析：</div>');
+          const t = document.createElement('div'); t.innerHTML = h;
+          el.replaceChild(t.firstChild, c);
+        } else if (c.nodeType === Node.ELEMENT_NODE) rp(c);
+      }
+    };
+    rp(block);
+  });
+
+  var revealBtn = document.getElementById('reveal-all-btn');
+  if (revealBtn) {
+    revealBtn.onclick = function() {
+      var panels = container.querySelectorAll('.answer-panel');
+      var hidden = Array.from(panels).some(function(p) { return p.style.display === 'none'; });
+      panels.forEach(function(p) { p.style.display = hidden ? 'block' : 'none'; });
+      revealBtn.textContent = hidden ? '隐藏全部答案与解析' : '查看全部答案与解析';
+
+      if (hidden) {
+        container.querySelectorAll('.question-block').forEach(function(block) {
+          var ap = block.querySelector('.answer-panel');
+          var correct = ap ? ap.getAttribute('data-answer') : null;
+          if (correct) {
+            block.querySelectorAll('.exam-option').forEach(function(opt) {
+              if (opt.getAttribute('data-opt') === correct) opt.classList.add('correct');
+              else if (opt.classList.contains('selected')) opt.classList.add('wrong');
+            });
+          }
+        });
+      } else {
+        container.querySelectorAll('.exam-option').forEach(function(o) { o.classList.remove('correct','wrong'); });
+      }
+    };
+  }
+})();
+</script>
+{{ end }}

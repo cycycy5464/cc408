@@ -1,10 +1,11 @@
 ---
 title: "指令系统"
+aliases: ["指令系统"]
 date: 2026-06-25
 weight: 14
 tags: [指令系统]
 difficulty: 2
-prerequisites: []
+prerequisites: ["Cache", "外存", "存储系统", "存储系统概述", "内存", "虚拟存储器"]
 subject: computer-org
 chapter: 2
 chapter_title: "指令系统"
@@ -44,3 +45,13 @@ chapter_title: "指令系统"
 ##### [高级语言和机器码](</constitution_principle/instruction/high_low_language/>)
 
 ##### [指令操作码](</constitution_principle/instruction/instruction_ops/>)
+
+
+## 相关笔记
+
+- [[cache|Cache]]
+- [[external|外存]]
+- [[memory-index|存储系统]]
+- [[overview|存储系统概述]]
+- [[ram|内存]]
+- [[virtual|虚拟存储器]]

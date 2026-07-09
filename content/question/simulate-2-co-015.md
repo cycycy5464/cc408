@@ -1,0 +1,45 @@
+---
+title: "模拟卷2 计算机组成原理 第15题"
+date: 2026-07-08
+type: question
+years:
+  - "模拟卷"
+source: "模拟题"
+set: 2
+subjects:
+  - "计算机组成原理"
+knowledge_points:
+  - "计算机组成原理"
+question_type: "choice"
+difficulty: 3
+number: 15
+---
+
+下列关于 DRAM 和 SRAM 的说法中，错误的是（ ）。
+
+A\. II、III 和 IV
+
+B\. I、III 和 IV
+
+C\. I、II 和 III
+
+D\. I、II 和 IV
+
+[tag_link]
+
+正确答案：D
+> 【解析】本题考查 SRAM 和 DRAM 的区别。
+> SRAM 和 DRAM 的差别在于 DRAM 时常需要刷新，但是 SRAM 和 DRAM 都属于易失性存储器，掉电就会丢失，I 错误。
+> SRAM 的集成度虽然更低，但速度更快，因此通常用于高速缓存 Cache，而 DRAM 则是读写速度偏慢，集成度更高，因此通常用于计算机内存，II 错误。
+> 主存可以用 SRAM 实现，只是成本高且容量相对小，III 错误。
+> 和 SRAM 相比，DRAM 成本低、功耗低、但需要刷新，IV 错误。
+> 注意：SRAM 和 DRAM 的特点见下表。
+> RAM 类型 特点 SRAM 非破坏性读出，不需要刷新。
+> 断电信息即丢失，属易失性存储器。
+> 存取速度快，但集成度低，功耗较大，常用于 Cache。
+> DRAM 破坏性读出，需要定期刷新。
+> 断电信息即丢失，属易失性存储器。
+> 集成性高、位价低、容量大和功耗低。
+> 存取速度比 SRAM 慢，常用于大容量的主存系统。
+>
+

@@ -1,10 +1,11 @@
 ---
 title: "物理层设备"
+aliases: ["物理层设备"]
 date: 2026-06-25
 weight: 8
 tags: [设备管理]
 difficulty: 1
-prerequisites: []
+prerequisites: ["计算机网络体系结构", "网络设备总结", "分层结构", "各层协议总结"]
 subject: network
 chapter: 1
 chapter_title: "物理层设备"
@@ -70,3 +71,11 @@ chapter_title: "物理层设备"
 **同轴电缆** （coaxial cable）的结构如上图所示，它由 **中心铜导体** 、**绝缘层** 、**金属屏蔽层** 和 **外护套** 组成。 其中，金属屏蔽层可以有效减少外界电磁干扰，同时也防止信号向外泄漏。
 
 同轴电缆常用于有线电视、宽带接入和一些局域网连接，具有抗干扰能力强、传输稳定的特点。
+
+
+## 相关笔记
+
+- [[arch-index|计算机网络体系结构]]
+- [[device-summary|网络设备总结]]
+- [[layered|分层结构]]
+- [[protocol-summary|各层协议总结]]

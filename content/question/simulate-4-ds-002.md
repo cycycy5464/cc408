@@ -1,0 +1,41 @@
+---
+title: "模拟卷4 数据结构 第2题"
+date: 2026-07-08
+type: question
+years:
+  - "模拟卷"
+source: "模拟题"
+set: 4
+subjects:
+  - "数据结构"
+knowledge_points:
+  - "数据结构"
+question_type: "choice"
+difficulty: 3
+number: 2
+---
+
+若一个栈以向量 V[1..n] 存储，初始栈顶指针 top 为 n+1 ，则 x 进栈的正确操作是（ ）。
+
+A\. top=top+1; V[top]=x
+
+B\. V[top]=x; top=top+1
+
+C\. top=top-1; V[top]=x
+
+D\. V[top]=x; top=top-1
+
+[tag_link]
+
+正确答案：C
+> 栈以向量 V[1..n] 存储，初始栈顶指针 top 为 n+1 ，这表示栈为空且栈从数组末端向开头方向增长。
+> 因为向量有效索引是 1 到 n ， top 初始值 n+1 是一个无效位置，意味着栈底在索引 n 附近，栈顶指针向索引 1 方向移动。
+> 进栈操作需要将元素 x 存入向量的有效位置，并更新栈顶指针指向新栈顶。
+> 正确步骤应是先减小 top 指针，使其指向一个有效索引（如从 n+1 减到 n ），然后将 x 存入该位置。
+> 这样，栈顶元素位于 V[top] ， top 指向当前栈顶。
+> 分析选项： A 和 B 中 top 增加会导致越界访问；
+> D 先存入 x 但初始 top 为 n+1 ，直接访问 V[n+1] 越界；
+> 只有 C 先执行 top = top - 1 使指针有效，再执行 V[top] = x ，符合栈的操作逻辑。
+> 因此， C 是正确操作。
+>
+

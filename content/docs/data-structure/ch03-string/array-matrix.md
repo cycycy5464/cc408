@@ -1,10 +1,11 @@
 ---
 title: "数组和特殊矩阵"
+aliases: ["数组和特殊矩阵"]
 date: 2026-06-25
 weight: 14
 tags: []
 difficulty: 2
-prerequisites: []
+prerequisites: ["栈和队列的应用", "线性数据结构", "队列", "栈"]
 subject: data-structure
 chapter: 2
 chapter_title: "数组和特殊矩阵"
@@ -237,3 +238,11 @@ $$ \begin{vmatrix} a_{1,1} & a_{1,2} &  &  &  &  \\ a_{2,1} & a_{2,2} & a_{2,3} 
   * `a[2...n]`：**下对角线** （从第 2 行开始有值）
   * `b[1...n]`：**主对角线**
   * `c[1...n-1]`：**上对角线** （到第 n-1 行）
+
+
+## 相关笔记
+
+- [[application|栈和队列的应用]]
+- [[linear-data-structure|线性数据结构]]
+- [[queue|队列]]
+- [[stack|栈]]

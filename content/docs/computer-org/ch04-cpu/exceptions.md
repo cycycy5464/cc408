@@ -1,10 +1,11 @@
 ---
 title: "异常与中断"
+aliases: ["异常与中断"]
 date: 2026-06-25
 weight: 23
 tags: [CPU]
 difficulty: 3
-prerequisites: []
+prerequisites: ["数据对齐", "指令格式与寻址方式", "高级语言与机器码", "指令系统", "指令操作码", "指令集种类"]
 subject: computer-org
 chapter: 3
 chapter_title: "异常与中断"
@@ -183,3 +184,13 @@ char c = *bad_addr;  // 假设该地址引发硬件错误
 #### 中断处理流程
 
 中断处理流程参考计算机组成原理中的 [该节](</constitution_principle/bus/io/#%e7%a8%8b%e5%ba%8f%e4%b8%ad%e6%96%ad%e6%96%b9%e5%bc%8f>)。
+
+
+## 相关笔记
+
+- [[data-alignment|数据对齐]]
+- [[format-addressing|指令格式与寻址方式]]
+- [[hll-machine|高级语言与机器码]]
+- [[instruction-index|指令系统]]
+- [[opcode|指令操作码]]
+- [[types|指令集种类]]

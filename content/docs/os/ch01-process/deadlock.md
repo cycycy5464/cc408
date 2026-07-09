@@ -1,10 +1,11 @@
 ---
 title: "死锁"
+aliases: ["死锁"]
 date: 2026-06-25
 weight: 9
 tags: [进程管理]
 difficulty: 1
-prerequisites: []
+prerequisites: ["计算机系统概述", "操作系统概念", "操作系统结构", "程序运行环境"]
 subject: os
 chapter: 1
 chapter_title: "死锁"
@@ -182,3 +183,11 @@ BankersAlgorithmcluster\_legend关键概念说明cluster\_example算法逻辑leg
   * 如果资源 R1 分配给了进程 P2，绘制从 R1 到 P2 的有向边。
 
 在构建完 **资源分配图** ，可以通过使用 **DFS** 检查图中是否存在环路以判断是否存在**死锁** 。
+
+
+## 相关笔记
+
+- [[computer-overview|计算机系统概述]]
+- [[os-concept|操作系统概念]]
+- [[os-structure|操作系统结构]]
+- [[program-env|程序运行环境]]

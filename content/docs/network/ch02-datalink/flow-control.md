@@ -1,10 +1,11 @@
 ---
 title: "流量控制"
+aliases: ["流量控制"]
 date: 2026-06-25
 weight: 12
 tags: [CPU]
 difficulty: 2
-prerequisites: []
+prerequisites: ["通信概念", "物理层设备", "编码与调制", "物理层", "交换方式"]
 subject: network
 chapter: 2
 chapter_title: "流量控制"
@@ -331,3 +332,12 @@ U=RTT+Td​+Ta​N⋅Td​​
 注意有些时候确认帧比较小，在这种情况下确认帧传输时间 Ta​ 可以忽略。
 
 此外， U≤1 ，所以当 N⋅Td​>RTT+Td​+Ta​ 时，信道利用率 U=1 。
+
+
+## 相关笔记
+
+- [[communication|通信概念]]
+- [[devices|物理层设备]]
+- [[encoding|编码与调制]]
+- [[phy-index|物理层]]
+- [[switching|交换方式]]

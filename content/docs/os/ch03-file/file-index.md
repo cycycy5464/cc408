@@ -1,10 +1,11 @@
 ---
 title: "文件管理"
+aliases: ["文件管理"]
 date: 2026-06-25
 weight: 13
 tags: [文件管理]
 difficulty: 2
-prerequisites: []
+prerequisites: ["内存管理概念", "内存管理", "虚拟内存管理"]
 subject: os
 chapter: 2
 chapter_title: "文件管理"
@@ -46,3 +47,10 @@ chapter_title: "文件管理"
 ##### [目录](</operating_system/files/dir/>)
 
 ##### [文件系统](</operating_system/files/file_system/>)
+
+
+## 相关笔记
+
+- [[concepts|内存管理概念]]
+- [[memory-index|内存管理]]
+- [[virtual|虚拟内存管理]]

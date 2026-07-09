@@ -1,10 +1,11 @@
 ---
 title: "存储系统概述"
+aliases: ["存储系统概述"]
 date: 2026-06-25
 weight: 9
 tags: [基础概念]
 difficulty: 1
-prerequisites: []
+prerequisites: ["运算电路", "数据表示与计算", "浮点数表示", "整数的表示", "类型转换"]
 subject: computer-org
 chapter: 1
 chapter_title: "存储系统概述"
@@ -214,3 +215,12 @@ EPROM
 CDROM
 
 **CDROM** 是一种光盘存储设备，数据在生产时一次性写入，不能被修改（只能读取）。
+
+
+## 相关笔记
+
+- [[circuits|运算电路]]
+- [[data-index|数据表示与计算]]
+- [[float|浮点数表示]]
+- [[integers|整数的表示]]
+- [[type-conversion|类型转换]]

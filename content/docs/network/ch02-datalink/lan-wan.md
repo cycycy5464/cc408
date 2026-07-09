@@ -1,10 +1,11 @@
 ---
 title: "局域网与广域网"
+aliases: ["局域网与广域网"]
 date: 2026-06-25
 weight: 14
 tags: [基础概念]
 difficulty: 2
-prerequisites: []
+prerequisites: ["通信概念", "物理层设备", "编码与调制", "物理层", "交换方式"]
 subject: network
 chapter: 2
 chapter_title: "局域网与广域网"
@@ -202,3 +203,12 @@ HDLC 几个特点可以被简单总结为：面向比特、面向连接、提供
 #### PPP 协议
 
 PPP（Point-to-Point Protocol）是一种数据链路层协议，用于在两个点对点连接的网络之间传输数据。PPP 最初是为拨号连接设计的，但它后来被广泛用于建立各种类型的点对点连接，包括 **DSL（数字用户线路）** 、**ISDN（综合业务数字网）** 和串口连接等。
+
+
+## 相关笔记
+
+- [[communication|通信概念]]
+- [[devices|物理层设备]]
+- [[encoding|编码与调制]]
+- [[phy-index|物理层]]
+- [[switching|交换方式]]

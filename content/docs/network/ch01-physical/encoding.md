@@ -1,10 +1,11 @@
 ---
 title: "编码与调制"
+aliases: ["编码与调制"]
 date: 2026-06-25
 weight: 6
 tags: [基础概念]
 difficulty: 1
-prerequisites: []
+prerequisites: ["计算机网络体系结构", "网络设备总结", "分层结构", "各层协议总结"]
 subject: network
 chapter: 1
 chapter_title: "编码与调制"
@@ -67,3 +68,11 @@ chapter_title: "编码与调制"
 **FSK**|  通过改变载波的 **频率** 表示数据|  _0: 900 Hz；1: 901 Hz_|  低速无线通信、电话系统  
 **PSK**|  通过改变载波的 **相位** 表示数据|  _0: 0°相位；1: 180°相位_|  高速无线通信，例如 Wi-Fi  
 **QAM**|  同时改变载波的 **幅度和相位** 表示数据|  _16 种不同的幅度和相位组合_|  数字电视、Wi-Fi、有线和无线通信系统
+
+
+## 相关笔记
+
+- [[arch-index|计算机网络体系结构]]
+- [[device-summary|网络设备总结]]
+- [[layered|分层结构]]
+- [[protocol-summary|各层协议总结]]

@@ -1,5 +1,6 @@
 ---
 title: "操作系统结构"
+aliases: ["操作系统结构"]
 date: 2026-06-25
 weight: 2
 tags: [基础概念]

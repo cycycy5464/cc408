@@ -1,10 +1,11 @@
 ---
 title: "处理机调度"
+aliases: ["处理机调度"]
 date: 2026-06-25
 weight: 6
 tags: [进程管理]
 difficulty: 1
-prerequisites: []
+prerequisites: ["计算机系统概述", "操作系统概念", "操作系统结构", "程序运行环境"]
 subject: os
 chapter: 1
 chapter_title: "处理机调度"
@@ -241,3 +242,11 @@ Response Ratio=BTWT+BT​=BTTAT​
   2. **选择下一个要执行的进程** ：调度器决定下一个要运行的进程。
   3. **恢复下一个进程的状态** ：操作系统从新进程的 PCB 中恢复其上下文信息，包括寄存器值、程序计数器等。
   4. **开始执行新进程** 。
+
+
+## 相关笔记
+
+- [[computer-overview|计算机系统概述]]
+- [[os-concept|操作系统概念]]
+- [[os-structure|操作系统结构]]
+- [[program-env|程序运行环境]]

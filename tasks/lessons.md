@@ -257,3 +257,57 @@
 - **修复**: 改用 `localStorage`（同步 API，零版本冲突，两脚本共用同一 key `quiz_collections`）
 - **教训**: IndexedDB 的 `onupgradeneeded` 中任何 JS 错误都会导致数据库创建中止且不易调试
 - 如果必须用 IndexedDB，schema 变更需递增版本号，且 `createIndex` 必须在 store 上调用，不能在已返回的 index 上调用
+
+### 38. Hugo list.html 渲染 `years` 字段缺失崩溃
+- `question/list.html` 调用 `delimit .Params.years ","`，当 `years` 不存在时 Hugo 报 `can't iterate over <nil>`
+- 真题文件有 `years: ["2009"]`，但模拟题新生成的文件缺少 `years` 字段
+- **修复**: 模拟题 frontmatter 加 `years: ["模拟卷"]` 使模板正常遍历
+- **教训**: Hugo 模板中遍历 `.Params.xxx` 前要确保所有同 section 页面都有该字段
+
+### 39. `---` 水平分割线与 frontmatter 冲突
+- 源 content.md 中 `---` 可作为 frontmatter 分隔符或 markdown 水平分割线（between 选择题和综合题）
+- JS 脚本按 `---` 计数（前2个为 frontmatter，之后为水平分割线）是脆弱做法
+- **修复**: 用 boolean flag `inFrontmatter` 只在前两个 `---` 间过滤，之后的 `---` 正常处理
+- **教训**: 解析含多个 `---` 的 md 文件时，用显式的状态机（begin/end frontmatter）而非全局计数
+
+### 40. 图片操作导致 UTF-8 文件损坏
+- 使用外部图片编辑器修改 `.md` 文件后，中文 UTF-8 多字节字符被替换为 `?`（0x3F）
+- Hugo 报错 `yaml: invalid trailing UTF-8 octet`，实际是文件编码受损
+- **恢复策略**:
+  - git 跟踪的文件 → `git checkout --` 恢复
+  - 从备份 `content.md` 再生 → 解析 `#### 科目` / `##### 题号` 结构提取
+  - 无法再生的 → 重建 frontmatter + 保留 ASCII 内容残片
+
+### 42. 绝不用 PowerShell 写 UTF-8 文件
+- PowerShell `Set-Content` 默认使用系统 ANSI 编码（中文 Windows 下为 GBK）
+- 管道重定向 `>` 或 `| Set-Content` 写 UTF-8 文件时破坏中文多字节字符 → 文件损坏
+  - 损坏特征：`yaml: invalid trailing UTF-8 octet`（Hugo 构建报错）
+  - 写空文件：当源文件也是 GBK 写入的 UTF-8 文件时，`Set-Content -NoNewline` 产生 0 字节文件
+- **修复方案**：
+  - 用 Python `open(path, 'w', encoding='utf-8')` 替代 PowerShell 的 `Set-Content`
+  - 从损坏文件中恢复：用 `raw.decode('utf-8', errors='replace')` 提取 ASCII 内容残片，重建 frontmatter
+- **规则**：凡是对 `.md` 或任何含中文的文本文件的**写操作**，必须用 Python 或 Node.js，不得用 PowerShell
+
+### 43. 收藏页 tags 解析容错
+
+### 44. `type` + `layout` 同时存在时的模板查找顺序
+- `_index.md` 中 `type: exam` + `layout: year-detail` → Hugo 查找 `layouts/exam/year-detail.html`
+- 不会回退到 `layouts/year/list.html`（即使 `type` 暗示 `year` 目录）
+- **规则**: `layout` 覆盖默认的 `type` 推断。明确写了 `layout:` 时，Hugo 精确查找 `layouts/{type}/{layout}.html`
+- **教训**: 修改模板前先确认 `_index.md` 中的 `type` 和 `layout`，找到真正生效的模板文件
+
+### 45. 同行选项的 JS 拆分
+- 部分源文件将所有选项写在同一行：`A. 2006H B.2007H C.2008H D.2009H`
+- Hugo 渲染为单个 `<p>`，JS 正则 `^([A-D])[.、．]\s*(.+)` 误认为一个选项
+- **修复**: 用全局匹配 `/([A-D])[.、．]\s*(.*?)(?=\s*[A-D][.、．]|$)/g` 拆分同一 `<p>` 内的多个选项
+- 拆分为独立 `<div class="exam-option">` 后各占一行
+
+### 46. 年份真题按全局题号排序而非科目分组
+- 题目文件含有 `subjects` 元数据，但真题本身按题号 1-47 混排（选择+综合）
+- **模板策略**: 全局 `sort "Params.number"` + 移除按 subject 的 range 循环
+- 每题的科目信息用 `<span class="q-subject-tag">` 内联在题号旁，不分组
+- **教训**: 用户期望的是"更像真题试卷"的布局，不是按知识点划分的习题集布局
+- localStorage 中 `tags` 字段可能存为纯逗号分隔字符串、JSON 数组字符串 `["A","B"]`、或 JS 数组
+- `createQuizCard` 中 `tags.split(",")` 对数组类型抛 TypeError，对 JSON 数组字符串产生带方括号/引号的碎片标签
+- **修复**: 先用正则 `\["[^\]]*"\]` 匹配 JSON 数组，解析失败再回退逗号拆分 + `replace(/^\[|"|\]$/g, '')` 清理
+- **教训**: 用户 localStorage 中的数据格式不受代码版本控制，展示时必须做多格式兼容

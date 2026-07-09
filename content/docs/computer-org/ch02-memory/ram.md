@@ -1,10 +1,11 @@
 ---
 title: "内存"
+aliases: ["内存"]
 date: 2026-06-25
 weight: 10
 tags: [存储系统]
 difficulty: 1
-prerequisites: []
+prerequisites: ["运算电路", "数据表示与计算", "浮点数表示", "整数的表示", "类型转换"]
 subject: computer-org
 chapter: 2
 chapter_title: "内存"
@@ -198,3 +199,12 @@ DRAM 的刷新方式包括：
 需要的芯片数量为 \(32K×16\)/\(16K×8\)=4 。
 
 地址总线的位数为 16 ，地址线 A1​∼A14​ 与存储器相连， A0​ 不使用，被用来扩展字长。 A15​ 用来产生片选信号。
+
+
+## 相关笔记
+
+- [[circuits|运算电路]]
+- [[data-index|数据表示与计算]]
+- [[float|浮点数表示]]
+- [[integers|整数的表示]]
+- [[type-conversion|类型转换]]

@@ -1,0 +1,316 @@
+{{ define "main" }}
+<div class="content-area content-area-wide">
+  <h1>{{ .Title }}</h1>
+
+  {{ $year := .Params.year | string }}
+  {{ $allQ := where .Site.RegularPages "Section" "question" }}
+  {{ $yearQ := slice }}
+  {{ range $allQ }}
+    {{ if in .Params.years $year }}
+      {{ $yearQ = $yearQ | append . }}
+    {{ end }}
+  {{ end }}
+  {{ $yearQ = sort $yearQ "Params.number" "asc" }}
+
+  <div class="exam-content" id="exam-container">
+    {{ range $qIndex, $q := $yearQ }}
+      <div class="question-block" id="q-{{ $q.Params.number }}" data-subject="{{ index $q.Params.subjects 0 }}" data-number="{{ $q.Params.number }}">
+        <div class="q-number">第 {{ $q.Params.number }} 题 <span class="q-subject-tag">{{ index $q.Params.subjects 0 }}</span></div>
+        <div class="q-body">
+          {{ $q.Content }}
+        </div>
+        <div class="question-actions">
+          <button class="reveal-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
+          <button class="favorite-btn" onclick="toggleCollect('{{ $q.Params.number }}', '{{ index $q.Params.subjects 0 }}', this)">⭐ 收藏</button>
+        </div>
+      </div>
+      {{ if lt (add $qIndex 1) (len $yearQ) }}
+        <hr class="q-separator">
+      {{ end }}
+    {{ end }}
+  </div>
+
+  <div class="question-actions">
+    <button class="reveal-btn" id="reveal-all-btn">查看全部答案与解析</button>
+    <button class="reveal-btn" style="background:var(--text-muted)" id="hide-all-btn" onclick="document.querySelectorAll('.answer-panel').forEach(function(p){p.style.display='none';});document.querySelectorAll('.exam-option').forEach(function(o){o.classList.remove('correct','wrong');});this.previousElementSibling.textContent='查看全部答案与解析';">隐藏全部答案</button>
+  </div>
+
+  <div class="mt-section" style="margin-top:2rem;">
+    <a href="{{ "exam/408quiz/" | relURL }}" class="btn-ghost">← 返回真题列表</a>
+  </div>
+</div>
+
+<style>
+.q-separator { margin: 1.5rem 0; border: none; border-top: 1px solid var(--border-color); }
+.exam-section-title { font-size: 1.2rem; color: var(--accent); margin: 1.5rem 0 1rem; padding-bottom: .5rem; border-bottom: 2px solid var(--accent); }
+.question-block { margin-bottom: .5rem; }
+.q-number { font-size: .9rem; font-weight: 700; color: var(--accent); margin-bottom: .5rem; }
+.q-subject-tag { font-size: .75rem; font-weight: 400; color: var(--text-muted); background: var(--bg-secondary); padding: 1px 6px; border-radius: 3px; margin-left: .5rem; }
+.question-block .question-actions { margin-top: .5rem; display: flex; gap: .5rem; align-items: center; }
+.question-block .reveal-btn, .question-block .favorite-btn {
+  padding: .4rem .9rem; border-radius: var(--radius-sm); cursor: pointer;
+  font-size: var(--fs-sm); font-weight: 500; transition: all .2s;
+}
+.question-block .reveal-btn {
+  background: var(--accent); color: white; border: none;
+}
+.question-block .reveal-btn:hover { opacity: .9; }
+.question-block .favorite-btn {
+  background: transparent; border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+.question-block .favorite-btn:hover { color: var(--accent); border-color: var(--accent); }
+.favorite-btn.collected { color: #f0c040; border-color: #f0c040; }
+.question-actions { margin: 1.5rem 0; display: flex; gap: .75rem; align-items: center; }
+.reveal-btn { cursor: pointer; padding: .5rem 1.25rem; background: rgba(57,186,230,.1); border: 1px solid var(--accent); color: var(--accent); border-radius: var(--radius-sm); font-size: var(--fs-sm); transition: all .2s; }
+.reveal-btn:hover { background: rgba(57,186,230,.2); }
+.question-block img { background: #fff; padding: 8px; border-radius: 4px; max-width: 100%; }
+.answer-panel { margin-top: .5rem; padding: .75rem; background: var(--bg-secondary); border-radius: 6px; border-left: 3px solid var(--accent); }
+.answer-title { font-weight: 700; margin-bottom: .25rem; }
+.analysis-title { font-weight: 700; color: var(--accent); margin: .5rem 0 .25rem; }
+.exam-option { padding: .4rem .6rem; margin: .2rem 0; border: 1px solid var(--border-color); border-radius: 4px; cursor: pointer; transition: all .15s; }
+.exam-option:hover { background: var(--bg-secondary); }
+.exam-option.selected { border-color: var(--accent); background: rgba(var(--accent-rgb), .1); }
+.exam-option.correct { border-color: #4caf50; background: rgba(76,175,80,.15); }
+.exam-option.wrong { border-color: #f44336; background: rgba(244,67,54,.15); }
+</style>
+
+<script>
+(function() {
+  try {
+    var container = document.getElementById('exam-container');
+    if (!container) return;
+
+    var blocks = container.querySelectorAll('.question-block');
+    for (var bi = 0; bi < blocks.length; bi++) {
+      (function(block) {
+        try {
+          var qBody = block.querySelector('.q-body');
+          if (!qBody) return;
+
+          // 1. Hide [tag_link] elements
+          var allP = qBody.querySelectorAll('p');
+          for (var pi = 0; pi < allP.length; pi++) {
+            if (allP[pi].textContent.trim() === '[tag_link]') {
+              allP[pi].style.display = 'none';
+            }
+          }
+
+          // 2. Try to find 正确答案 pattern
+          var foundAnswer = false;
+          var allNodes = qBody.querySelectorAll('*');
+          for (var ni = 0; ni < allNodes.length; ni++) {
+            var el = allNodes[ni];
+            if (el.nodeType !== 1) continue;
+            for (var ci = 0; ci < el.childNodes.length; ci++) {
+              var c = el.childNodes[ci];
+              if (c.nodeType === 3) {
+                var m = c.textContent.match(/正确答案[：:]\s*([ABCDabcd])/);
+                if (m) {
+                  var ans = m[1].toUpperCase();
+                  // Create answer-panel
+                  var panel = document.createElement('div');
+                  panel.className = 'answer-panel';
+                  panel.style.display = 'none';
+                  panel.setAttribute('data-answer', ans);
+                  var title = document.createElement('div');
+                  title.className = 'answer-title';
+                  title.innerHTML = '正确答案：<strong>' + ans + '</strong>';
+                  panel.appendChild(title);
+
+                  // Collect answer content after this text node
+                  var cur = c.nextSibling;
+                  while (cur) {
+                    var nxt = cur.nextSibling;
+                    panel.appendChild(cur);
+                    cur = nxt;
+                  }
+                  // Also collect remaining siblings of el
+                  var after = el.nextSibling;
+                  while (after) {
+                    var nxt2 = after.nextSibling;
+                    panel.appendChild(after);
+                    after = nxt2;
+                  }
+                  // Replace el with panel
+                  el.parentNode.insertBefore(panel, el);
+                  el.parentNode.removeChild(el);
+                  foundAnswer = true;
+                  break;
+                }
+              }
+            }
+            if (foundAnswer) break;
+          }
+
+          // 3. Comprehensive question: use [tag_link] as separator
+          if (!foundAnswer) {
+            var lastTag = null;
+            var allP2 = qBody.querySelectorAll('p');
+            for (var pi2 = 0; pi2 < allP2.length; pi2++) {
+              if (allP2[pi2].textContent.trim() === '[tag_link]') {
+                lastTag = allP2[pi2];
+              }
+            }
+            if (lastTag) {
+              var panel2 = document.createElement('div');
+              panel2.className = 'answer-panel';
+              panel2.style.display = 'none';
+              panel2.setAttribute('data-answer', '');
+              var title2 = document.createElement('div');
+              title2.className = 'answer-title';
+              title2.textContent = '答案与解析：';
+              panel2.appendChild(title2);
+
+              var cur2 = lastTag.nextSibling;
+              while (cur2) {
+                var nxt3 = cur2.nextSibling;
+                panel2.appendChild(cur2);
+                cur2 = nxt3;
+              }
+              qBody.appendChild(panel2);
+            }
+          }
+
+          // 4. Convert options: A. text -> clickable divs
+          var allP3 = qBody.querySelectorAll('p');
+          for (var pi3 = 0; pi3 < allP3.length; pi3++) {
+            var p3 = allP3[pi3];
+            var txt = p3.textContent.trim();
+            // Try to split multi-option lines: "A. text B. text C. text D. text"
+            var optParts = txt.match(/([A-D])[.、．]\s*(.*?)(?=\s*[A-D][.、．]|$)/g);
+            if (optParts && optParts.length > 0) {
+              var fragment = document.createDocumentFragment();
+              var created = false;
+              for (var oi3 = 0; oi3 < optParts.length; oi3++) {
+                var part = optParts[oi3].trim();
+                var pm = part.match(/^([A-D])[.、．]\s*(.*)/);
+                if (pm) {
+                  created = true;
+                  var opt = document.createElement('div');
+                  opt.className = 'exam-option';
+                  opt.setAttribute('data-opt', pm[1]);
+                  opt.innerHTML = '<span class="opt-label">' + pm[1] + '.</span> <span class="opt-text">' + pm[2] + '</span>';
+                  opt.addEventListener('click', function() {
+                    var parent = this.parentElement;
+                    if (parent) {
+                      var opts = parent.querySelectorAll('.exam-option');
+                      for (var oix = 0; oix < opts.length; oix++) {
+                        opts[oix].classList.remove('selected');
+                      }
+                    }
+                    this.classList.add('selected');
+                  });
+                  fragment.appendChild(opt);
+                }
+              }
+              if (created) {
+                p3.parentNode.replaceChild(fragment, p3);
+              }
+            }
+          }
+
+          // 5. Replace 【解析】 with styled title
+          var walkReplace = function(root) {
+            if (!root) return;
+            for (var ci2 = 0; ci2 < root.childNodes.length; ci2++) {
+              var child = root.childNodes[ci2];
+              if (child.nodeType === 3 && child.textContent.indexOf('【解析】') !== -1) {
+                var h = child.textContent.replace(/【解析】/g, '<div class="analysis-title">解析：</div>');
+                var t = document.createElement('div');
+                t.innerHTML = h;
+                root.replaceChild(t.firstChild, child);
+              } else if (child.nodeType === 1) {
+                walkReplace(child);
+              }
+            }
+          };
+          walkReplace(qBody);
+        } catch(e) { console.error('Q error:', e); }
+      })(blocks[bi]);
+    }
+
+    // 6. Global reveal button
+    var revealBtn = document.getElementById('reveal-all-btn');
+    if (revealBtn) {
+      revealBtn.onclick = function() {
+        var panels = container.querySelectorAll('.answer-panel');
+        var hidden = false;
+        for (var pi4 = 0; pi4 < panels.length; pi4++) {
+          if (panels[pi4].style.display === 'none') { hidden = true; break; }
+        }
+        for (var pi5 = 0; pi5 < panels.length; pi5++) {
+          panels[pi5].style.display = hidden ? 'block' : 'none';
+        }
+        revealBtn.textContent = hidden ? '隐藏全部答案与解析' : '查看全部答案与解析';
+
+        if (hidden) {
+          var allBlocks = container.querySelectorAll('.question-block');
+          for (var bj = 0; bj < allBlocks.length; bj++) {
+            var ap = allBlocks[bj].querySelector('.answer-panel');
+            var correct = ap ? ap.getAttribute('data-answer') : '';
+            if (correct) {
+              var opts = allBlocks[bj].querySelectorAll('.exam-option');
+              for (var oj = 0; oj < opts.length; oj++) {
+                if (opts[oj].getAttribute('data-opt') === correct) opts[oj].classList.add('correct');
+                else if (opts[oj].classList.contains('selected')) opts[oj].classList.add('wrong');
+              }
+            }
+          }
+        } else {
+          var allOpts = container.querySelectorAll('.exam-option');
+          for (var ok = 0; ok < allOpts.length; ok++) {
+            allOpts[ok].classList.remove('correct', 'wrong');
+          }
+        }
+      };
+    }
+  } catch(e) { console.error('exam-init error:', e); }
+})();
+
+function toggleCollect(qnum, subject, btn) {
+  var key = 'cc408_collections';
+  var data = {};
+  try { data = JSON.parse(localStorage.getItem(key)) || {}; } catch(e) {}
+  var yearMatch = document.querySelector('h1').textContent.trim().match(/\d{4}/);
+  var id = (yearMatch ? yearMatch[0] : '') + '-' + qnum;
+  if (data[id]) {
+    delete data[id];
+    btn.classList.remove('collected');
+    btn.textContent = '收藏';
+  } else {
+    data[id] = { num: qnum, subject: subject, time: new Date().toISOString() };
+    btn.classList.add('collected');
+    btn.textContent = '已收藏';
+  }
+  localStorage.setItem(key, JSON.stringify(data));
+}
+
+function toggleAnswer(btn) {
+  var block = btn.closest('.question-block');
+  if (!block) return;
+  var panel = block.querySelector('.answer-panel');
+  if (!panel) return;
+  if (panel.style.display === 'none' || panel.style.display === '') {
+    panel.style.display = 'block';
+    btn.textContent = '隐藏答案';
+    // Highlight correct answer
+    var correct = panel.getAttribute('data-answer');
+    if (correct) {
+      var opts = block.querySelectorAll('.exam-option');
+      for (var oi = 0; oi < opts.length; oi++) {
+        if (opts[oi].getAttribute('data-opt') === correct) opts[oi].classList.add('correct');
+        else if (opts[oi].classList.contains('selected')) opts[oi].classList.add('wrong');
+      }
+    }
+  } else {
+    panel.style.display = 'none';
+    btn.textContent = '查看答案';
+    var opts2 = block.querySelectorAll('.exam-option');
+    for (var oi2 = 0; oi2 < opts2.length; oi2++) {
+      opts2[oi2].classList.remove('correct', 'wrong');
+    }
+  }
+}
+</script>
+{{ end }}

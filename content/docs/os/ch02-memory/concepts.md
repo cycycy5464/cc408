@@ -1,10 +1,11 @@
 ---
 title: "内存管理概念"
+aliases: ["内存管理概念"]
 date: 2026-06-25
 weight: 11
 tags: [基础概念]
 difficulty: 1
-prerequisites: []
+prerequisites: ["经典同步问题", "死锁", "进程管理", "进程与线程", "处理机调度", "同步与互斥"]
 subject: os
 chapter: 2
 chapter_title: "内存管理概念"
@@ -301,3 +302,13 @@ PTBR （page table base register）指的是 **页表基址寄存器** ，其中
 在地址翻译的过程中，首先通过虚拟地址中的 **段号** 在段表中找到 **页表的起始地址** ，接下来再通过 **页号** 在页表中找到该地址对应的 **物理页面号** 。
 
 它结合了两者的优势，旨在提供 **灵活性** 和 **减少内存碎片** 。
+
+
+## 相关笔记
+
+- [[classic-sync|经典同步问题]]
+- [[deadlock|死锁]]
+- [[process-index|进程管理]]
+- [[process-thread|进程与线程]]
+- [[scheduling|处理机调度]]
+- [[sync-mutex|同步与互斥]]

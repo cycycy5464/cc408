@@ -1,10 +1,11 @@
 ---
 title: "SDN"
+aliases: ["SDN"]
 date: 2026-06-25
 weight: 22
 tags: [网络层]
 difficulty: 3
-prerequisites: []
+prerequisites: ["数据链路层设备", "数据链路层", "差错控制", "流量控制", "组帧", "局域网与广域网", "介质访问控制"]
 subject: network
 chapter: 3
 chapter_title: "SDN"
@@ -94,3 +95,14 @@ SDN 的架构如下图所示：
  * 常见的动作包括：**转发数据包** 到特定的端口、**丢弃数据包** 、**修改数据包头部信息** 、**发送数据包到控制器** 等。
 
 
+
+
+## 相关笔记
+
+- [[devices|数据链路层设备]]
+- [[dl-index|数据链路层]]
+- [[error-control|差错控制]]
+- [[flow-control|流量控制]]
+- [[framing|组帧]]
+- [[lan-wan|局域网与广域网]]
+- [[mac|介质访问控制]]

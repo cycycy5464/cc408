@@ -1,10 +1,11 @@
 ---
 title: "串概述"
+aliases: ["串概述"]
 date: 2026-06-25
 weight: 11
 tags: [基础概念]
 difficulty: 1
-prerequisites: []
+prerequisites: ["栈和队列的应用", "线性数据结构", "队列", "栈"]
 subject: data-structure
 chapter: 2
 chapter_title: "串概述"
@@ -17,3 +18,11 @@ chapter_title: "串概述"
 ##### [定义和实现](</data_structure/strings/def/>)
 
 ##### [模式匹配](</data_structure/strings/match/>)
+
+
+## 相关笔记
+
+- [[application|栈和队列的应用]]
+- [[linear-data-structure|线性数据结构]]
+- [[queue|队列]]
+- [[stack|栈]]

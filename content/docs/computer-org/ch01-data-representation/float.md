@@ -1,10 +1,11 @@
 ---
 title: "浮点数表示"
+aliases: ["浮点数表示"]
 date: 2026-06-25
 weight: 5
 tags: [数据表示]
 difficulty: 1
-prerequisites: []
+prerequisites: ["概论", "计算机性能指标", "计算机系统层次结构"]
 subject: computer-org
 chapter: 1
 chapter_title: "浮点数表示"
@@ -252,3 +253,10 @@ i=0∑3​f×2i,f∈\{0,1\}
   1. **对阶** ：低位向高位， B=0.01112​×23 。
   2. **尾数相加** ： A+B=\(1.1012​+0.01112​\)×23=10.00012​×23
   3. **尾数规格化** ： 10.00012​×23=1.00001×24
+
+
+## 相关笔记
+
+- [[introduction|概论]]
+- [[performance|计算机性能指标]]
+- [[system-hierarchy|计算机系统层次结构]]

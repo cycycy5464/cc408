@@ -1,10 +1,11 @@
 ---
 title: "数据对齐"
+aliases: ["数据对齐"]
 date: 2026-06-25
 weight: 17
 tags: [数据表示]
 difficulty: 2
-prerequisites: []
+prerequisites: ["Cache", "外存", "存储系统", "存储系统概述", "内存", "虚拟存储器"]
 subject: computer-org
 chapter: 2
 chapter_title: "数据对齐"
@@ -118,3 +119,13 @@ _Alignof(size_t)     = 8
 
   * 小端序 是低位字节在低地址
   * 大端序 是高位字节在低地址
+
+
+## 相关笔记
+
+- [[cache|Cache]]
+- [[external|外存]]
+- [[memory-index|存储系统]]
+- [[overview|存储系统概述]]
+- [[ram|内存]]
+- [[virtual|虚拟存储器]]

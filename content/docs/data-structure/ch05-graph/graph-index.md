@@ -1,10 +1,11 @@
 ---
 title: "图概述"
+aliases: ["图概述"]
 date: 2026-06-25
 weight: 19
 tags: [基础概念]
 difficulty: 1
-prerequisites: []
+prerequisites: ["二叉树", "树与二叉树", "树的应用", "树"]
 subject: data-structure
 chapter: 2
 chapter_title: "图概述"
@@ -44,3 +45,11 @@ chapter_title: "图概述"
 ##### [定义](</data_structure/graph/defs/>)
 
 ##### [算法和应用](</data_structure/graph/operation/>)
+
+
+## 相关笔记
+
+- [[binary-tree|二叉树]]
+- [[tree-and-binary-tree|树与二叉树]]
+- [[tree-applications|树的应用]]
+- [[tree|树]]

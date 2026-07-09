@@ -1,10 +1,11 @@
 ---
 title: "类型转换"
+aliases: ["类型转换"]
 date: 2026-06-25
 weight: 6
 tags: [数据表示]
 difficulty: 1
-prerequisites: []
+prerequisites: ["概论", "计算机性能指标", "计算机系统层次结构"]
 subject: computer-org
 chapter: 1
 chapter_title: "类型转换"
@@ -146,3 +147,10 @@ int result = (int)f + i; // f 被显式转换为 3，然后与 i 相加
 
 
 **显式类型转换** 会按照你指定的方式进行，在此过程中可能会发生 **精度缺失** 。
+
+
+## 相关笔记
+
+- [[introduction|概论]]
+- [[performance|计算机性能指标]]
+- [[system-hierarchy|计算机系统层次结构]]

@@ -1,5 +1,6 @@
 ---
 title: "分层结构"
+aliases: ["分层结构"]
 date: 2026-06-25
 weight: 1
 tags: [基础概念]

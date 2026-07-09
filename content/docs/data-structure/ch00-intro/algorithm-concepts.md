@@ -1,5 +1,6 @@
 ---
 title: "算法基本概念"
+aliases: ["算法基本概念"]
 date: 2026-06-25
 weight: 2
 tags: [基础概念]

@@ -1,10 +1,11 @@
 ---
 title: "内存管理"
+aliases: ["内存管理"]
 date: 2026-06-25
 weight: 10
 tags: [存储系统]
 difficulty: 1
-prerequisites: []
+prerequisites: ["经典同步问题", "死锁", "进程管理", "进程与线程", "处理机调度", "同步与互斥"]
 subject: os
 chapter: 2
 chapter_title: "内存管理"
@@ -40,3 +41,13 @@ chapter_title: "内存管理"
 ##### [内存管理概念](</operating_system/memory/concepts/>)
 
 ##### [虚拟内存管理](</operating_system/memory/management/>)
+
+
+## 相关笔记
+
+- [[classic-sync|经典同步问题]]
+- [[deadlock|死锁]]
+- [[process-index|进程管理]]
+- [[process-thread|进程与线程]]
+- [[scheduling|处理机调度]]
+- [[sync-mutex|同步与互斥]]

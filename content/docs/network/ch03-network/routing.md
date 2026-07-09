@@ -1,10 +1,11 @@
 ---
 title: "路由算法"
+aliases: ["路由算法"]
 date: 2026-06-25
 weight: 21
 tags: [网络层]
 difficulty: 3
-prerequisites: []
+prerequisites: ["数据链路层设备", "数据链路层", "差错控制", "流量控制", "组帧", "局域网与广域网", "介质访问控制"]
 subject: network
 chapter: 3
 chapter_title: "路由算法"
@@ -284,3 +285,14 @@ Router| 4| R4| R3| 点对点链路| 10| R3
 * 某个前缀不再可达（发送 Withdraw 消息）
 
 
+
+
+## 相关笔记
+
+- [[devices|数据链路层设备]]
+- [[dl-index|数据链路层]]
+- [[error-control|差错控制]]
+- [[flow-control|流量控制]]
+- [[framing|组帧]]
+- [[lan-wan|局域网与广域网]]
+- [[mac|介质访问控制]]
