@@ -426,6 +426,20 @@
   ```
 - **注意**: 部分命中是**误报**（题干里用 `A、B、C、D` 表示表名/进程名/`A.B.C.D` 表示操作步骤），这些不是选项，需人工区分；JS 安全网能保证这类也不会丢题干。
 
+### 57. ⚠️ 单题爬取（csgraduates 指定题号锚点）
+- **经验来源**: `tasks/408-crawler/`（`crawler.js` + `filler.js` + `crawled_data/{year}.json`）。核心套路：Node `https.get` 抓整页 HTML → 解析**隐藏 div**（答案/解析默认 `display:none`）。
+- **单题锚点结构**（以 `408quiz/2009/#43` 为例）：
+  - 题号标题用 `<h5 id=43>`（**无引号**，`id=43` 不是 `id="43"`）
+  - 选择题解析：`id=explanation-choice-<UUID>-<N>`（N=题号）
+  - 综合题（Q41-47）解析：`id=solution-answer-<UUID>-<N>`（**N=题号-40**，即 Q43→N=3），内容在 `<div class="solution-detail" style=display:none>` 内，多个 `<p>` 分段
+  - 题干在 `answer-container` 之前的若干 `<p>` 中
+- **提取脚本**: `scripts/scrape_q43.js`（可改年份/题号复用），输出 markdown 表格到 `_tmp_q43.md`
+- **坑**:
+  - Python `urllib` 在本机**不支持 https**（`unknown url type`），用 Node 爬
+  - 页面 HTML 经 `decode('utf-8','replace')` 或 PowerShell 控制台会显示 `?` 乱码，但**写文件（Node `fs.writeFileSync(...,'utf8')` / Python `[System.IO.File]::WriteAllText`）才是真 UTF-8**，读文件用 Read 工具验证
+  - solution-detail 是 `answer-container` 的**兄弟节点**（非嵌套），正则用 `<div class="solution-detail[^>]*>([\s\S]*?)<\/div>` 单 `</div>` 即可，不要写 `</div></div>`
+- **已验证**: 2009-#43 爬取成功，题目+解析与 `content/question/2009-co-043.md` 一致
+
 ### 22. Hugo 内容文件中的图片路径
 
 - `content/question/` 下的 `.md` 不是 leaf bundle（不是 `index.md`），不能使用相对路径引用同目录图片

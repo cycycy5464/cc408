@@ -312,7 +312,7 @@
 
     // 将选项 A./B./C./D. 转为可点击元素
     qBlock.querySelectorAll('p').forEach(function(p) {
-      var m = p.textContent.trim().match(/^([A-D])[.、．]\s*(.+)/);
+      var m = p.textContent.trim().match(/^([A-D])\s*[.、．]\s*(.+)/);
       if (m) {
         var opt = document.createElement('div');
         opt.className = 'exam-option';

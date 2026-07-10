@@ -187,13 +187,22 @@
             var p3 = allP3[pi3];
             var txt = p3.textContent.trim();
             // Try to split multi-option lines: "A. text B. text C. text D. text"
-            var optParts = txt.match(/([A-D])[.、．]\s*(.*?)(?=\s*[A-D][.、．]|$)/g);
+            var optParts = txt.match(/([A-D])\s*[.、．]\s*(.*?)(?=\s*[A-D]\s*[.、．]|$)/g);
             if (optParts && optParts.length > 0) {
               var fragment = document.createDocumentFragment();
+              // Preserve any stem text that appears before the first option marker
+              var firstIdx = txt.search(/[A-D]\s*[.、．]/);
+              var stemPrefix = firstIdx > 0 ? txt.slice(0, firstIdx).trim() : '';
+              if (stemPrefix) {
+                var stemP = document.createElement('p');
+                stemP.className = 'exam-stem-text';
+                stemP.textContent = stemPrefix;
+                fragment.appendChild(stemP);
+              }
               var created = false;
               for (var oi3 = 0; oi3 < optParts.length; oi3++) {
                 var part = optParts[oi3].trim();
-                var pm = part.match(/^([A-D])[.、．]\s*(.*)/);
+                var pm = part.match(/^([A-D])\s*[.、．]\s*(.*)/);
                 if (pm) {
                   created = true;
                   var opt = document.createElement('div');
