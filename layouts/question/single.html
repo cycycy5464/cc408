@@ -19,9 +19,26 @@
 
   <div class="question-actions" id="q-actions"></div>
 
+{{ $all := where .Site.RegularPages "Section" "question" }}
+{{ $same := slice }}
+{{ $yr := index (.Params.years | default slice) 0 }}
+{{ range $all }}
+  {{ $py := .Params.years }}{{ $ps := .Params.source }}{{ $pset := .Params.set }}
+  {{ if and $ps (eq $ps $.Params.source) }}
+    {{ if $.Params.set }}
+      {{ if eq $pset $.Params.set }}{{ $same = $same | append . }}{{ end }}
+    {{ else if $py }}{{ if in $py $yr }}{{ $same = $same | append . }}{{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ $sorted := sort $same "Params.number" }}
+{{ $idx := -1 }}{{ range $i, $_ := $sorted }}{{ if eq .File.UniqueID $.File.UniqueID }}{{ $idx = $i }}{{ end }}{{ end }}
+{{ $prev := "" }}{{ $next := "" }}
+{{ if gt $idx 0 }}{{ $prev = (index $sorted (sub $idx 1)).RelPermalink }}{{ end }}
+{{ if lt (add $idx 1) (len $sorted) }}{{ $next = (index $sorted (add $idx 1)).RelPermalink }}{{ end }}
   <div class="border-top-section" style="margin-top:2rem; display:flex; justify-content:space-between">
-    <a href="#" id="prev-q" class="btn btn-outline">← 上一题</a>
-    <a href="#" id="next-q" class="btn btn-outline">下一题 →</a>
+    {{ with $prev }}<a href="{{ . }}" id="prev-q" class="btn btn-outline">← 上一题</a>{{ else }}<span></span>{{ end }}
+    {{ with $next }}<a href="{{ . }}" id="next-q" class="btn btn-outline">下一题 →</a>{{ else }}<span></span>{{ end }}
   </div>
 </div>
 
@@ -63,9 +80,9 @@
 <script>
 window.quizMeta = {
   questionType: {{ if eq .Params.question_type "comprehensive" }}"comprehensive"{{ else }}"choice"{{ end }},
-  subjects: {{ .Params.subjects | jsonify }},
-  years: {{ .Params.years | jsonify }},
-  knowledgePoints: {{ .Params.knowledge_points | jsonify }},
+  subjects: {{ .Params.subjects | jsonify | safeJS }},
+  years: {{ .Params.years | jsonify | safeJS }},
+  knowledgePoints: {{ .Params.knowledge_points | jsonify | safeJS }},
   quizNumber: {{ default 0 .Params.quiz_number }},
 };
 </script>
@@ -127,8 +144,12 @@ window.quizMeta = {
 
   findAnswer(container);
 
-  // --- Step 3: Convert options A./B./C./D. to clickable ---
-  container.querySelectorAll('p').forEach(function(p) {
+  // --- Step 3: Convert options A./B./C./D. to clickable (only direct <p> children) ---
+  var optP = [];
+  for (var oi = 0; oi < container.children.length; oi++) {
+    if (container.children[oi].tagName === 'P') optP.push(container.children[oi]);
+  }
+  optP.forEach(function(p) {
     var txt = p.textContent.trim();
     var optParts = txt.match(/([A-D])[.、．]\s*(.*?)(?=\s*[A-D][.、．]|$)/g);
     if (optParts && optParts.length > 0) {

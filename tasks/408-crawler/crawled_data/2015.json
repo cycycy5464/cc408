@@ -1,0 +1,213 @@
+{
+  "year": 2015,
+  "url": "https://www.csgraduates.com/study_methods/408quiz/2015/",
+  "answers": {
+    "1": "A",
+    "2": "B",
+    "3": "D",
+    "4": "D",
+    "5": "D",
+    "6": "C",
+    "7": "A",
+    "8": "C",
+    "9": "C",
+    "10": "C",
+    "11": "A",
+    "12": "A",
+    "13": "B",
+    "14": "D",
+    "15": "C",
+    "16": "B",
+    "17": "B",
+    "18": "D",
+    "19": "C",
+    "20": "B",
+    "21": "B",
+    "22": "D",
+    "23": "B",
+    "24": "C",
+    "25": "D",
+    "26": "B",
+    "27": "A",
+    "28": "A",
+    "29": "B",
+    "30": "C",
+    "31": "C",
+    "32": "C",
+    "33": "D",
+    "34": "A",
+    "35": "B",
+    "36": "B",
+    "37": "A",
+    "38": "C",
+    "39": "A",
+    "40": "C"
+  },
+  "explanations": {
+    "1": {
+      "answer": "A",
+      "analysis": "正确答案： 递归调用函数时，在系统栈里保存的函数信息需满足先进后出的特点，依次调用了 main() ， S(1) ， S(0) ，故栈底到栈顶的信息依次是 main() ， S(1) ， S(O) 。"
+    },
+    "2": {
+      "answer": "B",
+      "analysis": "正确答案： 本题考察 卡特兰数 。根据二叉树前序遍历和中序遍历的递归算法中递归工作栈的状态变化得出：前序序列和中序序列的关系相当于以前序序列为入栈次序，以中序序列为出栈次序。因为前序序列和中序序列可以唯一地确定一棵二叉树，所以题意相当千“以序列 a, b, c, d 为入栈次序，则出栈序列的个数为多少“，对于 n 个不同元素进栈，出栈序列的个数 n + 1 1 ​ C 2 n n ​ = 14 。"
+    },
+    "3": {
+      "answer": "D",
+      "analysis": "正确答案： 在 哈夫曼树 中，左右孩子权值之和为父结点权值。仅以分析选项 A 为例：若两个 10 分别属于两棵不同的子树，根的权值不等于其孩子的权值和，不符；若两个 10 属于同棵子树，其权值不等千其两个孩子（叶结点）的权值和，不符。B、C 选项的排除方法一样。"
+    },
+    "4": {
+      "answer": "D",
+      "analysis": "正确答案： 只有两个结点的 平衡二叉树 的根结点的度为 1，A 错误。中序遍历后可以得到一个降序序列，树中最大元素一定无左子树（可能有右子树），因此不一定是叶结点，B 错误。最后插入的结点可能会导致平衡调整，而不一定是叶结点，C 错误。"
+    },
+    "5": {
+      "answer": "D",
+      "analysis": "正确答案： 画出该有向图图形如下： 0 1 2 3 采用图的深度优先遍历，共 5 种可能： < v 0 ​ , v 1 ​ , v 3 ​ , v 2 ​ >, < v 0 ​ , v 2 ​ , v 3 ​ , v 1 ​ >, < v 0 ​ , v 2 ​ , vi, v 3 ​ >, < v 0 ​ , v 3 ​ , v 2 ​ , v 1 ​ >, < v 0 ​ , v 3 ​ , v 1 ​ , v 2 ​ >, 选 D。"
+    },
+    "6": {
+      "answer": "C",
+      "analysis": "正确答案： V 4 ​ 开始， kruskal 算法 选中的第一条边一定是权值最小的 ( V 1 ​ , V 4 ​ ), B 错误。由于 V 1 ​ 和 V 4 ​ 已经可达，第二条边含有 V 1 ​ 和 V 4 ​ 的权值为 8 的一定符合 prim 算法 ，排除 A、D。"
+    },
+    "7": {
+      "answer": "A",
+      "analysis": "正确答案： 画出查找路径图，因为折半查找的判定树是一棵二叉排序树，看其是否满足二叉排序树的要求。 500 200 450 180 500 450 200 180 180 500 200 450 180 200 500 450 显然，选项 A 的查找路径不满足。"
+    },
+    "8": {
+      "answer": "C",
+      "analysis": "正确答案： 由题中失配 s[i] ≠ s[j] 时， i = j = 5\", 可知题中的主串和模式串 的位序都是从 0 开始的（要注意灵活应变）。按照 next 数组生成算法，对于 t 有： 编号 0 1 2 3 4 5 t a b a a b b next -1 0 0 1 1 2 依据 KMP 算法 “当失配时， i 不变， j 回退到 next[j] 的位置并重新比较”，当失配 s[i] ≠ s[j] 时， i=j=5, 由上表不难得出 next[j]=next[5]=2 （位序从 0 开始）。从而最后结果应为 i=5 （ i 保持不变）， j=2 。"
+    },
+    "9": {
+      "answer": "C",
+      "analysis": "正确答案： 基数排序 的元素移动次数与关键字的初始排列次序无关，而其他三种排序都是与关键字的初始排列明显相关的。"
+    },
+    "10": {
+      "answer": "C",
+      "analysis": "正确答案： 删除 8 后，将 12 移动到堆顶，第一 次是 15 和 10 比较，第二次是 10 和 12 比较并交换，第三次还需比较 12 和 16, 故比较次数为 3 次。 8 15 10 21 34 16 12 12 15 10 21 34 16 10 15 12 21 34 16"
+    },
+    "11": {
+      "answer": "A",
+      "analysis": "正确答案： 希尔排序 的思想是：先将待排元素序列分割成若干子序列（由相隔某个“增量”的元素组成），分别进行直接插入排序，然后依次缩减增量再进行排序，待整个序列中的元素基本有序（增量足够小）时，再对全体元素进行一次直接插入排序。 组成原理 12 计算机硬件能够直接执行的语言是（ ）。 I. 机器语言程序 II. 汇编语言程序 III. 硬件描述语言程序 计算机体系结构 A. 仅 I B. 仅 I、II C. 仅 I、III D. I、II、III 查看答案与解析 收藏 正确答案： 硬件能直接执行的只能是机器语言（二进制编码），汇编语言是为了增强机器语言的可读性和记忆性的语言，经过汇编后才能被执行。"
+    },
+    "12": {
+      "answer": "A",
+      "analysis": "正确答案： 硬件能直接执行的只能是机器语言（二进制编码），汇编语言是为了增强机器语言的可读性和记忆性的语言，经过汇编后才能被执行。"
+    },
+    "13": {
+      "answer": "B",
+      "analysis": "正确答案： 使用 补码 表示整数时，负数的符号位为 1, 数值位按位取反，末位加 1, 因此剩下的 2 个 1 在最低位时，表示的是最小整数，为 10000011, 转换成真值为 -125。"
+    },
+    "14": {
+      "answer": "D",
+      "analysis": "正确答案： 参考 浮点数加减 ，对阶是较小的阶码对齐至较 大的阶码，I 正确。右规和尾数舍入过程，阶码加 1 而可能上溢，II 正确，同理 III 也正确。尾数溢出时可能仅产生误差，结果不一定溢出，IV 正确。"
+    },
+    "15": {
+      "answer": "C",
+      "analysis": "正确答案： 直接映射的 地址结构 为： 主存字块标记 | 行号 | 块内地址 主存块大小为 4 个字，每字 32 位，因此块大小为： 4 × 32 bit = 128 bit = 16 B 。 计算机按字节编址，故块内地址占 lo g 2 ​ ( 16 ) = 4 位。 Cache 可存放 4K 字数据，块大小为 4 字，因此 Cache 行数为： 4 K /4 = 1 K = 1024 ， 行号占 lo g 2 ​ ( 1024 ) = 10 位。 主存地址位数为 32 位，块内地址占 4 位，行号占 10 位， 因此主存字块标记占 32 − 4 − 10 = 18 位。 写操作采用回写（Write Back）方式，每行标记字段包括： 18 位主存字块标记、1 位有效位、1 位脏位， 合计 18 + 1 + 1 = 20 位。 每行数据部分大小为 4 字 × 32 位 = 128 位。 Cache 总容量为： ( 20 + 128 ) × 1024 = 148 × 1024 位 = 148 Kb"
+    },
+    "16": {
+      "answer": "B",
+      "analysis": "正确答案： 上述指令的执行过程可划分为取数、运算和写回过程，取数时读取 xaddr 可能不需要访问主存而直接访问 Cache，而 直写法 需要把数据同时写入 Cache 和主存，因此至少访问 1 次。"
+    },
+    "17": {
+      "answer": "B",
+      "analysis": "正确答案： DRAM 芯片 使用电容存储，所以必须隔一段时间刷新一次，如果存储单元没有被刷新，存储的信息就会丢失。SDRAM 表示同步动态随机存储器。 B 选项 SDRAM 中 S 的意思是 synchronized 的，意思是同步 DRAM。"
+    },
+    "18": {
+      "answer": "D",
+      "analysis": "正确答案： 本题考察 多体交叉存储器 ，每个访存地址对应的存储模块序号 (0, 1, 2, 3) 如下所示： 访存地址 模块序号 8005 8006 8007 8008 8001 8002 8003 8004 8000 1 2 3 0 1 2 3 0 0 其中，模块序号 = 访存地址 % 存储器交叉模块数。 判断可能发生访存冲突的规则是：给定的访存地址在相邻的四次访问中出现在同一个存储模块内。据此，根据上表可知 8004 和 8000 对应的模块号都为 0，即表明这两次的访问出现在同一模块内且在相邻的访问请求中，满足发生冲突的条件。"
+    },
+    "19": {
+      "answer": "C",
+      "analysis": "正确答案： 在 同步通信方式 中，系统采用一个统一的时钟信号，而不是由各设备提供，否则没法实现统一的时钟。"
+    },
+    "20": {
+      "answer": "B",
+      "analysis": "正确答案： 存取时间 = 寻道时间 + 延迟时间 + 传输时间。存取一个扇区的平均延迟时间为旋转半周的时间，即为 (60/7200)/2=4.17ms，传输时间为 (60/7200)/1000=0.01ms，因此访问一个扇区的平均存取时间为 4.17+0.01+8=12.18ms，保留一位小数则为 12.2ms。"
+    },
+    "21": {
+      "answer": "B",
+      "analysis": "正确答案： 在 程序中断方式 中，CPU 和打印控制接口（I/O 端口）之间常见的交互信息包括： A. 打印字符：✅ CPU 通过 I/O 端口向打印机发送要打印的字符数据。 C. 设备状态：✅ CPU 可以从设备读取其状态（如“忙碌”、“准备好”、“出错”等），判断是否可以继续发送数据。 D. 控制命令：✅ CPU 可以向设备发送控制命令（如“启动打印”、“复位”等）控制设备的行为。 所以 B 选项错误，主存地址属于内存地址空间，而不是 I/O 端口和控制接口之间直接交换的信息。 在中断 I/O 方式中： 数据是由 CPU 从内存中取出，然后通过 I/O 指令送到 I/O 端口； 并不是由 CPU 告诉 I/O 接口一个内存地址，让设备自己去内存取数据（那是 DMA 的行为）。 因此，中断 I/O方式下不会在 CPU 和设备控制器之间交换主存地址。"
+    },
+    "22": {
+      "answer": "D",
+      "analysis": "正确答案： 参考 中断和异常的区别 ，内中断是指来自 CPU 和内存内部产生的中断，包括程序运算引起的各种错误，如地址非法、校验错、页面失效、非法指令、用户程序执行特权指令自行中断（INT）和除数为零等，以上中断都在指令的执行过程中产生的，故 A 正确。这种检测异常的工作肯定是由 CPU（包括控制器和运算器）实现的，故 B 正确。内中断不能被屏蔽，一旦出现应立即处理，C 正确。对于 D，考虑到特殊情况，如除数为零和自行中断（INT）都会自动跳过中断指令，所以不会返回到发生异常的指令继续执行，故错误。 操作系统 23 处理外部中断时，应该由操作系统保存的是（ ）。 寄存器类型 中断IO A. 程序计数器（PC）的内容 B. 通用寄存器的内容 C. 块表（TLB）中的内容 D. Cache 中的内容 查看答案与解析 收藏 正确答案： 外部中断处理过程 中，PC 值由中断隐指令自动保存，而通用寄存器 内容由操作系统保存。"
+    },
+    "23": {
+      "answer": "B",
+      "analysis": "正确答案： 外部中断处理过程 中，PC 值由中断隐指令自动保存，而通用寄存器 内容由操作系统保存。"
+    },
+    "24": {
+      "answer": "C",
+      "analysis": "正确答案： 考虑到部分指令可能出现异常（导致中断），从而转到 内核模式 。指令 A 有除零异常的可能，指令 B 为中断指令，指令 D 有缺页异常的可能，指令 C 不会发生异常。"
+    },
+    "25": {
+      "answer": "D",
+      "analysis": "正确答案： 参考 状态转化 ，A、B 和 C 都 因为请求某一资源会进入阻塞态，而 D 只是被剥夺了处理机资源，进入就绪态，一 旦得到处理机即可运行。"
+    },
+    "26": {
+      "answer": "B",
+      "analysis": "正确答案： 死锁处理 采用三种策略：死锁预防、死锁避免、死锁检测和解除。 死锁预防，采用破坏产生死锁的四个必要条件中的一个或几个，以防止发生死锁。其中之一的“破坏循环等待条件”，一般采用顺序资源分配法，首先给系统的资源编号，规定每个进程必须按编号递增的顺序请求资源，也就是限制了用户申请资源的顺序，故 I 的前半句属于死锁预防的范畴。 银行家算法是最著名的死锁避免算法，其中的最大需求矩阵 MAX 定义了每一个进程对 m 类资源的最大需求量，系统在执行安全性算法中都会检查此次资源试分配后，系统是否处于安全状态，若不安全则将本次的试探分配作废。 在死锁的检测和解除中，在系统为进程分配资源时不采取任何措施，但提供死锁的检测和解除的手段。故 II、III 正确。"
+    },
+    "27": {
+      "answer": "A",
+      "analysis": "正确答案： 参考 LRU ，对页号序列从后往前计数，直到数到 4（页框数）个不同的数字为止，这个停止的数字就是要淘汰的页号（最近最久未使用的页），题中为页号 2。"
+    },
+    "28": {
+      "answer": "A",
+      "analysis": "正确答案： 磁盘和内存的速度差异，决定了可以将内存经常访问的文件调入磁盘缓冲区，从高速缓存中复制的访问���磁盘 I/O 的机械操作要快很多。"
+    },
+    "29": {
+      "answer": "B",
+      "analysis": "正确答案： 本题考察 混合索引 ： 其中 10 个直接索引指针指向的数据块大小为 10×1KB = 10KB。 每个索引指针占 4B，则每个磁盘块可存放 1KB/4B = 256 个索引指针，一级索引指针指向的数据块大小为 256×1KB = 256KB，二级索引指针指向的数据块大小为 256×256×1KB = 216KB = 64MB。 按字节编址，偏移量为 1234 时，因 1234B < 10KB，则由直接索引指针可得到其所在的磁盘块地址。文件的索引结点已在内存中，则地址可直接得到，故仅需 1 次访盘即可。 偏移量为 307400 时，因 10KB+256KB < 307400B < 64MB，可知该偏移量的内容在二级索引指针所指向的某个磁盘块中，索引结点已在内存中，故先访盘 2 次得到文件所在的磁盘块地址，再访盘 1 次即可读出内容，故共需 3 次访盘。"
+    },
+    "30": {
+      "answer": "C",
+      "analysis": "正确答案： 本题考察 内存置换策略 ：对各进程进行固定分配时页面数不变，不可能出现全局置换。而 A、B、D 是现代操作系统中常见的 3 种策略。"
+    },
+    "31": {
+      "answer": "C",
+      "analysis": "正确答案： 盘块号＝起始块号 + ⌊盘块号/(1024x8)」= 32 + ⌊409612/(1024x8)」= 32 + 50 = 82，这里问的是块内字节号而不是位号，因此还需要除以 8（1 字节=8 位），块内字节号= ⌊（盘块号%(1024x8))/8」= 1。"
+    },
+    "32": {
+      "answer": "C",
+      "analysis": "正确答案： SCAN 算法就是电梯调度算法。顾名思义，如果开始时磁头向外移动就一直要到最外侧，然后再返回向内侧移动，就像电梯若往下则一直要下到最底层需求才会再上升一样。当期磁头位于 58 号并从外侧向内侧移动，先依次访问 130 和 199, 然后再返回向外侧移动，依次访问 42 和 15, 故磁头移过的磁道数是：(199-58)+(199-15) = 325。 计算机网络 33 通过 POP3 协议接收邮件时，使用的传输层服务类型是（ ）。 电子邮件 A. 无连接不可靠的数据传输服务 B. 无连接可靠的数据传输服务 C. 有连接不可靠的数据传输服务 D. 有连接可靠的数据传输服务 查看答案与解析 收藏 正确答案： POP3 建立在 TCP 连接上，使用的是有连接可靠的数据传输服务。"
+    },
+    "33": {
+      "answer": "D",
+      "analysis": "正确答案： POP3 建立在 TCP 连接上，使用的是有连接可靠的数据传输服务。"
+    },
+    "34": {
+      "answer": "A",
+      "analysis": "正确答案： NRZ 是最简单的串行编码技术，用两个电压来代表两个二进制数，如高电平表示 1，低电平表示 0，题中编码 1 符合。NRZI 则是用电平的一次翻转来表示 1，与前一个 NRZI 电平相同的电平表示 0。曼彻斯特编码将一个码元分成两个相等的间隔，前一个间隔为低电平后一个间隔为高电平表示 1；0 的表示正好相反，题中编码 2 符合。"
+    },
+    "35": {
+      "answer": "B",
+      "analysis": "正确答案： 不考虑确认帧的开销，一个帧发送完后经过一个单程传播时延到达接收方，再经过一个单程传播时延发送方收到应答，从而继续发送。要使得传输效率最大化，就是不用等确认也可以连续发送多个帧。设连续发送 n 个帧，一个帧的发送时延为 1000B/128kbps= 62.5ms。对于采用滑动窗口协议的流水线机制，我们有如下公式： 链路利用率 = (n×发送时延)/(RTT+ 发送时延)。 依题意，有 (n×62.5ms)/(62.5ms+250msx2)≥80%, 得 n≥7.2, 帧序号的比特数 K 需要满足 2 k ≥ n + 1 。从而，帧序号的比特数至少为 4。"
+    },
+    "36": {
+      "answer": "B",
+      "analysis": "正确答案： CCSM/CD 适用于有线网络，而 CSMA/CA 则 广泛应用于无线局域网。其他选项关于 CSMA/CD 的描述都是正确的。"
+    },
+    "37": {
+      "answer": "A",
+      "analysis": "正确答案： 从本质上说， 交换机 就是一个多端口的网桥（A 正确），工作在数据链路层（因此不能实现不同网络层协议的网络互联，D 错误），交换机能经济地将网络分成小的冲突域（B 错误）。广播域属于网络层概念，只有网络层设备（如路由器）才能分割广播域（C 错误）。"
+    },
+    "38": {
+      "answer": "C",
+      "analysis": "正确答案： 根据 最长前缀匹配 ，169.96.40.5 与 169.96.40.0 前 27 位匹配最长，故选 C。选项 D 为默认路由，只有当前面的所有目的网络都不能和分组的目的 IP 地址匹配时才使用。"
+    },
+    "39": {
+      "answer": "A",
+      "analysis": "正确答案： 发送窗口的上限值 = min{接收窗口，拥塞窗口}。4 个 RTT 后，乙收到的数据全部存入缓存，不被取走，接收窗口只剩下 1KB（16-1-2-4-8=1）缓存，使得甲的发送窗口为 1KB。"
+    }
+  },
+  "solutions": {
+    "1": "1）算法的基本设计思想 算法的核心思想是用空间换时间。使用辅助数组记录链表中已出现的数值，从而只需对链表进行一趟扫描。 因为 ∣ d a t a ∣ ≤ n ，故辅助数组 q 的大小为 n + 1 ，各元素的初值均为 0。依次扫描链表中的各 结点，同时检查 q [ ∣ d a t a ∣ ] 的值，如果为 0 ，则保留该结点，并令 q [ d a t a ] = 1 ；否则，将该结点从 链表中删除。 2）使用 C 语言描述的单链表结点的数据结构定义： 3）算法实现 void RemoveElements ( ListNode * head , int n ) { // 数组充当哈希表 int hash [ n + 1 ]; for ( int i = 0 ; i <= n ; i ++ ) { // 0 表示没有命中 hash [ i ] = 0 ; } // 当遍历的结点 ListNode * q = head -> link ; // 先前的结点 ListNode * p = head ; while ( q != NULL ) { // 绝对值已经出现过 if ( hash [ abs ( q -> data )] == 1 ) { // 删除该节点 p -> next = q -> next ; q = p -> next ; } else { // 设置哈希表 hash [ abs ( q -> data )] = 1 ; q = q -> next ; p = p -> next ; } } } 【评分说明】若考生设计的算法满足题目的功能要求且正确，则酌情给分。 4）参考答案所给算法的时间复杂度为 O(m)，空间复杂度为 O(n)。 【评分说明】若考生所估计的时间复杂度和空间复杂度与考生实现的算法一致，可给分。 if(typeof window.quizDB==\"undefined\"){class e{constructor(){this.dbName=\"QuizCollectionsDB\",this.storeName=\"quizzes\",this.version=1,this.db=null}async init(){return new Promise((e,t)=>{const n=indexedDB.open(this.dbName,this.version);n.onerror=()=>t(n.error),n.onsuccess=()=>{this.db=n.result,e(this.db)},n.onupgradeneeded=e=>{const t=e.target.result;if(!t.objectStoreNames.contains(this.storeName)){const e=t.createObjectStore(this.storeName,{keyPath:\"id\"});e.createIndex(\"collectedAt\",\"collectedAt\",{unique:!1}),e.createIndex(\"tags\",\"tags\",{unique:!1,multiEntry:!0}),e.createIndex(\"type\",\"type\",{unique:!1})}}})}async add(e){return this.db||await this.init(),new Promise((t,n)=>{const o=this.db.transaction([this.storeName],\"readwrite\"),i=o.objectStore(this.storeName),s=i.add(e);s.onsuccess=()=>t(s.result),s.onerror=()=>n(s.error)})}async remove(e){return this.db||await this.init(),new Promise((t,n)=>{const o=this.db.transaction([this.storeName],\"readwrite\"),i=o.objectStore(this.storeName),s=i.delete(e);s.onsuccess=()=>t(s.result),s.onerror=()=>n(s.error)})}async get(e){return this.db||await this.init(),new Promise((t,n)=>{const o=this.db.transaction([this.storeName],\"readonly\"),i=o.objectStore(this.storeName),s=i.get(e);s.onsuccess=()=>t(s.result),s.onerror=()=>n(s.error)})}async getAll(){return this.db||await this.init(),new Promise((e,t)=>{const s=this.db.transaction([this.storeName],\"readonly\"),o=s.objectStore(this.storeName),n=o.getAll();n.onsuccess=()=>e(n.result),n.onerror=()=>t(n.error)})}async getAllIds(){return this.db||await this.init(),new Promise((e,t)=>{const s=this.db.transaction([this.storeName],\"readonly\"),o=s.objectStore(this.storeName),n=o.getAllKeys();n.onsuccess=()=>e(n.result),n.onerror=()=>t(n.error)})}}window.quizDB=new e}function toggleSolutionDetail(e,t){const n=document.getElementById(\"solution-\"+t);n&&(n.style.display===\"none\"||n.style.display===\"\"?(n.style.display=\"block\",e.textContent=\"隐藏答案与解析\"):(n.style.display=\"none\",e.textContent=\"查看答案与解析\"))}async function collectAnswerQuiz(e,t){const s=document.getElementById(\"quiz-\"+e);if(!s)return;let n=s.previousElementSibling;const a=[];let o=\"\";for(;n&&n.tagName!==\"H5\";)a.unshift(n),n=n.previousElementSibling;n&&n.tagName===\"H5\"&&(o=n.innerText.trim());const i=a.map(e=>{const t=e.cloneNode(!0);return t.querySelectorAll(\"button, script, style\").forEach(e=>e.remove()),t.outerHTML.trim()}).filter(e=>e.length>0),r=document.getElementById(\"solution-\"+e);let c=\"\";if(r){const e=r.cloneNode(!0);e.querySelectorAll(\"button, script, style\").forEach(e=>e.remove()),c=e.innerHTML.trim()}const l=s.dataset.pageUrl,d=getSubjectFromUrl(l),u={id:e,type:\"answer\",quizNumber:o,question:i.length>0?i:[\"题目\"],questionText:i.map(e=>{const t=document.createElement(\"div\");return t.innerHTML=e,t.textContent.trim()}).join(` `),answer:\"\",explanation:c,tags:s.dataset.tags,subject:d,pageUrl:s.dataset.pageUrl+`/#${o}`,pageTitle:s.dataset.pageTitle+` 第 ${o} 题`,collectedAt:(new Date).toISOString()};try{const n=await window.quizDB.get(e);n?(await window.quizDB.remove(e),t.classList.remove(\"collected\"),t.innerHTML=' 收藏',t.title=\"收藏此题\",showNotification(\"已取消收藏\")):(await window.quizDB.add(u),t.classList.add(\"collected\"),t.innerHTML=' 已收藏',t.title=\"取消收藏\",showNotification(\"已添加到收藏\"))}catch(e){console.error(\"Error managing answer quiz collection:\",e),showNotification(\"操作失败，请重试\")}}if(document.addEventListener(\"DOMContentLoaded\",async function(){try{await window.quizDB.init();const e=await window.quizDB.getAllIds();document.querySelectorAll(\".answer-container .collect-btn\").forEach(t=>{const n=t.closest(\".answer-container\");n&&e.includes(n.id.replace(\"quiz-\",\"\"))&&(t.classList.add(\"collected\"),t.innerHTML=' 已收藏',t.title=\"取消收藏\")})}catch(e){console.error(\"Error initializing answer quiz collections:\",e)}}),!document.getElementById(\"quiz-animations\")){const e=document.createElement(\"style\");e.id=\"quiz-animations\",e.textContent=` @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } } @keyframes slideOut { from { transform: translateX(0); opacity: 1; } to { transform: translateX(100%); opacity: 0; } } `,document.head.appendChild(e)} 42 已知含有 5 个顶点的图 G 如下图所示。 0",
+    "2": "1）图 A 的邻接矩阵如下： A = [图片] ​ 0 1 1 0 1 ​ 1 0 0 1 1 ​ 1 0 0 1 0 ​ 0 1 1 0 1 ​ 1 1 0 1 0 ​ [图片] ​ 2） A 2 如下： A = [图片] ​ 3 1 0 3 1 ​ 1 3 2 1 2 ​ 0 2 2 0 2 ​ 3 1 0 3 1 ​ 1 2 2 1 3 ​ [图片] ​ 0 行 3 列的元素值 3 表示从顶点 0 到顶点 3 之间长度为 2 的路径共有 3 条。 3） B m ( 2 ≤ m ≤ n ) 中位于 i 行 j 列（ 0 ≤ i , j ≤ n − 1 ）的非零元素的含义是：图中从顶点 i 到顶点 j 长度为 m 的路径条数。 组成原理 43 某 16 位计算机的主存按字节编址，存取单位为 16 位；采用 16 位定长指令字格式；CPU 采用单总线结构，主要部分如下图所示。 R0",
+    "3": "1）程序员可见寄存器为通用寄存器（R0~R3）和 PC。因为采用了单总线结构，因此，若无暂存器 T，则 ALU 的 A、B 端口会同时获得两个相同的数据，使数据通路不能正常工作。 【评分说明】回答通用寄存器（R0~R3），给分；回答 PC，给分；部分正确，酌情给分。设置暂存器 T 的原因若回答用于暂时存放端口 A 的数据，则给分；其他答案，酌情给分。 2）ALU 共有 7 种操作，故其操作控制信号 ALUop 至少需要 3 位；移位寄存器有 3 种操作，其操作控制信号 SRop 至少需要 2 位。 3）信号 SRout 所控制的部件是一个三态门，用于控制移位器与总线之间数据通路的连接与断开。 【评分说明】只要回答出三态门或者控制连接/断开，即给分。 4）端口 ①、②、③、⑤、⑧ 须连接到控制部件输出端。 【评分说明】答案包含④、⑥、⑦、⑨中任意一个，不给分；答案不全酌情给分。 5）连线 1，⑥→⑨：连线 2，⑦→④。 【评分说明】回答除上述连线以外的其他连线，酌情给分。 6）因为每条指令的长度为 16 位，按字节编址，所以每条指令占用 2 个内存单元，顺序执行时，下条指令地址为 (PC)+2。MUX 的一个输入端为 2，可便于执行 (PC)+2 操作。 44 题 43 中描述的计算机，其部分指令执行过程的控制信号如题 44 图 a 所示。 PCout=1, MARin=1, Tin=1, MEMop=read",
+    "4": "1）指令操作码有 7 位，因此最多可定义 2 7 = 128 条指令。 2）各条指令的机器代码分别如下： ①“incR1”的机器码为 0000001001000000，即 0240H。 ②“shlR2,R1”的机器码为 0000010010001000，即 0488H。 ③“subR3,(R1),R2”的机器码为 0000011011101010，即 06EAH。 3）各标号处的控制信号或控制信号取值如下： ①0；②mov；③mova；④left；⑤read；⑥sub；⑦mov；⑧Srout 【评分说明】答对两个给分。 4）指令 subR1, R3, (R2) 的执行阶段至少包含 4 个时钟周期；指令 incR1 的执行阶段至少包含 2 个时钟周期。 操作系统 45 有 A、B 两人通过信箱进行辩论，每个人都从自己的信箱中取得对方的问题，将答案和向对方提出的新问题组成一个邮件放人对方的信箱中。假设 A 的信箱最多放 M 个邮件，B 的信箱最多放 N 个邮件。初始时 A 的信箱中有 x 个邮件 ( 0 < x < M )，B 的的信箱中有 y 个邮件 ( 0 < y < N )。辩论者每取出一个邮件，邮件数减 1。A 和 B 两人的操作过程描述如下： A { while (true) { 从 A 的信箱中取出一个邮件； 回答问题并提出一个新问题； 将新邮件放入 B 的信箱； } }",
+    "5": "semaphore A_full = x ; // A 信箱中已有的邮件个数 semaphore A_empty = M - x ; // A 信箱还可以放多少个邮件 semaphore B_full = y ; // B 信箱中已有的邮件个数 semaphore B_empty = N - y ; // B 信箱中还能放多少个邮件 semaphore A_mutex = 1 ; // 互斥访问 A 信箱 semaphore B_mutex = 1 ; // 互斥访问 B 信箱 A () { while ( 1 ) { P ( A_full ); P ( A_mutex ); 从 A信箱中取出一个邮件 ; V ( A_mutex ); V ( A_empty ); 回答问题并提出新问题 ; P ( B_empty ); P ( B_mutex ); 将信件放入 B邮箱 ; V ( B_mutex ); V ( B_full ); } } B () { while ( 1 ) { P ( B_full ); P ( B_mutex ); 从 B信箱中取出一个邮件 ; V ( B_mutex ); V ( B_empty ); 回答问题并提出新问题 ; P ( A_empty ); P ( A_mutex ); 将信件放入 A邮箱 ; V ( A_mutex ); V ( A_full ); } } 【评分说明】 1）每对信号量的定义及初值正确，给分。 2）每个互斥信号量的 P、V 操作使用正确，各给分。 3）每个同步信号量的 P、V 操作使用正确，各给分。 4）其他答案酌情给分。 46 某计算机系统按字节编址，采用二级页表的分页存储管理方式，虚拟地址格式如下所示： 页目录号（10 位） 页表索引（10 位） 页内偏移量（12 位） 请回答下列问题。 (1) 页和页框的大小各为多少字节？进程的虚拟地址空间大小为多少页？ (2) 假定页目录项和页表项均占 4 个字节，则进程的页目录和页表共占多少页？要求写出计算过程。 (3) 若某指令周期内访问的虚拟地址为 0100 0000H 和 0111 2048H，则进行地址转换时共访问多少个二级页表？要求说明坪由。 页表 虚拟页式管理 查看答案与解析 收藏",
+    "6": "1）在 分页存储管理方式 中，将用户程序的地址空间分为若干固定大小的区域，称为“页”或“页面”。相应地，将内存空间分为若干物理块或页框（frame），页和页框大小相同。因此，页和页框大小均为 2 12 B = 4 KB。进程的虚拟地址空间大小为 2 32 / 2 12 = 2 20 页。 2） ( 2 10 × 4 ) / 2 12 （页目录所占页数）+ ( 2 20 × 4 ) / 2 12 （页表所占页数）= 1025 页。 3）需要访问一个二级页表。因为虚拟地址 01000000H 和 01112048H 的最高 10 位的值都是 4，页目录号相同，访问的是同一个二级页表。 【评分说明】用其他方法计算，思路和结果正确同样给分。 计算机网络 47 某网络拓扑如题 47 图所示，其中路由器内网接口、DHCP 服务器、WWW 服务器与主机 1 均采用静态 IP 地址配置，相关地址信息见图中标注；主机 2～主机 N 通过 DHCP 服务器动态获取 IP 地址等配置信息。 [图片] [图片] Internet",
+    "7": "1）DHCP 服务器可为 主机 2 ~ 主机 N 动态分配 IP 地址的最大范围是：111.123.15.5 ~ 111.123.15.254；主机 2 发送的封装 DHCP Discover 报文的 IP 分组的源 IP 地址和目的 IP 地址分别是 0.0.0.0 和 255.255.255.255。 2）主机 2 发出的第一个以太网帧的目的 MAC 地址是 ff-ff-ff-f-ff-ff，封装主机 2 发往 Internet 的 P 分组的以太网帧的目的 MAC 地址是 00-a1-a1-a1-a1-a1。 3）主机 1 能访问 WWW 服务器，但不能访问 Internet。.由于主机 1 的子网掩码配置正确而默认网关 IP 地址被错误地配置为 111.123.15.2（正确 IP 地址是 111.123.15.1)，所以主机 1 可以访问在同一个子网内的 WWW 服务器，但当主机 1 访问 Internet 时，主机 1 发出的 IP 分组会被路由到错误的默认网关（111.123.15.2)，从而无法到达目的主机。"
+  }
+}

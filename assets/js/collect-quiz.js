@@ -76,12 +76,9 @@
     }
 
     var tags = [];
-    if (meta.knowledgePoints) {
-      for (var i = 0; i < meta.knowledgePoints.length; i++) tags.push(meta.knowledgePoints[i]);
-    }
-    if (meta.years) {
-      for (var i = 0; i < meta.years.length; i++) tags.push(meta.years[i]);
-    }
+    function ensureArray(v) { return Array.isArray(v) ? v : typeof v === 'string' ? [v] : []; }
+    ensureArray(meta.knowledgePoints).forEach(function(t) { tags.push(t); });
+    ensureArray(meta.years).forEach(function(t) { tags.push(t); });
     if (meta.questionType) tags.push(isChoice ? "选择题" : "解答题");
 
     var question = "";

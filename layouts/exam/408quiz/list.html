@@ -9,16 +9,19 @@
     {{ range .Sections.ByTitle }}
       {{ $year := "" }}
       {{ if .Params.year }}{{ $year = .Params.year | string }}{{ end }}{{ if .Params.years }}{{ $year = .Params.years }}{{ end }}
+      {{ $isSim := .Params.set }}
       {{ $yearCount := 0 }}
       {{ range $allQ }}
-        {{ if in .Params.years $year }}
-          {{ $yearCount = add $yearCount 1 }}
+        {{ if $isSim }}
+          {{ if and (eq .Params.source "模拟题") (eq .Params.set $isSim) }}{{ $yearCount = add $yearCount 1 }}{{ end }}
+        {{ else }}
+          {{ if in .Params.years $year }}{{ $yearCount = add $yearCount 1 }}{{ end }}
         {{ end }}
       {{ end }}
       <a href="{{ .RelPermalink }}" class="exam-paper-card">
         <div class="title">{{ .Title }}</div>
         <div class="meta">
-          <span class="tag">{{ $year }}年</span>
+          <span class="tag">{{ if $isSim }}模拟卷{{ $isSim }}{{ else }}{{ $year }}年{{ end }}</span>
           <span class="tag">{{ $yearCount }}题</span>
         </div>
       </a>

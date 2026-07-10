@@ -278,11 +278,7 @@
       if (quiz.tags) {
         var tagStr = typeof quiz.tags === 'string' ? quiz.tags : Array.isArray(quiz.tags) ? quiz.tags.join(",") : String(quiz.tags);
         var tagList = [];
-        var jsonRe = /\["[^\]]*"\]/g;
-        var m;
-        while ((m = jsonRe.exec(tagStr)) !== null) {
-          try { JSON.parse(m[0]).forEach(function(t) { if (t) tagList.push(t); }); } catch(e) {}
-        }
+        try { tagList = JSON.parse(tagStr); if (!Array.isArray(tagList)) tagList = []; } catch(e) { tagList = []; }
         if (tagList.length === 0) {
           tagList = tagStr.split(",").map(function (t) { return t.replace(/^\[|"|\]$/g, '').trim(); }).filter(Boolean);
         }

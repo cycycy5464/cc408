@@ -24,7 +24,7 @@
   {{ $css := resources.Get "css/custom.scss" | css.Sass | resources.Minify | resources.Fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
   {{ partial "watermark.html" . }}
-  <script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.content-area img,.docs-layout img').forEach(function(i){i.loading='lazy';i.fetchPriority='low';});});</script>
+  <script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.content-area img,.docs-layout img').forEach(function(i){if(!i.src.match(/\.svg$/i)){i.loading='lazy';i.fetchPriority='low';}});});</script>
 </head>
 <body style="background: var(--bg-primary); color: var(--text-primary);">
   <a href="#main-content" class="skip-link">跳转到主要内容</a>

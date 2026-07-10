@@ -35,6 +35,3 @@ D\. 4KB
 > 因此，下一个 RTT 中 A 的发送窗口大小为 min ( cwnd , rwnd ) = min ( 5 KB , 2 KB ) = 2 KB 所以，A 最多能向 B 发送 2 KB 数据。
 >
 
----
-
-

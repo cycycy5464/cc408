@@ -6,8 +6,14 @@
   {{ $allQ := where .Site.RegularPages "Section" "question" }}
   {{ $yearQ := slice }}
   {{ range $allQ }}
-    {{ if in .Params.years $year }}
-      {{ $yearQ = $yearQ | append . }}
+    {{ if $.Params.set }}
+      {{ if and (eq .Params.source "模拟题") (eq .Params.set $.Params.set) }}
+        {{ $yearQ = $yearQ | append . }}
+      {{ end }}
+    {{ else }}
+      {{ if in .Params.years $year }}
+        {{ $yearQ = $yearQ | append . }}
+      {{ end }}
     {{ end }}
   {{ end }}
   {{ $yearQ = sort $yearQ "Params.number" "asc" }}
@@ -172,8 +178,11 @@
             }
           }
 
-          // 4. Convert options: A. text -> clickable divs
-          var allP3 = qBody.querySelectorAll('p');
+          // 4. Convert options: A. text -> clickable divs (only direct <p> children, not those in blockquotes/answer panels)
+          var allP3 = [];
+          for (var pi3c = 0; pi3c < qBody.children.length; pi3c++) {
+            if (qBody.children[pi3c].tagName === 'P') allP3.push(qBody.children[pi3c]);
+          }
           for (var pi3 = 0; pi3 < allP3.length; pi3++) {
             var p3 = allP3[pi3];
             var txt = p3.textContent.trim();
@@ -266,6 +275,25 @@
       };
     }
   } catch(e) { console.error('exam-init error:', e); }
+})();
+
+// Fix SVG: replace <img> with <object> to support <foreignObject> in draw.io SVGs
+(function() {
+  var svgImgs = document.querySelectorAll('.question-block img[src$=".svg"]');
+  svgImgs.forEach(function(img) {
+    var src = img.getAttribute('src');
+    if (!src) return;
+    if (document.querySelector('object[data="' + src.replace(/"/g, '\\"') + '"]')) return;
+    var obj = document.createElement('object');
+    obj.type = 'image/svg+xml';
+    obj.data = src;
+    obj.style.maxWidth = '100%';
+    var w = img.getAttribute('width');
+    var h = img.getAttribute('height');
+    if (w) obj.setAttribute('width', w);
+    if (h) obj.setAttribute('height', h);
+    img.parentNode.replaceChild(obj, img);
+  });
 })();
 
 function toggleCollect(qnum, subject, btn) {

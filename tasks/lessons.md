@@ -336,3 +336,46 @@
 - csgraduates 的内联 SVG 可能被 HTML 分割（部分图形元素在 SVG 外作为独立 HTML）
 - 从 svg-wrapper HTML 备份中提取的 SVG 比在线页面直接提取的更完整
 - **策略**: 优先使用本地备份版本，而非在线页面提取的 SVG
+
+### 51. ⚠️ `<foreignObject>` SVG 不能在 `<img>` 中渲染 — 换 `<object>`
+- **根因**: draw.io 生成的 SVG 使用 `<foreignObject>` 嵌入 HTML 文字（`<div>`），Chrome 在 `<img>` 标签中**安全策略禁止渲染 `<foreignObject>`**。即使转成 data URI 也不行——问题在内容本身，不在加载方式。
+- **表现**: 浏览器显示断裂图片占位图标，但 DevTools 中 `<img>` 的 src 已是正确 data URI。直接打开 `.svg` 在新标签页则正常。
+- **教训**: **`<img src="...svg">` 遇到含有 `<foreignObject>` 的 SVG 永远失败**，不存在绕过方式。
+- **正确方案**: 用 `<object type="image/svg+xml" data="...svg">` 替代 `<img>`，`<object>` 在独立文档上下文中完整支持 `<foreignObject>`。
+- **检查方法**: 打开 SVG 源码，搜索 `<foreignObject>` 或 `<switch>` 包裹的 HTML 内容（`<div>`、`<span>`）。有这两个标签，就必须用 `<object>`。
+- **修复时机**: 遇到断裂 SVG 图片时，先检查 SVG 源码有无 `<foreignObject>`，有则立即改 `<object>`，不要试 data URI 等<img>方案。
+
+### 52. ⚠️ 题目文件 UTF-8 损坏修复后必须检查 subject 与内容匹配
+- **根因**: PowerShell `Set-Content` 默认 GBK 编码写入 `.md` 文件，破坏 UTF-8 多字节字符（中文标点变为 `�`）；同时内容迁移脚本可能把**多题答案拼接**到同一文件，或把隔壁科目内容混入
+- **表现**: 前端渲染出现乱码、同一题内出现另一个科目内容、subject 标签与实际题目内容不匹配
+- **检查方法**: 对 `content/question/*.md` 做两遍扫描：
+  1. UTF-8 完整性：`python -c "open(f).read().encode('utf-8')"` 或 grep `\ufffd`（`�`）
+  2. subject 与内容关键词匹配：DS 题含"组成原理/OS/网络"关键词 → 标记为可疑
+- **修复流程**:
+  1. 用 `Write` 工具（UTF-8 安全）重写整个文件，不要用 PowerShell `Set-Content`
+  2. 文件名 prefix（`ds/co/os/cn`）与 frontmatter `subjects` 必须一致
+  3. 修复后检查 year-detail 页面渲染结果
+- **教训**: 内容文件一旦用 PowerShell 写入，UTF-8 损坏不可逆。只能从备份或原始源重新生成
+
+### 53. ⚠️ 选项解析 JS 扫描所有 `<p>` 导致解析中 B/C 被错识别为选项
+- **根因**: `year-detail.html` 和 `single.html` 中选项转换用 `qBody.querySelectorAll('p')` 扫描 qBody 内**所有** `<p>` 元素，包括已被移入 `.answer-panel`（答案/解析区域）的 `<p>`。解析中包含 `B、C`（如"选项B、C"）时，被 regex `([A-D])[.、．]` 匹配为选项。
+- **表现**: 解析内容中出现的 `B.` `C.` `B、` `C、` 被渲染为可点击的选项框，样式错乱
+- **修复**: 用 `container.children` 遍历**直接子节点**，只处理 tagName === 'P' 的元素：
+  ```javascript
+  var allP3 = [];
+  for (var i = 0; i < qBody.children.length; i++) {
+    if (qBody.children[i].tagName === 'P') allP3.push(qBody.children[i]);
+  }
+  ```
+- **检查范围**: `layouts/exam/year-detail.html` + `layouts/question/single.html` 两处 JS 均需修复
+- **教训**: `querySelectorAll('p')` 搜索所有后代 `<p>`，包括 blockquote、answer-panel 嵌套的。当解析含选项字母 + 标点的文本时必出 bug。**只处理直接 `<p>` 子节点。**
+
+### 54. ⚠️ 解析区混入隔壁题目内容（内容污染检测法）
+- **根因**: 早期迁移脚本或手动编辑时，题目文件的分析区（`>` blockquote）被混入了**下一道题的内容**。
+- **典型模式**: 题 N 的分析区末尾出现 "题 N+1 题干 + 选项 + 正确答案" 的完整内容（如 `2009-co-022 分析区末尾混入 OS 第23题`、`2009-os-032 分析区末尾混入 计算机网络第33题`）
+- **检测方法**: 扫描所有 question 文件，统计 `正确答案` 出现次数。每个单题文件应**恰好 1 次**：
+  ```python
+  re.findall('正确答案', text)  # 超过1次 → 内容污染
+  ```
+- **修复**: 从 `正确答案` 的第 2 次出现处截断，删除其后所有行（包括尾部 `---` 装饰线）
+- **补充检查**: 分析区末尾的 `---`（markdown 水平线）也应删除——通常是之前污染清理不彻底残留
