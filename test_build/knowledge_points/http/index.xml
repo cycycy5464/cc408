@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HTTP on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/knowledge_points/http/</link>
+    <description>Recent content in HTTP on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/knowledge_points/http/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2014 计算机网络 第40题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2014-cn-040/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2014-cn-040/</guid>
+      <description>&lt;p&gt;使用浏览器访问某大学Web 网站主页时，不可能使用到的协议是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2022 计算机网络 第40题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2022-cn-040/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2022-cn-040/</guid>
+      <description>&lt;p&gt;假设主机H 通过HTTP/1.1 请求浏览某Web服务器S 上的Web 页 news408.html,news408.. html引用 了同目录下的1幅图像，news408.html 文件大小为1 MSS (最大段长),图像文件大小为3MSS,H 访 问 S的往返时间RTT=|0ms,  忽略&lt;a href=&#34;HTTP&#34;&gt;HTTP&lt;/a&gt; 响应报文的首部开销和TCP 段传输时延。若H 已完成域名解  析，则从H 请求与S 建立TCP 连接时刻起，到接收到全部内容止，所需的时间至少是()。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

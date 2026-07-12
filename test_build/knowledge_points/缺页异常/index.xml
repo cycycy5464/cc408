@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>缺页异常 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/knowledge_points/%E7%BC%BA%E9%A1%B5%E5%BC%82%E5%B8%B8/</link>
+    <description>Recent content in 缺页异常 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/knowledge_points/%E7%BC%BA%E9%A1%B5%E5%BC%82%E5%B8%B8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2014 操作系统 第45题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2014-os-045/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2014-os-045/</guid>
+      <description>&lt;p&gt;假设对于题44中的计算机 M 和程序段P 的机器代码，M 采用页式虚拟存储管理；P 开始执 行时，(R1)=(R2)=0,(R6)=1000,   其机器代码已调入主存但不在Cache 中；数组A 未调入主存，且所有数 组元素在同一页，并存储在磁盘同一个扇区。请回答下列问题并说明理由。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2019 计算机组成原理 第14题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2019-co-014/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2019-co-014/</guid>
+      <description>&lt;p&gt;下列关于缺页处理的叙述中，错误的是()。&lt;/p&gt;&#xA;&lt;p&gt;A. 缺页是在地址转换时CPU 检测到的一种异常&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2022 操作系统 第29题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2022-os-029/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2022-os-029/</guid>
+      <description>&lt;p&gt;某进程访问的页b 不在内存中，导致产生缺页异常，该缺页异常处理过程中不一定包含的操作是()。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

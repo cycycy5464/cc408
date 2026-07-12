@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>图的概念 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/knowledge_points/%E5%9B%BE%E7%9A%84%E6%A6%82%E5%BF%B5/</link>
+    <description>Recent content in 图的概念 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/knowledge_points/%E5%9B%BE%E7%9A%84%E6%A6%82%E5%BF%B5/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2022 数据结构 第6题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2022-ds-006/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2022-ds-006/</guid>
+      <description>&lt;p&gt;对于无向图G=(V,E),  下列选项中，正确的是()。&lt;/p&gt;&#xA;&lt;p&gt;A. 当 IVI&amp;gt;|E|    时 ，G  一定是连通的&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

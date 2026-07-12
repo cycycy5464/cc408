@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>进程与线程 | CC408</title>
+  <meta name="description" content="进程和线程 🔥 高优先级
+进程的相关概念 是历年操作系统选择题必考，关键在于几点：进程和线程、进程状态转换、进程内存空间的架构。
+在多道程序环境下，允许多个程序并发执行，为此操作系统引入了 进程 (Process) 的概念，以便更好地描述和控制程序的并发执行，实现操作系统的并发性。
+进程 进程是系统 …">
+  <link rel="icon" href="/cc408/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" as="script" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" as="script" crossorigin="anonymous">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/cc408/css/custom.min.ecad70eed0f9849f67d23e2bf502ae36e7f590486681964e1c95bc71c8672493.css" integrity="sha256-7K1w7tD5hJ9n0j4r9QKuNuf1kEhmgZZOHJW8cchnJJM=">
+  
+
+<script src="/cc408/js/watermark.js"></script>
+
+
+  <script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.content-area img,.docs-layout img').forEach(function(i){if(!i.src.match(/\.svg$/i)){i.loading='lazy';i.fetchPriority='low';}});});</script>
+</head>
+<body style="background: var(--bg-primary); color: var(--text-primary);">
+  <a href="#main-content" class="skip-link">跳转到主要内容</a>
+  <nav class="navbar" role="navigation" aria-label="主导航">
+  <a href="/cc408/" class="navbar-brand">CC408</a>
+  <button class="navbar-toggle" aria-label="菜单" onclick="this.parentElement.querySelector('.navbar-links').classList.toggle('open')">☰</button>
+  <div class="navbar-links" role="menubar">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      首页
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/docs/" role="menuitem" class="active" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识点
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      刷题
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/quiz-collection/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      收藏
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/graph/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识图谱
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/tags/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      标签
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/resources/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      资源
+    </a>
+    
+  </div>
+  <div class="navbar-right">
+    <a href="https://cycycy5464.github.io/">个人主页 →</a>
+  </div>
+</nav>
+
+  <main id="main-content" style="padding-top: 70px; min-height: calc(100vh - 120px);">
+    
+<div class="docs-layout">
+  <aside class="side-nav">
+    
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>📊</span><span>数据结构</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/basic-concepts/" class="side-nav-link ">数据结构基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/algorithm-concepts/" class="side-nav-link ">算法基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linear-list-index/" class="side-nav-link ">线性表概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/definition/" class="side-nav-link ">线性表定义与基本操作</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/sequential-list/" class="side-nav-link ">顺序表</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linked-list/" class="side-nav-link ">链表</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/stack/" class="side-nav-link ">栈</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/queue/" class="side-nav-link ">队列</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/application/" class="side-nav-link ">栈和队列的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/linear-data-structure/" class="side-nav-link ">线性数据结构</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/string-index/" class="side-nav-link ">串概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/definition/" class="side-nav-link ">串的定义与实现</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/pattern-matching/" class="side-nav-link ">串的模式匹配</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/array-matrix/" class="side-nav-link ">数组和特殊矩阵</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree/" class="side-nav-link ">树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-and-binary-tree/" class="side-nav-link ">树与二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/binary-tree/" class="side-nav-link ">二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-applications/" class="side-nav-link ">树的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/graph-index/" class="side-nav-link ">图概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/definition/" class="side-nav-link ">图的定义</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/algorithms/" class="side-nav-link ">图的算法和应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/search-index/" class="side-nav-link ">查找概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/array-search/" class="side-nav-link ">数组查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/tree-search/" class="side-nav-link ">树形查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/hash-search/" class="side-nav-link ">散列表查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/sort-index/" class="side-nav-link ">排序概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/internal-sort/" class="side-nav-link ">内部排序</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/external-sort/" class="side-nav-link ">外部排序</a>
+      
+      <a href="/cc408/exam/exercise/data_structure/" class="side-nav-link ">数据结构篇</a>
+      
+      <a href="/cc408/exam/application/2023-q1/" class="side-nav-link ">2023年408真题 - 应用题第1题</a>
+      
+      <a href="/cc408/exam/choice/2024-q5/" class="side-nav-link ">2024年408真题 - 数据结构选择题第5题</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/introduction/" class="side-nav-link ">绪论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>⚙️</span><span>计算机组成原理</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/system-hierarchy/" class="side-nav-link ">计算机系统层次结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/performance/" class="side-nav-link ">计算机性能指标</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/data-index/" class="side-nav-link ">数据表示与计算</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/integers/" class="side-nav-link ">整数的表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/float/" class="side-nav-link ">浮点数表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/type-conversion/" class="side-nav-link ">类型转换</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/circuits/" class="side-nav-link ">运算电路</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/memory-index/" class="side-nav-link ">存储系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/overview/" class="side-nav-link ">存储系统概述</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/ram/" class="side-nav-link ">内存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/cache/" class="side-nav-link ">Cache</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/external/" class="side-nav-link ">外存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/virtual/" class="side-nav-link ">虚拟存储器</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/instruction-index/" class="side-nav-link ">指令系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/types/" class="side-nav-link ">指令集种类</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/format-addressing/" class="side-nav-link ">指令格式与寻址方式</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/data-alignment/" class="side-nav-link ">数据对齐</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/opcode/" class="side-nav-link ">指令操作码</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/hll-machine/" class="side-nav-link ">高级语言与机器码</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/cpu-index/" class="side-nav-link ">中央处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/function-structure/" class="side-nav-link ">CPU功能与结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/controller/" class="side-nav-link ">控制器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/exceptions/" class="side-nav-link ">异常与中断</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/pipeline/" class="side-nav-link ">指令流水线</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/multiprocessor/" class="side-nav-link ">多处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus/" class="side-nav-link ">总线</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus-io/" class="side-nav-link ">总线和I/O系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch06-io/io-system/" class="side-nav-link ">I/O系统</a>
+      
+      <a href="/cc408/exam/exercise/architecture/" class="side-nav-link ">计算机组成原理</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/introduction/" class="side-nav-link ">概论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🖥️</span><span>操作系统</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/os/ch00-overview/os-concept/" class="side-nav-link ">操作系统概念</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/os-structure/" class="side-nav-link ">操作系统结构</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/program-env/" class="side-nav-link ">程序运行环境</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-index/" class="side-nav-link ">进程管理</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-thread/" class="side-nav-link active">进程与线程</a>
+      
+      <a href="/cc408/docs/os/ch01-process/scheduling/" class="side-nav-link ">处理机调度</a>
+      
+      <a href="/cc408/docs/os/ch01-process/sync-mutex/" class="side-nav-link ">同步与互斥</a>
+      
+      <a href="/cc408/docs/os/ch01-process/classic-sync/" class="side-nav-link ">经典同步问题</a>
+      
+      <a href="/cc408/docs/os/ch01-process/deadlock/" class="side-nav-link ">死锁</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/memory-index/" class="side-nav-link ">内存管理</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/concepts/" class="side-nav-link ">内存管理概念</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/virtual/" class="side-nav-link ">虚拟内存管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-index/" class="side-nav-link ">文件管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-basics/" class="side-nav-link ">文件</a>
+      
+      <a href="/cc408/docs/os/ch03-file/directory/" class="side-nav-link ">目录</a>
+      
+      <a href="/cc408/docs/os/ch03-file/filesystem/" class="side-nav-link ">文件系统</a>
+      
+      <a href="/cc408/docs/os/ch04-io/io-index/" class="side-nav-link ">I/O管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/devices/" class="side-nav-link ">I/O设备</a>
+      
+      <a href="/cc408/docs/os/ch04-io/device-mgmt/" class="side-nav-link ">设备管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/disk/" class="side-nav-link ">磁盘</a>
+      
+      <a href="/cc408/code/clock/" class="side-nav-link ">CLOCK 时钟替换算法</a>
+      
+      <a href="/cc408/code/lru/" class="side-nav-link ">LRU 算法</a>
+      
+      <a href="/cc408/code/spinlock/" class="side-nav-link ">TAS 实现自旋锁</a>
+      
+      <a href="/cc408/exam/exercise/os/" class="side-nav-link ">操作系统</a>
+      
+      <a href="/cc408/code/reader_writer/" class="side-nav-link ">读者写着问题</a>
+      
+      <a href="/cc408/code/monitor/" class="side-nav-link ">管程实现生产者消费者</a>
+      
+      <a href="/cc408/code/producer_consumer/" class="side-nav-link ">生产者消费者问题</a>
+      
+      <a href="/cc408/code/banker/" class="side-nav-link ">银行家算法</a>
+      
+      <a href="/cc408/code/philosopher/" class="side-nav-link ">哲学家就餐问题</a>
+      
+      <a href="/cc408/exam/comprehensive/2022-q1/" class="side-nav-link ">2022年408真题 - 综合题第1题</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/computer-overview/" class="side-nav-link ">计算机系统概述</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🌐</span><span>计算机网络</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/network/ch00-overview/layered/" class="side-nav-link ">分层结构</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/protocol-summary/" class="side-nav-link ">各层协议总结</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/device-summary/" class="side-nav-link ">网络设备总结</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/phy-index/" class="side-nav-link ">物理层</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/communication/" class="side-nav-link ">通信概念</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/encoding/" class="side-nav-link ">编码与调制</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/switching/" class="side-nav-link ">交换方式</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/devices/" class="side-nav-link ">物理层设备</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/dl-index/" class="side-nav-link ">数据链路层</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/framing/" class="side-nav-link ">组帧</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/error-control/" class="side-nav-link ">差错控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/flow-control/" class="side-nav-link ">流量控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/mac/" class="side-nav-link ">介质访问控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/lan-wan/" class="side-nav-link ">局域网与广域网</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/devices/" class="side-nav-link ">数据链路层设备</a>
+      
+      <a href="/cc408/docs/network/ch03-network/nw-index/" class="side-nav-link ">网络层</a>
+      
+      <a href="/cc408/docs/network/ch03-network/ip/" class="side-nav-link ">IP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/arp/" class="side-nav-link ">ARP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/icmp/" class="side-nav-link ">ICMP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/dhcp/" class="side-nav-link ">DHCP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/routing/" class="side-nav-link ">路由算法</a>
+      
+      <a href="/cc408/docs/network/ch03-network/sdn/" class="side-nav-link ">SDN</a>
+      
+      <a href="/cc408/docs/network/ch03-network/devices/" class="side-nav-link ">网络层设备</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tp-index/" class="side-nav-link ">传输层</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tcp/" class="side-nav-link ">TCP</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/udp/" class="side-nav-link ">UDP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-index/" class="side-nav-link ">应用层</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-model/" class="side-nav-link ">网络应用模型</a>
+      
+      <a href="/cc408/docs/network/ch05-application/dns/" class="side-nav-link ">DNS</a>
+      
+      <a href="/cc408/docs/network/ch05-application/ftp/" class="side-nav-link ">FTP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/email/" class="side-nav-link ">电子邮件</a>
+      
+      <a href="/cc408/docs/network/ch05-application/www/" class="side-nav-link ">万维网</a>
+      
+      <a href="/cc408/exam/exercise/network/" class="side-nav-link ">计算机网络</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/arch-index/" class="side-nav-link ">计算机网络体系结构</a>
+      
+    </details>
+    
+  </aside>
+  <main class="content-area">
+    <h1>进程与线程</h1>
+    <div class="meta-row">
+      
+      <span><span class="diff-star">★</span><span class="diff-star-empty">☆</span><span class="diff-star-empty">☆</span></span>
+      
+      <span class="tag">进程管理</span>
+    </div>
+    <article><h3 id="进程和线程">进程和线程</h3>
+<p>🔥 高优先级</p>
+<p><strong>进程的相关概念</strong> 是历年操作系统选择题必考，关键在于几点：进程和线程、进程状态转换、进程内存空间的架构。</p>
+<p>在多道程序环境下，允许多个程序并发执行，为此操作系统引入了 <strong>进程</strong> (Process) 的概念，以便更好地描述和控制程序的并发执行，实现操作系统的并发性。</p>
+<h4 id="进程">进程</h4>
+<p><strong>进程是系统资源分配的基本单位</strong> 。进程拥有独立的系统资源，包括内存空间、文件描述符、CPU 时间片等，这些资源的分配由操作系统负责。</p>
+<h5 id="进程和程序">进程和程序</h5>
+<p>程序是 <strong>静态的</strong> ，进程是 <strong>动态的</strong> ，进程可以理解成运行的程序，两者的具体区别如下：</p>
+<ul>
+<li>
+<p><strong>程序</strong></p>
+</li>
+<li>
+<p>程序是一组指令的静态集合，它存储在磁盘等持久性存储介质中。</p>
+</li>
+<li>
+<p>程序是被动的，它本身并不执行任何操作。</p>
+</li>
+<li>
+<p>一个程序可以多次运行，每次运行都会创建一个新的进程。</p>
+<ul>
+<li><strong>进程</strong></li>
+</ul>
+</li>
+<li>
+<p>进程是程序在内存中执行的实例。</p>
+</li>
+<li>
+<p>当一个程序被加载到内存中并开始执行时，操作系统会创建一个进程。</p>
+</li>
+<li>
+<p>进程是动态的，它代表了程序的执行过程。</p>
+</li>
+</ul>
+<p><img src="/images/docs/os/97cfb497b7.svg"></p>
+<p>读取磁盘中的程序并将其加载到进程的地址空间中</p>
+<h5 id="进程控制块">进程控制块</h5>
+<p>操作系统通过 <strong>进程控制块</strong> （PCB，Process Control Block）对进程进行管理。 PCB 中保存了 <strong>操作系统管理进程所需的关键信息</strong> ，当发生 <strong>进程切换（上下文切换）</strong> 时，需要将运行进程的状态保存到 PCB 中。</p>
+<p>PCB 主要包含以下几类信息：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">信息类别</th>
+          <th style="text-align: left">典型内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>进程标识信息</strong></td>
+          <td style="text-align: left">进程标识符（PID）、用户标识符（UID）</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>进程控制信息</strong></td>
+          <td style="text-align: left">进程状态、进程优先级</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>处理机状态信息</strong></td>
+          <td style="text-align: left">程序计数器（PC）、通用寄存器、程序状态字（PSW）</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>资源信息</strong></td>
+          <td style="text-align: left">打开的文件、内存指针等资源</td>
+      </tr>
+  </tbody>
+</table>
+<p><img src="/images/docs/os/image-20260611220217227.png"></p>
+<p><strong>解释：</strong></p>
+<ul>
+<li><strong>进程标识信息</strong> ：用于唯一标识进程</li>
+<li><strong>进程控制信息</strong> ：用于操作系统进行调度和管理</li>
+<li><strong>处理机状态信息</strong> ：保存 CPU 运行现场，实现 <strong>进程切换</strong></li>
+<li><strong>资源信息</strong> ：记录进程占用的系统资源</li>
+</ul>
+<hr>
+<p><strong>进程控制块</strong> 在操作系统 <strong>进程</strong> 管理的多个阶段都发挥重要作用：</p>
+<ul>
+<li><strong>进程创建和终止</strong> ：在进程创建时，操作系统为它新建一个PCB（进程控制块）。该结构在进程存在期间常驻内存，可以随时存取，并在进程结束时删除。</li>
+<li><strong>进程调度</strong> ：当操作系统进行进程调度时，会根据PCB中存储的信息（如优先级、进程状态）来决定哪个进程应该获得CPU的控制权。</li>
+</ul>
+<h5 id="父子进程">父子进程</h5>
+<p>在操作系统中，<strong>进程</strong> 是程序执行的基本单位。<strong>父子进程</strong> 是指通过 <strong>进程创建机制</strong> 生成的一种层级关系：</p>
+<ul>
+<li>父进程 ：创建新 <strong>进程</strong> 的 <strong>进程</strong> 。</li>
+<li>子进程 ：由 <strong>父进程</strong> 创建的 <strong>进程</strong> 。</li>
+</ul>
+<p><strong>子进程</strong> 通常由 <strong>父进程</strong> 通过 <strong>fork 系统调用</strong> 建立。子进程是父进程的副本，继承父进程的代码段、数据段、堆栈等资源，但拥有自己的独立地址空间和执行状态。两者可以通过进程间通信（IPC）机制（如管道、信号、共享内存）进行数据交换或同步。</p>
+<p><strong>fork</strong> 系统调用的声明为 <code>pid_t fork(void)</code>，其返回值为一个整数，可以用于判定该程序是 <strong>父进程</strong> 还是 <strong>子进程</strong> ：</p>
+<ul>
+<li>在 <strong>父进程</strong> 中，返回值为 <strong>子进程</strong> 的 pid（pid &gt; 0）。</li>
+<li>在 <strong>子进程</strong> 中，返回值为 <strong>0</strong> 。</li>
+</ul>
+<p><img src="/images/docs/os/50949df85c.svg"></p>
+<p><strong>fork</strong> 调用后，<strong>父进程</strong> 和 <strong>子进程</strong> 从 <strong>fork</strong> 调用后的下一条指令开始继续执行。<strong>子进程</strong> 获得 <strong>父进程</strong> 的 <strong>代码</strong> 、<strong>数据</strong> 和 <strong>堆栈</strong> 的副本，但两者地址空间独立。</p>
+<p><img src="/images/docs/os/image-20260611220339828.png"></p>
+<p>除了 <strong>fork</strong> 系统调用外，还有一个 <strong>exec</strong> 系统调用，两种具有不同的功能，需要能够区分：</p>
+<ul>
+<li><strong>fork</strong> ：创建 <strong>子进程</strong> ，复制 <strong>资源</strong> ，不改变程序，<strong>父子进程</strong> 继续执行原代码。</li>
+<li><strong>exec</strong> ：在当前 <strong>进程</strong> 中加载并执行一个新的程序。替换当前 <strong>进程</strong> 的 <strong>代码段</strong> 、<strong>数据段</strong> 和 <strong>堆栈</strong> ，保留部分 <strong>资源</strong> 如 <strong>进程 PID</strong> ，不涉及到并发。</li>
+</ul>
+<p>此外，<strong>父进程</strong> 可以通过 <strong>wait</strong> 系统调用等待 <strong>子进程</strong> 执行结束，并获取 <strong>子进程</strong> 的退出状态，防止 <strong>进程</strong> 成为 <strong>僵尸进程</strong> 。</p>
+<p><img src="/images/docs/os/d27dacab06.svg"></p>
+<p>注意</p>
+<p>僵尸进程 （Zombie Process）是指一个已经终止（完成了其执行）的 <strong>子进程</strong> ，但其 <strong>父进程</strong> 尚未通过 <strong>wait</strong> 或 <strong>waitpid</strong> 系统调用回收其退出状态。<strong>僵尸进程</strong> 虽然不再运行，但仍在 <strong>进程表</strong> 中保留一个条目，占用系统 <strong>资源</strong> ，直到 <strong>父进程</strong> 回收或 <strong>父进程</strong> 终止。</p>
+<p>孤儿进程 （Orphan Process）是指 <strong>父进程</strong> 在 <strong>子进程</strong> 终止前退出，导致 <strong>子进程</strong> 失去 <strong>父进程</strong> 的 <strong>进程</strong> 。<strong>孤儿进程</strong> 与 <strong>僵尸进程</strong> 不同，它仍在运行，只是失去了原来的 <strong>父进程</strong> 。</p>
+<p>下表给出了两者的对比：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">项目</th>
+          <th style="text-align: left">僵尸进程（Zombie Process）</th>
+          <th style="text-align: left">孤儿进程（Orphan Process）</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">状态</td>
+          <td style="text-align: left">已经终止（执行完毕）</td>
+          <td style="text-align: left">仍然在运行</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">父进程是否存在</td>
+          <td style="text-align: left">存在，但未调用 <code>wait()</code>/<code>waitpid()</code> 回收子进程状态</td>
+          <td style="text-align: left">父进程已终止</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">占用资源</td>
+          <td style="text-align: left">占用进程表项（PID 仍存在），不占用内存等资源</td>
+          <td style="text-align: left">占用资源，正常运行中</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="线程">线程</h4>
+<p><strong>线程是系统调度的基本单位</strong> 。多核处理器可以将系统中的不同 <strong>线程</strong> 调度到不同的 <strong>CPU</strong> <a href="/constitution_principle/cpu/multicore/#%e9%80%bb%e8%be%91%e6%a0%b8%e5%bf%83">逻辑核心</a>上，所以在同一个时刻，系统中的 <strong>线程</strong> 可能会在不同的逻辑核心上并行运行。</p>
+<p>每个 <strong>进程</strong> 启动的时候，都包含一个 <strong>线程</strong> （主线程），可以在主线程外创建更多的 <strong>线程</strong> 。</p>
+<p><img src="/images/docs/os/image-20260611220406022.png"></p>
+<p>如上图所示，一个 <strong>进程</strong> 中的所有 <strong>线程</strong> 都共享 <strong>虚拟地址空间</strong> 和系统 <strong>资源</strong> ，但是每个 <strong>线程</strong> 都维护自己的 <strong>堆栈</strong> 、<strong>寄存器</strong> 和一些额外信息。</p>
+<p>在一个 <strong>进程</strong> 中没有创建 <strong>线程</strong> 时，则该 <strong>进程</strong> 为 <strong>单线程进程</strong> ，否则该 <strong>进程</strong> 中包含多个 <strong>线程</strong> 。</p>
+<p><img src="/images/docs/os/image-20260611220415029.png"></p>
+<p><strong>单线程进程</strong> 只有一个线程，独占进程的虚拟地址空间和系统资源，如文件描述符和内存。线程维护自己的堆栈和寄存器，无需同步，但无法利用多核CPU，且阻塞会影响整个进程，适合简单任务，但并发性和响应性较差。</p>
+<p><strong>多线程进程</strong> 包含多个线程，共享虚拟地址空间和系统资源，如代码段和堆，便于高效通信。每个线程有独立的堆栈、寄存器和线程ID，需通过锁等机制同步以避免资源竞争。</p>
+<h3 id="进程的状态">进程的状态</h3>
+<p><strong>进程状态</strong> 是指在操作系统中，一个 <strong>进程</strong> 在执行过程中的不同阶段。它反映了 <strong>进程</strong> 当前正在做什么，以及是否可以被 <strong>CPU</strong> 执行。</p>
+<h4 id="状态种类">状态种类</h4>
+<p>不同的操作系统对 <strong>进程状态</strong> 的划分可能不同，但常见的包括以下几种：</p>
+<ol>
+<li><strong>创建状态</strong> （New）：当 <strong>进程</strong> 被创建但还未分配资源或执行时，它处于 <strong>创建状态</strong> 。</li>
+<li><strong>就绪状态</strong> （Ready）：在 <strong>就绪状态</strong> 中，<strong>进程</strong> 已准备好执行，但由于操作系统调度算法或其他原因，尚未获得 <strong>CPU</strong> 时间片。</li>
+<li><strong>运行状态</strong> （Running）：在 <strong>运行状态</strong> 中，<strong>进程</strong> 正在执行指令并占用 <strong>CPU</strong> 。</li>
+<li><strong>阻塞状态</strong> （Blocked）：当 <strong>进程</strong> 在等待某些事件发生时，如等待 <strong>I/O</strong> 操作完成或等待其他资源时，它会进入 <strong>阻塞状态</strong> 。在 <strong>阻塞状态</strong> 下，<strong>进程</strong> 暂停执行，直到等待的事件发生。</li>
+<li><strong>终止状态</strong> （Terminated）：当 <strong>进程</strong> 执行完毕或被操作系统终止时，它进入 <strong>终止状态</strong> 。</li>
+</ol>
+<h4 id="状态转化">状态转化</h4>
+<p><img src="/images/docs/os/658b3eefd5.svg"></p>
+<ol>
+<li><strong>就绪态 → 运行态</strong></li>
+</ol>
+<ul>
+<li>
+<p><strong>调度</strong> ：当操作系统的调度器选择一个就绪状态的进程分配给处理器时，该进程就会从就绪状态转换到运行状态。</p>
+<ol start="2">
+<li><strong>运行态 → 就绪态</strong></li>
+</ol>
+</li>
+<li>
+<p><strong>时间片用完</strong> ：如果系统使用时间共享调度，当进程的时间片用完，它会被中断并放回就绪队列。</p>
+</li>
+<li>
+<p><strong>优先级更高的进程就绪</strong> ：在优先级调度算法中，如果一个优先级更高的进程变为就绪状态，当前运行的进程可能会被挂起。</p>
+</li>
+<li>
+<p><strong>自愿放弃 CPU</strong> ：进程可能主动放弃CPU，比如它发出了一个系统调用请求其他资源。</p>
+</li>
+</ul>
+<ol start="3">
+<li><strong>运行态 → 阻塞态</strong></li>
+</ol>
+<ul>
+<li><strong>I/O 请求</strong> ：进程进行I/O操作，由于I/O设备比CPU慢得多，进程会被挂起直到I/O完成。</li>
+<li><strong>等待资源</strong> ：进程等待不可用的资源，如信号量、互斥锁等。</li>
+<li><strong>等待事件</strong> ：如等待其他进程的信号、消息或者某个条件的发生。</li>
+</ul>
+<ol start="4">
+<li><strong>阻塞态 → 就绪态</strong></li>
+</ol>
+<ul>
+<li><strong>I/O 完成</strong> ：当 I/O 操作完成，相应的进程会被移至就绪队列。</li>
+<li><strong>资源获得</strong> ：进程所等待的资源变得可用，如获得了互斥锁。</li>
+<li><strong>事件发生</strong> ：进程所等待的事件发生了，如接收到了另一个进程发出的信号。</li>
+</ul>
+<h3 id="进程内存空间">进程内存空间</h3>
+<ul>
+<li><strong>用户空间</strong> （User Space）：包含 <strong>进程</strong> 执行的用户程序代码和数据。在 <strong>用户空间</strong> 中，<strong>进程</strong> 可以执行各种任务，如运行应用程序、访问文件系统等。<strong>用户空间</strong> 对于应用程序是可见的，但对于操作系统中的核心功能是不可见的。</li>
+</ul>
+<ol>
+<li><strong>代码区</strong> （Text Segment）：也称为“可执行代码区”，存储了 <strong>进程</strong> 的可执行代码，包括程序的指令和只读数据。这个区域通常是只读的，因为程序的指令在运行时不应被修改。</li>
+<li><strong>数据区</strong> （Data Segment），数据区分为两个子区域：
+<ul>
+<li><strong>初始化数据区</strong> （Initialized Data Segment）：存储全局和静态变量以及初始化的数据。这些变量在程序运行前就已经分配了内存并初始化。</li>
+<li><strong>未初始化数据区</strong> （Uninitialized Data Segment），也称为 <strong>BSS</strong> （Block Started by Symbol）段，存储全局和静态变量，但这些变量没有显式的初始化值。操作系统会在程序启动时自动将这个区域初始化为零。</li>
+</ul>
+</li>
+<li><strong>堆区</strong> （Heap）：<strong>堆区</strong> 是 <a href="/operating_system/memory/concepts/#%e5%a0%86%e5%86%85%e5%ad%98%e5%88%86%e9%85%8d">动态分配内存</a> 的地方，用于存储程序运行时需要的变量和数据结构。在 <strong>堆</strong> 中分配的内存需要手动释放，以避免内存泄漏。</li>
+<li><strong>栈区</strong> （Stack）：<strong>栈区</strong> 用于存储函数调用和局部变量。每个函数调用都会在栈上创建一个栈帧，栈帧包含了函数的参数、局部变量以及函数返回地址。<strong>栈</strong> 是一种后进先出（LIFO）的数据结构，它的大小通常有限，由操作系统或编程语言定义。</li>
+<li><strong>内存映射区域</strong> （Memory Mapped Region）：这是一些操作系统或运行时库的扩展，用于存储动态链接库（DLL）和共享库的信息以及其他系统数据结构。</li>
+</ol>
+<ul>
+<li><strong>内核空间</strong> （Kernel Space）：<strong>内核空间</strong> 包含了操作系统的核心代码和数据结构，如页表、调度程序和系统调用接口等。<strong>内核空间</strong> 具有更高的特权级别，可以执行特权指令并且访问系统的各种资源，<strong>内核空间</strong> 对于用户程序是不可见的。</li>
+</ul>
+<p>(e.g. page tables, tasks and kernel stack)</p>
+<h4 id="函数调用时内存结构">函数调用时内存结构</h4>
+<p><img src="/images/docs/os/bf68dabeaf.svg"></p>
+<p><strong>EBP</strong> (base pointer) 指向函数栈（栈帧）的底部（高地址），函数执行过程中在栈帧中分配局部变量，栈帧由高地址向低地址增长，<strong>ESP</strong> （stack pointer）一直指向栈顶。</p>
+<p>每个函数的栈帧中包含如下内容：</p>
+<ul>
+<li>上一个函数的 <strong>EBP</strong></li>
+<li>该函数的局部变量</li>
+<li>如果函数内有 <code>call</code> 指令的话，还需要保存额外信息：</li>
+<li>下一个函数的参数：依次存储从第 n 个到第 1 个，从高地址到低地址</li>
+<li>返回地址：当前 PC 指向的位置，即 <code>call</code> 指令的下一条指令的地址</li>
+</ul>
+<p>在函数的调用过程中，调用函数叫做 <strong>caller</strong> ，被调用函数叫做 <strong>callee</strong> 。当我们从 <strong>caller</strong> 中调用 <strong>callee</strong> 时，<strong>callee</strong> 的 <strong>EBP</strong> 指向的物理地址的上下存储单元分别包含 <strong>caller</strong> 的返回地址以及 <strong>caller</strong> 所在栈帧的 <strong>EBP</strong> ，当我们在 <strong>callee</strong> 中执行 <code>ret</code> 指令时，计算机可以跳转到 <strong>caller</strong> 中 <code>call</code> 指令的下一条并开始执行，同时 <strong>caller</strong> 的栈帧也会被恢复。</p>
+<p><img src="/images/docs/os/image-20260611220510364.png"></p>
+<h3 id="进程间通信">进程间通信</h3>
+<p>💡 低优先级</p>
+<p>偶尔在选择题考察，了解基本 IPC 方式，选择题看到能辨识即可。</p>
+<p><strong>进程间通信</strong> （Inter-Process Communication，IPC）是指在同一计算机系统中，两个或多个 <strong>进程</strong> 之间交换数据或信号的机制。常见的 <strong>进程间通信</strong> 方式主要包含 <strong>共享内存</strong> 、<strong>管道</strong> 、<strong>消息队列</strong> 、<strong>信号</strong> 、<strong>套接字</strong> 和 <a href="/operating_system/process/sync/#%e4%bf%a1%e5%8f%b7%e9%87%8f"><strong>信号量</strong></a>。</p>
+<p><img src="/images/docs/os/3c5a64be37.svg"></p>
+<p>管道</p>
+<p><strong>管道</strong> 是一种最基本的 <strong>进程间通信</strong> 方式，主要用于具有亲缘关系的 <strong>进程</strong> 之间的数据传递。它分为 <strong>无名管道</strong> 和 <strong>有名管道</strong> ，其中 <strong>无名管道</strong> 只能在 <strong>父子进程</strong> 或 <strong>兄弟进程</strong> 之间使用，而 <strong>有名管道</strong> （FIFO）通过文件系统中的特殊文件实现，不要求通信双方存在亲缘关系。</p>
+<p><strong>管道</strong> 以 <strong>字节流</strong> 的形式传输数据，具备先进先出的特性，但 <strong>只支持单向通信</strong> ，并且效率相对较低，适用于简单的任务传递。</p>
+<p>共享内存</p>
+<p><strong>共享内存</strong> 是效率最高的一种 <strong>进程间通信</strong> 方式，允许多个进程将同一段 <strong>物理内存</strong> 映射到各自的 <strong>虚拟地址空间</strong> 中，从而直接读写该区域的数据。</p>
+<p>由于不需要内核频繁介入，通信效率极高，非常适合大规模数据的快速传输。然而，由于多个进程可同时访问内存区域，必须通过额外的同步机制如 <strong>信号量</strong> 或 <strong>互斥锁</strong> 来确保数据一致性，否则容易出现竞争条件和数据错误。</p>
+<p>消息队列</p>
+<p><strong>消息队列</strong> 是一种基于内核的数据结构，允许多个进程以消息为单位进行通信，具有良好的结构化和独立性。进程通过系统调用将消息发送到队列中或从中接收消息，可以实现同步与异步的通信模式。</p>
+<p>相比 <strong>管道</strong> ，<strong>消息队列</strong> 的通信更加灵活，支持优先级管理，适用于需要有序、分类传输数据的场景。但由于涉及内核操作，性能开销相对 <strong>共享内存</strong> 较大。</p>
+<h3 id="用户级线程和内核级线程">用户级线程和内核级线程</h3>
+<p>💡 低优先级</p>
+<p>偶尔在选择题考察，了解几种线程模型和映射关系，选择题看到能辨识即可。</p>
+<ul>
+<li>
+<p>用户级线程 （ULT，User Level Thread）</p>
+</li>
+<li>
+<p><strong>用户级线程</strong> 是由应用程序通过线程库来实现的，操作系统内核并不直接感知到这些 <strong>线程</strong> 的存在。</p>
+</li>
+<li>
+<p>线程的创建、调度和管理都由应用程序在 <strong>用户空间</strong> 完成。</p>
+<ul>
+<li>内核级线程 （KLT，Kernel Level Thread）</li>
+</ul>
+</li>
+<li>
+<p><strong>内核级线程</strong> 是由操作系统内核直接支持的线程。</p>
+</li>
+<li>
+<p>线程的创建、调度和管理都由 <strong>操作系统内核</strong> 完成。</p>
+</li>
+</ul>
+<h4 id="线程模型">线程模型</h4>
+<p>操作系统中的 <strong>线程实现方式</strong> 称为 <strong>线程模型</strong> ，不同的 <strong>线程模型</strong> 在 <strong>用户级线程</strong> （ULT）和 <strong>内核级线程</strong> （KLT）的设计上各有不同。</p>
+<p>系统中的 <strong>线程模型</strong> 可以分为如下三种：</p>
+<ul>
+<li><strong>纯用户态</strong> ：所有的线程操作都在用户空间中进行，内核对线程的存在一无所知。</li>
+<li><strong>纯系统态</strong> ：线程由操作系统内核直接支持和管理，内核负责线程的创建、调度和管理。</li>
+<li><strong>混合方案</strong> ：应用程序可以在用户空间管理多个用户级线程，这些线程映射到较少数目的内核级线程。</li>
+</ul>
+<p><img src="/images/docs/os/98099451f5.svg"></p>
+<h4 id="混合方案中的映射关系">混合方案中的映射关系</h4>
+<p>如果使用 <strong>混合方案</strong> 的 <strong>线程模型</strong> 的话，<strong>用户级线程</strong> 和 <strong>内核级线程</strong> 的映射方式也可以分为如下几种：</p>
+<ul>
+<li><strong>一对一</strong> ：每一个用户级线程都对应一个内核级线程。</li>
+<li><strong>多对一</strong> ：多个用户级线程映射到同一个内核级线程上。</li>
+<li><strong>多对多</strong> ：多个用户级线程映射到多个内核级线程上。</li>
+</ul>
+<h2 id="相关笔记">相关笔记</h2>
+<ul>
+<li>[[computer-overview|计算机系统概述]]</li>
+<li>[[os-concept|操作系统概念]]</li>
+<li>[[os-structure|操作系统结构]]</li>
+<li>[[program-env|程序运行环境]]</li>
+</ul>
+</article>
+
+    
+    
+    
+
+    <div class="border-top-section">
+      <a href="/cc408/docs/" class="btn btn-ghost">← 返回知识点列表</a>
+    </div>
+  </main>
+</div>
+
+<style>
+.side-nav-group[open] summary { color: var(--text-primary); }
+.side-nav-group summary::-webkit-details-marker { display: none; }
+.side-nav-group summary::after {
+  content: '▸'; margin-left: auto; font-size: var(--fs-xs); transition: transform .2s;
+}
+.side-nav-group[open] summary::after { transform: rotate(90deg); }
+</style>
+
+  </main>
+  <footer class="site-footer" role="contentinfo">
+  <p>© 2026 CC408. 408考研知识整理</p>
+</footer>
+
+</body>
+</html>

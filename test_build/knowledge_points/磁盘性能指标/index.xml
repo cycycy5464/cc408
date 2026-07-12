@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>磁盘性能指标 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/knowledge_points/%E7%A3%81%E7%9B%98%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/</link>
+    <description>Recent content in 磁盘性能指标 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/knowledge_points/%E7%A3%81%E7%9B%98%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2013 计算机组成原理 第21题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2013-co-021/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2013-co-021/</guid>
+      <description>&lt;p&gt;某磁盘的转速为10000rpm, 平均寻道时间是6ms, 磁盘传输速率是20MB/s, 磁盘控制器延时为0.2ms, 读取一个4KB的扇区所需的平均时间约为()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2015 计算机组成原理 第20题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2015-co-020/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2015-co-020/</guid>
+      <description>&lt;p&gt;若磁盘转速为7200rpm, 平均寻道时间为8ms,  每个磁道包含1000个扇区，则访问一个扇区的平均存 取时间大约是()。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

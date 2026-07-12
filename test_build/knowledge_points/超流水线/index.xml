@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>超流水线 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/knowledge_points/%E8%B6%85%E6%B5%81%E6%B0%B4%E7%BA%BF/</link>
+    <description>Recent content in 超流水线 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/knowledge_points/%E8%B6%85%E6%B5%81%E6%B0%B4%E7%BA%BF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2017 计算机组成原理 第17题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2017-co-017/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2017-co-017/</guid>
+      <description>&lt;p&gt;下列关于超标量流水线特性的叙述中，正确的是()。&lt;/p&gt;&#xA;&lt;p&gt;I.   能缩短流水线功能段的处理时间&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,4 +1,5 @@
 {{ define "main" }}
+<div class="exam-layout">
 <div class="content-area content-area-wide">
   <h1>{{ .Title }}</h1>
 
@@ -27,7 +28,7 @@
         </div>
         <div class="question-actions">
           <button class="reveal-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
-          <button class="favorite-btn" onclick="toggleCollect('{{ $q.Params.number }}', '{{ index $q.Params.subjects 0 }}', this)">⭐ 收藏</button>
+          <button class="favorite-btn" data-qnum="{{ $q.Params.number }}">⭐ 收藏</button>
         </div>
       </div>
       {{ if lt (add $qIndex 1) (len $yearQ) }}
@@ -36,14 +37,38 @@
     {{ end }}
   </div>
 
-  <div class="question-actions">
+  <div class="question-actions" style="display:none;">
     <button class="reveal-btn" id="reveal-all-btn">查看全部答案与解析</button>
     <button class="reveal-btn" style="background:var(--text-muted)" id="hide-all-btn" onclick="document.querySelectorAll('.answer-panel').forEach(function(p){p.style.display='none';});document.querySelectorAll('.exam-option').forEach(function(o){o.classList.remove('correct','wrong');});this.previousElementSibling.textContent='查看全部答案与解析';">隐藏全部答案</button>
   </div>
 
   <div class="mt-section" style="margin-top:2rem;">
+    {{ if .Params.set }}
+    <a href="{{ "exam/simulate/" | relURL }}" class="btn-ghost">← 返回模拟卷列表</a>
+    {{ else }}
     <a href="{{ "exam/408quiz/" | relURL }}" class="btn-ghost">← 返回真题列表</a>
+    {{ end }}
   </div>
+</div>
+
+<nav class="exam-toc" id="exam-toc">
+  <div class="exam-toc-header">
+    题目导航
+    <div class="toc-actions">
+      <button class="toc-reveal-btn" id="reveal-all-btn-toc">查看全部答案与解析</button>
+      <button class="toc-reveal-btn toc-hide-btn" id="hide-all-btn-toc">隐藏全部</button>
+    </div>
+  </div>
+  <div class="exam-toc-list">
+    {{ range $q := $yearQ }}
+    <a href="#q-{{ $q.Params.number }}" class="exam-toc-item" data-number="{{ $q.Params.number }}" data-subject="{{ index $q.Params.subjects 0 }}">
+      <span class="exam-toc-dot"></span>
+      <span class="exam-toc-num">{{ $q.Params.number }}</span>
+      <span class="exam-toc-subj-label">{{ index $q.Params.subjects 0 }}</span>
+    </a>
+    {{ end }}
+  </div>
+</nav>
 </div>
 
 <style>
@@ -79,6 +104,28 @@
 .exam-option.selected { border-color: var(--accent); background: rgba(var(--accent-rgb), .1); }
 .exam-option.correct { border-color: #4caf50; background: rgba(76,175,80,.15); }
 .exam-option.wrong { border-color: #f44336; background: rgba(244,67,54,.15); }
+
+/* TOC reveal/hide buttons */
+.toc-actions { display: inline-flex; gap: .3rem; margin-left: auto; }
+.toc-reveal-btn {
+  padding: .25rem .6rem; border-radius: var(--radius-sm); cursor: pointer;
+  font-size: .7rem; font-weight: 500; transition: all .2s;
+  background: var(--accent); color: white; border: none;
+  white-space: nowrap;
+}
+.toc-reveal-btn:hover { opacity: .85; }
+.toc-reveal-btn.toc-hide-btn {
+  background: transparent; border: 1px solid var(--border-color);
+  color: var(--text-muted);
+}
+.toc-reveal-btn.toc-hide-btn:hover {
+  border-color: var(--text-muted); color: var(--text-primary);
+}
+.exam-toc-header {
+  display: flex; align-items: center; gap: .5rem;
+  font-size: .95rem; font-weight: 700; color: var(--accent);
+  padding: .5rem; border-bottom: 1px solid var(--border-color);
+}
 </style>
 
 <script>
@@ -112,27 +159,35 @@
               var c = el.childNodes[ci];
               if (c.nodeType === 3) {
                 var m = c.textContent.match(/正确答案[：:]\s*([ABCDabcd])/);
-                if (m) {
-                  var ans = m[1].toUpperCase();
-                  // Create answer-panel
-                  var panel = document.createElement('div');
-                  panel.className = 'answer-panel';
-                  panel.style.display = 'none';
-                  panel.setAttribute('data-answer', ans);
-                  var title = document.createElement('div');
-                  title.className = 'answer-title';
-                  title.innerHTML = '正确答案：<strong>' + ans + '</strong>';
-                  panel.appendChild(title);
+                  if (m) {
+                    var ans = m[1].toUpperCase();
+                    // Split text node: content after "正确答案：X" becomes a new sibling
+                    var endIdx = c.textContent.indexOf(m[0]) + m[0].length;
+                    if (endIdx < c.textContent.length) {
+                      var afterText = c.textContent.slice(endIdx);
+                      var afterNode = document.createTextNode(afterText);
+                      c.textContent = c.textContent.slice(0, endIdx);
+                      el.insertBefore(afterNode, c.nextSibling);
+                    }
+                    // Create answer-panel
+                    var panel = document.createElement('div');
+                    panel.className = 'answer-panel';
+                    panel.style.display = 'none';
+                    panel.setAttribute('data-answer', ans);
+                    var title = document.createElement('div');
+                    title.className = 'answer-title';
+                    title.innerHTML = '正确答案：<strong>' + ans + '</strong>';
+                    panel.appendChild(title);
 
-                  // Collect answer content after this text node
-                  var cur = c.nextSibling;
-                  while (cur) {
-                    var nxt = cur.nextSibling;
-                    panel.appendChild(cur);
-                    cur = nxt;
-                  }
-                  // Also collect remaining siblings of el
-                  var after = el.nextSibling;
+                    // Collect answer content after this text node
+                    var cur = c.nextSibling;
+                    while (cur) {
+                      var nxt = cur.nextSibling;
+                      panel.appendChild(cur);
+                      cur = nxt;
+                    }
+                    // Also collect remaining siblings of el
+                    var after = el.nextSibling;
                   while (after) {
                     var nxt2 = after.nextSibling;
                     panel.appendChild(after);
@@ -149,16 +204,30 @@
             if (foundAnswer) break;
           }
 
-          // 3. Comprehensive question: use [tag_link] as separator
+          // 3. Comprehensive question: use [tag_link] or knowledge-tag <p> as separator
           if (!foundAnswer) {
-            var lastTag = null;
+            var anchor = null;
             var allP2 = qBody.querySelectorAll('p');
             for (var pi2 = 0; pi2 < allP2.length; pi2++) {
-              if (allP2[pi2].textContent.trim() === '[tag_link]') {
-                lastTag = allP2[pi2];
+              var p = allP2[pi2];
+              var txt = p.textContent.trim();
+              // [tag_link] is always a valid anchor
+              if (txt === '[tag_link]') { anchor = p; continue; }
+              // Pure knowledge-tag paragraph: only <a> elements and whitespace text
+              var pureTag = p.childNodes.length > 0;
+              if (pureTag) {
+                for (var ci = 0; ci < p.childNodes.length; ci++) {
+                  var cn = p.childNodes[ci];
+                  if (cn.nodeType === Node.TEXT_NODE) {
+                    if (cn.textContent.trim()) { pureTag = false; break; }
+                  } else if (cn.nodeType === Node.ELEMENT_NODE && cn.tagName !== 'A') {
+                    pureTag = false; break;
+                  }
+                }
+                if (pureTag) anchor = p;
               }
             }
-            if (lastTag) {
+            if (anchor) {
               var panel2 = document.createElement('div');
               panel2.className = 'answer-panel';
               panel2.style.display = 'none';
@@ -168,7 +237,7 @@
               title2.textContent = '答案与解析：';
               panel2.appendChild(title2);
 
-              var cur2 = lastTag.nextSibling;
+              var cur2 = anchor.nextSibling;
               while (cur2) {
                 var nxt3 = cur2.nextSibling;
                 panel2.appendChild(cur2);
@@ -187,11 +256,11 @@
             var p3 = allP3[pi3];
             var txt = p3.textContent.trim();
             // Try to split multi-option lines: "A. text B. text C. text D. text"
-            var optParts = txt.match(/([A-D])\s*[.、．]\s*(.*?)(?=\s*[A-D]\s*[.、．]|$)/g);
+            var optParts = txt.match(/([A-D])\s*\.\s*(.*?)(?=\s*[A-D]\s*\.|$)/g);
             if (optParts && optParts.length > 0) {
               var fragment = document.createDocumentFragment();
               // Preserve any stem text that appears before the first option marker
-              var firstIdx = txt.search(/[A-D]\s*[.、．]/);
+              var firstIdx = txt.search(/[A-D]\s*\./);
               var stemPrefix = firstIdx > 0 ? txt.slice(0, firstIdx).trim() : '';
               if (stemPrefix) {
                 var stemP = document.createElement('p');
@@ -202,7 +271,7 @@
               var created = false;
               for (var oi3 = 0; oi3 < optParts.length; oi3++) {
                 var part = optParts[oi3].trim();
-                var pm = part.match(/^([A-D])\s*[.、．]\s*(.*)/);
+                var pm = part.match(/^([A-D])\s*\.\s*(.*)/);
                 if (pm) {
                   created = true;
                   var opt = document.createElement('div');
@@ -305,23 +374,151 @@
   });
 })();
 
-function toggleCollect(qnum, subject, btn) {
-  var key = 'cc408_collections';
-  var data = {};
-  try { data = JSON.parse(localStorage.getItem(key)) || {}; } catch(e) {}
+// Favorite button system: uses quiz_collections key, recovers state on page load,
+// stores full quiz data so the collection page (/exam/quiz-collection/) works.
+(function(){
+  var STORAGE_KEY = 'quiz_collections';
   var yearMatch = document.querySelector('h1').textContent.trim().match(/\d{4}/);
-  var id = (yearMatch ? yearMatch[0] : '') + '-' + qnum;
-  if (data[id]) {
-    delete data[id];
-    btn.classList.remove('collected');
-    btn.textContent = '收藏';
-  } else {
-    data[id] = { num: qnum, subject: subject, time: new Date().toISOString() };
-    btn.classList.add('collected');
-    btn.textContent = '已收藏';
+  var year = yearMatch ? yearMatch[0] : '';
+  var pageUrl = window.location.pathname;
+  var pageTitle = document.title;
+
+  function loadAll() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch(e) { return []; }
   }
-  localStorage.setItem(key, JSON.stringify(data));
-}
+  function saveAll(items) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(items)); } catch(e) {}
+  }
+
+  function makeId(qnum) { return year + '-' + qnum; }
+
+  // Load existing collection into a lookup map
+  var allItems = loadAll();
+  var collectedMap = {};
+  for (var ci = 0; ci < allItems.length; ci++) {
+    collectedMap[allItems[ci].id] = allItems[ci];
+  }
+
+  var favBtns = document.querySelectorAll('.favorite-btn');
+  for (var bi = 0; bi < favBtns.length; bi++) {
+    (function(btn) {
+      var qnum = btn.getAttribute('data-qnum');
+      var id = makeId(qnum);
+
+      // Restore state on page load
+      if (collectedMap[id]) {
+        btn.classList.add('collected');
+        btn.textContent = '已收藏';
+      }
+
+      btn.onclick = function(e) {
+        if (collectedMap[id]) {
+          // Remove
+          allItems = allItems.filter(function(item) { return item.id !== id; });
+          delete collectedMap[id];
+          btn.classList.remove('collected');
+          btn.textContent = '⭐ 收藏';
+          saveAll(allItems);
+          showCollectToast('已取消收藏', 'info');
+        } else {
+          // Save — extract full quiz data from the question block
+          var block = btn.closest('.question-block');
+          var quizData = extractQuizData(block, id, qnum);
+          allItems.push(quizData);
+          collectedMap[id] = quizData;
+          btn.classList.add('collected');
+          btn.textContent = '已收藏';
+          saveAll(allItems);
+          showCollectToast('已收藏', 'success');
+        }
+      };
+    })(favBtns[bi]);
+  }
+
+  function extractQuizData(block, id, qnum) {
+    var body = block ? block.querySelector('.q-body') : null;
+    var subject = block ? (block.getAttribute('data-subject') || '') : '';
+    var isChoice = body && body.querySelector('.exam-option') !== null;
+
+    // Question text: collect <p> text before options / answer-panel / [tag_link]
+    var question = '';
+    var options = [];
+    var answer = '';
+    var explanation = '';
+
+    if (body) {
+      var nodes = body.children;
+      var passedTagLink = false;
+      for (var ni = 0; ni < nodes.length; ni++) {
+        var child = nodes[ni];
+        if (child.tagName === 'P') {
+          var txt = child.textContent.trim();
+          if (txt === '[tag_link]') { passedTagLink = true; continue; }
+          if (!passedTagLink) {
+            // Before [tag_link]: stem text
+            if (/^[A-D]\s*[.、．]/.test(txt)) break;
+            question += txt + '\n';
+          }
+        }
+        if (child.classList && child.classList.contains('exam-option')) {
+          var optText = child.querySelector('.opt-text');
+          if (optText) options.push(optText.textContent.trim());
+        }
+      }
+
+      // Answer from answer-panel
+      var ap = block.querySelector('.answer-panel');
+      if (ap) {
+        answer = ap.getAttribute('data-answer') || '';
+        var children2 = ap.children;
+        for (var ni2 = 1; ni2 < children2.length; ni2++) {
+          explanation += children2[ni2].textContent || '';
+        }
+      }
+    }
+
+    // Tags from page meta if available
+    var tags = [];
+    if (window.quizMeta) {
+      if (window.quizMeta.knowledgePoints) {
+        var kp = window.quizMeta.knowledgePoints;
+        if (Array.isArray(kp)) kp.forEach(function(t){ tags.push(t); });
+      }
+      if (window.quizMeta.years) {
+        var ys = window.quizMeta.years;
+        if (Array.isArray(ys)) ys.forEach(function(t){ tags.push(t); });
+      }
+    }
+    tags.push(isChoice ? '选择题' : '解答题');
+
+    return {
+      id: id,
+      type: isChoice ? 'choice' : 'answer',
+      multiple: false,
+      subject: subject,
+      quizNumber: parseInt(qnum) || 0,
+      question: question.trim(),
+      options: isChoice ? options : undefined,
+      answer: answer,
+      explanation: explanation.trim(),
+      tags: tags.join(','),
+      pageUrl: pageUrl,
+      pageTitle: pageTitle,
+      collectedAt: new Date().toISOString()
+    };
+  }
+
+  function showCollectToast(msg, type) {
+    var existing = document.querySelector('.collect-toast');
+    if (existing) existing.remove();
+    var el = document.createElement('div');
+    el.className = 'collect-toast';
+    el.textContent = msg;
+    el.style.cssText = 'position:fixed;bottom:2rem;right:2rem;z-index:9999;padding:.6rem 1.2rem;border-radius:8px;font-size:.875rem;color:#0a0e14;font-weight:500;box-shadow:0 2px 12px rgba(0,0,0,.3);transition:opacity .3s;background:' + (type === 'success' ? '#2ecc71' : '#39bae6');
+    document.body.appendChild(el);
+    setTimeout(function() { el.style.opacity = '0'; setTimeout(function() { el.remove(); }, 300); }, 2000);
+  }
+})();
 
 function toggleAnswer(btn) {
   var block = btn.closest('.question-block');
@@ -349,5 +546,82 @@ function toggleAnswer(btn) {
     }
   }
 }
+
+// TOC reveal/hide all buttons (in nav sidebar)
+(function() {
+  var revealAllBtn = document.getElementById('reveal-all-btn-toc');
+  var hideAllBtn = document.getElementById('hide-all-btn-toc');
+  if (!revealAllBtn) return;
+  
+  revealAllBtn.addEventListener('click', function() {
+    var panels = document.querySelectorAll('.answer-panel');
+    for (var i = 0; i < panels.length; i++) {
+      panels[i].style.display = 'block';
+    }
+    var blocks = document.querySelectorAll('.question-block');
+    for (var j = 0; j < blocks.length; j++) {
+      var btn = blocks[j].querySelector('.reveal-btn');
+      if (btn) btn.textContent = '隐藏答案';
+    }
+    revealAllBtn.textContent = '隐藏全部';
+    revealAllBtn.classList.add('active');
+  });
+  
+  hideAllBtn.addEventListener('click', function() {
+    var panels = document.querySelectorAll('.answer-panel');
+    for (var i = 0; i < panels.length; i++) {
+      panels[i].style.display = 'none';
+    }
+    var blocks = document.querySelectorAll('.question-block');
+    for (var j = 0; j < blocks.length; j++) {
+      var btn = blocks[j].querySelector('.reveal-btn');
+      if (btn) btn.textContent = '查看答案';
+      var opts = blocks[j].querySelectorAll('.exam-option');
+      for (var k = 0; k < opts.length; k++) {
+        opts[k].classList.remove('correct', 'wrong');
+      }
+    }
+    revealAllBtn.textContent = '查看全部答案与解析';
+    revealAllBtn.classList.remove('active');
+  });
+})();
+
+// Scroll spy for TOC
+(function() {
+  var toc = document.getElementById('exam-toc');
+  if (!toc) return;
+  var items = toc.querySelectorAll('.exam-toc-item');
+  var blocks = document.querySelectorAll('.question-block');
+  if (!blocks.length) return;
+  var tocList = toc.querySelector('.exam-toc-list');
+  if (tocList) {
+    tocList.addEventListener('click', function(e) {
+      var item = e.target.closest('.exam-toc-item');
+      if (item) {
+        var id = item.getAttribute('href');
+        if (id) {
+          e.preventDefault();
+          var target = document.querySelector(id);
+          if (target) {
+            var top = target.getBoundingClientRect().top + window.scrollY - 90;
+            window.scrollTo({ top: top, behavior: 'smooth' });
+          }
+        }
+      }
+    });
+  }
+  function updateActive() {
+    var activeIdx = -1;
+    for (var i = 0; i < blocks.length; i++) {
+      var rect = blocks[i].getBoundingClientRect();
+      if (rect.top <= 200) activeIdx = i;
+    }
+    for (var j = 0; j < items.length; j++) {
+      items[j].classList.toggle('active', j === activeIdx);
+    }
+  }
+  window.addEventListener('scroll', updateActive, { passive: true });
+  updateActive();
+})();
 </script>
 {{ end }}

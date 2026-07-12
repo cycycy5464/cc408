@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>指令集种类 | CC408</title>
+  <meta name="description" content="指令体系结构 💡 低优先级
+指令体系结构 偶尔在选择题中考查，概念看一看，留个印象，基本就没问题。
+指令体系结构 （Instruction Set Architecture，简称 ISA） 是计算机体系结构中定义处理器 指令集 的规范。它是硬件与软件之间的接口，规定了处理器能够执行的 指令集合 、指 …">
+  <link rel="icon" href="/cc408/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" as="script" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" as="script" crossorigin="anonymous">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/cc408/css/custom.min.ecad70eed0f9849f67d23e2bf502ae36e7f590486681964e1c95bc71c8672493.css" integrity="sha256-7K1w7tD5hJ9n0j4r9QKuNuf1kEhmgZZOHJW8cchnJJM=">
+  
+
+<script src="/cc408/js/watermark.js"></script>
+
+
+  <script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.content-area img,.docs-layout img').forEach(function(i){if(!i.src.match(/\.svg$/i)){i.loading='lazy';i.fetchPriority='low';}});});</script>
+</head>
+<body style="background: var(--bg-primary); color: var(--text-primary);">
+  <a href="#main-content" class="skip-link">跳转到主要内容</a>
+  <nav class="navbar" role="navigation" aria-label="主导航">
+  <a href="/cc408/" class="navbar-brand">CC408</a>
+  <button class="navbar-toggle" aria-label="菜单" onclick="this.parentElement.querySelector('.navbar-links').classList.toggle('open')">☰</button>
+  <div class="navbar-links" role="menubar">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      首页
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/docs/" role="menuitem" class="active" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识点
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      刷题
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/quiz-collection/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      收藏
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/graph/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识图谱
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/tags/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      标签
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/resources/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      资源
+    </a>
+    
+  </div>
+  <div class="navbar-right">
+    <a href="https://cycycy5464.github.io/">个人主页 →</a>
+  </div>
+</nav>
+
+  <main id="main-content" style="padding-top: 70px; min-height: calc(100vh - 120px);">
+    
+<div class="docs-layout">
+  <aside class="side-nav">
+    
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>📊</span><span>数据结构</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/basic-concepts/" class="side-nav-link ">数据结构基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/algorithm-concepts/" class="side-nav-link ">算法基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linear-list-index/" class="side-nav-link ">线性表概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/definition/" class="side-nav-link ">线性表定义与基本操作</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/sequential-list/" class="side-nav-link ">顺序表</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linked-list/" class="side-nav-link ">链表</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/stack/" class="side-nav-link ">栈</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/queue/" class="side-nav-link ">队列</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/application/" class="side-nav-link ">栈和队列的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/linear-data-structure/" class="side-nav-link ">线性数据结构</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/string-index/" class="side-nav-link ">串概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/definition/" class="side-nav-link ">串的定义与实现</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/pattern-matching/" class="side-nav-link ">串的模式匹配</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/array-matrix/" class="side-nav-link ">数组和特殊矩阵</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree/" class="side-nav-link ">树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-and-binary-tree/" class="side-nav-link ">树与二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/binary-tree/" class="side-nav-link ">二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-applications/" class="side-nav-link ">树的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/graph-index/" class="side-nav-link ">图概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/definition/" class="side-nav-link ">图的定义</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/algorithms/" class="side-nav-link ">图的算法和应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/search-index/" class="side-nav-link ">查找概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/array-search/" class="side-nav-link ">数组查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/tree-search/" class="side-nav-link ">树形查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/hash-search/" class="side-nav-link ">散列表查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/sort-index/" class="side-nav-link ">排序概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/internal-sort/" class="side-nav-link ">内部排序</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/external-sort/" class="side-nav-link ">外部排序</a>
+      
+      <a href="/cc408/exam/exercise/data_structure/" class="side-nav-link ">数据结构篇</a>
+      
+      <a href="/cc408/exam/application/2023-q1/" class="side-nav-link ">2023年408真题 - 应用题第1题</a>
+      
+      <a href="/cc408/exam/choice/2024-q5/" class="side-nav-link ">2024年408真题 - 数据结构选择题第5题</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/introduction/" class="side-nav-link ">绪论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>⚙️</span><span>计算机组成原理</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/system-hierarchy/" class="side-nav-link ">计算机系统层次结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/performance/" class="side-nav-link ">计算机性能指标</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/data-index/" class="side-nav-link ">数据表示与计算</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/integers/" class="side-nav-link ">整数的表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/float/" class="side-nav-link ">浮点数表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/type-conversion/" class="side-nav-link ">类型转换</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/circuits/" class="side-nav-link ">运算电路</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/memory-index/" class="side-nav-link ">存储系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/overview/" class="side-nav-link ">存储系统概述</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/ram/" class="side-nav-link ">内存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/cache/" class="side-nav-link ">Cache</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/external/" class="side-nav-link ">外存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/virtual/" class="side-nav-link ">虚拟存储器</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/instruction-index/" class="side-nav-link ">指令系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/types/" class="side-nav-link active">指令集种类</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/format-addressing/" class="side-nav-link ">指令格式与寻址方式</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/data-alignment/" class="side-nav-link ">数据对齐</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/opcode/" class="side-nav-link ">指令操作码</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/hll-machine/" class="side-nav-link ">高级语言与机器码</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/cpu-index/" class="side-nav-link ">中央处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/function-structure/" class="side-nav-link ">CPU功能与结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/controller/" class="side-nav-link ">控制器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/exceptions/" class="side-nav-link ">异常与中断</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/pipeline/" class="side-nav-link ">指令流水线</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/multiprocessor/" class="side-nav-link ">多处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus/" class="side-nav-link ">总线</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus-io/" class="side-nav-link ">总线和I/O系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch06-io/io-system/" class="side-nav-link ">I/O系统</a>
+      
+      <a href="/cc408/exam/exercise/architecture/" class="side-nav-link ">计算机组成原理</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/introduction/" class="side-nav-link ">概论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🖥️</span><span>操作系统</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/os/ch00-overview/os-concept/" class="side-nav-link ">操作系统概念</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/os-structure/" class="side-nav-link ">操作系统结构</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/program-env/" class="side-nav-link ">程序运行环境</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-index/" class="side-nav-link ">进程管理</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-thread/" class="side-nav-link ">进程与线程</a>
+      
+      <a href="/cc408/docs/os/ch01-process/scheduling/" class="side-nav-link ">处理机调度</a>
+      
+      <a href="/cc408/docs/os/ch01-process/sync-mutex/" class="side-nav-link ">同步与互斥</a>
+      
+      <a href="/cc408/docs/os/ch01-process/classic-sync/" class="side-nav-link ">经典同步问题</a>
+      
+      <a href="/cc408/docs/os/ch01-process/deadlock/" class="side-nav-link ">死锁</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/memory-index/" class="side-nav-link ">内存管理</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/concepts/" class="side-nav-link ">内存管理概念</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/virtual/" class="side-nav-link ">虚拟内存管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-index/" class="side-nav-link ">文件管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-basics/" class="side-nav-link ">文件</a>
+      
+      <a href="/cc408/docs/os/ch03-file/directory/" class="side-nav-link ">目录</a>
+      
+      <a href="/cc408/docs/os/ch03-file/filesystem/" class="side-nav-link ">文件系统</a>
+      
+      <a href="/cc408/docs/os/ch04-io/io-index/" class="side-nav-link ">I/O管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/devices/" class="side-nav-link ">I/O设备</a>
+      
+      <a href="/cc408/docs/os/ch04-io/device-mgmt/" class="side-nav-link ">设备管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/disk/" class="side-nav-link ">磁盘</a>
+      
+      <a href="/cc408/code/clock/" class="side-nav-link ">CLOCK 时钟替换算法</a>
+      
+      <a href="/cc408/code/lru/" class="side-nav-link ">LRU 算法</a>
+      
+      <a href="/cc408/code/spinlock/" class="side-nav-link ">TAS 实现自旋锁</a>
+      
+      <a href="/cc408/exam/exercise/os/" class="side-nav-link ">操作系统</a>
+      
+      <a href="/cc408/code/reader_writer/" class="side-nav-link ">读者写着问题</a>
+      
+      <a href="/cc408/code/monitor/" class="side-nav-link ">管程实现生产者消费者</a>
+      
+      <a href="/cc408/code/producer_consumer/" class="side-nav-link ">生产者消费者问题</a>
+      
+      <a href="/cc408/code/banker/" class="side-nav-link ">银行家算法</a>
+      
+      <a href="/cc408/code/philosopher/" class="side-nav-link ">哲学家就餐问题</a>
+      
+      <a href="/cc408/exam/comprehensive/2022-q1/" class="side-nav-link ">2022年408真题 - 综合题第1题</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/computer-overview/" class="side-nav-link ">计算机系统概述</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🌐</span><span>计算机网络</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/network/ch00-overview/layered/" class="side-nav-link ">分层结构</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/protocol-summary/" class="side-nav-link ">各层协议总结</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/device-summary/" class="side-nav-link ">网络设备总结</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/phy-index/" class="side-nav-link ">物理层</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/communication/" class="side-nav-link ">通信概念</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/encoding/" class="side-nav-link ">编码与调制</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/switching/" class="side-nav-link ">交换方式</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/devices/" class="side-nav-link ">物理层设备</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/dl-index/" class="side-nav-link ">数据链路层</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/framing/" class="side-nav-link ">组帧</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/error-control/" class="side-nav-link ">差错控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/flow-control/" class="side-nav-link ">流量控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/mac/" class="side-nav-link ">介质访问控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/lan-wan/" class="side-nav-link ">局域网与广域网</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/devices/" class="side-nav-link ">数据链路层设备</a>
+      
+      <a href="/cc408/docs/network/ch03-network/nw-index/" class="side-nav-link ">网络层</a>
+      
+      <a href="/cc408/docs/network/ch03-network/ip/" class="side-nav-link ">IP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/arp/" class="side-nav-link ">ARP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/icmp/" class="side-nav-link ">ICMP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/dhcp/" class="side-nav-link ">DHCP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/routing/" class="side-nav-link ">路由算法</a>
+      
+      <a href="/cc408/docs/network/ch03-network/sdn/" class="side-nav-link ">SDN</a>
+      
+      <a href="/cc408/docs/network/ch03-network/devices/" class="side-nav-link ">网络层设备</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tp-index/" class="side-nav-link ">传输层</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tcp/" class="side-nav-link ">TCP</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/udp/" class="side-nav-link ">UDP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-index/" class="side-nav-link ">应用层</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-model/" class="side-nav-link ">网络应用模型</a>
+      
+      <a href="/cc408/docs/network/ch05-application/dns/" class="side-nav-link ">DNS</a>
+      
+      <a href="/cc408/docs/network/ch05-application/ftp/" class="side-nav-link ">FTP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/email/" class="side-nav-link ">电子邮件</a>
+      
+      <a href="/cc408/docs/network/ch05-application/www/" class="side-nav-link ">万维网</a>
+      
+      <a href="/cc408/exam/exercise/network/" class="side-nav-link ">计算机网络</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/arch-index/" class="side-nav-link ">计算机网络体系结构</a>
+      
+    </details>
+    
+  </aside>
+  <main class="content-area">
+    <h1>指令集种类</h1>
+    <div class="meta-row">
+      
+      <span><span class="diff-star">★</span><span class="diff-star">★</span><span class="diff-star-empty">☆</span></span>
+      
+      <span class="tag">指令系统</span>
+    </div>
+    <article><h3 id="指令体系结构">指令体系结构</h3>
+<p>💡 低优先级</p>
+<p>指令体系结构 偶尔在选择题中考查，概念看一看，留个印象，基本就没问题。</p>
+<p><strong>指令体系结构</strong> （Instruction Set Architecture，简称 ISA） 是计算机体系结构中定义处理器 <strong>指令集</strong> 的规范。它是硬件与软件之间的接口，规定了处理器能够执行的 <strong>指令集合</strong> 、<strong>指令格式</strong> 、<strong>寻址方式</strong> 、<strong>寄存器</strong> 组织、<strong>内存访问方式</strong> 以及 <strong>数据类型</strong> 等。</p>
+<p>具体来说，ISA 包括以下关键内容：</p>
+<ol>
+<li><strong>指令集</strong> ：处理器支持的所有操作（如加法、跳转、加载/存储等）。</li>
+<li><strong>指令格式</strong> ：每条指令的编码结构，如操作码、操作数等。</li>
+<li><strong>寄存器</strong> ：可用的寄存器数量、类型和用途（如通用寄存器、程序计数器等）。</li>
+<li><strong>寻址方式</strong> ：如何指定操作数的存储位置（如立即数、寄存器寻址、内存寻址等）。</li>
+<li><strong>内存模型</strong> ：内存的组织方式和访问规则。</li>
+<li><strong>中断和异常处理</strong> ：如何处理外部事件或错误。</li>
+</ol>
+<p><strong>ISA</strong> 决定了软件如何与硬件交互，是 <strong>编译器</strong> 、<strong>操作系统</strong> 和 <strong>应用程序</strong> 开发的基础。常见的 ISA 包括 <strong>x86</strong> 、<strong>ARM</strong> 、<strong>RISC‑V</strong> 等，每种 ISA 在 <strong>性能</strong> 、<strong>功耗</strong> 和 <strong>应用场景</strong> 上各有特点。例如，<strong>RISC</strong> （精简指令集计算机）强调 <strong>简单高效</strong> 的指令，而 <strong>CISC</strong> （复杂指令集计算机）提供更 <strong>复杂</strong> 的指令以减少代码量。</p>
+<p><em>简而言之，ISA 是计算机的核心“语言”，定义了处理器能做什么以及如何做。</em></p>
+<h3 id="复杂和精简指令集">复杂和精简指令集</h3>
+<p>💡 低优先级</p>
+<p>复杂和精简指令集也是在选择题偶尔考查，了解两者的差异，看到选项能选出来就行。</p>
+<p><strong>CISC</strong> （Complex Instruction Set Computer）和 <strong>RISC</strong> （Reduced Instruction Set Computer）是两种不同的计算机体系结构设计哲学，它们在 <strong>指令集架构</strong> 和 <strong>执行方式</strong> 上有显著的差异。</p>
+<p><img alt="csic 和 risc 处理器" src="../images/2bba1fa824.png"></p>
+<h4 id="cisc">CISC</h4>
+<ol>
+<li><strong>指令集复杂</strong> ：CISC 指令集包含大量 <strong>复杂的指令</strong> ，其中一条指令可以执行多种操作，包括 <strong>内存访问</strong> 、<strong>算术运算</strong> 、<strong>逻辑运算</strong> 等。</li>
+<li><strong>指令不定长</strong> ：CISC 支持多种长度的指令。</li>
+<li><strong>多寻址模式</strong> ：CISC 指令通常支持多种 <strong>寻址模式</strong> ，允许直接访问内存，因此可以在一条指令中执行复杂的操作。</li>
+<li><strong>微程序控制</strong> ：CISC 计算机通常使用 <strong>微程序控制单元</strong> ，指令解码和执行过程相对复杂。</li>
+<li><strong>复杂硬件</strong> ：CISC 处理器通常包括大量的硬件单元，用于支持 <strong>复杂的指令集</strong> ，这使得 CISC 芯片相对较大。</li>
+</ol>
+<p><strong>CISC</strong> 的典型芯片就是 <strong>x86</strong> 系列，如 Intel 的 <strong>Core i</strong> 系列处理器和 AMD 的 <strong>Ryzen</strong> 系列处理器。</p>
+<h4 id="risc">RISC</h4>
+<ol>
+<li><strong>指令集精简</strong> ：RISC 计算机的指令集更加精简，通常包含较少、更 <strong>简单的指令</strong> 。每条指令只执行一种操作。</li>
+<li><strong>指令定长</strong> ：RISC 指令集中所有指令长度相同。</li>
+<li><strong>固定寻址模式</strong> ：RISC 指令通常只支持一种或者很少种 <strong>寻址模式</strong> ，鼓励将数据加载到寄存器中后再执行操作。</li>
+<li><strong>硬布线控制</strong> ：RISC 计算机使用 <strong>硬布线控制单元</strong> ，指令解码和执行过程较为简单。</li>
+<li><strong>精简硬件</strong> ：RISC 处理器通常采用更 <strong>精简的硬件</strong> ，以提高 <strong>性能</strong> 和降低 <strong>成本</strong> 。</li>
+</ol>
+<p><strong>RISC</strong> 的典型芯片就是 <strong>arm</strong> 系列，比如苹果的 <strong>A</strong> 系列和 <strong>M</strong> 系列处理器。</p>
+<p>上图<img src="/images/docs/computer-org/image-20260612225121300.png">体现了 <strong>CISC</strong> 和 <strong>RISC</strong> 的差别：<strong>RISC</strong> 寄存器数量比 <strong>CISC</strong> 更多，<strong>CISC</strong> 的访存指令比 <strong>RISC</strong> 更加复杂（<strong>CISC</strong> 单条指令完成的工作 <strong>RISC</strong> 需要多条指令才能完成)。</p>
+<h4 id="程序示例">程序示例</h4>
+<p>这一节举个实际的例子说明一下 <strong>CISC</strong> 和 <strong>RISC</strong> 上的汇编代码区别。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">24</span>; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">24</span>; j<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>        ...
+</span></span><span style="display:flex;"><span>        a[i][j] <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span>        ...
+</span></span></code></pre></div><p>对于上述的循环代码段，编译器将其编译为如下的 <strong>intel x86</strong> 汇编代码（<strong>CISC</strong> ）和 <strong>arm mips</strong> 汇编代码（<strong>RISC</strong> ）：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#a6e22e">or</span> (i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">24</span>; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">00401072</span>  C7 <span style="color:#ae81ff">45</span> F8 <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span>      mov     dword ptr [ebp<span style="color:#f92672">-</span><span style="color:#ae81ff">8</span>], <span style="color:#ae81ff">0</span>   ; i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#960050;background-color:#1e0010">，初始化</span> i <span style="color:#960050;background-color:#1e0010">变量</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">0040107</span><span style="color:#ae81ff">9</span>  EB <span style="color:#ae81ff">09</span>                     jmp     <span style="color:#ae81ff">004010</span><span style="color:#ae81ff">84</span>h              ; <span style="color:#960050;background-color:#1e0010">跳转到循环条件检查</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>  <span style="color:#ae81ff">0040107</span>B  <span style="color:#ae81ff">8</span>B <span style="color:#ae81ff">55</span> F8                  mov     eax, [ebp<span style="color:#f92672">-</span><span style="color:#ae81ff">8</span>]           ; <span style="color:#960050;background-color:#1e0010">读取</span> i <span style="color:#960050;background-color:#1e0010">的值到</span> eax
+</span></span><span style="display:flex;"><span>    ... ... ...
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">7</span>  <span style="color:#ae81ff">004010</span><span style="color:#ae81ff">88</span>  <span style="color:#ae81ff">7</span>D <span style="color:#ae81ff">32</span>                     jge     <span style="color:#ae81ff">004010</span>BCh              ; <span style="color:#960050;background-color:#1e0010">若</span> i <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">24</span><span style="color:#960050;background-color:#1e0010">，跳出循环</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">64</span>; j<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">8</span>  <span style="color:#ae81ff">004010</span><span style="color:#ae81ff">8</span>A  C7 <span style="color:#ae81ff">45</span> FC <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span>      mov     dword ptr [ebp<span style="color:#f92672">-</span><span style="color:#ae81ff">4</span>], <span style="color:#ae81ff">0</span>   ; j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#960050;background-color:#1e0010">，初始化</span> j <span style="color:#960050;background-color:#1e0010">变量</span>
+</span></span><span style="display:flex;"><span>        ... ... ...
+</span></span><span style="display:flex;"><span>        a[i][j] <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span>        ... ... ...
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">19</span> <span style="color:#ae81ff">004010</span>AE  C7 <span style="color:#ae81ff">84</span> <span style="color:#ae81ff">82</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">20</span> <span style="color:#ae81ff">42</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">0</span>A <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span>
+</span></span><span style="display:flex;"><span>                                       mov     dword ptr [ecx<span style="color:#f92672">+</span>edx<span style="color:#f92672">*</span><span style="color:#ae81ff">4</span><span style="color:#f92672">+</span><span style="color:#ae81ff">00422000</span>h], <span style="color:#ae81ff">0</span>Ah
+</span></span><span style="display:flex;"><span>                                                                      ; <span style="color:#960050;background-color:#1e0010">存储</span> <span style="color:#ae81ff">10</span> <span style="color:#960050;background-color:#1e0010">到</span> a[i][j]<span style="color:#960050;background-color:#1e0010">，计算地址：</span>
+</span></span><span style="display:flex;"><span>                                                                      ; ecx <span style="color:#f92672">=</span> i, edx <span style="color:#f92672">=</span> j
+</span></span><span style="display:flex;"><span>                                                                      ; a[i][j] <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>                                                              
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">24</span>; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">00401000</span>  <span style="color:#ae81ff">20020000</span>      addi  <span style="color:#960050;background-color:#1e0010">$</span>v0, <span style="color:#960050;background-color:#1e0010">$</span>zero, <span style="color:#ae81ff">0</span>       <span style="color:#960050;background-color:#1e0010">#</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">00401004</span>  <span style="color:#ae81ff">08004004</span>      j     <span style="color:#ae81ff">0x00401010</span>          <span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#960050;background-color:#1e0010">跳转到循环条件检查</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>  <span style="color:#ae81ff">0040100</span><span style="color:#ae81ff">8</span>  <span style="color:#ae81ff">8</span>C430008      lw    <span style="color:#960050;background-color:#1e0010">$</span>v1, <span style="color:#ae81ff">8</span>(<span style="color:#960050;background-color:#1e0010">$</span>fp)         <span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#960050;background-color:#1e0010">读取</span> i
+</span></span><span style="display:flex;"><span>    ... ... ...
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">7</span>  <span style="color:#ae81ff">00401010</span>  <span style="color:#ae81ff">1</span>C600018      bge   <span style="color:#960050;background-color:#1e0010">$</span>v1, <span style="color:#ae81ff">24</span>, <span style="color:#ae81ff">0x00401040</span> <span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#66d9ef">if</span> (i <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">24</span>) <span style="color:#960050;background-color:#1e0010">跳出循环</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">64</span>; j<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">8</span>  <span style="color:#ae81ff">00401014</span>  <span style="color:#ae81ff">20040000</span>      addi  <span style="color:#960050;background-color:#1e0010">$</span>a0, <span style="color:#960050;background-color:#1e0010">$</span>zero, <span style="color:#ae81ff">0</span>       <span style="color:#960050;background-color:#1e0010">#</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        ... ... ...
+</span></span><span style="display:flex;"><span>        a[i][j] <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">17</span> <span style="color:#ae81ff">0040102</span><span style="color:#ae81ff">8</span>  <span style="color:#ae81ff">00031</span><span style="color:#ae81ff">880</span>      sll   <span style="color:#960050;background-color:#1e0010">$</span>v1, <span style="color:#960050;background-color:#1e0010">$</span>v1, <span style="color:#ae81ff">6</span>         <span style="color:#960050;background-color:#1e0010">#</span> i <span style="color:#960050;background-color:#1e0010">×</span> <span style="color:#ae81ff">64</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">18</span> <span style="color:#ae81ff">0040102</span>C  <span style="color:#ae81ff">00641</span><span style="color:#ae81ff">820</span>      add   <span style="color:#960050;background-color:#1e0010">$</span>v1, <span style="color:#960050;background-color:#1e0010">$</span>v1, <span style="color:#960050;background-color:#1e0010">$</span>a0       <span style="color:#960050;background-color:#1e0010">#</span> i <span style="color:#960050;background-color:#1e0010">×</span> <span style="color:#ae81ff">64</span> <span style="color:#f92672">+</span> j
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">19</span> <span style="color:#ae81ff">00401030</span>  <span style="color:#ae81ff">00031</span><span style="color:#ae81ff">880</span>      sll   <span style="color:#960050;background-color:#1e0010">$</span>v1, <span style="color:#960050;background-color:#1e0010">$</span>v1, <span style="color:#ae81ff">2</span>         <span style="color:#960050;background-color:#1e0010">#</span> (i <span style="color:#960050;background-color:#1e0010">×</span> <span style="color:#ae81ff">64</span> <span style="color:#f92672">+</span> j) <span style="color:#960050;background-color:#1e0010">×</span> <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">20</span> <span style="color:#ae81ff">00401034</span>  <span style="color:#ae81ff">3</span>C010042      lui   <span style="color:#960050;background-color:#1e0010">$</span>at, <span style="color:#ae81ff">0x0042</span>         <span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#960050;background-color:#1e0010">加载基地址高</span> <span style="color:#ae81ff">16</span> <span style="color:#960050;background-color:#1e0010">位</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">21</span> <span style="color:#ae81ff">0040103</span><span style="color:#ae81ff">8</span>  <span style="color:#ae81ff">34222000</span>      ori   <span style="color:#960050;background-color:#1e0010">$</span>v0, <span style="color:#960050;background-color:#1e0010">$</span>at, <span style="color:#ae81ff">0x2000</span>    <span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#960050;background-color:#1e0010">完整基地址</span> <span style="color:#ae81ff">0x00422000</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">22</span> <span style="color:#ae81ff">0040103</span>C  <span style="color:#ae81ff">00621020</span>      add   <span style="color:#960050;background-color:#1e0010">$</span>v0, <span style="color:#960050;background-color:#1e0010">$</span>v1, <span style="color:#960050;background-color:#1e0010">$</span>v0       <span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#960050;background-color:#1e0010">计算目标地址</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">23</span> <span style="color:#ae81ff">00401040</span>  <span style="color:#ae81ff">2405000</span>A      li    <span style="color:#960050;background-color:#1e0010">$</span>a1, <span style="color:#ae81ff">10</span>             <span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#ae81ff">10</span> <span style="color:#960050;background-color:#1e0010">存入</span> <span style="color:#960050;background-color:#1e0010">$</span>a1
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">24</span> <span style="color:#ae81ff">00401044</span>  AC450000      sw    <span style="color:#960050;background-color:#1e0010">$</span>a1, <span style="color:#ae81ff">0</span>(<span style="color:#960050;background-color:#1e0010">$</span>v0)         <span style="color:#960050;background-color:#1e0010">#</span> a[i][j] <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">25</span> ... ...
+</span></span></code></pre></div><h4 id="对比">对比</h4>
+<p><strong>CISC</strong> 和 <strong>RISC</strong> 的主要区别如下表所示：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">特性</th>
+          <th style="text-align: left"><strong>CISC</strong></th>
+          <th style="text-align: left"><strong>RISC</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>指令集</strong></td>
+          <td style="text-align: left">复杂，指令数量多</td>
+          <td style="text-align: left">精简，指令数量少</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>指令长度</strong></td>
+          <td style="text-align: left">不定长</td>
+          <td style="text-align: left">固定长度</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>寻址模式</strong></td>
+          <td style="text-align: left">多种寻址模式</td>
+          <td style="text-align: left">较少寻址模式</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>控制方式</strong></td>
+          <td style="text-align: left">微程序控制</td>
+          <td style="text-align: left">硬布线控制</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>硬件复杂度</strong></td>
+          <td style="text-align: left">复杂</td>
+          <td style="text-align: left">精简</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>优点</strong></td>
+          <td style="text-align: left">功能强大，一条指令可完成复杂操作</td>
+          <td style="text-align: left"><em>性能高，功耗低</em></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>缺点</strong></td>
+          <td style="text-align: left">硬件复杂，指令执行效率相对较低</td>
+          <td style="text-align: left">功能相对简单，复杂操作需要多条指令完成</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="不同位数指令">不同位数指令</h3>
+<p><img src="/images/docs/computer-org/a01240c4eb.svg"></p>
+<p>从 <strong>8086</strong> （16 位 <strong>intel</strong> 处理器）再到后来的 <strong>32 位</strong> 以及 <strong>64 位</strong> 的 CPU，差异主要体现在以下几个方面：</p>
+<ol>
+<li><strong>寄存器位数</strong> 和 <strong>命名</strong> 不同：32 位寄存器有 <code>E</code> 前缀，64 位寄存器有 <code>R</code> 前缀。</li>
+<li><strong>指令集</strong> 不同：32 位处理器相比 16 位处理器有着更加复杂的指令集，64 位处理器的指令集也比 32 位更加复杂。</li>
+</ol>
+<p>下表中给出了不同位数寄存器的对比，注意每个寄存器的开头都与一个 <strong>单次</strong> 相对应，在最初 <strong>8086</strong> 的设计中这是代表一种语义。</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">寄存器</th>
+          <th style="text-align: left">16 位</th>
+          <th style="text-align: left">32 位</th>
+          <th style="text-align: left">64 位</th>
+          <th style="text-align: left">类型</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Counter</td>
+          <td style="text-align: left">CX</td>
+          <td style="text-align: left">ECX</td>
+          <td style="text-align: left">RCX</td>
+          <td style="text-align: left">General</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Data</td>
+          <td style="text-align: left">DX</td>
+          <td style="text-align: left">EDX</td>
+          <td style="text-align: left">RDX</td>
+          <td style="text-align: left">General</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Source Index</td>
+          <td style="text-align: left">SI</td>
+          <td style="text-align: left">ESI</td>
+          <td style="text-align: left">RSI</td>
+          <td style="text-align: left">Pointer</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Destination Index</td>
+          <td style="text-align: left">DI</td>
+          <td style="text-align: left">EDI</td>
+          <td style="text-align: left">RDI</td>
+          <td style="text-align: left">Pointer</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Base Pointer</td>
+          <td style="text-align: left">BP</td>
+          <td style="text-align: left">EBP</td>
+          <td style="text-align: left">RBP</td>
+          <td style="text-align: left">Pointer</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Stack Pointer</td>
+          <td style="text-align: left">SP</td>
+          <td style="text-align: left">ESP</td>
+          <td style="text-align: left">RSP</td>
+          <td style="text-align: left">Pointer</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Instruction Pointer</td>
+          <td style="text-align: left">IP</td>
+          <td style="text-align: left">EIP</td>
+          <td style="text-align: left">RIP</td>
+          <td style="text-align: left">Pointer</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Code Segment</td>
+          <td style="text-align: left">CS</td>
+          <td style="text-align: left">-</td>
+          <td style="text-align: left">-</td>
+          <td style="text-align: left">Segment</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Data Segment</td>
+          <td style="text-align: left">DS</td>
+          <td style="text-align: left">-</td>
+          <td style="text-align: left">-</td>
+          <td style="text-align: left">Segment</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="att-和-intel-指令">AT&amp;T 和 Intel 指令</h3>
+<p>在 <strong>x86</strong> 汇编指令集中，常有 <strong>AT &amp;T</strong> 和 <strong>Intel</strong> 两种格式，两种格式有较大差异。在考试中主要考察的是 <strong>Intel</strong> 格式，但是 <strong>AT &amp;T</strong> 也需稍作了解，在遇到指令时能辨认出即可。</p>
+<p><img src="/images/docs/computer-org/image-20260612225701691.png"></p>
+<h6 id="intel-格式">Intel 格式</h6>
+<p>mov     eax,1
+mov     ebx,0ffh
+mov     eax,[ebx]
+mov     eax,[ebx+3]</p>
+<h6 id="att-格式">AT&amp;T 格式</h6>
+<p>movl    $1,%eax
+movl    $0xff,%ebx
+movl    (%ebx),%eax
+movl    3(%ebx),%eax</p>
+<p>两种指令格式的不同主要在于 <strong>Intel</strong> 格式的 <strong>目的操作数</strong> 在左，<strong>源操作数</strong> 在右，而 <strong>AT &amp;T</strong> 格式 <strong>目的操作数</strong> 在右，<strong>源操作数</strong> 在左。</p>
+<p>两种指令格式的具体表格如下表所示：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">特性</th>
+          <th style="text-align: left"><strong>Intel</strong> 格式</th>
+          <th style="text-align: left"><strong>AT &amp;T</strong> 格式</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>操作数顺序</strong></td>
+          <td style="text-align: left">目的，源</td>
+          <td style="text-align: left">源，目的</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>寄存器</strong></td>
+          <td style="text-align: left"><code>eax, ebx...</code></td>
+          <td style="text-align: left"><code>%eax, %ebx...</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>常数</strong></td>
+          <td style="text-align: left"><code>10, 0x20...</code></td>
+          <td style="text-align: left"><code>$10, $0x20...</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>内存寻址</strong></td>
+          <td style="text-align: left"><code>[]</code></td>
+          <td style="text-align: left"><code>()</code></td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="相关笔记">相关笔记</h2>
+<ul>
+<li>[[cache|Cache]]</li>
+<li>[[external|外存]]</li>
+<li>[[memory-index|存储系统]]</li>
+<li>[[overview|存储系统概述]]</li>
+<li>[[ram|内存]]</li>
+<li>[[virtual|虚拟存储器]]</li>
+</ul>
+</article>
+
+    
+    
+    
+
+    <div class="border-top-section">
+      <a href="/cc408/docs/" class="btn btn-ghost">← 返回知识点列表</a>
+    </div>
+  </main>
+</div>
+
+<style>
+.side-nav-group[open] summary { color: var(--text-primary); }
+.side-nav-group summary::-webkit-details-marker { display: none; }
+.side-nav-group summary::after {
+  content: '▸'; margin-left: auto; font-size: var(--fs-xs); transition: transform .2s;
+}
+.side-nav-group[open] summary::after { transform: rotate(90deg); }
+</style>
+
+  </main>
+  <footer class="site-footer" role="contentinfo">
+  <p>© 2026 CC408. 408考研知识整理</p>
+</footer>
+
+</body>
+</html>

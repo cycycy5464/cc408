@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IO方式 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/knowledge_points/io%E6%96%B9%E5%BC%8F/</link>
+    <description>Recent content in IO方式 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/knowledge_points/io%E6%96%B9%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2011 计算机组成原理 第22题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2011-co-022/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2011-co-022/</guid>
+      <description>&lt;p&gt;某计算机处理器主频为50MHz, 采用定时查询方式控制设备A的 I/O,  查询程序运行一次所用的时钟 周期数至少为500。在设备A 工作期间，为数据不丢失，每秒需对其查询至少200次，则CPU用于设备A 的I/O 的时间占整个CPU时间的百分比至少是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机组成原理 第22题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-co-022/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-co-022/</guid>
+      <description>&lt;p&gt;下列关于 I/O  控制方式的叙述中，错误的是()。&lt;/p&gt;&#xA;&lt;p&gt;A. 查询方式下，通过 CPU 执行查询程序进行 I/O 操作&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

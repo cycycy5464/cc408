@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>处理机调度算法 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/knowledge_points/%E5%A4%84%E7%90%86%E6%9C%BA%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95/</link>
+    <description>Recent content in 处理机调度算法 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/knowledge_points/%E5%A4%84%E7%90%86%E6%9C%BA%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2014 操作系统 第23题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2014-os-023/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2014-os-023/</guid>
+      <description>&lt;p&gt;下列调度算法中，不可能导致饥饿现象的是()。&lt;/p&gt;&#xA;&lt;p&gt;A. 时间片轮转&lt;/p&gt;&#xA;&lt;p&gt;B.  静态优先数调度&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2022 操作系统 第25题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2022-os-025/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2022-os-025/</guid>
+      <description>&lt;p&gt;进程P0 、P1 、P2 和 P3 进入就绪队列的时刻、优先级(值越小优先权越高)及CPU 执行时间如下表 所示。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

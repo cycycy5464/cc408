@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2012 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/years/2012/</link>
+    <description>Recent content in 2012 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/years/2012/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2012 操作系统 第23题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-os-023/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-os-023/</guid>
+      <description>&lt;p&gt;下列选项中，不可能在用户态发生的事件是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e7%94%a8%e6%88%b7%e6%80%81%e5%92%8c%e5%86%85%e6%a0%b8%e6%80%81&#34;&gt;用户态和内核态&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A. 系统调用&#xA;B. 外部中断&#xA;C. 进程切换&#xA;D.  缺页&#xA;[tag_link]&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 操作系统 第24题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-os-024/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-os-024/</guid>
+      <description>&lt;p&gt;中断处理和子程序调用都需要压栈以保护现场，中断处理一定会保存而子程序调用不需要保存其内容的是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 操作系统 第25题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-os-025/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-os-025/</guid>
+      <description>&lt;p&gt;下列关于虚拟存储器的叙述中，正确的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e8%99%9a%e6%8b%9f%e9%a1%b5%e5%bc%8f%e7%ae%a1%e7%90%86&#34;&gt;虚拟页式管理&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A.  虚拟存储只能基于连续分配技术&#xA;B.  虚拟存储只能基于非连续分配技术&#xA;C. 虚拟存储容量只受外存容量的限制&#xA;D.  虚拟存储容量只受内存容量的限制&#xA;[tag_link]&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 操作系统 第26题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-os-026/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-os-026/</guid>
+      <description>&lt;p&gt;用户程序发出磁盘 I/O 请求后，系统的正确处理流程是操作系统的 I/O 子系统通常由四个层次组成，每一层明确定义了与邻近层次的接口。其合理的层次组织排列顺序是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 操作系统 第27题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-os-027/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-os-027/</guid>
+      <description>&lt;p&gt;假设 5 个进程&#xA;P0​&#xA;、&#xA;P1​&#xA;、&#xA;P2​&#xA;、&#xA;P3​&#xA;、&#xA;P4​&#xA;共享三类资源&#xA;R1​&#xA;、&#xA;R2​&#xA;、&#xA;R3​&#xA;，这些资源总数分别为 18、6、22。T0 时刻的资源分配情况如下表所示，此时存在的一个安全序列是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 操作系统 第28题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-os-028/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-os-028/</guid>
+      <description>&lt;p&gt;若一个用户进程通过 read 系统调用读取一个磁盘文件中的数据，则下列关于此过程的叙述中，正确的是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 操作系统 第29题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-os-029/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-os-029/</guid>
+      <description>&lt;p&gt;一个多道批处理系统中仅有&#xA;P1​&#xA;和&#xA;P2​&#xA;两个作业，&#xA;P2​&#xA;比&#xA;P1​&#xA;晚 5ms 到达，它们的计算和 I/O 操作顺序如下：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 操作系统 第30题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-os-030/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-os-030/</guid>
+      <description>&lt;p&gt;若某单处理器多进程系统中有多个就绪态进程，则下列关于处理机调度的叙述中，错误的是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 操作系统 第31题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-os-031/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-os-031/</guid>
+      <description>&lt;p&gt;下列关于进程和线程的叙述中，正确的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e5%92%8c%e7%ba%bf%e7%a8%8b&#34;&gt;进程和线程&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A. 不管系统是否支持线程，进程都是资源分配的基本单位&#xA;B. 线程是资源分配的基本单位，进程是调度的基本单位&#xA;C.  系统级线程和用户级线程的切换都需要内核的支持&#xA;D.  同一进程中的各个线程拥有各自不同的地址空间&#xA;[tag_link]&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 操作系统 第32题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-os-032/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-os-032/</guid>
+      <description>&lt;p&gt;下列选项中，不能改善磁盘设备 I/O 性能的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e7%a3%81%e7%9b%98%e6%a6%82%e5%bf%b5&#34;&gt;磁盘概念&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A. 重排I/O 请求次序&#xA;B.  在一个磁盘上设置多个分区&#xA;C.  预读和滞后写&#xA;D. 优化文件物理块的分布&#xA;[tag_link]&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 操作系统 第45题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-os-045/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-os-045/</guid>
+      <description>&lt;p&gt;某请求分页系统的局部页面置换策略如下：系统从 0 时刻开始扫描，每隔 5 个时间单位扫描一轮驻留集（扫描时间忽略不计），本轮没有被访问过的页框将被系统回收，并放入到空闲页框链尾，其中内容在下一次被分配之前不被清空。当发生缺页时，如果该页曾被使用过且还在空闲页框链表中，则重新放回进程的驻留集中；否则，从空闲页框链表头部取出一个页框。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 操作系统 第46题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-os-046/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-os-046/</guid>
+      <description>&lt;p&gt;某文件系统空间的最大容量为 4TB（1TB=&#xA;240&#xA;B），以磁盘块为基本分配单位。磁盘块大小为 1KB。文件控制块 (FCB) 包含一个 512B 的索引表区。请回答下列问题。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 计算机网络 第33题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-cn-033/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-cn-033/</guid>
+      <description>&lt;p&gt;在 TCP/IP 体系结构中，直接为 ICMP 提供服务的协议是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#tcp-ip%e6%a8%a1%e5%9e%8b&#34;&gt;TCP/IP模型&lt;/a&gt;&#xA;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#icmp&#34;&gt;ICMP&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A.PPP&#xA;B.IP&#xA;C.UDP&#xA;D.TCP&#xA;[tag_link]&lt;/p&gt;&#xA;&lt;p&gt;正确答案：B&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 计算机网络 第34题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-cn-034/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-cn-034/</guid>
+      <description>&lt;p&gt;在物理层接口特性中，用于描述完成每种功能的事件发生顺序的是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 计算机网络 第35题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-cn-035/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-cn-035/</guid>
+      <description>&lt;p&gt;以太网的 MAC 协议提供的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e4%bb%a5%e5%a4%aa%e7%bd%91&#34;&gt;以太网&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A. 无连接不可靠服务&#xA;B. 无连接可靠服务&#xA;C. 有连接不可靠服务&#xA;D. 有连接可靠服务&#xA;[tag_link]&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 计算机网络 第36题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-cn-036/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-cn-036/</guid>
+      <description>&lt;p&gt;两台主机之间的数据链路层采用后退 N 帧协议 (GBN) 传输数据，数据传输速率为 16 kbps，单向传播时延为 270 ms，数据帧长度范围是 128~512 字节，接收方总是以与数据帧等长的帧进行确认。为使信道利用率达到最高，帧序号的比特数至少为（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 计算机网络 第37题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-cn-037/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-cn-037/</guid>
+      <description>&lt;p&gt;下列关于 IP 路由器功能的描述中，正确的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;I. 运行路由协议，设置路由表&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 计算机网络 第38题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-cn-038/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-cn-038/</guid>
+      <description>&lt;p&gt;ARP 协议的功能是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#arp&#34;&gt;ARP&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A. 根据 IP  地址查询 MAC 地址&#xA;B. 根据 MAC  地址查询 IP  地址&#xA;C. 根据域名查询IP  地址&#xA;D. 根据 IP  地址查询域名&#xA;[tag_link]&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 计算机网络 第39题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-cn-039/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-cn-039/</guid>
+      <description>&lt;p&gt;某主机的 IP 地址为 180.80.77.55，子网掩码为 255.255.252.0。若该主机向其所在子网发送广播分组，则目的地址可以是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 计算机网络 第40题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-cn-040/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-cn-040/</guid>
+      <description>&lt;p&gt;若用户 1 与用户 2 之间发送和接收电子邮件的过程如下图所示，则图中 ①、②、③ 阶段分别使用的应用层协议可以是&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 计算机网络 第47题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-cn-047/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-cn-047/</guid>
+      <description>&lt;p&gt;主机 H 通过快速以太网连接 Internet，IP 地址为 192.168.0.8，服务器 S 的 IP 地址为 211.68.71.80。H 与 S 使用 TCP 通信时，在 H 上捕获的其中 5 个 IP 分组如题 47-a 表所示。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 计算机组成原理 第22题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-co-022/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-co-022/</guid>
+      <description>&lt;p&gt;响应外部中断的过程中，中断隐指令完成的操作，除保护断点外，还包括()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 计算机组成原理 第43题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-co-043/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-co-043/</guid>
+      <description>&lt;p&gt;假定某计算机的 CPU 主频为 80MHz，CPI 为 4，平均每条指令访存 1.5 次，主存与 Cache 之间交换的块大小为 16B，Cache 的命中率为 99%，存储器总线宽度为 32 位。请回答下列问题。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 计算机组成原理 第44题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-co-044/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-co-044/</guid>
+      <description>&lt;p&gt;某 16 位计算机中，带符号整数用补码表示，数据 Cache 和指令 Cache 分离。下表给出了指令系统中部分指令格式，其中 Rs 和 Rd 表示寄存器，mem 表示存储单元地址，(x) 表示寄存器 x 或存储单元 x 的内容。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 数据结构 第10题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-ds-010/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-ds-010/</guid>
+      <description>&lt;p&gt;在内部排序过程中，对尚未确定最终位置的所有元素进行一遍处理称为一趟排序。下列排序方法中，每一趟排序结束都至少能够确定一个元素最终位置的方法是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 数据结构 第11题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-ds-011/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-ds-011/</guid>
+      <description>&lt;p&gt;对同一待排序序列分别进行折半插入排序和直接插入排序，两者之间可能的不同之处是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 数据结构 第1题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-ds-001/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-ds-001/</guid>
+      <description>&lt;p&gt;求整数&#xA;n(n≥0)&#xA;阶乘的算法如下，其时间复杂度是（ ）。&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;fact&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; n) {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (n &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; n &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;fact&lt;/span&gt;(n &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;);&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e5%a4%8d%e6%9d%82%e5%ba%a6%e5%88%86%e6%9e%90&#34;&gt;复杂度分析&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 数据结构 第2题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-ds-002/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-ds-002/</guid>
+      <description>&lt;p&gt;已知操作符包括 &lt;code&gt;+&lt;/code&gt;、&lt;code&gt;−&lt;/code&gt;、&lt;code&gt;∗&lt;/code&gt;、&lt;code&gt;/&lt;/code&gt;、&lt;code&gt;(&lt;/code&gt; 和 &lt;code&gt;)&lt;/code&gt;。将中缀表达式 &lt;code&gt;a+b−a∗((c+d)/e−f)+g&lt;/code&gt; 转换为等价的后缀表达式 &lt;code&gt;ab+acd+e/f−∗−g+&lt;/code&gt; 时，用栈来存放暂时还不能确定运算次序的操作符，若栈初始为空，则转换过程中同时保存在栈中的操作符的最大个数是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 数据结构 第3题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-ds-003/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-ds-003/</guid>
+      <description>&lt;p&gt;若一棵二叉树的前序遍历序列为 a, e, b, d, c，后序遍历序列为 b, c, d, e, a，则根结点的孩子结点（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 数据结构 第41题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-ds-041/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-ds-041/</guid>
+      <description>&lt;p&gt;设有 6 个有序表 A、B、C、D、E、F，分别含有 10、35、40、50、60 和 200 个数据元素，各表中元素按升序排列。要求通过 5 次两两合并，将 5 个表最终合并成 1 个升序表，并在最坏情况下比较的总次数达到最小。请回答下列问题。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 数据结构 第42题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-ds-042/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-ds-042/</guid>
+      <description>&lt;p&gt;假定采用带头结点的单链表保存单词，当两个单词有相同的后缀时，则可共享相同的后缀存储空间，例如，“loading&amp;quot; 和 “being” 的存储映像如下图所示。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 数据结构 第4题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-ds-004/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-ds-004/</guid>
+      <description>&lt;p&gt;若平衡二叉树的高度为 6 ，且所有非叶结点的平衡因子均为 1 ，则该平衡二叉树的结点总数为（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 数据结构 第5题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-ds-005/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-ds-005/</guid>
+      <description>&lt;p&gt;对有 n 个结点、e 条边且使用邻接表存储的有向图进行广度优先遍历，其算法时间复杂度是（）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 数据结构 第6题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-ds-006/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-ds-006/</guid>
+      <description>&lt;p&gt;若用邻接矩阵存储有向图，矩阵中主对角线以下的元素均为零，则关于该图拓扑序列的结论是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 数据结构 第7题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-ds-007/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-ds-007/</guid>
+      <description>&lt;p&gt;对如下有向图带权图，若采用迪杰斯特拉（Dijkstra）算法求从源点 a 到其他各顶点的最短路径，则得到的第一条最短路径的目标顶点是 b，第二条最短路径的目标顶点是 c，后续得到的其余最短路径的目标顶点依次是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 数据结构 第8题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-ds-008/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-ds-008/</guid>
+      <description>&lt;p&gt;下列关于最小生成树的叙述中，正确的是（）。&lt;/p&gt;&#xA;&lt;p&gt;Ⅰ．最小生成树的代价唯一&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 数据结构 第9题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-ds-009/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-ds-009/</guid>
+      <description>&lt;p&gt;已知一棵 3 阶 B 树，如下图所示。删除关键字 78 得到一棵新 B 树，其最右叶结点中的关键字是（）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 组成原理 第12题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-ds-012/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-ds-012/</guid>
+      <description>&lt;p&gt;假定基准程序 A 在某计算机上的运行时间为 100 秒，其中 90 秒为 CPU 时间，其余为 I/O 时间。若 CPU 速度提高 50%，I/O 速度不变，则运行基准程序 A 所耗费的时间是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 组成原理 第13题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-ds-013/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-ds-013/</guid>
+      <description>&lt;p&gt;假定编译器规定 int 和 short 型长度分别为 32 位和 16 位，执行下列 C 语言语句：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 组成原理 第14题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-ds-014/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-ds-014/</guid>
+      <description>&lt;p&gt;float 类型（即 IEEE754 单精度浮点数格式）能表示的最大正整数是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#ieee%e6%b5%ae%e7%82%b9%e6%95%b0%e8%a1%a8%e7%a4%ba&#34;&gt;IEEE浮点数表示&lt;/a&gt;&#xA;[tag_link]&lt;/p&gt;&#xA;&lt;p&gt;正确答案：D&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 组成原理 第15题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-ds-015/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-ds-015/</guid>
+      <description>&lt;p&gt;某计算机存储器按字节编址，采用小端方式存放数据。假定编译器规定 int 型和 short 型长度分别为 32 位和 16 位，并且数据按边界对齐存储。某 C 语言程序段如下：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 组成原理 第16题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-ds-016/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-ds-016/</guid>
+      <description>&lt;p&gt;下列关于闪存（Flash Memory）的叙述中，错误的是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 组成原理 第17题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-ds-017/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-ds-017/</guid>
+      <description>&lt;p&gt;假设某计算机按字编址，Cache 有 4 个行，Cache 和主存之间交换的块大小为 1 个字。若 Cache 的内容初始为空，采用 2 路组相联映射方式和 LRU 替换策略。访问的主存地址依次为 0,4,8,2,0,6,8,6,4,8 时，命中 Cache 的次数是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 组成原理 第18题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-ds-018/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-ds-018/</guid>
+      <description>&lt;p&gt;某计算机的控制器采用微程序控制方式，微指令中的操作控制字段采用字段直接编码法，共有 33 个微命令，构成 5 个互斥类，分别包含 7、3、12、5 和 6 个微命令，则操作控制字段至少有（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 组成原理 第19题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-ds-019/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-ds-019/</guid>
+      <description>&lt;p&gt;某同步总线的时钟频率为 100MHz，宽度为 32 位，地址/数据线复用，每传输一个地址或数据占用一个时钟周期。若该总线支持突发（猝发）传输方式，则一次 “主存写” 总线事务传输 128 位数据所需要的时间至少是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 组成原理 第20题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-ds-020/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-ds-020/</guid>
+      <description>&lt;p&gt;下列关于 USB 总线特性的描述中，错误的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e6%80%bb%e7%ba%bf%e7%b1%bb%e5%9e%8b&#34;&gt;总线类型&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A. 可实现外设的即插即用和热插拔&#xA;B. 可通过级联方式连接多台外设&#xA;C. 是一种通信总线，可连接不同外设&#xA;D. 同时可传输 2 位数据，数据传输率高&#xA;[tag_link]&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 组成原理 第21题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-ds-021/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-ds-021/</guid>
+      <description>&lt;p&gt;下列选项中，在 I/O 总线的数据线上传输的信息包括（ ）。&lt;/p&gt;&#xA;&lt;p&gt;Ⅰ. I/O 接口中的命令字&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

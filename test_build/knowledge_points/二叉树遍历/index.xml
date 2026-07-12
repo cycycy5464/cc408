@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>二叉树遍历 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/knowledge_points/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/</link>
+    <description>Recent content in 二叉树遍历 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/knowledge_points/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2014 数据结构 第41题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2014-ds-041/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2014-ds-041/</guid>
+      <description>&lt;p&gt;(10分)二叉树的带权路径长度( WPL)  是二叉树中所有叶结点的带权路径长度之和。给定一棵二叉 树T,   采用二叉链表存储，结点结构为：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2022 数据结构 第3题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2022-ds-003/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2022-ds-003/</guid>
+      <description>&lt;p&gt;若结点 p 与 q 在二叉树 T  的中序遍历序列中相邻，且 p  在 q  之前，则下列 p 与 q  的关系中， 不可能的是()。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

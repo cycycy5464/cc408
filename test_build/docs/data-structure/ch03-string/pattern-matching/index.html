@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>串的模式匹配 | CC408</title>
+  <meta name="description" content="⭐ 中优先级
+这一节要考的话其实就是 kmp 算法，会考察下 next 数组的构建 和 调整位置的方式 。虽然历年考查得其实也不是很多，但是这种涉及算法的还是得多留个心眼，因为有可能在今年的大题就考查了。
+字符串模式匹配 是计算机科学中的基础问题，主要是在一个 主字符串 中查找一个 子字符串 模式。 …">
+  <link rel="icon" href="/cc408/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" as="script" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" as="script" crossorigin="anonymous">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/cc408/css/custom.min.ecad70eed0f9849f67d23e2bf502ae36e7f590486681964e1c95bc71c8672493.css" integrity="sha256-7K1w7tD5hJ9n0j4r9QKuNuf1kEhmgZZOHJW8cchnJJM=">
+  
+
+<script src="/cc408/js/watermark.js"></script>
+
+
+  <script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.content-area img,.docs-layout img').forEach(function(i){if(!i.src.match(/\.svg$/i)){i.loading='lazy';i.fetchPriority='low';}});});</script>
+</head>
+<body style="background: var(--bg-primary); color: var(--text-primary);">
+  <a href="#main-content" class="skip-link">跳转到主要内容</a>
+  <nav class="navbar" role="navigation" aria-label="主导航">
+  <a href="/cc408/" class="navbar-brand">CC408</a>
+  <button class="navbar-toggle" aria-label="菜单" onclick="this.parentElement.querySelector('.navbar-links').classList.toggle('open')">☰</button>
+  <div class="navbar-links" role="menubar">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      首页
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/docs/" role="menuitem" class="active" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识点
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      刷题
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/quiz-collection/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      收藏
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/graph/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识图谱
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/tags/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      标签
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/resources/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      资源
+    </a>
+    
+  </div>
+  <div class="navbar-right">
+    <a href="https://cycycy5464.github.io/">个人主页 →</a>
+  </div>
+</nav>
+
+  <main id="main-content" style="padding-top: 70px; min-height: calc(100vh - 120px);">
+    
+<div class="docs-layout">
+  <aside class="side-nav">
+    
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>📊</span><span>数据结构</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/basic-concepts/" class="side-nav-link ">数据结构基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/algorithm-concepts/" class="side-nav-link ">算法基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linear-list-index/" class="side-nav-link ">线性表概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/definition/" class="side-nav-link ">线性表定义与基本操作</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/sequential-list/" class="side-nav-link ">顺序表</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linked-list/" class="side-nav-link ">链表</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/stack/" class="side-nav-link ">栈</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/queue/" class="side-nav-link ">队列</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/application/" class="side-nav-link ">栈和队列的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/linear-data-structure/" class="side-nav-link ">线性数据结构</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/string-index/" class="side-nav-link ">串概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/definition/" class="side-nav-link ">串的定义与实现</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/pattern-matching/" class="side-nav-link active">串的模式匹配</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/array-matrix/" class="side-nav-link ">数组和特殊矩阵</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree/" class="side-nav-link ">树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-and-binary-tree/" class="side-nav-link ">树与二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/binary-tree/" class="side-nav-link ">二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-applications/" class="side-nav-link ">树的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/graph-index/" class="side-nav-link ">图概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/definition/" class="side-nav-link ">图的定义</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/algorithms/" class="side-nav-link ">图的算法和应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/search-index/" class="side-nav-link ">查找概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/array-search/" class="side-nav-link ">数组查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/tree-search/" class="side-nav-link ">树形查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/hash-search/" class="side-nav-link ">散列表查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/sort-index/" class="side-nav-link ">排序概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/internal-sort/" class="side-nav-link ">内部排序</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/external-sort/" class="side-nav-link ">外部排序</a>
+      
+      <a href="/cc408/exam/exercise/data_structure/" class="side-nav-link ">数据结构篇</a>
+      
+      <a href="/cc408/exam/application/2023-q1/" class="side-nav-link ">2023年408真题 - 应用题第1题</a>
+      
+      <a href="/cc408/exam/choice/2024-q5/" class="side-nav-link ">2024年408真题 - 数据结构选择题第5题</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/introduction/" class="side-nav-link ">绪论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>⚙️</span><span>计算机组成原理</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/system-hierarchy/" class="side-nav-link ">计算机系统层次结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/performance/" class="side-nav-link ">计算机性能指标</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/data-index/" class="side-nav-link ">数据表示与计算</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/integers/" class="side-nav-link ">整数的表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/float/" class="side-nav-link ">浮点数表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/type-conversion/" class="side-nav-link ">类型转换</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/circuits/" class="side-nav-link ">运算电路</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/memory-index/" class="side-nav-link ">存储系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/overview/" class="side-nav-link ">存储系统概述</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/ram/" class="side-nav-link ">内存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/cache/" class="side-nav-link ">Cache</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/external/" class="side-nav-link ">外存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/virtual/" class="side-nav-link ">虚拟存储器</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/instruction-index/" class="side-nav-link ">指令系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/types/" class="side-nav-link ">指令集种类</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/format-addressing/" class="side-nav-link ">指令格式与寻址方式</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/data-alignment/" class="side-nav-link ">数据对齐</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/opcode/" class="side-nav-link ">指令操作码</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/hll-machine/" class="side-nav-link ">高级语言与机器码</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/cpu-index/" class="side-nav-link ">中央处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/function-structure/" class="side-nav-link ">CPU功能与结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/controller/" class="side-nav-link ">控制器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/exceptions/" class="side-nav-link ">异常与中断</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/pipeline/" class="side-nav-link ">指令流水线</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/multiprocessor/" class="side-nav-link ">多处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus/" class="side-nav-link ">总线</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus-io/" class="side-nav-link ">总线和I/O系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch06-io/io-system/" class="side-nav-link ">I/O系统</a>
+      
+      <a href="/cc408/exam/exercise/architecture/" class="side-nav-link ">计算机组成原理</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/introduction/" class="side-nav-link ">概论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🖥️</span><span>操作系统</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/os/ch00-overview/os-concept/" class="side-nav-link ">操作系统概念</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/os-structure/" class="side-nav-link ">操作系统结构</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/program-env/" class="side-nav-link ">程序运行环境</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-index/" class="side-nav-link ">进程管理</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-thread/" class="side-nav-link ">进程与线程</a>
+      
+      <a href="/cc408/docs/os/ch01-process/scheduling/" class="side-nav-link ">处理机调度</a>
+      
+      <a href="/cc408/docs/os/ch01-process/sync-mutex/" class="side-nav-link ">同步与互斥</a>
+      
+      <a href="/cc408/docs/os/ch01-process/classic-sync/" class="side-nav-link ">经典同步问题</a>
+      
+      <a href="/cc408/docs/os/ch01-process/deadlock/" class="side-nav-link ">死锁</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/memory-index/" class="side-nav-link ">内存管理</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/concepts/" class="side-nav-link ">内存管理概念</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/virtual/" class="side-nav-link ">虚拟内存管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-index/" class="side-nav-link ">文件管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-basics/" class="side-nav-link ">文件</a>
+      
+      <a href="/cc408/docs/os/ch03-file/directory/" class="side-nav-link ">目录</a>
+      
+      <a href="/cc408/docs/os/ch03-file/filesystem/" class="side-nav-link ">文件系统</a>
+      
+      <a href="/cc408/docs/os/ch04-io/io-index/" class="side-nav-link ">I/O管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/devices/" class="side-nav-link ">I/O设备</a>
+      
+      <a href="/cc408/docs/os/ch04-io/device-mgmt/" class="side-nav-link ">设备管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/disk/" class="side-nav-link ">磁盘</a>
+      
+      <a href="/cc408/code/clock/" class="side-nav-link ">CLOCK 时钟替换算法</a>
+      
+      <a href="/cc408/code/lru/" class="side-nav-link ">LRU 算法</a>
+      
+      <a href="/cc408/code/spinlock/" class="side-nav-link ">TAS 实现自旋锁</a>
+      
+      <a href="/cc408/exam/exercise/os/" class="side-nav-link ">操作系统</a>
+      
+      <a href="/cc408/code/reader_writer/" class="side-nav-link ">读者写着问题</a>
+      
+      <a href="/cc408/code/monitor/" class="side-nav-link ">管程实现生产者消费者</a>
+      
+      <a href="/cc408/code/producer_consumer/" class="side-nav-link ">生产者消费者问题</a>
+      
+      <a href="/cc408/code/banker/" class="side-nav-link ">银行家算法</a>
+      
+      <a href="/cc408/code/philosopher/" class="side-nav-link ">哲学家就餐问题</a>
+      
+      <a href="/cc408/exam/comprehensive/2022-q1/" class="side-nav-link ">2022年408真题 - 综合题第1题</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/computer-overview/" class="side-nav-link ">计算机系统概述</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🌐</span><span>计算机网络</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/network/ch00-overview/layered/" class="side-nav-link ">分层结构</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/protocol-summary/" class="side-nav-link ">各层协议总结</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/device-summary/" class="side-nav-link ">网络设备总结</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/phy-index/" class="side-nav-link ">物理层</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/communication/" class="side-nav-link ">通信概念</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/encoding/" class="side-nav-link ">编码与调制</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/switching/" class="side-nav-link ">交换方式</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/devices/" class="side-nav-link ">物理层设备</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/dl-index/" class="side-nav-link ">数据链路层</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/framing/" class="side-nav-link ">组帧</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/error-control/" class="side-nav-link ">差错控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/flow-control/" class="side-nav-link ">流量控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/mac/" class="side-nav-link ">介质访问控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/lan-wan/" class="side-nav-link ">局域网与广域网</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/devices/" class="side-nav-link ">数据链路层设备</a>
+      
+      <a href="/cc408/docs/network/ch03-network/nw-index/" class="side-nav-link ">网络层</a>
+      
+      <a href="/cc408/docs/network/ch03-network/ip/" class="side-nav-link ">IP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/arp/" class="side-nav-link ">ARP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/icmp/" class="side-nav-link ">ICMP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/dhcp/" class="side-nav-link ">DHCP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/routing/" class="side-nav-link ">路由算法</a>
+      
+      <a href="/cc408/docs/network/ch03-network/sdn/" class="side-nav-link ">SDN</a>
+      
+      <a href="/cc408/docs/network/ch03-network/devices/" class="side-nav-link ">网络层设备</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tp-index/" class="side-nav-link ">传输层</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tcp/" class="side-nav-link ">TCP</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/udp/" class="side-nav-link ">UDP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-index/" class="side-nav-link ">应用层</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-model/" class="side-nav-link ">网络应用模型</a>
+      
+      <a href="/cc408/docs/network/ch05-application/dns/" class="side-nav-link ">DNS</a>
+      
+      <a href="/cc408/docs/network/ch05-application/ftp/" class="side-nav-link ">FTP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/email/" class="side-nav-link ">电子邮件</a>
+      
+      <a href="/cc408/docs/network/ch05-application/www/" class="side-nav-link ">万维网</a>
+      
+      <a href="/cc408/exam/exercise/network/" class="side-nav-link ">计算机网络</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/arch-index/" class="side-nav-link ">计算机网络体系结构</a>
+      
+    </details>
+    
+  </aside>
+  <main class="content-area">
+    <h1>串的模式匹配</h1>
+    <div class="meta-row">
+      
+      <span><span class="diff-star">★</span><span class="diff-star">★</span><span class="diff-star-empty">☆</span></span>
+      
+      <span class="tag">串</span><span class="tag">字符串</span>
+    </div>
+    <article><p>⭐ 中优先级</p>
+<p>这一节要考的话其实就是 kmp 算法，会考察下 <strong>next 数组的构建</strong> 和 <strong>调整位置的方式</strong> 。虽然历年考查得其实也不是很多，但是这种涉及算法的还是得多留个心眼，因为有可能在今年的大题就考查了。</p>
+<p><strong>字符串模式匹配</strong> 是计算机科学中的基础问题，主要是在一个 <strong>主字符串</strong> 中查找一个 <strong>子字符串</strong> 模式。</p>
+<h3 id="串概念">串概念</h3>
+<p><img src="/images/docs/data-structure/e72136b857.svg"></p>
+<p>在介绍模式匹配算法之前，需要能够区分关于串的几个概念：</p>
+<ul>
+<li><strong>主串</strong> （Str / 主字符串）：待搜索的那一整段字符串。</li>
+<li><strong>子串</strong> （Substr / 子字符串）：主串中的某一段字符串</li>
+<li><strong>模式串</strong> （Pattern / 模式字符串）：要在主串中查找的目标。</li>
+</ul>
+<p>以及以下几个关于 <strong>模式匹配</strong> 的术语：</p>
+<ul>
+<li><strong>匹配</strong> ：在主串中找到与模式串完全相同的子串</li>
+<li><strong>匹配位置</strong> ：模式串在主串中出现的起始位置</li>
+<li><strong>失配</strong> ：当前字符不匹配</li>
+</ul>
+<p><strong>模式匹配算法</strong> 就是将 <strong>模式串</strong> 与 <strong>主串</strong> 相匹配，企图找到主串中的某个和 <strong>子串</strong> 和 <strong>模式串</strong> 完全相同。</p>
+<h3 id="简单模式匹配算法">简单模式匹配算法</h3>
+<p><strong>简单模式匹配算法</strong> （即暴力匹配 / 朴素匹配）的 <strong>基本思想</strong> 是：逐个检查 <strong>主串</strong> 的每一个位置，判断 <strong>从该位置开始的子串</strong> 是否与 <strong>模式串</strong> 完全相同。</p>
+<p><strong>算法描述：</strong></p>
+<ol>
+<li>从 <strong>主串</strong> 的第一个字符开始，尝试与 <strong>模式串</strong> 匹配。</li>
+<li>如果当前字符匹配，则继续比较下一个字符，依此类推。</li>
+<li>如果在某一位置发生不匹配，则将 <strong>模式串</strong> 移动到 <strong>主串</strong> 的下一个起始位置，重新匹配。</li>
+<li>如果某一段 <strong>子串</strong> 与 <strong>模式串</strong> 完全相同，则返回该 <strong>子串在主串中的起始位置</strong> 。</li>
+<li>如果扫描完整个 <strong>主串</strong> 都没有找到匹配的 <strong>子串</strong> ，则返回 -1。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">simplePatternMatching</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> mainStr, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> pattern) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> m <span style="color:#f92672">=</span> <span style="color:#a6e22e">strlen</span>(mainStr);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> <span style="color:#a6e22e">strlen</span>(pattern);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 如果主字符串的长度小于模式字符串的长度，直接返回 -1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (m <span style="color:#f92672">&lt;</span> n) <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;=</span> m <span style="color:#f92672">-</span> n; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> j;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> n; j<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (mainStr[i <span style="color:#f92672">+</span> j] <span style="color:#f92672">!=</span> pattern[j]) {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 如果 j 等于模式串的长度，说明已经找到匹配
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (j <span style="color:#f92672">==</span> n) <span style="color:#66d9ef">return</span> i;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;  <span style="color:#75715e">// 没有找到匹配
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><p>简单模式匹配算法的 <strong>核心思路</strong> 其实就是将主串中的每个字串和模式串进行对比。举个例子，主串 <code>abaaabc</code> 和模式串 <code>abc</code> 进行简单模式匹配的过程如下：</p>
+<p><img src="/images/docs/data-structure/95ae6d09ce.gif"></p>
+<p>这个简单模式匹配算法的 <strong>时间复杂度</strong> 是 O(mn) ，其中 m 是 <strong>主字符串</strong> 的长度， n 是 <strong>模式字符串</strong> 的长度。</p>
+<h3 id="kmp-算法">KMP 算法</h3>
+<p>与 <strong>简单模式匹配算法</strong> 不同， <strong>KMP 算法</strong> 在发现不匹配的字符时能够避免不必要的比较，从而提高效率。</p>
+<h4 id="前后缀">前后缀</h4>
+<p><strong>简单模式匹配</strong> 时间复杂度过高，因为每一次匹配失败都得从下一个位置重新开始。这就没有充分应用 <strong>模式串</strong> 的特性，比如对于字符串 <code>abcdabc</code>，我们可以发现：</p>
+<ul>
+<li>其 <strong>前缀</strong> 包含<code>a</code>, <code>ab</code>, <code>abc</code>, <code>abcd</code> 等</li>
+<li>起 <strong>后缀</strong> 包含<code>c</code>, <code>bc</code>, <code>abc</code>, <code>dabc</code> 等</li>
+</ul>
+<p><code>abc</code> 是在其 <strong>前缀</strong> 和 <strong>后缀</strong> 中都包含的部分，在字符串匹配时，我们可以充分利用该信息，匹配失败时，我们可以不用从下一个位置开始，而是从 <strong>模式串内部的某个位置</strong> 开始。</p>
+<p><img src="/images/docs/data-structure/image-20260612092155911.png">这就是 KMP 算法的核心思想！当匹配失败时，我们可以利用这个信息跳过一些不必要的比较</p>
+<p><strong>KMP 算法</strong> 就是基于这个思想，其核心是一个称为 “<strong>部分匹配表</strong> ” 或 “<strong>前缀函数</strong> ” 的辅助数组（通常称为 <strong>next 数组</strong> ），该数组用于确定当 <strong>模式串</strong> 在 <strong>主串</strong> 不匹配时应该如何有效地移动 <strong>模式串</strong> 。</p>
+<h4 id="算法描述">算法描述</h4>
+<ol>
+<li>构建 <strong>部分匹配表</strong> （<strong>next 数组</strong> ）：<code>next[i]</code> 表示：当 <strong>模式串</strong> 在第 i 位 <strong>匹配失败</strong> 时，下一次 <strong>应该跳到的模式串位置</strong> 。</li>
+<li>不断进行 <strong>模式匹配</strong> ，直到匹配成功或 <strong>主串</strong> 结束。</li>
+</ol>
+<h4 id="next-数组计算">next 数组计算</h4>
+<p>如果 <strong>模式串</strong> 为 <code>pattern</code>，用通俗的话来说，<code>next[k]</code> 就是第 k 个字符的 <strong>前缀字符串</strong> <code>pattern[0:k-1]</code>（pattern 的前 k 个字符构成的子串，不包含当前字符）的最长相同 <strong>前缀</strong> 和 <strong>后缀</strong> 的长度。</p>
+<p>以 <code>ababac</code> 字符串为例，可以得到以下的 next 数组：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">模式串（pattern）</th>
+          <th style="text-align: left">a</th>
+          <th style="text-align: left">b</th>
+          <th style="text-align: left">a</th>
+          <th style="text-align: left">b</th>
+          <th style="text-align: left">a</th>
+          <th style="text-align: left">c</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">下标（index）</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">2</td>
+          <td style="text-align: left">3</td>
+          <td style="text-align: left">4</td>
+          <td style="text-align: left">5</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pattern[0:index] 的相同前后缀长度</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">2</td>
+          <td style="text-align: left">3</td>
+          <td style="text-align: left">0</td>
+      </tr>
+  </tbody>
+</table>
+<p>一般而言，<strong>next 数组</strong> 中的第一个元素被设置为 -1（因为第一个字符不存在 <strong>前缀子串</strong> ）。</p>
+<p>以 c 字符为例，我们需要计算 <code>next[5]</code>，所以需要统计 c 的 <strong>前缀字符串</strong> ababa 的最长相同 <strong>前缀</strong> 和 <strong>后缀</strong> 的长度，可以观察到，最长的相同 <strong>前缀</strong> 和 <strong>后缀</strong> 为 aba，长度为 3，所以 <code>next[5] = 3</code>。</p>
+<h4 id="使用-next-调整位置">使用 next 调整位置</h4>
+<p>用 <code>i</code> 表示 <strong>主串</strong> 当前下标，用 <code>j</code> 表示 <strong>模式串</strong> 当前下标：</p>
+<ul>
+<li>如果 <code>main[i] == pattern[j]</code>，将 <code>i</code> 和 <code>j</code> 向后向后移动一位。</li>
+<li>如果 <code>main[i] != pattern[j]</code>：</li>
+<li>如果 <code>j == 0</code>，将 <code>i</code> 向后移动一位。</li>
+<li>如果 <code>j != 0</code>，将 <code>j</code> 移动到 <code>next[j]</code>。</li>
+</ul>
+<p>以下图为例，说明 <strong>主串</strong> “ababcabcabababd” 和 <strong>模式串</strong> “ababd” 的匹配过程。</p>
+<p><img src="/images/docs/data-structure/image-20260612092224304.png"></p>
+<p><img src="/images/docs/data-structure/image-20260612092241679.png"></p>
+<p><img src="/images/docs/data-structure/image-20260612092250020.png"></p>
+<p><strong>字符串 &ldquo;ababd&rdquo; 对应的next数组</strong></p>
+<p><strong>在 i = 4, j = 4 时 匹配失败，<br>
+next[j] = next[4] = 2，<br>
+移动 j = 2</strong></p>
+<p><strong>在 i = 4, j = 2 时 匹配失败，<br>
+next[j] = next[2] = 0，<br>
+移动 j = 0</strong></p>
+<p><strong>在 i = 4, j = 0 时 匹配失败，<br>
+移动 i++, i = 5, j = 0</strong></p>
+<p><strong>在 i = 5，j = 0 时 匹配成功，<br>
+移动 i++, j++<br>
+i = 6, j = 1</strong></p>
+<h4 id="算法实现">算法实现</h4>
+<p>算法实现了解即可，考试基本不会考察 <strong>kmp 算法</strong> 实现，只要能够熟练地在纸上模拟 <strong>kmp 算法</strong> 流程即可。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">computeNextArray</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> pattern, <span style="color:#66d9ef">int</span> m, <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> next) {
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">```</span>c
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> len <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>next[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">while</span> (i <span style="color:#f92672">&lt;</span> m) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (pattern[i] <span style="color:#f92672">==</span> pattern[len]) {
+</span></span><span style="display:flex;"><span>        len<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>        next[i] <span style="color:#f92672">=</span> len;
+</span></span><span style="display:flex;"><span>        i<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (len <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>            len <span style="color:#f92672">=</span> next[len <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>];
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            next[i] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>            i<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>}</p>
+<p>int KMP(const char* mainStr, const char* pattern) {</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> m <span style="color:#f92672">=</span> <span style="color:#a6e22e">strlen</span>(mainStr);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> <span style="color:#a6e22e">strlen</span>(pattern);
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> next[n];
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">computeNextArray</span>(pattern, n, next);
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> (i <span style="color:#f92672">&lt;</span> m) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (pattern[j] <span style="color:#f92672">==</span> mainStr[i]) {
+</span></span><span style="display:flex;"><span>        i<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>        j<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (j <span style="color:#f92672">==</span> n) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> i <span style="color:#f92672">-</span> j;
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (i <span style="color:#f92672">&lt;</span> m <span style="color:#f92672">&amp;&amp;</span> pattern[j] <span style="color:#f92672">!=</span> mainStr[i]) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (j <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>            j <span style="color:#f92672">=</span> next[j <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>];
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>            i<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>; <span style="color:#75715e">// 没有找到匹配
+</span></span></span></code></pre></div><p>}</p>
+<pre tabindex="0"><code>
+
+#### 修正后的 next 数组
+
+其实上述内容就是 **kmp 算法** 的核心了，当然有时候也会涉及到这样一个概念： **修正后的 next 数组** 。
+
+这个概念其实来源于早期教材（特别是严蔚敏的《数据结构》）， **修正后的 next 数组** 常称作 **nextval 数组** ，其目的是避免某些情况下的冗余匹配。
+
+`nextval` 数组是为了修正 `next` 数组存在的以下问题：当 `pattern[i] == pattern[next[i]]` 时，如果直接使用 `next[i]`，会导致重复比较已经失败过的字符。
+
+为了解决这个问题，定义了 `nextval`：其核心思想是：避免跳转到与当前位置字符相同的地方，减少无意义的重复比较。
+
+  * 如果 `pattern[i] == pattern[next[i]]` → 则 `nextval[i] = nextval[next[i]]`
+  * 否则 → `nextval[i] = next[i]`
+
+`nextval` 的构建规则如下：
+
+```c
+if (next[i] == -1) {
+    nextval[i] = -1;
+} else {
+    int k = next[i];
+    while (k != -1 &amp;&amp; pattern[i] == pattern[k]) {
+        k = nextval[k]; // 向前继续跳
+    }
+    nextval[i] = k;
+}
+</code></pre><p>需要注意的，<code>nextval</code> 的计算过程是迭代向前的，因为我们希望减少无意义的比较，所以要争取找到一个不同的字符。<img src="/images/docs/data-structure/image-20260612092346077.png"></p>
+<p>以字符串 ababaa 为例，我们首先可以计算出其 <strong>next 数组</strong> ：</p>
+<p><img src="/images/docs/data-structure/image-20260612092401262.png"></p>
+<p>然后计算出 <strong>nextval 数组</strong> ：</p>
+<p><img src="/images/docs/data-structure/image-20260612092412663.png"></p>
+<ul>
+<li><code>nextval[0] = -1</code></li>
+<li><code>nextval[1] = 0</code></li>
+<li><code>nextval[2] = 0</code></li>
+<li><code>pattern[3] = b, pattern[next[3]] = pattern[1] = b,</code> 相等，优化：<code>nextval[3] = nextval[1] = 0</code></li>
+<li><code>pattern[4] = a, pattern[next[4]] = pattern[2] = a,</code> 相等，优化：<code>nextval[4] = nextval[2] = 0</code></li>
+<li><code>nextval[5] = 3</code>（<code>pattern[5] = a, pattern[next[5]] = pattern[3] = b</code>，不相等，保留原值）</li>
+</ul>
+<p>其实 <strong>kmp</strong> 的现代实现中一般使用 <strong>next 数组</strong> 就足够了，<code>nextval</code> 主要是优化了极少数情况下的性能，特别是在大量重复字符的 <strong>模式串</strong> 里效果明显。</p>
+<h2 id="相关笔记">相关笔记</h2>
+<ul>
+<li>[[application|栈和队列的应用]]</li>
+<li>[[linear-data-structure|线性数据结构]]</li>
+<li>[[queue|队列]]</li>
+<li>[[stack|栈]]</li>
+</ul>
+</article>
+
+    
+    
+    
+
+    <div class="border-top-section">
+      <a href="/cc408/docs/" class="btn btn-ghost">← 返回知识点列表</a>
+    </div>
+  </main>
+</div>
+
+<style>
+.side-nav-group[open] summary { color: var(--text-primary); }
+.side-nav-group summary::-webkit-details-marker { display: none; }
+.side-nav-group summary::after {
+  content: '▸'; margin-left: auto; font-size: var(--fs-xs); transition: transform .2s;
+}
+.side-nav-group[open] summary::after { transform: rotate(90deg); }
+</style>
+
+  </main>
+  <footer class="site-footer" role="contentinfo">
+  <p>© 2026 CC408. 408考研知识整理</p>
+</footer>
+
+</body>
+</html>

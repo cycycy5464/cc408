@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>图的算法和应用 | CC408</title>
+  <meta name="description" content="🔥 高优先级
+图的应用就 四大天王 ：最小生成树、最短路径、拓扑排序 和 关键路径。需掌握这四种应用当中的 每个细节 。当然还有 DFS 和 BFS 这两种 遍历方式 也不能忽略。
+DFS 深度优先搜索（Depth-First Search，简称 DFS ）是一种用于图的遍历和搜索的算法，它从图中的 …">
+  <link rel="icon" href="/cc408/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" as="script" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" as="script" crossorigin="anonymous">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/cc408/css/custom.min.ecad70eed0f9849f67d23e2bf502ae36e7f590486681964e1c95bc71c8672493.css" integrity="sha256-7K1w7tD5hJ9n0j4r9QKuNuf1kEhmgZZOHJW8cchnJJM=">
+  
+
+<script src="/cc408/js/watermark.js"></script>
+
+
+  <script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.content-area img,.docs-layout img').forEach(function(i){if(!i.src.match(/\.svg$/i)){i.loading='lazy';i.fetchPriority='low';}});});</script>
+</head>
+<body style="background: var(--bg-primary); color: var(--text-primary);">
+  <a href="#main-content" class="skip-link">跳转到主要内容</a>
+  <nav class="navbar" role="navigation" aria-label="主导航">
+  <a href="/cc408/" class="navbar-brand">CC408</a>
+  <button class="navbar-toggle" aria-label="菜单" onclick="this.parentElement.querySelector('.navbar-links').classList.toggle('open')">☰</button>
+  <div class="navbar-links" role="menubar">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      首页
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/docs/" role="menuitem" class="active" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识点
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      刷题
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/quiz-collection/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      收藏
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/graph/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识图谱
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/tags/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      标签
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/resources/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      资源
+    </a>
+    
+  </div>
+  <div class="navbar-right">
+    <a href="https://cycycy5464.github.io/">个人主页 →</a>
+  </div>
+</nav>
+
+  <main id="main-content" style="padding-top: 70px; min-height: calc(100vh - 120px);">
+    
+<div class="docs-layout">
+  <aside class="side-nav">
+    
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>📊</span><span>数据结构</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/basic-concepts/" class="side-nav-link ">数据结构基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/algorithm-concepts/" class="side-nav-link ">算法基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linear-list-index/" class="side-nav-link ">线性表概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/definition/" class="side-nav-link ">线性表定义与基本操作</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/sequential-list/" class="side-nav-link ">顺序表</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linked-list/" class="side-nav-link ">链表</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/stack/" class="side-nav-link ">栈</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/queue/" class="side-nav-link ">队列</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/application/" class="side-nav-link ">栈和队列的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/linear-data-structure/" class="side-nav-link ">线性数据结构</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/string-index/" class="side-nav-link ">串概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/definition/" class="side-nav-link ">串的定义与实现</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/pattern-matching/" class="side-nav-link ">串的模式匹配</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/array-matrix/" class="side-nav-link ">数组和特殊矩阵</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree/" class="side-nav-link ">树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-and-binary-tree/" class="side-nav-link ">树与二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/binary-tree/" class="side-nav-link ">二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-applications/" class="side-nav-link ">树的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/graph-index/" class="side-nav-link ">图概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/definition/" class="side-nav-link ">图的定义</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/algorithms/" class="side-nav-link active">图的算法和应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/search-index/" class="side-nav-link ">查找概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/array-search/" class="side-nav-link ">数组查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/tree-search/" class="side-nav-link ">树形查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/hash-search/" class="side-nav-link ">散列表查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/sort-index/" class="side-nav-link ">排序概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/internal-sort/" class="side-nav-link ">内部排序</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/external-sort/" class="side-nav-link ">外部排序</a>
+      
+      <a href="/cc408/exam/exercise/data_structure/" class="side-nav-link ">数据结构篇</a>
+      
+      <a href="/cc408/exam/application/2023-q1/" class="side-nav-link ">2023年408真题 - 应用题第1题</a>
+      
+      <a href="/cc408/exam/choice/2024-q5/" class="side-nav-link ">2024年408真题 - 数据结构选择题第5题</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/introduction/" class="side-nav-link ">绪论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>⚙️</span><span>计算机组成原理</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/system-hierarchy/" class="side-nav-link ">计算机系统层次结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/performance/" class="side-nav-link ">计算机性能指标</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/data-index/" class="side-nav-link ">数据表示与计算</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/integers/" class="side-nav-link ">整数的表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/float/" class="side-nav-link ">浮点数表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/type-conversion/" class="side-nav-link ">类型转换</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/circuits/" class="side-nav-link ">运算电路</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/memory-index/" class="side-nav-link ">存储系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/overview/" class="side-nav-link ">存储系统概述</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/ram/" class="side-nav-link ">内存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/cache/" class="side-nav-link ">Cache</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/external/" class="side-nav-link ">外存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/virtual/" class="side-nav-link ">虚拟存储器</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/instruction-index/" class="side-nav-link ">指令系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/types/" class="side-nav-link ">指令集种类</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/format-addressing/" class="side-nav-link ">指令格式与寻址方式</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/data-alignment/" class="side-nav-link ">数据对齐</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/opcode/" class="side-nav-link ">指令操作码</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/hll-machine/" class="side-nav-link ">高级语言与机器码</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/cpu-index/" class="side-nav-link ">中央处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/function-structure/" class="side-nav-link ">CPU功能与结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/controller/" class="side-nav-link ">控制器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/exceptions/" class="side-nav-link ">异常与中断</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/pipeline/" class="side-nav-link ">指令流水线</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/multiprocessor/" class="side-nav-link ">多处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus/" class="side-nav-link ">总线</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus-io/" class="side-nav-link ">总线和I/O系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch06-io/io-system/" class="side-nav-link ">I/O系统</a>
+      
+      <a href="/cc408/exam/exercise/architecture/" class="side-nav-link ">计算机组成原理</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/introduction/" class="side-nav-link ">概论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🖥️</span><span>操作系统</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/os/ch00-overview/os-concept/" class="side-nav-link ">操作系统概念</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/os-structure/" class="side-nav-link ">操作系统结构</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/program-env/" class="side-nav-link ">程序运行环境</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-index/" class="side-nav-link ">进程管理</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-thread/" class="side-nav-link ">进程与线程</a>
+      
+      <a href="/cc408/docs/os/ch01-process/scheduling/" class="side-nav-link ">处理机调度</a>
+      
+      <a href="/cc408/docs/os/ch01-process/sync-mutex/" class="side-nav-link ">同步与互斥</a>
+      
+      <a href="/cc408/docs/os/ch01-process/classic-sync/" class="side-nav-link ">经典同步问题</a>
+      
+      <a href="/cc408/docs/os/ch01-process/deadlock/" class="side-nav-link ">死锁</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/memory-index/" class="side-nav-link ">内存管理</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/concepts/" class="side-nav-link ">内存管理概念</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/virtual/" class="side-nav-link ">虚拟内存管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-index/" class="side-nav-link ">文件管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-basics/" class="side-nav-link ">文件</a>
+      
+      <a href="/cc408/docs/os/ch03-file/directory/" class="side-nav-link ">目录</a>
+      
+      <a href="/cc408/docs/os/ch03-file/filesystem/" class="side-nav-link ">文件系统</a>
+      
+      <a href="/cc408/docs/os/ch04-io/io-index/" class="side-nav-link ">I/O管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/devices/" class="side-nav-link ">I/O设备</a>
+      
+      <a href="/cc408/docs/os/ch04-io/device-mgmt/" class="side-nav-link ">设备管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/disk/" class="side-nav-link ">磁盘</a>
+      
+      <a href="/cc408/code/clock/" class="side-nav-link ">CLOCK 时钟替换算法</a>
+      
+      <a href="/cc408/code/lru/" class="side-nav-link ">LRU 算法</a>
+      
+      <a href="/cc408/code/spinlock/" class="side-nav-link ">TAS 实现自旋锁</a>
+      
+      <a href="/cc408/exam/exercise/os/" class="side-nav-link ">操作系统</a>
+      
+      <a href="/cc408/code/reader_writer/" class="side-nav-link ">读者写着问题</a>
+      
+      <a href="/cc408/code/monitor/" class="side-nav-link ">管程实现生产者消费者</a>
+      
+      <a href="/cc408/code/producer_consumer/" class="side-nav-link ">生产者消费者问题</a>
+      
+      <a href="/cc408/code/banker/" class="side-nav-link ">银行家算法</a>
+      
+      <a href="/cc408/code/philosopher/" class="side-nav-link ">哲学家就餐问题</a>
+      
+      <a href="/cc408/exam/comprehensive/2022-q1/" class="side-nav-link ">2022年408真题 - 综合题第1题</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/computer-overview/" class="side-nav-link ">计算机系统概述</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🌐</span><span>计算机网络</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/network/ch00-overview/layered/" class="side-nav-link ">分层结构</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/protocol-summary/" class="side-nav-link ">各层协议总结</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/device-summary/" class="side-nav-link ">网络设备总结</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/phy-index/" class="side-nav-link ">物理层</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/communication/" class="side-nav-link ">通信概念</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/encoding/" class="side-nav-link ">编码与调制</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/switching/" class="side-nav-link ">交换方式</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/devices/" class="side-nav-link ">物理层设备</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/dl-index/" class="side-nav-link ">数据链路层</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/framing/" class="side-nav-link ">组帧</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/error-control/" class="side-nav-link ">差错控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/flow-control/" class="side-nav-link ">流量控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/mac/" class="side-nav-link ">介质访问控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/lan-wan/" class="side-nav-link ">局域网与广域网</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/devices/" class="side-nav-link ">数据链路层设备</a>
+      
+      <a href="/cc408/docs/network/ch03-network/nw-index/" class="side-nav-link ">网络层</a>
+      
+      <a href="/cc408/docs/network/ch03-network/ip/" class="side-nav-link ">IP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/arp/" class="side-nav-link ">ARP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/icmp/" class="side-nav-link ">ICMP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/dhcp/" class="side-nav-link ">DHCP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/routing/" class="side-nav-link ">路由算法</a>
+      
+      <a href="/cc408/docs/network/ch03-network/sdn/" class="side-nav-link ">SDN</a>
+      
+      <a href="/cc408/docs/network/ch03-network/devices/" class="side-nav-link ">网络层设备</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tp-index/" class="side-nav-link ">传输层</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tcp/" class="side-nav-link ">TCP</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/udp/" class="side-nav-link ">UDP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-index/" class="side-nav-link ">应用层</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-model/" class="side-nav-link ">网络应用模型</a>
+      
+      <a href="/cc408/docs/network/ch05-application/dns/" class="side-nav-link ">DNS</a>
+      
+      <a href="/cc408/docs/network/ch05-application/ftp/" class="side-nav-link ">FTP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/email/" class="side-nav-link ">电子邮件</a>
+      
+      <a href="/cc408/docs/network/ch05-application/www/" class="side-nav-link ">万维网</a>
+      
+      <a href="/cc408/exam/exercise/network/" class="side-nav-link ">计算机网络</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/arch-index/" class="side-nav-link ">计算机网络体系结构</a>
+      
+    </details>
+    
+  </aside>
+  <main class="content-area">
+    <h1>图的算法和应用</h1>
+    <div class="meta-row">
+      
+      <span><span class="diff-star">★</span><span class="diff-star">★</span><span class="diff-star">★</span></span>
+      
+      <span class="tag">基础概念</span>
+    </div>
+    <article><p>🔥 高优先级</p>
+<p>图的应用就 <strong>四大天王</strong> ：最小生成树、最短路径、拓扑排序 和 关键路径。需掌握这四种应用当中的 <strong>每个细节</strong> 。当然还有 DFS 和 BFS 这两种 <strong>遍历方式</strong> 也不能忽略。</p>
+<h3 id="dfs">DFS</h3>
+<p>深度优先搜索（Depth-First Search，简称 <strong>DFS</strong> ）是一种用于图的遍历和搜索的算法，它从图中的一个起始顶点开始，尽可能深地访问顶点，直到无法继续前进，然后回溯到之前的顶点，继续深入其他分支。<strong>DFS</strong> 通常用递归或栈来实现，确保在深度方向上优先遍历。</p>
+<p>以下是 <strong>DFS</strong> 算法的一般步骤：</p>
+<ol>
+<li>从起始顶点开始，将其标记为已访问。</li>
+<li>遍历与当前顶点相邻的未访问顶点，选择其中一个未访问顶点作为下一个深度遍历的目标，然后递归地进行 <strong>DFS</strong> 。</li>
+<li>如果无法继续深度遍历（即当前顶点没有未访问的邻居），则回溯到上一个顶点，继续遍历其他未访问的邻居。</li>
+<li>重复步骤 2 和步骤 3，直到所有顶点都被访问。</li>
+</ol>
+<p><img src="/images/docs/data-structure/image-20260612140738926.png"></p>
+<p>图中 <strong>DFS</strong> 实现的框架与 <a href="/data_structure/tree/tree/#%e6%a0%91%e7%9a%84%e9%81%8d%e5%8e%86">树的遍历</a> 类似，不同点在于需要使用 <code>visit</code> 数组记录已经访问过的节点，避免重复遍历：
+function DFS(G, v, visited):
+visited[v] ← true
+for each neighbor u of v in G.adjacent[v]:
+if not visited[u]:
+DFS(G, u, visited)</p>
+<p>图在 <strong>邻接矩阵</strong> 和 <strong>邻接表</strong> 中的 <strong>DFS</strong> 都遵循这个框架，两者的不同点在于获取 v 的邻居 u 的方式不同。</p>
+<h4 id="邻接矩阵">邻接矩阵</h4>
+<p>在 <strong>邻接矩阵</strong> 中，我们定义一个递归函数 <code>dfs</code>，函数从 <code>start</code> 顶点出发，输出当前结点，然后递归地去访问所有与其相邻的顶点。</p>
+<p>注意递归前需要保证下一个顶点未被访问过，这样可以避免重复访问结点以及死循环。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// 全局变量，标记顶点是否被访问过
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> visited[MAX_VERTICES];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 递归函数，从 start 顶点出发
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">dfs</span>(<span style="color:#66d9ef">int</span> start) {
+</span></span><span style="display:flex;"><span>    visited[start] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;%d &#34;</span>, start);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 依次访问 start 的邻接顶点
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> MAX_VERTICES; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 递归的两个条件：
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// 1. 顶点 (start, i) 之间存在边
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// 2. 顶点 i 未被访问过
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (adjMatrix[start][i] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span>visited[i]) {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// 递归调用
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#a6e22e">dfs</span>(i);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="邻接表">邻接表</h4>
+<p><strong>邻接表</strong> 的递归思路与 <strong>邻接矩阵</strong> 一致，唯一的区别就是访问邻接顶点方式的不同。</p>
+<p>在 <strong>邻接矩阵</strong> 中，通过遍历矩阵中的一行来访问相邻顶点。在 <strong>邻接表</strong> 中，通过遍历链表来访问相邻顶点。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// 全局变量，标记顶点是否被访问过
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> visited[MAX_VERTICES];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 递归函数，从 start 顶点出发
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">dfs</span>(<span style="color:#66d9ef">struct</span> Graph<span style="color:#f92672">*</span> graph, <span style="color:#66d9ef">int</span> start) {
+</span></span><span style="display:flex;"><span>    visited[start] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;%d &#34;</span>, start);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 依次访问 start 的邻接顶点
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">struct</span> Node<span style="color:#f92672">*</span> temp <span style="color:#f92672">=</span> graph<span style="color:#f92672">-&gt;</span>adjacencyList[start];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (temp) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> adjVertex <span style="color:#f92672">=</span> temp<span style="color:#f92672">-&gt;</span>data;
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 递归条件：顶点 i 未被访问过
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>visited[adjVertex]) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">dfs</span>(graph, adjVertex);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        temp <span style="color:#f92672">=</span> temp<span style="color:#f92672">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="bfs">BFS</h3>
+<p>广度优先搜索（Breadth-First Search，简称 <strong>BFS</strong> ）是一种用于图的遍历和搜索的算法，它从图中的一个起始顶点开始，逐层地访问与该顶点相邻的顶点，然后再访问这些相邻顶点的邻居，以此类推。<strong>BFS</strong> 通常用 <strong>队列</strong> 来实现，确保按照广度优先的顺序访问顶点。</p>
+<p>以下是 <strong>BFS</strong> 算法的一般步骤：</p>
+<ol>
+<li>将起始顶点放入队列中，标记为已访问。</li>
+<li>从队列中弹出一个顶点并访问它。</li>
+<li>遍历该顶点的所有未被访问的邻居，将它们放入队列中，并标记为已访问。</li>
+<li>重复步骤 2 和步骤 3，直到队列为空。</li>
+</ol>
+<p><img src="/images/docs/data-structure/image-20260612140818762.png"></p>
+<p><strong>BFS</strong> 的伪代码实现如下所示，基于 <strong>邻接矩阵</strong> 或 <strong>邻接表</strong> 的 <strong>BFS</strong> 都遵循这个框架：</p>
+<pre tabindex="0"><code>function BFS(G, start):
+visited[start] ← true
+enqueue(Q, start)
+
+
+
+
+while Q is not empty:
+    v ← dequeue(Q)
+    process(v)
+    for each neighbor u of v in G.adjacent[v]:
+        if not visited[u]:
+            visited[u] ← true
+            enqueue(Q, u)
+</code></pre><h4 id="邻接矩阵-1">邻接矩阵</h4>
+<p>实现 <strong>BFS</strong> 时，首先添加起始顶点进入队列中，然后不断从队列中取出顶点，并添加该顶点的未访问相邻顶点进入队列。重复直到队列为空。</p>
+<p>在 <strong>DFS</strong> 中，<code>visited</code> 数组是各个递归函数都需要访问的数据结构，为了方便起见，可以定义为全局变量。<br>
+在 <strong>BFS</strong> 中，由于算法实现是基于迭代而非递归，所以 <code>visited</code> 和队列可以定义为局部变量。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// 从 start 开始遍历图
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">bfs</span>(<span style="color:#66d9ef">int</span> start, <span style="color:#66d9ef">int</span> vertices) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 队列 q
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    queue q;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 标记顶点是否被访问过
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> visited[MAX_VERTICES];
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 添加初始顶点
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    q.<span style="color:#a6e22e">enqueue</span>(start);
+</span></span><span style="display:flex;"><span>    visited[start] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 一直遍历到队列为空
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">while</span> (q.<span style="color:#a6e22e">size</span>() <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 从队列头部取出结点作为当前结点
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">int</span> currentVertex <span style="color:#f92672">=</span> q.<span style="color:#a6e22e">dequeue</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 输出当前结点
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;%d &#34;</span>, currentVertex);
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 将当前结点的所有 相邻的未访问顶点 添加到队列中
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> vertices; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (adjMatrix[currentVertex][i] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span>visited[i]) {
+</span></span><span style="display:flex;"><span>                q.<span style="color:#a6e22e">enqueue</span>(i);
+</span></span><span style="display:flex;"><span>                visited[i] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="邻接表-1">邻接表</h4>
+<p>实现思路与 <strong>邻接矩阵</strong> 方式一致，不同点在于访问相邻顶点的方式不同。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">bfs</span>(<span style="color:#66d9ef">struct</span> Graph<span style="color:#f92672">*</span> graph, <span style="color:#66d9ef">int</span> start) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 队列 q
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    queue q;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 标记顶点是否被访问过
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> visited[MAX_VERTICES];
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 添加初始顶点
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    q.<span style="color:#a6e22e">enqueue</span>(start);
+</span></span><span style="display:flex;"><span>    visited[start] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 一直遍历到队列为空
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">while</span> (front <span style="color:#f92672">!=</span> rear) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 从队列头部取出结点作为当前结点
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">int</span> currentVertex <span style="color:#f92672">=</span> q.<span style="color:#a6e22e">dequeue</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 输出当前结点
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;%d &#34;</span>, currentVertex);
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 将当前结点的所有 相邻的未访问顶点 添加到队列中
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">struct</span> Node<span style="color:#f92672">*</span> temp <span style="color:#f92672">=</span> graph<span style="color:#f92672">-&gt;</span>adjacencyList[currentVertex];
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (temp) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> adjVertex <span style="color:#f92672">=</span> temp<span style="color:#f92672">-&gt;</span>data;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>visited[adjVertex]) {
+</span></span><span style="display:flex;"><span>                q.<span style="color:#a6e22e">enqueue</span>(adjVertex);
+</span></span><span style="display:flex;"><span>                visited[adjVertex] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            temp <span style="color:#f92672">=</span> temp<span style="color:#f92672">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="最小生成树">最小生成树</h3>
+<p>最小生成树（<strong>Minimum Spanning Tree</strong> ，<strong>MST</strong> ）是在一个连接所有顶点的无向图中，通过选择一部分边而形成的树，使得树的总权重（或成本）最小。</p>
+<p><img src="/images/docs/data-structure/b242e8463f.svg"></p>
+<p>准确的 <strong>MST</strong> 定义如下：在无向图 G=(V,E) 中， (u,v) 代表连接顶点 u 和顶点 v 的边，而 w(u,v) 代表此边的权重，若存在 T 为 E 的子集且 (V,T) 为树，使得 w(T)=∑(u,v)∈T​w(u,v) 最小，则此 T 为 G 的 <strong>最小生成树</strong> 。</p>
+<p><strong>MST</strong> 满足以下特点：</p>
+<ul>
+<li>包含图中的所有顶点。</li>
+<li>通过选择一些边而形成一个树结构，没有环路。</li>
+<li>边的总权重最小。</li>
+</ul>
+<h4 id="prim-算法">prim 算法</h4>
+<p>Prim 算法通过 <strong>逐步扩展顶点集合</strong> 来构建最小生成树：从一个初始顶点出发，每次都选择一条 <strong>连接生成树与外部顶点的最小权重边</strong> ，并将该顶点并入生成树，直到所有顶点都被包含。</p>
+<p><strong>prim 算法步骤</strong> 如下：</p>
+<ol>
+<li>选定一个起始顶点作为生成树的根。</li>
+<li>初始化生成树，只含有该顶点。</li>
+<li>在所有 <strong>连接生成树与未加入顶点的边</strong> 中，选取权重最小的一条，并将对应顶点加入生成树。</li>
+<li>重复步骤 3，直到所有顶点均被纳入生成树。</li>
+<li>得到的生成树即为原图的 <strong>最小生成树</strong> 。</li>
+</ol>
+<p><img src="/images/docs/data-structure/5f3bec1aab.svg"></p>
+<p>补充</p>
+<p>prim 是一种 <strong>贪心算法</strong> ，这里关键在于理解什么叫做 <strong>所有连接生成树与未加入顶点的边</strong> ：</p>
+<p>当我们已经有一个部分生成树（初始时只有一个顶点），它把图中的顶点分成两类：</p>
+<ol>
+<li><strong>已加入生成树的顶点集合</strong> T</li>
+<li><strong>尚未加入生成树的顶点集合</strong> V−T</li>
+</ol>
+<p>此时，</p>
+<ul>
+<li><strong>所有连接生成树与未加入顶点的边</strong> ，就是一端在 \(T\) 内、另一端在 \(V-T\) 内的边。</li>
+<li>这些边正好构成了一个“割（cut）”，也叫“横切边”。</li>
+</ul>
+<p>Prim 算法的贪心思想就在这里：每次都从这组横切边里挑出一条 <strong>权重最小的边</strong> ，把它对应的未加入顶点纳入生成树。</p>
+<p>这样保证了：</p>
+<ul>
+<li>每次扩展都是局部最优（加入的边在候选集合里是最小的）。</li>
+<li>最终能够得到全局最优的最小生成树（证明基于“割性质”，不是重点这里不说明）。</li>
+</ul>
+<p>参考 prim 算法的流程图如下：</p>
+<p><img src="/images/docs/data-structure/935ff767f7.svg"></p>
+<p>举个实际例子，对于以下的无向图，假设我们从顶点 a 出发使用 prim 算法寻找最小生成树，会逐步选择出 ab、bc、ci、cf、fg、gh、cd 以得到最小生成树：</p>
+<p><img src="/images/docs/data-structure/2e6184bdba.svg"></p>
+<h4 id="kruskal-算法">kruskal 算法</h4>
+<p><img src="/images/docs/data-structure/8e9ec9c43b.svg"></p>
+<p><strong>Kruskal</strong> 算法是一种用于求解 <strong>最小生成树</strong> （<strong>MST</strong> ）的贪心算法。<strong>Kruskal</strong> 算法的基本思想是从边的权重最小的边开始，逐步构建生成树，确保不会形成环路。</p>
+<p>以下是 <strong>Kruskal</strong> 算法的一般流程：</p>
+<ol>
+<li>初始化一个空的生成树，开始时生成树中没有边。</li>
+<li>将图中的所有边按照权重 <strong>从小到大进行排序</strong> 。</li>
+<li>依次 <strong>从排序后的边列表中选取边</strong> ，加入生成树，但要确保 <strong>添加该边不会形成环路</strong> 。</li>
+<li>重复步骤 3，直到生成树包含了所有的顶点，即生成树中的边数等于顶点数减 1。</li>
+<li>返回生成树作为 <strong>最小生成树</strong> 。</li>
+</ol>
+<p>继续使用上文中 prim 中的无向图作为例子，使用 kruskal 算法，会依次选择 hg、ic、gf、ab、cf、cd、ah 以得到最小生成树：</p>
+<p><img src="/images/docs/data-structure/c2c9393619.svg"></p>
+<h3 id="最短路径">最短路径</h3>
+<h4 id="dijkstra-算法">dijkstra 算法</h4>
+<p><strong>Dijkstra</strong> 算法是一种用于计算 <strong>单源最短路径</strong> 的经典算法，适用于 <strong>带非负权重</strong> 的有向或无向图。</p>
+<p><img alt="Dijkstra_Animation" src="../images/72cf95b662.gif"></p>
+<p>Dijkstra 算法是一种 <strong>贪心算法</strong> 。它的 <strong>核心思想</strong> 是：从起点出发，不断“扩展”到距离起点最近的节点，并利用这些节点去尝试更新其他节点的最短路径，直到所有节点的最短路径都被确定。</p>
+<p>换句话说，算法始终保持一个 “已确定最短路径的集合”，并且在每一步中把离起点最近的“候选节点”加入其中：<img src="/images/docs/data-structure/6e5f0c05a1.svg"></p>
+<p>prim 算法和 dijkstra 算法的核心步骤十分类似：</p>
+<ul>
+<li>两个算法都用一个集合（已确定的顶点集合）逐步扩展。</li>
+<li>每次都要在“已选顶点集合”与“未选顶点集合”之间，挑选一个“最优”的候选顶点加入集合。</li>
+</ul>
+<p>但是 prim 比较的是比较的是 <strong>边的权重</strong> （只看与生成树相连的边），dijkstra 比较的是 <strong>从源点出发的路径长度</strong> （边的累计权重）。</p>
+<p>🛠️ dijkstra 算法需要定义以下 数据结构 ：</p>
+<ul>
+<li>
+<p><code>dist[]</code>：数组，<code>dist[v]</code> 表示起点到节点 <code>v</code> 的 <strong>当前已知最短路径长度</strong> 。</p>
+</li>
+<li>
+<p>初始化时：<code>dist[source] = 0</code>，其余节点均为 <code>∞</code>。</p>
+<ul>
+<li><code>visited[]</code>：布尔数组，表示某个节点的最短路径是否已经被最终确定。</li>
+</ul>
+</li>
+<li>
+<p>初始时：所有节点均为 <code>false</code>。</p>
+</li>
+</ul>
+<p>✨ dijkstra 算法流程 如下：</p>
+<ol>
+<li><strong>初始化</strong></li>
+</ol>
+<ul>
+<li>设起点为 <code>source</code>。</li>
+<li><code>dist[source] ← 0</code></li>
+<li>对于其他顶点 <code>v</code>，<code>dist[v] ← ∞</code></li>
+<li><code>visited[v] ← false</code></li>
+</ul>
+<ol start="2">
+<li><strong>主循环（重复 |V| 次，即所有顶点都被处理完）</strong></li>
+</ol>
+<ul>
+<li>从所有 <strong>未访问</strong> 的顶点中，找到一个 <code>dist[]</code> 值最小的顶点 <code>u</code>。 （这意味着：当前已知路径中，<code>u</code> 是离起点最近的尚未确定的节点。）</li>
+<li>将该顶点标记为已访问：<code>visited[u] ← true</code>。</li>
+<li>对于 <code>u</code> 的每个邻居 <code>v</code>：
+<ul>
+<li>
+<p>如果 <code>v</code> 未被访问，并且通过 <code>u</code> 到达 <code>v</code> 的路径更短（即 <code>dist[u] + w(u,v) &lt; dist[v]</code>）， 则更新：</p>
+<pre><code>dist[v] ← dist[u] + w(u,v)
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<p>（这一步就是“松弛操作”，表示尝试通过 <code>u</code> 改进到 <code>v</code> 的最短路径。）
+3. <strong>结束</strong></p>
+<ul>
+<li>当所有顶点都被访问后，<code>dist[v]</code> 就保存了起点到各个顶点的最短路径长度。</li>
+</ul>
+<p>Dijkstra 算法流程可以通过以下流程图理解：</p>
+<p><img src="/images/docs/data-structure/654e91721f.svg"></p>
+<p>Dijkstra 的考察侧重于手工模拟其过程，代码实现一般不会考察，这里给出算法的简单 <strong>伪代码实现</strong> ，帮助各位理清其中的处理细节。
+function Dijkstra_Simple(Graph, source):
+对于图中每个顶点 v:
+dist[v] ← ∞          // 起点到 v 的距离初始化为无穷大
+visited[v] ← false   // 所有顶点初始都未被访问
+dist[source] ← 0         // 起点到自身距离为 0</p>
+<pre><code>重复 |图中顶点数| 次:
+    u ← 所有未访问的顶点中 dist[u] 最小的顶点
+    visited[u] ← true    // 标记 u 已被访问
+
+    对于 u 的每个相邻顶点 v:
+        边权重 weight ← 图中边(u, v) 的权重
+        如果 v 未访问 且 dist[v] &gt; dist[u] + weight:
+            dist[v] ← dist[u] + weight  // 通过 u 到 v 更短，更新最短路径
+
+return dist[] // 表示起点到所有顶点的最短路径
+</code></pre>
+<p>假设顶点的个数为 V ，边的个数为 E ，那么 最佳实现（使用了优先队列）的 dijkstra 算法时间复杂度为 O(V+E) 。</p>
+<h4 id="floyd-算法">floyd 算法</h4>
+<p><strong>Floyd Warshall</strong> 是一种基于 <strong>动态规划</strong> 的方法，用于求解任意两个顶点之间的最短路径，它适用于带权有向图。</p>
+<p>该算法的核心思想是尝试使用每一个顶点作为中转点，逐步更新所有顶点对之间的最短路径。对任意两点 i→j ，判断是否可以通过一个中间点 k 得到更短路径：</p>
+<p>dist[i][j]=min(dist[i][j],dist[i][k]+dist[k][j])</p>
+<p>这个过程会遍历所有可能的中转点 k ，不断优化路径。</p>
+<p><img src="/images/docs/data-structure/ff244ebe49.svg"></p>
+<p>✨ 算法具体流程如下：</p>
+<ol>
+<li><strong>初始化距离矩阵</strong> <code>dist</code>：</li>
+</ol>
+<ul>
+<li><code>dist[i][j] = 0</code>（若 <code>i=j</code>）</li>
+<li><code>dist[i][j] = 边权</code>（若 <code>i→j</code> 有边）</li>
+<li><code>dist[i][j] = ∞</code>（其余情况）</li>
+</ul>
+<ol start="2">
+<li><strong>三重循环更新最短路径</strong></li>
+</ol>
+<pre tabindex="0"><code>   for k in 所有顶点:
+       for i in 所有顶点:
+           for j in 所有顶点:
+               if dist[i][k] + dist[k][j] &lt; dist[i][j]:
+                 dist[i][j] ← dist[i][k] + dist[k][j]
+</code></pre><ol start="3">
+<li><strong>输出 dist 矩阵</strong> ：表示所有顶点对之间的最短路径长度。</li>
+</ol>
+<p>若顶点数为 n ，则 <strong>Floyd Warshall</strong> 算法的时间复杂度为 O(n3) ，该算法适合在算法题中兜底使用，因为实现比较简单，建议大家熟练掌握代码实现。</p>
+<h3 id="拓扑排序">拓扑排序</h3>
+<p><strong>拓扑排序</strong> 这样一种对图中顶点的排序方式：</p>
+<blockquote>
+<p>将图中的所有顶点排序，使得对于每一条有向边 <code>u</code> → <code>v</code>，顶点 <code>u</code> 都排在 <code>v</code> 之前。</p>
+</blockquote>
+<p><strong>拓扑排序</strong> 主要应用于 <strong>DAG</strong> （有向无环图）或 <strong>AOV</strong> 网，这种图没有环路，因此可以对其进行拓扑排序。</p>
+<p>首先需要区分 <strong>AOV</strong> 和 <strong>AOE</strong> 这两个概念，注意 <strong>拓扑排序</strong> 适用于 <strong>AOV</strong> ，<strong>关键路径</strong> 适用于 <strong>AOE</strong> 。</p>
+<h4 id="aov-网">AOV 网</h4>
+<p><strong>AOV</strong> （Activity on Vertex Network）网是一种以顶点表示活动或任务的网络模型。每个 <strong>顶点</strong> 代表一个 <strong>任务或活动</strong> ，而 <strong>边</strong> 表示任务之间的 <strong>依赖关系</strong> 。在AOV网中，任务或活动通常表示为顶点，而依赖关系（任务的先后顺序）表示为有向边。</p>
+<p><img src="/images/docs/data-structure/f3d9745ad8.svg"></p>
+<h4 id="算法步骤">算法步骤</h4>
+<p>计算 <strong>拓扑排序</strong> 的算法有两种，一种是 <strong>Kahn</strong> 算法（基于入度），另一种是 <strong>DFS+栈</strong> 的实现。</p>
+<p>Kahn算法</p>
+<p><strong>Kahn</strong> 算法的核心思想是 <strong>依次选取入度为 0 的顶点进行输出</strong> ，其具体步骤如下：</p>
+<ol>
+<li>选择一个没有前驱顶点（入度为 0）的顶点作为起始顶点，将其加入拓扑排序的结果序列中。</li>
+<li>从图中移除该顶点以及与之相关的边（即将与之相邻的顶点的入度减 1）。</li>
+<li>重复步骤 1 和步骤 2，直到所有的顶点都被加入到拓扑排序的结果序列中，或者发现图中存在环路。</li>
+<li>如果所有的顶点都被成功加入结果序列，那么这个序列就是拓扑排序的结果。</li>
+</ol>
+<p>下图展示了一个采用 <strong>Kahn</strong> 算法输出 <strong>AOE</strong> 网中的 <strong>拓扑序列</strong> 的实例：</p>
+<p><img src="/images/docs/data-structure/image-20260612141245941.png"></p>
+<p><img src="/images/docs/data-structure/image-20260612141300332.png"></p>
+<p>此外，可以通过 <strong>DFS+栈</strong> 得到 <strong>拓扑序列</strong> ，其步骤如下：</p>
+<ol>
+<li>对图进行深度优先遍历。</li>
+<li>每个节点 <strong>DFS</strong> 结束后将其压入栈中。</li>
+<li>最后将栈中元素逆序输出，就是 <strong>拓扑排序</strong> 结果。</li>
+</ol>
+<p><img src="/images/docs/data-structure/f73b3b4cd7.svg"></p>
+<p><strong>DFS</strong> 过程中，每个节点在其所有后继节点访问完成后才被加入栈中，因此栈中元素的逆序正好满足 <strong>拓扑排序</strong> 所需的“前驱先于后继”的约束。</p>
+<p><strong>拓扑排序</strong> 的时间复杂度通常为 O(V+E) ，其中 V 是顶点的数量， E 是边的数量。这个算法非常适合于解决任务调度和依赖关系问题，因为它可以确定任务的执行顺序或依赖关系的合理性。</p>
+<p>关于拓扑排序，还需要关注以下几点：</p>
+<ul>
+<li>拓扑排序的结果 <strong>可能不唯一</strong> ，因为在构建过程中往往会出现多个入度为 0 的顶点，不同的选择顺序会产生不同的合法排序结果。</li>
+<li>如果图中 <strong>存在环路</strong> ，那么 <strong>无法进行拓扑排序</strong> ，因为无法找到入度为 0 的顶点作为起始顶点。</li>
+</ul>
+<h3 id="关键路径">关键路径</h3>
+<p><strong>关键路径</strong> 是指 <strong>AOE</strong> 网（Activity On Edge Network）中，从源点到汇点所经过的 <strong>最长路径</strong> 。这条路径决定了整个项目完成所需的最短时间，因此被称为 <strong>关键</strong> 路径。</p>
+<h4 id="aoe-网">AOE 网</h4>
+<p><strong>AOE</strong> （Activity on Edge Network）网是一种以边表示活动或任务的网络模型。每条边代表一个任务或活动，而顶点通常表示事件，表示任务的开始或完成时间。</p>
+<p><img src="/images/docs/data-structure/d0f24b6611.svg"></p>
+<p>为了理解 <strong>关键路径</strong> ，首先需要明确 <strong>AOE</strong> 网中的以下概念：</p>
+<ul>
+<li><strong>源点</strong> ：在 <strong>AOE</strong> 网中仅有一个入度为 0 的顶点，称为开始顶点，表示整个工程的开始。</li>
+<li><strong>汇点</strong> ：在 <strong>AOE</strong> 网中仅有一个出度为 0 的顶点，称为结束结点，表示整个工程的结束。</li>
+<li><strong>关键路径的长度</strong> ：完成整个工程的最短时间，也是 <strong>AOE</strong> 网中从源点到汇点的 <strong>最长路径</strong> 。</li>
+<li><strong>关键活动</strong> ：<strong>关键路径</strong> 上的活动。</li>
+<li><strong>活动的时间余量</strong> ：某个活动可以被延迟的最大时间，而不会影响整个项目的最短完成时间（总工期）。</li>
+<li><code>ve(k)</code>：事件 vk​ 的最早可以发生时间。</li>
+<li><code>vl(k)</code>：事件 vk​ 的最晚可以发生时间。</li>
+</ul>
+<p>有几个概念比较重要，还需要进行进一步的阐述：</p>
+<p>事件和活动</p>
+<p>在 <strong>AOE</strong> 网中，<strong>边代表活动（Activity）</strong> ，<strong>顶点代表事件（Event）</strong> 。</p>
+<ul>
+<li><strong>活动（边）</strong> ：表示一个具体的工作、任务或操作，具有确定的持续时间。一个活动必须在其起点事件“发生”之后才能开始。</li>
+<li><strong>事件（顶点）</strong> ：表示一个时间点，通常是某些活动的“开始”或“结束”条件已经满足，代表某种逻辑上的时刻状态。</li>
+</ul>
+<p>通俗来讲：<strong>活动是“做某事”，事件是“可以开始做某事的时间点”</strong></p>
+<p>事件的发生时间</p>
+<p>在 <strong>AOE</strong> 网中，一个事件的“发生”是指其<strong>所有前驱活动都已完成</strong> ，这标志着“条件成熟”，从该事件出发的活动才可能被启动。</p>
+<p><strong>两个关键时间</strong> ：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">时间名称</th>
+          <th style="text-align: left">含义</th>
+          <th style="text-align: left">数学符号</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>最早发生时间</strong></td>
+          <td style="text-align: left">某事件最早可以发生的时间</td>
+          <td style="text-align: left"><code>ve(i)</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>最晚发生时间</strong></td>
+          <td style="text-align: left">某事件最晚必须发生的时间（不影响工期）</td>
+          <td style="text-align: left"><code>vl(i)</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>事件发生的判断逻辑</strong> ：</p>
+<p>一个事件是否可以发生，不看它的出边活动，而是看<strong>它的所有前驱活动（入边）是否完成</strong> ：</p>
+<ul>
+<li>若某事件 <code>i</code> 的所有进入活动（任务）都已完成 → 则事件 <code>i</code> 发生；</li>
+<li>一旦事件 <code>i</code> 发生，其所有出边活动 <strong>可以开始</strong> ，但 <strong>不必须同时开始</strong> ；</li>
+<li>出边活动的实际开始时间取决于它们自身的调度灵活性（浮动时间）。</li>
+</ul>
+<p>活动时间余量</p>
+<p>“活动的时间余量” 在 <strong>AOE</strong> 网中指的是：</p>
+<p><strong>一个活动可以被延迟的最大时间</strong> ，而不会影响整个项目的最短完成时间（总工期）。</p>
+<p>首先，为什么要有时间余量呢？因为在 <strong>AOE</strong> 网络中，不是所有活动都在 <strong>关键路径</strong> 上。</p>
+<ul>
+<li><strong>关键路径上的活动</strong> ：必须准时进行，<strong>没有时间余量</strong> （余量 = 0）</li>
+<li><strong>非关键路径上的活动</strong> ：允许适当延迟，但必须不阻碍项目的最晚结束时间</li>
+</ul>
+<p>时间余量可以通过以下数学公式计算：</p>
+<p>对于一个活动 A(i→j) ，持续时间为 dij​ ，其时间余量：</p>
+<p>时间余量=vl(j)−ve(i)−dij​</p>
+<p>其中：</p>
+<ul>
+<li>ve(i) ：起点事件 i 的最早发生时间</li>
+<li>vl(j) ：终点事件 j 的最晚发生时间</li>
+<li>dij​ ：活动持续时间</li>
+</ul>
+<p><img src="/images/docs/data-structure/a5906da53d.svg"></p>
+<p><strong>关键路径</strong> 上的所有活动都是 <strong>关键活动</strong> ，它是决定整个工程的关键因素，因此可通过加快关键活动来缩短整个工程的工期。</p>
+<p><strong>关键路径和关键活动具有以下典型特征</strong> ：</p>
+<ol>
+<li><strong>关键活动的时间余量为 0</strong> ：即对某活动 A(i→j) 有</li>
+</ol>
+<p>vl(j)−ve(i)−dij​=0</p>
+<p>说明该活动不能被延迟任何时间，否则将影响总工期。</p>
+<ol start="2">
+<li><strong>关键活动连接的事件满足</strong> ：</li>
+</ol>
+<p>ve(i)=vl(i)且ve(j)=vl(j)</p>
+<p>即活动的起点和终点事件的最早发生时间等于最晚发生时间。它们必须在确定的时间点发生，不能提前也不能推迟。</p>
+<ol start="3">
+<li>
+<p><strong>关键路径是工程中的最长路径</strong> ：它决定了整个项目从开始到结束所需的最短时间，也即项目总工期。</p>
+</li>
+<li>
+<p><strong>关键路径可能有多条</strong> ：若多个路径的总时长都等于项目的最短完成时间，这些路径上的活动都必须受到严格监控。</p>
+</li>
+</ol>
+<h4 id="算法步骤-1">算法步骤</h4>
+<p>求解 <strong>关键路径</strong> 的 <strong>核心思路</strong> 在于找到所有 <strong>最早发生时间</strong> 和 <strong>最晚发生时间</strong> 相同的结点，连接这些结点即可得到关键路径。</p>
+<p>所以在求关键路径的算法中，我们需要依次计算每个顶点的最早发生时间（<code>ve</code>）和最晚发生时间（<code>vl</code>），然后判断哪些顶点的 <code>ve</code> 和 <code>vl</code> 相等。</p>
+<p>为了得到关键路径，需要分三步计算：</p>
+<p><strong>1. 计算最早发生时间<code>ve</code></strong></p>
+<ul>
+<li>从 <strong>源点</strong> 出发，设 <code>ve(start) = 0</code>；</li>
+<li>按照 <strong>拓扑排序</strong> 的顺序依次计算其他顶点的最早发生时间：</li>
+</ul>
+<p>ve(k)=vj​∈Pred(vk​)max​{ve(j)+weight(vj​,vk​)}</p>
+<p>其中 Pred(vk​) 表示 \(v_k\) 的所有前驱结点。 <strong>含义</strong> ：顶点 \(v_k\) 的最早开始时间，取决于它所有前驱活动完成的最晚时间。</p>
+<p><strong>2. 计算最迟发生时间<code>vl</code></strong></p>
+<ul>
+<li>从 <strong>汇点</strong> 出发，设 <code>vl(end) = ve(end)</code>；</li>
+<li>按照 <strong>逆拓扑排序</strong> 的顺序依次计算其余顶点的最迟发生时间：</li>
+</ul>
+<p>vl(k)=vj​∈Succ(vk​)min​{vl(j)−weight(vk​,vj​)}</p>
+<p>其中 Succ(vk​) 表示 \(v_k\) 的所有后继结点。 <strong>含义</strong> ：顶点 \(v_k\) 的最迟开始时间，取决于它所有后继活动最早开始的最早约束。</p>
+<p><strong>3. 确定关键路径</strong></p>
+<ul>
+<li>若某个顶点满足 <code>ve(i) = vl(i)</code>，则说明该顶点没有时间浮动，必须严格按时发生；</li>
+<li>将这些顶点按拓扑顺序连接起来，得到关键路径。</li>
+</ul>
+<p><img src="/images/docs/data-structure/e9a3cd7ca8.svg"></p>
+<h3 id="用图表达树">用图表达树</h3>
+<p>当表达式中存在共享的子表达式时，二叉树可能不是存储这些表达式的最有效方式，因为它会重复存储共享的子表达式。在这种情况下，可以使用 <strong>有向无环图</strong> （<strong>DAG</strong> ）来表示表达式，这样可以避免重复，并且更有效地表示表达式。</p>
+<p>比如对于表达式 <code>(x + y) * ((x + y) / x)</code>，用二叉树和 <strong>DAG</strong> 的表示如下图：</p>
+<p><img src="/images/docs/data-structure/de1d3ffa80.svg"></p>
+<h2 id="相关笔记">相关笔记</h2>
+<ul>
+<li>[[binary-tree|二叉树]]</li>
+<li>[[tree-and-binary-tree|树与二叉树]]</li>
+<li>[[tree-applications|树的应用]]</li>
+<li>[[tree|树]]</li>
+</ul>
+</article>
+
+    
+    
+    
+
+    <div class="border-top-section">
+      <a href="/cc408/docs/" class="btn btn-ghost">← 返回知识点列表</a>
+    </div>
+  </main>
+</div>
+
+<style>
+.side-nav-group[open] summary { color: var(--text-primary); }
+.side-nav-group summary::-webkit-details-marker { display: none; }
+.side-nav-group summary::after {
+  content: '▸'; margin-left: auto; font-size: var(--fs-xs); transition: transform .2s;
+}
+.side-nav-group[open] summary::after { transform: rotate(90deg); }
+</style>
+
+  </main>
+  <footer class="site-footer" role="contentinfo">
+  <p>© 2026 CC408. 408考研知识整理</p>
+</footer>
+
+</body>
+</html>

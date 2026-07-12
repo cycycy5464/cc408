@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>主存容量的扩展 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/knowledge_points/%E4%B8%BB%E5%AD%98%E5%AE%B9%E9%87%8F%E7%9A%84%E6%89%A9%E5%B1%95/</link>
+    <description>Recent content in 主存容量的扩展 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/knowledge_points/%E4%B8%BB%E5%AD%98%E5%AE%B9%E9%87%8F%E7%9A%84%E6%89%A9%E5%B1%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2010 计算机组成原理 第15题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2010-co-015/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2010-co-015/</guid>
+      <description>&lt;p&gt;假定用若干个2kx4 位的芯片组成一个8kx8 位的存储器，则地址0B1FH 所在芯片的最小地址是 (  )。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2014 计算机组成原理 第15题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2014-co-015/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2014-co-015/</guid>
+      <description>&lt;p&gt;某容量为256MB的存储器由若干4M×8 位的DRAM芯片构成，该 DRAM芯片的地址引脚和数据引 脚总数是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2015 计算机组成原理 第18题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2015-co-018/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2015-co-018/</guid>
+      <description>&lt;p&gt;某计算机使用4体交叉编址存储器，假定在存储器总线上出现的主存地址(十进制)序列为8005,8006, 8007,8008,8001,8002,8003,8004,8000,    则可能发生访存冲突的地址对是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2017 计算机组成原理 第13题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2017-co-013/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2017-co-013/</guid>
+      <description>&lt;p&gt;某计算机主存按字节编址，由4个64M×8  位的DRAM芯片采用交叉编址方式构成，并与宽度为32 位的存储器总线相连，主存每次最多读写32位数据。若double 型变量x 的主存地址为804001AH,  则读 取x 需要的存储周期数是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机组成原理 第17题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-co-017/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-co-017/</guid>
+      <description>&lt;p&gt;假定DRAM芯片中存储阵列的行数为r 、列数为c,  对于一个2K×1  位的DRAM 芯片，为保证其地 址引脚数最少，并尽量减少刷新开销，则r 、c 的取值分别是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2021 计算机组成原理 第15题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2021-co-015/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2021-co-015/</guid>
+      <description>&lt;p&gt;某计算机的存储器总线中有24位地址线和32位数据线，按字编址，字长为32位。若000000H~3FFFFFH 为RAM 区，则需要512K×8  位的RAM 芯片数为()。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

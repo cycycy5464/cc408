@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>指令系统 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/tags/%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/</link>
+    <description>Recent content in 指令系统 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 25 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/tags/%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>指令系统</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch03-instruction/instruction-index/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch03-instruction/instruction-index/</guid>
+      <description>&lt;p&gt;本章也是重点，常常在大题中与 CPU 放在一起考察。需要熟练掌握指令的格式以及寻址方式，并且能够根据题目灵活应变。&#xA;&lt;img src=&#34;https://cycycy5464.github.io/cc408/images/docs/computer-org/image-20260612224139501.png&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>指令集种类</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch03-instruction/types/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch03-instruction/types/</guid>
+      <description>&lt;h3 id=&#34;指令体系结构&#34;&gt;指令体系结构&lt;/h3&gt;&#xA;&lt;p&gt;💡 低优先级&lt;/p&gt;&#xA;&lt;p&gt;指令体系结构 偶尔在选择题中考查，概念看一看，留个印象，基本就没问题。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>指令格式与寻址方式</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch03-instruction/format-addressing/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch03-instruction/format-addressing/</guid>
+      <description>&lt;p&gt;🔥 高优先级&lt;/p&gt;&#xA;&lt;p&gt;组成原理说实话就 &lt;strong&gt;两大块&lt;/strong&gt; ：cache 和 虚拟存储器，这两个要放在一起。指令系统 和 CPU，这两个也要放一起。两大块内部的知识点都是相互耦合的，需要综合理解。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>指令操作码</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch03-instruction/opcode/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch03-instruction/opcode/</guid>
+      <description>&lt;p&gt;#指令系统-指令操作码&lt;/p&gt;&#xA;&lt;p&gt;🔥 高优先级&lt;/p&gt;&#xA;&lt;p&gt;本节要和 CPU 中的 &lt;strong&gt;控制器&lt;/strong&gt; 放在一起理解，也是后续 CPU 的基础。当然，其中协处理器和字符串操作指令不大重要，可以不作为重点，其他的操作码都要 &lt;strong&gt;深入理解&lt;/strong&gt; 。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>指令流水线</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch04-cpu/pipeline/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch04-cpu/pipeline/</guid>
+      <description>&lt;p&gt;🔥 高优先级&lt;/p&gt;&#xA;&lt;p&gt;流水线的考题包含 &lt;strong&gt;三大点&lt;/strong&gt; （重要） 和 &lt;strong&gt;两小点&lt;/strong&gt; ：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;三大点：1. 在流水线中指令执行的 &lt;strong&gt;各个阶段&lt;/strong&gt; 的细节。2. &lt;strong&gt;时空图&lt;/strong&gt; 的画法。3. &lt;strong&gt;流水线冒险的种类和处理方法&lt;/strong&gt; 。&lt;/li&gt;&#xA;&lt;li&gt;两小点：1. 单周期和多周期处理器的概念。 2. 流水线指标。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;指令执行阶段&#34;&gt;指令执行阶段&lt;/h3&gt;&#xA;&lt;p&gt;指令的执行由很多按照时序进行的微操作组成，从逻辑角度进行划分，指令执行可以被分为 &lt;strong&gt;五个阶段&lt;/strong&gt; ：&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

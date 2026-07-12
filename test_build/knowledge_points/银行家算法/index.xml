@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>银行家算法 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/knowledge_points/%E9%93%B6%E8%A1%8C%E5%AE%B6%E7%AE%97%E6%B3%95/</link>
+    <description>Recent content in 银行家算法 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/knowledge_points/%E9%93%B6%E8%A1%8C%E5%AE%B6%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2022 操作系统 第26题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2022-os-026/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2022-os-026/</guid>
+      <description>&lt;p&gt;系统中有三个进程PO 、P1 、P2及三类资源A 、B 、C。若某时刻系统分配资源的情况如下表所示，则 此时系统中存在的安全序列的个数为()。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

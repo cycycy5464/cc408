@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>通信概念 | CC408</title>
+  <meta name="description" content="🔥 高优先级
+本节的几个知识点选择题常考：奈奎斯特定理、香农定理、通信指标和接口特性，需要掌握计算方法。
+接口特性 物理层定义了设备之间如何通过电缆、无线等物理媒介进行通信。物理层具有以下四种 接口特性 ：
+机械特性 ：描述物理连接设备的 外部物理形态和接口规范 ，主要包括：
+接口的形状（ …">
+  <link rel="icon" href="/cc408/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" as="script" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" as="script" crossorigin="anonymous">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/cc408/css/custom.min.ecad70eed0f9849f67d23e2bf502ae36e7f590486681964e1c95bc71c8672493.css" integrity="sha256-7K1w7tD5hJ9n0j4r9QKuNuf1kEhmgZZOHJW8cchnJJM=">
+  
+
+<script src="/cc408/js/watermark.js"></script>
+
+
+  <script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.content-area img,.docs-layout img').forEach(function(i){if(!i.src.match(/\.svg$/i)){i.loading='lazy';i.fetchPriority='low';}});});</script>
+</head>
+<body style="background: var(--bg-primary); color: var(--text-primary);">
+  <a href="#main-content" class="skip-link">跳转到主要内容</a>
+  <nav class="navbar" role="navigation" aria-label="主导航">
+  <a href="/cc408/" class="navbar-brand">CC408</a>
+  <button class="navbar-toggle" aria-label="菜单" onclick="this.parentElement.querySelector('.navbar-links').classList.toggle('open')">☰</button>
+  <div class="navbar-links" role="menubar">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      首页
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/docs/" role="menuitem" class="active" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识点
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      刷题
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/quiz-collection/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      收藏
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/graph/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识图谱
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/tags/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      标签
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/resources/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      资源
+    </a>
+    
+  </div>
+  <div class="navbar-right">
+    <a href="https://cycycy5464.github.io/">个人主页 →</a>
+  </div>
+</nav>
+
+  <main id="main-content" style="padding-top: 70px; min-height: calc(100vh - 120px);">
+    
+<div class="docs-layout">
+  <aside class="side-nav">
+    
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>📊</span><span>数据结构</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/basic-concepts/" class="side-nav-link ">数据结构基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/algorithm-concepts/" class="side-nav-link ">算法基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linear-list-index/" class="side-nav-link ">线性表概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/definition/" class="side-nav-link ">线性表定义与基本操作</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/sequential-list/" class="side-nav-link ">顺序表</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linked-list/" class="side-nav-link ">链表</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/stack/" class="side-nav-link ">栈</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/queue/" class="side-nav-link ">队列</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/application/" class="side-nav-link ">栈和队列的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/linear-data-structure/" class="side-nav-link ">线性数据结构</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/string-index/" class="side-nav-link ">串概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/definition/" class="side-nav-link ">串的定义与实现</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/pattern-matching/" class="side-nav-link ">串的模式匹配</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/array-matrix/" class="side-nav-link ">数组和特殊矩阵</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree/" class="side-nav-link ">树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-and-binary-tree/" class="side-nav-link ">树与二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/binary-tree/" class="side-nav-link ">二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-applications/" class="side-nav-link ">树的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/graph-index/" class="side-nav-link ">图概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/definition/" class="side-nav-link ">图的定义</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/algorithms/" class="side-nav-link ">图的算法和应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/search-index/" class="side-nav-link ">查找概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/array-search/" class="side-nav-link ">数组查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/tree-search/" class="side-nav-link ">树形查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/hash-search/" class="side-nav-link ">散列表查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/sort-index/" class="side-nav-link ">排序概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/internal-sort/" class="side-nav-link ">内部排序</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/external-sort/" class="side-nav-link ">外部排序</a>
+      
+      <a href="/cc408/exam/exercise/data_structure/" class="side-nav-link ">数据结构篇</a>
+      
+      <a href="/cc408/exam/application/2023-q1/" class="side-nav-link ">2023年408真题 - 应用题第1题</a>
+      
+      <a href="/cc408/exam/choice/2024-q5/" class="side-nav-link ">2024年408真题 - 数据结构选择题第5题</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/introduction/" class="side-nav-link ">绪论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>⚙️</span><span>计算机组成原理</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/system-hierarchy/" class="side-nav-link ">计算机系统层次结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/performance/" class="side-nav-link ">计算机性能指标</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/data-index/" class="side-nav-link ">数据表示与计算</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/integers/" class="side-nav-link ">整数的表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/float/" class="side-nav-link ">浮点数表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/type-conversion/" class="side-nav-link ">类型转换</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/circuits/" class="side-nav-link ">运算电路</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/memory-index/" class="side-nav-link ">存储系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/overview/" class="side-nav-link ">存储系统概述</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/ram/" class="side-nav-link ">内存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/cache/" class="side-nav-link ">Cache</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/external/" class="side-nav-link ">外存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/virtual/" class="side-nav-link ">虚拟存储器</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/instruction-index/" class="side-nav-link ">指令系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/types/" class="side-nav-link ">指令集种类</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/format-addressing/" class="side-nav-link ">指令格式与寻址方式</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/data-alignment/" class="side-nav-link ">数据对齐</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/opcode/" class="side-nav-link ">指令操作码</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/hll-machine/" class="side-nav-link ">高级语言与机器码</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/cpu-index/" class="side-nav-link ">中央处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/function-structure/" class="side-nav-link ">CPU功能与结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/controller/" class="side-nav-link ">控制器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/exceptions/" class="side-nav-link ">异常与中断</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/pipeline/" class="side-nav-link ">指令流水线</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/multiprocessor/" class="side-nav-link ">多处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus/" class="side-nav-link ">总线</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus-io/" class="side-nav-link ">总线和I/O系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch06-io/io-system/" class="side-nav-link ">I/O系统</a>
+      
+      <a href="/cc408/exam/exercise/architecture/" class="side-nav-link ">计算机组成原理</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/introduction/" class="side-nav-link ">概论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🖥️</span><span>操作系统</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/os/ch00-overview/os-concept/" class="side-nav-link ">操作系统概念</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/os-structure/" class="side-nav-link ">操作系统结构</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/program-env/" class="side-nav-link ">程序运行环境</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-index/" class="side-nav-link ">进程管理</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-thread/" class="side-nav-link ">进程与线程</a>
+      
+      <a href="/cc408/docs/os/ch01-process/scheduling/" class="side-nav-link ">处理机调度</a>
+      
+      <a href="/cc408/docs/os/ch01-process/sync-mutex/" class="side-nav-link ">同步与互斥</a>
+      
+      <a href="/cc408/docs/os/ch01-process/classic-sync/" class="side-nav-link ">经典同步问题</a>
+      
+      <a href="/cc408/docs/os/ch01-process/deadlock/" class="side-nav-link ">死锁</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/memory-index/" class="side-nav-link ">内存管理</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/concepts/" class="side-nav-link ">内存管理概念</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/virtual/" class="side-nav-link ">虚拟内存管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-index/" class="side-nav-link ">文件管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-basics/" class="side-nav-link ">文件</a>
+      
+      <a href="/cc408/docs/os/ch03-file/directory/" class="side-nav-link ">目录</a>
+      
+      <a href="/cc408/docs/os/ch03-file/filesystem/" class="side-nav-link ">文件系统</a>
+      
+      <a href="/cc408/docs/os/ch04-io/io-index/" class="side-nav-link ">I/O管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/devices/" class="side-nav-link ">I/O设备</a>
+      
+      <a href="/cc408/docs/os/ch04-io/device-mgmt/" class="side-nav-link ">设备管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/disk/" class="side-nav-link ">磁盘</a>
+      
+      <a href="/cc408/code/clock/" class="side-nav-link ">CLOCK 时钟替换算法</a>
+      
+      <a href="/cc408/code/lru/" class="side-nav-link ">LRU 算法</a>
+      
+      <a href="/cc408/code/spinlock/" class="side-nav-link ">TAS 实现自旋锁</a>
+      
+      <a href="/cc408/exam/exercise/os/" class="side-nav-link ">操作系统</a>
+      
+      <a href="/cc408/code/reader_writer/" class="side-nav-link ">读者写着问题</a>
+      
+      <a href="/cc408/code/monitor/" class="side-nav-link ">管程实现生产者消费者</a>
+      
+      <a href="/cc408/code/producer_consumer/" class="side-nav-link ">生产者消费者问题</a>
+      
+      <a href="/cc408/code/banker/" class="side-nav-link ">银行家算法</a>
+      
+      <a href="/cc408/code/philosopher/" class="side-nav-link ">哲学家就餐问题</a>
+      
+      <a href="/cc408/exam/comprehensive/2022-q1/" class="side-nav-link ">2022年408真题 - 综合题第1题</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/computer-overview/" class="side-nav-link ">计算机系统概述</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🌐</span><span>计算机网络</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/network/ch00-overview/layered/" class="side-nav-link ">分层结构</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/protocol-summary/" class="side-nav-link ">各层协议总结</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/device-summary/" class="side-nav-link ">网络设备总结</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/phy-index/" class="side-nav-link ">物理层</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/communication/" class="side-nav-link active">通信概念</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/encoding/" class="side-nav-link ">编码与调制</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/switching/" class="side-nav-link ">交换方式</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/devices/" class="side-nav-link ">物理层设备</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/dl-index/" class="side-nav-link ">数据链路层</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/framing/" class="side-nav-link ">组帧</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/error-control/" class="side-nav-link ">差错控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/flow-control/" class="side-nav-link ">流量控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/mac/" class="side-nav-link ">介质访问控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/lan-wan/" class="side-nav-link ">局域网与广域网</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/devices/" class="side-nav-link ">数据链路层设备</a>
+      
+      <a href="/cc408/docs/network/ch03-network/nw-index/" class="side-nav-link ">网络层</a>
+      
+      <a href="/cc408/docs/network/ch03-network/ip/" class="side-nav-link ">IP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/arp/" class="side-nav-link ">ARP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/icmp/" class="side-nav-link ">ICMP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/dhcp/" class="side-nav-link ">DHCP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/routing/" class="side-nav-link ">路由算法</a>
+      
+      <a href="/cc408/docs/network/ch03-network/sdn/" class="side-nav-link ">SDN</a>
+      
+      <a href="/cc408/docs/network/ch03-network/devices/" class="side-nav-link ">网络层设备</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tp-index/" class="side-nav-link ">传输层</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tcp/" class="side-nav-link ">TCP</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/udp/" class="side-nav-link ">UDP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-index/" class="side-nav-link ">应用层</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-model/" class="side-nav-link ">网络应用模型</a>
+      
+      <a href="/cc408/docs/network/ch05-application/dns/" class="side-nav-link ">DNS</a>
+      
+      <a href="/cc408/docs/network/ch05-application/ftp/" class="side-nav-link ">FTP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/email/" class="side-nav-link ">电子邮件</a>
+      
+      <a href="/cc408/docs/network/ch05-application/www/" class="side-nav-link ">万维网</a>
+      
+      <a href="/cc408/exam/exercise/network/" class="side-nav-link ">计算机网络</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/arch-index/" class="side-nav-link ">计算机网络体系结构</a>
+      
+    </details>
+    
+  </aside>
+  <main class="content-area">
+    <h1>通信概念</h1>
+    <div class="meta-row">
+      
+      <span><span class="diff-star">★</span><span class="diff-star-empty">☆</span><span class="diff-star-empty">☆</span></span>
+      
+      <span class="tag">基础概念</span>
+    </div>
+    <article><p>🔥 高优先级</p>
+<p>本节的几个知识点选择题常考：奈奎斯特定理、香农定理、通信指标和接口特性，需要掌握计算方法。</p>
+<h3 id="接口特性">接口特性</h3>
+<p><img src="/images/docs/network/ec8300658f.svg"></p>
+<p>物理层定义了设备之间如何通过电缆、无线等物理媒介进行通信。物理层具有以下四种 <strong>接口特性</strong> ：</p>
+<ul>
+<li>
+<p><strong>机械特性</strong> ：描述物理连接设备的 <strong>外部物理形态和接口规范</strong> ，主要包括：</p>
+</li>
+<li>
+<p>接口的形状（如RJ45、USB等）</p>
+</li>
+<li>
+<p>接口的引脚数量和排列顺序</p>
+</li>
+<li>
+<p>电缆的类型（双绞线、光纤、同轴电缆等）</p>
+<ul>
+<li><strong>功能特性</strong> ：说明各个 <strong>接口引脚具体的功能</strong> ，例如：</li>
+</ul>
+</li>
+<li>
+<p>哪个引脚负责发送数据（Tx）</p>
+</li>
+<li>
+<p>哪个引脚负责接收数据（Rx）</p>
+</li>
+<li>
+<p>哪些引脚用于控制信号，如握手（RTS/CTS）</p>
+<ul>
+<li><strong>过程特性</strong> ：定义了在数据传输过程中，各种物理信号是 <strong>如何协作完成数据通信的过程</strong> ，例如：</li>
+</ul>
+</li>
+<li>
+<p>传输起始与终止的方式</p>
+</li>
+<li>
+<p>信号同步的机制</p>
+</li>
+<li>
+<p>比特之间如何区分（串行或并行）</p>
+<ul>
+<li><strong>电气特性</strong> ：规定了物理层信号的 <strong>电气属性</strong> ，包括：</li>
+</ul>
+</li>
+<li>
+<p>电压的幅值（高电平/低电平）</p>
+</li>
+<li>
+<p>电流大小</p>
+</li>
+<li>
+<p>信号的传输速率和传输距离</p>
+</li>
+<li>
+<p>信号的上升沿、下降沿</p>
+</li>
+</ul>
+<h3 id="通信指标">通信指标</h3>
+<h4 id="信道">信道</h4>
+<p>与 <strong>信道</strong> 相关的概念有四个，需要能够辨别这几个名词：</p>
+<ul>
+<li><strong>信道 (Channel)</strong> ：是指进行信息传输的媒介或路径。这可能是一个物理的媒介，例如电缆，或者是无线的，如无线电波。</li>
+<li><strong>信号 (Signal)</strong> ：是载有信息的物理现象。例如，电信号、光信号或无线电波。</li>
+<li><strong>信源 (Source)</strong> ：产生或发送信息的设备或实体。</li>
+<li><strong>信宿 (Sink or Destination)</strong> ：是指接收信息的设备或实体。</li>
+</ul>
+<h4 id="码元">码元</h4>
+<p>一个 <strong>码元</strong> （symbol）就是一个脉冲信号，一个脉冲信号有可能携带 1bit 数据，也有可能携带 2bit 数据、4bit 数据。</p>
+<p>那么怎么实现一个脉冲信号就能携带多个 bit 数据呢？我们可以通过 <strong>调制技术</strong> 来实现，比如设置模拟信号中信号的频率、相位、<strong>振幅</strong> 等。</p>
+<p>举个例子：把 <strong>振幅</strong> 分成四种，低（00）、中（01）、高（10）、很高（11），这样我发一个脉冲信号，它的振幅是低，那就说明发送的是 00（也就是 2bit），它的振幅是中（01），发送的就是 01（也就是 2bit）… 以此类推</p>
+<h4 id="波特">波特</h4>
+<p>波特（Baud）是数据通信中的一个术语，用来表示符号（或码元）传输速率。具体来说，<strong>波特率</strong> （Baud rate）指的是每秒钟传输的码元（symbol）的数量。</p>
+<p>码元和 <strong>波特率</strong> ：一个码元可以携带一个或多个比特的信息。<strong>波特率</strong> 是指每秒钟传输多少个这样的码元。例如，如果 <strong>波特率</strong> 为 1000 波特，这意味着每秒可以传输 1000 个码元。</p>
+<p><strong>波特率</strong> 与 <strong>比特率</strong> ：<strong>波特率</strong> 和<strong>比特率</strong> 的关系取决于每个码元携带的比特数。</p>
+<ul>
+<li>一个码元能携带 1bit 数据，那么 <strong>比特率</strong> = <strong>波特率</strong> 。</li>
+<li>一个码元能携带 2bit 数据，那么 <strong>比特率</strong> = 2 倍的 <strong>波特率</strong> 。</li>
+<li>一个码元能携带 4bit 数据，那么 <strong>比特率</strong> = 4 倍的 <strong>波特率</strong> 。</li>
+</ul>
+<p><img src="/images/docs/network/c86e657104.svg"></p>
+<h4 id="速率">速率</h4>
+<p><strong>速率</strong> （Rate）是指连接到计算机网络上的节点在数字信道上传送数据的速率，也称数据传输速率、数据率或比特率，单位为 b/s（比特／秒）或 bit/s（有时也写为 bps )。</p>
+<p>当数据率较高时，可用 kb/s（k = 103 ）、Mb/s（M = 106 ）或 Gb/s（G = 109 ）表示。通常把最高数据传输速率称为 <strong>带宽</strong> 。</p>
+<p><strong>速率</strong> 可以用两种指标来衡量：</p>
+<ul>
+<li><strong>比特率</strong> ：每秒传输的比特数量</li>
+<li><strong>波特率</strong> ：每秒传输的波特数量</li>
+</ul>
+<p>一个码元可以包含多个比特，如果一个码元携带 n 比特的信息量，则 <strong>波特率</strong> M 对应的 <strong>比特率</strong> 为 Mn bit/s</p>
+<h4 id="带宽">带宽</h4>
+<p><strong>带宽</strong> （Bandwidth）在通信领域中，指通信线路能够通过的信号频率范围，单位为赫兹（Hz）。 在计算机网络中，<strong>带宽</strong> 通常被引申为通信线路的数据传输能力，即数字信道所能达到的 <strong>最大数据传输速率</strong> ，其单位为比特每秒（b/s）。</p>
+<p><strong>例子</strong> ：如果家里的宽带带宽是 <strong>100Mb/s</strong> ，表示网络在理想情况下，每秒最多可以传输 <strong>100兆比特</strong> 的数据，相当于大约 <strong>12.5MB/s</strong> 的下载速度。</p>
+<p>带宽吞吐量区别</p>
+<p>在考题中偶尔涉及到带宽和吞吐量的区别：</p>
+<ul>
+<li><strong>带宽</strong> ：理论上的最大传输速率，就像是一条高速公路的最大车道数。</li>
+<li><strong>吞吐量</strong> ：实际传输速率，受到网络拥塞、协议开销、设备性能等因素影响，往往低于带宽。</li>
+</ul>
+<p><strong>举例</strong> ：虽然网络带宽是 100Mb/s，但在高峰时段可能只能达到 70Mb/s，这 70Mb/s 就是实际的吞吐量。</p>
+<h4 id="时延">时延</h4>
+<p><strong>时延</strong> （Delay）指数据（一个报文或分组）从网络（或链路）的一端传送到另一端所需要的总时间，它由 4 个部分构成，分别为：发送时延、传播时延、处理时延和排队时延。</p>
+<p><img src="/images/docs/network/7e3117d819.svg"></p>
+<ol>
+<li>发送时延 ：也称 <strong>传输时延</strong> 。节点将分组的所有比特推向（传输）链路所需的时间，即从发送分组的第一个比特算起，到该分组的最后一个比特发送完毕所需的时间。</li>
+</ol>
+<ul>
+<li>
+<p>发送时延 = 分组长度 (bit) / 发送速率 (bit/s)</p>
+<ol start="2">
+<li>传播时延 ：电磁波在信道（传输介质）中传播一定的距离需要花费的时间，即一个比特从链路的一端传播到另一端所需的时间。</li>
+</ol>
+</li>
+<li>
+<p>传播时延 = 信道长度 (m) / 电磁波在信道上的传播速率 (m/s)</p>
+</li>
+</ul>
+<p>注意</p>
+<p>需要区分 <strong>传输时延</strong> 和 <strong>传播时延</strong> 。<strong>传输时延</strong> 是路由器将分组推出所需的时间，是分组长度和链路传输速率的函数。<strong>传播时延</strong> 是一个比特从一台路由器传播至另一台路由器所需的时间，是两台路由器之间距离的函数，而与分组长度或链路传输速率无关。</p>
+<ol start="3">
+<li>
+<p><strong>处理时延</strong> ：数据在交换结点为存储转发而进行的一些必要的处理所花费的时间。例如，分析分组的首部、从分组中提取数据部分、进行差错检验或查找适当的路由等。</p>
+</li>
+<li>
+<p><strong>排队时延</strong> ：分组在进入路由器后要先在输入队列中排队等待处理。路由器确定转发端口后，还要在输出队列中排队等待转发，这就产生了 <strong>排队时延</strong> 。</p>
+</li>
+</ol>
+<p>因此，数据在网络中经历的总时延就是以上 4 部分时延之和：总时延＝发送时延＋传播时延＋处理时延＋排队时延。</p>
+<hr>
+<h4 id="时延带宽积">时延带宽积</h4>
+<p><strong>时延带宽积</strong> （Bandwidth-Delay Product，简称 BDP）指发送端发送的第一个比特即将到达终点时，发送端已经发出了多少个比特，因此又称以比特为单位的链路长度，即</p>
+<p>时延带宽积=传播时延×信道带宽</p>
+<p>如下图所示，考虑一个代表链路的圆柱形管道，其长度表示链路的传播时延，横截面积表示链路带宽，则 <strong>时延带宽积</strong> 表示该管道可以容纳的比特数量。</p>
+<p><img src="/images/docs/network/0c96069c00.svg"></p>
+<h3 id="奈奎斯特定理">奈奎斯特定理</h3>
+<p><img src="/images/docs/network/cc0b7b71f9.svg"></p>
+<p><strong>奈奎斯特定理</strong> 说明了在 <strong>无噪声干扰、带宽有限</strong> 的理想低通信道中的数据极限传输速率。当实际传输速率小于等于该速率时，可以实现无码间串扰的数据传输。</p>
+<p>奈奎斯特定理的 <strong>核心思想</strong> 是： 即使在没有噪声的理想信道中，信道的带宽仍然限制了其数据传输能力。为了避免相邻码元之间的干扰（即码间串扰），每秒钟最多只能传输有限数量的码元，这个数量与带宽直接相关。</p>
+<p>奈奎斯特用一个公式精确地描述了信道的极限传输速率：</p>
+<p>C=2W⋅log2​V</p>
+<p>其中：</p>
+<ul>
+<li>C 是信道容量，单位是比特每秒 (bps)，表示无噪声条件下的最大传输速率；</li>
+<li>W 是信道带宽，单位是赫兹 (Hz)，表示信道允许通过的最高频率范围；</li>
+<li>V 是每个码元可采用的不同离散电平数量；</li>
+</ul>
+<p>这个公式本质上是：</p>
+<p>信道容量=每秒码元数×每码元比特数</p>
+<p>即：</p>
+<p>bit/秒=(码元/秒)×(bit/码元)</p>
+<p>其中：</p>
+<ul>
+<li>2W 表示每秒最多传输的码元数（波特率，baud/s）。</li>
+<li>log2​V 表示每个码元可以携带的比特数（因为 \(V\) 种电平可以表示 \(\log_2 V\) 比特信息）；</li>
+</ul>
+<p>公式具备以下语义：</p>
+<ol>
+<li>带宽 (\(W\)) 越大，单位时间内可传输的码元数越多；</li>
+<li>每个码元的电平数 (\(V\)) 越多，所携带的信息量越大。</li>
+</ol>
+<p>因此，在理想无噪声信道中，<strong>极限传输速率取决于带宽和码元的离散电平数</strong> 。</p>
+<p><strong>“2” 到底哪里来的？</strong></p>
+<p>实际上这个 2 来自：</p>
+<p>最高码元速率=2W</p>
+<p>它是奈奎斯特采样/无码间串扰理论决定的：</p>
+<blockquote>
+<p>带宽为 W 的理想低通信道，最高只能支持 2W baud。</p>
+</blockquote>
+<h3 id="香农定理">香农定理</h3>
+<p><img src="/images/docs/network/c53ffcb89c.svg"></p>
+<p><strong>香农定理</strong> 说明了在 <strong>有噪音干扰、带宽有限</strong> 的信道中的数据极限传输速率，当实际传输速率小于等于改速率时，可以做到不产生误差。</p>
+<p>香农定理的 <strong>核心思想</strong> 是： 即使信道中存在噪声，只要信息传输速率低于某个极限值（即信道容量），就一定可以通过某种编码方式实现几乎无差错的传输。这个极限值取决于信道的带宽和 <strong>信噪比</strong> 。</p>
+<p>香农用一个公式精确地描述了信道极限传输速率：</p>
+<p>C=B∗log2​(1+NS​)</p>
+<p>其中：</p>
+<ul>
+<li>C 是信道容量，单位是比特每秒 (bps)，表示信道理论上的最大传输速率。</li>
+<li>B 是信道带宽，单位是赫兹 (Hz)，表示信道可用的频率范围。</li>
+<li>S 是信号功率，表示信号的强度。</li>
+<li>N 是噪声功率，表示信道中噪声的强度。</li>
+<li>NS​ 是 <strong>信噪比</strong> （Signal-to-Noise Ratio, SNR），通常以线性形式表示（不是分贝 dB）。</li>
+</ul>
+<p>公式中的含义：</p>
+<ol>
+<li>带宽 ( B ) 越大，信道容量 ( C ) 越大：这意味着更宽的信道可以传输更多的数据。</li>
+<li><strong>信噪比</strong> ( NS ) 越大，信道容量 ( C ) 越大：这意味着信号相对于噪声越强，传输速率就越高。</li>
+</ol>
+<p>注意</p>
+<p>S/N <strong>信噪比</strong> 有 <strong>线性比值</strong> 和 <strong><strong>分贝（dB）</strong></strong> 两种形式</p>
+<ol>
+<li>线性比值：</li>
+</ol>
+<p>NS​=噪声功率信号功率​</p>
+<ol start="2">
+<li>分贝形式（dB）：</li>
+</ol>
+<p>S/NdB​=10⋅log10​NS​</p>
+<p>反过来，从分贝值换算为线性比值：</p>
+<p>NS​=1010S/NdB​​</p>
+<p>出现在香农公式 C=B∗log2​(1+NS​) 中的 NS​ 是 <strong>线性比值，不是分贝！</strong></p>
+<h2 id="相关笔记">相关笔记</h2>
+<ul>
+<li>[[arch-index|计算机网络体系结构]]</li>
+<li>[[device-summary|网络设备总结]]</li>
+<li>[[layered|分层结构]]</li>
+<li>[[protocol-summary|各层协议总结]]</li>
+</ul>
+</article>
+
+    
+    
+    
+
+    <div class="border-top-section">
+      <a href="/cc408/docs/" class="btn btn-ghost">← 返回知识点列表</a>
+    </div>
+  </main>
+</div>
+
+<style>
+.side-nav-group[open] summary { color: var(--text-primary); }
+.side-nav-group summary::-webkit-details-marker { display: none; }
+.side-nav-group summary::after {
+  content: '▸'; margin-left: auto; font-size: var(--fs-xs); transition: transform .2s;
+}
+.side-nav-group[open] summary::after { transform: rotate(90deg); }
+</style>
+
+  </main>
+  <footer class="site-footer" role="contentinfo">
+  <p>© 2026 CC408. 408考研知识整理</p>
+</footer>
+
+</body>
+</html>

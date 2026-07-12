@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>总线 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/tags/%E6%80%BB%E7%BA%BF/</link>
+    <description>Recent content in 总线 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 25 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/tags/%E6%80%BB%E7%BA%BF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>I/O管理</title>
+      <link>https://cycycy5464.github.io/cc408/docs/os/ch04-io/io-index/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/os/ch04-io/io-index/</guid>
+      <description>&lt;p&gt;内容与&lt;a href=&#34;https://cycycy5464.github.io/cc408/constitution_principle/bus/&#34;&gt;总线和输入输出系统&lt;/a&gt;关联很大，放在一起对比复习。应熟练掌握磁盘的调度算法。&#xA;&lt;img src=&#34;https://cycycy5464.github.io/cc408/images/docs/os/image-20260611223626016.png&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;io管理基础&#34;&gt;I/O管理基础&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;设备的基本概念&lt;/li&gt;&#xA;&lt;li&gt;I/O控制方式&lt;/li&gt;&#xA;&lt;li&gt;I/O软件层次结构&lt;/li&gt;&#xA;&lt;li&gt;I/O应用程序接口&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;设备独立软件&#34;&gt;设备独立软件&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;缓冲区管理&lt;/li&gt;&#xA;&lt;li&gt;设备分配和回收&lt;/li&gt;&#xA;&lt;li&gt;SPOOLing&lt;/li&gt;&#xA;&lt;li&gt;设备驱动程序接口&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;外存管理&#34;&gt;外存管理&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;磁盘&lt;/li&gt;&#xA;&lt;li&gt;固态硬盘&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h5 id=&#34;io-设备operating_systemio_devicedevices&#34;&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/operating_system/io_device/devices/&#34;&gt;I/O 设备&lt;/a&gt;&lt;/h5&gt;&#xA;&lt;h5 id=&#34;设备管理operating_systemio_devicemanagement&#34;&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/operating_system/io_device/management/&#34;&gt;设备管理&lt;/a&gt;&lt;/h5&gt;&#xA;&lt;h5 id=&#34;磁盘operating_systemio_devicedisks&#34;&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/operating_system/io_device/disks/&#34;&gt;磁盘&lt;/a&gt;&lt;/h5&gt;&#xA;&lt;h2 id=&#34;相关笔记&#34;&gt;相关笔记&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;[[directory|目录]]&lt;/li&gt;&#xA;&lt;li&gt;[[file-basics|文件]]&lt;/li&gt;&#xA;&lt;li&gt;[[file-index|文件管理]]&lt;/li&gt;&#xA;&lt;li&gt;[[filesystem|文件系统]]&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>I/O设备</title>
+      <link>https://cycycy5464.github.io/cc408/docs/os/ch04-io/devices/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/os/ch04-io/devices/</guid>
+      <description>&lt;p&gt;💡 低优先级&lt;/p&gt;&#xA;&lt;p&gt;低频考点，对于本节重点掌握 I/O 软件层次的概念，I/O 控制方式的部分建议和计算机组成原理中的 &lt;a href=&#34;https://cycycy5464.github.io/cc408/constitution_principle/bus/io/&#34;&gt;I/O 系统&lt;/a&gt; 共同学习。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>总线</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch05-bus/bus/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch05-bus/bus/</guid>
+      <description>&lt;p&gt;🔥 高优先级&lt;/p&gt;&#xA;&lt;p&gt;本节几个概念是选择题常考点：&lt;strong&gt;总线指标&lt;/strong&gt; 、&lt;strong&gt;总线分类&lt;/strong&gt; 、&lt;strong&gt;总线事务&lt;/strong&gt; 、&lt;strong&gt;总线定时&lt;/strong&gt; 。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>总线和I/O系统</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch05-bus/bus-io/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch05-bus/bus-io/</guid>
+      <description>&lt;p&gt;本章在选择题中考察，需要了解总线和 I/O 的相关概念，看到题目能够选出来即可。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>I/O系统</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch06-io/io-system/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch06-io/io-system/</guid>
+      <description>&lt;p&gt;🔥 高优先级&lt;/p&gt;&#xA;&lt;p&gt;选择题高频考点，主要两点：1. &lt;strong&gt;IO 接口和端口&lt;/strong&gt; 。2. &lt;strong&gt;几种 IO 方式的细节和区别&lt;/strong&gt; 。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

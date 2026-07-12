@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>链表 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/tags/%E9%93%BE%E8%A1%A8/</link>
+    <description>Recent content in 链表 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 25 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/tags/%E9%93%BE%E8%A1%A8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2023年408真题 - 应用题第1题</title>
+      <link>https://cycycy5464.github.io/cc408/exam/application/2023-q1/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/exam/application/2023-q1/</guid>
+      <description>&lt;h2 id=&#34;题目&#34;&gt;题目&lt;/h2&gt;&#xA;&lt;p&gt;设有一个带头结点的单链表 $L = (a_1, b_1, a_2, b_2, &amp;hellip;, a_n, b_n)$，请设计一个算法将链表拆分为两个带头结点的单链表 $L_1 = (a_1, a_2, &amp;hellip;, a_n)$ 和 $L_2 = (b_n, b_{n-1}, &amp;hellip;, b_1)$，要求 $L_1$ 保持原顺序，$L_2$ 为逆序。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

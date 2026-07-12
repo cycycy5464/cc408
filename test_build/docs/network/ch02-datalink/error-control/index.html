@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>差错控制 | CC408</title>
+  <meta name="description" content="💡 低优先级
+说实话本节细节极多但是考查频率很低，考的话一般是在选择题考一题，这一节的几个知识点说实话只能硬背了，大家可以根据自身精力决定要不要搏一搏这可能出现的两分。
+分类 检错编码 ：奇偶校验码、循环冗余码 纠错编码 ：海明码 奇偶校验码 奇偶校验码（Parity Check Code）是一种  …">
+  <link rel="icon" href="/cc408/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" as="script" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" as="script" crossorigin="anonymous">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/cc408/css/custom.min.ecad70eed0f9849f67d23e2bf502ae36e7f590486681964e1c95bc71c8672493.css" integrity="sha256-7K1w7tD5hJ9n0j4r9QKuNuf1kEhmgZZOHJW8cchnJJM=">
+  
+
+<script src="/cc408/js/watermark.js"></script>
+
+
+  <script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.content-area img,.docs-layout img').forEach(function(i){if(!i.src.match(/\.svg$/i)){i.loading='lazy';i.fetchPriority='low';}});});</script>
+</head>
+<body style="background: var(--bg-primary); color: var(--text-primary);">
+  <a href="#main-content" class="skip-link">跳转到主要内容</a>
+  <nav class="navbar" role="navigation" aria-label="主导航">
+  <a href="/cc408/" class="navbar-brand">CC408</a>
+  <button class="navbar-toggle" aria-label="菜单" onclick="this.parentElement.querySelector('.navbar-links').classList.toggle('open')">☰</button>
+  <div class="navbar-links" role="menubar">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      首页
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/docs/" role="menuitem" class="active" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识点
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      刷题
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/quiz-collection/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      收藏
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/graph/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识图谱
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/tags/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      标签
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/resources/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      资源
+    </a>
+    
+  </div>
+  <div class="navbar-right">
+    <a href="https://cycycy5464.github.io/">个人主页 →</a>
+  </div>
+</nav>
+
+  <main id="main-content" style="padding-top: 70px; min-height: calc(100vh - 120px);">
+    
+<div class="docs-layout">
+  <aside class="side-nav">
+    
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>📊</span><span>数据结构</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/basic-concepts/" class="side-nav-link ">数据结构基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/algorithm-concepts/" class="side-nav-link ">算法基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linear-list-index/" class="side-nav-link ">线性表概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/definition/" class="side-nav-link ">线性表定义与基本操作</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/sequential-list/" class="side-nav-link ">顺序表</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linked-list/" class="side-nav-link ">链表</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/stack/" class="side-nav-link ">栈</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/queue/" class="side-nav-link ">队列</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/application/" class="side-nav-link ">栈和队列的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/linear-data-structure/" class="side-nav-link ">线性数据结构</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/string-index/" class="side-nav-link ">串概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/definition/" class="side-nav-link ">串的定义与实现</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/pattern-matching/" class="side-nav-link ">串的模式匹配</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/array-matrix/" class="side-nav-link ">数组和特殊矩阵</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree/" class="side-nav-link ">树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-and-binary-tree/" class="side-nav-link ">树与二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/binary-tree/" class="side-nav-link ">二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-applications/" class="side-nav-link ">树的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/graph-index/" class="side-nav-link ">图概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/definition/" class="side-nav-link ">图的定义</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/algorithms/" class="side-nav-link ">图的算法和应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/search-index/" class="side-nav-link ">查找概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/array-search/" class="side-nav-link ">数组查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/tree-search/" class="side-nav-link ">树形查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/hash-search/" class="side-nav-link ">散列表查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/sort-index/" class="side-nav-link ">排序概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/internal-sort/" class="side-nav-link ">内部排序</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/external-sort/" class="side-nav-link ">外部排序</a>
+      
+      <a href="/cc408/exam/exercise/data_structure/" class="side-nav-link ">数据结构篇</a>
+      
+      <a href="/cc408/exam/application/2023-q1/" class="side-nav-link ">2023年408真题 - 应用题第1题</a>
+      
+      <a href="/cc408/exam/choice/2024-q5/" class="side-nav-link ">2024年408真题 - 数据结构选择题第5题</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/introduction/" class="side-nav-link ">绪论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>⚙️</span><span>计算机组成原理</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/system-hierarchy/" class="side-nav-link ">计算机系统层次结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/performance/" class="side-nav-link ">计算机性能指标</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/data-index/" class="side-nav-link ">数据表示与计算</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/integers/" class="side-nav-link ">整数的表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/float/" class="side-nav-link ">浮点数表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/type-conversion/" class="side-nav-link ">类型转换</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/circuits/" class="side-nav-link ">运算电路</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/memory-index/" class="side-nav-link ">存储系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/overview/" class="side-nav-link ">存储系统概述</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/ram/" class="side-nav-link ">内存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/cache/" class="side-nav-link ">Cache</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/external/" class="side-nav-link ">外存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/virtual/" class="side-nav-link ">虚拟存储器</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/instruction-index/" class="side-nav-link ">指令系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/types/" class="side-nav-link ">指令集种类</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/format-addressing/" class="side-nav-link ">指令格式与寻址方式</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/data-alignment/" class="side-nav-link ">数据对齐</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/opcode/" class="side-nav-link ">指令操作码</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/hll-machine/" class="side-nav-link ">高级语言与机器码</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/cpu-index/" class="side-nav-link ">中央处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/function-structure/" class="side-nav-link ">CPU功能与结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/controller/" class="side-nav-link ">控制器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/exceptions/" class="side-nav-link ">异常与中断</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/pipeline/" class="side-nav-link ">指令流水线</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/multiprocessor/" class="side-nav-link ">多处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus/" class="side-nav-link ">总线</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus-io/" class="side-nav-link ">总线和I/O系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch06-io/io-system/" class="side-nav-link ">I/O系统</a>
+      
+      <a href="/cc408/exam/exercise/architecture/" class="side-nav-link ">计算机组成原理</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/introduction/" class="side-nav-link ">概论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🖥️</span><span>操作系统</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/os/ch00-overview/os-concept/" class="side-nav-link ">操作系统概念</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/os-structure/" class="side-nav-link ">操作系统结构</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/program-env/" class="side-nav-link ">程序运行环境</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-index/" class="side-nav-link ">进程管理</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-thread/" class="side-nav-link ">进程与线程</a>
+      
+      <a href="/cc408/docs/os/ch01-process/scheduling/" class="side-nav-link ">处理机调度</a>
+      
+      <a href="/cc408/docs/os/ch01-process/sync-mutex/" class="side-nav-link ">同步与互斥</a>
+      
+      <a href="/cc408/docs/os/ch01-process/classic-sync/" class="side-nav-link ">经典同步问题</a>
+      
+      <a href="/cc408/docs/os/ch01-process/deadlock/" class="side-nav-link ">死锁</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/memory-index/" class="side-nav-link ">内存管理</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/concepts/" class="side-nav-link ">内存管理概念</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/virtual/" class="side-nav-link ">虚拟内存管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-index/" class="side-nav-link ">文件管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-basics/" class="side-nav-link ">文件</a>
+      
+      <a href="/cc408/docs/os/ch03-file/directory/" class="side-nav-link ">目录</a>
+      
+      <a href="/cc408/docs/os/ch03-file/filesystem/" class="side-nav-link ">文件系统</a>
+      
+      <a href="/cc408/docs/os/ch04-io/io-index/" class="side-nav-link ">I/O管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/devices/" class="side-nav-link ">I/O设备</a>
+      
+      <a href="/cc408/docs/os/ch04-io/device-mgmt/" class="side-nav-link ">设备管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/disk/" class="side-nav-link ">磁盘</a>
+      
+      <a href="/cc408/code/clock/" class="side-nav-link ">CLOCK 时钟替换算法</a>
+      
+      <a href="/cc408/code/lru/" class="side-nav-link ">LRU 算法</a>
+      
+      <a href="/cc408/code/spinlock/" class="side-nav-link ">TAS 实现自旋锁</a>
+      
+      <a href="/cc408/exam/exercise/os/" class="side-nav-link ">操作系统</a>
+      
+      <a href="/cc408/code/reader_writer/" class="side-nav-link ">读者写着问题</a>
+      
+      <a href="/cc408/code/monitor/" class="side-nav-link ">管程实现生产者消费者</a>
+      
+      <a href="/cc408/code/producer_consumer/" class="side-nav-link ">生产者消费者问题</a>
+      
+      <a href="/cc408/code/banker/" class="side-nav-link ">银行家算法</a>
+      
+      <a href="/cc408/code/philosopher/" class="side-nav-link ">哲学家就餐问题</a>
+      
+      <a href="/cc408/exam/comprehensive/2022-q1/" class="side-nav-link ">2022年408真题 - 综合题第1题</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/computer-overview/" class="side-nav-link ">计算机系统概述</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🌐</span><span>计算机网络</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/network/ch00-overview/layered/" class="side-nav-link ">分层结构</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/protocol-summary/" class="side-nav-link ">各层协议总结</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/device-summary/" class="side-nav-link ">网络设备总结</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/phy-index/" class="side-nav-link ">物理层</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/communication/" class="side-nav-link ">通信概念</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/encoding/" class="side-nav-link ">编码与调制</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/switching/" class="side-nav-link ">交换方式</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/devices/" class="side-nav-link ">物理层设备</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/dl-index/" class="side-nav-link ">数据链路层</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/framing/" class="side-nav-link ">组帧</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/error-control/" class="side-nav-link active">差错控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/flow-control/" class="side-nav-link ">流量控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/mac/" class="side-nav-link ">介质访问控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/lan-wan/" class="side-nav-link ">局域网与广域网</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/devices/" class="side-nav-link ">数据链路层设备</a>
+      
+      <a href="/cc408/docs/network/ch03-network/nw-index/" class="side-nav-link ">网络层</a>
+      
+      <a href="/cc408/docs/network/ch03-network/ip/" class="side-nav-link ">IP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/arp/" class="side-nav-link ">ARP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/icmp/" class="side-nav-link ">ICMP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/dhcp/" class="side-nav-link ">DHCP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/routing/" class="side-nav-link ">路由算法</a>
+      
+      <a href="/cc408/docs/network/ch03-network/sdn/" class="side-nav-link ">SDN</a>
+      
+      <a href="/cc408/docs/network/ch03-network/devices/" class="side-nav-link ">网络层设备</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tp-index/" class="side-nav-link ">传输层</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tcp/" class="side-nav-link ">TCP</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/udp/" class="side-nav-link ">UDP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-index/" class="side-nav-link ">应用层</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-model/" class="side-nav-link ">网络应用模型</a>
+      
+      <a href="/cc408/docs/network/ch05-application/dns/" class="side-nav-link ">DNS</a>
+      
+      <a href="/cc408/docs/network/ch05-application/ftp/" class="side-nav-link ">FTP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/email/" class="side-nav-link ">电子邮件</a>
+      
+      <a href="/cc408/docs/network/ch05-application/www/" class="side-nav-link ">万维网</a>
+      
+      <a href="/cc408/exam/exercise/network/" class="side-nav-link ">计算机网络</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/arch-index/" class="side-nav-link ">计算机网络体系结构</a>
+      
+    </details>
+    
+  </aside>
+  <main class="content-area">
+    <h1>差错控制</h1>
+    <div class="meta-row">
+      
+      <span><span class="diff-star">★</span><span class="diff-star">★</span><span class="diff-star-empty">☆</span></span>
+      
+      <span class="tag">CPU</span>
+    </div>
+    <article><p>💡 低优先级</p>
+<p>说实话本节细节极多但是考查频率很低，考的话一般是在选择题考一题，这一节的几个知识点说实话只能硬背了，大家可以根据自身精力决定要不要搏一搏这可能出现的两分。</p>
+<h3 id="分类">分类</h3>
+<ul>
+<li><strong>检错编码</strong> ：奇偶校验码、循环冗余码</li>
+<li><strong>纠错编码</strong> ：海明码</li>
+</ul>
+<h3 id="奇偶校验码">奇偶校验码</h3>
+<p>奇偶校验码（Parity Check Code）是一种 <strong>简单高效</strong> 的错误检测机制，广泛应用于数据传输和存储系统中，用于发现 <strong>单比特错误</strong> 。其核心思想是通过添加一个 <strong>校验比特</strong> （parity bit），确保数据中“1”的总数符合特定的奇偶规则。</p>
+<p>奇偶校验码有两种常见的类型：<strong>奇校验</strong> 和 <strong>偶校验</strong> 。</p>
+<ol>
+<li><strong>奇校验</strong> （Odd Parity）：</li>
+</ol>
+<ul>
+<li>校验比特的值使数据（包括校验比特）中“1”的总数为 <strong>奇数</strong> 。</li>
+<li>例如，若原始数据“1”的个数为 <strong>偶数</strong> ，校验比特设为 <strong>1</strong> ；若为 <strong>奇数</strong> ，设为 <strong>0</strong> 。</li>
+<li>若接收端检测到“1”的总数为 <strong>偶数</strong> ，则说明传输中存在错误。</li>
+</ul>
+<ol start="2">
+<li><strong>偶校验</strong> （Even Parity）：</li>
+</ol>
+<ul>
+<li>校验比特确保数据中“1”的总数为 <strong>偶数</strong> 。</li>
+<li>例如，若原始数据“1”的个数为 <strong>奇数</strong> ，校验比特设为 <strong>1</strong> ；若为 <strong>偶数</strong> ，设为 <strong>0</strong> 。</li>
+<li>若接收端检测到“1”的总数为 <strong>奇数</strong> ，则表明数据出错。</li>
+</ul>
+<p><img src="/images/docs/network/ff192ef7b3.svg"></p>
+<p>奇偶校验码的 <strong>工作原理</strong> 如下：</p>
+<ul>
+<li><strong>发送端</strong> ：根据奇校验或偶校验规则，计算原始数据中 “1” 的个数，设置校验比特，并将数据连同校验比特一起发送。</li>
+<li><strong>接收端</strong> ：检查接收到的数据（包括校验比特）中 “1” 的总数是否符合预设的奇偶规则。若不符合，说明传输过程中可能发生了单比特错误。</li>
+</ul>
+<p>奇偶校验的工作原理是发送端计算数据中所有比特的总数，并根据所选的奇偶性规则设置校验比特的值。接收端在接收数据后再次计算所有比特的总数，包括校验比特，然后检查总数是否满足所选的奇偶性规则。如果总数不符合规则，接收端将检测到错误。</p>
+<h3 id="循环冗余码">循环冗余码</h3>
+<p><strong>循环冗余校验</strong> （CRC, Cyclic Redundancy Check）是一种常用的数据完整性校验方法，广泛应用于数据传输和存储系统中，用于检测数据在传输过程中是否发生了错误。其核心思想是将数据视为一个二进制多项式，并使用特定的 <strong>生成多项式</strong> 对其进行 <strong>模 2 除法</strong> ，最终所得的余数即为 CRC 校验值。</p>
+<h4 id="校验流程">校验流程</h4>
+<p>CRC 的基本校验过程包括以下几个步骤：</p>
+<ul>
+<li>
+<p><strong>生成多项式</strong><br>
+CRC 的关键是一个预先定义好的 <strong>生成多项式</strong> ，通常用二进制数表示。该多项式必须在发送端和接收端之间事先达成一致。</p>
+</li>
+<li>
+<p><strong>计算校验码（发送端）</strong><br>
+发送端将待发送的数据帧看作一个二进制多项式，然后在数据末尾附加 <code>k-1</code> 个 0（其中 <code>k</code> 是生成多项式的位数），得到 <strong>扩展数据</strong> 。将这组数据用 <strong>模 2 除法</strong> 除以生成多项式，得到的余数即为 <strong>CRC 校验码</strong> 。</p>
+</li>
+<li>
+<p><strong>附加并发送</strong><br>
+将上述余数作为 CRC 校验码，附加在原始数据帧之后，组成完整的传输数据帧并发送。</p>
+</li>
+<li>
+<p><strong>校验（接收端）</strong><br>
+接收端收到数据后，以相同方式使用 <strong>生成多项式</strong> 进行 <strong>模 2 除法</strong> 。如果计算结果的余数为 <strong>零</strong> ，则说明数据在传输过程中未发生错误；否则表示数据已损坏。</p>
+</li>
+</ul>
+<p><img src="/images/docs/network/0ca70c1ded.svg"></p>
+<h4 id="发送方">发送方</h4>
+<p>假设原始数据为：<code>1010001101</code>，选用的生成多项式为：<code>110101</code>，则对应多项式形式为：\(x^5 + x^4 + x^2 + 1\)。</p>
+<p>发送方计算 CRC 校验码的操作流程如下：</p>
+<ol>
+<li><strong>扩展数据</strong> ：生成多项式是 6 位，因此我们在数据尾部补上 <code>6-1 = 5</code> 个零，得到扩展数据：<code>101000110100000</code></li>
+<li><strong>模 2 除法计算 CRC（使用异或操作）</strong> ：</li>
+</ol>
+<p>​ <br>
+110101011
+&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;
+110101 | 101000110100000
+110101
+&mdash;&mdash;
+111011
+110101
+&mdash;&mdash;
+111010
+110101
+&mdash;&mdash;
+111110
+110101
+&mdash;&mdash;
+101100
+110101
+&mdash;&mdash;
+110010
+110101
+&mdash;&mdash;
+01110</p>
+<p>最终余数为：<code>01110</code>，所以完整的数据帧为：<code>1010001101 01110</code>。</p>
+<h4 id="接收方">接收方</h4>
+<p>继续以上述例子进行说明，接收方收到的数据为：<code>101000110101110</code></p>
+<p>同样使用生成多项式 <code>110101</code> 进行 <strong>模 2 除法</strong> ：
+110101011
+&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;
+110101 | 101000110101110
+110101
+&mdash;&mdash;
+111011
+110101
+&mdash;&mdash;
+111010
+110101
+&mdash;&mdash;
+111110
+110101
+&mdash;&mdash;
+101111
+110101
+&mdash;&mdash;
+110101
+110101
+&mdash;&mdash;
+0</p>
+<p>余数为 <code>0</code>，表示数据帧未被破坏，<strong>校验通过</strong> 。</p>
+<p>注意</p>
+<p><strong>使用异或进行 CRC 计算</strong></p>
+<p>在 CRC 运算中，模 2 除法的“减法”实际上就是按位 <strong>异或</strong> 操作（XOR）。这是因为在二进制中，加法和减法在无进位的情况下是等价的。比如：</p>
+<ul>
+<li><code>1 ⊕ 1 = 0</code>（相当于 1 - 1 或 1 + 1（不进位））</li>
+<li><code>0 ⊕ 0 = 0</code></li>
+<li><code>1 ⊕ 0 = 1</code></li>
+<li><code>0 ⊕ 1 = 1</code></li>
+</ul>
+<p>因此，CRC 的除法过程实际上是不断地将当前被除数高位与 <strong>生成多项式</strong> 对齐后进行 <strong>异或</strong> 操作，然后向右滑动继续处理，直到处理完所有位。</p>
+<h3 id="海明码">海明码</h3>
+<p>海明码（Hamming Code）是一种用于 <strong>错误检测</strong> 和 <strong>纠正</strong> 的编码方案，通常用于数据传输和存储系统中。它的主要目标是检测和纠正数据中的 <strong>单比特错误</strong> 。</p>
+<p>海明码的核心思想是在 <strong>数据位</strong> 之间插入一定数量的 <strong>校验位</strong> （也称为奇偶校验位），使得每个校验位都负责检查一组特定的位。校验位的数量取决于数据位的数量，并且它们的位置通常是 2 的幂次（即第 1 位、第 2 位、第 4 位……）。</p>
+<h4 id="生成过程">生成过程</h4>
+<p>以一个 <strong>实例</strong> 说明海明码的 <strong>生成和纠正</strong> 过程：</p>
+<ul>
+<li><strong>步骤 1：确定校验位数量</strong></li>
+</ul>
+<p>假如我们的数据是 1011 ，也就是 4 位。根据海明码的原则，我们需要确定足够的校验位 r 来满足以下条件：</p>
+<p>2r≥k+r+1</p>
+<p>对于 k=4 （数据位），我们找到最小的 r 为 <strong>3</strong> 。</p>
+<p>注意</p>
+<p><strong>对于 k 位数据，应该有多少位校验位</strong></p>
+<p>假设我们有 k 位数据，我们需要添加 r 位校验位，那么校验位的总数必须满足以下条件：</p>
+<p>所有数据位和校验位的总数加起来可以由校验位来表示。也就是说，每一位数据位和校验位在位模式中都有一个唯一的表示。这意味着 2r 必须至少等于 k+r+1 ，其中加 1 是因为校验位模式全为零（即没有错误）的情况也必须被考虑在内，即</p>
+<p>2r≥k+r+1</p>
+<ul>
+<li><strong>步骤 2：放置校验位和数据位</strong></li>
+</ul>
+<p>首先将校验位（ p ）插入到数据位中的适当位置。校验位下标是 2 的幂（ 1,2,4,8,&hellip; ）。</p>
+<ul>
+<li>第 1(20) 位：校验位 p1​</li>
+<li>第 2(21) 位：校验位 p2​</li>
+<li>第 4(22) 位：校验位 p3​</li>
+</ul>
+<p>然后再放置剩余的 <strong>数据位</strong> d ：</p>
+<ul>
+<li>第 3 位：数据位 d1​</li>
+<li>第 5 位：数据位 d2​</li>
+<li>第 6 位：数据位 d3​</li>
+<li>第 7 位：数据位 d4​</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">位置</th>
+          <th style="text-align: left">7</th>
+          <th style="text-align: left">6</th>
+          <th style="text-align: left">5</th>
+          <th style="text-align: left">4</th>
+          <th style="text-align: left">3</th>
+          <th style="text-align: left">2</th>
+          <th style="text-align: left">1</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">海明码</td>
+          <td style="text-align: left">d4​</td>
+          <td style="text-align: left">d3​</td>
+          <td style="text-align: left">d2​</td>
+          <td style="text-align: left">p3​</td>
+          <td style="text-align: left">d1​</td>
+          <td style="text-align: left">p2​</td>
+          <td style="text-align: left">p1​</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">数据</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">-</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">-</td>
+          <td style="text-align: left">-</td>
+      </tr>
+  </tbody>
+</table>
+<p>注意</p>
+<p>注意到上述我们提到的关于校验位和数据位的第 n 位，<strong>下标是从 1 开始</strong> 而不是 0 开始的。</p>
+<ul>
+<li><strong>步骤 3：计算校验位</strong></li>
+</ul>
+<p>首先给出位置下标的二进制表示：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">位置</th>
+          <th style="text-align: left">7</th>
+          <th style="text-align: left">6</th>
+          <th style="text-align: left">5</th>
+          <th style="text-align: left">4</th>
+          <th style="text-align: left">3</th>
+          <th style="text-align: left">2</th>
+          <th style="text-align: left">1</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">二进制</td>
+          <td style="text-align: left">111</td>
+          <td style="text-align: left">110</td>
+          <td style="text-align: left">101</td>
+          <td style="text-align: left">100</td>
+          <td style="text-align: left">011</td>
+          <td style="text-align: left">010</td>
+          <td style="text-align: left">001</td>
+      </tr>
+  </tbody>
+</table>
+<ul>
+<li>p1​ 检查位置 1 、 3 、 5 、 7 的位（最低位为 1） 。所以 p1​=d1​⊕d2​⊕d4​=1⊕0⊕1=0 ，所以 p1​=0 。</li>
+<li>p2​ 检查位置 2 、 3 、 6 、 7 的位（次低位为 1）。这些位的异或值为 p2​=d1​⊕d3​⊕d4​=1⊕1⊕1=1 ，所以 p2​=1 。</li>
+<li>p3​ 检查位置 4 、 5 、 6 、 7 的位（最高位为 1） 。这些位的异或值为 p3​=d2​⊕d3​⊕d4​=0⊕1⊕1=0 ，所以 p3​=0 。</li>
+</ul>
+<p><img src="/images/docs/network/95a30ac470.svg"></p>
+<ul>
+<li><strong>步骤 4：生成海明码</strong></li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">位置</th>
+          <th style="text-align: left">7</th>
+          <th style="text-align: left">6</th>
+          <th style="text-align: left">5</th>
+          <th style="text-align: left">4</th>
+          <th style="text-align: left">3</th>
+          <th style="text-align: left">2</th>
+          <th style="text-align: left">1</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">海明码</td>
+          <td style="text-align: left">d4​</td>
+          <td style="text-align: left">d3​</td>
+          <td style="text-align: left">d2​</td>
+          <td style="text-align: left">p3​</td>
+          <td style="text-align: left">d1​</td>
+          <td style="text-align: left">p2​</td>
+          <td style="text-align: left">p1​</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">数据</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">0</td>
+      </tr>
+  </tbody>
+</table>
+<p>所以， 1011 的 (7,4) 海明码是 <strong><em>0110011</em></strong> 。任何一位的单一错误都可以通过分析 <strong>校验位</strong> 来检测并纠正。</p>
+<h4 id="检测和纠错">检测和纠错</h4>
+<p>还是以 <a href="/computer_network/datalink/error/#%e7%94%9f%e6%88%90%e8%bf%87%e7%a8%8b">上文的例子</a> 来说明海明码检测和纠错的过程。</p>
+<p>假设在传输过程中第二位出现了错误，接收的码变为 0010011 。</p>
+<p>首先，接收者现在要 <strong>重新计算校验位</strong> ：</p>
+<ul>
+<li>
+<p>p1​ （位置 1）：检查二进制最低位为 1 的位置（1, 3, 5, 7），即 p1​,d1​,d2​,d4​</p>
+</li>
+<li>
+<p>p1′​=0⊕1⊕0⊕1=0</p>
+</li>
+<li>
+<p>接收到的 p1​=0 ，所以 p1′​=p1​ ，无错误</p>
+<ul>
+<li>p2​ （位置 2）：检查二进制第二位为 1 的位置（2, 3, 6, 7），即 p2​,d1​,d3​,d4​</li>
+</ul>
+</li>
+<li>
+<p>p2′​=0⊕1⊕1⊕1=1</p>
+</li>
+<li>
+<p>接收到的 p2​=0 ，所以 p2′​=p2​ ，有错误</p>
+<ul>
+<li>p3​ （位置 4）：检查二进制第三位为 1 的位置（4, 5, 6, 7），即 p3​,d2​,d3​,d4​</li>
+</ul>
+</li>
+<li>
+<p>p3′​=0⊕0⊕1⊕1=0</p>
+</li>
+<li>
+<p>接收到的 p3​=0 ，所以 p3′​=p3​ ，无错误</p>
+</li>
+</ul>
+<p><img src="/images/docs/network/19d6dd2412.svg"></p>
+<p>可以看到有错误发生，接下来需要 <strong>生成错误模式</strong> ：</p>
+<p>(p1′​⊕p1​,p2′​⊕p2​,p3′​⊕p3​)=(0⊕0,1⊕0,0⊕0)=(0,1,0)</p>
+<p>错误模式为二进制 <strong>010</strong> ，十进制值为 <strong>2</strong> ，表示错误在位置 <strong>2</strong> （即 p2​ ）。</p>
+<p>最后一步是 <strong>纠正错误</strong> ：位置 2 的值 p2​ 从 0 翻转为 1，得到纠正后的码字：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">位置</th>
+          <th style="text-align: left">7</th>
+          <th style="text-align: left">6</th>
+          <th style="text-align: left">5</th>
+          <th style="text-align: left">4</th>
+          <th style="text-align: left">3</th>
+          <th style="text-align: left">2</th>
+          <th style="text-align: left">1</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">海明码</td>
+          <td style="text-align: left">d4​</td>
+          <td style="text-align: left">d3​</td>
+          <td style="text-align: left">d2​</td>
+          <td style="text-align: left">p3​</td>
+          <td style="text-align: left">d1​</td>
+          <td style="text-align: left">p2​</td>
+          <td style="text-align: left">p1​</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">修改前</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">0</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">修改后</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">0</td>
+      </tr>
+  </tbody>
+</table>
+<p>现在，海明码回到了正确的 <strong><em>0110011</em></strong> 状态。</p>
+<h3 id="海明距离">海明距离</h3>
+<p>海明距离是指两个等长的比特序列（也称为码字）在对应位置上不相同的比特个数。它是衡量两个码字之间差异程度的重要指标，广泛应用于 <strong>编码理论</strong> 中，用于分析 <strong>错误检测</strong> 和 <strong>错误纠正</strong> 能力。</p>
+<p><img src="/images/docs/network/image-20260613070339504.png"></p>
+<h4 id="编码集">编码集</h4>
+<p>在通信或存储系统中，<strong>编码集</strong> 是指用于表示信息的一组码字。每个码字通常是一个固定长度的比特串，通过引入<strong>冗余位</strong> ，编码集可以在传输过程中检测或纠正一定数量的错误。</p>
+<p>编码集的关键属性之一是其<strong>最小海明距离</strong> （记作 \(d\)）——即任意两个不同码字之间海明距离的最小值。它直接决定了该编码集的 <strong>容错能力</strong> ：</p>
+<ul>
+<li><strong>检错能力</strong> ：最多可以检测 **d −1 **位错误。</li>
+<li><strong>纠错能力</strong> ：最多可以纠正 **⌊ 2d−1​⌋ **位错误。</li>
+</ul>
+<p>最小海明距离越大，意味着码字之间越“分散”，在信道中被干扰后仍然能区分开来，因此检测和纠错能力更强。</p>
+<hr>
+<p>举个实际例子，设有一个编码集，其中包含以下三个 4 位码字：</p>
+<p>我们计算这三组码字之间的海明距离：</p>
+<ul>
+<li><code>0000</code> 与 <code>0110</code> 的海明距离为 <strong>2</strong> （第2、3位不同）；</li>
+<li><code>0000</code> 与 <code>1011</code> 的海明距离为 <strong>3</strong> ；</li>
+<li><code>0110</code> 与 <code>1011</code> 的海明距离为 <strong>3</strong> 。</li>
+</ul>
+<p>因此，该编码集的<strong>最小海明距离</strong> 为 **d =2 **。</p>
+<p>根据公式，该编码集最多可以：</p>
+<ul>
+<li><strong>检测 1 位错误</strong> （ d−1=1 ）；</li>
+<li><strong>不能纠错</strong> （ ⌊2d−1​⌋=0 ）。</li>
+</ul>
+<p>如果我们想要具备<strong>1 位纠错能力</strong> ，最小海明距离至少要达到 <strong>3</strong> 。</p>
+<h4 id="海明码示例">海明码示例</h4>
+<p><strong>海明码（Hamming Code）</strong> 是一种经典的线性分组码，其最小海明距离为 **d =3 **。这意味着：</p>
+<ul>
+<li>可以 <strong>检测最多 2 位错误</strong> 。</li>
+<li>可以 <strong>纠正 1 位错误</strong> 。</li>
+</ul>
+<p>接收端在解码过程中，会计算出一个称为 <strong>伴随式（syndrome）</strong> 的比特序列，用于判断是否发生了错误，以及错误的位置：</p>
+<ul>
+<li>若伴随式为全零，说明数据未被破坏；</li>
+<li>若伴随式为非零，且对应某个位的错误模式，则可准确定位并纠正该位；</li>
+<li>若发生 <strong>2 位错误</strong> ，伴随式可能不唯一，<strong>可检测但不可纠正</strong> ，因为错误位置无法唯一确定。</li>
+</ul>
+<h2 id="相关笔记">相关笔记</h2>
+<ul>
+<li>[[communication|通信概念]]</li>
+<li>[[devices|物理层设备]]</li>
+<li>[[encoding|编码与调制]]</li>
+<li>[[phy-index|物理层]]</li>
+<li>[[switching|交换方式]]</li>
+</ul>
+</article>
+
+    
+    
+    
+
+    <div class="border-top-section">
+      <a href="/cc408/docs/" class="btn btn-ghost">← 返回知识点列表</a>
+    </div>
+  </main>
+</div>
+
+<style>
+.side-nav-group[open] summary { color: var(--text-primary); }
+.side-nav-group summary::-webkit-details-marker { display: none; }
+.side-nav-group summary::after {
+  content: '▸'; margin-left: auto; font-size: var(--fs-xs); transition: transform .2s;
+}
+.side-nav-group[open] summary::after { transform: rotate(90deg); }
+</style>
+
+  </main>
+  <footer class="site-footer" role="contentinfo">
+  <p>© 2026 CC408. 408考研知识整理</p>
+</footer>
+
+</body>
+</html>

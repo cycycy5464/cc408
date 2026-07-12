@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>运算电路 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/knowledge_points/%E8%BF%90%E7%AE%97%E7%94%B5%E8%B7%AF/</link>
+    <description>Recent content in 运算电路 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/knowledge_points/%E8%BF%90%E7%AE%97%E7%94%B5%E8%B7%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2024 计算机组成原理 第15题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2024-co-015/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2024-co-015/</guid>
+      <description>&lt;p&gt;下列关于整数乘法运算的叙述中，错误的是()。&lt;/p&gt;&#xA;&lt;p&gt;A. 用阵列乘法器实现乘运算可以在一个时钟周期完成&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

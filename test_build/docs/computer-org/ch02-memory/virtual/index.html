@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>虚拟存储器 | CC408</title>
+  <meta name="description" content="🔥 高优先级
+虚拟存储器 和 cache 一样重要，而且考察的方式往往是复合考察，将两者的知识融合在一起放到大题中考察，需要能够从存储系统全局看待这两者的关联。
+虚拟存储器 是一种 计算机内存管理技术 ，它在 物理内存 和 磁盘存储 之间创建了一个抽象的、扩展的内存空间，以提供更大的可用内存容量。
+ …">
+  <link rel="icon" href="/cc408/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" as="script" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" as="script" crossorigin="anonymous">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/cc408/css/custom.min.ecad70eed0f9849f67d23e2bf502ae36e7f590486681964e1c95bc71c8672493.css" integrity="sha256-7K1w7tD5hJ9n0j4r9QKuNuf1kEhmgZZOHJW8cchnJJM=">
+  
+
+<script src="/cc408/js/watermark.js"></script>
+
+
+  <script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.content-area img,.docs-layout img').forEach(function(i){if(!i.src.match(/\.svg$/i)){i.loading='lazy';i.fetchPriority='low';}});});</script>
+</head>
+<body style="background: var(--bg-primary); color: var(--text-primary);">
+  <a href="#main-content" class="skip-link">跳转到主要内容</a>
+  <nav class="navbar" role="navigation" aria-label="主导航">
+  <a href="/cc408/" class="navbar-brand">CC408</a>
+  <button class="navbar-toggle" aria-label="菜单" onclick="this.parentElement.querySelector('.navbar-links').classList.toggle('open')">☰</button>
+  <div class="navbar-links" role="menubar">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      首页
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/docs/" role="menuitem" class="active" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识点
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      刷题
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/quiz-collection/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      收藏
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/graph/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识图谱
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/tags/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      标签
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/resources/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      资源
+    </a>
+    
+  </div>
+  <div class="navbar-right">
+    <a href="https://cycycy5464.github.io/">个人主页 →</a>
+  </div>
+</nav>
+
+  <main id="main-content" style="padding-top: 70px; min-height: calc(100vh - 120px);">
+    
+<div class="docs-layout">
+  <aside class="side-nav">
+    
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>📊</span><span>数据结构</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/basic-concepts/" class="side-nav-link ">数据结构基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/algorithm-concepts/" class="side-nav-link ">算法基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linear-list-index/" class="side-nav-link ">线性表概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/definition/" class="side-nav-link ">线性表定义与基本操作</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/sequential-list/" class="side-nav-link ">顺序表</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linked-list/" class="side-nav-link ">链表</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/stack/" class="side-nav-link ">栈</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/queue/" class="side-nav-link ">队列</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/application/" class="side-nav-link ">栈和队列的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/linear-data-structure/" class="side-nav-link ">线性数据结构</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/string-index/" class="side-nav-link ">串概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/definition/" class="side-nav-link ">串的定义与实现</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/pattern-matching/" class="side-nav-link ">串的模式匹配</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/array-matrix/" class="side-nav-link ">数组和特殊矩阵</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree/" class="side-nav-link ">树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-and-binary-tree/" class="side-nav-link ">树与二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/binary-tree/" class="side-nav-link ">二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-applications/" class="side-nav-link ">树的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/graph-index/" class="side-nav-link ">图概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/definition/" class="side-nav-link ">图的定义</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/algorithms/" class="side-nav-link ">图的算法和应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/search-index/" class="side-nav-link ">查找概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/array-search/" class="side-nav-link ">数组查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/tree-search/" class="side-nav-link ">树形查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/hash-search/" class="side-nav-link ">散列表查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/sort-index/" class="side-nav-link ">排序概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/internal-sort/" class="side-nav-link ">内部排序</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/external-sort/" class="side-nav-link ">外部排序</a>
+      
+      <a href="/cc408/exam/exercise/data_structure/" class="side-nav-link ">数据结构篇</a>
+      
+      <a href="/cc408/exam/application/2023-q1/" class="side-nav-link ">2023年408真题 - 应用题第1题</a>
+      
+      <a href="/cc408/exam/choice/2024-q5/" class="side-nav-link ">2024年408真题 - 数据结构选择题第5题</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/introduction/" class="side-nav-link ">绪论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>⚙️</span><span>计算机组成原理</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/system-hierarchy/" class="side-nav-link ">计算机系统层次结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/performance/" class="side-nav-link ">计算机性能指标</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/data-index/" class="side-nav-link ">数据表示与计算</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/integers/" class="side-nav-link ">整数的表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/float/" class="side-nav-link ">浮点数表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/type-conversion/" class="side-nav-link ">类型转换</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/circuits/" class="side-nav-link ">运算电路</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/memory-index/" class="side-nav-link ">存储系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/overview/" class="side-nav-link ">存储系统概述</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/ram/" class="side-nav-link ">内存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/cache/" class="side-nav-link ">Cache</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/external/" class="side-nav-link ">外存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/virtual/" class="side-nav-link active">虚拟存储器</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/instruction-index/" class="side-nav-link ">指令系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/types/" class="side-nav-link ">指令集种类</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/format-addressing/" class="side-nav-link ">指令格式与寻址方式</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/data-alignment/" class="side-nav-link ">数据对齐</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/opcode/" class="side-nav-link ">指令操作码</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/hll-machine/" class="side-nav-link ">高级语言与机器码</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/cpu-index/" class="side-nav-link ">中央处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/function-structure/" class="side-nav-link ">CPU功能与结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/controller/" class="side-nav-link ">控制器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/exceptions/" class="side-nav-link ">异常与中断</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/pipeline/" class="side-nav-link ">指令流水线</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/multiprocessor/" class="side-nav-link ">多处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus/" class="side-nav-link ">总线</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus-io/" class="side-nav-link ">总线和I/O系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch06-io/io-system/" class="side-nav-link ">I/O系统</a>
+      
+      <a href="/cc408/exam/exercise/architecture/" class="side-nav-link ">计算机组成原理</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/introduction/" class="side-nav-link ">概论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🖥️</span><span>操作系统</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/os/ch00-overview/os-concept/" class="side-nav-link ">操作系统概念</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/os-structure/" class="side-nav-link ">操作系统结构</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/program-env/" class="side-nav-link ">程序运行环境</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-index/" class="side-nav-link ">进程管理</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-thread/" class="side-nav-link ">进程与线程</a>
+      
+      <a href="/cc408/docs/os/ch01-process/scheduling/" class="side-nav-link ">处理机调度</a>
+      
+      <a href="/cc408/docs/os/ch01-process/sync-mutex/" class="side-nav-link ">同步与互斥</a>
+      
+      <a href="/cc408/docs/os/ch01-process/classic-sync/" class="side-nav-link ">经典同步问题</a>
+      
+      <a href="/cc408/docs/os/ch01-process/deadlock/" class="side-nav-link ">死锁</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/memory-index/" class="side-nav-link ">内存管理</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/concepts/" class="side-nav-link ">内存管理概念</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/virtual/" class="side-nav-link ">虚拟内存管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-index/" class="side-nav-link ">文件管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-basics/" class="side-nav-link ">文件</a>
+      
+      <a href="/cc408/docs/os/ch03-file/directory/" class="side-nav-link ">目录</a>
+      
+      <a href="/cc408/docs/os/ch03-file/filesystem/" class="side-nav-link ">文件系统</a>
+      
+      <a href="/cc408/docs/os/ch04-io/io-index/" class="side-nav-link ">I/O管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/devices/" class="side-nav-link ">I/O设备</a>
+      
+      <a href="/cc408/docs/os/ch04-io/device-mgmt/" class="side-nav-link ">设备管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/disk/" class="side-nav-link ">磁盘</a>
+      
+      <a href="/cc408/code/clock/" class="side-nav-link ">CLOCK 时钟替换算法</a>
+      
+      <a href="/cc408/code/lru/" class="side-nav-link ">LRU 算法</a>
+      
+      <a href="/cc408/code/spinlock/" class="side-nav-link ">TAS 实现自旋锁</a>
+      
+      <a href="/cc408/exam/exercise/os/" class="side-nav-link ">操作系统</a>
+      
+      <a href="/cc408/code/reader_writer/" class="side-nav-link ">读者写着问题</a>
+      
+      <a href="/cc408/code/monitor/" class="side-nav-link ">管程实现生产者消费者</a>
+      
+      <a href="/cc408/code/producer_consumer/" class="side-nav-link ">生产者消费者问题</a>
+      
+      <a href="/cc408/code/banker/" class="side-nav-link ">银行家算法</a>
+      
+      <a href="/cc408/code/philosopher/" class="side-nav-link ">哲学家就餐问题</a>
+      
+      <a href="/cc408/exam/comprehensive/2022-q1/" class="side-nav-link ">2022年408真题 - 综合题第1题</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/computer-overview/" class="side-nav-link ">计算机系统概述</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🌐</span><span>计算机网络</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/network/ch00-overview/layered/" class="side-nav-link ">分层结构</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/protocol-summary/" class="side-nav-link ">各层协议总结</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/device-summary/" class="side-nav-link ">网络设备总结</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/phy-index/" class="side-nav-link ">物理层</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/communication/" class="side-nav-link ">通信概念</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/encoding/" class="side-nav-link ">编码与调制</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/switching/" class="side-nav-link ">交换方式</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/devices/" class="side-nav-link ">物理层设备</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/dl-index/" class="side-nav-link ">数据链路层</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/framing/" class="side-nav-link ">组帧</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/error-control/" class="side-nav-link ">差错控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/flow-control/" class="side-nav-link ">流量控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/mac/" class="side-nav-link ">介质访问控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/lan-wan/" class="side-nav-link ">局域网与广域网</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/devices/" class="side-nav-link ">数据链路层设备</a>
+      
+      <a href="/cc408/docs/network/ch03-network/nw-index/" class="side-nav-link ">网络层</a>
+      
+      <a href="/cc408/docs/network/ch03-network/ip/" class="side-nav-link ">IP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/arp/" class="side-nav-link ">ARP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/icmp/" class="side-nav-link ">ICMP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/dhcp/" class="side-nav-link ">DHCP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/routing/" class="side-nav-link ">路由算法</a>
+      
+      <a href="/cc408/docs/network/ch03-network/sdn/" class="side-nav-link ">SDN</a>
+      
+      <a href="/cc408/docs/network/ch03-network/devices/" class="side-nav-link ">网络层设备</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tp-index/" class="side-nav-link ">传输层</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tcp/" class="side-nav-link ">TCP</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/udp/" class="side-nav-link ">UDP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-index/" class="side-nav-link ">应用层</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-model/" class="side-nav-link ">网络应用模型</a>
+      
+      <a href="/cc408/docs/network/ch05-application/dns/" class="side-nav-link ">DNS</a>
+      
+      <a href="/cc408/docs/network/ch05-application/ftp/" class="side-nav-link ">FTP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/email/" class="side-nav-link ">电子邮件</a>
+      
+      <a href="/cc408/docs/network/ch05-application/www/" class="side-nav-link ">万维网</a>
+      
+      <a href="/cc408/exam/exercise/network/" class="side-nav-link ">计算机网络</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/arch-index/" class="side-nav-link ">计算机网络体系结构</a>
+      
+    </details>
+    
+  </aside>
+  <main class="content-area">
+    <h1>虚拟存储器</h1>
+    <div class="meta-row">
+      
+      <span><span class="diff-star">★</span><span class="diff-star">★</span><span class="diff-star-empty">☆</span></span>
+      
+      <span class="tag">存储系统</span>
+    </div>
+    <article><p>🔥 高优先级</p>
+<p>虚拟存储器 和 cache 一样重要，而且考察的方式往往是复合考察，将两者的知识融合在一起放到大题中考察，需要能够从存储系统全局看待这两者的关联。</p>
+<p><strong>虚拟存储器</strong> 是一种 <strong>计算机内存管理技术</strong> ，它在 <strong>物理内存</strong> 和 <strong>磁盘存储</strong> 之间创建了一个抽象的、扩展的内存空间，以提供更大的可用内存容量。</p>
+<p><strong>设计核心</strong> 在于将 逻辑地址空间 与 物理内存 进行 <strong>解耦</strong> 。程序在 <strong>编译和运行</strong> 时所看到的是一个连续、完整的虚拟地址空间，而实际上这些地址并不直接对应物理内存中的位置，而是通过 页表和TLB 进行映射。</p>
+<h3 id="物理内存">物理内存</h3>
+<p><img src="/images/docs/computer-org/84e77c83e0.svg"></p>
+<p><strong>物理内存</strong> （Physical Memory）指的是计算机系统中的实际硬件内存，即随机存取存储器（RAM）。</p>
+<p><strong>物理内存</strong> 是计算机直接用于存储和操作数据的地方，所有进程的数据和代码实际上都是存储在 <strong>物理内存</strong> 上。</p>
+<p>当访问物理内存时，必须使用 <strong>物理地址</strong> ，物理地址就是 <strong>物理内存</strong> 中每个存储单元的唯一编号</p>
+<h3 id="虚拟内存">虚拟内存</h3>
+<p><img src="/images/docs/computer-org/ad7e85bb13.svg"></p>
+<p><strong>虚拟内存</strong> （Virtual Memory）是一种计算机系统内存管理技术，它使得进程可以认为自己拥有一个 <strong>连续且独立的内存空间</strong> ，即使实际上 <strong>物理内存</strong> 可能不够用或者是分散的。</p>
+<p>进程使用 <strong>虚拟地址</strong> 来访问内存中的数据和指令，而不需要了解 <strong>物理内存</strong> 的详细情况。进程使用虚拟地址去访问 <strong>虚拟内存</strong> ，</p>
+<p>当进程访问 <strong>虚拟内存</strong> 时，<strong>操作系统</strong> 会将 虚拟地址 <strong>转化为物理地址</strong> ， 进而根据物理地址去访问 <strong>物理内存</strong> 。</p>
+<h3 id="页式虚拟存储器">页式虚拟存储器</h3>
+<p><img src="/images/docs/computer-org/4528b4054c.svg"></p>
+<p>为了更灵活地管理内存，操作系统采用 <strong>页式虚拟存储器</strong> 的方式，将 <strong>虚拟地址空间</strong> 和 <strong>物理地址空间</strong> 都划分为大小固定的 <strong>页（Page）</strong> 。程序运行时，并不需要将整个虚拟地址空间都加载到 <strong>物理内存</strong> 中，而是按需将部分 <strong>页面</strong> 载入内存，其余的页面保存在硬盘上。</p>
+<p>当 CPU 发出一条内存访问指令时，<strong>地址转换机构</strong> 会找到对应的物理页框。如果发现该页面尚未加载到内存，就会触发 <strong>缺页中断</strong> 。缺页中断交由操作系统内核处理，内核会判断该页面是否在磁盘的交换区或程序映像文件中，如果存在，就将其调入内存。如果内存已满，还需要根据 <strong>页面置换算法</strong> （如最近最少使用 LRU 或时钟算法）选择一个合适的页面换出到磁盘，再将新页面调入。整个过程对应用程序是透明的，它只会感知到一次访问延迟，而不会意识到内存与磁盘之间的交换。</p>
+<p>这种机制不仅让 <strong>有限的物理内存</strong> 可以支持 <strong>更大规模的虚拟地址空间</strong> ，还实现了多进程之间的 <strong>隔离与保护</strong> 。每个进程都有自己的页表，彼此之间的虚拟地址不会直接冲突，从而避免了进程间的非法访问。同时，页式虚拟存储器还为实现内存共享提供了可能，比如多个进程可以将不同的虚拟页映射到同一个物理页框，用于共享代码段或数据。</p>
+<h3 id="页面划分和地址结构">页面划分和地址结构</h3>
+<p>在 <strong>页式虚拟存储器</strong> 中，<strong>虚拟内存空间</strong> 被划分为一个个 <strong>虚拟页面</strong> （VP，Virtual Page），<strong>物理内存空间</strong> 被划分为一个个 <strong>物理页面</strong> （PP，Physical Page）。</p>
+<p><strong>虚拟地址</strong> （VA, Virutal Address）被划分为 <strong>虚拟页面号</strong> （VPN，Virutal Page Number）和 <strong>页内偏移</strong> （Offset）这两个字段。</p>
+<p>在使用 <strong>虚拟地址</strong> 去访问 <strong>虚拟内存</strong> 时，我们可以根据 <strong>虚拟页面号</strong> 找到该地址所在的 <strong>虚拟页面</strong> ，在找到 <strong>虚拟页面</strong> 后，我们可以根据 <strong>页内偏移</strong> 找到该地址在 <strong>虚拟页面</strong> 内的偏移大小。</p>
+<p><img src="/images/docs/computer-org/ceee3cdfc1.svg"></p>
+<p><img src="/images/docs/computer-org/861f3de038.svg"></p>
+<p>同理， 物理地址 （PA, Physical Address）被划分为 <strong>物理页面号</strong> （PPN，Physical Page Number）和 <strong>页内偏移</strong> （Offset）这两个字段。</p>
+<p>在使用 <strong>物理地址</strong> 去访问 <strong>物理内存</strong> 时，我们可以根据 <strong>物理页面号</strong> 找到该地址所在的 <strong>物理页面</strong> ，在找到 <strong>物理页面</strong> 后，我们可以根据 <strong>页内偏移</strong> 找到该地址在 <strong>物理页面</strong> 内的偏移大小。</p>
+<p>注意</p>
+<p>需要注意和区分一下以下几个名词，它们具有相同的含义：</p>
+<p><strong>虚拟页面</strong> （Virutal Page）= <strong>逻辑页面</strong> （Logical Page）</p>
+<p><strong>页框</strong> （Frame） = <strong>物理页面</strong> （Physical Page）</p>
+<h3 id="地址翻译机构">地址翻译机构</h3>
+<p><img src="/images/docs/computer-org/6632ca07b3.svg"></p>
+<p>CPU 中的 <strong>内存管理单元</strong> （Memory Management Unit，MMU）是计算机体系结构的重要组成部分，它负责 <strong>虚拟内存</strong> 到 <strong>物理内存</strong> 的地址映射和内存访问的控制。MMU 的主要功能包括：</p>
+<ul>
+<li><strong>地址转换</strong> ：MMU 负责将程序使用的 <strong>虚拟地址</strong> 转换为对应的 <strong>物理地址</strong> 。</li>
+<li><strong>地址保护</strong> ：MMU 实施内存保护策略，以确保不同的程序或进程无法越界访问彼此的内存空间。</li>
+<li><strong>内存访问权限</strong> ：MMU 根据地址映射和保护位（在页表或段表中定义）来控制内存访问权限，包括读、写、执行等。</li>
+</ul>
+<p>地址翻译是硬件还是软件完成的？</p>
+<p>很多同学会困惑： <strong>页表是操作系统维护的，而地址翻译要查页表；但 MMU 又是硬件结构，那地址翻译到底是硬件还是软件完成的？</strong></p>
+<p>关键点在于：<strong>操作系统“提供规则和数据”，硬件“执行翻译过程”。</strong></p>
+<p>首先，<strong>页表并不是操作系统可以随意设计的数据结构</strong> 。 页表的层级、每一项的位含义（如有效位、权限位、物理页号等），都由 <strong>CPU 架构规范（如 x86、ARM）严格定义</strong> 。操作系统只是按照该规范，在内存中构造符合格式要求的页表。</p>
+<p>其次，<strong>真正的地址翻译过程由硬件完成</strong> 。 CPU 中的 <strong>MMU（Memory Management Unit）</strong> 在执行指令时，会自动根据当前页表基址寄存器（如 CR3），按架构规定的流程遍历页表（或通过 TLB 命中），将虚拟地址转换为物理地址。 这个过程对软件是透明的，<strong>不需要操作系统逐条参与</strong> 。</p>
+<p>因此可以总结为：</p>
+<ul>
+<li><strong>页表的创建与维护：由操作系统负责（软件）</strong></li>
+<li><strong>地址翻译的执行：由 MMU 完成（硬件）</strong></li>
+</ul>
+<h3 id="页表">页表</h3>
+<p><strong>页表</strong> （page table）是操作系统维护的一张表，用于将 <strong>虚拟地址</strong> 转化为 <strong>物理地址</strong> ，每个运行的进程都有自己 <strong>页表</strong> 。<br>
+进程的 <strong>页表</strong> 存储在其内存空间中的 <strong>内核空间</strong> 中，详见<a href="/operating_system/process/process_thread/#%e8%bf%9b%e7%a8%8b%e5%86%85%e5%ad%98%e7%a9%ba%e9%97%b4">进程内存空间</a>。<br>
+在进程执行时，MMU 使用当前活动进程的 <strong>页表</strong> 来执行地址转换。</p>
+<h4 id="单级页表">单级页表</h4>
+<p><strong>页表</strong> 的功能是将 <strong>虚拟页号</strong> 转换为 <strong>物理页号</strong> ，进而实现地址翻译。</p>
+<p><img src="/images/docs/computer-org/image-20260612223404412.png"></p>
+<p>对于 <strong>单级页表</strong> 而言，只需访问一次 <strong>页表</strong> 即可实现 <strong>页面号</strong> 的翻译过程。</p>
+<h5 id="单级页表结构">单级页表结构</h5>
+<p>一个典型的 <strong>单级页表</strong> 结构如下图所示：</p>
+<p><img src="/images/docs/computer-org/image-20260612223439817.png"></p>
+<p><strong>页表</strong> 中的每一行叫做 <strong>页表项</strong> （PTE, page table entry），<strong>页表项</strong> 可包含如下内容：</p>
+<ul>
+<li><strong>虚拟页框号</strong> （VPN，Virtual Page Number）：对于 <strong>单级页表</strong> 而言，VPN 并不需要实际存储在 <strong>页表</strong> 的字段中，其隐性地作为 <strong>页表项</strong> 的下标进行存储。</li>
+<li><strong>物理页框号</strong> （PPN，Physical Page Number）：当前 VPN 所对应的 <strong>物理页号</strong> 。</li>
+<li><strong>有效位</strong> （Valid Bit）：用于指示虚拟页 <strong>是否有效</strong> 。若为 <strong>1</strong> ，表示可用于地址转换；若为 <strong>0</strong> ，表示无效，会导致错误。</li>
+<li><strong>修改位</strong> （Dirty Bit）：用于指示虚拟页的内容 <strong>是否已被修改</strong> 。若为 <strong>1</strong> ，可能需要写回到磁盘或其他非易失性存储介质。</li>
+<li><strong>访问位</strong> （Accessed Bit）：用于指示虚拟页 <strong>是否已被访问</strong> 。若为 <strong>1</strong> ，对页面置换算法有帮助。</li>
+<li><strong>保护位</strong> （Protection Bits）：用于指定虚拟页的 <strong>访问权限</strong> ，例如读取、写入或执行权限。</li>
+<li><strong>缓存位</strong> （Caching Bits）：用于指示是否允许将虚拟页的内容 <strong>缓存在高速缓存中</strong> 。</li>
+</ul>
+<p>页表存储在进程内存空间的什么区域</p>
+<p><img src="/images/docs/computer-org/170dab64de.svg"></p>
+<ul>
+<li><strong>页表存储在物理内存中</strong> ：页表（无论是单级还是多级）最终都是一些数据结构，它们必须存储在物理内存（RAM） 中，CPU的内存管理单元（MMU） 才能直接读取它们进行地址转换。</li>
+<li><strong>内核的虚拟地址空间中</strong> ：操作系统内核也有自己的虚拟地址空间。它会将物理内存中的这些页表，映射到自己的内核虚拟地址空间的一个特定区域。这样，操作系统内核代码（例如处理缺页异常、执行换入换出的代码）就可以通过虚拟地址方便地访问和修改任何进程的页表。</li>
+</ul>
+<p>注意</p>
+<p>需要注意的是， <strong>页表项</strong> 的具体结构可以因不同的计算机体系结构和操作系统而异，在做题目时根据题目的具体指示进行判断。</p>
+<p>这里主要关注 <strong>虚拟页框号</strong> 、<strong>物理页框号</strong> 以及 <strong>有效位</strong> 即可，这是大多数 <strong>单级页表</strong> 中都会包含的内容。</p>
+<p>对于 <strong>页表项</strong> 中的其他位，主要管制 <strong>修改位</strong> 和 <strong>访问位</strong> ，<strong>保护位</strong> 和 <strong>缓存位</strong> 不太会考察。</p>
+<h5 id="单级页表地址翻译">单级页表地址翻译</h5>
+<p>虚拟地址和物理地址格式 如下：</p>
+<ul>
+<li>
+<p><strong>虚拟地址</strong> （Virutal Address）分为两个部分：</p>
+</li>
+<li>
+<p><strong>虚拟页框号</strong> （VPN, Virtual Page Number）：当前地址所在的页框在 <strong>虚拟内存</strong> 对应的所有页框中的下标</p>
+</li>
+<li>
+<p><strong>页内偏移</strong> （VPO, Virutal Page Offset）：地址在页面内的偏移</p>
+<ul>
+<li><strong>物理地址</strong> （Physical Address）同样分为两个部分：</li>
+</ul>
+</li>
+<li>
+<p><strong>物理页框号</strong> （PPN, Physical Page Number）：当前地址所在的页框在 <strong>物理内存</strong> 对应的所有页框中的下标</p>
+</li>
+<li>
+<p><strong>页内偏移</strong> （PPO, Physical Page Offset）：地址在页面内的偏移</p>
+</li>
+</ul>
+<p><img src="/images/docs/computer-org/fe97637d7c.svg"></p>
+<p>其中 <strong>虚拟地址和物理地址的偏移量是相同的</strong> （VPO = PPO = offset），页面大小 = 2offset</p>
+<p><strong>虚拟页面个数</strong> = 2VPN ，<strong>物理页面个数</strong> = 2PPN</p>
+<p>单级页表地址翻译过程 如下：</p>
+<p><strong>PPO</strong> 和 <strong>VPO</strong> 的内容一致，所以地址翻译主要在于通过将 <strong>VPN</strong> 转化为 <strong>PPN</strong> 。<strong>VPN</strong> 的值为对应的 <strong>页表项</strong> （PTE）在 <strong>页表</strong> 中的下标。找到对应的 <strong>页表项</strong> 后，判断 <strong>Valid</strong> 字段是否为 <strong>1</strong> ：</p>
+<ul>
+<li>若为 <strong>0</strong> ，会发生 <a href="/constitution_principle/storage/virtual/#%e7%bc%ba%e9%a1%b5%e4%b8%ad%e6%96%ad">缺页中断</a></li>
+<li>若为 <strong>1</strong> ，读取其中的 <strong>PPN</strong> ，完成地址翻译</li>
+</ul>
+<p><img src="/images/docs/computer-org/image-20260612223543458.png"></p>
+<p>假设 <strong>虚拟内存</strong> 为 <strong>16 MB</strong> ，<strong>物理内存</strong> 为 <strong>1 MB</strong> ，页面大小为 <strong>4 KB</strong> ，则翻译虚拟地址 <code>0x321654</code></p>
+<ul>
+<li><strong>VPO</strong> 和 <strong>PPO</strong> 的位数为 <strong>12</strong> （ 4 KB=212B ），地址对应的 <strong>page offset</strong> 为 <code>0x654</code></li>
+<li><strong>虚拟地址</strong> 的总位数为 <strong>24</strong> （ 16 MB=224B ）</li>
+<li><strong>物理地址</strong> 的总位数为 <strong>20</strong> （ 1 MB=220B ）</li>
+<li><strong>VPN</strong> 的位数为 <strong>24 − 12 = 12</strong> ，<strong>虚拟地址</strong> 对应的 <strong>VPN</strong> 为 <code>0x321</code></li>
+<li><strong>PPN</strong> 的位数为 <strong>20 − 12 = 8</strong> ，</li>
+<li><strong>虚拟地址</strong> 格式为 <code>| VPN (12bits) | VPO (12bits) |</code></li>
+<li><strong>物理地址</strong> 格式为 <code>| PPN ( 8bits) | PPO (12bits) |</code></li>
+<li><strong>VPN</strong> 为 <code>0x321</code>，找到 <strong>页表</strong> 的第 <code>0x321</code> 个 <strong>页表项</strong> ，判断其中的 <strong>valid</strong> 字段是否为 <strong>1</strong> ；若为 <strong>0</strong> ，则调用缺页中断；若为 <strong>1</strong> ，则找到其中的 <strong>PPN</strong> ，并使用 <strong>PPN</strong> 和 <strong>PPO</strong> 组成 <strong>物理地址</strong> 。</li>
+</ul>
+<h4 id="多级页表">多级页表</h4>
+<p><strong>单级页表会有什么问题？</strong></p>
+<p>在 <strong>单级页表</strong> 中，为了管理大型 <strong>虚拟地址空间</strong> ，需要创建庞大的 <strong>页表</strong> ，其中包含大量 <strong>页表项</strong> ，这会导致 <strong>页表</strong> 本身占用大量内存。</p>
+<p>假如我们有一个 <strong>32 位 4GB</strong> 的 <strong>虚拟地址空间</strong> 、<strong>4KB</strong> 的页面和一个 <strong>4 字节</strong> 的 <strong>PTE</strong> ，那么我们将需要一个 <strong>4 MB</strong> 的 <strong>页面表</strong> 始终驻留在内存中，即使应用程序只引用 <strong>虚拟地址空间</strong> 的一小块。</p>
+<p><strong>多级页表结构</strong></p>
+<p><img src="/images/docs/computer-org/9c594a8ac2.svg"></p>
+<p>Physical AddressText is not SVG - cannot display</p>
+<p>在 <strong>多级页表</strong> 中，<strong>虚拟页号</strong> （VPN）被分割为多个字段，假设被分割为 <strong>k</strong> 个字段的话，第 <strong>k</strong> 个字段对应的页表中的查询内容为 <strong>PPN</strong> ，前 <strong>k‑1</strong> 个字段对应的页表中的查询内容为下一级页表的位置。</p>
+<p>如果当前 <strong>多级页表</strong> 对应的一级页表有 mk 个 <strong>PTE</strong> ，将 <strong>VPN</strong> 分割为 <strong>k</strong> 个长度相同的子字段后，每个子字段对应的页表的 <strong>PTE</strong> 个数为 logk​mk=m 。</p>
+<p>其中，第一层有 m 个页表，第二层最多有 m2 个页表在内存中存在， ⋯ ，第 <strong>k</strong> 层最多有 mk 个页表在内存中存在。</p>
+<p><strong>多级页表是如何节省内存的？</strong></p>
+<p><img src="/images/docs/computer-org/efdc0d6e60.svg"></p>
+<p>只有一级页表需要始终在主存中，对于其他层次的页表，可以 <strong>按需分配</strong> ；如果使用到的，就在内存中创建对应的页表结构，如果未使用到，就不需要为其分配内存。这代表了巨大的潜在节省，因为典型程序的 <strong>4GB 虚拟地址空间</strong> 中的大部分都是未分配的。</p>
+<p>对于 <strong>k</strong> 级页表而言，前 <strong>k‑1</strong> 级页表中 <strong>PTE</strong> 存储的关键字段都是下一级页表的位置，如果其中某个 <strong>PTE</strong> 的 <strong>有效位</strong> 为 <strong>0</strong> ，那么操作系统无需为该 <strong>页表项</strong> 对应的下一级页表分配内存空间。</p>
+<h4 id="进程切换和页表管理">进程切换和页表管理</h4>
+<p>MMU 进行地址翻译的时候需要使用到页表，但是每个进程的页表不同，MMU 怎么知道当前进程的页表在物理内存的哪个位置呢？</p>
+<p>其实操作系统是这样管理不同进程的页表的：</p>
+<p><img src="/images/docs/computer-org/74792c12e8.svg"></p>
+<p>CPU状态</p>
+<ul>
+<li>每个进程都有一个关键的内核数据结构，通常叫做 <a href="/operating_system/process/process_thread/#%e8%bf%9b%e7%a8%8b%e6%8e%a7%e5%88%b6%e5%9d%97">PCB 进程控制块</a>。</li>
+<li>PCB 中保存了一个关键信息：<strong>页表基址寄存器</strong> 应该加载的物理地址。这个物理地址指向该进程 <strong>顶级页表</strong> 在物理内存中的起始位置。</li>
+<li>当操作系统进行进程 <a href="/operating_system/process/scheduling/#%e4%b8%8a%e4%b8%8b%e6%96%87%e5%88%87%e6%8d%a2">上下文切换</a> 时，它会：</li>
+</ul>
+<ol>
+<li>保存当前进程的CPU状态到其PCB。</li>
+<li>将下一个进程的PCB中保存的<strong>页表基址物理地址</strong> 加载到CR3寄存器中。</li>
+<li>恢复下一个进程的CPU状态。</li>
+</ol>
+<ul>
+<li><strong>一旦页表基址存储器被切换，MMU 接下来进行地址转换时，就会使用新进程的页表</strong> 。这就是不同进程拥有不同虚拟地址空间映射的根本机制。</li>
+</ul>
+<h5 id="ptbr">PTBR</h5>
+<p><strong>PTBR</strong> （Page Table Base Register，页表基址寄存器） 是处理器中用于 <strong>指向当前进程顶级页表物理地址</strong> 的专用寄存器。</p>
+<ul>
+<li>它保存的是 <strong>页表在物理内存中的起始地址</strong> ，而不是虚拟地址</li>
+<li>MMU 在进行地址翻译时，会 <strong>从 PTBR 出发逐级查页表</strong></li>
+<li><strong>每个进程都有自己的页表，但同一时刻只有一个 PTBR 生效</strong></li>
+</ul>
+<blockquote>
+<p><strong>PTBR 决定了“当前 CPU 看到的是哪一个进程的虚拟地址空间”</strong></p>
+</blockquote>
+<p><img src="/images/docs/computer-org/14d0c898d2.svg"></p>
+<p>与进程切换的关系：</p>
+<ul>
+<li><strong>进程切换 = 切换 PTBR</strong></li>
+<li>操作系统在上下文切换时，把新进程页表的物理地址加载进 PTBR（如 CR3）</li>
+<li>之后 MMU 的所有地址翻译都会基于新进程的页表</li>
+</ul>
+<h3 id="tlb">TLB</h3>
+<p><strong>TLB</strong> （Translation Lookaside Buffer）是 CPU <strong>内存管理单元</strong> （MMU）中的一种 <strong>高速缓存</strong> ，用于加速 <strong>虚拟地址</strong> （VA）到 <strong>物理地址</strong> （PA）的地址转换过程。TLB 存储了最近用过的 <strong>虚拟地址</strong> 到 <strong>物理地址</strong> 的映射，以减少每次内存访问时的地址翻译延迟。</p>
+<p><img src="/images/docs/computer-org/efca1eacd8.svg"></p>
+<p>TLB 未命中时：</p>
+<p>由于 <strong>页表</strong> 存储在内存中，所以每一次通过 <strong>页表</strong> 的地址翻译过程都至少需要一次访存，开销仍然比较大。为降低开销，<strong>TLB</strong> 应运而生。与 <strong>Cache</strong> 类似，你可以从概念上将 <strong>TLB</strong> 理解成一个硬件结构，因离 <strong>CPU</strong> 更近，其访问速度更快。</p>
+<h4 id="存储结构">存储结构</h4>
+<p><strong>TLB</strong> 是一个硬件结构，但从逻辑上可以将其理解为一张表。</p>
+<p><img src="/images/docs/computer-org/image-20260612223738811.png"></p>
+<p>与 <a href="/constitution_principle/storage/cache/#cache-%e5%ad%98%e5%82%a8%e7%bb%93%e6%9e%84">cache 存储结构</a> 类似，<strong>TLB</strong> 由许多 <strong>表项</strong> （TLB Entry）构成，每一个 <strong>表项</strong> 包含多个字段，其中 <strong>tag</strong> 和 <strong>PPN</strong> 是必须的，其他字段是可选的。</p>
+<h4 id="tlb-和-cache-对比">TLB 和 cache 对比</h4>
+<p><strong>TLB</strong> 和 <strong>页表</strong> 的关系类似于 <strong>cache</strong> 与 <strong>主存</strong> 的关系，<strong>TLB</strong> 和 <strong>cache</strong> 都是硬件结构，只是作用场景不同。<strong>TLB</strong> 与 <strong>Cache</strong> 的区别如下表所示：</p>
+<p><img src="/images/docs/computer-org/image-20260612223751852.png"></p>
+<p><strong>TLB</strong> 中也包含三种映射方式：<strong>直接映射</strong> 、<strong>全相联映射</strong> 、<strong>组相联映射</strong> 。</p>
+<p>在访问 <strong>TLB</strong> 时，<strong>虚拟地址</strong> 中的 <strong>虚拟页号</strong> （VPN）被按照映射方式进行不同的切分。在访问 <strong>cache</strong> 时，<strong>物理地址</strong> 中的 <strong>主存块号</strong> 被按照映射方式进行不同的切分。</p>
+<p>两者的对比如下所示：</p>
+<p><img src="/images/docs/computer-org/image-20260612223809795.png"></p>
+<p>在 <strong>直接映射</strong> 中，通过 <strong>TLB</strong> 行号去对应行的 <strong>表项</strong> 进行查询。</p>
+<p>在 <strong>组相联映射</strong> 中，通过 <strong>TLB</strong> 组号去对应组进行查询（遍历组中的所有 <strong>TLB 表项</strong> ）。</p>
+<p>在 <strong>全相联映射</strong> 中，遍历 <strong>TLB</strong> 中的所有 <strong>表项</strong> 。</p>
+<h4 id="地址结构">地址结构</h4>
+<p>当我们通过 <strong>TLB</strong> 进行 <strong>虚拟页号（VPN）→ 物理页号（PPN）</strong> 的翻译时，访问 <strong>TLB</strong> 需要使用到 <strong>VPN</strong> 。<br>
+从逻辑上而言，<strong>VPN</strong> 可以被分为 <strong>标记</strong> 和 <strong>匹配字段</strong> 这两个部分：</p>
+<ul>
+<li><strong>标记</strong> （TLBT, 即 <strong>TLB Tag</strong> ）：与 <strong>TLB</strong> 中的 <strong>tag</strong> 进行对比，判断是否命中 <strong>TLB</strong> 表项。</li>
+<li><strong>匹配字段</strong> （Match Field），通过该字段判断 <strong>VPN</strong> 可能被哪些 <strong>TLB</strong> 表项所缓存，这里 <strong>TLB</strong> 与 <strong>Cache</strong> 类似，同样具有三种映射方式，每一种映射方式的 <strong>匹配字段</strong> 位数不同：</li>
+<li><strong>直接映射</strong> ：匹配字段为 <strong>TLB</strong> 表项编号，即行编号（TLB entry index），其位数为 log2​(TLB 行数)</li>
+<li><strong>全相联映射</strong> ：没有匹配字段，即匹配字段位数为 <strong>0</strong> ，因为每一个 <strong>VPN</strong> 都可能被任何一个 <strong>TLB</strong> 行所缓存</li>
+<li><strong>组相联映射</strong> ：匹配字段为组号（TLB group index），位数为 log2​(TLB 组数)</li>
+</ul>
+<p><img src="/images/docs/computer-org/image-20260612223825153.png"></p>
+<p>使用 <strong>TLB</strong> 进行地址翻译的过程如下：</p>
+<ol>
+<li>给定一个 <strong>虚拟地址</strong> （VA），从中提取出 <strong>虚拟页号</strong> （VPN）</li>
+<li>根据映射方式从 <strong>VPN</strong> 中提取出 <strong>标记</strong> （TLBT）和 <strong>匹配字段</strong></li>
+<li>根据 <strong>匹配字段</strong> 从 <strong>TLB</strong> 的相应表项中依次查找，命中时应满足如下条件：</li>
+</ol>
+<ul>
+<li><strong>有效位</strong> （valid）为 <strong>1</strong></li>
+<li>该表项中的 <strong>TLBT</strong> 与 <strong>VPN</strong> 中的 <strong>tag</strong> 字段相同</li>
+</ul>
+<ol start="4">
+<li>若命中某个表项，则通过 <strong>TLB</strong> 完成 <strong>VPN → PPN</strong> 的翻译</li>
+<li>若未命中，则通过 <strong>页表</strong> 完成翻译</li>
+</ol>
+<h3 id="请求页式管理">请求页式管理</h3>
+<p><strong>请求页式管理</strong> （Demand Paging）是一种计算机操作系统中的内存管理技术，它允许进程在需要时才将 <strong>页面</strong> （或者说 <strong>虚拟内存</strong> 中的数据块）加载到 <strong>物理内存</strong> 中，而不是一次性将整个进程加载到内存中：</p>
+<ul>
+<li>
+<p>进程开始运行时，并 <strong>不把所有页装入内存</strong></p>
+</li>
+<li>
+<p>访问到某一页时才触发：</p>
+</li>
+<li>
+<p>缺页异常（page fault）</p>
+</li>
+<li>
+<p>从磁盘调入该页</p>
+<ul>
+<li>是一种 <strong>懒加载</strong> （lazy loading）</li>
+</ul>
+</li>
+</ul>
+<p>注意</p>
+<p>我们平时说“页式虚拟存储”，默认指的基本都是 “请求页式管理”。与请求方式相对应的，叫做预调页机制，也就是说：</p>
+<blockquote>
+<p>在进程运行前，提前装入一部分或全部页面。</p>
+</blockquote>
+<p>但是在考研语境和实践中，都是指的是请求页式管理。</p>
+<h4 id="页面错误">页面错误</h4>
+<p>当进程尝试访问一个 <strong>虚拟页面</strong> ，但该页面当前未加载到 <strong>物理内存</strong> 中时，会触发 <strong>页面错误</strong> （page fault）。此时，操作系统会将相应的页面从磁盘加载到 <strong>物理内存</strong> ，进行 <strong>页面替换</strong> 。</p>
+<p>当然，上述说法中沿用了教材中的叙述方式：</p>
+<blockquote>
+<p>缺页 → 从磁盘调入 → 进行页面替换</p>
+</blockquote>
+<p>这是一个 <strong>简化模型</strong> 。</p>
+<p>实际上，<strong>page fault 的本质</strong> 是：</p>
+<blockquote>
+<p>CPU 访问虚拟地址<br>
+页表项 valid = 0 触发异常<br>
+由内核修复映射</p>
+</blockquote>
+<p>至于修复方式：</p>
+<ul>
+<li>建立映射</li>
+<li>分配物理页</li>
+<li>读磁盘</li>
+</ul>
+<p>都可能。</p>
+<p><strong>如何判断访问的页面是否在物理内存中呢？</strong></p>
+<p>通过查询 <strong>TLB</strong> 和 <strong>页表</strong> （见 <strong>单级页表</strong> ）以判断某个 <strong>虚拟地址</strong> 对应的页面是否在内存中。</p>
+<p>从 <strong>虚拟地址</strong> （VA）中提取出 <strong>虚拟页号</strong> （VPN），再查询 <strong>TLB</strong> 和 <strong>页表</strong> 中是否存在包含 <strong>VPN</strong> 的记录。如果都不存在，则说明内存中不存在与 <strong>VPN</strong> 对应的 <strong>物理页面</strong> 。</p>
+<h4 id="页面替换">页面替换</h4>
+<p><strong>页面替换</strong> 时包含两种情况：</p>
+<ol>
+<li><strong>物理内存</strong> 中存在 <strong>空闲页面</strong> （未被任何进程使用的页面）。</li>
+<li><strong>进程</strong> 中不存在任何 <strong>空闲页面</strong> ，即所有页面都被进程使用了。</li>
+</ol>
+<p><img src="/images/docs/computer-org/44a5966ec6.svg"></p>
+<p>如果存在 <strong>空闲页面</strong> ，当一个进程出现 <strong>缺页中断</strong> 时，直接使用 <strong>空闲页面</strong> 即可。</p>
+<p>如果 <strong>物理内存</strong> 已满，操作系统需要选择一个页面来替换。通常，操作系统会选择一个 <strong>不再需要的页面</strong> 进行替换，这个决策基于 <a href="/operating_system/memory/management/#%e9%a1%b5%e7%bd%ae%e6%8d%a2%e7%ae%97%e6%b3%95">使用的页面置换算法</a>。</p>
+<p>如果操作系统中配置了 <strong>交换分区</strong> （swap area），被置换的页面会被写入 <strong>交换分区</strong> ；当该页面再次被需要时，页面会从 <strong>交换分区</strong> 中加载回 <strong>物理内存</strong> 。</p>
+<p>交换分区</p>
+<p><img src="/images/docs/computer-org/image-20260612223929192.png"></p>
+<p><strong>交换分区</strong> 是硬盘上专门划出的一个区域，用来作为系统内存的“扩展”。当 <strong>物理内存</strong> 使用接近或达到上限时，操作系统会把暂时不用的内存页（比如不活跃的后台程序）移到 <strong>交换分区</strong> ，从而释放出 <strong>物理内存</strong> 。</p>
+<h3 id="访存过程">访存过程</h3>
+<p>对于进程而言，它自己可见的就是 <strong>虚拟地址</strong> （VA），当进程访问 <strong>虚拟地址</strong> 时，实际上是对某个 <strong>物理地址</strong> 进行访问。</p>
+<p><img src="/images/docs/computer-org/c7b6db1799.svg"></p>
+<p><strong>访存</strong> 主要包含两大过程：</p>
+<ol>
+<li><strong>地址翻译</strong> ：VPN → PPN，即由 <strong>虚拟地址</strong> （VA）得到 <strong>物理地址</strong> （PA）的过程。</li>
+<li>根据 <strong>物理地址</strong> （PA）去 <strong>cache</strong> 或 <strong>主存</strong> 中读取数据。</li>
+</ol>
+<p>需要熟练掌握这两大过程中的各种细节，考试中常将这些知识点组合考察。</p>
+<h4 id="虚拟地址翻译过程">虚拟地址翻译过程</h4>
+<p>操作系统经过如下步骤将 <strong>虚拟地址</strong> 转为 <strong>物理地址</strong> ：</p>
+<ol>
+<li>从 <strong>虚拟地址</strong> （VA）中提取 <strong>VPN</strong> （虚拟页号）。</li>
+<li>根据 <strong>VPN</strong> 去访问 <strong>TLB</strong> 。</li>
+</ol>
+<ul>
+<li><strong>命中 TLB</strong> ：从 <strong>TLB</strong> 中读取相应的 <strong>物理页号</strong> （PPN）。</li>
+<li><strong>未命中 TLB</strong> ：读取 <strong>页表</strong> 后更新 <strong>TLB</strong> 。
+<ul>
+<li><strong>命中页表</strong> ：从 <strong>页表</strong> 中读取相应的 <strong>PPN</strong> ，并更新 <strong>TLB</strong> 表项。</li>
+<li><strong>未命中页表</strong> ：触发 <strong>缺页中断</strong> ，从内存中找一个页面以加载 <strong>物理页面</strong>
+<ul>
+<li>存在 <strong>空闲页面</strong> ，直接使用 <strong>空闲页面</strong> ，使用其 <strong>PPN</strong> 更新 <strong>页表</strong> 。</li>
+<li>不存在 <strong>空闲页面</strong> ，选择一个进程的页面进行置换。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li>组装 <strong>物理页号</strong> （PPN）和 <strong>页内偏移</strong> （PPO）得到 <strong>物理地址</strong> 。</li>
+</ol>
+<p>上述过程可以由如下的流程图表示：</p>
+<p><img src="/images/docs/computer-org/image-20260612224025915.png"></p>
+<p>上文中提到的 <strong>缺页中断</strong> 过程忽略了一些细节，详细过程如下：</p>
+<ol>
+<li><strong>触发缺页中断</strong> ：</li>
+</ol>
+<ul>
+<li>
+<p>当 <strong>CPU</strong> 尝试访问一个 <strong>虚拟内存页面</strong> ，但该页面未加载到 <strong>物理内存</strong> （或页面无效）时，<strong>MMU</strong> 检测到页面缺失，触发 <strong>缺页中断</strong> 。</p>
+<ol start="2">
+<li><strong>判断缺页原因</strong> ：</li>
+</ol>
+</li>
+<li>
+<p><strong>页面未分配</strong> 、<strong>页面在磁盘（换出）</strong> 、<strong>非法访问</strong> （越界或权限不足）。</p>
+</li>
+<li>
+<p>若为 <strong>非法访问</strong> ，操作系统会终止程序（如段错误，Segmentation Fault）。</p>
+</li>
+</ul>
+<ol start="3">
+<li><strong>判断是否有空闲页面</strong> ：</li>
+</ol>
+<ul>
+<li>若有 <strong>空闲页面</strong> ，操作系统会分配一个新的 <strong>物理页面</strong> 。</li>
+<li>若 <strong>物理内存</strong> 不足，可能会通过页面置换算法（如 <strong>LRU</strong> ）选择一个现有页面换出到磁盘，腾出空间。</li>
+</ul>
+<ol start="4">
+<li><strong>加载页面内容</strong> ：</li>
+</ol>
+<ul>
+<li>若 <strong>页面未分配</strong> ，操作系统会分配一个新的 <strong>物理页面</strong> 。</li>
+<li>若 <strong>物理内存</strong> 不足，同上使用页面置换算法。</li>
+</ul>
+<ol start="5">
+<li><strong>更新页表</strong> ：添加一条新的页面映射表项。</li>
+<li><strong>恢复执行</strong> ：<strong>缺页中断</strong> 处理完成后，操作系统恢复被中断的程序上下文。<strong>CPU</strong> 重新执行引发缺页的指令，此时页面已可用，程序继续正常运行。</li>
+</ol>
+<p>可以通过以下流程图理解缺页中断的过程：</p>
+<p><img src="/images/docs/computer-org/7a61c99bd5.svg"></p>
+<h4 id="物理地址访存过程">物理地址访存过程</h4>
+<p><strong>访存</strong> 过程常与 <strong>地址翻译</strong> 过程一起考察。进程访问一个 <strong>虚拟地址</strong> 时，首先完成 <strong>地址翻译</strong> 得到 <strong>物理地址</strong> ，随后使用该 <strong>物理地址</strong> 访问内存。</p>
+<p>使用 <strong>物理地址</strong> 访问内存时首先判断是否命中 <strong>cache</strong> ；若未命中，则访问 <strong>内存</strong> ，随后更新 <strong>cache</strong> 。在使用 <strong>主存块</strong> 更新 <strong>cache 块</strong> 的过程中，还要根据 <strong>cache</strong> 与 <strong>主存</strong> 的映射方式决定替换哪个 <strong>cache 块</strong> ，详细过程如下图所示。</p>
+<p><img src="/images/docs/computer-org/image-20260612224110031.png"></p>
+<hr>
+<p><strong>虚拟地址翻译和访存过程总结</strong></p>
+<p>如果将 <strong>地址翻译过程</strong> 与 <strong>访存过程</strong> 放在一起，一个 <strong>虚拟地址</strong> 访问内存的大致流程为（<strong>?</strong> 表示不一定会发生）：</p>
+<p><strong>虚拟地址 → TLB → （页表）? → （缺页中断）? → 物理地址 → Cache → （内存）? → （更新 Cache）?</strong></p>
+<p><img src="/images/docs/computer-org/b82f79118c.svg"></p>
+<h2 id="相关笔记">相关笔记</h2>
+<ul>
+<li>[[circuits|运算电路]]</li>
+<li>[[data-index|数据表示与计算]]</li>
+<li>[[float|浮点数表示]]</li>
+<li>[[integers|整数的表示]]</li>
+<li>[[type-conversion|类型转换]]</li>
+</ul>
+</article>
+
+    
+    
+    
+
+    <div class="border-top-section">
+      <a href="/cc408/docs/" class="btn btn-ghost">← 返回知识点列表</a>
+    </div>
+  </main>
+</div>
+
+<style>
+.side-nav-group[open] summary { color: var(--text-primary); }
+.side-nav-group summary::-webkit-details-marker { display: none; }
+.side-nav-group summary::after {
+  content: '▸'; margin-left: auto; font-size: var(--fs-xs); transition: transform .2s;
+}
+.side-nav-group[open] summary::after { transform: rotate(90deg); }
+</style>
+
+  </main>
+  <footer class="site-footer" role="contentinfo">
+  <p>© 2026 CC408. 408考研知识整理</p>
+</footer>
+
+</body>
+</html>

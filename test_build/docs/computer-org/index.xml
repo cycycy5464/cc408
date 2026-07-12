@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>计算机组成原理 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/docs/computer-org/</link>
+    <description>Recent content in 计算机组成原理 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 25 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/docs/computer-org/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>计算机系统层次结构</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch00-overview/system-hierarchy/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch00-overview/system-hierarchy/</guid>
+      <description>&lt;p&gt;⭐ 中优先级&lt;/p&gt;&#xA;&lt;p&gt;选择题中频考点，需要熟悉下 &lt;strong&gt;冯诺依曼结构&lt;/strong&gt; 和 &lt;strong&gt;计算机几个层次的语言&lt;/strong&gt; 。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>计算机性能指标</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch00-overview/performance/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch00-overview/performance/</guid>
+      <description>&lt;p&gt;🔥 高优先级&lt;/p&gt;&#xA;&lt;p&gt;在选择题中会直接考查，也会在解答题间接考查，每个计算机性能指标都要深入掌握。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>数据表示与计算</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch01-data-representation/data-index/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch01-data-representation/data-index/</guid>
+      <description>&lt;p&gt;本章在选择题中考察，需要熟练掌握补码表示以及浮点数的 IEEE 标准。&lt;img src=&#34;https://cycycy5464.github.io/cc408/images/docs/computer-org/image-20260612221259476.png&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>整数的表示</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch01-data-representation/integers/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch01-data-representation/integers/</guid>
+      <description>&lt;p&gt;🔥 高优先级&lt;/p&gt;&#xA;&lt;p&gt;本章是每年必考的重点，&lt;strong&gt;补码&lt;/strong&gt; 、&lt;strong&gt;有符号数&lt;/strong&gt; 和 &lt;strong&gt;无符号数&lt;/strong&gt; 每年都会在选择题考查，也会在大题直接或间接考查，并且本章是组成原理的基础，必须 &lt;strong&gt;完全掌握&lt;/strong&gt; 。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>浮点数表示</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch01-data-representation/float/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch01-data-representation/float/</guid>
+      <description>&lt;p&gt;🔥 高优先级&lt;/p&gt;&#xA;&lt;p&gt;IEEE 浮点数表示的方法非常重要，每年选择题都必考，需要能够熟练计算 IEEE 浮点数的二进制和十进制之间的关联。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>类型转换</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch01-data-representation/type-conversion/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch01-data-representation/type-conversion/</guid>
+      <description>&lt;p&gt;⭐ 中优先级&lt;/p&gt;&#xA;&lt;p&gt;常在选择题考查，其实就 &lt;strong&gt;三点&lt;/strong&gt; ：整形和浮点数的转换，不同长度类型的转换，隐式和显式的转换。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>运算电路</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch01-data-representation/circuits/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch01-data-representation/circuits/</guid>
+      <description>&lt;p&gt;⭐ 中优先级&lt;/p&gt;&#xA;&lt;p&gt;其实按照长时间线来看，运算电路直接考察得倒不多，但是这两年有考察增多的趋势，所以标记为中优先级。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>存储系统</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch02-memory/memory-index/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch02-memory/memory-index/</guid>
+      <description>&lt;p&gt;本章是重中之重，在选择题和大题中每年都会考察，需要理解通透。其中 cache 和虚拟存储器常常和操作系统中的相关知识放在一起考察，需要能够将两门课相关内容联系起来。&#xA;&lt;img src=&#34;https://cycycy5464.github.io/cc408/images/docs/computer-org/image-20260612222133958.png&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>存储系统概述</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch02-memory/overview/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch02-memory/overview/</guid>
+      <description>&lt;p&gt;⭐ 中优先级&lt;/p&gt;&#xA;&lt;p&gt;存储器的概念经常在选择题中考察，需要了解常见存储器的类型和特点，在选择题中看见相关名词能够辨识选出正确答案。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>内存</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch02-memory/ram/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch02-memory/ram/</guid>
+      <description>&lt;h3 id=&#34;dram-芯片&#34;&gt;DRAM 芯片&lt;/h3&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/constitution_principle/storage/defs/#dram&#34;&gt;DRAM&lt;/a&gt; 芯片是一种 &lt;strong&gt;动态随机存取存储器&lt;/strong&gt; ，通过 &lt;strong&gt;1T1C&lt;/strong&gt; （1 晶体管 +1 电容器）存储单元以行列矩阵形式组织数据，依靠电容器电荷存储比特，需定期 &lt;strong&gt;刷新&lt;/strong&gt; 以防止数据丢失。其 &lt;strong&gt;高容量、低成本&lt;/strong&gt; 特性使其广泛用于计算机 &lt;strong&gt;主内存&lt;/strong&gt; 。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Cache</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch02-memory/cache/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch02-memory/cache/</guid>
+      <description>&lt;p&gt;🔥 高优先级&lt;/p&gt;&#xA;&lt;p&gt;这个没必要多说了，408 中绝对的重点，每年都必考而且占分值很多，&lt;strong&gt;cache&lt;/strong&gt; 和 &lt;strong&gt;虚拟页式存储器&lt;/strong&gt; 在 计算机组成原理/操作系统 中的地位就是 &lt;strong&gt;耶路撒冷&lt;/strong&gt; 在西方的地位。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>外存</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch02-memory/external/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch02-memory/external/</guid>
+      <description>&lt;h3 id=&#34;机械硬盘&#34;&gt;机械硬盘&lt;/h3&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://cycycy5464.github.io/cc408/images/docs/computer-org/d53b506fd7.svg&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;偶尔会在大题中考察，在选择题中一般都会有一题，优先掌握 CHS 地址和 性能指标 的计算。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>虚拟存储器</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch02-memory/virtual/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch02-memory/virtual/</guid>
+      <description>&lt;p&gt;🔥 高优先级&lt;/p&gt;&#xA;&lt;p&gt;虚拟存储器 和 cache 一样重要，而且考察的方式往往是复合考察，将两者的知识融合在一起放到大题中考察，需要能够从存储系统全局看待这两者的关联。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>指令系统</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch03-instruction/instruction-index/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch03-instruction/instruction-index/</guid>
+      <description>&lt;p&gt;本章也是重点，常常在大题中与 CPU 放在一起考察。需要熟练掌握指令的格式以及寻址方式，并且能够根据题目灵活应变。&#xA;&lt;img src=&#34;https://cycycy5464.github.io/cc408/images/docs/computer-org/image-20260612224139501.png&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>指令集种类</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch03-instruction/types/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch03-instruction/types/</guid>
+      <description>&lt;h3 id=&#34;指令体系结构&#34;&gt;指令体系结构&lt;/h3&gt;&#xA;&lt;p&gt;💡 低优先级&lt;/p&gt;&#xA;&lt;p&gt;指令体系结构 偶尔在选择题中考查，概念看一看，留个印象，基本就没问题。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>指令格式与寻址方式</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch03-instruction/format-addressing/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch03-instruction/format-addressing/</guid>
+      <description>&lt;p&gt;🔥 高优先级&lt;/p&gt;&#xA;&lt;p&gt;组成原理说实话就 &lt;strong&gt;两大块&lt;/strong&gt; ：cache 和 虚拟存储器，这两个要放在一起。指令系统 和 CPU，这两个也要放一起。两大块内部的知识点都是相互耦合的，需要综合理解。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>数据对齐</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch03-instruction/data-alignment/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch03-instruction/data-alignment/</guid>
+      <description>&lt;p&gt;⭐ 中优先级&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;数据对齐&lt;/strong&gt; 和 &lt;strong&gt;大小端&lt;/strong&gt; 在选择题考查得挺频繁的，但是这两点也比较简单，真正掌握要点了基本不会忘。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>指令操作码</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch03-instruction/opcode/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch03-instruction/opcode/</guid>
+      <description>&lt;p&gt;#指令系统-指令操作码&lt;/p&gt;&#xA;&lt;p&gt;🔥 高优先级&lt;/p&gt;&#xA;&lt;p&gt;本节要和 CPU 中的 &lt;strong&gt;控制器&lt;/strong&gt; 放在一起理解，也是后续 CPU 的基础。当然，其中协处理器和字符串操作指令不大重要，可以不作为重点，其他的操作码都要 &lt;strong&gt;深入理解&lt;/strong&gt; 。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>高级语言与机器码</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch03-instruction/hll-machine/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch03-instruction/hll-machine/</guid>
+      <description>&lt;h3 id=&#34;编译过程&#34;&gt;编译过程&lt;/h3&gt;&#xA;&lt;p&gt;💡 低优先级&lt;/p&gt;&#xA;&lt;p&gt;考查得很少，大致了解 &lt;strong&gt;编译的具体流程&lt;/strong&gt; 和 &lt;strong&gt;每个阶段的具体任务&lt;/strong&gt; 就行。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>中央处理器</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch04-cpu/cpu-index/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch04-cpu/cpu-index/</guid>
+      <description>&lt;p&gt;本章是重中之重，几乎每年都会在大题和选择题中考察。需要熟练掌握 CPU 的结构、寄存器类型以及指令执行的流程，关于 CPU 的考察也常常和指令系统混合在一起，需要能够从一个高维的角度，思考 CPU、指令、控制器以及外部设备的关系。&#xA;&lt;img src=&#34;https://cycycy5464.github.io/cc408/images/docs/computer-org/image-20260612231133463.png&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>CPU功能与结构</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch04-cpu/function-structure/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch04-cpu/function-structure/</guid>
+      <description>&lt;p&gt;🔥 高优先级&lt;/p&gt;&#xA;&lt;p&gt;本节很重要，其实应该不需要我再强调了。本节要和指令系统放在一起理解，主要两点：1. 理解 CPU 的 &lt;strong&gt;架构方式&lt;/strong&gt; 。2. 理解 CPU 中 &lt;strong&gt;各种寄存器的功能细节&lt;/strong&gt; 。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>控制器</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch04-cpu/controller/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch04-cpu/controller/</guid>
+      <description>&lt;p&gt;⭐ 中优先级&lt;/p&gt;&#xA;&lt;p&gt;说实话，本节内容虽然多，但考察也没有那么频繁，主要关注 &lt;strong&gt;两点&lt;/strong&gt; ：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>异常与中断</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch04-cpu/exceptions/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch04-cpu/exceptions/</guid>
+      <description>&lt;p&gt;🔥 高优先级&lt;/p&gt;&#xA;&lt;p&gt;本节也基本是选择题必考，要掌握 &lt;strong&gt;异常和中断的区别&lt;/strong&gt; ，就是概念上要区分开，不知道为啥，老头们很喜欢考这个。关于中断的具体介绍参考 &lt;a href=&#34;https://cycycy5464.github.io/cc408/constitution_principle/bus/io/#%e7%a8%8b%e5%ba%8f%e4%b8%ad%e6%96%ad%e6%96%b9%e5%bc%8f&#34;&gt;组成原理相关章节&lt;/a&gt; 的内容。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>指令流水线</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch04-cpu/pipeline/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch04-cpu/pipeline/</guid>
+      <description>&lt;p&gt;🔥 高优先级&lt;/p&gt;&#xA;&lt;p&gt;流水线的考题包含 &lt;strong&gt;三大点&lt;/strong&gt; （重要） 和 &lt;strong&gt;两小点&lt;/strong&gt; ：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;三大点：1. 在流水线中指令执行的 &lt;strong&gt;各个阶段&lt;/strong&gt; 的细节。2. &lt;strong&gt;时空图&lt;/strong&gt; 的画法。3. &lt;strong&gt;流水线冒险的种类和处理方法&lt;/strong&gt; 。&lt;/li&gt;&#xA;&lt;li&gt;两小点：1. 单周期和多周期处理器的概念。 2. 流水线指标。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;指令执行阶段&#34;&gt;指令执行阶段&lt;/h3&gt;&#xA;&lt;p&gt;指令的执行由很多按照时序进行的微操作组成，从逻辑角度进行划分，指令执行可以被分为 &lt;strong&gt;五个阶段&lt;/strong&gt; ：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>多处理器</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch04-cpu/multiprocessor/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch04-cpu/multiprocessor/</guid>
+      <description>&lt;p&gt;💡 低优先级&lt;/p&gt;&#xA;&lt;p&gt;低频考点，了解基本概念，碰到选择题能大致选出来就行。&lt;/p&gt;&#xA;&lt;h3 id=&#34;弗林分类法&#34;&gt;弗林分类法&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;弗林分类法&lt;/strong&gt; （Flynn’s Taxonomy）是一种计算机体系结构的分类方法，由 &lt;strong&gt;弗林&lt;/strong&gt; （Michael J. Flynn）于 1966 年提出。它根据计算机中 &lt;strong&gt;指令流&lt;/strong&gt; 和 &lt;strong&gt;数据流&lt;/strong&gt; 的数量，将计算机体系结构分为 &lt;strong&gt;SISD&lt;/strong&gt; 、&lt;strong&gt;SIMD&lt;/strong&gt; 、&lt;strong&gt;MIMD&lt;/strong&gt; 、&lt;strong&gt;MISD&lt;/strong&gt; 四类：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>总线</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch05-bus/bus/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch05-bus/bus/</guid>
+      <description>&lt;p&gt;🔥 高优先级&lt;/p&gt;&#xA;&lt;p&gt;本节几个概念是选择题常考点：&lt;strong&gt;总线指标&lt;/strong&gt; 、&lt;strong&gt;总线分类&lt;/strong&gt; 、&lt;strong&gt;总线事务&lt;/strong&gt; 、&lt;strong&gt;总线定时&lt;/strong&gt; 。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>总线和I/O系统</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch05-bus/bus-io/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch05-bus/bus-io/</guid>
+      <description>&lt;p&gt;本章在选择题中考察，需要了解总线和 I/O 的相关概念，看到题目能够选出来即可。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>I/O系统</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch06-io/io-system/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch06-io/io-system/</guid>
+      <description>&lt;p&gt;🔥 高优先级&lt;/p&gt;&#xA;&lt;p&gt;选择题高频考点，主要两点：1. &lt;strong&gt;IO 接口和端口&lt;/strong&gt; 。2. &lt;strong&gt;几种 IO 方式的细节和区别&lt;/strong&gt; 。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>概论</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch00-overview/introduction/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch00-overview/introduction/</guid>
+      <description>&lt;p&gt;计算机组成原理在 408 试卷中占据 45 分，和数据结构一样，是分数占比最大的科目，同样会考察 11 道选择题和两道大题。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

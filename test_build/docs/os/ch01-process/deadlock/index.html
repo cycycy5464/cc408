@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>死锁 | CC408</title>
+  <meta name="description" content="⭐ 中优先级
+选择题高频考点，本节的几个知识点都经常考察，除了死锁的检测和删除之外。
+死锁产生的必要条件 只有以下四个条件同时满足，死锁 才会发生：
+互斥条件 （Mutual Exclusion）: 指的是至少有一个资源必须处于非共享模式，也就是说，一次只有一个进程可以使用资源。如果其他进程请求该资 …">
+  <link rel="icon" href="/cc408/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" as="script" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" as="script" crossorigin="anonymous">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/cc408/css/custom.min.ecad70eed0f9849f67d23e2bf502ae36e7f590486681964e1c95bc71c8672493.css" integrity="sha256-7K1w7tD5hJ9n0j4r9QKuNuf1kEhmgZZOHJW8cchnJJM=">
+  
+
+<script src="/cc408/js/watermark.js"></script>
+
+
+  <script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.content-area img,.docs-layout img').forEach(function(i){if(!i.src.match(/\.svg$/i)){i.loading='lazy';i.fetchPriority='low';}});});</script>
+</head>
+<body style="background: var(--bg-primary); color: var(--text-primary);">
+  <a href="#main-content" class="skip-link">跳转到主要内容</a>
+  <nav class="navbar" role="navigation" aria-label="主导航">
+  <a href="/cc408/" class="navbar-brand">CC408</a>
+  <button class="navbar-toggle" aria-label="菜单" onclick="this.parentElement.querySelector('.navbar-links').classList.toggle('open')">☰</button>
+  <div class="navbar-links" role="menubar">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      首页
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/docs/" role="menuitem" class="active" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识点
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      刷题
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/quiz-collection/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      收藏
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/graph/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识图谱
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/tags/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      标签
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/resources/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      资源
+    </a>
+    
+  </div>
+  <div class="navbar-right">
+    <a href="https://cycycy5464.github.io/">个人主页 →</a>
+  </div>
+</nav>
+
+  <main id="main-content" style="padding-top: 70px; min-height: calc(100vh - 120px);">
+    
+<div class="docs-layout">
+  <aside class="side-nav">
+    
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>📊</span><span>数据结构</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/basic-concepts/" class="side-nav-link ">数据结构基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/algorithm-concepts/" class="side-nav-link ">算法基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linear-list-index/" class="side-nav-link ">线性表概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/definition/" class="side-nav-link ">线性表定义与基本操作</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/sequential-list/" class="side-nav-link ">顺序表</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linked-list/" class="side-nav-link ">链表</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/stack/" class="side-nav-link ">栈</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/queue/" class="side-nav-link ">队列</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/application/" class="side-nav-link ">栈和队列的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/linear-data-structure/" class="side-nav-link ">线性数据结构</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/string-index/" class="side-nav-link ">串概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/definition/" class="side-nav-link ">串的定义与实现</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/pattern-matching/" class="side-nav-link ">串的模式匹配</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/array-matrix/" class="side-nav-link ">数组和特殊矩阵</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree/" class="side-nav-link ">树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-and-binary-tree/" class="side-nav-link ">树与二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/binary-tree/" class="side-nav-link ">二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-applications/" class="side-nav-link ">树的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/graph-index/" class="side-nav-link ">图概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/definition/" class="side-nav-link ">图的定义</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/algorithms/" class="side-nav-link ">图的算法和应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/search-index/" class="side-nav-link ">查找概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/array-search/" class="side-nav-link ">数组查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/tree-search/" class="side-nav-link ">树形查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/hash-search/" class="side-nav-link ">散列表查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/sort-index/" class="side-nav-link ">排序概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/internal-sort/" class="side-nav-link ">内部排序</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/external-sort/" class="side-nav-link ">外部排序</a>
+      
+      <a href="/cc408/exam/exercise/data_structure/" class="side-nav-link ">数据结构篇</a>
+      
+      <a href="/cc408/exam/application/2023-q1/" class="side-nav-link ">2023年408真题 - 应用题第1题</a>
+      
+      <a href="/cc408/exam/choice/2024-q5/" class="side-nav-link ">2024年408真题 - 数据结构选择题第5题</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/introduction/" class="side-nav-link ">绪论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>⚙️</span><span>计算机组成原理</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/system-hierarchy/" class="side-nav-link ">计算机系统层次结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/performance/" class="side-nav-link ">计算机性能指标</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/data-index/" class="side-nav-link ">数据表示与计算</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/integers/" class="side-nav-link ">整数的表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/float/" class="side-nav-link ">浮点数表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/type-conversion/" class="side-nav-link ">类型转换</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/circuits/" class="side-nav-link ">运算电路</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/memory-index/" class="side-nav-link ">存储系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/overview/" class="side-nav-link ">存储系统概述</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/ram/" class="side-nav-link ">内存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/cache/" class="side-nav-link ">Cache</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/external/" class="side-nav-link ">外存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/virtual/" class="side-nav-link ">虚拟存储器</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/instruction-index/" class="side-nav-link ">指令系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/types/" class="side-nav-link ">指令集种类</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/format-addressing/" class="side-nav-link ">指令格式与寻址方式</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/data-alignment/" class="side-nav-link ">数据对齐</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/opcode/" class="side-nav-link ">指令操作码</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/hll-machine/" class="side-nav-link ">高级语言与机器码</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/cpu-index/" class="side-nav-link ">中央处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/function-structure/" class="side-nav-link ">CPU功能与结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/controller/" class="side-nav-link ">控制器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/exceptions/" class="side-nav-link ">异常与中断</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/pipeline/" class="side-nav-link ">指令流水线</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/multiprocessor/" class="side-nav-link ">多处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus/" class="side-nav-link ">总线</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus-io/" class="side-nav-link ">总线和I/O系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch06-io/io-system/" class="side-nav-link ">I/O系统</a>
+      
+      <a href="/cc408/exam/exercise/architecture/" class="side-nav-link ">计算机组成原理</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/introduction/" class="side-nav-link ">概论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🖥️</span><span>操作系统</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/os/ch00-overview/os-concept/" class="side-nav-link ">操作系统概念</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/os-structure/" class="side-nav-link ">操作系统结构</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/program-env/" class="side-nav-link ">程序运行环境</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-index/" class="side-nav-link ">进程管理</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-thread/" class="side-nav-link ">进程与线程</a>
+      
+      <a href="/cc408/docs/os/ch01-process/scheduling/" class="side-nav-link ">处理机调度</a>
+      
+      <a href="/cc408/docs/os/ch01-process/sync-mutex/" class="side-nav-link ">同步与互斥</a>
+      
+      <a href="/cc408/docs/os/ch01-process/classic-sync/" class="side-nav-link ">经典同步问题</a>
+      
+      <a href="/cc408/docs/os/ch01-process/deadlock/" class="side-nav-link active">死锁</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/memory-index/" class="side-nav-link ">内存管理</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/concepts/" class="side-nav-link ">内存管理概念</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/virtual/" class="side-nav-link ">虚拟内存管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-index/" class="side-nav-link ">文件管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-basics/" class="side-nav-link ">文件</a>
+      
+      <a href="/cc408/docs/os/ch03-file/directory/" class="side-nav-link ">目录</a>
+      
+      <a href="/cc408/docs/os/ch03-file/filesystem/" class="side-nav-link ">文件系统</a>
+      
+      <a href="/cc408/docs/os/ch04-io/io-index/" class="side-nav-link ">I/O管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/devices/" class="side-nav-link ">I/O设备</a>
+      
+      <a href="/cc408/docs/os/ch04-io/device-mgmt/" class="side-nav-link ">设备管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/disk/" class="side-nav-link ">磁盘</a>
+      
+      <a href="/cc408/code/clock/" class="side-nav-link ">CLOCK 时钟替换算法</a>
+      
+      <a href="/cc408/code/lru/" class="side-nav-link ">LRU 算法</a>
+      
+      <a href="/cc408/code/spinlock/" class="side-nav-link ">TAS 实现自旋锁</a>
+      
+      <a href="/cc408/exam/exercise/os/" class="side-nav-link ">操作系统</a>
+      
+      <a href="/cc408/code/reader_writer/" class="side-nav-link ">读者写着问题</a>
+      
+      <a href="/cc408/code/monitor/" class="side-nav-link ">管程实现生产者消费者</a>
+      
+      <a href="/cc408/code/producer_consumer/" class="side-nav-link ">生产者消费者问题</a>
+      
+      <a href="/cc408/code/banker/" class="side-nav-link ">银行家算法</a>
+      
+      <a href="/cc408/code/philosopher/" class="side-nav-link ">哲学家就餐问题</a>
+      
+      <a href="/cc408/exam/comprehensive/2022-q1/" class="side-nav-link ">2022年408真题 - 综合题第1题</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/computer-overview/" class="side-nav-link ">计算机系统概述</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🌐</span><span>计算机网络</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/network/ch00-overview/layered/" class="side-nav-link ">分层结构</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/protocol-summary/" class="side-nav-link ">各层协议总结</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/device-summary/" class="side-nav-link ">网络设备总结</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/phy-index/" class="side-nav-link ">物理层</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/communication/" class="side-nav-link ">通信概念</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/encoding/" class="side-nav-link ">编码与调制</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/switching/" class="side-nav-link ">交换方式</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/devices/" class="side-nav-link ">物理层设备</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/dl-index/" class="side-nav-link ">数据链路层</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/framing/" class="side-nav-link ">组帧</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/error-control/" class="side-nav-link ">差错控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/flow-control/" class="side-nav-link ">流量控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/mac/" class="side-nav-link ">介质访问控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/lan-wan/" class="side-nav-link ">局域网与广域网</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/devices/" class="side-nav-link ">数据链路层设备</a>
+      
+      <a href="/cc408/docs/network/ch03-network/nw-index/" class="side-nav-link ">网络层</a>
+      
+      <a href="/cc408/docs/network/ch03-network/ip/" class="side-nav-link ">IP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/arp/" class="side-nav-link ">ARP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/icmp/" class="side-nav-link ">ICMP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/dhcp/" class="side-nav-link ">DHCP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/routing/" class="side-nav-link ">路由算法</a>
+      
+      <a href="/cc408/docs/network/ch03-network/sdn/" class="side-nav-link ">SDN</a>
+      
+      <a href="/cc408/docs/network/ch03-network/devices/" class="side-nav-link ">网络层设备</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tp-index/" class="side-nav-link ">传输层</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tcp/" class="side-nav-link ">TCP</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/udp/" class="side-nav-link ">UDP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-index/" class="side-nav-link ">应用层</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-model/" class="side-nav-link ">网络应用模型</a>
+      
+      <a href="/cc408/docs/network/ch05-application/dns/" class="side-nav-link ">DNS</a>
+      
+      <a href="/cc408/docs/network/ch05-application/ftp/" class="side-nav-link ">FTP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/email/" class="side-nav-link ">电子邮件</a>
+      
+      <a href="/cc408/docs/network/ch05-application/www/" class="side-nav-link ">万维网</a>
+      
+      <a href="/cc408/exam/exercise/network/" class="side-nav-link ">计算机网络</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/arch-index/" class="side-nav-link ">计算机网络体系结构</a>
+      
+    </details>
+    
+  </aside>
+  <main class="content-area">
+    <h1>死锁</h1>
+    <div class="meta-row">
+      
+      <span><span class="diff-star">★</span><span class="diff-star-empty">☆</span><span class="diff-star-empty">☆</span></span>
+      
+      <span class="tag">进程管理</span>
+    </div>
+    <article><p>⭐ 中优先级</p>
+<p>选择题高频考点，本节的几个知识点都经常考察，除了死锁的检测和删除之外。</p>
+<h3 id="死锁产生的必要条件">死锁产生的必要条件</h3>
+<p>只有以下四个条件同时满足，<strong>死锁</strong> 才会发生：</p>
+<ol>
+<li><strong>互斥条件</strong> （Mutual Exclusion）: 指的是至少有一个资源必须处于非共享模式，也就是说，一次只有一个进程可以使用资源。如果其他进程请求该资源，那么请求的进程必须等到该资源的持有者释放该资源。</li>
+<li><strong>占有并等待</strong> （Hold and Wait）: 指的是一个进程因请求资源而阻塞时，对当前获得的资源保持不放。换句话说，进程至少已经持有一个资源，但又申请新的资源；由于其他进程持有这些资源，所以它现在是阻塞的。</li>
+<li><strong>非抢占</strong> （No Preemption）: 资源不能被抢占，也就是说，只有资源的持有者才可以释放它。资源在完全自愿的基础上被释放，不能被强行从持有进程中夺走。</li>
+<li><strong>循环等待</strong> （Circular Wait）：存在一个进程资源的等待链，链中的每一个进程都在等待下一个进程所持有的资源。这导致了一个循环的等待链。</li>
+</ol>
+<p>为了 <strong>避免死锁</strong> ，需要 <strong>破坏</strong> 上述的任意一个条件。</p>
+<hr>
+<p><img src="/images/docs/os/e1a5c9fc49.svg"></p>
+<p>占有</p>
+<p>想要</p>
+<p>上图中的进程就处于<strong>死锁状态</strong> 。每个进程都既要又要，持有的不释放，想要的也得不到，也不允许其他进程去抢占自己所占有的，所有的进程和资源之间组成一个循环链条。以上这些特点决定了系统进入了<strong>死锁状态</strong> 。</p>
+<h3 id="死锁处理策略">死锁处理策略</h3>
+<p><strong>处理死锁</strong> 主要包含三种策略：</p>
+<ol>
+<li><strong>死锁预防</strong> ：设置限制条件，破坏产生<strong>死锁</strong> 的 4 个必要条件之一。</li>
+<li><strong>死锁避免</strong> ：在资源的动态分配过程中，用某种算法避免系统进入不安全状态。</li>
+<li><strong>死锁的检测和解除</strong> ：允许进程在运行过程中发生<strong>死锁</strong> ，通过系统检测机构及时检测出<strong>死锁</strong> 的发生，然后采取某种措施解除<strong>死锁</strong> 。</li>
+</ol>
+<h3 id="死锁预防">死锁预防</h3>
+<p><img src="/images/docs/os/0ebc611249.svg"></p>
+<p>死锁预防 (Deadlock Prevention)1. 破坏互斥条件• 资源复制或虚拟化技术• 减少资源的互斥使用• 某些硬件资源难以避免互斥共享2. 破坏占有并等待• 一次性申请所有所需资源• 申请失败则释放已分配资源一次性3. 破坏非抢占• 允许进程抢占其他进程的资源• 需要时可强制回收资源抢占4. 破坏循环等待• 对资源申请顺序进行限制• 按固定顺序申请资源123顺序!核心思想通过破坏死锁产生的四个必要条件中的至少一个，从根本上避免死锁的发生优点• 彻底避免死锁• 实现相对简单• 易于理解和验证缺点• 资源利用率低• 限制并发度• 可能导致饥饿</p>
+<p><strong>死锁预防</strong> 是通过确保系统永远不会满足<strong>死锁</strong> 产生的四个必要条件中的某些条件，从而避免<strong>死锁</strong> 的发生：</p>
+<ol>
+<li><strong>破坏互斥条件</strong></li>
+</ol>
+<ul>
+<li>
+<p>互斥条件在某些情况下是不可避免的，例如打印机等硬件资源。但在某些场景下，通过资源复制或虚拟化技术，可以尝试减少资源的互斥使用。</p>
+<ol start="2">
+<li><strong>破坏占有并等待</strong></li>
+</ol>
+</li>
+<li>
+<p>要求进程在开始时一次性申请其需要的所有资源。只有当所有资源都可用时，进程才被分配资源并开始执行。这样，进程在执行期间不会等待其他资源。</p>
+</li>
+<li>
+<p>另一个方法是，如果进程申请新资源而被拒绝，则它必须释放所有已分配的资源，再重新申请。</p>
+</li>
+</ul>
+<ol start="3">
+<li><strong>破坏非抢占</strong></li>
+</ol>
+<ul>
+<li>
+<p>当一个进程需要的资源被另一个进程所占有时，它可以抢占另一个进程的资源。</p>
+<ol start="4">
+<li><strong>破坏循环等待</strong></li>
+</ol>
+</li>
+<li>
+<p>对进程申请资源的顺序进行限制</p>
+</li>
+</ul>
+<h3 id="死锁避免">死锁避免</h3>
+<p><strong>死锁避免</strong> 是系统级的算法，需要对系统的资源和实体进行抽象，进行统筹规划，其中最经典的算法是 <strong>银行家算法</strong> 。</p>
+<h4 id="银行家算法">银行家算法</h4>
+<p>这里首先说一下次算法的命名，为什么叫“银行家”。一般而言，银行家都具备以下特点：</p>
+<ul>
+<li>掌管金库（即资源），可以放贷（即满足进程申请的资源）</li>
+<li>理性地作出决策，避免银行破产（即系统进入不安全状态）</li>
+</ul>
+<p>相对于银行家的就是客户（即进程），进程需要申请一定量的资源。<br>
+但是进程可能不会立即申请全部的资源，进程也许会依次申请所有请求资源中的一部分，当进程申请完全部的资源之后，它才会释放这些资源。</p>
+<p>为了对刚刚描述的过程进行建模，我们需要定义如下的 数据结构 ：</p>
+<ul>
+<li>
+<p>系统</p>
+</li>
+<li>
+<p><code>Available</code>：表示每种资源的 <strong>可用数量</strong> 。</p>
+<ul>
+<li>进程</li>
+</ul>
+</li>
+<li>
+<p><code>Max</code>：表示每个进程对每种资源的 <strong>最大需求量</strong> 。</p>
+</li>
+<li>
+<p><code>Allocation</code>：表示已经 <strong>分配给</strong> 每个进程的资源数量。</p>
+</li>
+<li>
+<p><code>Need</code>：表示每个进程 <strong>还需要</strong> 的资源数量，<code>Need = Max - Allocation</code></p>
+</li>
+</ul>
+<p>系统中所有进程的资源状态可以用下表所示：</p>
+<p><img src="/images/docs/os/7c0d4089f6.svg"></p>
+<h5 id="算法步骤">算法步骤</h5>
+<ol>
+<li><strong>初始化</strong> ：为每个进程和每种资源设置 <code>Max</code>、<code>Allocation</code> 和 <code>Need</code>。</li>
+<li>当一个进程请求资源时，检查请求的资源数量是否 <strong>小于等于</strong> <code>Need</code>，如果大于则请求失败。</li>
+<li>检查请求的资源数量是否 <strong>小于等于</strong> <code>Available</code>，如果大于则请求失败。</li>
+<li>如果请求合法（满足上述两个条件），则 <strong>模拟分配</strong> 资源给该进程（预分配），即将资源从系统的 <code>Available</code> 减去，加到进程的 <code>Allocation</code> 中，并从进程的 <code>Need</code> 中减去相应数量的资源。</li>
+<li>然后，进行 <a href="/operating_system/process/deadlock/#%e5%ae%89%e5%85%a8%e6%80%a7%e6%a3%80%e6%9f%a5">安全性检查</a>，判断是否存在一种 <strong>安全分配序列</strong> ，使得所有进程都能顺利执行完成。</li>
+<li>如果存在 <strong>安全分配序列</strong> ，则执行资源分配，否则拒绝请求，因为分配资源可能导致<strong>死锁</strong> ，并且回收预先模拟分配的资源。</li>
+<li>当进程完成任务时，释放已分配的资源，将它们从 <code>Allocation</code> 减去，加到 <code>Available</code> 中。</li>
+</ol>
+<hr>
+<p>银行家 <strong>算法流程</strong> 如下图所示：</p>
+<p><img src="/images/docs/os/image-20260611221903654.png"></p>
+<h5 id="安全分配序列">安全分配序列</h5>
+<p><strong>安全分配序列</strong> 是进程的一个排列，它保证了对于序列中的每个进程，当这些进程都申请 <strong>Need</strong> 中的全部资源时，系统都能够满足这些需求。</p>
+<p>如果系统存在一个 <strong>安全分配序列</strong> ，则系统处于 <strong>安全状态</strong> 。</p>
+<p>注意</p>
+<p><strong>不安全状态不意味着死锁</strong> ，但它意味着有死锁的风险。不安全状态只是死锁的一个先兆，但不是死锁本身。</p>
+<p>对于前图中的各进程状态，我们可以得到如下的一个 <strong>安全分配序列</strong> ：</p>
+<p><img src="/images/docs/os/ef1cd88a12.svg"></p>
+<p>具体计算过程如下：</p>
+<ul>
+<li>首先，<code>available = (3, 3, 2) &gt; P1_Need = (1, 2, 2)</code>，分配资源给 <code>P1</code> 后回收 <code>P1_Allocation = (2, 0, 0)</code>，然后 <code>available</code> 增加为 <code>(5, 3, 2)</code></li>
+<li>其次，<code>available = (5, 3, 2) &gt; P3_Need = (0, 1, 1)</code>，分配资源给 <code>P3</code> 后回收 <code>P3_Allocation = (2, 1, 1)</code>，然后 <code>available</code> 增加为 <code>(7, 4, 3)</code></li>
+<li>…..</li>
+<li>以此类推，得到 <strong>安全序列</strong> <code>P1</code>、<code>P3</code>、<code>P0</code>、<code>P2</code>、<code>P4</code></li>
+</ul>
+<h5 id="安全性检查">安全性检查</h5>
+<p><img src="/images/docs/os/3529c44caf.svg"></p>
+<p><strong>安全性检查</strong> 即判断系统中是否至少存在一个 <strong>安全分配序列</strong> ，其过程如下：</p>
+<p>假设系统中存在 <strong>N</strong> 个进程的话，则最多进行 <strong>N</strong> 轮遍历，每一轮至少找到一个 <strong>need 小于或等于 available</strong> 的进程，如果可以找到的话，就回收这些进程的 <strong>allocation</strong> ，并将其加入 <strong>available</strong> 中，直到回收了所有进程的资源。如果有一轮存在这种情况：剩余的进程（任务未完成的进程）中的每一个 <strong>need</strong> 都大于 <strong>available</strong> ，那么则说明无法找到一个 <strong>安全分配序列</strong> ，系统处于 <strong>不安全状态</strong> 。</p>
+<p>这种判断方式的背后具有这样的逻辑：因为进程必须申请完所有需要的资源（即 <strong>max</strong> ）才能返还已申请的资源，所以系统在当下肯定是尽量满足那些可以返还资源的进程，因为只有回收了一些资源之后，才能满足之前可能无法满足的进程。</p>
+<p>但是如果在某一个时刻，剩余的进程的资源一个都无法回收了，那么系统就进入了 <strong>不安全状态</strong> 。</p>
+<p>BankersAlgorithmcluster_legend关键概念说明cluster_example算法逻辑legend1Need[i]: 进程 i 还需要的资源Allocation[i]: 进程 i 已分配的资源Work: 当前可用资源(初始为 Available)start开始安全性检查init初始化:- 设置轮数 round = 1- 复制 available 到 work- 标记所有进程为未完成start-&gt;initcheck_round第 round 轮检查init-&gt;check_roundfind_process寻找满足条件的进程 Pi:Need[i] ≤ Workcheck_round-&gt;find_processfound找到进程 Pi?find_process-&gt;foundallocate模拟完成进程 Pi:1. Work = Work + Allocation[i]2. 标记 Pi 为已完成3. 记录到安全序列found-&gt;allocate是unsafe_state系统处于不安全状态无法找到安全分配序列found-&gt;unsafe_state否all_finished所有进程都已完成?allocate-&gt;all_finishedall_finished-&gt;find_process否safe_state系统处于安全状态存在安全分配序列all_finished-&gt;safe_state是end_safe结束: 安全safe_state-&gt;end_safemax_rounds已达到 N 轮?unsafe_state-&gt;max_roundsnext_roundround = round + 1继续下一轮next_round-&gt;check_roundmax_rounds-&gt;next_round否end_unsafe结束: 不安全max_rounds-&gt;end_unsafe是logic核心思想:1. 每轮寻找 Need ≤ Work 的进程2. 模拟该进程完成后回收资源3. 重复直到所有进程完成或无法继续4. 最多进行 N 轮(N为进程数)</p>
+<p>这里还要需要注意的是，在实际的算法中，我们需要用 <strong>work</strong> 替代 <strong>available</strong> 来帮助我们完成 <strong>安全性检查</strong> 的过程，因为检查只是一种“逻辑推演”，我们并不希望实际修改系统中的资源情况，具体的代码实现可以参考如下链接：</p>
+<p><a href="/cc408/code/banker/">银行家算法代码实现</a></p>
+<h3 id="死锁的检测和删除">死锁的检测和删除</h3>
+<p>为了能对系统是否已发生了 <strong>死锁</strong> 进行检测，必须：</p>
+<ol>
+<li>用某种数据结构来保存资源的请求和分配信息：</li>
+<li>提供一种算法，利用上述信息来检测系统是否已进入 <strong>死锁</strong> 状态。</li>
+</ol>
+<p>一般来说，一种简单的建模方式是使用 <strong>资源分配图</strong> ：</p>
+<ul>
+<li>将系统中的所有资源和进程表示为图中的节点。</li>
+<li>如果进程 P1 请求资源 R1，绘制从 P1 到 R1 的有向边。</li>
+<li>如果资源 R1 分配给了进程 P2，绘制从 R1 到 P2 的有向边。</li>
+</ul>
+<p>在构建完 <strong>资源分配图</strong> ，可以通过使用 <strong>DFS</strong> 检查图中是否存在环路以判断是否存在<strong>死锁</strong> 。</p>
+<h2 id="相关笔记">相关笔记</h2>
+<ul>
+<li>[[computer-overview|计算机系统概述]]</li>
+<li>[[os-concept|操作系统概念]]</li>
+<li>[[os-structure|操作系统结构]]</li>
+<li>[[program-env|程序运行环境]]</li>
+</ul>
+</article>
+
+    
+    
+    
+
+    <div class="border-top-section">
+      <a href="/cc408/docs/" class="btn btn-ghost">← 返回知识点列表</a>
+    </div>
+  </main>
+</div>
+
+<style>
+.side-nav-group[open] summary { color: var(--text-primary); }
+.side-nav-group summary::-webkit-details-marker { display: none; }
+.side-nav-group summary::after {
+  content: '▸'; margin-left: auto; font-size: var(--fs-xs); transition: transform .2s;
+}
+.side-nav-group[open] summary::after { transform: rotate(90deg); }
+</style>
+
+  </main>
+  <footer class="site-footer" role="contentinfo">
+  <p>© 2026 CC408. 408考研知识整理</p>
+</footer>
+
+</body>
+</html>

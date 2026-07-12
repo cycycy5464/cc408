@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>总线 | CC408</title>
+  <meta name="description" content="🔥 高优先级
+本节几个概念是选择题常考点：总线指标 、总线分类 、总线事务 、总线定时 。
+基本概念 总线 是一组电子导线或信号线，它们允许不同的硬件设备（如 CPU 、内存 、输入/输出 设备等）之间进行数据传输和通信。总线是计算机内部和外部设备之间的信息传递通道。
+总线分类 功能 核内总线 ：在 …">
+  <link rel="icon" href="/cc408/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" as="script" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" as="script" crossorigin="anonymous">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/cc408/css/custom.min.ecad70eed0f9849f67d23e2bf502ae36e7f590486681964e1c95bc71c8672493.css" integrity="sha256-7K1w7tD5hJ9n0j4r9QKuNuf1kEhmgZZOHJW8cchnJJM=">
+  
+
+<script src="/cc408/js/watermark.js"></script>
+
+
+  <script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.content-area img,.docs-layout img').forEach(function(i){if(!i.src.match(/\.svg$/i)){i.loading='lazy';i.fetchPriority='low';}});});</script>
+</head>
+<body style="background: var(--bg-primary); color: var(--text-primary);">
+  <a href="#main-content" class="skip-link">跳转到主要内容</a>
+  <nav class="navbar" role="navigation" aria-label="主导航">
+  <a href="/cc408/" class="navbar-brand">CC408</a>
+  <button class="navbar-toggle" aria-label="菜单" onclick="this.parentElement.querySelector('.navbar-links').classList.toggle('open')">☰</button>
+  <div class="navbar-links" role="menubar">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      首页
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/docs/" role="menuitem" class="active" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识点
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      刷题
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/quiz-collection/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      收藏
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/graph/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识图谱
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/tags/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      标签
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/resources/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      资源
+    </a>
+    
+  </div>
+  <div class="navbar-right">
+    <a href="https://cycycy5464.github.io/">个人主页 →</a>
+  </div>
+</nav>
+
+  <main id="main-content" style="padding-top: 70px; min-height: calc(100vh - 120px);">
+    
+<div class="docs-layout">
+  <aside class="side-nav">
+    
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>📊</span><span>数据结构</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/basic-concepts/" class="side-nav-link ">数据结构基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/algorithm-concepts/" class="side-nav-link ">算法基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linear-list-index/" class="side-nav-link ">线性表概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/definition/" class="side-nav-link ">线性表定义与基本操作</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/sequential-list/" class="side-nav-link ">顺序表</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linked-list/" class="side-nav-link ">链表</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/stack/" class="side-nav-link ">栈</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/queue/" class="side-nav-link ">队列</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/application/" class="side-nav-link ">栈和队列的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/linear-data-structure/" class="side-nav-link ">线性数据结构</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/string-index/" class="side-nav-link ">串概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/definition/" class="side-nav-link ">串的定义与实现</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/pattern-matching/" class="side-nav-link ">串的模式匹配</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/array-matrix/" class="side-nav-link ">数组和特殊矩阵</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree/" class="side-nav-link ">树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-and-binary-tree/" class="side-nav-link ">树与二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/binary-tree/" class="side-nav-link ">二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-applications/" class="side-nav-link ">树的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/graph-index/" class="side-nav-link ">图概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/definition/" class="side-nav-link ">图的定义</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/algorithms/" class="side-nav-link ">图的算法和应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/search-index/" class="side-nav-link ">查找概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/array-search/" class="side-nav-link ">数组查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/tree-search/" class="side-nav-link ">树形查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/hash-search/" class="side-nav-link ">散列表查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/sort-index/" class="side-nav-link ">排序概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/internal-sort/" class="side-nav-link ">内部排序</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/external-sort/" class="side-nav-link ">外部排序</a>
+      
+      <a href="/cc408/exam/exercise/data_structure/" class="side-nav-link ">数据结构篇</a>
+      
+      <a href="/cc408/exam/application/2023-q1/" class="side-nav-link ">2023年408真题 - 应用题第1题</a>
+      
+      <a href="/cc408/exam/choice/2024-q5/" class="side-nav-link ">2024年408真题 - 数据结构选择题第5题</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/introduction/" class="side-nav-link ">绪论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>⚙️</span><span>计算机组成原理</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/system-hierarchy/" class="side-nav-link ">计算机系统层次结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/performance/" class="side-nav-link ">计算机性能指标</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/data-index/" class="side-nav-link ">数据表示与计算</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/integers/" class="side-nav-link ">整数的表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/float/" class="side-nav-link ">浮点数表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/type-conversion/" class="side-nav-link ">类型转换</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/circuits/" class="side-nav-link ">运算电路</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/memory-index/" class="side-nav-link ">存储系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/overview/" class="side-nav-link ">存储系统概述</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/ram/" class="side-nav-link ">内存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/cache/" class="side-nav-link ">Cache</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/external/" class="side-nav-link ">外存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/virtual/" class="side-nav-link ">虚拟存储器</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/instruction-index/" class="side-nav-link ">指令系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/types/" class="side-nav-link ">指令集种类</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/format-addressing/" class="side-nav-link ">指令格式与寻址方式</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/data-alignment/" class="side-nav-link ">数据对齐</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/opcode/" class="side-nav-link ">指令操作码</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/hll-machine/" class="side-nav-link ">高级语言与机器码</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/cpu-index/" class="side-nav-link ">中央处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/function-structure/" class="side-nav-link ">CPU功能与结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/controller/" class="side-nav-link ">控制器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/exceptions/" class="side-nav-link ">异常与中断</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/pipeline/" class="side-nav-link ">指令流水线</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/multiprocessor/" class="side-nav-link ">多处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus/" class="side-nav-link active">总线</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus-io/" class="side-nav-link ">总线和I/O系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch06-io/io-system/" class="side-nav-link ">I/O系统</a>
+      
+      <a href="/cc408/exam/exercise/architecture/" class="side-nav-link ">计算机组成原理</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/introduction/" class="side-nav-link ">概论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🖥️</span><span>操作系统</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/os/ch00-overview/os-concept/" class="side-nav-link ">操作系统概念</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/os-structure/" class="side-nav-link ">操作系统结构</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/program-env/" class="side-nav-link ">程序运行环境</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-index/" class="side-nav-link ">进程管理</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-thread/" class="side-nav-link ">进程与线程</a>
+      
+      <a href="/cc408/docs/os/ch01-process/scheduling/" class="side-nav-link ">处理机调度</a>
+      
+      <a href="/cc408/docs/os/ch01-process/sync-mutex/" class="side-nav-link ">同步与互斥</a>
+      
+      <a href="/cc408/docs/os/ch01-process/classic-sync/" class="side-nav-link ">经典同步问题</a>
+      
+      <a href="/cc408/docs/os/ch01-process/deadlock/" class="side-nav-link ">死锁</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/memory-index/" class="side-nav-link ">内存管理</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/concepts/" class="side-nav-link ">内存管理概念</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/virtual/" class="side-nav-link ">虚拟内存管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-index/" class="side-nav-link ">文件管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-basics/" class="side-nav-link ">文件</a>
+      
+      <a href="/cc408/docs/os/ch03-file/directory/" class="side-nav-link ">目录</a>
+      
+      <a href="/cc408/docs/os/ch03-file/filesystem/" class="side-nav-link ">文件系统</a>
+      
+      <a href="/cc408/docs/os/ch04-io/io-index/" class="side-nav-link ">I/O管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/devices/" class="side-nav-link ">I/O设备</a>
+      
+      <a href="/cc408/docs/os/ch04-io/device-mgmt/" class="side-nav-link ">设备管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/disk/" class="side-nav-link ">磁盘</a>
+      
+      <a href="/cc408/code/clock/" class="side-nav-link ">CLOCK 时钟替换算法</a>
+      
+      <a href="/cc408/code/lru/" class="side-nav-link ">LRU 算法</a>
+      
+      <a href="/cc408/code/spinlock/" class="side-nav-link ">TAS 实现自旋锁</a>
+      
+      <a href="/cc408/exam/exercise/os/" class="side-nav-link ">操作系统</a>
+      
+      <a href="/cc408/code/reader_writer/" class="side-nav-link ">读者写着问题</a>
+      
+      <a href="/cc408/code/monitor/" class="side-nav-link ">管程实现生产者消费者</a>
+      
+      <a href="/cc408/code/producer_consumer/" class="side-nav-link ">生产者消费者问题</a>
+      
+      <a href="/cc408/code/banker/" class="side-nav-link ">银行家算法</a>
+      
+      <a href="/cc408/code/philosopher/" class="side-nav-link ">哲学家就餐问题</a>
+      
+      <a href="/cc408/exam/comprehensive/2022-q1/" class="side-nav-link ">2022年408真题 - 综合题第1题</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/computer-overview/" class="side-nav-link ">计算机系统概述</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🌐</span><span>计算机网络</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/network/ch00-overview/layered/" class="side-nav-link ">分层结构</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/protocol-summary/" class="side-nav-link ">各层协议总结</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/device-summary/" class="side-nav-link ">网络设备总结</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/phy-index/" class="side-nav-link ">物理层</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/communication/" class="side-nav-link ">通信概念</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/encoding/" class="side-nav-link ">编码与调制</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/switching/" class="side-nav-link ">交换方式</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/devices/" class="side-nav-link ">物理层设备</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/dl-index/" class="side-nav-link ">数据链路层</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/framing/" class="side-nav-link ">组帧</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/error-control/" class="side-nav-link ">差错控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/flow-control/" class="side-nav-link ">流量控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/mac/" class="side-nav-link ">介质访问控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/lan-wan/" class="side-nav-link ">局域网与广域网</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/devices/" class="side-nav-link ">数据链路层设备</a>
+      
+      <a href="/cc408/docs/network/ch03-network/nw-index/" class="side-nav-link ">网络层</a>
+      
+      <a href="/cc408/docs/network/ch03-network/ip/" class="side-nav-link ">IP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/arp/" class="side-nav-link ">ARP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/icmp/" class="side-nav-link ">ICMP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/dhcp/" class="side-nav-link ">DHCP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/routing/" class="side-nav-link ">路由算法</a>
+      
+      <a href="/cc408/docs/network/ch03-network/sdn/" class="side-nav-link ">SDN</a>
+      
+      <a href="/cc408/docs/network/ch03-network/devices/" class="side-nav-link ">网络层设备</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tp-index/" class="side-nav-link ">传输层</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tcp/" class="side-nav-link ">TCP</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/udp/" class="side-nav-link ">UDP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-index/" class="side-nav-link ">应用层</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-model/" class="side-nav-link ">网络应用模型</a>
+      
+      <a href="/cc408/docs/network/ch05-application/dns/" class="side-nav-link ">DNS</a>
+      
+      <a href="/cc408/docs/network/ch05-application/ftp/" class="side-nav-link ">FTP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/email/" class="side-nav-link ">电子邮件</a>
+      
+      <a href="/cc408/docs/network/ch05-application/www/" class="side-nav-link ">万维网</a>
+      
+      <a href="/cc408/exam/exercise/network/" class="side-nav-link ">计算机网络</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/arch-index/" class="side-nav-link ">计算机网络体系结构</a>
+      
+    </details>
+    
+  </aside>
+  <main class="content-area">
+    <h1>总线</h1>
+    <div class="meta-row">
+      
+      <span><span class="diff-star">★</span><span class="diff-star">★</span><span class="diff-star">★</span></span>
+      
+      <span class="tag">总线</span><span class="tag">I/O</span>
+    </div>
+    <article><p>🔥 高优先级</p>
+<p>本节几个概念是选择题常考点：<strong>总线指标</strong> 、<strong>总线分类</strong> 、<strong>总线事务</strong> 、<strong>总线定时</strong> 。</p>
+<p><img src="/images/docs/computer-org/image-20260612233753544.png"></p>
+<h3 id="基本概念">基本概念</h3>
+<p><strong>总线</strong> 是一组电子导线或信号线，它们允许不同的硬件设备（如 <strong>CPU</strong> 、<strong>内存</strong> 、<strong>输入/输出</strong> 设备等）之间进行数据传输和通信。总线是计算机内部和外部设备之间的信息传递通道。</p>
+<h3 id="总线分类">总线分类</h3>
+<h4 id="功能">功能</h4>
+<ol>
+<li><strong>核内总线</strong> ：在处理器核内部各元件之间连线的总线称为 <strong>核内总线</strong> ，可连接核内各寄存器、ALU、指令部件等</li>
+<li><strong>系统总线</strong> ：指连接 <strong>CPU</strong> 、主存和 <strong>I/O</strong> 接口等主要部件的总线，通常所说的总线是指这类在系统主要模块之间互连的总线。下面要介绍的也是这种 <strong>系统总线</strong> 。</li>
+<li><strong>通信总线</strong> ：计算机系统之间或计算机系统与其他系统（远程通信设备、测试设备）之间进行通信的总线，又称 <strong>外部总线</strong> 。</li>
+</ol>
+<h4 id="数据传送方式">数据传送方式</h4>
+<p><strong>总线</strong> 的数据传输方式包含 <strong>串行</strong> 和 <strong>并行</strong> 两种：</p>
+<p><img src="/images/docs/computer-org/image-20260612233809362.png"></p>
+<ol>
+<li><strong>串行总线</strong> ：只含有一条双向数据线或两条单向数据线，数据按位分时传送。适合远距离通信，大多数 <strong>通信总线</strong> 属于 <strong>串行总线</strong></li>
+<li><strong>并行总线</strong> ：含有多条双向数据线，可实现多位同时传送。传输效率高，但相邻数据线之间会相互干扰，适合近距离传输。大多数 <strong>系统总线</strong> 属于 <strong>并行总线</strong></li>
+</ol>
+<p>试题中常常考查 <strong>哪些总线是串行总线，哪些总线是并行总线</strong> 。</p>
+<p>这里核心把握一点： <em><strong>现代高速通信几乎都使用串行总线</strong></em> （PCIe、USB、SATA、DisplayPort），而并行总线主要用于内存、老式设备或非常短距离的高速通信。</p>
+<p><strong>常见的串行总线</strong> 如下表所示：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">总线类型</th>
+          <th style="text-align: left">简介</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>USB</strong> （通用串行总线）</td>
+          <td style="text-align: left">广泛用于外设连接，如鼠标、键盘、U盘。支持热插拔。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>PCI Express (PCIe)</strong></td>
+          <td style="text-align: left">高速内部总线，连接显卡、SSD 等。点对点串行通信。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>SATA</strong> （串行ATA）</td>
+          <td style="text-align: left">硬盘、SSD 与主板间通信。取代并行ATA（PATA）。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Thunderbolt</strong></td>
+          <td style="text-align: left">基于 PCIe 和 DisplayPort 的高速接口，可传输视频、数据。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>DisplayPort、HDMI、DVI</strong></td>
+          <td style="text-align: left">显示器接口，虽然传视频数据，但本质上是高速串行通信。</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>常见的并行总线</strong> 如下表所示：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">总线类型</th>
+          <th style="text-align: left">简介</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>PCI</strong> （老式）</td>
+          <td style="text-align: left">并行总线，早期主板与扩展卡连接标准，已被 PCIe 取代。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>ISA</strong> （工业标准架构）</td>
+          <td style="text-align: left">更早的并行总线，已淘汰。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>IDE / PATA</strong> （并行ATA）</td>
+          <td style="text-align: left">老式硬盘连接方式，已被 SATA 取代。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>内存总线（如 DDR）</strong></td>
+          <td style="text-align: left">尽管速率非常高，但 DRAM 模块仍通过并行数据线传输数据（如 DDR4 有 64 数据线）。</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="时序控制方式">时序控制方式</h4>
+<ol>
+<li><strong>同步总线</strong> ：采用公共的时钟信号进行定时，挂接在总线上的所有设备都从时钟线上获得定时信号</li>
+</ol>
+<ul>
+<li>总线 定时以 <strong>最慢设备</strong> 所用时间为标准，因此适合于存取时间相差不大的多个功能部件之间的通信</li>
+<li>由于时钟偏移问题，导致 <strong>同步总线</strong> 不能过长，否则会降低 <strong>总线</strong> 传输效率</li>
+<li><strong>同步总线</strong> 常采用 <strong>并行传输</strong> ，即总线的数据条数为 8、16、32 或 64 位等</li>
+</ul>
+<ol start="2">
+<li><strong>异步总线</strong> ：总线上连接的各部件或设备没有统一的时钟，而是依靠各自内部的定时操作，通过 <strong>信号握手</strong> 的方式来进行规定的总线操作，从而完成部件或设备之间的数据传输</li>
+</ol>
+<ul>
+<li>由于 <strong>同步并行总线</strong> 使用快速且长的传输线时，会导致传送到另一端的波形发生变形，从而使得（并行传输的）所有位中最快和最慢的位信号之间的时间差较大，因此现在更多使用 <strong>异步串行方式</strong> 进行传输：串行–传输速率可更快 + 不会影响到其他位</li>
+</ul>
+<h3 id="总线架构方式">总线架构方式</h3>
+<p><strong>总线</strong> 架构方式可以分成 <strong>单总线</strong> 、<strong>多总线</strong> 以及 <strong>分层结构</strong> 三种。</p>
+<h4 id="单总线结构">单总线结构</h4>
+<p><img src="/images/docs/computer-org/image-20260612233822359.png"></p>
+<p><strong>单总线结构</strong></p>
+<ul>
+<li><strong>单总线结构</strong> 中，所有处理器、主存储器和 <strong>I/O</strong> 设备 <strong>共用一条总线进行通信</strong> 。</li>
+<li>优点是结构简单、实现成本低，适用于设备数量少、通信量低的系统。</li>
+<li>缺点是所有设备必须轮流访问总线，存在通信冲突和带宽瓶颈，性能扩展性差。</li>
+</ul>
+<h4 id="多总线结构">多总线结构</h4>
+<p><img src="/images/docs/computer-org/image-20260612233831054.png"></p>
+<ul>
+<li><strong>多总线结构</strong> 在 <strong>单总线</strong> 的基础上进行拓展，<strong>引入多条功能分化的总线</strong> ，例如系统总线、I/O 总线、存储器总线等。</li>
+<li>常见做法是将 <strong>处理器与主存之间的数据传输</strong> 放在一条专用总线（如 <strong>CPU-主存总线</strong> ），而 <strong>I/O</strong> 设备通过桥接芯片连接至另一条总线（如 <strong>I/O 总线</strong> ）。</li>
+<li>这样可以显著减轻主总线负载，提高系统并发性和吞吐能力。</li>
+</ul>
+<h4 id="分层总线结构">分层总线结构</h4>
+<p>现代计算机系统广泛采用 <strong>分层总线结构</strong> ，其核心思想是在 <strong>多总线结构</strong> 的基础上进一步 <strong>细化总线的功能与等级</strong> ，以更好适应不同设备对带宽和延迟的需求。</p>
+<p><strong>核心特点</strong> ：</p>
+<ul>
+<li>将总线按速率和用途分层，如高速、中速、低速总线；</li>
+<li>各层通过 <a href="/constitution_principle/bus/io/#%e7%8e%b0%e4%bb%a3%e6%9e%b6%e6%9e%84">桥接控制器</a>（如 <strong>PCH</strong> ）进行协调；</li>
+<li>高速设备尽量绕过中间桥接器，直连 CPU 提高性能。</li>
+</ul>
+<hr>
+<ul>
+<li>
+<p><strong>高速设备的连接方式</strong></p>
+</li>
+<li>
+<p><strong>内存总线</strong> ：使用 DDR4/DDR5 等内存通道，由集成在 CPU 内部的内存控制器（IMC）控制，实现低延迟高速访问；</p>
+</li>
+<li>
+<p><strong>显卡</strong> ：通过 <strong>PCIe</strong> 高速通道，直接连接到 CPU 的 PCIe 控制器，适用于图形、大数据等吞吐密集型场景；</p>
+</li>
+<li>
+<p><strong>高速存储</strong> （如 NVMe SSD） ：通过 <strong>PCIe/NVMe</strong> 通道连接，可直连 <strong>CPU</strong> 或走 <strong>PCH</strong> 。</p>
+<ul>
+<li><strong>低速或通用设备的连接方式</strong></li>
+</ul>
+</li>
+<li>
+<p>低速设备（如 <strong>USB</strong> 、<strong>SATA</strong> 、音频、网卡等）大多连接至 <strong>平台控制器集线器</strong> （<strong>PCH</strong> ） 或 <strong>南桥芯片</strong> ，再通过 <strong>DMI</strong> （Direct Media Interface）总线 与 CPU 通信；</p>
+</li>
+<li>
+<p>这些设备不要求极高带宽，通过桥接方式集中管理，可简化主板设计并降低成本。</p>
+</li>
+</ul>
+<h3 id="总线组成">总线组成</h3>
+<p><strong>系统总线</strong> 通常由一组控制线、一组数据线和一组地址线构成。也有些总线没有单独的地址线，即数据线和地址线 <strong>复用</strong> 。</p>
+<ol>
+<li><strong>数据总线</strong> （Data Bus） ：数据总线用于在计算机系统的各个组件之间 <strong>传输数据</strong> 。它通常由多条并行线组成，每条线传输一个数据位（比特）。</li>
+</ol>
+<ul>
+<li>
+<p>位数（数据总线条数）与机器字长、存储字长有关，一般是 8 位、16 位、32 位</p>
+<ol start="2">
+<li><strong>地址总线</strong> （Address Bus） ：地址总线用于传输 <strong>内存地址</strong> 或外部设备的地址信息，以确定数据的存储位置或目标设备。</li>
+</ol>
+</li>
+<li>
+<p>地址总线的宽度决定了系统可以寻址的内存或设备的数量。更宽的地址总线通常允许系统寻址更多的内存或设备。</p>
+<ol start="3">
+<li><strong>控制总线</strong> （Control Bus） ：控制总线传输 <strong>控制信号和命令</strong> ，用于控制各个硬件组件的操作。这些控制信号包括读/写信号、时钟信号、中断信号、复位信号等。控制总线用于协调数据传输和操作的序列。</li>
+</ol>
+</li>
+</ul>
+<p>注意</p>
+<p><strong>总线组成和总线架构的关系</strong> ：</p>
+<ul>
+<li>在 <strong>单总线架构</strong> 中，所有的通信—包括数据、地址和控制信息—都通过同一个物理总线传输。这意味着数据总线、地址总线和控制总线的功能在一个共享的通道上实现。</li>
+<li>在 <strong>多总线架构</strong> 中，数据总线、地址总线和控制总线可能会分别拥有独立的物理通道，或者系统中可能存在专门的总线来处理不同类型的数据流。</li>
+</ul>
+<h3 id="总线指标">总线指标</h3>
+<p>总线时钟频率</p>
+<p><strong>时钟频率</strong> 指总线所依赖的时钟信号的频率。它表示的是“时钟脉冲”产生的快慢。</p>
+<p>时钟频率 <strong>单位</strong> 为 Hz，常见如 100MHz、133MHz 等。</p>
+<p>总线传输周期</p>
+<p><strong>总线传输周期</strong> 指一次完成总线数据传输所需的时间，包括申请、寻址、传输和结束阶段。</p>
+<p>一个完整的传输周期可能需要 多个时钟周期。</p>
+<p>总线工作频率</p>
+<p><strong>工作频率</strong> 指总线 <strong>实际传输数据</strong> 的频率。</p>
+<p>一般来说，工作频率与时钟频率相同，但有些总线为了提高带宽，会采用 <strong>倍频/分频</strong> 机制：</p>
+<ul>
+<li>SDR（单倍数据率）：每个时钟周期只在一个边沿传输数据，工作频率 = 时钟频率。</li>
+<li>DDR（双倍数据率）：在上升沿和下降沿各传输一次，工作频率 = 2 × 时钟频率。</li>
+<li>QDR（四倍数据率）：一个周期传四次，工作频率 = 4 × 时钟频率。</li>
+</ul>
+<p>更加泛化地说，若总线传输周期 = N 个时钟周期，则总线的工作频率 = 时钟频率 / N。</p>
+<p>总线宽度</p>
+<p><strong>总线宽度</strong> 也叫做总线位宽，是总线上 <strong>能同时传输的数据位数</strong> ，通常指的是数据总线的根数，如 32 根称为 32 位总线。</p>
+<p>总线带宽</p>
+<p><strong>总线带宽</strong> 指单位时间内总线能传输的最大数据量，通常用 MB/s、GB/s 表示，计算公式为：</p>
+<p>带宽=(总线宽度/8)×工作频率</p>
+<h3 id="常见总线标准">常见总线标准</h3>
+<p>需要熟练掌握一些会考察的 <strong>总线标准</strong> 的名称：<strong>PCI</strong> 、<strong>SATA</strong> 、<strong>ISA</strong> 、<strong>IDE</strong> 、<strong>USB</strong> ，并且能够和其他计算机领域的专业名词区分开来：</p>
+<ol>
+<li><strong>PCI</strong> ：<strong>PCI 总线</strong> 是一种用于连接内部扩展卡（如显卡、网卡、声卡等）到主板的标准。<strong>PCI 总线</strong> 存在多个版本，包括 <strong>PCI</strong> 、<strong>PCI-X</strong> 和 <strong>PCI Express</strong> （<strong>PCIe</strong> ），它们在带宽、速度和适用范围上有所不同。</li>
+<li><strong>SATA</strong> ：<strong>SATA</strong> 是一种用于连接存储设备（如硬盘驱动器和光盘驱动器）到计算机的总线标准。它广泛应用于个人电脑和服务器中。</li>
+<li><strong>ISA</strong> ：16 位体系结构，只能支持 16 位的 <strong>I/O</strong> 设备，是已经被淘汰的插槽接口。</li>
+<li><strong>IDE</strong> ：<strong>IDE</strong> 是早期计算机中用于连接硬盘驱动器和光盘驱动器的 <strong>总线</strong> 标准，现在已经被 <strong>SATA</strong> 所取代。</li>
+<li><strong>USB</strong> ：<strong>USB</strong> 是一种通用的总线标准，用于连接各种外部设备（如键盘、鼠标、打印机、存储设备等）到计算机。<strong>USB</strong> 有多个版本，包括 <strong>USB 1.0</strong> 、<strong>USB 2.0</strong> 、<strong>USB 3.0</strong> 、<strong>USB 3.1</strong> 和 <strong>USB 3.2</strong> ，它们在传输速度和功能上有所区别。</li>
+</ol>
+<h5 id="pci">PCI</h5>
+<h6 id="peripheral-component-interconnect">Peripheral Component Interconnect</h6>
+<p><img src="/images/docs/computer-org/1672101a67.jpg"></p>
+<p>长条形插槽，通常为长方形，长度较长，内部有多个金属触点，呈平行排列，用于插入扩展卡。边缘有一缺口，用于固定卡的位置。</p>
+<h5 id="sata">SATA</h5>
+<h6 id="serial-advanced-technology-attachment">Serial Advanced Technology Attachment</h6>
+<p><img src="/images/docs/computer-org/8589588bff.jpg"></p>
+<p>较小的 L 形连接器，扁平且细长，端口一侧有明显的 L 形弯角，内部有几根细小金属针脚，用于连接存储设备（如硬盘驱动器和光盘驱动器）到计算机。</p>
+<h5 id="usb">USB</h5>
+<h6 id="universal-serial-bus">Universal Serial Bus</h6>
+<p><img src="/images/docs/computer-org/0e9e54cd56.webp"></p>
+<p>矩形接口，较为紧凑，内部有金属触点，常见为USB-A的扁平长方形设计，端口内部有塑料隔板和触点，用于连接各种外设如鼠标、键盘或U盘。</p>
+<p>总线、协议、接口的区别</p>
+<p>这三个概念是经常被混淆的概念，这里还是多提一嘴。简单来说，<strong>接口</strong> 是硬件插入的位置，<strong>协议</strong> 是软件层面用于通信的规则，<strong>总线</strong> 是硬件之间的数据通路。下表给出一些常见例子来说明：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">实际例子</th>
+          <th style="text-align: left">插槽/接口</th>
+          <th style="text-align: left">协议</th>
+          <th style="text-align: left">总线</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>SATA SSD</strong></td>
+          <td style="text-align: left">SATA 接口</td>
+          <td style="text-align: left">AHCI 协议</td>
+          <td style="text-align: left">SATA 总线</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>M.2 SATA SSD</strong></td>
+          <td style="text-align: left">M.2 插槽</td>
+          <td style="text-align: left">AHCI 协议</td>
+          <td style="text-align: left">SATA 总线</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>M.2 NVMe SSD</strong></td>
+          <td style="text-align: left">M.2 插槽</td>
+          <td style="text-align: left">NVMe 协议</td>
+          <td style="text-align: left">PCIe 总线</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>PCIe 显卡</strong></td>
+          <td style="text-align: left">PCIe 插槽</td>
+          <td style="text-align: left">PCIe 协议</td>
+          <td style="text-align: left">PCIe 总线</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>USB U盘</strong></td>
+          <td style="text-align: left">USB-A 接口</td>
+          <td style="text-align: left">USB 协议（2.0/3.0/3.1 等）</td>
+          <td style="text-align: left">USB 总线</td>
+      </tr>
+  </tbody>
+</table>
+<p>需要注意的是，有些名词（比如 <strong>SATA</strong> 、<strong>PCIe</strong> 、<strong>USB</strong> ）是 <strong>混合性术语</strong> ，既可以是 <strong>总线</strong> ，也代表了协议和接口；有些名词（比如 <strong>M.2</strong> ） 仅仅是接口；有些名词（比如 <strong>NVMe</strong> ）仅仅是协议。</p>
+<h3 id="总线事务">总线事务</h3>
+<p><strong>总线事务</strong> 是计算机总线操作的一个 <strong>基本单位</strong> 。一个总线事务通常涉及一系列的操作，这些操作可以是数据的读取或写入。</p>
+<p>在一个总线事务中，<strong>主设备</strong> （发起事务的设备）通过总线控制线对总线进行控制，并发出地址和数据，以及读写信号。<strong>从设备</strong> （数据被读取或写入的设备）则识别地址，并根据读写信号进行相应的数据交换。</p>
+<p><strong>总线事务</strong> 包含几个主要阶段：</p>
+<ol>
+<li><strong>请求</strong> （Request） ：主设备发出 <strong>总线传输请求</strong> 。</li>
+<li><strong>仲裁</strong> （Arbitration） ：如果多个设备同时尝试使用总线，它们必须通过某种仲裁过程来 <strong>决定哪个设备有权</strong> 控制总线。这通常涉及一个优先级方案，以防止冲突和数据损坏。</li>
+<li><strong>寻址</strong> （Addressing） ：主设备将 <strong>目标地址</strong> 放在总线上，以指定事务的目的地，如特定的内存地址或 I/O 设备。</li>
+<li><strong>传输</strong> （Transfer） ：一旦地址被确认，数据传输就会发生。这可以是读操作，也可以是写操作。</li>
+<li><strong>终止</strong> （Termination） ：一旦数据成功传输，事务就会结束。终止阶段可能包括从设备发出的确认信号，或者主设备撤销其对总线的控制。</li>
+</ol>
+<h4 id="突发总线传输事务">突发总线传输事务</h4>
+<p><strong>突发（Burst） 总线传输事务</strong> 是指在总线通信中，一次性连续传输多个数据单元（通常是字节或字）而无需为每个数据单元单独发起请求或握手的过程。这种传输方式广泛应用于现代计算机体系结构中，以提高数据传输效率和总线利用率。</p>
+<p><img src="/images/docs/computer-org/2822f9ddfc.jpg"></p>
+<h3 id="总线周期">总线周期</h3>
+<p><strong>总线周期</strong> 是指 <strong>CPU</strong> 通过 <strong>总线</strong> 与存储器或 <strong>I/O</strong> 接口进行一次数据传输所需的时间。<br>
+一个 <strong>总线周期</strong> 通常包含多个时钟周期，这些时钟周期可以被分为四个阶段（四个时钟周期 T1​,T2​,T3​,T4​ ）：</p>
+<ol>
+<li>申请分配阶段：主设备进行请求和仲裁。</li>
+<li>寻址阶段：主设备用地址信息来指明它想读/写的那个从设备是哪一个。</li>
+<li>传输阶段：主设备向从设备发出读命令或者写命令。</li>
+<li>结束阶段：主设备把地址信息、读写命令等从 <strong>总线</strong> 撤除，让出 <strong>总线</strong> 的使用权。</li>
+</ol>
+<h3 id="总线定时">总线定时</h3>
+<p>根据 <a href="/constitution_principle/overview/performance/#%e6%97%b6%e9%92%9f%e5%91%a8%e6%9c%9f">时钟周期</a> 一节可知，计算机中的设备也许并不使用相同的时钟周期，但是设备间在交换数据的过程中需要时间上配合。</p>
+<p>这种时间配合的控制过程就叫做 <strong>总线定时</strong> ，<strong>总线定时</strong> 包含 <strong>同步定时</strong> 和 <strong>异步定时</strong> 两种方式。</p>
+<h4 id="同步定时方式">同步定时方式</h4>
+<p>在 <strong>同步定时方式</strong> 中，数据传输的时钟信号由一个 <strong>中央时钟源</strong> （通常是主时钟源或总线控制器）生成，并将时钟信号传送到所有参与通信的设备。</p>
+<p>这个时钟信号每次都产生一个相等的时间间隔，这个间隔为一个 <strong>总线传输周期</strong> ，主设备和从设备必须在这个限定的时间内完成规定的操作。</p>
+<p><img src="/images/docs/computer-org/c33cef5532.svg"></p>
+<ul>
+<li>T1​ 的上升沿到来时，主模块向从模块发送地址</li>
+<li>T2​ 的上升沿到来时，主模块发送读命令</li>
+<li>T3​ 的上升沿到来时，从模块提供数据</li>
+<li>T4​ 的上升沿到来时，主模块撤销读命令，从模块撤销数据</li>
+</ul>
+<p>同步通信适用于总线长度较短（出现信息错误的概率小）及总线所接部件的存取时间比较接近的系统。<br>
+如果有的从设备速度较慢，就会跟不上总线的节奏，进而拖慢了主设备的速度。</p>
+<h4 id="异步定时方式">异步定时方式</h4>
+<p>在 <strong>异步定时方式</strong> 中，数据传输的时钟信号不是由中央时钟源统一控制，而是由每个设备自己的时钟信号驱动。完全依靠传送双方相互制约的“握手”信号来实现定时控制，通常我们将交换信息的两个设备称为主设备和从设备，主设备发送“请求”，从设备接收到后回复“回答”。</p>
+<p><strong>异步定时</strong> 根据“请求”和“回答”的类型，可以分为三种类型：</p>
+<ul>
+<li><strong>不互锁</strong> ：主设备持续发送请求一段时间，默认从设备接收到请求。</li>
+<li><strong>半互锁</strong> ：主设备接收到来自从设备的回答后停止发送请求，从设备发送回答一段时间，默认主设备接收到回答。</li>
+<li><strong>全互锁</strong> ：从 <strong>半互锁</strong> 的基础上，从设备接收到来自于主设备的回答后停止发送回答。</li>
+</ul>
+<p><img src="/images/docs/computer-org/image-20260612233912845.png"></p>
+<h2 id="相关笔记">相关笔记</h2>
+<ul>
+<li>[[controller|控制器]]</li>
+<li>[[cpu-index|中央处理器]]</li>
+<li>[[exceptions|异常与中断]]</li>
+<li>[[function-structure|CPU功能与结构]]</li>
+<li>[[multiprocessor|多处理器]]</li>
+<li>[[pipeline|指令流水线]]</li>
+</ul>
+</article>
+
+    
+    
+    
+
+    <div class="border-top-section">
+      <a href="/cc408/docs/" class="btn btn-ghost">← 返回知识点列表</a>
+    </div>
+  </main>
+</div>
+
+<style>
+.side-nav-group[open] summary { color: var(--text-primary); }
+.side-nav-group summary::-webkit-details-marker { display: none; }
+.side-nav-group summary::after {
+  content: '▸'; margin-left: auto; font-size: var(--fs-xs); transition: transform .2s;
+}
+.side-nav-group[open] summary::after { transform: rotate(90deg); }
+</style>
+
+  </main>
+  <footer class="site-footer" role="contentinfo">
+  <p>© 2026 CC408. 408考研知识整理</p>
+</footer>
+
+</body>
+</html>

@@ -1,7 +1,8 @@
----
+﻿---
 title: "2017 年真题"
 date: 2026-07-08
 type: exam
-layout: year-detail
+layout: 408quiz-detail
 year: 2017
 ---
+

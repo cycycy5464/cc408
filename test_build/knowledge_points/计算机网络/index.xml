@@ -1,0 +1,1482 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>计算机网络 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/knowledge_points/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
+    <description>Recent content in 计算机网络 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 08 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/knowledge_points/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>模拟卷1 计算机网络 第33题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-1-cn-033/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-1-cn-033/</guid>
+      <description>&lt;p&gt;在不同网络结点的对等层之间通信需要的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;A. 模块接口&lt;/p&gt;&#xA;&lt;p&gt;B. 对等层协议&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷1 计算机网络 第34题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-1-cn-034/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-1-cn-034/</guid>
+      <description>&lt;p&gt;下列叙述中，正确的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;A. 电路交换是真正的物理线路交换，而虚电路交换是逻辑上的连接，且一条物理线路只可以进行一条逻辑连接&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷1 计算机网络 第35题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-1-cn-035/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-1-cn-035/</guid>
+      <description>&lt;p&gt;以太网中，在第 5 次碰撞之后，一个节点选择的 r 值为 4 的概率是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷1 计算机网络 第36题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-1-cn-036/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-1-cn-036/</guid>
+      <description>&lt;p&gt;以太网中如果发生介质访问冲突，按照二进制指数后退算法决定下一次重发的时间，使用二进制后退算法的好处是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷1 计算机网络 第37题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-1-cn-037/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-1-cn-037/</guid>
+      <description>&lt;p&gt;在某个子网中给四台主机分配 IP 地址（子网掩码均为 255.255.255.224），其中一台因 IP 地址分配不当而存在通信故障。这一台主机的 IP 地址是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷1 计算机网络 第38题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-1-cn-038/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-1-cn-038/</guid>
+      <description>&lt;p&gt;在 IP 分组传输的过程中（不包括 NAT 情况），以下 IP 分组头中的域保持不变的是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷1 计算机网络 第39题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-1-cn-039/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-1-cn-039/</guid>
+      <description>&lt;p&gt;信道带宽为 1Gbps，端到端时延为 10ms，TCP 的发送窗口为 65535B，则可能达到的最大吞吐量是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷1 计算机网络 第40题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-1-cn-040/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-1-cn-040/</guid>
+      <description>&lt;p&gt;域名系统 DNS 的组成包括（ ）。 Ⅰ. 域名空间 Ⅱ. 分布式数据库 Ⅲ. 域名服务器 Ⅳ. 从内部 IP 地址到外部 IP 地址的翻译程序&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷1 计算机网络 第47题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-1-cn-047/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-1-cn-047/</guid>
+      <description>&lt;p&gt;（9 分）TCP 的拥塞窗口 cwnd 大小与传输轮次 n 的关系如下所示：&lt;/p&gt;&#xA;&lt;p&gt;（1）画出 TCP 的拥塞窗口与传输轮次的关系曲线。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷2 计算机网络 第33题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-2-cn-033/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-2-cn-033/</guid>
+      <description>&lt;p&gt;在 OSI 参考模型中，为上一层提供可靠、无错误的数据信息的协议层是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷2 计算机网络 第34题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-2-cn-034/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-2-cn-034/</guid>
+      <description>&lt;p&gt;设信道带宽为 4KHz，信噪比为 30dB，按照香农定理，信道的最大数据速率约等于（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷2 计算机网络 第35题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-2-cn-035/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-2-cn-035/</guid>
+      <description>&lt;p&gt;以太网中，当数据传输率提高时，帧的发送时间就会相应的缩短，这样可能会影响对冲突的检测。为了能有效地检测到冲突，可以使用的解决方案有（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷2 计算机网络 第36题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-2-cn-036/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-2-cn-036/</guid>
+      <description>&lt;p&gt;若子网掩码是 255.255.192.0，那么下列主机必须通过路由器才能与主机 129.23.144.16 通信的是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷2 计算机网络 第37题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-2-cn-037/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-2-cn-037/</guid>
+      <description>&lt;p&gt;在基于 TCP/IP 模型的分组交换网络中，每个分组都可能走不同的路径，所以在分组到达目的主机后应该重新排序；又由于不同类型物理网络的 MTU 不同，所以一个分组在传输的过程中也可能需要分段，这些分段在到达目的主机后也必须重组。对于分组的排序和分段的重组，下列说法正确的是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷2 计算机网络 第38题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-2-cn-038/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-2-cn-038/</guid>
+      <description>&lt;p&gt;ARP 的作用是由 IP 地址求 MAC 地址，某节点响应其他节点的 ARP 请求是通过（ ）发送的。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷2 计算机网络 第39题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-2-cn-039/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-2-cn-039/</guid>
+      <description>&lt;p&gt;下列关于 TCP 协议的叙述中，错误的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;A. I 和 II&lt;/p&gt;&#xA;&lt;p&gt;B. I、II 和 III&lt;/p&gt;&#xA;&lt;p&gt;C. II 和 III&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷2 计算机网络 第40题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-2-cn-040/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-2-cn-040/</guid>
+      <description>&lt;p&gt;A 和 B 建立 TCP 连接，MSS 为 1KB。某时，慢开始门限值为 2KB，A 的拥塞窗口为 4KB，在接下来的一个 RTT 内，A 向 B 发送了 4KB 的数据（TCP 的数据部分），并且得到了 B 的确认，确认报文中的窗口字段的值为 2KB，那么，请问在下一个 RTT 中，A 最多能向 B 发送的数据（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷2 计算机网络 第47题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-2-cn-047/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-2-cn-047/</guid>
+      <description>&lt;p&gt;（9 分）本地主机 A 的一个应用程序使用 TCP 协议与同一局域网内的另一台主机 B 通信。用 Sniffer 工具捕获本机 A 以太网发送和接收的所有通信流量，目前已得到 8 个 IP 数据报。表 1 以 16 进制格式逐字节列出了这些 IP 数据报的全部内容，其中，编号 2、3、6 为主机 A 收到的 IP 数据报，其余为主机 A 发出的 IP 数据报。假定所有数据报的 IP 和 TCP 校验和均是正确的。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷3 计算机网络 第33题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-3-cn-033/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-3-cn-033/</guid>
+      <description>&lt;p&gt;正确描述网络体系结构中的分层概念的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;A. 网络体系结构中的每一层都必须直接与物理传输介质交互&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷3 计算机网络 第34题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-3-cn-034/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-3-cn-034/</guid>
+      <description>&lt;p&gt;在一种网络中，超过一定长度，传输介质中的数据就会衰减。如果需要比较长的传输距离，就需要安装（ ）设备。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷3 计算机网络 第35题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-3-cn-035/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-3-cn-035/</guid>
+      <description>&lt;p&gt;下列关于滑动窗口的说法中，错误的是（ ）。 Ⅰ. 对于窗口大小为 n 的滑动窗口，最多可以有 n 帧已发送但没有确认 Ⅱ. 假设帧序号有 3 位，采用连续 ARQ 协议，发送窗口的最大值为 4 Ⅲ. 在 GBN 协议中，如果发送窗口的大小为 16，则至少需要 4 位序列号才能保证协议不出错&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷3 计算机网络 第36题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-3-cn-036/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-3-cn-036/</guid>
+      <description>&lt;p&gt;在下图的网络配置中，总共有（ ）个广播域、（ ）个冲突域。&lt;/p&gt;&#xA;&lt;p&gt;A. 2, 2&lt;/p&gt;&#xA;&lt;p&gt;B. 2, 7&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷3 计算机网络 第37题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-3-cn-037/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-3-cn-037/</guid>
+      <description>&lt;p&gt;当 IP 分组经过路由器进行分片时，其首部发生变化的字段有（ ）。 Ⅰ. 标识 IDENTIFICATION Ⅱ. 标志 FLAG Ⅲ. 片偏移 Ⅳ. 总长度 Ⅴ. 校验和&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷3 计算机网络 第38题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-3-cn-038/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-3-cn-038/</guid>
+      <description>&lt;p&gt;设有以下 4 条路由：172.18.129.0/24、172.18.130.0/24、172.18.132.0/24、172.18.133.0/24，如果进行路由聚合，能覆盖这 4 条路由地址的是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷3 计算机网络 第39题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-3-cn-039/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-3-cn-039/</guid>
+      <description>&lt;p&gt;TCP 协议中，发送双方发送报文的初始序号分别为 X 和 Y，在第一次握手时发送方发送给接收方报文，正确的字段是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷3 计算机网络 第40题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-3-cn-040/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-3-cn-040/</guid>
+      <description>&lt;p&gt;下列哪种技术可以最有效地降低访问 WWW 服务器的时延（ ）。&lt;/p&gt;&#xA;&lt;p&gt;A. 高速传输线路&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷3 计算机网络 第47题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-3-cn-047/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-3-cn-047/</guid>
+      <description>&lt;p&gt;（9 分）下图是三个计算机局域网 A、B 和 C，分别包含 10 台、8 台和 5 台计算机，通过路由器互联，并通过该路由器的接口 d 联入因特网。路由器各端口名分别为 a、b、c 和 d（假设端口 d 接入 IP 地址为 61.60.21.80 的互联网地址）。局域网 A 和局域网 B 共用一个 C 类网络 IP 地址 202.38.60.0，并将此 IP 地址中主机地址的高两位作为子网编号。局域网 A 的子网编号为 01，局域网 B 的子网编号为 10。IP 地址的低六位作为子网中的主机编号。局域网 C 的网络号是 202.38.61.0。请回答下列问题：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷4 计算机网络 第33题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-4-cn-033/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-4-cn-033/</guid>
+      <description>&lt;p&gt;对于可靠服务和不可靠服务，正确的理解是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;A. 可靠服务是通过高质量的连接线路来保证数据可靠传输&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷4 计算机网络 第34题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-4-cn-034/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-4-cn-034/</guid>
+      <description>&lt;p&gt;采用 GBN 帧协议，接收窗口内的序号为 4 时，接收到正确的 5 号帧应该（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷4 计算机网络 第35题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-4-cn-035/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-4-cn-035/</guid>
+      <description>&lt;p&gt;信道速率为 4kbps，采用停止—等待协议，设传播时延 t = 20 ms，确认帧长度和处理时间均可忽略。若信道的利用率能达到至少 50%，则帧长至少为（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷4 计算机网络 第36题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-4-cn-036/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-4-cn-036/</guid>
+      <description>&lt;p&gt;TCP/IP 网络中，某主机的 IP 地址为 130.25.3.135，子网掩码为 255.255.255.192，那么该主机所在的子网的网络地址是（ ），该子网最大可分配地址个数是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷4 计算机网络 第37题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-4-cn-037/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-4-cn-037/</guid>
+      <description>&lt;p&gt;R1 和 R2 是一个自治系统中采用 RIP 路由协议的两个相邻路由器，R1 的路由表如表 1 所示，当 R1 收到 R2 发送的报文（见表 2）后，R1 更新后的 3 个路由表项中距离值从上到下依次为（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷4 计算机网络 第38题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-4-cn-038/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-4-cn-038/</guid>
+      <description>&lt;p&gt;下图中，主机 A 发送一个 IP 数据报给主机 B。通信过程中以太网 1 上出现的以太网帧中承载一个 IP 数据报，该以太网帧中的目的地址和 IP 报头中的目的地址分别是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷4 计算机网络 第39题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-4-cn-039/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-4-cn-039/</guid>
+      <description>&lt;p&gt;下列网络设备中，能隔离 ARP 广播帧的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;A. 路由器&lt;/p&gt;&#xA;&lt;p&gt;B. 网桥&lt;/p&gt;&#xA;&lt;p&gt;C. 以太网交换机&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷4 计算机网络 第40题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-4-cn-040/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-4-cn-040/</guid>
+      <description>&lt;p&gt;下列关于客户/服务器模型的描述中，错误的是（ ）。 I. 客户端和服务器必须都事先知道对方的地址，以提供请求和服务 II. HTTP 基于客户/服务器模型，客户端和服务器端的默认端口号都是 80 III. 浏览器显示的内容来自服务器 IV. 客户端是请求方，即使连接建立后，服务器也不能主动发送数据&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷4 计算机网络 第47题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-4-cn-047/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-4-cn-047/</guid>
+      <description>&lt;p&gt;（9 分）考虑某路由器具有下列路由表项：&lt;/p&gt;&#xA;&lt;p&gt;（1）假设路由器接收到一个目的地址为 142.150.71.132 的 IP 分组，请确定该路由器为该 IP 分组选择的下一跳，并解释说明。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷5 计算机网络 第33题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-5-cn-033/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-5-cn-033/</guid>
+      <description>&lt;p&gt;电路交换的优点有（ ）。&lt;/p&gt;&#xA;&lt;p&gt;A. I 和 II&lt;/p&gt;&#xA;&lt;p&gt;B. II 和 III&lt;/p&gt;&#xA;&lt;p&gt;C. I 和 III&lt;/p&gt;&#xA;&lt;p&gt;D. II 和 IV&lt;/p&gt;&#xA;&lt;p&gt;[tag_link]&lt;/p&gt;&#xA;&lt;p&gt;正确答案：A&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷5 计算机网络 第34题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-5-cn-034/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-5-cn-034/</guid>
+      <description>&lt;p&gt;以下滑动窗口协议中，一定按序接收到达的分组的有（ ）。 I. 停止—等待协议 II. 后退 N 帧协议 III. 选择重传协议&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷5 计算机网络 第35题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-5-cn-035/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-5-cn-035/</guid>
+      <description>&lt;p&gt;以下几种 CSMA 协议中，什么协议在监听到介质是空闲时一定发送（ ）。 I. 1-坚持 CSMA II. p-坚持 CSMA III. 非坚持 CSMA&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷5 计算机网络 第36题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-5-cn-036/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-5-cn-036/</guid>
+      <description>&lt;p&gt;一台主机的 IP 地址为 11.1.1.100，子网掩码为 255.0.0.0。现在用户需要配置该主机的默认路由。经过观察发现，与该主机直接相连的路由器具有如下 4 个 IP 地址和子网掩码： I. IP 地址：11.1.1.1，子网掩码：255.0.0.0 II. IP 地址：11.1.2.1，子网掩码：255.0.0.0 III. IP 地址：12.1.1.1，子网掩码：255.0.0.0 IV. IP 地址：13.1.2.1，子网掩码：255.0.0.0&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷5 计算机网络 第37题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-5-cn-037/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-5-cn-037/</guid>
+      <description>&lt;p&gt;路由器中发现 TTL 值为 0 的分组，将进行（ ）处理，并向源主机返回（ ）的 ICMP 报文。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷5 计算机网络 第38题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-5-cn-038/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-5-cn-038/</guid>
+      <description>&lt;p&gt;位于不同子网中的主机之间互相通信，下面说法中正确的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;A. 路由器在转发 IP 数据报时，重新封装源 IP 地址和目的 IP 地址&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷5 计算机网络 第39题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-5-cn-039/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-5-cn-039/</guid>
+      <description>&lt;p&gt;下列关于路由器的说法中，正确的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;A. 路由器处理的信息量比交换机少，因而转发速度比交换机快&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷5 计算机网络 第40题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-5-cn-040/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-5-cn-040/</guid>
+      <description>&lt;p&gt;第一次传输时，设 TCP 的拥塞窗口的慢启动门限初始值为 8（单位为报文段），当拥塞窗口上升到 12 时，网络发生超时，TCP 开始慢启动和拥塞避免，那么第 12 次传输时拥塞窗口大小为（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷5 计算机网络 第47题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-5-cn-047/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-5-cn-047/</guid>
+      <description>&lt;p&gt;（9 分）在本地主机使用 Ping 命令测试与远端主机 192.168.0.101 的连通性，Ping 测试仅进行了一次，由于测试数据较大，在 IP 层进行了数据分片。Ping 命令执行时，使用 Sniffer 工具捕获本机以太网发送方向的所有通信流量，得到 6 个 IP 数据报，表 1 以 16 进制格式逐字节给出了六个 IP 数据报的前 40 个字节。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷6 计算机网络 第33题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-6-cn-033/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-6-cn-033/</guid>
+      <description>&lt;p&gt;在 OSI 参考模型中，上层协议实体与下层协议实体之间的逻辑接口称为服务访问点（SAP）。在 Internet 数据帧中，目的地址“0x000F781C6001”属于（ ）的服务访问点。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷6 计算机网络 第34题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-6-cn-034/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-6-cn-034/</guid>
+      <description>&lt;p&gt;一个传输数字信号的模拟信道的信号功率是 0.62W，噪音功率是 0.02W，频率范围是 3.5～3.9MHz，该信道的最高数据传输速率是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷6 计算机网络 第35题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-6-cn-035/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-6-cn-035/</guid>
+      <description>&lt;p&gt;在简单停止 - 等待协议中，为了解决重复帧的问题，需要采用（ ）。&lt;/p&gt;&#xA;&lt;p&gt;A. 帧序号&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷6 计算机网络 第36题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-6-cn-036/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-6-cn-036/</guid>
+      <description>&lt;p&gt;一个 2Mbps 的网络，线路长度为 1km，传输速度为 20m/ms，分组大小为 100 字节，应答帧大小可以忽略。若采用“停止—等待”协议，则实际数据速率是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷6 计算机网络 第37题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-6-cn-037/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-6-cn-037/</guid>
+      <description>&lt;p&gt;当路由器接收到一个 1500 字节的 IP 数据报时，需要将其转发到 MTU 为 980 的子网，分片后产生两个 IP 数据报，长度分别是（ ）。（首部长度为 20B）&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷6 计算机网络 第38题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-6-cn-038/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-6-cn-038/</guid>
+      <description>&lt;p&gt;路由器收到一个数据包，其目地址为 195.26.17.4，该地址属于（ ）子网。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷6 计算机网络 第39题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-6-cn-039/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-6-cn-039/</guid>
+      <description>&lt;p&gt;假设在没有发生拥塞的情况下，在一条往返时间 RTT 为 10ms 的线路上采用慢开始控制策略。如果接收窗口的大小为 24KB，最大报文段 MSS 为 2KB。那么发送方能发送出一个完全窗口（也就是发送窗口达到 24KB）需要的时间是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷6 计算机网络 第40题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-6-cn-040/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-6-cn-040/</guid>
+      <description>&lt;p&gt;一台域名服务器希望解析域名 &lt;a href=&#34;https://www.google.com&#34;&gt;www.google.com&lt;/a&gt; 。如果这台主机配置的 DNS 地址为 a，Internet 的根域名服务器为 b，而存储域名 &lt;a href=&#34;https://www.google.com&#34;&gt;www.google.com&lt;/a&gt; 与其 IP 地址对应关系的域名服务器为 c，那么这台主机通常先查询（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷6 计算机网络 第47题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-6-cn-047/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-6-cn-047/</guid>
+      <description>&lt;p&gt;（9 分）主机 A 向主机 B 连续发送了 3 个 TCP 报文段。第 1 个报文段的序号为 90，第 2 个报文段的序号为 120，第 3 个报文段的序号为 150。请回答：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷7 计算机网络 第33题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-7-cn-033/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-7-cn-033/</guid>
+      <description>&lt;p&gt;在 OSI 参考模型中，下列哪一层的主要功能是提供端到端的可靠数���传输、流量控制和差错恢复？&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷7 计算机网络 第34题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-7-cn-034/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-7-cn-034/</guid>
+      <description>&lt;p&gt;若数据链路的发送窗口尺寸 WT=4，在发送 3 号帧，并接到 2 号帧的确认帧后，发送方还可以连续发送的帧数是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷7 计算机网络 第35题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-7-cn-035/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-7-cn-035/</guid>
+      <description>&lt;p&gt;CSMA 协议可以利用多种监听算法来减小发送冲突的概率，下面关于各种监听算法的描述中，错误的是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷7 计算机网络 第36题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-7-cn-036/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-7-cn-036/</guid>
+      <description>&lt;p&gt;在 CSMA/CD 协议中，下列指标与冲突时间没有关系的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;A. 检测一次冲突所需要的最长时间&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷7 计算机网络 第37题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-7-cn-037/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-7-cn-037/</guid>
+      <description>&lt;p&gt;某端口的 IP 地址为 172.16.7.131.26，则该 IP 地址所在网络的广播地址（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷7 计算机网络 第38题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-7-cn-038/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-7-cn-038/</guid>
+      <description>&lt;p&gt;在因特网中，IP 数据报的传输需要经由源主机和中途路由器到达目的主机，下面说法正确的是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷7 计算机网络 第39题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-7-cn-039/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-7-cn-039/</guid>
+      <description>&lt;p&gt;TCP 的通信双方，有一方发送了带有 FIN 标志的数据段后表示（ ）。&lt;/p&gt;&#xA;&lt;p&gt;A. 将断开通信双方的 TCP 连接&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷7 计算机网络 第40题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-7-cn-040/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-7-cn-040/</guid>
+      <description>&lt;p&gt;UDP 协议和 TCP 协议报文首部的非共同字段有（ ）。&lt;/p&gt;&#xA;&lt;p&gt;A. 源端口&lt;/p&gt;&#xA;&lt;p&gt;B. 目的端口&lt;/p&gt;&#xA;&lt;p&gt;C. 序列号&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷7 计算机网络 第47题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-7-cn-047/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-7-cn-047/</guid>
+      <description>&lt;p&gt;（9 分）设有 4 台主机 A、B、C 和 D 都处在同一物理网络中，它们的 IP 地址分别为：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷8 计算机网络 第33题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-8-cn-033/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-8-cn-033/</guid>
+      <description>&lt;p&gt;设待传送数据总长度为 L 位，分组长度为 P 位，其中头部开销长度为 H 位，源结点到目的结点之间的链路数为 h，每个链路上的延迟时间为 D 秒，数据传输速率为 B bps，电路交换建立连接的时间为 S 秒，则电路交换方式传送完所有数据需要的时间是（ ）秒。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷8 计算机网络 第34题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-8-cn-034/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-8-cn-034/</guid>
+      <description>&lt;p&gt;以下各项中，不是数据报服务特点的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;A. 每个分组自身携带有足够的信息，它的传送被单独处理&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷8 计算机网络 第35题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-8-cn-035/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-8-cn-035/</guid>
+      <description>&lt;p&gt;考虑建立一个 CSMA/CD 网，电缆长度为 1km，不使用中继器，传输速率为 1Gbps，电缆中信号的传播速率是 200000km/s，则该网络中最小帧长是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷8 计算机网络 第36题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-8-cn-036/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-8-cn-036/</guid>
+      <description>&lt;p&gt;在一条点对点链路上，为了减少地址的浪费，子网掩码应该指定为（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷8 计算机网络 第37题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-8-cn-037/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-8-cn-037/</guid>
+      <description>&lt;p&gt;某同学在校园网访问因特网，从该同学打开计算机电源到使用命令 ftp202.37.0.25 连接文件服务器的过程中，（ ）协议可能没有使用到。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷8 计算机网络 第38题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-8-cn-038/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-8-cn-038/</guid>
+      <description>&lt;p&gt;某路由器的路由表如下所示。如果它收到一个目的地址为 192.168.10.23 的 IP 数据报，那么它为该数据报选择的下一跳路由器地址是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷8 计算机网络 第39题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-8-cn-039/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-8-cn-039/</guid>
+      <description>&lt;p&gt;一个长度为 3000 字节的 UDP 数据报，在数据链路层使用以太网进行传输，为了正确传输，则需要将其拆分成（ ）个 IP 数据片。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷8 计算机网络 第40题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-8-cn-040/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-8-cn-040/</guid>
+      <description>&lt;p&gt;TCP 是互联网中的传输层协议，TCP 协议进行流量控制的方式是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>模拟卷8 计算机网络 第47题</title>
+      <link>https://cycycy5464.github.io/cc408/question/simulate-8-cn-047/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/simulate-8-cn-047/</guid>
+      <description>&lt;p&gt;（9 分）设 A、B 两站相距 4km，使用 CSMA/CD 协议，信号在网络上的传播速度为 200000km/s，两站发送速率为 100Mbps，A 站先发送数据，如果发生碰撞，则：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2010 计算机网络 第33题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2010-cn-033/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2010-cn-033/</guid>
+      <description>&lt;p&gt;下列选项中，不属于网络体系结构所描述的内容是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e7%bd%91%e7%bb%9c%e4%bd%93%e7%b3%bb%e7%bb%93%e6%9e%84&#34;&gt;网络体系结构&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A. 网络的层次&#xA;B. 每一层使用的协议&#xA;C.协议的内部实现细节&#xA;D. 每一层必须完成的功能&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2010 计算机网络 第34题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2010-cn-034/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2010-cn-034/</guid>
+      <description>&lt;p&gt;在下图所示的采用 “存储-转发” 方式的分组交换网络中，所有链路的数据传输速率为 100 Mbps，分组大小为 1000 B，其中分组头大小为 20 B。若主机 H1 向主机 H2 发送一个大小为 980 000 B 的文件，则在不考虑分组拆装时间和传播延迟的情况下，从 H1 发送开始到 H2 接收完为止，需要的时间至少是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2010 计算机网络 第35题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2010-cn-035/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2010-cn-035/</guid>
+      <description>&lt;p&gt;某自治系统采用 RIP 协议，若该自治系统内的路由器 R1 收到其邻居路由器 R2 的距离矢量中包含信息&amp;lt;net1,16&amp;gt;，则可能得出的结论是 ( )。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2010 计算机网络 第36题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2010-cn-036/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2010-cn-036/</guid>
+      <description>&lt;p&gt;若路由器 R 因为拥塞丢弃 IP 分组，则此时 R 可向发出该 IP 分组的源主机发送的 ICMP 报文类型是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2010 计算机网络 第37题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2010-cn-037/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2010-cn-037/</guid>
+      <description>&lt;p&gt;某网络的 IP 地址空间为 192.168.5.0/24，采用定长子网划分，子网掩码为 255.255.255.248，则该网络中的最大子网个数、每个子网内的最大可分配地址个数分别是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2010 计算机网络 第38题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2010-cn-038/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2010-cn-038/</guid>
+      <description>&lt;p&gt;下列网络设备中，能够抑制广播风暴的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;I. 中继器 II. 集线器 III. 网桥 IV. 路由器&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2010 计算机网络 第39题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2010-cn-039/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2010-cn-039/</guid>
+      <description>&lt;p&gt;主机甲和主机乙之间已建立了一个 TCP 连接，TCP 最大段长度为 1000 字节。若主机甲的当前拥塞窗口为 4000 字节，在主机甲向主机乙连续发送两个最大段后，成功收到主机乙发送的第一个段的确认段，确认段中通告的接收窗口大小为 2000 字节，则此时主机甲还可以向主机乙发送的最大字节数是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2010 计算机网络 第40题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2010-cn-040/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2010-cn-040/</guid>
+      <description>&lt;p&gt;如果本地域名服务器无缓存，当采用递归方法解析另一网络某主机域名时，用户主机、本地域名服务器发送的域名请求消息数分别为（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2010 计算机网络 第47题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2010-cn-047/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2010-cn-047/</guid>
+      <description>&lt;p&gt;某局域网采用 CSMA/CD 协议实现介质访问控制，数据传输速率为 10 Mbps，主机甲和主机乙之间的距离为 2 km，信号传播速度是 200 000 km/s。请回答下列问题，要求说明理由或写出计算过程。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2011 计算机网络 第33题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2011-cn-033/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2011-cn-033/</guid>
+      <description>&lt;p&gt;TCP/IP 参考模型的网络层提供的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#tcp-ip%e6%a8%a1%e5%9e%8b&#34;&gt;TCP/IP模型&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A.  无连接不可靠的数据报服务&#xA;B. 无连接可靠的数据报服务&#xA;C. 有连接不可靠的虚电路服务&#xA;D.  有连接可靠的虚电路服务&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2011 计算机网络 第34题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2011-cn-034/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2011-cn-034/</guid>
+      <description>&lt;p&gt;若某通信链路的数据传输速率为 2400 bps，采用 4 相位调制，则该链路的波特率是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2011 计算机网络 第35题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2011-cn-035/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2011-cn-035/</guid>
+      <description>&lt;p&gt;数据链路层采用选择重传协议 (SR) 传输数据，发送方已发送了 0～3 号数据帧，现已收到 1 号帧的确认，而 0、2 号帧依次超时，则此时需要重传的帧数是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2011 计算机网络 第36题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2011-cn-036/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2011-cn-036/</guid>
+      <description>&lt;p&gt;下列选项中，对正确接收到的数据帧进行确认的 MAC 协议是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e4%bb%8b%e8%b4%a8%e8%ae%bf%e9%97%ae%e6%8e%a7%e5%88%b6&#34;&gt;介质访问控制&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A.CSMA&#xA;B.CDMA&#xA;C.CSMA/CD&#xA;D.CSMA/CA&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2011 计算机网络 第37题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2011-cn-037/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2011-cn-037/</guid>
+      <description>&lt;p&gt;某网络拓扑如下图所示，路由器 &lt;code&gt;R1&lt;/code&gt; 只有到达子网 &lt;code&gt;192.168.1.0/24&lt;/code&gt; 的路由。为使 &lt;code&gt;R1&lt;/code&gt; 可以将 &lt;code&gt;IP&lt;/code&gt; 分组正确地路由到图中所有子网，则在 &lt;code&gt;R1&lt;/code&gt; 中需要增加的一条路由（目的网络，子网掩码，下一跳）是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2011 计算机网络 第38题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2011-cn-038/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2011-cn-038/</guid>
+      <description>&lt;p&gt;在子网 192.168.4.0/30 中，能接收目的地址为 192.168.4.3 的 IP 分组的最大主机数是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e5%ad%90%e7%bd%91%e5%88%92%e5%88%86&#34;&gt;子网划分&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A. 0&#xA;B. 1&#xA;C. 2&#xA;D. 4&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2011 计算机网络 第39题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2011-cn-039/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2011-cn-039/</guid>
+      <description>&lt;p&gt;主机甲向主机乙发送一个 (SYN＝1, seq＝11220) 的 TCP 段，期望与主机乙建立 TCP 连接，若主机乙接受该连接请求，则主机乙向主机甲发送的正确的 TCP 段可能是&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2011 计算机网络 第40题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2011-cn-040/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2011-cn-040/</guid>
+      <description>&lt;p&gt;主机甲与主机乙之间已建立一个 TCP 连接，主机甲向主机乙发送了 3 个连续的 TCP 段，分别包含 300 字节、400 字节和 500 字节的有效载荷，第 3 个段的序号为 900。若主机乙仅正确接收到第 1 和第 3 个段，则主机乙发送给主机甲的确认序号是&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2011 计算机网络 第47题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2011-cn-047/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2011-cn-047/</guid>
+      <description>&lt;p&gt;某主机的 MAC 地址为 00-15-C5-C1-5E-28，IP 地址为 10.2.128.100（私有地址）。题 47-a 图是网络拓扑，题 47-b 图是该主机进行 Web 请求的 1 个以太网数据帧前 80 个字节的十六进制及 ASCII 码内容。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 计算机网络 第33题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-cn-033/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-cn-033/</guid>
+      <description>&lt;p&gt;在 TCP/IP 体系结构中，直接为 ICMP 提供服务的协议是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#tcp-ip%e6%a8%a1%e5%9e%8b&#34;&gt;TCP/IP模型&lt;/a&gt;&#xA;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#icmp&#34;&gt;ICMP&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A.PPP&#xA;B.IP&#xA;C.UDP&#xA;D.TCP&#xA;[tag_link]&lt;/p&gt;&#xA;&lt;p&gt;正确答案：B&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 计算机网络 第34题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-cn-034/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-cn-034/</guid>
+      <description>&lt;p&gt;在物理层接口特性中，用于描述完成每种功能的事件发生顺序的是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 计算机网络 第35题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-cn-035/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-cn-035/</guid>
+      <description>&lt;p&gt;以太网的 MAC 协议提供的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e4%bb%a5%e5%a4%aa%e7%bd%91&#34;&gt;以太网&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A. 无连接不可靠服务&#xA;B. 无连接可靠服务&#xA;C. 有连接不可靠服务&#xA;D. 有连接可靠服务&#xA;[tag_link]&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 计算机网络 第36题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-cn-036/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-cn-036/</guid>
+      <description>&lt;p&gt;两台主机之间的数据链路层采用后退 N 帧协议 (GBN) 传输数据，数据传输速率为 16 kbps，单向传播时延为 270 ms，数据帧长度范围是 128~512 字节，接收方总是以与数据帧等长的帧进行确认。为使信道利用率达到最高，帧序号的比特数至少为（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 计算机网络 第37题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-cn-037/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-cn-037/</guid>
+      <description>&lt;p&gt;下列关于 IP 路由器功能的描述中，正确的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;I. 运行路由协议，设置路由表&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 计算机网络 第38题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-cn-038/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-cn-038/</guid>
+      <description>&lt;p&gt;ARP 协议的功能是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#arp&#34;&gt;ARP&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A. 根据 IP  地址查询 MAC 地址&#xA;B. 根据 MAC  地址查询 IP  地址&#xA;C. 根据域名查询IP  地址&#xA;D. 根据 IP  地址查询域名&#xA;[tag_link]&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 计算机网络 第39题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-cn-039/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-cn-039/</guid>
+      <description>&lt;p&gt;某主机的 IP 地址为 180.80.77.55，子网掩码为 255.255.252.0。若该主机向其所在子网发送广播分组，则目的地址可以是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 计算机网络 第40题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-cn-040/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-cn-040/</guid>
+      <description>&lt;p&gt;若用户 1 与用户 2 之间发送和接收电子邮件的过程如下图所示，则图中 ①、②、③ 阶段分别使用的应用层协议可以是&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 计算机网络 第47题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-cn-047/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-cn-047/</guid>
+      <description>&lt;p&gt;主机 H 通过快速以太网连接 Internet，IP 地址为 192.168.0.8，服务器 S 的 IP 地址为 211.68.71.80。H 与 S 使用 TCP 通信时，在 H 上捕获的其中 5 个 IP 分组如题 47-a 表所示。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2013 计算机网络 第33题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2013-cn-033/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2013-cn-033/</guid>
+      <description>&lt;p&gt;在 OSI 参考模型中，下列功能需由应用层的相邻层实现的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#osi%e6%a8%a1%e5%9e%8b&#34;&gt;OSI模型&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A. 对话管理&#xA;B. 数据格式转换&#xA;C. 路由选择&#xA;D. 可靠数据传输&#xA;[tag_link]&#xA;正确答案：B&#xA;在&#xA;&lt;a href=&#34;../../../computer_network/overall/iso/content.md#isoosi-%e6%a8%a1%e5%9e%8b&#34;&gt;OSI 参考模型&lt;/a&gt;&#xA;中，应用层的相邻层是表示层。表示层是 OSI 七层协议的第六层。表示层的功能是表示出用户看得懂的数据格式，实现与数据表示有关的功能。主要完成数据字符集的转换、数据格式化和文本压缩、数据加密和解密等工作。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2013 计算机网络 第34题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2013-cn-034/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2013-cn-034/</guid>
+      <description>&lt;p&gt;若下图为 10 BaseT 网卡接收到的信号波形，则该网卡收到的比特串是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2013 计算机网络 第35题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2013-cn-035/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2013-cn-035/</guid>
+      <description>&lt;p&gt;主机甲通过 1 个路由器（存储转发方式）与主机乙互联，两段链路的数据传输速率均为 10Mbps，主机甲分别采用报文交换和分组大小为 10kb 的分组交换向主机乙发送 1 个大小为 8 Mb（1M = 10⁶ ）的报文。若忽略链路传播延迟、分组头开销和分组拆装时间，则两种交换方式完成该报文传输所需的总时间分别为（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2013 计算机网络 第36题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2013-cn-036/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2013-cn-036/</guid>
+      <description>&lt;p&gt;下列介质访问控制方法中，可能发生冲突的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e4%bb%8b%e8%b4%a8%e8%ae%bf%e9%97%ae%e6%8e%a7%e5%88%b6&#34;&gt;介质访问控制&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A.CDMA&#xA;B.CSMA&#xA;C.TDMA&#xA;D.FDMA&#xA;[tag_link]&#xA;正确答案：B&#xA;选项 A、C 和 D 都是&#xA;&lt;a href=&#34;../../../computer_network/datalink/mac/content.md#%e4%bf%a1%e9%81%93%e5%88%92%e5%88%86%e4%bb%8b%e8%b4%a8%e8%ae%bf%e9%97%ae%e6%8e%a7%e5%88%b6&#34;&gt;信道划分协议&lt;/a&gt;&#xA;，信道划分协议是静态划分信道的方法，肯定不会发生冲突。CSMA 全称是载波侦听多路访问协议，其原理是站点在发送数据前先侦听信道，发现信道空闲后再发送，但在发送过程中有可能会发生冲突。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2013 计算机网络 第37题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2013-cn-037/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2013-cn-037/</guid>
+      <description>&lt;p&gt;HDLC 协议对 01111100 01111110 组帧后对应的比特串为（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#hdlc&#34;&gt;HDLC&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A.011111000011111010&#xA;B.011111000111110101111110&#xA;C.01111100011111010&#xA;D.011111000111111001111101&#xA;[tag_link]&#xA;正确答案：A&#xA;&lt;a href=&#34;../../../computer_network/datalink/lan/content.md#hdlc-%e5%8d%8f%e8%ae%ae&#34;&gt;HDLC 协议&lt;/a&gt;&#xA;对比特串进行组帧时，HDLC 数据帧以位模式 0111 1110 标识每一个帧的开始和结束，因此在帧数据中凡是出现了 5 个连续的位“1”的时候，就会在输出的位流中填充一个“0”。因此组帧后的比特串为 0111 1100 0011 1110 10。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2013 计算机网络 第38题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2013-cn-038/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2013-cn-038/</guid>
+      <description>&lt;p&gt;对于 100 Mbps 的以太网交换机，当输出端口无排队，以直通交换 (cut-through switching) 方式转发一个以太网帧（不包括前导码）时，引入的转发延迟至少是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2013 计算机网络 第39题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2013-cn-039/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2013-cn-039/</guid>
+      <description>&lt;p&gt;主机甲与主机乙之间已建立一个 TCP 连接，双方持续有数据传输，且数据无差错与丢失。若甲收到 1 个来自乙的 TCP 段，该段的序号为 1913、确认序号为 2046、有效载荷为 100 字节，则甲立即发送给乙的 TCP 段的序号和确认序号分别是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2013 计算机网络 第40题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2013-cn-040/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2013-cn-040/</guid>
+      <description>&lt;p&gt;下列关于 SMTP 协议的叙述中，正确的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;I. 只支持传输 7 比特 ASCII 码内容&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2013 计算机网络 第47题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2013-cn-047/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2013-cn-047/</guid>
+      <description>&lt;p&gt;假设 Internet 的两个自治系统构成的网络如题 47 图所示，自治系统 AS1 由路由器 R1 连接两个子网构成；自治系统 AS2 由路由器 R2、R3 互联并连接 3 个子网构成。各子网地址、R2 的接口名、R1 与 R3 的部分接口 IP 地址如题 47 图所示。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2014 计算机网络 第34题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2014-cn-034/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2014-cn-034/</guid>
+      <description>&lt;p&gt;某以太网拓扑及交换机当前转发表如下图所示，主机00-c1-d5-00-23-a1    向主机00-c1-d5-00-23-c1   发&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2015 计算机网络 第33题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2015-cn-033/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2015-cn-033/</guid>
+      <description>&lt;p&gt;通过 POP3 协议接收邮件时，使用的传输层服务类型是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e7%94%b5%e5%ad%90%e9%82%ae%e4%bb%b6&#34;&gt;电子邮件&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A. 无连接不可靠的数据传输服务&#xA;B. 无连接可靠的数据传输服务&#xA;C. 有连接不可靠的数据传输服务&#xA;D. 有连接可靠的数据传输服务&#xA;[tag_link]&#xA;正确答案：D&#xA;&lt;a href=&#34;../../../computer_network/application/mail/content.md#pop3&#34;&gt;POP3&lt;/a&gt;&#xA;建立在 TCP 连接上，使用的是有连接可靠的数据传输服务。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2015 计算机网络 第34题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2015-cn-034/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2015-cn-034/</guid>
+      <description>&lt;p&gt;使用两种编码方案对比特流 01100111 进行编码的结果如下图所示，编码 1 和编码 2 分别是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2015 计算机网络 第35题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2015-cn-035/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2015-cn-035/</guid>
+      <description>&lt;p&gt;主机甲通过 128 kbps 卫星链路，采用滑动窗口协议向主机乙发送数据，链路单向传播延迟为 250 ms，帧长为 1000 字节。不考虑确认帧的开销，为使链路利用率不小于 80％，帧序号的比特数至少是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2015 计算机网络 第36题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2015-cn-036/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2015-cn-036/</guid>
+      <description>&lt;p&gt;下列关于 CSMA/CD 协议的叙述中，错误的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#csma-cd&#34;&gt;CSMA/CD&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A. 边发送数据帧，边检测是否发生冲突&#xA;B.  适用于无线网络，以实现无线链路共享&#xA;C.  需要根据网络跨距和数据传输速率限定最小帧长&#xA;D. 当信号传播延迟趋近0时，信道利用率趋近100%&#xA;[tag_link]&#xA;正确答案：B&#xA;CCSM/CD 适用于有线网络，而 CSMA/CA 则 广泛应用于无线局域网。其他选项关于 CSMA/CD 的描述都是正确的。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2015 计算机网络 第37题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2015-cn-037/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2015-cn-037/</guid>
+      <description>&lt;p&gt;下列关于交换机的叙述中，正确的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e4%ba%a4%e6%8d%a2%e6%9c%ba&#34;&gt;交换机&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A. 以太网交换机本质上是一种多端口网桥&#xA;B.  通过交换机互连的一组工作站构成一个冲突域&#xA;C. 交换机每个端口所连网络构成一个独立的广播域&#xA;D.  以太网交换机可实现采用不同网络层协议的网络互联&#xA;[tag_link]&#xA;正确答案：A&#xA;从本质上说，&#xA;&lt;a href=&#34;../../../computer_network/datalink/dev/content.md#%e4%ba%a4%e6%8d%a2%e6%9c%ba&#34;&gt;交换机&lt;/a&gt;&#xA;就是一个多端口的网桥（A 正确），工作在数据链路层（因此不能实现不同网络层协议的网络互联，D 错误），交换机能经济地将网络分成小的冲突域（B 错误）。广播域属于网络层概念，只有网络层设备（如路由器）才能分割广播域（C 错误）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2015 计算机网络 第38题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2015-cn-038/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2015-cn-038/</guid>
+      <description>&lt;p&gt;某路由器的路由表如下表所示：&lt;/p&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th style=&#34;text-align: left&#34;&gt;目的网络&lt;/th&gt;&#xA;          &lt;th style=&#34;text-align: left&#34;&gt;下一跳&lt;/th&gt;&#xA;          &lt;th style=&#34;text-align: left&#34;&gt;接口&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;169.96.40.0/23&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;176.1.1.1&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;S1&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;169.96.40.0/25&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;176.2.2.2&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;S2&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;169.96.40.0/27&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;176.3.3.3&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;S3&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;0.0.0.0/0&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;176.4.4.4&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;S4&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;p&gt;若路由器收到一个目的地址为 169.96.40.5 的 IP 分组，则转发该 IP 分组的接口是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2015 计算机网络 第39题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2015-cn-039/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2015-cn-039/</guid>
+      <description>&lt;p&gt;主机甲和主机乙新建一个 TCP 连接，甲的拥塞控制初始阈值为 32 KB，甲向乙始终以 MSS = 1KB 大小的段发送数据，并一直有数据发送；乙为该连接分配 16 KB 接收缓存，并对每个数据段进行确认，忽略段传输延迟。若乙收到的数据全部存入缓存，不被取走，则甲从连接建立成功时刻起，未发生超时的情况下，经过 4 个 RTT 后，甲的发送窗口是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2015 计算机网络 第40题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2015-cn-040/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2015-cn-040/</guid>
+      <description>&lt;p&gt;某浏览器发出的 HTTP 请求报文如下（ ）。&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;GET /index .html HTTP/1.1&#xD;&#xA;Host: www.test.edu.cn&#xD;&#xA;Connection: close&#xD;&#xA;Cookie: 123456&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;下列叙述中，错误的是&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2015 计算机网络 第47题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2015-cn-047/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2015-cn-047/</guid>
+      <description>&lt;p&gt;某网络拓扑如题 47 图所示，其中路由器内网接口、DHCP 服务器、WWW 服务器与主机 1 均采用静态 IP 地址配置，相关地址信息见图中标注；主机 2～主机 N 通过 DHCP 服务器动态获取 IP 地址等配置信息。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2016 计算机网络 第33题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2016-cn-033/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2016-cn-033/</guid>
+      <description>&lt;p&gt;在 OSI 参考模型中，R1、Switch、Hub 实现的最高功能层分别是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2016 计算机网络 第34题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2016-cn-034/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2016-cn-034/</guid>
+      <description>&lt;p&gt;若连接 R2 和 R3 链路的频率带宽为 8 kHz，信噪比为 30 dB，该链路实际数据传输速率约为理论最大数据传输速率的 50％，则该链路的实际数据传输速率约是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2016 计算机网络 第35题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2016-cn-035/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2016-cn-035/</guid>
+      <description>&lt;p&gt;若主机 H2 向主机 H4 发送 1 个数据帧，主机 H4 向主机 H2 立即发送一个确认帧，则除 H4 外，从物理层上能够收到该确认帧的主机还有（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2016 计算机网络 第36题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2016-cn-036/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2016-cn-036/</guid>
+      <description>&lt;p&gt;若 Hub 再生比特流过程中，会产生 1.535μs 延时，信号传播速度为 200m/μs，不考虑以太网帧的前导码，则 H3 与 H4 之间理论上可以相距的最远距离是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2016 计算机网络 第37题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2016-cn-037/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2016-cn-037/</guid>
+      <description>&lt;p&gt;假设 R1、R2、R3 采用 RIP 协议交换路由信息，且均已收敛。若 R3 检测到网络 201.1.2.0/25 不可达，并向 R2 通告一次新的距离向量，则 R2 更新后，其到达该网络的距离是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2016 计算机网络 第38题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2016-cn-038/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2016-cn-038/</guid>
+      <description>&lt;p&gt;假设连接 R1、R2 和 R3 之间的点对点链路使用 201.1.3.x/30 地址，当 H3 访问 Web 服务器 S 时，R2 转发出去的封装 HTTP 请求报文的 IP 分组的源 IP 地址和目的 IP 地址分别是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2016 计算机网络 第39题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2016-cn-039/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2016-cn-039/</guid>
+      <description>&lt;p&gt;假设 H1 与 H2 的默认网关和子网掩码均分别配置为 192.168.3.1 和 255.255.255.128，H3 与 H4 的默认网关和子网掩码均分别配置为 192.168.3.254 和 255.255.255.128，则下列现象中可能发生的是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2016 计算机网络 第40题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2016-cn-040/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2016-cn-040/</guid>
+      <description>&lt;p&gt;假设所有域名服务器均采用迭代查询方式进行域名解析。当 H4 访问规范域名为 &lt;a href=&#34;https://www.abc.xyz.com&#34;&gt;www.abc.xyz.com&lt;/a&gt; 的网站时，域名服务器 201.1.1.1 在完成该域名解析过程中，可能发出 DNS 查询的最少和最多次数分别是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2016 计算机网络 第47题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2016-cn-047/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2016-cn-047/</guid>
+      <description>&lt;p&gt;某磁盘文件系统使用链接分配方式组织文件，簇大小为 4KB。目录文件的每个目录项包括文件名和文件的第一个簇号，其他簇号存放在文件分配表 FAT 中。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2017 计算机网络 第33题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2017-cn-033/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2017-cn-033/</guid>
+      <description>&lt;p&gt;假设 OSI 参考模型的应用层欲发送 400B 的数据（无拆分），除物理层和应用层之外，其他各层在封装 PDU 时均引入 20B 的额外开销，则应用层数据传输效率约为（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2017 计算机网络 第34题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2017-cn-034/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2017-cn-034/</guid>
+      <description>&lt;p&gt;若信道在无噪声情况下的极限数据传输速率不小于信噪比为 30dB 条件下的极限数据传输速率，则信号状态数至少是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2017 计算机网络 第35题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2017-cn-035/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2017-cn-035/</guid>
+      <description>&lt;p&gt;在下图所示的网络中，若主机 H 发送一个封装访问 Internet 的 IP 分组的 IEEE 802.11 数据帧 F，则帧 F 的地址 1、地址 2 和地址 3 分别是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2017 计算机网络 第36题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2017-cn-036/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2017-cn-036/</guid>
+      <description>&lt;p&gt;下列 IP 地址中，只能作为 IP 分组的源 IP 地址但不能作为目的 IP 地址的是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2017 计算机网络 第37题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2017-cn-037/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2017-cn-037/</guid>
+      <description>&lt;p&gt;直接封装 RIP、OSPF、BGP 报文的协议分别是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e8%b7%af%e7%94%b1%e5%8d%8f%e8%ae%ae&#34;&gt;路由协议&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A.TCP 、UDP 、IP&#xA;B.TCP 、IP 、UDP&#xA;C.UDP 、TCP 、IP&#xA;D.UDP 、IP 、TCP&#xA;[tag_link]&#xA;正确答案：D&#xA;参考&#xA;&lt;a href=&#34;../../../computer_network/network/route/content.md#%e5%af%b9%e6%af%94&#34;&gt;路由协议对比&lt;/a&gt;&#xA;，RIP 是一种分布式的基于距离向量的路由选择协议，通过广播 UDP 报文来交换路由信息。OSPF 是一个内部网关协议，不使用传输协议，如 UDP 或 TCP，而是直接用 IP 包封装它的数据。BGP 是一个外部网关协议，用 TCP 封装它的数据。因此选 D。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2017 计算机网络 第38题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2017-cn-038/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2017-cn-038/</guid>
+      <description>&lt;p&gt;若将网络 21.3.0.0/16 划分为 128 个规模相同的子网，则每个子网可分配的最大 IP 地址个数是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2017 计算机网络 第39题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2017-cn-039/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2017-cn-039/</guid>
+      <description>&lt;p&gt;若甲向乙发起一个 TCP 连接，最大段长 MSS=1KB，RTT=5ms，乙开辟的接收缓存为 64KB，则甲从连接建立成功至发送窗口达到 32KB，需经过的时间至少是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2017 计算机网络 第40题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2017-cn-040/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2017-cn-040/</guid>
+      <description>&lt;p&gt;下列关于 FTP 协议的叙述中，错误的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#ftp&#34;&gt;FTP&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A. 数据连接在每次数据传输完毕后就关闭&#xA;B. 控制连接在整个会话期间保持打开状态&#xA;C. 服务器与客户端的TCP 20端口建立数据连接&#xA;D. 客户端与服务器的TCP21 端口建立控制连接&#xA;[tag_link]&#xA;正确答案：C&#xA;&lt;a href=&#34;../../../computer_network/application/ftp/content.md&#34;&gt;FTP&lt;/a&gt;&#xA;协议使用控制连接和数据连接，控制连接存在于整个 FTP 会话过程中，数据连接在每次文件传输时才建立，传输结束就关闭，A 和 B 是正确的。默认情况下 FTP 协议使用 TCP 20 端口进行数据连接，TCP 21 端口进行控制连接。但是是否使用 TCP 20 端口建立数据连接与传输模式有关，主动方式使用 TCP20 端口，被动方式由服务器和客户端自行协商决定，C 错，D 对。所以选 C。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2017 计算机网络 第47题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2017-cn-047/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2017-cn-047/</guid>
+      <description>&lt;p&gt;甲乙双方均采用后退 N 帧协议 (GBN) 进行持续的双向数据传输，且双方始终采用捎带确认，帧长均为 1000 B。&#xA;Sx,y​&#xA;和&#xA;Rx,y​&#xA;分别表示甲方和乙方发送的数据帧，其中：&#xA;x&#xA;是发送序号；&#xA;y&#xA;是确认序号（表示希望接收对方的下一帧序号）；数据帧的发送序号和确认序号字段均为 3 比特。信道传输速率为 100 Mbps，RTT = 0.96 ms。下图给出了甲方发送数据帧和接收数据帧的两种场景，其中&#xA;t0​&#xA;为初始时刻，此时甲方的发送和确认序号均为 0，&#xA;t1​&#xA;时刻甲方有足够多的数据待发送。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机网络 第33题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-cn-033/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-cn-033/</guid>
+      <description>&lt;p&gt;下列 TCP/IP 应用层协议中，可以使用传输层无连接服务的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e7%bd%91%e7%bb%9c%e5%8d%8f%e8%ae%ae&#34;&gt;网络协议&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A.FTP&#xA;B.DNS&#xA;C.SMTP&#xA;D.&lt;a href=&#34;HTTP&#34;&gt;HTTP&lt;/a&gt;&#xA;[tag_link]&#xA;正确答案：B&#xA;FTP 用来传输文件，SMTP 用来发送电子邮件，HTTP 用来传输网页文件，都对可靠性的要求较高，因此都用传输层有连接的 TCP 服务。无连接 UDP 服务效率更高、开销小，DNS 在传输层采用无连接的 UDP 服务。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机网络 第34题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-cn-034/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-cn-034/</guid>
+      <description>&lt;p&gt;下列选项中，不属于物理层接口规范定义范畴的是（）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e7%89%a9%e7%90%86%e5%b1%82%e6%8e%a5%e5%8f%a3%e7%89%b9%e6%80%a7&#34;&gt;物理层接口特性&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A. 接口形状&#xA;B. 引脚功能&#xA;C. 物理地址&#xA;D. 信号电平&#xA;[tag_link]&#xA;正确答案：C&#xA;物理层的接口规范主要分为 4 种：机械特性、电气特性、功能特性、规程特性。机械特性规定连接所用设备的规格，即 A 所说的接口形状。电气特性规定信号的电压高低、阻抗匹配等，如 D 所说的信号电平。功能特性规定线路上出现的电平代表什么意义、接口部件的信号线（数据线、控制线、定时线等）的用途，如 B 所说的引脚功能。选项 C 中的物理地址就是 MAC 地址，它属于数据链路层的范畴。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机网络 第35题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-cn-035/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-cn-035/</guid>
+      <description>&lt;p&gt;IEEE 802.11 无线局域网的 MAC 协议 CSMA/CA 进行信道预约的方法是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#csma-ca&#34;&gt;CSMA/CA&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A. 发送确认帧&#xA;B. 采用二进制指数退避&#xA;C. 使用多个MAC地址&#xA;D. 交换RTS 与CTS帧&#xA;[tag_link]&#xA;正确答案：D&#xA;参考&#xA;&lt;a href=&#34;../../../computer_network/datalink/mac/content.md#%e6%b5%81%e7%a8%8b-1&#34;&gt;CSMA/CA 流程&lt;/a&gt;&#xA;，CSMA/CA 协议进行信道预约主要使用的是请求发送帧 RTS（Request to Send）和允许发送帧 CTS（Clear to Send）。当一台主机想要发送信息时，先向无线站点发送一个 RTS 帧，说明要传输的 数据及相应的时间。当无线站点收到 RTS 帧之后，会广播一个 CTS 帧作为对此的响应，既给发送端发送许可，又指示其他主机不要在这个时间内发送数据，从而预约信道，避免碰撞。发送确认帧，主要是保证信息的可靠传输；二进制指数退避法是在 CSMA/CD 中的一种冲突处理 方法；C 选项则与预约信道无关。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机网络 第36题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-cn-036/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-cn-036/</guid>
+      <description>&lt;p&gt;主机甲采用停 - 等协议向主机乙发送数据，数据传输速率是 3 kbps，单向传播延时是 200 ms，忽略确认帧的传输延时。当信道利用率等于 40% 时，数据帧的长度为（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机网络 第37题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-cn-037/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-cn-037/</guid>
+      <description>&lt;p&gt;路由器 R 通过以太网交换机 S1 和 S2 连接两个网络，R 的接口、主机 H1 和 H2 的 IP 地址与 MAC 地址如下图所示。若 H1 向 H2 发送一个 IP 分组 P，则 H1 发出的封装 P 的以太网帧的目的 MAC 地址、H2 收到的封装 P 的以太网帧的源 MAC 地址分别是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机网络 第38题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-cn-038/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-cn-038/</guid>
+      <description>&lt;p&gt;某路由表中有转发接口相同的 4 条路由表项，其目的网络地址分别是 35.230.32.0/21、35.230.40.0/21、35.230.48.0/21 和 35.230.56.0/21，将该 4 条路由聚合后的目的网络地址为（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机网络 第39题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-cn-039/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-cn-039/</guid>
+      <description>&lt;p&gt;UDP 协议实现分用 (demultiplexing) 时所依据的头部字段是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#udp&#34;&gt;UDP&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A. 源端口号&#xA;B.  目的端口号&#xA;C.  长度&#xA;D. 校验和&#xA;[tag_link]&#xA;正确答案：B&#xA;传输层分用的定义是：接收方的传输层剥去报文首部后，能把这些数据正确交付到目的进程。C 和 D 选项显然不符。端口号是传输层服务访问点 TSAP, 用来标识主机中的应用进程。对于 A 和 B 选项，源端口号是在需要对方回信时选用，不需要时可用全 0。目的端口号是在终点交付报文时使用到，符合题意，故选 B。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机网络 第40题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-cn-040/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-cn-040/</guid>
+      <description>&lt;p&gt;无需转换即可由 SMTP 协议直接传输的内容是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e7%94%b5%e5%ad%90%e9%82%ae%e4%bb%b6&#34;&gt;电子邮件&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A.JPEG 图形&#xA;B. MPEG视频&#xA;C. EXE 文件&#xA;D.ASCII文本&#xA;[tag_link]&#xA;正确答案：D&#xA;&lt;a href=&#34;../../../computer_network/application/mail/content.md&#34;&gt;电子邮件&lt;/a&gt;&#xA;出现得较早，当时的数据传输能力较弱，使用者们往往也不需要传输较大的图片、视频等，因此 SMTP 具有一些目前来看较为老旧的性质，例如限制所有邮件报文的体部分，只能采用 7 位 ASCII 来表示。在如今的传输过程中，如果传输了非文本文件，往往需要将这些多媒体文件重新编码为 ASCII 再传输。因此无须转换即可传输的是 ASCII 文本，答案为 D。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机网络 第47题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-cn-047/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-cn-047/</guid>
+      <description>&lt;p&gt;某公司网络如题 47 图所示。IP 地址空间 192.168.1.0/24 被均分给销售部和技术部两个子网，并已分别为部分主机和路由器接口分配了 IP 地址，销售部子网的 MTU=1500 B，技术部子网的 MTU=800 B。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2019 计算机网络 第33题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2019-cn-033/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2019-cn-033/</guid>
+      <description>&lt;p&gt;OSI 参考模型的第 5 层（自下而上）完成的主要功能是（ ）&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#osi%e6%a8%a1%e5%9e%8b&#34;&gt;OSI模型&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A. 差错控制&#xA;B. 路由选择&#xA;C. 会话管理&#xA;D.  数据表示转换&#xA;[tag_link]&#xA;正确答案：C&#xA;&lt;a href=&#34;../../../computer_network/overall/iso/content.md#isoosi-%e6%a8%a1%e5%9e%8b&#34;&gt;OSI 参考模型&lt;/a&gt;&#xA;自下而上分别为物理层、数据链路层、网络层、传输层、会话层、表示层和应用层。第 5 层为会话层，它的主要功能是管理和协调不同主机上各种进程之间的通信（对话），即负责建立、管理和终止应用程序之间的会话，这也是会话层得名的原因。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2019 计算机网络 第34题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2019-cn-034/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2019-cn-034/</guid>
+      <description>&lt;p&gt;100BaseT 快速以太网使用的导向传输介质是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e4%bc%a0%e8%be%93%e4%bb%8b%e8%b4%a8&#34;&gt;传输介质&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A. 双绞线&#xA;B.  单模光纤&#xA;C.  多模光纤&#xA;D.  同轴电缆&#xA;[tag_link]&#xA;正确答案：A&#xA;参考&#xA;&lt;a href=&#34;../../../computer_network/datalink/lan/content.md#%e4%bc%a0%e8%be%93%e4%bb%8b%e8%b4%a8&#34;&gt;以太网传输介质&lt;/a&gt;&#xA;：100base-T 是一种以速度 100Mb/s 工作的局域网标准，它通常被称为快速以太网标准，并使用两对铜质电缆。100base-T：100 标识传输速度为 100Mb/s，base 标识采用基带传输，T 表示传输介质为双绞线，当为 F 时表示光纤。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2019 计算机网络 第35题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2019-cn-035/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2019-cn-035/</guid>
+      <description>&lt;p&gt;对于滑动窗口协议，如果分组序号采用 3 比特编号，发送窗口大小为 5，则接收窗口最大是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2019 计算机网络 第36题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2019-cn-036/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2019-cn-036/</guid>
+      <description>&lt;p&gt;假设一个采用 CSMA/CD 协议的 100Mbps 局域网，最小帧长是 128 B，则在一个冲突域内两个站点之间的单向传播延时最多是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2019 计算机网络 第37题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2019-cn-037/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2019-cn-037/</guid>
+      <description>&lt;p&gt;若将 101.200.16.0/20 划分为 5 个子网，则可能的最小子网的可分配 IP 地址数是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2019 计算机网络 第38题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2019-cn-038/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2019-cn-038/</guid>
+      <description>&lt;p&gt;某客户通过一个 TCP 连接向服务器发送数据的部分过程如题 38 图所示。客户在&#xA;t0​&#xA;时刻第一次收到确认序列号 ack_seq=100 的段，并发送序列号 seq=100 的段，但发生丢失。若 TCP 支持快速重传，则客户重新发送 seq=100 段的时刻是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2019 计算机网络 第39题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2019-cn-039/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2019-cn-039/</guid>
+      <description>&lt;p&gt;若主机甲主动发起一个与主机乙的 TCP 连接，甲、乙选择的初始序列号分别为 2018 和 2046，则第三次握手 TCP 段的确认序列号是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2019 计算机网络 第40题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2019-cn-040/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2019-cn-040/</guid>
+      <description>&lt;p&gt;下列关于网络应用模型的叙述中，错误的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e7%bd%91%e7%bb%9c%e5%ba%94%e7%94%a8%e6%a8%a1%e5%9e%8b&#34;&gt;网络应用模型&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A. 在P2P 模型中，结点之间具有对等关系&#xA;B. 在客户/服务器(C/S) 模型中，客户与客户之间可以直接通信&#xA;C. 在CIS模型中，主动发起通信的是客户，被动通信的是服务器&#xA;D. 在向多用户分发一个文件时，P2P 模型通常比C/S模型所需时间短&#xA;[tag_link]&#xA;正确答案：B&#xA;在&#xA;&lt;a href=&#34;../../../computer_network/application/model/content.md#p2p-%e6%a8%a1%e5%9e%8b&#34;&gt;P2P 模型&lt;/a&gt;&#xA;中，每个结点的权利和义务是对等的，在 C/S 模型中，客户是服务发起请求，使服务器被动接受各地客户的请求，但是客户之间不能直接通信，例如 Web 应用中两个浏览器不能直接通信，P2P 模型减轻了对某个服务器的计算压力，可以将任务分配到各个节点，提高了系统效率和资源利用率。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2019 计算机网络 第47题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2019-cn-047/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2019-cn-047/</guid>
+      <description>&lt;p&gt;某网络拓扑如题 47 图所示，其中 R 为路由器，主机 HI~H4 的 IP 地址配置以及 R 的各接口 IP 地址配置如图中所示。现有若干台以太网交换机（无 VLAN 功能）和路由器两类网络互连设备可供选择。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2020 计算机网络 第33题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2020-cn-033/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2020-cn-033/</guid>
+      <description>&lt;p&gt;下图描述的协议要素是 ( )。&lt;/p&gt;&#xA;&lt;p&gt;Ⅰ、语法；Ⅱ、语义；Ⅲ、时序&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e7%bd%91%e7%bb%9c%e5%8d%8f%e8%ae%ae%e8%a6%81%e7%b4%a0&#34;&gt;网络协议要素&lt;/a&gt;&#xA;[tag_link]&#xA;正确答案：C&#xA;本题考查 &lt;a href=&#34;../../../computer_network/overall/protocol/content.md#%e7%bd%91%e7%bb%9c%e5%8d%8f%e8%ae%ae%e8%a6%81%e7%b4%a0&#34;&gt;网络协议要素&lt;/a&gt;。协议 由语法、语义和时序（又称同步）三部分组成：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2020 计算机网络 第34题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2020-cn-034/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2020-cn-034/</guid>
+      <description>&lt;p&gt;下列关于虚电路网络的叙述中错误的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e6%95%b0%e6%8d%ae%e6%8a%a5%e5%92%8c%e8%99%9a%e7%94%b5%e8%b7%af&#34;&gt;数据报和虚电路&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A.  可以确保数据分组传输顺序；&#xA;B.  需要为每条虚电路预分配带宽；&#xA;C. 建立虚电路时需要进行路由选择；&#xA;D. 依据虚电路号( VCID) 进行数据分组转发。&#xA;[tag_link]&#xA;正确答案：B&#xA;&lt;a href=&#34;../../../computer_network/physical/switching/content.md#%e8%99%9a%e7%94%b5%e8%b7%af&#34;&gt;虚电路&lt;/a&gt;&#xA;服务需要有建立连接过程，每个分组使用短的虚电路号，属于同一条虚电路的分组 按照同一路由进行转发，分组到达终点的顺序与发送顺序相同，可以保证有序传输，不需 要为每条虚电路预分配带宽。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2020 计算机网络 第35题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2020-cn-035/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2020-cn-035/</guid>
+      <description>&lt;p&gt;下图所示的网络冲突域和广播域的个数分别是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e7%bd%91%e7%bb%9c%e8%ae%be%e5%a4%87&#34;&gt;网络设备&lt;/a&gt;&#xA;[tag_link]&#xA;正确答案：C&#xA;参考&#xA;&lt;a href=&#34;../../../computer_network/overall/dev/content.md&#34;&gt;网络设备总结&lt;/a&gt;&#xA;： 网络层设备路由器可以隔离广播域和冲突域；链路层设备普通交换机只能隔离冲突域；物 理层设备集线器、中继器既不能隔离冲突域又不能隔离广播域。因此，题中共有 2 个广播 域、4 个冲突域。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2020 计算机网络 第36题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2020-cn-036/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2020-cn-036/</guid>
+      <description>&lt;p&gt;假设主机采用停等协议向主机乙发送数据帧，数据帧长与确认帧长均为 1000B。数据传输速率是 10kbps，单项传播延时是 200ms。则甲的最大信道利用率（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2020 计算机网络 第37题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2020-cn-037/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2020-cn-037/</guid>
+      <description>&lt;p&gt;某 IEEE 802.11 无线局域网中主机 H 与 AP 之间发送或接收 CSMA/CA 帧的过程如下图所示，在 H 或 AP 发送帧前所等待的帧间间隔时间（IFS）中最长的是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2020 计算机网络 第38题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2020-cn-038/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2020-cn-038/</guid>
+      <description>&lt;p&gt;若主机甲与主机乙已建立一条 TCP 连接，最大段长（MSS）为 1KB，往返时间（RTT）为 2ms，则在不出现拥塞的前提下，拥塞窗口从 8KB 增长到 32KB 所需的最长时间是：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2020 计算机网络 第39题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2020-cn-039/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2020-cn-039/</guid>
+      <description>&lt;p&gt;若主机甲与主机乙建立 TCP 连接时发送的 SYN 段中的序号为 1000，在断开连接时，甲发送给乙的 FIN 段中的序号为 5001，则在无任何重传的情况下，甲向乙已经发送的应用层数据的字节数为：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2020 计算机网络 第40题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2020-cn-040/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2020-cn-040/</guid>
+      <description>&lt;p&gt;假设下图所示网络中的本地域名服务器只提供递归查询服务，其他域名的服务器均只提供迭代查询服务；局域网内主机访问 Internet 上各服务器的往返时间（RTT）均为 10ms，忽略其他各种时延，若主机 H 通过超链接 &lt;a href=&#34;http://www.abc.com/index.html&#34;&gt;http://www.abc.com/index.html&lt;/a&gt;，请求浏览纯文本 Web 页 index.html，则从点击 超链接开始到浏览器接收到 index.html 页面为止，所需最短、最长时间分别是：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2020 计算机网络 第47题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2020-cn-047/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2020-cn-047/</guid>
+      <description>&lt;p&gt;某校园网有两个局域网，通过路由器 R1、R2 和 R3 互联后接入 Internet，S1 和 S2 为 以太网交换机，局域网采用静态 IP 地址配置，路由器部分接口以及各主机的 IP 地址如图所示：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2021 计算机网络 第33题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2021-cn-033/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2021-cn-033/</guid>
+      <description>&lt;p&gt;在 TCP/IP 参考模型中，由传输层相邻的下一层实现的主要功能是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#osi%e6%a8%a1%e5%9e%8b&#34;&gt;OSI模型&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A.  对话管理&#xA;B.  路由选择&#xA;C.  端到端报文段传输&#xA;D.  结点到结点流量控制&#xA;[tag_link]&#xA;正确答案：B&#xA;TCP/IP 参考模型中传输层相邻的下一层是网际层。TCP/IP 的网际层使用一种尽力而为的服务，它将分组发往任何网络，并为之独立选择合适的路由，但不保证各个分组有序到达，B 正确。TCP/IP 认为可靠性是端到端的问题（传输层的功能），因此它在网际层仅有无连接、不可靠的通信模式，无法完成结点到结点的流量控制（OSI 参考模型的网络层具有该功能）。对话管理和端到端的报文段传输均为传输层的功能。A、C 和 D 错误。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2021 计算机网络 第34题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2021-cn-034/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2021-cn-034/</guid>
+      <description>&lt;p&gt;若下图为一段差分曼彻斯特编码信号波形，则其编码的二进制位串是（ ）&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2021 计算机网络 第35题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2021-cn-035/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2021-cn-035/</guid>
+      <description>&lt;p&gt;现将一个 IP 网络划分为 3 个子网，若其中一个子网是 192.168.9.128/26, 则下列网络中，不可能是另外两个子网之一的是（ ）&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2021 计算机网络 第36题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2021-cn-036/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2021-cn-036/</guid>
+      <description>&lt;p&gt;若路由器向 MTU = 800B 的链路转发一个总长度为 1580B 的 IP 数据报（首部长度为 20B）时，进行了分片，且每个分片尽可能大，则第 2 个分片的总长度字段和 MF 标志位的值分别是（ ）&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2021 计算机网络 第37题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2021-cn-037/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2021-cn-037/</guid>
+      <description>&lt;p&gt;某网络中的所有路由器均采用距离向量路由算法计算路由。若路由器 E 与邻居路由器 A,B,C 和 D 之间的直接链路距离分别是 8, 10, 12 和 6 , 且 E 收到邻居路由器的距离向量如下表所示，则路由器 E 更新后的到达目的网络 Netl~Net4 的距离分别是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2021 计算机网络 第38题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2021-cn-038/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2021-cn-038/</guid>
+      <description>&lt;p&gt;若客户首先向服务器发送 FIN 段请求断开 TCP 连接，则当客户收到服务器发送的 FIN 段并向服务器发送了 ACK 段后，客户的 TCP 状态转换为（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2021 计算机网络 第39题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2021-cn-039/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2021-cn-039/</guid>
+      <description>&lt;p&gt;若大小为 12B 的应用层数据分别通过 1 个 UDP 数据报和 1 个 TCP 段传输，则该 UDP 数据报 和 TCP 段实现的有效载荷（应用层数据）最大传输效率分别是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2021 计算机网络 第40题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2021-cn-040/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2021-cn-040/</guid>
+      <description>&lt;p&gt;设主机甲通过 TCP 向主机乙发送数据，部分过程如下图所示。甲在&#xA;t0​&#xA;时刻发送一个序号 seq=501、封装 200B 数据的段，在&#xA;t1​&#xA;时刻收到乙发送的序号 seq = 601、确认序号 ack_seq = 501、接收窗口 rcvwnd = 500B 的段，则甲在未收到新的确认段之前，可以继续向乙发送的数据序号范围是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2021 计算机网络 第47题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2021-cn-047/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2021-cn-047/</guid>
+      <description>&lt;p&gt;某网络拓扑如题 47 图所示，以太网交换机 S 通过路由器 R 与 Internet 互联。路由器部分接口、本地域名服务器、H1、H2 的 IP 地址和 MAC 地址如图中所示。在 t0 时刻 H1 的 ARP 表和 S 的交换表均为空，H1 在此刻利用浏览器通过域名 &lt;a href=&#34;https://www.abc.com&#34;&gt;www.abc.com&lt;/a&gt; 请求访问 Web 服务器，在 t1 时刻（t1→t0）S 第一次收到了封装 HTTP 请求报文的以太网帧，假设从 t0 到 t1 期间网络未发生任何与此次 Web 访问无关的网络通信。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2022 计算机网络 第36题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2022-cn-036/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2022-cn-036/</guid>
+      <description>&lt;p&gt;下图所示网络中的主机H 的子网掩码与默认网关分别是()。&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://cycycy5464.github.io/cc408/cc408/images/questions/2022_Q36_10.svg&#34;&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;A.255.255.255.192, 192.168.1.1      B.255.255.255.192, 192.168.1.62&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2022 计算机网络 第47题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2022-cn-047/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2022-cn-047/</guid>
+      <description>&lt;p&gt;某网络拓扑如题47 图所示，R 为路由器，S 为以太网交换机，AP 是 802.11 接入点，路由器的  E0接口和 DHCP 服务器的|P  地址配置如图中所示；H1 与 H2 属千同一个广播域，但不属于同一个冲  突域；H2 和 H3  属千同一个冲突域；H4  和 H5  已经接入网络，并通过 DHCP动态获取了IP 地址。 现有路由器、100BaseT  以太网交换机和100BaseT 集线器(Hub)三类设备各若干台。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机网络 第33题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-cn-033/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-cn-033/</guid>
+      <description>&lt;p&gt;如图，2 段链路的数据传输速率为 100Mbps，时延带宽积（即单向传播时延*带宽）均为 1000bit。若 H1 向 H2 发送 1 个大小为 1MB 的文件，分组长度为 1000B，则从 H1 开始发送时刻起到 H2 收到文件全部数据时刻止，所需的时间至少是（注：&#xA;M=106&#xA;）?&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机网络 第34题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-cn-034/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-cn-034/</guid>
+      <description>&lt;p&gt;某无噪声理想信道带宽为 4MHz，采用 QAM 调制，若该信道的最大数据传输率是 48Mbps，则该信道采用的 QAM 调制方案是（）&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机网络 第35题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-cn-035/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-cn-035/</guid>
+      <description>&lt;p&gt;假设通过同一信道，数据链路层分别采用停等协议、GBN 协议和 SR 协议（发送窗口和接收窗口相等）传输数据，三个协议数据帧长相同，忽略确认帧长度，帧序号位数为 3 比特。若对应三个协议的发送方最大信道利用率分别是 U1、U2 和 U3，则 U1、U2 和 U3 满足的关系是（ ）&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机网络 第36题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-cn-036/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-cn-036/</guid>
+      <description>&lt;p&gt;已知 10BaseT 以太网的争用时间片为 51.2us。若网卡在发送某帧时发生了连续 4 次冲突，则基于二进制指数退避算法确定的再次尝试重发该帧前等待的最长时间是（ ）&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机网络 第37题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-cn-037/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-cn-037/</guid>
+      <description>&lt;p&gt;若甲向乙发送数据时采用 CRC 校验，生成多项式为&#xA;G(x)=x4+x+1&#xA;（即 G=10011），则乙接收到下列比特串时，可以断定其在传输过程中未发生错误的是（ ）&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机网络 第38题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-cn-038/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-cn-038/</guid>
+      <description>&lt;p&gt;某网络拓扑如下图所示，其中路由器 R2 实现 NAT 功能。若主机 H 向 Inernet 发送一个 IP 分组，则经过 R2 转发后，该 IP 分组的源 IP 地址是（ ）&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机网络 第39题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-cn-039/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-cn-039/</guid>
+      <description>&lt;p&gt;主机 168.16.84.24/20 所在子网的最小可分配地址和最大可分配地址分别是（ ）&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e7%bd%91%e7%bb%9c%e5%8f%b7%e5%92%8c%e4%b8%bb%e6%9c%ba%e5%8f%b7&#34;&gt;网络号和主机号&lt;/a&gt;&#xA;[tag_link]&#xA;正确答案：B&#xA;题目给的主机 168.16.84.24/20 用二进制展开可以得到：168.16.0101 0100.24 可以看到， 网络前缀为前 20 位，主机号为后 12 位。最小可分配地址是主机号为 1 的情况，可以得到最小 可分配地址为 168.16.0101 0000.1 = 168.16.80.1。最大可分配地址是广播地址减 1 的情况，可以 得到最大可分配地址为 168.16.0101 1111.254 = 168.16.95.254。答案选择 B 选项。 IPv4 是 32 位的地址长度，而 IPv6 是 128 位的地址长度，二者相差了 64 位，由于是 二进制表示，所以地址数量相差了 264 倍。因此 I 错误。IPv4 的基本首部有选项字段，因此长 度可变；IPv6 将可选字段移除，变成了扩展首部，但是扩展首部被放在了有效载荷中，因此基 本首部长度是不可变的，II 错误。在完全过渡到 IPv6 之前，IPv4 和 IPv6 并行使用，可以采用 双协议栈技术和隧道技术进行。III 正确。IPv6 首部的 Hop-Limit 表示跳数限制，代表了 IP 数 据报在网络中的最大跳数；而 IPv4 首部的 TTL 字段表示最大寿命，也表示了 IP 数据报在网 络中的最大跳数，如果超出了 TTL，则该 IP 数据报要被丢弃。IV 正确。综上所述，答案选择 D 选项。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机网络 第40题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-cn-040/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-cn-040/</guid>
+      <description>&lt;p&gt;下列关于 ipv6 和 ipv4 的叙述中，正确的是（ ）&lt;/p&gt;&#xA;&lt;p&gt;I. ipv6 地址空间是 ipv4 地址空间的 96 倍&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机网络 第47题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-cn-047/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-cn-047/</guid>
+      <description>&lt;p&gt;如图，主机 H 登录到 FTP 服务器后，向服务器上传一个大小为 18000B 的文件 F，假设 H 传输 F 建立数据链接时，选择的初始序号为 100，MSS=1000B，拥塞控制的初始阈值是 4MSS，RTT=10ms，忽略 TCP 的传输时延，在 F 的传送过程中，H 以 MSS 段向服务器发送数据，且始终没有错误，丢包和乱序。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2024 计算机网络 第33题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2024-cn-033/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2024-cn-033/</guid>
+      <description>&lt;p&gt;若分组交换网络及每段链路的带宽如下图，则 H1 到 H2 的最大吞吐量约为（）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2024 计算机网络 第34题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2024-cn-034/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2024-cn-034/</guid>
+      <description>&lt;p&gt;在下列二进制数字调制方法中，需要 2 个不同频率载波的是（）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e8%b0%83%e5%88%b6%e6%96%b9%e6%b3%95&#34;&gt;调制方法&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A.ASP&#xA;B. PSK&#xA;C.FSK&#xA;D.DPSK&#xA;[tag_link]&#xA;正确答案：C&#xA;本题考查 &lt;a href=&#34;../../../computer_network/physical/encoding/content.md#%e8%b0%83%e5%88%b6%e6%96%b9%e6%b3%95&#34;&gt;调制方法&lt;/a&gt;：&#xA;选项 A：ASK (Amplitude Shift Keying) 幅移键控，这种调制方式是利用载波幅度的变化来传送数字信息的。因此排除选项 A。&#xA;选项 B：PSK (Phase Shift Keying) 相移键控，这种调制方式是利用载波振荡相位的变化来传送数字信息的。因此排除选项 B。&#xA;选项 C：FSK (Frequency Shift Keying) 频移键控，这种调制方式是利用载波频率的变化来传送数字信息的。在二进制数字调制中，常见的是二进制 0 和 1 对应不同的频率。因此选项 C 为正确选项。&#xA;选项 D：DPSK (Differential Phase Shift Keying) 差分相移键控，它不是利用载波相位的绝对数值传送数字信息，而是用前后码元的相对载波相位值传送数字信息。因此排除选项 D。&#xA;本题选 C。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2024 计算机网络 第35题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2024-cn-035/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2024-cn-035/</guid>
+      <description>&lt;p&gt;如题 35 图所示的支持 VLAN 划分的交换机，已按端口划分了 3 个 VLAN，部分端口连接主机的 IP 地址和 MAC 地址如图中所示，ARP 表结构为&amp;lt;IP 地址，MAC 地址，TTL&amp;gt; ，下列选项中，不会出现在 H4 的 ARP 表中的是（）&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2024 计算机网络 第36题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2024-cn-036/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2024-cn-036/</guid>
+      <description>&lt;p&gt;在采用 CSMA/CA 的 802.11 无线局域网中，DIFS = 120 μs，SIFS = 28μs，RTS、CTS 和 ACK 帧的传输时延分别是 3 μs、2 μs 和 2 μs，忽略信号传播时延。若主机 A 欲向 AP 发送一个总长度为 1998 B 的数据帧，无线链路带宽为 54 Mb/s，则隐藏站 B 收到 AP 发送的 CTS 帧时，设置的网络分配向量 NAV 的值是（）&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2024 计算机网络 第37题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2024-cn-037/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2024-cn-037/</guid>
+      <description>&lt;p&gt;主机甲通过选择重传（SR）滑动窗口协议向主机乙发送帧的部分过程如下图所示。F 为数据帧，ACKx&#xA;为确认帧，x 是位数为比特的序号。乙只对正确接收的数据帧进行独立确认。发送窗口与接收窗口大小相&#xA;同且均为最大值。甲在&#xA;t1​&#xA;时刻和&#xA;t2​&#xA;时刻发送的数据帧分别是 ( )&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2024 计算机网络 第38题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2024-cn-038/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2024-cn-038/</guid>
+      <description>&lt;p&gt;假设主机 H 通过 TCP 向服务器发送长度为 3000B 的报文，往返时间 RTT=10ms，最长报文段寿命&#xA;MSL=30s，最大报文段长度 MSS=1000B，忽略 TCP 段的传输时廷，报文传输结束后 H 首先请求断开连接，&#xA;则从 H 请求建立 TCP 连接时刻起，到 H 进入 CLOSED 状态为止，所需时间至少是（ ）&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2024 计算机网络 第39题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2024-cn-039/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2024-cn-039/</guid>
+      <description>&lt;p&gt;若 UDP 协议在计算校验和过程中，计算机得到中间结果为 1011 1001 1011 0110 时，还需要加上最后&#xA;一个 16 位数 0110 0101 1100 0101，则最终计算得到的校验和是（）&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2024 计算机网络 第40题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2024-cn-040/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2024-cn-040/</guid>
+      <description>&lt;p&gt;若浏览器不支持并行 TCP 连接，使用非持久的 HTTP/1.0 协议请求浏览 1 个 web 页，该页中引用同一&#xA;个网站上 7 个小图像文件，则从浏览器传输 web 页请求建立 TCP 连接开始，到接收完所有内容为止，所&#xA;需要的往返时间 RTT 数至少是（）&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2024 计算机网络 第47题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2024-cn-047/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2024-cn-047/</guid>
+      <description>&lt;p&gt;网络空间是继陆海空地之后的&amp;quot;第五疆域&amp;quot;，网络技术是网络疆域建设与治理的基础。路由算法与协议是网络核心技术之一。对其准确认知，合理选择与应用，对网络建设十分重要。假设现有互联网中的 4 个自治系统互连拓扑示意图如题 47 图所示。其中，AS1 运行内部网关协议 RIP；AS3 规模较小，自治系统内任意两个主机间通信，经过路由器数不超过 15 个；AS4 规模较大，自治系统内任意两个主机间通信，经过路由器数量可能超过 20 个。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2025 计算机网络 第33题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2025-cn-033/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2025-cn-033/</guid>
+      <description>&lt;p&gt;如下图所示，主机 H1 向 H2 发送一个 2MB（1MB =&#xA;106&#xA;B）文件有三种方式：① 电路交换，建立时间为 32us，速度为 10Mbps；② 分组交换，分组长度为 400B，忽略首部；③ 报文交换。电路交换的时间为&#xA;Tcs​&#xA;，报文交换的时间为&#xA;Tms​&#xA;，分组交换的时间为&#xA;Tps​&#xA;，则三者的大小关系是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2025 计算机网络 第34题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2025-cn-034/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2025-cn-034/</guid>
+      <description>&lt;p&gt;某差错编码的编码集为 { 10011010，01011100，11110000，00001111 }，其检错和纠错能力是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2025 计算机网络 第35题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2025-cn-035/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2025-cn-035/</guid>
+      <description>&lt;p&gt;现有一 10BaseT 以太网，甲乙处于同一个冲突域，连续发生 11 次冲突，甲再次发送的最大时间间隔为（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2025 计算机网络 第36题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2025-cn-036/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2025-cn-036/</guid>
+      <description>&lt;p&gt;一台新接入网络的主机 H 通过 DHCP 服务器动态请求 IP 地址过程中，与 DHCP 服务器交换 DHCP 报文过程如下图所示。封装 DHCP 的 REQUEST 报文的 P 数据报的目的 IP 地址和源 IP 地址分别是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2025 计算机网络 第37题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2025-cn-037/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2025-cn-037/</guid>
+      <description>&lt;p&gt;假设路由器实现 NAT 功能，内网中主机 H 的 IP 地址为 192.168.1.5/24。若 H 运行某应用向 internet 发送一个 UDP 报文段，则路由器在转发封装该 UDP 报文段的 IP 数据报的过程中，UDP 报文的首部字段会被修改的是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2025 计算机网络 第38题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2025-cn-038/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2025-cn-038/</guid>
+      <description>&lt;p&gt;主机甲通过 TCP 向主机乙发送数据的部分过程如下图，seq 为序号，ack-seq 为确认序号，rcwnd 为接收窗口。甲在&#xA;t0​&#xA;时刻的拥塞窗口和发送窗口均为 2000B，拥塞控制阈值为 8000B，MSS=1000B。甲始终以 MSS 发送 TCP 段。若甲在&#xA;t1​&#xA;时刻收到如图所示的确认段，则甲在未收到新的确认段之前，还可以继续向乙发送的 TCP 段数是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2025 计算机网络 第39题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2025-cn-039/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2025-cn-039/</guid>
+      <description>&lt;p&gt;Time 是一个提供时间查询服务的 C/S 架构网络应用，支持客户通过 UDP 和 TCP 向 Time 服务器请求时间。若某客户与 Time 服务器通信往返时间为 8ms，则该客户分别通过 UDP 和 TCP 向该服务器请求服务，所需的最少时间分别是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2025 计算机网络 第40题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2025-cn-040/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2025-cn-040/</guid>
+      <description>&lt;p&gt;关于 POP3，正确的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;I 支持用户代理从邮件服务器读取邮件&lt;/p&gt;&#xA;&lt;p&gt;II 支持用户代理向邮件服务器发送邮件&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2025 计算机网络 第47题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2025-cn-047/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2025-cn-047/</guid>
+      <description>&lt;p&gt;(1) 忽略卫星信号中继，TR1，TR2 调制解调开销，则 R1 到 R2 之间的卫星链路单向传播时延是多少？主机 H 向总部服务器传输数据时可达到的最大吞吐量是多少？若忽略各层协议首部开销，以及以太网的传播时延，则 H → server 上传一个 4000B 的文件，至少需要多长时间？&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2009 计算机网络 第33题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2009-cn-033/</link>
+      <pubDate>Fri, 03 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2009-cn-033/</guid>
+      <description>&lt;p&gt;在OSI 参考模型中，自下而上第一个提供端到端服务的层次是()&lt;/p&gt;&#xA;&lt;p&gt;A.  数据链路层&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2009 计算机网络 第34题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2009-cn-034/</link>
+      <pubDate>Fri, 03 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2009-cn-034/</guid>
+      <description>&lt;p&gt;在无噪声情况下，若某低通通信链路的带宽为3kHz, 采用4个相位，每个相位具有4种振幅的QAM 调制技术，则该通信链路的最大数据传输速率是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2009 计算机网络 第35题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2009-cn-035/</link>
+      <pubDate>Fri, 03 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2009-cn-035/</guid>
+      <description>&lt;p&gt;数据链路层采用后退N 帧 (GBN)  协议，发送方已经发送了编号为0~7的帧。当计时器超时时，若发 送方只收到0、2、3号帧的确认，则发送方需要重发的帧数是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2009 计算机网络 第36题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2009-cn-036/</link>
+      <pubDate>Fri, 03 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2009-cn-036/</guid>
+      <description>&lt;p&gt;以太网交换机进行转发决策时使用的 PDU 地址是()。&lt;/p&gt;&#xA;&lt;p&gt;A.  目的物理地址&lt;/p&gt;&#xA;&lt;p&gt;B.  目的 IP  地址&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2009 计算机网络 第37题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2009-cn-037/</link>
+      <pubDate>Fri, 03 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2009-cn-037/</guid>
+      <description>&lt;p&gt;在一个采用 CSMA/CD  协议的网络中，传输介质是一根完整的电缆，传输速率为1Gbps,  电缆中的 信号传播速度是200000km/s  。若最小数据帧长度减少800 比特，则最远的两个站点之间的距离至少需 要 ( ) 。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2009 计算机网络 第38题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2009-cn-038/</link>
+      <pubDate>Fri, 03 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2009-cn-038/</guid>
+      <description>&lt;p&gt;主机甲与主机乙之间已建立一个 TCP 连接，主机甲向主机乙发送了两个连续的 TCP 段，分别包含 300字节和500字节的有效载荷，第一个段的序列号为200,主机乙正确接收到两个段后，发送给主机 甲的确认序列号是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2009 计算机网络 第39题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2009-cn-039/</link>
+      <pubDate>Fri, 03 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2009-cn-039/</guid>
+      <description>&lt;p&gt;一个 TCP 连接总是以1KB 的最大段长发送 TCP 段，发送方有足够多的数据要发送。当拥塞窗口 为 16KB 时发生了超时，如果接下来的4个 RTT ( 往返时间)时间内的 TCP  段的传输都是成功的，那 么当第4个 RTT 时间内发送的所有 TCP  段都得到肯定应答时，拥塞窗口大小是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2009 计算机网络 第40题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2009-cn-040/</link>
+      <pubDate>Fri, 03 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2009-cn-040/</guid>
+      <description>&lt;p&gt;FTP 客户和服务器间传递 FTP  命令时，使用的连接是()。&lt;/p&gt;&#xA;&lt;p&gt;A.  建立在 TCP  之上的控制连接&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2009 计算机网络 第47题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2009-cn-047/</link>
+      <pubDate>Fri, 03 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2009-cn-047/</guid>
+      <description>&lt;p&gt;(9分)某网络拓扑如下图所示，路由器 R1 通过接口 E1、E2 分别连接局域网1、局域网2,通过 接口 L0 连接路由器 R2,  并通过路由器 R2 连接域名服务器与互联网。R1  的 L0  接口的 IP 地址是&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

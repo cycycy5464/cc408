@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>存储器地址 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/knowledge_points/%E5%AD%98%E5%82%A8%E5%99%A8%E5%9C%B0%E5%9D%80/</link>
+    <description>Recent content in 存储器地址 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/knowledge_points/%E5%AD%98%E5%82%A8%E5%99%A8%E5%9C%B0%E5%9D%80/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2023 计算机组成原理 第15题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-co-015/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-co-015/</guid>
+      <description>&lt;p&gt;某计算机的 CPU 有30 根地址线，按字节编址，CPU 和主存芯片连接时，要求主存芯片占满所有  可能存储地址空间，并且 RAM 区和 ROM 区所分配的孔家大小比为3:1,若 RAM 在连续低地址区， ROM 在连续高地址区，则 ROM  的地址范围()。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

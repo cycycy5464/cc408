@@ -112,7 +112,7 @@ year: 2009
 ### 按钮行为
 
 - **每题"查看答案与解析"**：切换该题 `.answer-panel`，显示时标注正确（绿色）和选错（红色）选项
-- **⭐ 收藏**：写入 `localStorage`，键 `cc408_collections`
+- **⭐ 收藏**：写入 `localStorage`，键 `quiz_collections`（与收藏页共用同一 key）
 - **全局"查看全部答案与解析"**：批量切换所有面板
 
 ## 单题页面

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>数据通路 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/knowledge_points/%E6%95%B0%E6%8D%AE%E9%80%9A%E8%B7%AF/</link>
+    <description>Recent content in 数据通路 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/knowledge_points/%E6%95%B0%E6%8D%AE%E9%80%9A%E8%B7%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2017 计算机组成原理 第19题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2017-co-019/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2017-co-019/</guid>
+      <description>&lt;p&gt;下列关于指令流水线数据通路的叙述中，错误的是()。&lt;/p&gt;&#xA;&lt;p&gt;A.  包含生成控制信号的控制部件&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2021 计算机组成原理 第18题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2021-co-018/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2021-co-018/</guid>
+      <description>&lt;p&gt;下列关于数据通路的叙述中，错误的是()。&lt;/p&gt;&#xA;&lt;p&gt;A.  数据通路包含 ALU 等组合逻辑(操作)元件&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机组成原理 第18题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-co-018/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-co-018/</guid>
+      <description>&lt;p&gt;数据通路由组合逻辑元件(操作元件)和时序逻辑元件(状态元件)组成。下列给出的元件中，属于 操作元件的是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2025 计算机组成原理 第19题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2025-co-019/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2025-co-019/</guid>
+      <description>&lt;p&gt;下列关于 CPU 中的数据通路和控制器的叙述中，错误的是()。&lt;/p&gt;&#xA;&lt;p&gt;A. 通用寄存器组中应该包含程序计数器&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

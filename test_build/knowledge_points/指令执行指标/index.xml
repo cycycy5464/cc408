@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>指令执行指标 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/knowledge_points/%E6%8C%87%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%8C%87%E6%A0%87/</link>
+    <description>Recent content in 指令执行指标 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/knowledge_points/%E6%8C%87%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%8C%87%E6%A0%87/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2013 计算机组成原理 第12题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2013-co-012/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2013-co-012/</guid>
+      <description>&lt;p&gt;某计算机主频为1.2GHz,  其指令分为4类，它们在基准程序中所占比例及CPI 如下表所示。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

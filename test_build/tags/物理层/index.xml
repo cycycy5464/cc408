@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>物理层 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/tags/%E7%89%A9%E7%90%86%E5%B1%82/</link>
+    <description>Recent content in 物理层 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 25 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/tags/%E7%89%A9%E7%90%86%E5%B1%82/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>物理层</title>
+      <link>https://cycycy5464.github.io/cc408/docs/network/ch01-physical/phy-index/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/network/ch01-physical/phy-index/</guid>
+      <description>&lt;p&gt;在选择题中考察，掌握相关概念即可。&lt;/p&gt;&#xA;&lt;p&gt;学习思维导图：&lt;/p&gt;&#xA;&lt;h2 id=&#34;通信基础&#34;&gt;通信基础&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;信道、信号、带宽、码元、波特、速率、信源与信宿等基本概念&lt;/li&gt;&#xA;&lt;li&gt;奈奎斯特定理和香农定理&lt;/li&gt;&#xA;&lt;li&gt;编码和调制&lt;/li&gt;&#xA;&lt;li&gt;电路交换、报文交换与分组交换&lt;/li&gt;&#xA;&lt;li&gt;数据报和虚电路&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;传输介质&#34;&gt;传输介质&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;双绞线、同轴电缆、光纤与无线传输介质&lt;/li&gt;&#xA;&lt;li&gt;物理层接口的特性&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;物理层设备&#34;&gt;物理层设备&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;中继器&lt;/li&gt;&#xA;&lt;li&gt;集线器&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h5 id=&#34;通信概念computer_networkphysicalconcept&#34;&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/computer_network/physical/concept/&#34;&gt;通信概念&lt;/a&gt;&lt;/h5&gt;&#xA;&lt;h5 id=&#34;编码和调制computer_networkphysicalencoding&#34;&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/computer_network/physical/encoding/&#34;&gt;编码和调制&lt;/a&gt;&lt;/h5&gt;&#xA;&lt;h5 id=&#34;交换方式computer_networkphysicalswitching&#34;&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/computer_network/physical/switching/&#34;&gt;交换方式&lt;/a&gt;&lt;/h5&gt;&#xA;&lt;h5 id=&#34;物理层设备computer_networkphysicaldev&#34;&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/computer_network/physical/dev/&#34;&gt;物理层设备&lt;/a&gt;&lt;/h5&gt;&#xA;&lt;h2 id=&#34;相关笔记&#34;&gt;相关笔记&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;[[arch-index|计算机网络体系结构]]&lt;/li&gt;&#xA;&lt;li&gt;[[device-summary|网络设备总结]]&lt;/li&gt;&#xA;&lt;li&gt;[[layered|分层结构]]&lt;/li&gt;&#xA;&lt;li&gt;[[protocol-summary|各层协议总结]]&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

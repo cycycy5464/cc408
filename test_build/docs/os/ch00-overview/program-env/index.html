@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>程序运行环境 | CC408</title>
+  <meta name="description" content="⭐ 中优先级
+这一节选择题还是经常考察的，重点在于理解 用户态和内核态 以及 系统调用 这两个概念，程序的链接和装入相对考察频率比较低。
+CPU 运行模式 CPU的两种 运行模式 ：内核模式 （又称为特权模式、系统模式或超级用户模式）和 用户模式 是操作系统设计中用于隔离系统关键任务与普通任务的机 …">
+  <link rel="icon" href="/cc408/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" as="script" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" as="script" crossorigin="anonymous">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/cc408/css/custom.min.ecad70eed0f9849f67d23e2bf502ae36e7f590486681964e1c95bc71c8672493.css" integrity="sha256-7K1w7tD5hJ9n0j4r9QKuNuf1kEhmgZZOHJW8cchnJJM=">
+  
+
+<script src="/cc408/js/watermark.js"></script>
+
+
+  <script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.content-area img,.docs-layout img').forEach(function(i){if(!i.src.match(/\.svg$/i)){i.loading='lazy';i.fetchPriority='low';}});});</script>
+</head>
+<body style="background: var(--bg-primary); color: var(--text-primary);">
+  <a href="#main-content" class="skip-link">跳转到主要内容</a>
+  <nav class="navbar" role="navigation" aria-label="主导航">
+  <a href="/cc408/" class="navbar-brand">CC408</a>
+  <button class="navbar-toggle" aria-label="菜单" onclick="this.parentElement.querySelector('.navbar-links').classList.toggle('open')">☰</button>
+  <div class="navbar-links" role="menubar">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      首页
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/docs/" role="menuitem" class="active" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识点
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      刷题
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/quiz-collection/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      收藏
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/graph/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识图谱
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/tags/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      标签
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/resources/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      资源
+    </a>
+    
+  </div>
+  <div class="navbar-right">
+    <a href="https://cycycy5464.github.io/">个人主页 →</a>
+  </div>
+</nav>
+
+  <main id="main-content" style="padding-top: 70px; min-height: calc(100vh - 120px);">
+    
+<div class="docs-layout">
+  <aside class="side-nav">
+    
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>📊</span><span>数据结构</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/basic-concepts/" class="side-nav-link ">数据结构基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/algorithm-concepts/" class="side-nav-link ">算法基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linear-list-index/" class="side-nav-link ">线性表概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/definition/" class="side-nav-link ">线性表定义与基本操作</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/sequential-list/" class="side-nav-link ">顺序表</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linked-list/" class="side-nav-link ">链表</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/stack/" class="side-nav-link ">栈</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/queue/" class="side-nav-link ">队列</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/application/" class="side-nav-link ">栈和队列的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/linear-data-structure/" class="side-nav-link ">线性数据结构</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/string-index/" class="side-nav-link ">串概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/definition/" class="side-nav-link ">串的定义与实现</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/pattern-matching/" class="side-nav-link ">串的模式匹配</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/array-matrix/" class="side-nav-link ">数组和特殊矩阵</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree/" class="side-nav-link ">树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-and-binary-tree/" class="side-nav-link ">树与二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/binary-tree/" class="side-nav-link ">二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-applications/" class="side-nav-link ">树的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/graph-index/" class="side-nav-link ">图概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/definition/" class="side-nav-link ">图的定义</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/algorithms/" class="side-nav-link ">图的算法和应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/search-index/" class="side-nav-link ">查找概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/array-search/" class="side-nav-link ">数组查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/tree-search/" class="side-nav-link ">树形查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/hash-search/" class="side-nav-link ">散列表查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/sort-index/" class="side-nav-link ">排序概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/internal-sort/" class="side-nav-link ">内部排序</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/external-sort/" class="side-nav-link ">外部排序</a>
+      
+      <a href="/cc408/exam/exercise/data_structure/" class="side-nav-link ">数据结构篇</a>
+      
+      <a href="/cc408/exam/application/2023-q1/" class="side-nav-link ">2023年408真题 - 应用题第1题</a>
+      
+      <a href="/cc408/exam/choice/2024-q5/" class="side-nav-link ">2024年408真题 - 数据结构选择题第5题</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/introduction/" class="side-nav-link ">绪论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>⚙️</span><span>计算机组成原理</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/system-hierarchy/" class="side-nav-link ">计算机系统层次结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/performance/" class="side-nav-link ">计算机性能指标</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/data-index/" class="side-nav-link ">数据表示与计算</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/integers/" class="side-nav-link ">整数的表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/float/" class="side-nav-link ">浮点数表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/type-conversion/" class="side-nav-link ">类型转换</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/circuits/" class="side-nav-link ">运算电路</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/memory-index/" class="side-nav-link ">存储系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/overview/" class="side-nav-link ">存储系统概述</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/ram/" class="side-nav-link ">内存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/cache/" class="side-nav-link ">Cache</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/external/" class="side-nav-link ">外存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/virtual/" class="side-nav-link ">虚拟存储器</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/instruction-index/" class="side-nav-link ">指令系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/types/" class="side-nav-link ">指令集种类</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/format-addressing/" class="side-nav-link ">指令格式与寻址方式</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/data-alignment/" class="side-nav-link ">数据对齐</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/opcode/" class="side-nav-link ">指令操作码</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/hll-machine/" class="side-nav-link ">高级语言与机器码</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/cpu-index/" class="side-nav-link ">中央处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/function-structure/" class="side-nav-link ">CPU功能与结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/controller/" class="side-nav-link ">控制器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/exceptions/" class="side-nav-link ">异常与中断</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/pipeline/" class="side-nav-link ">指令流水线</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/multiprocessor/" class="side-nav-link ">多处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus/" class="side-nav-link ">总线</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus-io/" class="side-nav-link ">总线和I/O系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch06-io/io-system/" class="side-nav-link ">I/O系统</a>
+      
+      <a href="/cc408/exam/exercise/architecture/" class="side-nav-link ">计算机组成原理</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/introduction/" class="side-nav-link ">概论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🖥️</span><span>操作系统</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/os/ch00-overview/os-concept/" class="side-nav-link ">操作系统概念</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/os-structure/" class="side-nav-link ">操作系统结构</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/program-env/" class="side-nav-link active">程序运行环境</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-index/" class="side-nav-link ">进程管理</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-thread/" class="side-nav-link ">进程与线程</a>
+      
+      <a href="/cc408/docs/os/ch01-process/scheduling/" class="side-nav-link ">处理机调度</a>
+      
+      <a href="/cc408/docs/os/ch01-process/sync-mutex/" class="side-nav-link ">同步与互斥</a>
+      
+      <a href="/cc408/docs/os/ch01-process/classic-sync/" class="side-nav-link ">经典同步问题</a>
+      
+      <a href="/cc408/docs/os/ch01-process/deadlock/" class="side-nav-link ">死锁</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/memory-index/" class="side-nav-link ">内存管理</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/concepts/" class="side-nav-link ">内存管理概念</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/virtual/" class="side-nav-link ">虚拟内存管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-index/" class="side-nav-link ">文件管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-basics/" class="side-nav-link ">文件</a>
+      
+      <a href="/cc408/docs/os/ch03-file/directory/" class="side-nav-link ">目录</a>
+      
+      <a href="/cc408/docs/os/ch03-file/filesystem/" class="side-nav-link ">文件系统</a>
+      
+      <a href="/cc408/docs/os/ch04-io/io-index/" class="side-nav-link ">I/O管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/devices/" class="side-nav-link ">I/O设备</a>
+      
+      <a href="/cc408/docs/os/ch04-io/device-mgmt/" class="side-nav-link ">设备管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/disk/" class="side-nav-link ">磁盘</a>
+      
+      <a href="/cc408/code/clock/" class="side-nav-link ">CLOCK 时钟替换算法</a>
+      
+      <a href="/cc408/code/lru/" class="side-nav-link ">LRU 算法</a>
+      
+      <a href="/cc408/code/spinlock/" class="side-nav-link ">TAS 实现自旋锁</a>
+      
+      <a href="/cc408/exam/exercise/os/" class="side-nav-link ">操作系统</a>
+      
+      <a href="/cc408/code/reader_writer/" class="side-nav-link ">读者写着问题</a>
+      
+      <a href="/cc408/code/monitor/" class="side-nav-link ">管程实现生产者消费者</a>
+      
+      <a href="/cc408/code/producer_consumer/" class="side-nav-link ">生产者消费者问题</a>
+      
+      <a href="/cc408/code/banker/" class="side-nav-link ">银行家算法</a>
+      
+      <a href="/cc408/code/philosopher/" class="side-nav-link ">哲学家就餐问题</a>
+      
+      <a href="/cc408/exam/comprehensive/2022-q1/" class="side-nav-link ">2022年408真题 - 综合题第1题</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/computer-overview/" class="side-nav-link ">计算机系统概述</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🌐</span><span>计算机网络</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/network/ch00-overview/layered/" class="side-nav-link ">分层结构</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/protocol-summary/" class="side-nav-link ">各层协议总结</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/device-summary/" class="side-nav-link ">网络设备总结</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/phy-index/" class="side-nav-link ">物理层</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/communication/" class="side-nav-link ">通信概念</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/encoding/" class="side-nav-link ">编码与调制</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/switching/" class="side-nav-link ">交换方式</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/devices/" class="side-nav-link ">物理层设备</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/dl-index/" class="side-nav-link ">数据链路层</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/framing/" class="side-nav-link ">组帧</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/error-control/" class="side-nav-link ">差错控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/flow-control/" class="side-nav-link ">流量控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/mac/" class="side-nav-link ">介质访问控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/lan-wan/" class="side-nav-link ">局域网与广域网</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/devices/" class="side-nav-link ">数据链路层设备</a>
+      
+      <a href="/cc408/docs/network/ch03-network/nw-index/" class="side-nav-link ">网络层</a>
+      
+      <a href="/cc408/docs/network/ch03-network/ip/" class="side-nav-link ">IP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/arp/" class="side-nav-link ">ARP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/icmp/" class="side-nav-link ">ICMP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/dhcp/" class="side-nav-link ">DHCP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/routing/" class="side-nav-link ">路由算法</a>
+      
+      <a href="/cc408/docs/network/ch03-network/sdn/" class="side-nav-link ">SDN</a>
+      
+      <a href="/cc408/docs/network/ch03-network/devices/" class="side-nav-link ">网络层设备</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tp-index/" class="side-nav-link ">传输层</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tcp/" class="side-nav-link ">TCP</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/udp/" class="side-nav-link ">UDP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-index/" class="side-nav-link ">应用层</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-model/" class="side-nav-link ">网络应用模型</a>
+      
+      <a href="/cc408/docs/network/ch05-application/dns/" class="side-nav-link ">DNS</a>
+      
+      <a href="/cc408/docs/network/ch05-application/ftp/" class="side-nav-link ">FTP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/email/" class="side-nav-link ">电子邮件</a>
+      
+      <a href="/cc408/docs/network/ch05-application/www/" class="side-nav-link ">万维网</a>
+      
+      <a href="/cc408/exam/exercise/network/" class="side-nav-link ">计算机网络</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/arch-index/" class="side-nav-link ">计算机网络体系结构</a>
+      
+    </details>
+    
+  </aside>
+  <main class="content-area">
+    <h1>程序运行环境</h1>
+    <div class="meta-row">
+      
+      <span><span class="diff-star">★</span><span class="diff-star-empty">☆</span><span class="diff-star-empty">☆</span></span>
+      
+      <span class="tag">基础概念</span>
+    </div>
+    <article><p>⭐ 中优先级</p>
+<p>这一节选择题还是经常考察的，重点在于理解 <strong>用户态和内核态</strong> 以及 <strong>系统调用</strong> 这两个概念，程序的链接和装入相对考察频率比较低。</p>
+<h3 id="cpu-运行模式">CPU 运行模式</h3>
+<p>CPU的两种 <strong>运行模式</strong> ：<strong>内核模式</strong> （又称为特权模式、系统模式或超级用户模式）和 <strong>用户模式</strong> 是操作系统设计中用于隔离系统关键任务与普通任务的机制，以提高系统的安全性和稳定性。</p>
+<p><img src="/images/docs/os/image-20260611215717178.png"></p>
+<p><strong>用户态/内核态到底是操作系统还是 cpu 的模式？</strong></p>
+<p>大多数现代 <strong>CPU</strong> （如 x86、ARM）都有多级 <strong>权限</strong> （ring 0~ring 3），通常：</p>
+<ul>
+<li><strong>Ring 0</strong> （<strong>内核态</strong> ）：可执行一切指令，访问所有硬件资源。</li>
+<li><strong>Ring 3</strong> （<strong>用户态</strong> ）：受限，只能执行普通指令，无法直接操作硬件或访问内核数据结构。</li>
+</ul>
+<p>所以，<strong>内核态/用户态</strong> 本质上 <strong>是</strong>CPU** 的 <strong>运行权限级别</strong>** ，是硬件提供的机制。</p>
+<p>但操作系统是这个机制的“使用者”和“管理者”，操作系统借助这套机制实现进程隔离、安全保护、系统调用等功能。</p>
+<h4 id="内核模式">内核模式</h4>
+<p>内核模式（Kernel Mode）是操作系统内核运行的环境，具有 <strong>最高权限</strong> ，能够直接访问硬件和所有系统资源。</p>
+<p><strong>特点</strong></p>
+<ul>
+<li><strong>完全权限</strong> ：内核模式下的代码可以直接操作硬件（如CPU、内存、I/O 设备等），执行特权指令。</li>
+<li><strong>核心功能</strong> ：操作系统内核负责管理进程、内存、文件系统和设备驱动等核心功能，这些都在内核模式下完成。</li>
+<li><strong>上下文切换</strong> ：用户模式程序通过系统调用进入内核模式，完成操作后返回用户模式。</li>
+<li><strong>高风险</strong> ：内核模式的错误可能导致系统崩溃，因此需要极高的稳定性。</li>
+</ul>
+<p>特权指令</p>
+<p><strong>特权指令</strong> （Privileged Instruction）是指在计算机系统中只能由操作系统 <strong>内核态下</strong> 的程序执行的特殊指令。这些指令通常涉及对硬件资源或系统关键功能的直接控制，具有较高的权限，常见的特权指令包含如下类型：</p>
+<ul>
+<li><strong>硬件控制</strong> ：如设置中断使能、修改处理器状态寄存器。</li>
+<li><strong>内存管理</strong> ：如修改页表、设置内存保护。</li>
+<li><strong>进程管理</strong> ：如创建或终止进程、更改进程优先级。</li>
+<li><strong>I/O 操作</strong> ：直接访问硬件设备或端口。</li>
+<li><strong>系统调用相关</strong> ：如切换到内核态以执行系统服务。</li>
+</ul>
+<h4 id="用户模式">用户模式</h4>
+<p><strong>用户模式</strong> （User Mode）是普通 <strong>应用程序</strong> 运行的环境，运行在 <strong>受限的权限级别</strong> 。用户程序（如浏览器、文本编辑器等）通常在此模式下运行。</p>
+<p><strong>特点</strong></p>
+<ul>
+<li><strong>权限受限</strong> ：用户模式下的程序无法直接访问硬件或核心系统资源（如内存、CPU 寄存器等），需要通过系统调用（System Call）请求操作系统服务。</li>
+<li><strong>隔离性</strong> ：每个用户程序运行在自己的地址空间，相互隔离，防止程序直接干扰其他程序或系统。</li>
+<li><strong>安全性</strong> ：由于权限受限，用户程序的错误（如崩溃）通常不会直接影响操作系统。</li>
+<li><strong>执行方式</strong> ：用户程序通过调用库函数或API间接与操作系统交互。</li>
+</ul>
+<p>用户模式和内核模式是操作系统实现安全性和稳定性的核心机制。用户模式提供隔离和安全的环境运行应用程序，而内核模式负责核心资源管理和特权操作。两者通过系统调用等机制协作，共同完成计算任务。</p>
+<h3 id="系统调用">系统调用</h3>
+<p><strong>系统调用</strong> （system call）是运行在用户模式的应用程序与操作系统内核之间的 <strong>接口</strong> 。当应用程序需要执行一些它在用户模式下不能直接完成的任务（如文件操作、网络通信、创建进程等）时，它可以通过系统调用来请求操作系统内核在内核模式下为其执行这些操作。</p>
+<p><img src="/images/docs/os/cceee27e4a.svg"></p>
+<p>系统调用的过程如上图所示，从用户态进入内核态，完成后再返回用户态：</p>
+<ul>
+<li>当用户程序执行系统调用（或触发中断）时，CPU 会自动 <strong>切换到内核态</strong> ，这时控制权就交给了操作系统。</li>
+<li>操作系统执行完后，再通过特定指令（如iret, sysret, eret）<strong>切回用户态</strong> 。</li>
+</ul>
+<p><strong>特点</strong></p>
+<ul>
+<li><strong>特权级的转换</strong> ：应用程序通常在用户模式下运行，而操作系统内核在内核模式下运行。系统调用提供了从用户模式到内核模式的一种安全的转换机制，这样内核可以代表应用程序执行特权操作。</li>
+<li><strong>系统调用的类型</strong> ：常见的系统调用类型包括进程管理（如创建、终止进程）、文件操作（如打开、读取、写入、关闭文件）、网络通信、设备控制、内存管理等。</li>
+<li><strong>性能开销</strong> ：执行系统调用涉及上下文切换，从用户模式到内核模式，然后再返回。这会带来一定的性能开销。因此，频繁地进行系统调用可能会影响应用程序的性能。</li>
+</ul>
+<p><strong>举个实际的 x86 例子</strong></p>
+<ol>
+<li>用户程序执行 <code>int 0x80</code>（系统调用指令）；</li>
+<li>CPU 自动：</li>
+</ol>
+<ul>
+<li>切换到 <strong>Ring 0</strong> （即内核态）；</li>
+<li>跳转到操作系统设定的系统调用处理函数；</li>
+</ul>
+<ol start="3">
+<li>操作系统执行相关服务；</li>
+<li>执行 <code>iret</code> 返回用户程序；</li>
+<li>CPU 自动：</li>
+</ol>
+<ul>
+<li>切回 <strong>Ring 3</strong> （即用户态）；</li>
+<li>恢复用户程序继续运行。</li>
+</ul>
+<h3 id="程序的链接">程序的链接</h3>
+<p>程序的链接是将编译后的代码模块（通常是目标文件）和其他所需的库组合在一起，生成一个可以执行的程序或库的过程。链接过程由 <strong>链接器</strong> （linker）完成。</p>
+<p>根据所使用的库的链接方式，链接可以分为 <strong>静态链接</strong> 和 <strong>动态链接</strong> 。</p>
+<ul>
+<li>
+<p><strong>静态链接</strong> ：</p>
+</li>
+<li>
+<p>当使用静态链接时，外部代码和库在链接阶段被 <strong>整合到最终的可执行文件中</strong> 。这意味着，如果程序使用了某个库的函数，那么这些函数的代码会被复制到最终的二进制文件中。</p>
+</li>
+<li>
+<p>结果是一个较大的可执行文件，因为它包含了所有必要的代码以独立运行。</p>
+<ul>
+<li><strong>动态链接</strong> ：</li>
+</ul>
+</li>
+<li>
+<p>使用动态链接时，外部库不会被直接嵌入到最终的可执行文件中。相反，程序包含了对动态链接库（如 Linux 中的.so 文件或 Windows 中的.dll 文件）的引用。当程序启动时，这些库会被 <strong>动态加载</strong> 到内存中供程序使用。</p>
+</li>
+<li>
+<p>动态链接的库通常称为动态链接库（Dynamic Link Libraries，DLL）或共享对象（Shared Object）。</p>
+</li>
+</ul>
+<h4 id="静态链接">静态链接</h4>
+<p><img src="/images/docs/os/image-20260611215755331.png"></p>
+<p>拷贝到另一台机器</p>
+<p>简单来说，对于 <strong>静态链接</strong> ，<strong>依赖</strong> 直接作为 <strong>二进制</strong> 被打包进最后的 <strong>可执行程序</strong> 中，所以可以直接 <strong>跨机器运行</strong> （当然操作系统得一样）。</p>
+<h4 id="动态链接">动态链接</h4>
+<p><img src="/images/docs/os/9eb005f9ad.svg"></p>
+<p>拷贝到另一台机器</p>
+<p><img src="/images/docs/os/93fd286f4a.svg"></p>
+<p>对于 <strong>动态链接</strong> ，程序只保存依赖的库地址，依赖与可执行程序 <strong>分开保存</strong> ，当程序执行时再去 <strong>动态地加载依赖库</strong> 。对于动态链接，拷贝可执行程序到另一台机器不一定能直接运行，这需要另外一台机器也保存有相应依赖。</p>
+<p>两者的区别如下表所示：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">特点/链接方式</th>
+          <th style="text-align: left">静态链接</th>
+          <th style="text-align: left">动态链接</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>文件大小</strong></td>
+          <td style="text-align: left">通常较大，因为库代码被整合到可执行文件中</td>
+          <td style="text-align: left">通常较小，只包含对库的引用</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>运行依赖</strong></td>
+          <td style="text-align: left">不需要外部库文件</td>
+          <td style="text-align: left">需要相应版本的动态链接库文件</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>存储效率</strong></td>
+          <td style="text-align: left">较低，每个程序都有库的一个副本</td>
+          <td style="text-align: left">较高，多个程序共享同一个库文件</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>更新便利性</strong></td>
+          <td style="text-align: left">较差，更新库需要重新链接和分发程序</td>
+          <td style="text-align: left">较好，只需更新库文件</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>启动性能</strong></td>
+          <td style="text-align: left">通常更快，无需加载外部库</td>
+          <td style="text-align: left">可能稍慢，需要加载外部库</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>跨版本兼容性</strong></td>
+          <td style="text-align: left">较好，因为程序包含了特定版本的库代码</td>
+          <td style="text-align: left">可能出现问题，特别是当库接口发生变化时</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="程序的装入">程序的装入</h3>
+<p>程序的装入是指将程序或进程的代码和数据从磁盘加载到主存（RAM）中的过程，使其准备好被 CPU 执行。装入过程在程序执行周期中是必不可少的一部分，通常由操作系统中的 <strong>装入器</strong> （loader）完成。</p>
+<h4 id="绝对装入">绝对装入</h4>
+<p>适用于 <strong>单道程序环境</strong> 。在编译时，若知道程序驻留在内存的某个位置，则编译程序将产生绝对地址的目标地址。绝对装入程序按照装入模块的地址，将程序和数据装入内存。由于程序中的逻辑地址与实际地址完全相同，因此不需要对程序和数据的地址进行修改。</p>
+<p>另外，程序中所用的绝对地址，可在编译或汇编时给出，也可由程序员直接赋予。而通常情况下在程序中采用的是符号地址，编译或汇编时在转换为绝对地址。</p>
+<h4 id="可重定位装入">可重定位装入</h4>
+<p>在 <strong>多道程序环境</strong> 下，多个目标模块的起始地址通常都从 0 开始，程序中的其他地址都是相对于起始地址的，此时应采用可重定位装入方式。根据内存的当前情况，将装入模块装入内存的适当位置。在装入时对目标程序中指令和数据地址的修改过程称为 <strong>重定位</strong> ，又因为地位变换通常是在进程装入时一次完成的，故称为 <strong>静态重定位</strong> 。</p>
+<p>当一个作业装入内存时，必须给它分配要求的全部内存空间，若没有足够的内存，则无法装入。此外，作业一旦装入内存，整个运行期间就不能在内存中移动，也不能再申请内存空间。</p>
+<p><img src="/images/docs/os/image-20260611215817797.png"></p>
+<p><strong>地址空间</strong></p>
+<p><strong>存储空间</strong></p>
+<h4 id="动态运行时装入">动态运行时装入</h4>
+<p>也称为 <strong>动态重定位</strong> 。装入程序把装入模块装入内存后，并不立即把装入模块的相对地址转换为绝对地址，而是把这种地址转换推迟到程序真正要执行时进行。因此，装入内存后的所有地址都是相对地址。这种地址需要一个重定位寄存器的支持。</p>
+<p><img src="/images/docs/os/355b7ca100.svg"></p>
+<p>动态重定位的优点在于可以将程序分配到不连续的存储区；在程序运行之前可以只装入部分代码即可运行，然后在程序运行期间，根据需要动态申请分配内存。</p>
+</article>
+
+    
+    
+    
+
+    <div class="border-top-section">
+      <a href="/cc408/docs/" class="btn btn-ghost">← 返回知识点列表</a>
+    </div>
+  </main>
+</div>
+
+<style>
+.side-nav-group[open] summary { color: var(--text-primary); }
+.side-nav-group summary::-webkit-details-marker { display: none; }
+.side-nav-group summary::after {
+  content: '▸'; margin-left: auto; font-size: var(--fs-xs); transition: transform .2s;
+}
+.side-nav-group[open] summary::after { transform: rotate(90deg); }
+</style>
+
+  </main>
+  <footer class="site-footer" role="contentinfo">
+  <p>© 2026 CC408. 408考研知识整理</p>
+</footer>
+
+</body>
+</html>

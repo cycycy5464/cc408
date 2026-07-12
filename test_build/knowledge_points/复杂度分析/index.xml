@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>复杂度分析 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/knowledge_points/%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/</link>
+    <description>Recent content in 复杂度分析 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/knowledge_points/%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2014 数据结构 第1题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2014-ds-001/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2014-ds-001/</guid>
+      <description>&lt;p&gt;下列程序段的时间复杂度是()。&lt;/p&gt;&#xA;&lt;p&gt;count   = 0 ;&lt;/p&gt;&#xA;&lt;p&gt;for   (k   = 1;k&amp;lt;=n;k*=             2)&lt;/p&gt;&#xA;&lt;p&gt;for   (j    = 1;j&amp;lt;=n;j++)&lt;/p&gt;&#xA;&lt;p&gt;count++;&lt;/p&gt;&#xA;&lt;p&gt;A.O(log₂n)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2022 数据结构 第1题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2022-ds-001/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2022-ds-001/</guid>
+      <description>&lt;p&gt;下列程序段的时间复杂度是()。&lt;/p&gt;&#xA;&lt;p&gt;|nt   sum     =0;for(Int       |=1;|&amp;lt;n;|                 *=2)&lt;/p&gt;&#xA;&lt;p&gt;for   ( |nt      j= 0;   j&amp;lt;|;j          ++)&lt;/p&gt;&#xA;&lt;p&gt;sum ++ ;&lt;/p&gt;&#xA;&lt;p&gt;A.O(log₂n)&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

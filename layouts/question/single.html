@@ -144,6 +144,51 @@ window.quizMeta = {
 
   findAnswer(container);
 
+  // --- Step 2b: Fold analysis for comprehensive questions ---
+  if (window.quizMeta && window.quizMeta.questionType === 'comprehensive') {
+    // Find anchor: [tag_link] p (even if hidden), or last pure-knowledge-link p
+    var anchor = null;
+    var allP = container.querySelectorAll('p');
+    for (var pi = 0; pi < allP.length; pi++) {
+      var p = allP[pi];
+      var txt = p.textContent.trim();
+      // [tag_link] is always a valid anchor
+      if (txt === '[tag_link]') { anchor = p; continue; }
+      // Pure knowledge-tag paragraph: only <a> elements and whitespace text
+      var pureTag = p.childNodes.length > 0;
+      if (pureTag) {
+        for (var ci = 0; ci < p.childNodes.length; ci++) {
+          var cn = p.childNodes[ci];
+          if (cn.nodeType === Node.TEXT_NODE) {
+            if (cn.textContent.trim()) { pureTag = false; break; }
+          } else if (cn.nodeType === Node.ELEMENT_NODE && cn.tagName !== 'A') {
+            pureTag = false; break;
+          }
+        }
+        if (pureTag) anchor = p;
+      }
+    }
+    if (anchor) {
+      var panel = document.createElement('div');
+      panel.className = 'answer-panel';
+      panel.style.display = 'none';
+      // Determine analysis title
+      var title = document.createElement('div');
+      title.className = 'answer-title';
+      title.textContent = '参考答案与解析';
+      panel.appendChild(title);
+      panel.setAttribute('data-answer', '');
+      // Move all subsequent siblings into panel
+      var sib = anchor.nextSibling;
+      while (sib) {
+        var nxt = sib.nextSibling;
+        panel.appendChild(sib);
+        sib = nxt;
+      }
+      anchor.parentNode.insertBefore(panel, anchor.nextSibling);
+    }
+  }
+
   // --- Step 3: Convert options A./B./C./D. to clickable (only direct <p> children) ---
   var optP = [];
   for (var oi = 0; oi < container.children.length; oi++) {

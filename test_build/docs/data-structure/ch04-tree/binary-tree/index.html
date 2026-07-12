@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>二叉树 | CC408</title>
+  <meta name="description" content="🔥 高优先级
+树和图每年都是必考，这一节每个知识点都十分重要。
+二叉树存储结构 链式存储结构 ： 链式存储是最常见的二叉树存储方式。在链式存储中，每个节点都包含一个数据元素以及指向其左子树和右子树的指针。 链式存储结构适用于表示任意形状和大小的二叉树，并且对于树的动态操作（插入、删除节点）非常方便。 …">
+  <link rel="icon" href="/cc408/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" as="script" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" as="script" crossorigin="anonymous">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/cc408/css/custom.min.ecad70eed0f9849f67d23e2bf502ae36e7f590486681964e1c95bc71c8672493.css" integrity="sha256-7K1w7tD5hJ9n0j4r9QKuNuf1kEhmgZZOHJW8cchnJJM=">
+  
+
+<script src="/cc408/js/watermark.js"></script>
+
+
+  <script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.content-area img,.docs-layout img').forEach(function(i){if(!i.src.match(/\.svg$/i)){i.loading='lazy';i.fetchPriority='low';}});});</script>
+</head>
+<body style="background: var(--bg-primary); color: var(--text-primary);">
+  <a href="#main-content" class="skip-link">跳转到主要内容</a>
+  <nav class="navbar" role="navigation" aria-label="主导航">
+  <a href="/cc408/" class="navbar-brand">CC408</a>
+  <button class="navbar-toggle" aria-label="菜单" onclick="this.parentElement.querySelector('.navbar-links').classList.toggle('open')">☰</button>
+  <div class="navbar-links" role="menubar">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      首页
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/docs/" role="menuitem" class="active" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识点
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      刷题
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/quiz-collection/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      收藏
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/graph/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识图谱
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/tags/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      标签
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/resources/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      资源
+    </a>
+    
+  </div>
+  <div class="navbar-right">
+    <a href="https://cycycy5464.github.io/">个人主页 →</a>
+  </div>
+</nav>
+
+  <main id="main-content" style="padding-top: 70px; min-height: calc(100vh - 120px);">
+    
+<div class="docs-layout">
+  <aside class="side-nav">
+    
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>📊</span><span>数据结构</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/basic-concepts/" class="side-nav-link ">数据结构基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/algorithm-concepts/" class="side-nav-link ">算法基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linear-list-index/" class="side-nav-link ">线性表概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/definition/" class="side-nav-link ">线性表定义与基本操作</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/sequential-list/" class="side-nav-link ">顺序表</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linked-list/" class="side-nav-link ">链表</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/stack/" class="side-nav-link ">栈</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/queue/" class="side-nav-link ">队列</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/application/" class="side-nav-link ">栈和队列的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/linear-data-structure/" class="side-nav-link ">线性数据结构</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/string-index/" class="side-nav-link ">串概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/definition/" class="side-nav-link ">串的定义与实现</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/pattern-matching/" class="side-nav-link ">串的模式匹配</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/array-matrix/" class="side-nav-link ">数组和特殊矩阵</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree/" class="side-nav-link ">树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-and-binary-tree/" class="side-nav-link ">树与二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/binary-tree/" class="side-nav-link active">二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-applications/" class="side-nav-link ">树的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/graph-index/" class="side-nav-link ">图概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/definition/" class="side-nav-link ">图的定义</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/algorithms/" class="side-nav-link ">图的算法和应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/search-index/" class="side-nav-link ">查找概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/array-search/" class="side-nav-link ">数组查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/tree-search/" class="side-nav-link ">树形查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/hash-search/" class="side-nav-link ">散列表查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/sort-index/" class="side-nav-link ">排序概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/internal-sort/" class="side-nav-link ">内部排序</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/external-sort/" class="side-nav-link ">外部排序</a>
+      
+      <a href="/cc408/exam/exercise/data_structure/" class="side-nav-link ">数据结构篇</a>
+      
+      <a href="/cc408/exam/application/2023-q1/" class="side-nav-link ">2023年408真题 - 应用题第1题</a>
+      
+      <a href="/cc408/exam/choice/2024-q5/" class="side-nav-link ">2024年408真题 - 数据结构选择题第5题</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/introduction/" class="side-nav-link ">绪论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>⚙️</span><span>计算机组成原理</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/system-hierarchy/" class="side-nav-link ">计算机系统层次结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/performance/" class="side-nav-link ">计算机性能指标</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/data-index/" class="side-nav-link ">数据表示与计算</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/integers/" class="side-nav-link ">整数的表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/float/" class="side-nav-link ">浮点数表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/type-conversion/" class="side-nav-link ">类型转换</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/circuits/" class="side-nav-link ">运算电路</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/memory-index/" class="side-nav-link ">存储系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/overview/" class="side-nav-link ">存储系统概述</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/ram/" class="side-nav-link ">内存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/cache/" class="side-nav-link ">Cache</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/external/" class="side-nav-link ">外存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/virtual/" class="side-nav-link ">虚拟存储器</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/instruction-index/" class="side-nav-link ">指令系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/types/" class="side-nav-link ">指令集种类</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/format-addressing/" class="side-nav-link ">指令格式与寻址方式</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/data-alignment/" class="side-nav-link ">数据对齐</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/opcode/" class="side-nav-link ">指令操作码</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/hll-machine/" class="side-nav-link ">高级语言与机器码</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/cpu-index/" class="side-nav-link ">中央处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/function-structure/" class="side-nav-link ">CPU功能与结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/controller/" class="side-nav-link ">控制器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/exceptions/" class="side-nav-link ">异常与中断</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/pipeline/" class="side-nav-link ">指令流水线</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/multiprocessor/" class="side-nav-link ">多处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus/" class="side-nav-link ">总线</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus-io/" class="side-nav-link ">总线和I/O系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch06-io/io-system/" class="side-nav-link ">I/O系统</a>
+      
+      <a href="/cc408/exam/exercise/architecture/" class="side-nav-link ">计算机组成原理</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/introduction/" class="side-nav-link ">概论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🖥️</span><span>操作系统</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/os/ch00-overview/os-concept/" class="side-nav-link ">操作系统概念</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/os-structure/" class="side-nav-link ">操作系统结构</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/program-env/" class="side-nav-link ">程序运行环境</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-index/" class="side-nav-link ">进程管理</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-thread/" class="side-nav-link ">进程与线程</a>
+      
+      <a href="/cc408/docs/os/ch01-process/scheduling/" class="side-nav-link ">处理机调度</a>
+      
+      <a href="/cc408/docs/os/ch01-process/sync-mutex/" class="side-nav-link ">同步与互斥</a>
+      
+      <a href="/cc408/docs/os/ch01-process/classic-sync/" class="side-nav-link ">经典同步问题</a>
+      
+      <a href="/cc408/docs/os/ch01-process/deadlock/" class="side-nav-link ">死锁</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/memory-index/" class="side-nav-link ">内存管理</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/concepts/" class="side-nav-link ">内存管理概念</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/virtual/" class="side-nav-link ">虚拟内存管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-index/" class="side-nav-link ">文件管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-basics/" class="side-nav-link ">文件</a>
+      
+      <a href="/cc408/docs/os/ch03-file/directory/" class="side-nav-link ">目录</a>
+      
+      <a href="/cc408/docs/os/ch03-file/filesystem/" class="side-nav-link ">文件系统</a>
+      
+      <a href="/cc408/docs/os/ch04-io/io-index/" class="side-nav-link ">I/O管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/devices/" class="side-nav-link ">I/O设备</a>
+      
+      <a href="/cc408/docs/os/ch04-io/device-mgmt/" class="side-nav-link ">设备管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/disk/" class="side-nav-link ">磁盘</a>
+      
+      <a href="/cc408/code/clock/" class="side-nav-link ">CLOCK 时钟替换算法</a>
+      
+      <a href="/cc408/code/lru/" class="side-nav-link ">LRU 算法</a>
+      
+      <a href="/cc408/code/spinlock/" class="side-nav-link ">TAS 实现自旋锁</a>
+      
+      <a href="/cc408/exam/exercise/os/" class="side-nav-link ">操作系统</a>
+      
+      <a href="/cc408/code/reader_writer/" class="side-nav-link ">读者写着问题</a>
+      
+      <a href="/cc408/code/monitor/" class="side-nav-link ">管程实现生产者消费者</a>
+      
+      <a href="/cc408/code/producer_consumer/" class="side-nav-link ">生产者消费者问题</a>
+      
+      <a href="/cc408/code/banker/" class="side-nav-link ">银行家算法</a>
+      
+      <a href="/cc408/code/philosopher/" class="side-nav-link ">哲学家就餐问题</a>
+      
+      <a href="/cc408/exam/comprehensive/2022-q1/" class="side-nav-link ">2022年408真题 - 综合题第1题</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/computer-overview/" class="side-nav-link ">计算机系统概述</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🌐</span><span>计算机网络</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/network/ch00-overview/layered/" class="side-nav-link ">分层结构</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/protocol-summary/" class="side-nav-link ">各层协议总结</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/device-summary/" class="side-nav-link ">网络设备总结</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/phy-index/" class="side-nav-link ">物理层</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/communication/" class="side-nav-link ">通信概念</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/encoding/" class="side-nav-link ">编码与调制</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/switching/" class="side-nav-link ">交换方式</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/devices/" class="side-nav-link ">物理层设备</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/dl-index/" class="side-nav-link ">数据链路层</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/framing/" class="side-nav-link ">组帧</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/error-control/" class="side-nav-link ">差错控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/flow-control/" class="side-nav-link ">流量控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/mac/" class="side-nav-link ">介质访问控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/lan-wan/" class="side-nav-link ">局域网与广域网</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/devices/" class="side-nav-link ">数据链路层设备</a>
+      
+      <a href="/cc408/docs/network/ch03-network/nw-index/" class="side-nav-link ">网络层</a>
+      
+      <a href="/cc408/docs/network/ch03-network/ip/" class="side-nav-link ">IP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/arp/" class="side-nav-link ">ARP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/icmp/" class="side-nav-link ">ICMP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/dhcp/" class="side-nav-link ">DHCP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/routing/" class="side-nav-link ">路由算法</a>
+      
+      <a href="/cc408/docs/network/ch03-network/sdn/" class="side-nav-link ">SDN</a>
+      
+      <a href="/cc408/docs/network/ch03-network/devices/" class="side-nav-link ">网络层设备</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tp-index/" class="side-nav-link ">传输层</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tcp/" class="side-nav-link ">TCP</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/udp/" class="side-nav-link ">UDP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-index/" class="side-nav-link ">应用层</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-model/" class="side-nav-link ">网络应用模型</a>
+      
+      <a href="/cc408/docs/network/ch05-application/dns/" class="side-nav-link ">DNS</a>
+      
+      <a href="/cc408/docs/network/ch05-application/ftp/" class="side-nav-link ">FTP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/email/" class="side-nav-link ">电子邮件</a>
+      
+      <a href="/cc408/docs/network/ch05-application/www/" class="side-nav-link ">万维网</a>
+      
+      <a href="/cc408/exam/exercise/network/" class="side-nav-link ">计算机网络</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/arch-index/" class="side-nav-link ">计算机网络体系结构</a>
+      
+    </details>
+    
+  </aside>
+  <main class="content-area">
+    <h1>二叉树</h1>
+    <div class="meta-row">
+      
+      <span><span class="diff-star">★</span><span class="diff-star">★</span><span class="diff-star-empty">☆</span></span>
+      
+      <span class="tag">树</span><span class="tag">二叉树</span>
+    </div>
+    <article><p>🔥 高优先级</p>
+<p>树和图每年都是必考，这一节每个知识点都十分重要。</p>
+<h3 id="二叉树存储结构">二叉树存储结构</h3>
+<ol>
+<li><strong>链式存储结构</strong> ：</li>
+</ol>
+<ul>
+<li>链式存储是最常见的二叉树存储方式。在链式存储中，每个节点都包含一个数据元素以及指向其左子树和右子树的指针。</li>
+<li>链式存储结构适用于表示任意形状和大小的二叉树，并且对于树的动态操作（插入、删除节点）非常方便。</li>
+</ul>
+<ol start="2">
+<li><strong>顺序存储结构</strong> （数组表示）：</li>
+</ol>
+<ul>
+<li>顺序存储结构使用数组来表示二叉树。通常，数组的索引与二叉树的节点之间存在特定的关系，例如，对于索引 i 的节点，其左子节点在索引 2i+1 处，右子节点在索引 2i+2 处，父节点在索引 (i−1) / 2 处。</li>
+<li>顺序存储结构通常用于堆数据结构（如二叉堆）的实现，其中对于堆的性质要求，使得数组表示变得非常有效。</li>
+</ul>
+<h4 id="链接存储">链接存储</h4>
+<p>在 <strong>链接存储</strong> 中，我们需要在结构体中定义两个指针，分别指向二叉树左边的结点和右边的结点。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> TreeNode {
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">```</span>c
+</span></span><span style="display:flex;"><span>ElementType data;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> TreeNode<span style="color:#f92672">*</span> left;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> TreeNode<span style="color:#f92672">*</span> right;
+</span></span></code></pre></div><p>} TreeNode</p>
+<pre tabindex="0"><code>
+#### 顺序存储
+
+顺序存储表示用数组存储一颗树，如下图所示。
+
+
+![](/images/docs/data-structure/942e7c4d8d.svg)
+
+理解顺序存储的关键在于理解其 **结点的隐式链接关系** 以及 **空指针的定义** 这两点。
+
+  * 在顺序存储中，结点的链接关系由其下标指定：
+* 数组的下标从 1 开始的话，如果当前结点的下标为 i ，那么其左结点的下标为 2i ，右结点的下标为 2i+1 。
+* 数组的下标从 0 开始的话，如果当前结点的下标为 i ，那么其左结点的下标为 2i+1 ，右结点的下标为 2i+2 。
+
+
+
+  * 通常采用一个特殊值来表示空指针，上图中采用 -1 表示空指针。
+
+```c
+```c
+#define MAX_SIZE 100
+
+int tree[MAX_SIZE];
+
+int lchild(int i) {
+    return tree[2 * i + 1];
+})
+
+int rchild(int i) {
+    return tree[2 * i + 2];
+}
+</code></pre><pre tabindex="0"><code>
+
+顺序存储最常见于 [堆排序](&lt;/data_structure/sort/internal/#%e5%a0%86%e6%8e%92%e5%ba%8f&gt;) 中。因为 **堆是一棵完全二叉树** 。
+
+  * 对完全二叉树而言，顺序存储不会造成空间浪费；
+  * 父结点与子结点之间的关系可以直接通过下标计算得到（无需额外指针）；
+  * 堆排序过程中需要频繁地比较和交换父结点与子结点，数组下标运算能显著提升效率。
+
+因此，堆排序天然适合采用顺序存储结构来实现。
+
+### 特殊二叉树
+
+**特殊的二叉树** 包含满二叉树、完全二叉树两种。
+
+简单来说，**满二叉树** 必须每一层结点数都是满的， **完全二叉树** 允许最后一层的最后几个结点为空。
+
+
+![](/images/docs/data-structure/cc432ff6c1.svg)
+
+#### 满二叉树
+
+满二叉树（Full Binary Tree）具备如下特点：
+
+  * 每个节点要么没有子节点，要么有两个子节点。
+  * 每一层都被完全填满。
+  * 第 n 层的结点数量为 2n （这里假设根结点是第 0 层）。
+  * [高度](&lt;/data_structure/tree/tree/#%e9%ab%98%e5%ba%a6&gt;) 为 h 的满二叉树节点数目为 2h−1 。
+  * 结点数量为 n 的满二叉树的高度为 log2​\(n+1\) 。
+
+#### 完全二叉树
+
+完全二叉树（Complete Binary Tree）具备如下特点：
+
+  * 由满二叉树通过删除最后一层的一些节点而得到的。
+  * 除了最后一层外，所有其他层都是完全填满的，而且最后一层的节点都集中在左侧。
+  * [高度](&lt;/data_structure/tree/tree/#%e9%ab%98%e5%ba%a6&gt;) 为 h 的完全二叉树的结点数量范围为 \[ 2h−1 , 2h−1 \]。
+  * 结点数量为 n 的完全二叉树的高度为 ⌈log2​\(n+1\)⌉ 。
+
+### 遍历方式
+
+#### DFS
+
+**深度优先搜索** （DFS，Depth-First Search）是一种用于遍历或搜索树或图的算法。
+
+当使用 DFS 遍历二叉树中的结点时，算法会优先探索树的深度，直到达到最深的节点。 当达到叶子节点或无法继续深入时，算法会回溯返回到上一个节点，探索其他分支。
+
+
+![](/images/docs/data-structure/image-20260612100626281.png)
+
+二叉树的深度优先（DFS）遍历方式包含前序、中序、后序遍历三种。 理解这三种遍历方式的关键在于理解其递归过程，不同方式的递归顺序不一样。 具体不同点如下表所示：
+
+访问方式| 递归顺序  
+---|---  
+前序| 根左右（NLR）  
+中序| 左根右（LNR）  
+后序| 左右根（LRN）  
+
+补充
+
+在表述递归顺序时，通常用 N 表示根节点，L 表示左孩子，R 表示右孩子。
+
+##### 前序遍历
+
+前序遍历序列 = \[1, 2, 4, 5, 8, 3, 6, 7, 9, 10\]
+
+  * 访问顺序：根节点 -&gt; 左子树 -&gt; 右子树
+  * 步骤：
+1. 访问根节点。
+2. 递归地进行前序遍历左子树。
+3. 递归地进行前序遍历右子树。
+
+
+
+
+```c
+![](/images/docs/data-structure/image-20260612101748942.png)
+
+    void preorderTraversal(struct TreeNode* root) {
+        if (root == NULL) {
+            return;
+        }
+        // operation here
+        preorderTraversal(root-&gt;left); // 遍历左子树
+        preorderTraversal(root-&gt;right); // 遍历右子树
+    }
+</code></pre><h5 id="中序遍历">中序遍历</h5>
+<p>中序遍历序列 = [4, 2, 8, 5, 1, 6, 3, 9, 7, 10]</p>
+<ul>
+<li>
+<p>访问顺序：左子树 -&gt; 根节点 -&gt; 右子树</p>
+</li>
+<li>
+<p>步骤：</p>
+</li>
+</ul>
+<ol>
+<li>递归地进行中序遍历左子树。</li>
+<li>访问根节点。</li>
+<li>递归地进行中序遍历右子树。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#f92672">!</span>[](<span style="color:#f92672">/</span>images<span style="color:#f92672">/</span>docs<span style="color:#f92672">/</span>data<span style="color:#f92672">-</span>structure<span style="color:#f92672">/</span>image<span style="color:#f92672">-</span><span style="color:#ae81ff">20260612101815059.</span>png)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">```</span>c
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">inorderTraversal</span>(<span style="color:#66d9ef">struct</span> TreeNode<span style="color:#f92672">*</span> root) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (root <span style="color:#f92672">==</span> NULL) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">inorderTraversal</span>(root<span style="color:#f92672">-&gt;</span>left); <span style="color:#75715e">// 遍历左子树
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// operation here
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">inorderTraversal</span>(root<span style="color:#f92672">-&gt;</span>right); <span style="color:#75715e">// 遍历右子树
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><pre tabindex="0"><code>
+
+##### 后序遍历
+
+后序遍历序列 = \[4, 8, 5, 2, 6, 9, 10, 7, 3, 1\]
+
+  * 访问顺序：左子树 -&gt; 右子树 -&gt; 根节点
+  * 步骤：
+1. 递归地进行后序遍历左子树。
+2. 递归地进行后序遍历右子树。
+3. 访问根节点。
+
+
+
+
+```c
+![](/images/docs/data-structure/image-20260612101835603.png)
+
+    void postorderTraversal(struct TreeNode* root) {
+        if (root == NULL) {
+            return;
+        }
+        postorderTraversal(root-&gt;left); // 遍历左子树
+        postorderTraversal(root-&gt;right); // 遍历右子树
+        // operation here
+    }
+</code></pre><h4 id="bfs">BFS</h4>
+<p>层次遍历序列 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</p>
+<p>二叉树的层次遍历（Level Order Traversal），也称为 <strong>广度优先搜索</strong> （BFS），是一种从上到下、从左到右逐层访问二叉树节点的方法。</p>
+<p>BFS 算法从根节点开始，<strong>逐层访问节点</strong> 。同一层级的节点按照从左到右的顺序访问。
+<img src="/images/docs/data-structure/image-20260612101856435.png"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">levelOrderTraversal</span>(<span style="color:#66d9ef">struct</span> TreeNode<span style="color:#f92672">*</span> root) {
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">```</span>c
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (root <span style="color:#f92672">==</span> NULL) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> Queue<span style="color:#f92672">*</span> queue <span style="color:#f92672">=</span> <span style="color:#a6e22e">createQueue</span>();
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">enqueue</span>(queue, root);
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">while</span> (queue<span style="color:#f92672">-&gt;</span>front <span style="color:#f92672">!=</span> NULL) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">struct</span> TreeNode<span style="color:#f92672">*</span> current <span style="color:#f92672">=</span> <span style="color:#a6e22e">dequeue</span>(queue);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// operation here
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (current<span style="color:#f92672">-&gt;</span>left <span style="color:#f92672">!=</span> NULL) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">enqueue</span>(queue, current<span style="color:#f92672">-&gt;</span>left);
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (current<span style="color:#f92672">-&gt;</span>right <span style="color:#f92672">!=</span> NULL) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">enqueue</span>(queue, current<span style="color:#f92672">-&gt;</span>right);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>}</p>
+<pre tabindex="0"><code>
+### 线索二叉树
+
+
+![](/images/docs/data-structure/image-20260612101929222.png)
+
+**线索二叉树** （Threaded Binary Tree）是一种为了提高二叉树遍历效率而设计的数据结构。它通过利用二叉树中原本为空的指针域来存储指向前驱或后继结点的指针（称为“线索”），从而省去递归或栈的遍历方式。
+
+[普通二叉树](&lt;/data_structure/tree/btree/#%e9%93%be%e6%8e%a5%e5%ad%98%e5%82%a8&gt;) 的结点有两个指针：`left` 和 `right`，但在一棵 `n` 个结点的二叉树中，实际的左右子树为空的指针数有很多（约 `2n` 个）。线索二叉树的思想就是把 **这些空指针利用起来** ，指向结点在某种遍历序列中的前驱或后继。
+
+#### 数据结构
+
+  * 节点存储结构
+
+```c
+// ltag = 1 时表示 lchild 域指向节点的前驱
+// rtag = 1 时表示 rchild 域指向节点的后继
+typedef struct ThreadNode {
+```c
+ElementType data;
+struct ThreadNode *lchild, *rchild;
+int ltag, rtag;
+</code></pre><p>} ThreadNode;</p>
+<pre tabindex="0"><code>
+  * 遍历
+
+TODO
+
+
+// 以中序线索二叉树为例
+// 中序遍历，找到中序遍历的第一个节点，然后遍历 rchild 即可
+void InOrder(ThreadNode *n) {
+```c
+ThreadNode *p = n;
+while (p-&gt;lchild) {
+    p = p-&gt;lchild;
+}
+for (; p != NULL; p = p-&gt;rchild) {
+    visit(p);
+}
+</code></pre><p>}</p>
+<p>线索二叉树中的每个节点都可以包含以下线索信息：</p>
+<ul>
+<li>
+<p><strong>前驱线索</strong></p>
+</li>
+<li>
+<p>如果 <code>p</code> 的左子指针 <code>left</code> 原本为空，那么将其改为指向 <code>p</code> 的“遍历前驱结点”。</p>
+</li>
+<li>
+<p>同时 <code>ltag = 1</code>，表示这个指针是线索，而不是左孩子。</p>
+<ul>
+<li><strong>后继线索</strong></li>
+</ul>
+</li>
+<li>
+<p>如果 <code>p</code> 的右子指针 <code>right</code> 原本为空，那么将其改为指向 <code>p</code> 的“遍历后继结点”。</p>
+</li>
+<li>
+<p>同时 <code>rtag = 1</code>，表示这个指针是线索，而不是右孩子。</p>
+</li>
+</ul>
+<h4 id="类型">类型</h4>
+<p>📌 按不同的遍历方式，线索可分为：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">线索类型</th>
+          <th style="text-align: left">前驱 / 后继定义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>前序线索</strong></td>
+          <td style="text-align: left">指向前序遍历的前驱 / 后继结点</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>中序线索</strong></td>
+          <td style="text-align: left">指向中序遍历的前驱 / 后继结点</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>后序线索</strong></td>
+          <td style="text-align: left">指向后序遍历的前驱 / 后继结点</td>
+      </tr>
+  </tbody>
+</table>
+<p>在实际应用中，最广泛使用的是 <strong>中序线索二叉树</strong> 。因为通过中序线索，可以用如下方式访问整棵树：</p>
+<ol>
+<li>从最左下角的结点开始</li>
+<li>通过右线索一步步访问中序后继</li>
+<li>直到结束，不需要递归或辅助栈</li>
+</ol>
+<p>这种遍历方法最简单、最直接。</p>
+<h3 id="二叉树构建">二叉树构建</h3>
+<p>已知二叉树，可以获得其前序、中序和后序遍历序列。</p>
+<p>反之，给定二叉树的遍历序列，可以通过以下两种方式重建其二叉树结构：</p>
+<ol>
+<li><strong>带空指针的单序列重建</strong> ：给定包含空指针信息的单一遍历序列（如带空指针的前序遍历），可以唯一确定二叉树的结构。</li>
+<li><strong>双序列组合重建</strong> ：给定两种不同的遍历序列组合，可以唯一确定二叉树的结构。</li>
+</ol>
+<h4 id="带空指针的单序列">带空指针的单序列</h4>
+<p>在二叉树的遍历序列中，<strong>明确标记空节点</strong> （例如用 <code>#</code> 或 <code>NULL</code>），可以保证仅通过 <strong>一个前序遍历序列</strong> 就能唯一确定一棵二叉树的结构。</p>
+<p>如果只用常规的前序、中序或后序遍历而不标记空节点，那么遇到某些情况时会出现歧义。例如，一棵根节点为 <code>1</code> 的树，如果它只有一个左孩子或只有一个右孩子，两种情况的普通前序序列都是 <code>1 X</code>，无法区分。</p>
+<p>但是如果在遍历时显式地写出空指针（<code>#</code>），序列就变得 <strong>无歧义</strong> 。</p>
+<p><img src="/images/docs/data-structure/image-20260612102019699.png"></p>
+<p>举个例子，对于以上二叉树，我们可以使用以下方法构建二叉树：</p>
+<ol>
+<li>从序列的第一个元素开始：</li>
+</ol>
+<ul>
+<li>如果是 <code>#</code>，说明该子树为空，返回 <code>NULL</code>。</li>
+<li>否则，创建一个新节点作为当前子树的根。</li>
+</ul>
+<ol start="2">
+<li>递归处理下一个元素：</li>
+</ol>
+<ul>
+<li>按前序规则，先为当前节点构建 <strong>左子树</strong> 。</li>
+<li>如果遇到 <code>#</code>，左子树为空，返回。</li>
+</ul>
+<ol start="3">
+<li>再递归处理下一个元素：</li>
+</ol>
+<ul>
+<li>构建 <strong>右子树</strong> 。</li>
+<li>如果遇到 <code>#</code>，右子树为空，返回。</li>
+</ul>
+<ol start="4">
+<li>重复步骤 1–3，直到序列完全读完。</li>
+</ol>
+<p>​</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>TreeNode<span style="color:#f92672">*</span> <span style="color:#a6e22e">createTree</span>(<span style="color:#66d9ef">char</span> a[], <span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>i) {
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">```</span>c
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (a[<span style="color:#f92672">*</span>i] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;#&#39;</span>) {   <span style="color:#75715e">// 空指针标记
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    (<span style="color:#f92672">*</span>i)<span style="color:#f92672">++</span>;           <span style="color:#75715e">// 别忘了推进下标
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> NULL;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 创建当前节点
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>TreeNode <span style="color:#f92672">*</span>cur <span style="color:#f92672">=</span> (TreeNode<span style="color:#f92672">*</span>)<span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(TreeNode));
+</span></span><span style="display:flex;"><span>cur<span style="color:#f92672">-&gt;</span>val <span style="color:#f92672">=</span> a[<span style="color:#f92672">*</span>i];
+</span></span><span style="display:flex;"><span>(<span style="color:#f92672">*</span>i)<span style="color:#f92672">++</span>;               <span style="color:#75715e">// 消费当前字符
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// 按前序顺序构建左右子树
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>cur<span style="color:#f92672">-&gt;</span>left <span style="color:#f92672">=</span> <span style="color:#a6e22e">createTree</span>(a, i);
+</span></span><span style="display:flex;"><span>cur<span style="color:#f92672">-&gt;</span>right <span style="color:#f92672">=</span> <span style="color:#a6e22e">createTree</span>(a, i);
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">return</span> cur;
+</span></span></code></pre></div><p>}</p>
+<pre tabindex="0"><code>
+#### 双序列组合重建
+
+从前序、中序、后序序列中选两个构造二叉树，有两种方式：
+
+  1. **前序 + 中序** ：这是最常见的组合，因为前序确定了根节点的位置，而中序则可以区分哪些节点在左子树，哪些在右子树。有了这两个信息，就可以唯一确定一棵二叉树。
+  2. **后序 + 中序** ：后序确定了根节点的位置（它是后序遍历的最后一个节点），而中序同样可以帮助我们区分左、右子树。因此，这两者也可以唯一确定一棵二叉树。
+
+重点在于选取的两种遍历方式可以提供关于这颗二叉树的结构信息，以 **前序** 和 **中序** 为例：
+
+前序遍历：
+
+中序遍历：
+
+
+![](/images/docs/data-structure/cfeebcb302.svg)
+
+如上图所示，给定起始序列，可以判断先序序列中的第一个元素 A 是树的根结点。 再根据中序序列，可以判断 B、D 在 A 的左子树中，C、E 在 A 的右子树中。
+
+由此我们就得到了二叉树的一部分结构，再继续递归地对 A 的左子树和右子树重复如上过程，即可得到完整的二叉树结构。
+
+注意
+
+前序和后序遍历是不足以唯一确定一个二叉树的。原因是前序和后序遍历本身不足以提供足够的信息来唯一确定一个树的结构。
+
+从三种遍历中选取两种时一定要有 **中序遍历** ，才能得到完整的二叉树结构。
+
+上述例子的具体重建过程如下：
+
+  * 前序遍历的第一个元素 `A` 是根节点。
+  * 在中序遍历中， `A` 将序列分为两部分： `BD` 和 `CE` 。左边部分 `BD` 对应于左子树，右边部分 `CE` 对应于右子树。
+  * 在前序遍历中，继 `A` 之后的 `BD` 对应于左子树，而 `CE` 对应于右子树。
+  * 对于左子树，其前序遍历为 `BD` ，中序遍历为 `BD` 。从这可以确定 `B` 是左子树的根，而 `D` 是它的右孩子。
+  * 对于右子树，其前序遍历为 `CE` ，中序遍列为 `CE` 。从这可以确定 `C` 是右子树的根，而 `E` 是它的右孩子。
+
+重建后可以得到二叉树结构：
+ 
+A
+   / \
+  B   C
+   \   \
+    D   E
+
+
+
+
+
+### BST
+
+二叉排序树，也称为 **二叉查找树** （Binary Search Tree, BST），是一种特殊的二叉树。它或者是一棵空树，或者是满足以下性质的二叉树：
+
+  1. 若它的 **左子树** 不空，则左子树上所有结点的值均 **小于** 它的根结点的值。
+  2. 若它的 **右子树** 不空，则右子树上所有结点的值均 **大于** 它的根结点的值。
+  3. 它的左、右子树也分别为二叉排序树。
+
+![](/images/docs/data-structure/3959cfd97b.svg)
+
+二叉查找树的 **主要操作** 有：
+
+  1. **插入** ：从根节点开始，如果待插入的值小于当前节点的值，就将其插入到左子树中，否则插入到右子树中。
+  2. **查找** ：从根节点开始，如果待查找的值小于当前节点的值，就在左子树中查找，否则在右子树中查找。
+  3. **删除** ：有三种情况：
+* 如果是叶子节点，直接删除。
+ * 如果只有一个子节点，删除它并将其子节点连接到它的父节点。
+ * 如果有两个子节点，找到其右子树的最小值或左子树的最大值来替换该节点，然后删除那个节点。
+
+
+
+
+  * 结点定义
+
+```c
+typedef struct TreeNode {
+```c
+int data;
+struct TreeNode* left;
+struct TreeNode* right;
+</code></pre><p>} TreeNode;</p>
+<p>// 创建新节点
+TreeNode* newNode(int data) {</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>TreeNode<span style="color:#f92672">*</span> node <span style="color:#f92672">=</span> (TreeNode<span style="color:#f92672">*</span>)<span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(TreeNode));
+</span></span><span style="display:flex;"><span>node<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">=</span> data;
+</span></span><span style="display:flex;"><span>node<span style="color:#f92672">-&gt;</span>left <span style="color:#f92672">=</span> NULL;
+</span></span><span style="display:flex;"><span>node<span style="color:#f92672">-&gt;</span>right <span style="color:#f92672">=</span> NULL;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> node;
+</span></span></code></pre></div><p>}</p>
+<pre tabindex="0"><code>
+  * 插入
+
+```c
+// 插入新节点
+TreeNode* insert(TreeNode* root, int data) {
+```c
+if (root == NULL) {
+    return newNode(data);
+}
+if (data &lt; root-&gt;data) {
+    root-&gt;left = insert(root-&gt;left, data);
+} else if (data &gt; root-&gt;data) {
+    root-&gt;right = insert(root-&gt;right, data);
+}
+return root;
+</code></pre><p>}</p>
+<pre tabindex="0"><code>
+  * 查找
+
+```c
+// 查找节点
+TreeNode* search(TreeNode* root, int data) {
+```c
+if (root == NULL || root-&gt;data == data) {
+    return root;
+}
+if (data &lt; root-&gt;data) {
+    return search(root-&gt;left, data);
+}
+return search(root-&gt;right, data);
+</code></pre><p>}</p>
+<pre tabindex="0"><code>
+  * 删除
+
+```c
+// 删除节点
+TreeNode* deleteNode(TreeNode* root, int data) {
+```c
+if (root == NULL) {
+    return root;
+}
+if (data &lt; root-&gt;data) {
+    root-&gt;left = deleteNode(root-&gt;left, data);
+} else if (data &gt; root-&gt;data) {
+    root-&gt;right = deleteNode(root-&gt;right, data);
+} else {
+    // 节点有一个或没有子节点
+    if (root-&gt;left == NULL) {
+        TreeNode* temp = root-&gt;right;
+        free(root);
+        return temp;
+    } else if (root-&gt;right == NULL) {
+        TreeNode* temp = root-&gt;left;
+        free(root);
+        return temp;
+    }
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>    <span style="color:#75715e">// 节点有两个子节点，找到右子树的最小节点
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    TreeNode<span style="color:#f92672">*</span> temp <span style="color:#f92672">=</span> <span style="color:#a6e22e">findMin</span>(root<span style="color:#f92672">-&gt;</span>right);
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>    <span style="color:#75715e">// 复制右子树的最小节点的值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    root<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">=</span> temp<span style="color:#f92672">-&gt;</span>data;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>    <span style="color:#75715e">// 删除右子树的最小节点
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    root<span style="color:#f92672">-&gt;</span>right <span style="color:#f92672">=</span> <span style="color:#a6e22e">deleteNode</span>(root<span style="color:#f92672">-&gt;</span>right, temp<span style="color:#f92672">-&gt;</span>data);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> root;
+</span></span></code></pre></div><p>}</p>
+<pre tabindex="0"><code>
+### AVL
+
+**平衡二叉树** （Balanced Binary Tree），也叫做 **AVL 树** 。它的特点是任意节点的左右子树高度差（**平衡因子** ）的绝对值不超过 1，这确保了树的高度始终保持在 O\(log2​n\) 的水平，使得查找、插入和删除操作的时间复杂度都保持在 O\(log2​n\) 。
+
+![](/images/docs/data-structure/5a539fc142.svg)
+
+理解 AVL 的关键在于理解 AVL 的 **旋转过程** ，以下针对几个疑问带大家迅速了解关键知识：
+
+  1. **为什么需要旋转？**
+
+我们时常需要对 AVL 中的结点进行插入和删除操作，这些操作可能导致 AVL 中的某个子树进入不平衡的状态。 通过旋转操作可以使得不平衡的子树和整棵 AVL 树都 **重新平衡** 。
+
+  2. **从哪个节点开始旋转？**
+
+从 **最小不平衡子树的根节点** 旋转，旋转操作会使得最小不平衡子树从不平衡变得平衡。
+
+理解这句话你需要掌握以下概念：
+
+  * **平衡因子** ：每个节点的平衡因子是其左子树的高度减去右子树的高度
+  * **最小不平衡子树** ：最小不平衡子树是指在整棵二叉树中，高度差（平衡因子的绝对值）最小的子树，该子树的平衡因子绝对值超过 1，即它是导致整棵树不平衡的最小子树。
+
+#### 旋转方式
+
+执行插入操作时，如果该次插入使得 AVL 不平衡的话，首先找到最小不平衡子树根节点（用 A 表示该节点）的位置，然后根据插入节点（用 N 表示）相对于 A 的位置，可能有四种不同的 **旋转** 操作：
+
+  1. **LL** ，N 在 A 的左子树的左子树中（A 的平衡因子 +2，A 的左子树根节点平衡因子 +1）：A 右旋
+  2. **RR** ，N 在 A 的右子树的右子树中（A 的平衡因子 -2，A 的右子树根节点平衡因子 -1）：A 左旋
+  3. **LR** ，N 在 A 的左子树的右子树中（A 的平衡因子 +2，A 的左子树根节点平衡因子 -1）：A 的左子树左旋，然后 A 右旋
+  4. **RL** ，N 在 A 的右子树的左子树中（A 的平衡因子 -2，A 的右子树根节点平衡因子 +1）：A 的右子树右旋，然后 A 左旋
+
+![](/images/docs/data-structure/3ee40d3239.svg)
+
+AVL 平衡旋转的代码实现如下所示，过程比较繁琐，了解即可，重点在与如何掌握如何“人脑”模拟旋转过程。
+
+  * 节点定义
+
+```c
+struct TreeNode {
+```c
+int data;
+struct TreeNode* left;
+struct TreeNode* right;
+int height; // 节点高度
+</code></pre><p>};</p>
+<pre tabindex="0"><code>
+  * 左旋
+
+```c
+struct TreeNode* leftRotate(struct TreeNode* x) {
+```c
+struct TreeNode* y = x-&gt;right;
+struct TreeNode* T2 = y-&gt;left;
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// 执行旋转
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>y<span style="color:#f92672">-&gt;</span>left <span style="color:#f92672">=</span> x;
+</span></span><span style="display:flex;"><span>x<span style="color:#f92672">-&gt;</span>right <span style="color:#f92672">=</span> T2;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// 更新高度
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">updateHeight</span>(x);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">updateHeight</span>(y);
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">return</span> y;
+</span></span></code></pre></div><p>}</p>
+<pre tabindex="0"><code>
+  * 右旋
+
+```c
+struct TreeNode* rightRotate(struct TreeNode* y) {
+```c
+struct TreeNode* x = y-&gt;left;
+struct TreeNode* T2 = x-&gt;right;
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// 执行旋转
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>x<span style="color:#f92672">-&gt;</span>right <span style="color:#f92672">=</span> y;
+</span></span><span style="display:flex;"><span>y<span style="color:#f92672">-&gt;</span>left <span style="color:#f92672">=</span> T2;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// 更新高度
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">updateHeight</span>(y);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">updateHeight</span>(x);
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">return</span> x;
+</span></span></code></pre></div><p>}</p>
+<pre tabindex="0"><code>
+  * 计算平衡因子
+
+```c
+// 计算以 node 为根节点的子树高度
+int getHeight(struct TreeNode* node) {
+```c
+if (node == NULL) {
+    return 0;
+}
+return node-&gt;height;
+</code></pre><p>}</p>
+<p>// 获取平衡因子
+int getBalanceFactor(struct TreeNode* node) {</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (node <span style="color:#f92672">==</span> NULL) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> <span style="color:#a6e22e">getHeight</span>(node<span style="color:#f92672">-&gt;</span>left) <span style="color:#f92672">-</span> <span style="color:#a6e22e">getHeight</span>(node<span style="color:#f92672">-&gt;</span>right);
+</span></span></code></pre></div><p>}</p>
+<pre tabindex="0"><code>
+  * 更新节点高度
+
+```c
+// 在插入时需要使用该操作，重新计算子树高度
+void updateHeight(struct TreeNode* node) {
+```c
+int leftHeight = getHeight(node-&gt;left);
+int rightHeight = getHeight(node-&gt;right);
+node-&gt;height = (leftHeight &gt; rightHeight ? leftHeight : rightHeight) + 1;
+</code></pre><p>}</p>
+<pre tabindex="0"><code>
+  * 旋转的完整实现
+
+```c
+struct TreeNode* insert(struct TreeNode* node, int data) {
+```c
+// 步骤 1：执行标准 BST 插入
+if (node == NULL) {
+    return createNode(data);
+}
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (data <span style="color:#f92672">&lt;</span> node<span style="color:#f92672">-&gt;</span>data) {
+</span></span><span style="display:flex;"><span>    node<span style="color:#f92672">-&gt;</span>left <span style="color:#f92672">=</span> <span style="color:#a6e22e">insert</span>(node<span style="color:#f92672">-&gt;</span>left, data);
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (data <span style="color:#f92672">&gt;</span> node<span style="color:#f92672">-&gt;</span>data) {
+</span></span><span style="display:flex;"><span>    node<span style="color:#f92672">-&gt;</span>right <span style="color:#f92672">=</span> <span style="color:#a6e22e">insert</span>(node<span style="color:#f92672">-&gt;</span>right, data);
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> { <span style="color:#75715e">// 如果键值相等，则不插入
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> node;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// 步骤 2：更新节点的高度
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">updateHeight</span>(node);
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// 步骤 3：获取节点的平衡因子
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> balanceFactor <span style="color:#f92672">=</span> <span style="color:#a6e22e">getBalanceFactor</span>(node);
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// 步骤 4：平衡调：根据新插入结点的位置 相对于 最小不平衡子树根节点的位置进行旋转
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// LL 型：右旋
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> (balanceFactor <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> data <span style="color:#f92672">&lt;</span> node<span style="color:#f92672">-&gt;</span>left<span style="color:#f92672">-&gt;</span>data) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">rightRotate</span>(node);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// RR 型：左旋
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> (balanceFactor <span style="color:#f92672">&lt;</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> data <span style="color:#f92672">&gt;</span> node<span style="color:#f92672">-&gt;</span>right<span style="color:#f92672">-&gt;</span>data) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">leftRotate</span>(node);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// LR 型：先左旋，再右旋
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> (balanceFactor <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> data <span style="color:#f92672">&gt;</span> node<span style="color:#f92672">-&gt;</span>left<span style="color:#f92672">-&gt;</span>data) {
+</span></span><span style="display:flex;"><span>    node<span style="color:#f92672">-&gt;</span>left <span style="color:#f92672">=</span> <span style="color:#a6e22e">leftRotate</span>(node<span style="color:#f92672">-&gt;</span>left);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">rightRotate</span>(node);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// RL 型：先右旋，再左旋
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> (balanceFactor <span style="color:#f92672">&lt;</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> data <span style="color:#f92672">&lt;</span> node<span style="color:#f92672">-&gt;</span>right<span style="color:#f92672">-&gt;</span>data) {
+</span></span><span style="display:flex;"><span>    node<span style="color:#f92672">-&gt;</span>right <span style="color:#f92672">=</span> <span style="color:#a6e22e">rightRotate</span>(node<span style="color:#f92672">-&gt;</span>right);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">leftRotate</span>(node);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// 返回未被修改的节点指针
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">return</span> node;
+</span></span></code></pre></div><p>}</p>
+<pre tabindex="0"><code>
+### 红黑树
+
+为了保证 **AVL** 的平衡性，插入和删除操作后，非常频繁地调整全树整体拓扑结构，代价很大。为此在 AVL 树的平衡标准上进一步放宽条件，引入 **红黑树** 的结构。
+
+![Red-black_tree_example_with_NIL](../images/a8effcea2e.svg)
+
+红黑树的考察不会很深，了解以下概念即可：
+
+  1. 从根结点到叶结点的最长路径不大于最短路径的 2 倍。
+  2. 根节点和叶结点是黑色的。
+  3. 不存在两个相邻的红结点。
+  4. 对每个结点，从该结点到任一叶结点的简单路径上，所含黑结点的数量相同。
+
+
+## 相关笔记
+
+- [[array-matrix|数组和特殊矩阵]]
+- [[definition|串的定义与实现]]
+- [[pattern-matching|串的模式匹配]]
+- [[string-index|串概述]]
+</code></pre></article>
+
+    
+    
+    
+
+    <div class="border-top-section">
+      <a href="/cc408/docs/" class="btn btn-ghost">← 返回知识点列表</a>
+    </div>
+  </main>
+</div>
+
+<style>
+.side-nav-group[open] summary { color: var(--text-primary); }
+.side-nav-group summary::-webkit-details-marker { display: none; }
+.side-nav-group summary::after {
+  content: '▸'; margin-left: auto; font-size: var(--fs-xs); transition: transform .2s;
+}
+.side-nav-group[open] summary::after { transform: rotate(90deg); }
+</style>
+
+  </main>
+  <footer class="site-footer" role="contentinfo">
+  <p>© 2026 CC408. 408考研知识整理</p>
+</footer>
+
+</body>
+</html>

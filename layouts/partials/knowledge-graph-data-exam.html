@@ -1,55 +1,11 @@
-{{/* Generate knowledge graph JSON data from exam questions */}}
-{{ $nodes := slice }}
-{{ $links := slice }}
-
-{{/* Track seen ids for dedup */}}
-{{ $seenIds := slice }}
-
-{{ range where .Site.RegularPages "Section" "question" }}
-  {{ $q := . }}
-
-  {{/* Year node */}}
-  {{ range $q.Params.years }}
-    {{ $year := string . }}
-    {{ $yearId := print "/years/" $year "/" }}
-    {{ if not (in $seenIds $yearId) }}
-      {{ $seenIds = $seenIds | append $yearId }}
-      {{ $nodes = $nodes | append (dict
-        "id" $yearId
-        "label" (print $year "年")
-        "subject" "exam"
-        "difficulty" 1
-        "type" "year"
-      )}}
-    {{ end }}
-
-    {{/* Subject node and link */}}
-    {{ range $q.Params.subjects }}
-      {{ $subj := . }}
-      {{ $subjId := print "/subjects/" $subj "/" }}
-      {{ if not (in $seenIds $subjId) }}
-        {{ $seenIds = $seenIds | append $subjId }}
-        {{ $subjSubject := "exam" }}
-        {{ if eq $subj "数据结构" }}{{ $subjSubject = "data-structure" }}{{ end }}
-        {{ if eq $subj "计算机组成原理" }}{{ $subjSubject = "computer-org" }}{{ end }}
-        {{ if eq $subj "操作系统" }}{{ $subjSubject = "os" }}{{ end }}
-        {{ if eq $subj "计算机网络" }}{{ $subjSubject = "network" }}{{ end }}
-        {{ $nodes = $nodes | append (dict
-          "id" $subjId
-          "label" $subj
-          "subject" $subjSubject
-          "difficulty" 2
-          "type" "subject"
-        )}}
-      {{ end }}
-
-      {{/* Link: year → subject */}}
-      {{ $links = $links | append (dict
-        "source" $yearId
-        "target" $subjId
-      )}}
-    {{ end }}
-  {{ end }}
-{{ end }}
-
-{{ dict "nodes" $nodes "links" $links | jsonify }}
+{{/* Knowledge Graph: 真题数据导航索引 */}}
+{{ dict
+  "dataFile" "/cc408/mapping/question-kp-mapping.json"
+  "source" "408真题"
+  "subjects" (dict
+    "data-structure" "数据结构"
+    "computer-org" "计算机组成原理"
+    "os" "操作系统"
+    "network" "计算机网络"
+  )
+| jsonify }}

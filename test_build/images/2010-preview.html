@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>2010 真题 SVG 预览</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: sans-serif; background: #f5f5f5; padding: 20px; }
+h1 { font-size: 20px; margin-bottom: 16px; }
+.grid { display: flex; flex-direction: column; gap: 24px; }
+.card { background: #fff; border-radius: 8px; border: 1px solid #ddd; overflow: hidden; }
+.card h2 { font-size: 15px; padding: 10px 14px; background: #fafafa; border-bottom: 1px solid #eee; display: flex; align-items: center; gap: 8px; }
+.card h2 .status { font-size: 12px; padding: 2px 8px; border-radius: 10px; }
+.status-ok { background: #d4edda; color: #155724; }
+.status-err { background: #f8d7da; color: #721c24; }
+.card-body { padding: 14px; text-align: center; }
+.card-body object { max-width: 100%; border: 1px solid #eee; border-radius: 4px; }
+.card-body .err-msg { color: #721c24; padding: 20px; }
+</style>
+</head>
+<body>
+
+<h1>2010 年真题 SVG 预览（共13个文件）</h1>
+<div class="grid" id="grid"></div>
+
+<script>
+const API = 'http://localhost:1313/cc408/images/questions/';
+const FILES = [
+  '2010_Q3_1.svg','2010_Q4_2.svg','2010_Q8_4.svg','2010_Q28_6.svg',
+  '2010_Q34_7.svg','2010_Q43_8.svg','2010_Q45_11.svg','2010_Q46_12.svg',
+  '2010_Qx_3.svg','2010_Qx_5.svg','2010_Qx_9.svg','2010_Qx_10.svg','2010_Qx_13.svg'
+];
+
+const grid = document.getElementById('grid');
+FILES.forEach(f => {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `<h2>${f} <span class="status status-err" id="s_${f}">检查中...</span></h2><div class="card-body" id="b_${f}"><object data="${API}${f}" type="image/svg+xml" width="700" height="400" id="o_${f}">加载失败</object></div>`;
+  grid.appendChild(card);
+});
+
+// 延迟检查加载状态
+setTimeout(() => {
+  FILES.forEach(f => {
+    const obj = document.getElementById('o_' + f);
+    const st = document.getElementById('s_' + f);
+    try {
+      const doc = obj.contentDocument;
+      if (doc && doc.documentElement) {
+        const svg = doc.querySelector('svg');
+        if (svg) {
+          const texts = doc.querySelectorAll('text, foreignObject');
+          st.textContent = '✅ OK (' + texts.length + ' 文本元素)';
+          st.className = 'status status-ok';
+        } else { st.textContent = '❌ 无 svg 根元素'; }
+      } else { st.textContent = '❌ 无法访问 contentDocument'; }
+    } catch(e) {
+      st.textContent = '⚠️ 跨域受限 (' + e.message.slice(0,40) + ')';
+    }
+  });
+}, 2000);
+</script>
+</body>
+</html>

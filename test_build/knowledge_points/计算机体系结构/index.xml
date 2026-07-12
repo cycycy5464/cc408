@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>计算机体系结构 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/knowledge_points/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/</link>
+    <description>Recent content in 计算机体系结构 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/knowledge_points/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2010 计算机组成原理 第12题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2010-co-012/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2010-co-012/</guid>
+      <description>&lt;p&gt;下列选项中，能缩短程序执行时间的措施是()。&lt;/p&gt;&#xA;&lt;p&gt;I. 提高CPU 时钟频率&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2015 计算机组成原理 第12题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2015-co-012/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2015-co-012/</guid>
+      <description>&lt;p&gt;计算机硬件能够直接执行的语言是()。&lt;/p&gt;&#xA;&lt;p&gt;I.  机器语言程序&lt;/p&gt;&#xA;&lt;p&gt;II.  汇编语言程序&lt;/p&gt;&#xA;&lt;p&gt;ⅢI. 硬件描述语言程序&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2016 计算机组成原理 第12题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2016-co-012/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2016-co-012/</guid>
+      <description>&lt;p&gt;将高级语言源程序转换为机器目标代码文件的程序是()。&lt;/p&gt;&#xA;&lt;p&gt;A. 汇编程序&lt;/p&gt;&#xA;&lt;p&gt;B. 链接程序&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机组成原理 第12题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-co-012/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-co-012/</guid>
+      <description>&lt;p&gt;冯诺依曼结构计算机中数据采用二进制编码表示，其主要原因是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2019 计算机组成原理 第12题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2019-co-012/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2019-co-012/</guid>
+      <description>&lt;p&gt;下列关于冯 ·诺依曼结构计算机基本思想的叙述中，错误的是()。&lt;/p&gt;&#xA;&lt;p&gt;A.  程序的功能都通过中央处理器执行指令实现&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

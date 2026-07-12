@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IEEE浮点数表示 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/knowledge_points/ieee%E6%B5%AE%E7%82%B9%E6%95%B0%E8%A1%A8%E7%A4%BA/</link>
+    <description>Recent content in IEEE浮点数表示 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/knowledge_points/ieee%E6%B5%AE%E7%82%B9%E6%95%B0%E8%A1%A8%E7%A4%BA/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2013 计算机组成原理 第13题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2013-co-013/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2013-co-013/</guid>
+      <description>&lt;p&gt;某数采用IEEE754单精度浮点数格式表示为C6400000H, 则该数的值是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2014 计算机组成原理 第14题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2014-co-014/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2014-co-014/</guid>
+      <description>&lt;p&gt;float  型数据常用IEEE754 单精度浮点格式表示。假设两个float 型变量x 和y 分别存放在32位寄存器 f1和 f2 中，若(f1)=CC900000H,(f2)=B0C00000H,     则x 和y 之间的关系为()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机组成原理 第14题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-co-014/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-co-014/</guid>
+      <description>&lt;p&gt;IEEE 754 单精度浮点格式表示的数中，最小的规格化正数是()。&lt;/p&gt;&#xA;&lt;p&gt;A.1.0×2-126&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2020 计算机组成原理 第13题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2020-co-013/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2020-co-013/</guid>
+      <description>&lt;p&gt;已知带符号整数用补码表示，float   型数据用 IEEE  754 标准表示，假定变量 x  的类型只能是 int   或 float 。 当 x  的机器数为 C8000000H  时 ，x  的值可能是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2021 计算机组成原理 第14题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2021-co-014/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2021-co-014/</guid>
+      <description>&lt;p&gt;下列数值中，不能用IEEE754 浮点格式精确表示的()。&lt;/p&gt;&#xA;&lt;p&gt;A.1.2&lt;/p&gt;&#xA;&lt;p&gt;B.1.25 C.2.0&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2022 计算机组成原理 第14题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2022-co-014/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2022-co-014/</guid>
+      <description>&lt;p&gt;-0.4375的 IEEE754单精度浮点数表示为()。&lt;/p&gt;&#xA;&lt;p&gt;A.BEE00000H&lt;/p&gt;&#xA;&lt;p&gt;B.BF600000H&lt;/p&gt;&#xA;&lt;p&gt;C.BF700000H&lt;/p&gt;&#xA;&lt;p&gt;D.COE00000H&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机组成原理 第14题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-co-014/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-co-014/</guid>
+      <description>&lt;p&gt;已知 float  型变量用 IEEE754 单精度浮点数格式表示。若 float  型变量 x  的机器数为8020000H, 则 x 的值 ()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2024 计算机组成原理 第14题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2024-co-014/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2024-co-014/</guid>
+      <description>&lt;p&gt;某科学实验中，需要使用大量的整型参数，为了在保证表数精度的基础上提高运算速度，需要选择合 理的数据表示方法。若整型参数a 和β的取值范围分别为-2²⁰&lt;del&gt;20、-24⁰&lt;/del&gt;240,则下列选项中，α和β最适 宜采用的数据表示方法分别是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2025 计算机组成原理 第13题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2025-co-013/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2025-co-013/</guid>
+      <description>&lt;p&gt;已知 float 型变量用 IEEE754 单精度浮点数格式表示。若 float 型变量 x  的机器数为47300000H; 则 x  的 值 为 ( ) 。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

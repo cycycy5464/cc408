@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>体系结构 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/tags/%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/</link>
+    <description>Recent content in 体系结构 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 25 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/tags/%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>各层协议总结</title>
+      <link>https://cycycy5464.github.io/cc408/docs/network/ch00-overview/protocol-summary/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/network/ch00-overview/protocol-summary/</guid>
+      <description>&lt;p&gt;💡 低优先级&lt;/p&gt;&#xA;&lt;p&gt;这节还是作为计算机网络各层协议的一个概览，具体协议细节还是到相应章节去看。在本节中关注以下几点：1. 应用层协议的端口和下层传输层协议是什么。2. 每一层具体有哪些协议。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>IP协议</title>
+      <link>https://cycycy5464.github.io/cc408/docs/network/ch03-network/ip/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/network/ch03-network/ip/</guid>
+      <description>&lt;p&gt;🔥 高优先级&lt;/p&gt;&#xA;&lt;p&gt;绝对重点，需要掌握 &lt;strong&gt;IPv4&lt;/strong&gt; 协议中各个知识点的细节。IPv6 和 移动IP 简单了解一下基本概念，有小概率会在选择题中考察一题。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ARP协议</title>
+      <link>https://cycycy5464.github.io/cc408/docs/network/ch03-network/arp/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/network/ch03-network/arp/</guid>
+      <description>&lt;p&gt;⭐ 中优先级&lt;/p&gt;&#xA;&lt;p&gt;需要掌握 ARP 的流程，选择题和解答题都会涉及到。&lt;/p&gt;&#xA;&lt;h3 id=&#34;概念&#34;&gt;概念&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;ARP&lt;/strong&gt; （Address Resolution Protocol，地址解析协议） 是一种在 &lt;strong&gt;TCP/IP 网络&lt;/strong&gt; 中使用的协议，用于将 &lt;strong&gt;IP 地址&lt;/strong&gt; 转换为 &lt;strong&gt;物理硬件地址&lt;/strong&gt; （例如，&lt;strong&gt;MAC 地址&lt;/strong&gt; ）。ARP 的主要目的是确定要通过网络传输数据的目标设备的 &lt;strong&gt;物理硬件地址&lt;/strong&gt; ，以便将数据帧正确地传送到目标设备。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ICMP协议</title>
+      <link>https://cycycy5464.github.io/cc408/docs/network/ch03-network/icmp/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/network/ch03-network/icmp/</guid>
+      <description>&lt;p&gt;💡 低优先级&lt;/p&gt;&#xA;&lt;p&gt;在选择题中考查，频率不高，关注下差错报文的类型以及 icmp 的应用。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>DHCP协议</title>
+      <link>https://cycycy5464.github.io/cc408/docs/network/ch03-network/dhcp/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/network/ch03-network/dhcp/</guid>
+      <description>&lt;p&gt;⭐ 中优先级&lt;/p&gt;&#xA;&lt;p&gt;需掌握 DHCP 的功能和流程，可能在选择题中考察，也会在大题中考查一小问。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

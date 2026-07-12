@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>📝 分科习题 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/exam/exercise/</link>
+    <description>Recent content in 📝 分科习题 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 01 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/exam/exercise/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>操作系统</title>
+      <link>https://cycycy5464.github.io/cc408/exam/exercise/os/</link>
+      <pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/exam/exercise/os/</guid>
+      <description>&lt;h5 id=&#34;存储管理&#34;&gt;存储管理&lt;/h5&gt;&#xA;&lt;h5 id=&#34;进程管理&#34;&gt;进程管理&lt;/h5&gt;&#xA;&lt;h5 id=&#34;死锁&#34;&gt;死锁&lt;/h5&gt;&#xA;&lt;h5 id=&#34;cpu-调度&#34;&gt;CPU 调度&lt;/h5&gt;</description>
+    </item>
+    <item>
+      <title>计算机网络</title>
+      <link>https://cycycy5464.github.io/cc408/exam/exercise/network/</link>
+      <pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/exam/exercise/network/</guid>
+      <description>&lt;h5 id=&#34;物理层&#34;&gt;物理层&lt;/h5&gt;&#xA;&lt;h5 id=&#34;数据链路层&#34;&gt;数据链路层&lt;/h5&gt;&#xA;&lt;h5 id=&#34;网络层&#34;&gt;网络层&lt;/h5&gt;&#xA;&lt;h5 id=&#34;传输层&#34;&gt;传输层&lt;/h5&gt;&#xA;&lt;h5 id=&#34;应用层&#34;&gt;应用层&lt;/h5&gt;</description>
+    </item>
+    <item>
+      <title>计算机组成原理</title>
+      <link>https://cycycy5464.github.io/cc408/exam/exercise/architecture/</link>
+      <pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/exam/exercise/architecture/</guid>
+      <description>&lt;h5 id=&#34;数制&#34;&gt;数制&lt;/h5&gt;&#xA;&lt;h5 id=&#34;存储系统&#34;&gt;存储系统&lt;/h5&gt;&#xA;&lt;h5 id=&#34;cpu&#34;&gt;CPU&lt;/h5&gt;&#xA;&lt;h5 id=&#34;流水线&#34;&gt;流水线&lt;/h5&gt;&#xA;&lt;h5 id=&#34;io&#34;&gt;I/O&lt;/h5&gt;</description>
+    </item>
+    <item>
+      <title>数据结构篇</title>
+      <link>https://cycycy5464.github.io/cc408/exam/exercise/data_structure/</link>
+      <pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/exam/exercise/data_structure/</guid>
+      <description>&lt;h5 id=&#34;复杂度分析&#34;&gt;复杂度分析&lt;/h5&gt;&#xA;&lt;h5 id=&#34;b-树&#34;&gt;B 树&lt;/h5&gt;&#xA;&lt;h5 id=&#34;数组&#34;&gt;数组&lt;/h5&gt;&#xA;&lt;h5 id=&#34;链表&#34;&gt;链表&lt;/h5&gt;&#xA;&lt;h5 id=&#34;队列&#34;&gt;队列&lt;/h5&gt;&#xA;&lt;h5 id=&#34;栈&#34;&gt;栈&lt;/h5&gt;&#xA;&lt;h5 id=&#34;二叉树&#34;&gt;二叉树&lt;/h5&gt;&#xA;&lt;h5 id=&#34;图&#34;&gt;图&lt;/h5&gt;&#xA;&lt;h5 id=&#34;哈希表&#34;&gt;哈希表&lt;/h5&gt;&#xA;&lt;h5 id=&#34;排序&#34;&gt;排序&lt;/h5&gt;</description>
+    </item>
+  </channel>
+</rss>

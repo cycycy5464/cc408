@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>中断IO on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/knowledge_points/%E4%B8%AD%E6%96%ADio/</link>
+    <description>Recent content in 中断IO on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/knowledge_points/%E4%B8%AD%E6%96%ADio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2010 计算机组成原理 第21题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2010-co-021/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2010-co-021/</guid>
+      <description>&lt;p&gt;单级中断系统中，中断服务程序内的执行顺序是()。&lt;/p&gt;&#xA;&lt;p&gt;I 保护现场  Ⅱ开中断&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2012 计算机组成原理 第22题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-co-022/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-co-022/</guid>
+      <description>&lt;p&gt;响应外部中断的过程中，中断隐指令完成的操作，除保护断点外，还包括()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2013 计算机组成原理 第22题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2013-co-022/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2013-co-022/</guid>
+      <description>&lt;p&gt;下列关于中断I/O 方式和DMA方式比较的叙述中，错误的是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2014 计算机组成原理 第22题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2014-co-022/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2014-co-022/</guid>
+      <description>&lt;p&gt;若某设备中断请求的响应和处理时间为100ns, 每 400ns 发出一次中断请求，中断响应所允许的最长延 迟时间为50ns,  则在该设备持续工作过程中，CPU用于该设备的I/O 时间占整个CPU 时间的百分比至少 是 ( ) 。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2015 计算机组成原理 第21题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2015-co-021/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2015-co-021/</guid>
+      <description>&lt;p&gt;在采用中断I/O 方式控制打印输出的情况下，CPU 和打印控制接口中的I/O 端口之间交换的信息不可 能 是 ( ) 。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机组成原理 第22题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-co-022/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-co-022/</guid>
+      <description>&lt;p&gt;下列关于外部I/O 中断的叙述中，正确的是()。&lt;/p&gt;&#xA;&lt;p&gt;A.  中断控制器按所接收中断请求的先后次序进行中断优先级排队&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2019 计算机组成原理 第21题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2019-co-021/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2019-co-021/</guid>
+      <description>&lt;p&gt;某设备以中断方式与CPU 进行数据交换，CPU主频为1GHz, 设备接口中的数据缓冲寄存器为32位， 设备的数据传输率为50KBps。若每次中断开销(包括中断响应和中断处理)为1000个时钟周期，则 CPU  用于该设备输入/输出的时间占整个 CPU时间的百分比最多是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2020 计算机组成原理 第20题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2020-co-020/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2020-co-020/</guid>
+      <description>&lt;p&gt;下列事件中属于外部中断事件的是()。&lt;/p&gt;&#xA;&lt;p&gt;I、访存时缺页；&lt;/p&gt;&#xA;&lt;p&gt;Ⅱ、定时器延时；&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2022 操作系统 第24题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2022-os-024/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2022-os-024/</guid>
+      <description>&lt;p&gt;下列选项中，需要在操作系统进行初始化过程中创建的是()。&lt;/p&gt;&#xA;&lt;p&gt;A.  中断向量表&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2022 计算机组成原理 第21题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2022-co-021/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2022-co-021/</guid>
+      <description>&lt;p&gt;下列关于中断I/O 方式的叙述中，不正确的是()。&lt;/p&gt;&#xA;&lt;p&gt;A.  适用于键盘、针式打印机等字符型设备&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2024 计算机组成原理 第21题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2024-co-021/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2024-co-021/</guid>
+      <description>&lt;p&gt;关于中断 I/O 方式，错误的是()。&lt;/p&gt;&#xA;&lt;p&gt;A. 中断屏蔽字决定中断响应顺序&lt;/p&gt;&#xA;&lt;p&gt;B. 保存断点和程序状态字在中断响应阶段完成&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

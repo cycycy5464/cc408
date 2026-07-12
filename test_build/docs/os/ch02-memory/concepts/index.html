@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>内存管理概念 | CC408</title>
+  <meta name="description" content="⭐ 中优先级
+页式虚拟存储的细节都在 组成原理章节，对于本节，重点掌握 动态分区分配算法 以及 几种内存管理方式 （页式、段式、段页式）的概念和特点。
+内存管理 基础概念 虚拟地址 和 物理地址 空间 虚拟地址（VA, Virtual Address）由指令中的 地址字段 给出，进程看到的都是虚拟地 …">
+  <link rel="icon" href="/cc408/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" as="script" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" as="script" crossorigin="anonymous">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/cc408/css/custom.min.ecad70eed0f9849f67d23e2bf502ae36e7f590486681964e1c95bc71c8672493.css" integrity="sha256-7K1w7tD5hJ9n0j4r9QKuNuf1kEhmgZZOHJW8cchnJJM=">
+  
+
+<script src="/cc408/js/watermark.js"></script>
+
+
+  <script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.content-area img,.docs-layout img').forEach(function(i){if(!i.src.match(/\.svg$/i)){i.loading='lazy';i.fetchPriority='low';}});});</script>
+</head>
+<body style="background: var(--bg-primary); color: var(--text-primary);">
+  <a href="#main-content" class="skip-link">跳转到主要内容</a>
+  <nav class="navbar" role="navigation" aria-label="主导航">
+  <a href="/cc408/" class="navbar-brand">CC408</a>
+  <button class="navbar-toggle" aria-label="菜单" onclick="this.parentElement.querySelector('.navbar-links').classList.toggle('open')">☰</button>
+  <div class="navbar-links" role="menubar">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      首页
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/docs/" role="menuitem" class="active" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识点
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      刷题
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/quiz-collection/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      收藏
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/graph/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识图谱
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/tags/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      标签
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/resources/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      资源
+    </a>
+    
+  </div>
+  <div class="navbar-right">
+    <a href="https://cycycy5464.github.io/">个人主页 →</a>
+  </div>
+</nav>
+
+  <main id="main-content" style="padding-top: 70px; min-height: calc(100vh - 120px);">
+    
+<div class="docs-layout">
+  <aside class="side-nav">
+    
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>📊</span><span>数据结构</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/basic-concepts/" class="side-nav-link ">数据结构基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/algorithm-concepts/" class="side-nav-link ">算法基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linear-list-index/" class="side-nav-link ">线性表概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/definition/" class="side-nav-link ">线性表定义与基本操作</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/sequential-list/" class="side-nav-link ">顺序表</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linked-list/" class="side-nav-link ">链表</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/stack/" class="side-nav-link ">栈</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/queue/" class="side-nav-link ">队列</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/application/" class="side-nav-link ">栈和队列的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/linear-data-structure/" class="side-nav-link ">线性数据结构</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/string-index/" class="side-nav-link ">串概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/definition/" class="side-nav-link ">串的定义与实现</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/pattern-matching/" class="side-nav-link ">串的模式匹配</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/array-matrix/" class="side-nav-link ">数组和特殊矩阵</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree/" class="side-nav-link ">树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-and-binary-tree/" class="side-nav-link ">树与二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/binary-tree/" class="side-nav-link ">二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-applications/" class="side-nav-link ">树的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/graph-index/" class="side-nav-link ">图概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/definition/" class="side-nav-link ">图的定义</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/algorithms/" class="side-nav-link ">图的算法和应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/search-index/" class="side-nav-link ">查找概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/array-search/" class="side-nav-link ">数组查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/tree-search/" class="side-nav-link ">树形查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/hash-search/" class="side-nav-link ">散列表查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/sort-index/" class="side-nav-link ">排序概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/internal-sort/" class="side-nav-link ">内部排序</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/external-sort/" class="side-nav-link ">外部排序</a>
+      
+      <a href="/cc408/exam/exercise/data_structure/" class="side-nav-link ">数据结构篇</a>
+      
+      <a href="/cc408/exam/application/2023-q1/" class="side-nav-link ">2023年408真题 - 应用题第1题</a>
+      
+      <a href="/cc408/exam/choice/2024-q5/" class="side-nav-link ">2024年408真题 - 数据结构选择题第5题</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/introduction/" class="side-nav-link ">绪论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>⚙️</span><span>计算机组成原理</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/system-hierarchy/" class="side-nav-link ">计算机系统层次结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/performance/" class="side-nav-link ">计算机性能指标</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/data-index/" class="side-nav-link ">数据表示与计算</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/integers/" class="side-nav-link ">整数的表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/float/" class="side-nav-link ">浮点数表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/type-conversion/" class="side-nav-link ">类型转换</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/circuits/" class="side-nav-link ">运算电路</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/memory-index/" class="side-nav-link ">存储系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/overview/" class="side-nav-link ">存储系统概述</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/ram/" class="side-nav-link ">内存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/cache/" class="side-nav-link ">Cache</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/external/" class="side-nav-link ">外存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/virtual/" class="side-nav-link ">虚拟存储器</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/instruction-index/" class="side-nav-link ">指令系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/types/" class="side-nav-link ">指令集种类</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/format-addressing/" class="side-nav-link ">指令格式与寻址方式</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/data-alignment/" class="side-nav-link ">数据对齐</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/opcode/" class="side-nav-link ">指令操作码</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/hll-machine/" class="side-nav-link ">高级语言与机器码</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/cpu-index/" class="side-nav-link ">中央处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/function-structure/" class="side-nav-link ">CPU功能与结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/controller/" class="side-nav-link ">控制器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/exceptions/" class="side-nav-link ">异常与中断</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/pipeline/" class="side-nav-link ">指令流水线</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/multiprocessor/" class="side-nav-link ">多处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus/" class="side-nav-link ">总线</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus-io/" class="side-nav-link ">总线和I/O系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch06-io/io-system/" class="side-nav-link ">I/O系统</a>
+      
+      <a href="/cc408/exam/exercise/architecture/" class="side-nav-link ">计算机组成原理</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/introduction/" class="side-nav-link ">概论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🖥️</span><span>操作系统</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/os/ch00-overview/os-concept/" class="side-nav-link ">操作系统概念</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/os-structure/" class="side-nav-link ">操作系统结构</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/program-env/" class="side-nav-link ">程序运行环境</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-index/" class="side-nav-link ">进程管理</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-thread/" class="side-nav-link ">进程与线程</a>
+      
+      <a href="/cc408/docs/os/ch01-process/scheduling/" class="side-nav-link ">处理机调度</a>
+      
+      <a href="/cc408/docs/os/ch01-process/sync-mutex/" class="side-nav-link ">同步与互斥</a>
+      
+      <a href="/cc408/docs/os/ch01-process/classic-sync/" class="side-nav-link ">经典同步问题</a>
+      
+      <a href="/cc408/docs/os/ch01-process/deadlock/" class="side-nav-link ">死锁</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/memory-index/" class="side-nav-link ">内存管理</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/concepts/" class="side-nav-link active">内存管理概念</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/virtual/" class="side-nav-link ">虚拟内存管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-index/" class="side-nav-link ">文件管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-basics/" class="side-nav-link ">文件</a>
+      
+      <a href="/cc408/docs/os/ch03-file/directory/" class="side-nav-link ">目录</a>
+      
+      <a href="/cc408/docs/os/ch03-file/filesystem/" class="side-nav-link ">文件系统</a>
+      
+      <a href="/cc408/docs/os/ch04-io/io-index/" class="side-nav-link ">I/O管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/devices/" class="side-nav-link ">I/O设备</a>
+      
+      <a href="/cc408/docs/os/ch04-io/device-mgmt/" class="side-nav-link ">设备管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/disk/" class="side-nav-link ">磁盘</a>
+      
+      <a href="/cc408/code/clock/" class="side-nav-link ">CLOCK 时钟替换算法</a>
+      
+      <a href="/cc408/code/lru/" class="side-nav-link ">LRU 算法</a>
+      
+      <a href="/cc408/code/spinlock/" class="side-nav-link ">TAS 实现自旋锁</a>
+      
+      <a href="/cc408/exam/exercise/os/" class="side-nav-link ">操作系统</a>
+      
+      <a href="/cc408/code/reader_writer/" class="side-nav-link ">读者写着问题</a>
+      
+      <a href="/cc408/code/monitor/" class="side-nav-link ">管程实现生产者消费者</a>
+      
+      <a href="/cc408/code/producer_consumer/" class="side-nav-link ">生产者消费者问题</a>
+      
+      <a href="/cc408/code/banker/" class="side-nav-link ">银行家算法</a>
+      
+      <a href="/cc408/code/philosopher/" class="side-nav-link ">哲学家就餐问题</a>
+      
+      <a href="/cc408/exam/comprehensive/2022-q1/" class="side-nav-link ">2022年408真题 - 综合题第1题</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/computer-overview/" class="side-nav-link ">计算机系统概述</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🌐</span><span>计算机网络</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/network/ch00-overview/layered/" class="side-nav-link ">分层结构</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/protocol-summary/" class="side-nav-link ">各层协议总结</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/device-summary/" class="side-nav-link ">网络设备总结</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/phy-index/" class="side-nav-link ">物理层</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/communication/" class="side-nav-link ">通信概念</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/encoding/" class="side-nav-link ">编码与调制</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/switching/" class="side-nav-link ">交换方式</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/devices/" class="side-nav-link ">物理层设备</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/dl-index/" class="side-nav-link ">数据链路层</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/framing/" class="side-nav-link ">组帧</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/error-control/" class="side-nav-link ">差错控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/flow-control/" class="side-nav-link ">流量控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/mac/" class="side-nav-link ">介质访问控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/lan-wan/" class="side-nav-link ">局域网与广域网</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/devices/" class="side-nav-link ">数据链路层设备</a>
+      
+      <a href="/cc408/docs/network/ch03-network/nw-index/" class="side-nav-link ">网络层</a>
+      
+      <a href="/cc408/docs/network/ch03-network/ip/" class="side-nav-link ">IP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/arp/" class="side-nav-link ">ARP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/icmp/" class="side-nav-link ">ICMP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/dhcp/" class="side-nav-link ">DHCP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/routing/" class="side-nav-link ">路由算法</a>
+      
+      <a href="/cc408/docs/network/ch03-network/sdn/" class="side-nav-link ">SDN</a>
+      
+      <a href="/cc408/docs/network/ch03-network/devices/" class="side-nav-link ">网络层设备</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tp-index/" class="side-nav-link ">传输层</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tcp/" class="side-nav-link ">TCP</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/udp/" class="side-nav-link ">UDP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-index/" class="side-nav-link ">应用层</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-model/" class="side-nav-link ">网络应用模型</a>
+      
+      <a href="/cc408/docs/network/ch05-application/dns/" class="side-nav-link ">DNS</a>
+      
+      <a href="/cc408/docs/network/ch05-application/ftp/" class="side-nav-link ">FTP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/email/" class="side-nav-link ">电子邮件</a>
+      
+      <a href="/cc408/docs/network/ch05-application/www/" class="side-nav-link ">万维网</a>
+      
+      <a href="/cc408/exam/exercise/network/" class="side-nav-link ">计算机网络</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/arch-index/" class="side-nav-link ">计算机网络体系结构</a>
+      
+    </details>
+    
+  </aside>
+  <main class="content-area">
+    <h1>内存管理概念</h1>
+    <div class="meta-row">
+      
+      <span><span class="diff-star">★</span><span class="diff-star-empty">☆</span><span class="diff-star-empty">☆</span></span>
+      
+      <span class="tag">基础概念</span>
+    </div>
+    <article><p>⭐ 中优先级</p>
+<p>页式虚拟存储的细节都在 <a href="/constitution_principle/storage/virtual/">组成原理章节</a>，对于本节，重点掌握 <strong>动态分区分配算法</strong> 以及 <strong>几种内存管理方式</strong> （页式、段式、段页式）的概念和特点。</p>
+<h3 id="内存管理">内存管理</h3>
+<h4 id="基础概念">基础概念</h4>
+<p><img src="/images/docs/os/4d5d837c95.svg"></p>
+<ul>
+<li><a href="/constitution_principle/storage/virtual/#%e8%99%9a%e6%8b%9f%e5%86%85%e5%ad%98%e5%92%8c%e7%89%a9%e7%90%86%e5%86%85%e5%ad%98"><strong>虚拟地址</strong> 和 <strong>物理地址</strong> 空间</a></li>
+</ul>
+<p>虚拟地址（VA, Virtual Address）由指令中的 <strong>地址字段</strong> 给出，进程看到的都是虚拟地址。物理地址是内存单元在 实际内存硬件 中的真实位置。</p>
+<ul>
+<li><a href="/constitution_principle/storage/virtual/#%e5%9c%b0%e5%9d%80%e7%bf%bb%e8%af%91%e6%9c%ba%e6%9e%84"><strong>地址翻译</strong></a></li>
+</ul>
+<p>地址翻译指的是在程序执行的过程中 <strong>将虚拟地址翻译为物理地址</strong> ，地址变换由 内存管理单元（MMU, Memory Management Unit） 在硬件中完成，速度非常快。</p>
+<ul>
+<li><strong>内存共享</strong></li>
+</ul>
+<p>共享内存（Shared Memory）是多个 <strong>进程</strong> 共享的 <strong>内存区域</strong> 。它是最快的 <strong>IPC</strong> （进程间通信）机制之一，因为进程直接读写内存，无需进入内核态。但是，因为多个进程可以同时访问这些内存，所以可能需要某种 <strong>同步机制</strong> （如信号量）来防止竞态条件。</p>
+<ul>
+<li><strong>内存保护</strong></li>
+</ul>
+<p>内存保护是现代操作系统中的一个 <strong>核心功能</strong> ，用于防止一个进程访问另一个进程的 <strong>内存空间</strong> 。这不仅保障了系统的稳定性，而且提高了安全性，因为它可以防止恶意软件损害其他进程或篡改其数据。</p>
+<p>可以通过如下机制实现内存保护机制：</p>
+<ol>
+<li><strong>分段</strong> 与 <strong>分页</strong> ：</li>
+</ol>
+<ul>
+<li><strong>分段</strong> ：内存被划分为不同的 <strong>段</strong> ，每个段都有其起始地址和长度。段常常用于表示高级的数据结构，如函数或对象。</li>
+<li><strong>分页</strong> ：内存被划分为固定大小的 <strong>页面</strong> ，例如 4KB。操作系统为每个进程维护一个 <strong>页表</strong> ，来映射其虚拟地址到物理地址。</li>
+</ul>
+<ol start="2">
+<li><strong>访问权限</strong> ：每个段或页面都有与之相关的访问权限。例如，一个页面可能被标记为只读，这意味着任何尝试写入该页面的操作都会引发一个异常。</li>
+<li><strong>隔离</strong> ：由于每个进程都有其独立的地址空间，所以一个进程不能直接访问另一个进程的内存。这为每个进程提供了一种形式的 <strong>隔离</strong> ，确保了一个出错的进程不会影响其他进程。</li>
+</ol>
+<h4 id="管理方式分类">管理方式分类</h4>
+<p><img src="/images/docs/os/f90e6c9a47.svg"></p>
+<p>在现代操作系统中，<strong>内存管理方式</strong> 大体可以归纳为两类：<strong>连续分配</strong> 和 <strong>离散分配</strong> 。所谓 <strong>连续分配</strong> ，是指操作系统为进程分配一整段连续的内存区域。这种方式实现简单、开销较小，但灵活性不足。典型的连续分配方式包括三种：单一连续分配、固定分区分配 以及 动态分区分配。</p>
+<p>相比之下，<strong>离散分配</strong> 方式允许进程占用的内存空间是 <strong>不连续的</strong> ，这使得内存利用率和管理灵活性显著提高。典型的离散分配方式也包含三种：页式、段式、段页式。</p>
+<p>后文会具体介绍这几种内存管理方式的细节。</p>
+<h3 id="连续分配管理方式">连续分配管理方式</h3>
+<h4 id="单一连续分配">单一连续分配</h4>
+<p><img src="/images/docs/os/0434f17dca.svg"></p>
+<p>内存在此方式下分为 <strong>系统区</strong> 和 <strong>用户区</strong> ，系统区仅供操作系统使用，通常在高地址部分；在用户区内存中，仅有一道用户程序，即整个内存的用户空间都由该程序独占。</p>
+<p>这种方式的优点是 <strong>简单、无外部碎片</strong> ，无需进行内存保护，因为内存中永远只有一道程序。缺点是只能用于 <strong>单用户、单任务</strong> 的操作系统中，存储器的利用率极低。</p>
+<h4 id="固定分区分配">固定分区分配</h4>
+<p><img src="/images/docs/os/368e095015.svg"></p>
+<p>固定分区分配是最简单的一种 <strong>多道程序存储管理</strong> 方式，它将用户内存空间划分为若干 <strong>固定大小的区域</strong> ，每个分区只装入一道作业。当有空闲分区时，便可再从外存的后备作业队列中选择适当大小的作业装入该内存，如此循环。</p>
+<p>为了方便内存分配，通常将分区按大小排队，并为之建立一张 <strong>分区说明表</strong> ，其中各表项包含每个分区的起始地址、大小和状态。当有用户程序需要装入时，便检索该表，以找到合适的分区基于分配并将其状态设置为“已分配”；未找到合适分区时，则拒绝为给程序分配内存。</p>
+<h4 id="动态分区分配">动态分区分配</h4>
+<p>在 <strong>固定分区分配</strong> 中，内存被预先划分为若干大小固定的区域。 这种方式实现简单，但也带来了一个明显问题：<strong>分区大小是静态的，而作业大小是动态的</strong> 。</p>
+<p>为了解决固定分区“尺寸僵化、内存利用率低”的问题，操作系统引入了 <strong>动态分区分配</strong> 。</p>
+<p>动态分区分配的基本思想是： <strong>不再事先划分固定大小的分区</strong> ，而是将整个用户内存空间视为一块 <strong>连续的可分配区域</strong> ，在程序装入时才根据其实际需要动态地划分内存。</p>
+<p>当进程请求内存时，操作系统从当前的空闲内存中划出一块连续区域分配给该进程； 当进程结束或释放内存时，该区域重新成为空闲内存，可供后续进程再次使用。</p>
+<p><img src="/images/docs/os/image-20260611222224773.png"></p>
+<p>通过这种 <strong>动态、按需分配</strong> 的方式，内存从逻辑上被划分为两类区域：</p>
+<ul>
+<li><strong>已分配区</strong> ：正在被内核或进程占用的内存</li>
+<li><strong>空闲区</strong> ：尚未分配、可供后续进程使用的内存</li>
+</ul>
+<p>如下图所示，其中 <strong>内核内存（kernel memory）</strong> 和 <strong>进程内存（process memory）</strong> 属于已分配区域，其余部分为系统当前的空闲内存。</p>
+<p><img src="/images/docs/os/image-20260611222242486.png"></p>
+<p>为了管理这些不断变化的空闲区域，操作系统通常维护一张 <strong>空闲分区表</strong> （或空闲链表），用于记录每一块空闲内存的：</p>
+<p>示意如下：</p>
+<p>起始地址</p>
+<p>分区大小</p>
+<p><img src="/images/docs/os/image-20260611222304096.png"></p>
+<p><strong>空闲分区表</strong></p>
+<p>当进程申请内存时，操作系统会遍历 <strong>空闲分区表</strong> ，按照预定的 <strong><a href="/operating_system/memory/concepts/#%e9%80%82%e5%ba%94%e7%ae%97%e6%b3%95">适应算法</a></strong> （如首次适应、最佳适应等），从中选择一块满足需求的空闲区域，并完成内存分配。</p>
+<blockquote>
+<p>不同适应算法的选择，会直接影响系统中 <strong>外部碎片</strong> 的产生情况，这一点将在后续章节中详细讨论。</p>
+</blockquote>
+<h5 id="内存碎片">内存碎片</h5>
+<p>动态分区分配相比固定分区分配，提高了内存使用率，但是仍然无法避免内存碎片的问题，下图以一个实例说明了在动态分区分配过程中内存碎片产生的过程：</p>
+<p><img src="/images/docs/os/16ba1b135b.svg"></p>
+<p>由于各进程所需的内存大小各不相同，在进行内存分配时经常会在已分配的块之间留下 <strong>内存碎片</strong> 。</p>
+<p>所谓内存碎片，指的是那些 <strong>尺寸过小、无法满足任何进程实际需求</strong> 的空闲内存块。因为进程的内存申请往往大于等于某个最小阈值，这些零散且容量不足的碎片就无法被再次利用，导致可用内存实际被浪费。</p>
+<h5 id="适应算法">适应算法</h5>
+<p>内存空间中的空闲区域可能大小不一，且分布在内存中不同的位置，操作系统使用 <strong>空闲块表</strong> 来记录这些空闲区域的信息。</p>
+<p>当进程申请一块新的内存时，必须从已有的空闲空间中选出一块分配给进程。动态分区的分配策略主要包含四种算法：<strong>首次适应</strong> （First Fit）、<strong>临近适应</strong> （Next Fit）、<strong>最佳适应</strong> （Best Fit）、<strong>最坏适应</strong> （Worst Fit）。</p>
+<p><img src="/images/docs/os/7351d46677.svg"></p>
+<ul>
+<li>First Fit （首次适应）：从头遍历空闲块表，<strong>找到第一个足够的空闲块</strong> 分配给进程。</li>
+<li>Next Fit （临近适应）：<strong>从上次分配的位置的下一个位置开始查找</strong> ，找到的第一个足够大的分区分配给进程。如果到了表尾没找到，就从头循环，直到找到或遍历一圈失败。</li>
+<li>Best Fit （最佳适应）：遍历整个空闲块表，找到一个 <strong>利用率最高</strong> 的空闲块给进程。</li>
+<li>Worst Fit （最坏适应）：与最佳适应的目标相反，找到一个 <strong>利用率最低</strong> 的空闲块给进程。</li>
+</ul>
+<p><strong>临近适应中的 next 究竟如何理解</strong></p>
+<p>“next” 不是指“下一次从上一次分配的那个区块自身开始”，而是指“从上一次分配的那个区块的下一个位置开始查找”。</p>
+<p>举个例子，假设有有三个空闲区块 B1, B2, B3，上次是在 B2 分配的，如果采用 next fit 算法，下一次是在 B3 分配（体现 next 的语义），而不是 B2 分配。</p>
+<p>适应算法中的利用率计算</p>
+<p>假设进程申请的内存大小为 <strong>P</strong> ，空闲块大小为 <strong>F</strong> ，则利用率为：</p>
+<p>利用率=F/P​</p>
+<p>举个实例例子，假设空闲块序列 <code>[8, 22, 20, 14, 10, 24]</code>，请求大小 <strong>P = 16</strong> 。则四种分配算法会得到不同的结果：</p>
+<p><img src="/images/docs/os/image-20260611222447545.png"></p>
+<p>Next Fit 根据上次分配的位置</p>
+<p>四种适应算法在该例子的对比如下表所示：</p>
+<p><img src="/images/docs/os/image-20260611222512668.png"></p>
+<p>当对 <strong>动态内存</strong> 进行回收时，需要检查是否可以有相邻 <strong>空闲块</strong> 合并，如果可以合并的话，合并后需要更新起始地址和大小。</p>
+<p>如果没有相邻的空闲块需要合并，直接将释放的内存块作为 <strong>独立空闲块</strong> 插入空闲块表。</p>
+<h5 id="堆内存分配">堆内存分配</h5>
+<p>动态分区分配最初用于操作系统在物理内存中为进程分配连续空间；随着虚拟内存的引入，进程不再需要连续的物理内存，该机制在 OS 层面被分页取代；但其在连续地址空间中按需划分和回收内存的思想，被继承并演化为进程堆内存的分配机制。</p>
+<ol>
+<li><strong>早期 OS（无虚拟内存）</strong> 动态分区用于在<strong>物理内存</strong> 中为进程分配连续空间。</li>
+<li><strong>引入虚拟内存</strong> 分页机制消除了进程对连续物理内存的需求，OS 层面的动态分区逐渐退出。</li>
+<li><strong>思想下沉到用户态</strong> 动态划分、回收连续空间的思想，被用于管理进程的<strong>堆内存</strong> ，形成现代内存分配器。</li>
+</ol>
+<p>参考 <a href="/operating_system/process/process_thread/#%e8%bf%9b%e7%a8%8b%e5%86%85%e5%ad%98%e7%a9%ba%e9%97%b4">进程内存空间</a>，当一个进程使用操作系统提供的 <code>malloc</code> 接口时，它实际上是在向进程的堆（heap）区域请求一块连续可用的虚拟地址空间，当进程使用 <code>free</code> 接口时，实际上是在堆上释放刚刚申请的动态空间。操作系统或运行时库会负责管理堆空间，其底层机制正是动态分区分配思想的延续。</p>
+<p><img src="/images/docs/os/0869bb42ec.svg"></p>
+<p>具体来说，堆内存管理器维护着一个空闲内存块的列表（或类似数据结构），当进程申请内存时，管理器会根据 <a href="/operating_system/memory/concepts/#%e9%80%82%e5%ba%94%e7%ae%97%e6%b3%95">适应算法</a> 寻找足够大的空闲块，将其一部分分配给请求，剩余部分可能仍作为空闲块保留。当进程释放内存时，该内存块会被回收并合并相邻的空闲块，以减少碎片。</p>
+<h5 id="伙伴算法">伙伴算法</h5>
+<p>伙伴算法（Buddy Algorithm）将内存分为大小为 2 的幂次方的块（例如，1KB、2KB、4KB、8KB 等）。当需要分配内存时，算法寻找合适的块；如果没有合适的块，就将更大的块一分为二，直到满足需求。释放内存时，算法尝试将相邻的“伙伴”块合并为更大的块，以减少 <strong>内存碎片</strong> 。</p>
+<p><img src="/images/docs/os/248b5d1584.svg"></p>
+<ul>
+<li>假设需要分配大小为 S 的内存，算法找到最小的大小为 2n （n 为正整数）块，使得 2n≥S 。</li>
+<li>如果有，直接分配该块。</li>
+<li>如果没有，查找更大一级（ 2(n+1) ）的空闲块，将其一分为二，生成两个 2n 的伙伴块：
+<ul>
+<li>一个用于分配。</li>
+<li>另一个加入 2n 的空闲链表。</li>
+</ul>
+</li>
+<li>如果 2(n+1) 也没有空闲块，继续向上查找，直到找到合适大小的块或失败。<br>
+分配后更新空闲链表。</li>
+</ul>
+<p>下图包含一个使用伙伴算法的 <strong>内存分配实例</strong> ：</p>
+<p><img src="/images/docs/os/a2aa285402.svg"></p>
+<ul>
+<li>
+<p>释放一块内存时，检查其“伙伴”块是否也空闲：</p>
+</li>
+<li>
+<p>伙伴块是指与当前块大小相同、地址相邻、且由同一父块分割而来的块。</p>
+</li>
+<li>
+<p>例如，地址为 A 的 2n 块，其伙伴地址为 A±2n （具体取决于地址对齐）。</p>
+<ul>
+<li>如果伙伴块空闲，合并为一个 2(n+1) 的块，并加入更高一级的空闲链表。</li>
+<li>重复检查合并，直到无法合并（伙伴不空闲或达到最大块大小）。</li>
+</ul>
+</li>
+</ul>
+<p>提示</p>
+<p>联想一下 2048 小游戏，伙伴算法的内存释放过程与之十分类似。</p>
+<p><strong>伙伴关系</strong></p>
+<p>伙伴块的地址满足特定关系。例如，假设内存起始地址为 0，块大小为 2n ，则地址 A 的伙伴地址为 A⊕2n （按位异或）。通过这种关系，算法可以快速定位伙伴块。</p>
+<h3 id="离散分配管理方式">离散分配管理方式</h3>
+<h4 id="页式管理">页式管理</h4>
+<p>页式管理的细节详见 <a href="/constitution_principle/storage/virtual/#%e8%af%b7%e6%b1%82%e9%a1%b5%e5%bc%8f%e7%ae%a1%e7%90%86">组成原理中的对应章</a>，这里仅给出基本的思想以与 <strong>段式管理</strong> 和 <strong>段页式管理</strong> 进行对比。</p>
+<p><img src="/images/docs/os/image-20260611222633578.png"></p>
+<p>页式内存管理的基本思想是将 <strong>虚拟内存</strong> 和 <strong>物理内存</strong> 分为若干个大小固定的 <strong>页面</strong> ，然后通过 <strong>页表</strong> 建立从虚拟页面到物理页面的映射，这样进程就可以离散地使用物理内存中的不同页面。</p>
+<p>注意</p>
+<p>STBR (segment table base register) 指的是 <strong>段表基址寄存器</strong> ，其中存储的内容是段表在内存中的地址。</p>
+<p>PTBR （page table base register）指的是 <strong>页表基址寄存器</strong> ，其中存储的内容是页表在内存中的地址。</p>
+<p>通过 <strong>表基址寄存器</strong> 加上一个偏移，可以访问到表中的某个表项。</p>
+<h4 id="段式管理">段式管理</h4>
+<p><img src="/images/docs/os/image-20260611222649180.png"></p>
+<p>段式内存管理将程序的不同部分（例如 <strong>代码、数据和堆栈</strong> ）划分为不同的 <strong>段</strong> （segments）。每个段在物理内存中可以不连续，但在逻辑上都被视为连续的。</p>
+<p>段式管理的主要优点是它比较简单，有助于提供更好的 <strong>保护</strong> 和 <strong>共享机制</strong> ，在 8086 CPU 中使用的内存管理策略就是段式管理。</p>
+<p>下文介绍一下段式内存管理中的三个关键概念：<strong>段</strong> 、<strong>段表</strong> 以及 <strong>地址转化</strong> 。</p>
+<h5 id="段概念">段概念</h5>
+<ul>
+<li>每个段都有一个明确的角色，例如 <strong>代码段</strong> 、<strong>数据段</strong> 或 <strong>堆栈段</strong> 。</li>
+<li>每个段都有一个 <strong>起始地址</strong> 和 <strong>长度</strong> 。</li>
+<li>段内的地址是连续的，但不同段之间的地址可以不连续。</li>
+</ul>
+<h5 id="段表">段表</h5>
+<p><img src="/images/docs/os/bef094ed46.svg"></p>
+<ul>
+<li>段表是一种数据结构，用于存储每个段的 <strong>基地址</strong> （在物理内存中的起始地址）和 <strong>限制</strong> （段的长度或末尾地址）。</li>
+<li>当一个程序需要访问其内存段时，会使用 <strong>段号</strong> 和 <strong>段内偏移</strong> 作为地址。这个地址被称为 <strong>逻辑地址</strong> 或 <strong>段地址</strong> 。</li>
+<li>逻辑地址通过段表转换为 <strong>物理地址</strong> 。</li>
+</ul>
+<p>段表与地址翻译逻辑地址 (段地址)段号2段内偏移300用段号查表段表段号基地址限制010004001200060023000800越界检查偏移(300) &lt; 限制(800) ?✓ 通过如果超出则产生段越界错误获取基地址地址计算物理地址 = 基地址 + 偏移3000 + 300 = 3300物理地址3300翻译步骤:1. 从逻辑地址提取段号(2)2. 用段号查段表获得基地址(3000)和限制(800)3. 检查偏移(300)是否小于限制(800)4. 计算物理地址: 3000 + 300 = 3300物理内存段01000-1399段12000-2599段23000-37993300段表实现了逻辑地址到物理地址的映射，同时提供越界保护</p>
+<h5 id="地址翻译">地址翻译</h5>
+<ul>
+<li>为了从逻辑地址获取物理地址，首先需要从逻辑地址中提取 <strong>段号</strong> ，然后使用段号在段表中查找相应的基地址和限制。</li>
+<li>然后，检查逻辑地址中的 <strong>偏移量</strong> 是否小于该段的限制。如果偏移量超出限制，则产生 <strong>段越界错误</strong> 。</li>
+<li>如果偏移量有效，则将偏移量加到段的基地址上，得到 <strong>物理地址</strong> 。</li>
+</ul>
+<h4 id="段页式管理">段页式管理</h4>
+<p>段页式管理（paged segmentation）是一种将 <strong>段式内存管理</strong> 与 <strong>分页式内存管理</strong> 相结合的策略。<br>
+在段页式管理中，程序首先被划分为逻辑上的 <strong>段</strong> ，然后每个段进一步被划分为固定大小的 <strong>页</strong> 。<br>
+首先，操作系统通过 <strong>段表</strong> 对不同的段进行管理。<br>
+在每一个段的内部，采用 <strong>分页</strong> 的方式将段分为不同的页，实现虚拟页面到物理页面的映射。</p>
+<p><img src="/images/docs/os/image-20260611222713355.png"></p>
+<p>在使用段页式内存管理的策略时，虚拟地址可以拆分为三个部分：<strong>段号</strong> （Segment No）、<strong>页号</strong> （Page No）、<strong>页内偏移</strong> （Offset）。</p>
+<p>在地址翻译的过程中，首先通过虚拟地址中的 <strong>段号</strong> 在段表中找到 <strong>页表的起始地址</strong> ，接下来再通过 <strong>页号</strong> 在页表中找到该地址对应的 <strong>物理页面号</strong> 。</p>
+<p>它结合了两者的优势，旨在提供 <strong>灵活性</strong> 和 <strong>减少内存碎片</strong> 。</p>
+<h2 id="相关笔记">相关笔记</h2>
+<ul>
+<li>[[classic-sync|经典同步问题]]</li>
+<li>[[deadlock|死锁]]</li>
+<li>[[process-index|进程管理]]</li>
+<li>[[process-thread|进程与线程]]</li>
+<li>[[scheduling|处理机调度]]</li>
+<li>[[sync-mutex|同步与互斥]]</li>
+</ul>
+</article>
+
+    
+    
+    
+
+    <div class="border-top-section">
+      <a href="/cc408/docs/" class="btn btn-ghost">← 返回知识点列表</a>
+    </div>
+  </main>
+</div>
+
+<style>
+.side-nav-group[open] summary { color: var(--text-primary); }
+.side-nav-group summary::-webkit-details-marker { display: none; }
+.side-nav-group summary::after {
+  content: '▸'; margin-left: auto; font-size: var(--fs-xs); transition: transform .2s;
+}
+.side-nav-group[open] summary::after { transform: rotate(90deg); }
+</style>
+
+  </main>
+  <footer class="site-footer" role="contentinfo">
+  <p>© 2026 CC408. 408考研知识整理</p>
+</footer>
+
+</body>
+</html>

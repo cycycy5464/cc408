@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>微程序控制器 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/knowledge_points/%E5%BE%AE%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E5%99%A8/</link>
+    <description>Recent content in 微程序控制器 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/knowledge_points/%E5%BE%AE%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2014 计算机组成原理 第18题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2014-co-018/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2014-co-018/</guid>
+      <description>&lt;p&gt;某计算机采用微程序控制器，共有32条指令，公共的取指令微程序包含2条微指令，各指令对应的微 程序平均由4条微指令组成，采用断定法(下地址字段法)确定下条微指令地址，则微指令中下地址字段 的位数至少是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2024 计算机组成原理 第13题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2024-co-013/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2024-co-013/</guid>
+      <description>&lt;p&gt;将汇编语言程序中实现特定功能的指令序列定义成一条伪指令。下列选项中，CPU 能理解并直接执行 的 是 ( ) 。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

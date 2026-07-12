@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CPU on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/tags/cpu/</link>
+    <description>Recent content in CPU on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 25 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/tags/cpu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>差错控制</title>
+      <link>https://cycycy5464.github.io/cc408/docs/network/ch02-datalink/error-control/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/network/ch02-datalink/error-control/</guid>
+      <description>&lt;p&gt;💡 低优先级&lt;/p&gt;&#xA;&lt;p&gt;说实话本节细节极多但是考查频率很低，考的话一般是在选择题考一题，这一节的几个知识点说实话只能硬背了，大家可以根据自身精力决定要不要搏一搏这可能出现的两分。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>流量控制</title>
+      <link>https://cycycy5464.github.io/cc408/docs/network/ch02-datalink/flow-control/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/network/ch02-datalink/flow-control/</guid>
+      <description>&lt;p&gt;🔥 高优先级&lt;/p&gt;&#xA;&lt;p&gt;选择题和解答题都经常考查 ARQ 协议，三个重点不能忽略：1. 三种 ARQ 协议的 &lt;strong&gt;实现原理&lt;/strong&gt; 。 2. &lt;strong&gt;窗口大小的限制&lt;/strong&gt; 。3. &lt;strong&gt;信道利用率&lt;/strong&gt; 的计算方法。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>介质访问控制</title>
+      <link>https://cycycy5464.github.io/cc408/docs/network/ch02-datalink/mac/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/network/ch02-datalink/mac/</guid>
+      <description>&lt;p&gt;🔥 高优先级&lt;/p&gt;&#xA;&lt;p&gt;数据链路层的另一个重点（之前一个是 ARQ 协议），重点掌握 &lt;strong&gt;CSMA/CD&lt;/strong&gt; 的细节，会在选择题和解答题中考查。多路复用和 CSMA/CA 也要熟悉下，会在选择题中考查。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>中央处理器</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch04-cpu/cpu-index/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch04-cpu/cpu-index/</guid>
+      <description>&lt;p&gt;本章是重中之重，几乎每年都会在大题和选择题中考察。需要熟练掌握 CPU 的结构、寄存器类型以及指令执行的流程，关于 CPU 的考察也常常和指令系统混合在一起，需要能够从一个高维的角度，思考 CPU、指令、控制器以及外部设备的关系。&#xA;&lt;img src=&#34;https://cycycy5464.github.io/cc408/images/docs/computer-org/image-20260612231133463.png&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>控制器</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch04-cpu/controller/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch04-cpu/controller/</guid>
+      <description>&lt;p&gt;⭐ 中优先级&lt;/p&gt;&#xA;&lt;p&gt;说实话，本节内容虽然多，但考察也没有那么频繁，主要关注 &lt;strong&gt;两点&lt;/strong&gt; ：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>异常与中断</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch04-cpu/exceptions/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch04-cpu/exceptions/</guid>
+      <description>&lt;p&gt;🔥 高优先级&lt;/p&gt;&#xA;&lt;p&gt;本节也基本是选择题必考，要掌握 &lt;strong&gt;异常和中断的区别&lt;/strong&gt; ，就是概念上要区分开，不知道为啥，老头们很喜欢考这个。关于中断的具体介绍参考 &lt;a href=&#34;https://cycycy5464.github.io/cc408/constitution_principle/bus/io/#%e7%a8%8b%e5%ba%8f%e4%b8%ad%e6%96%ad%e6%96%b9%e5%bc%8f&#34;&gt;组成原理相关章节&lt;/a&gt; 的内容。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

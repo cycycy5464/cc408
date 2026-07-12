@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>路由算法 | CC408</title>
+  <meta name="description" content="⭐ 中优先级
+本节细节比较多，但是考察得比较多的还是 RIP 协议，可以把 RIP 的一些知识点多看些，然后 OSPF 和 BGP 稍微了解下。
+路由 这一节我们首先通过三个问题来认识什么是 路由 ，接下来再在此基础上介绍 路由协议 。
+什么是 路由 ？
+在一个 IP 网络中，数据包要从一个设备发送 …">
+  <link rel="icon" href="/cc408/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" as="script" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" as="script" crossorigin="anonymous">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/cc408/css/custom.min.ecad70eed0f9849f67d23e2bf502ae36e7f590486681964e1c95bc71c8672493.css" integrity="sha256-7K1w7tD5hJ9n0j4r9QKuNuf1kEhmgZZOHJW8cchnJJM=">
+  
+
+<script src="/cc408/js/watermark.js"></script>
+
+
+  <script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.content-area img,.docs-layout img').forEach(function(i){if(!i.src.match(/\.svg$/i)){i.loading='lazy';i.fetchPriority='low';}});});</script>
+</head>
+<body style="background: var(--bg-primary); color: var(--text-primary);">
+  <a href="#main-content" class="skip-link">跳转到主要内容</a>
+  <nav class="navbar" role="navigation" aria-label="主导航">
+  <a href="/cc408/" class="navbar-brand">CC408</a>
+  <button class="navbar-toggle" aria-label="菜单" onclick="this.parentElement.querySelector('.navbar-links').classList.toggle('open')">☰</button>
+  <div class="navbar-links" role="menubar">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      首页
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/docs/" role="menuitem" class="active" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识点
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      刷题
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/quiz-collection/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      收藏
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/graph/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识图谱
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/tags/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      标签
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/resources/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      资源
+    </a>
+    
+  </div>
+  <div class="navbar-right">
+    <a href="https://cycycy5464.github.io/">个人主页 →</a>
+  </div>
+</nav>
+
+  <main id="main-content" style="padding-top: 70px; min-height: calc(100vh - 120px);">
+    
+<div class="docs-layout">
+  <aside class="side-nav">
+    
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>📊</span><span>数据结构</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/basic-concepts/" class="side-nav-link ">数据结构基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/algorithm-concepts/" class="side-nav-link ">算法基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linear-list-index/" class="side-nav-link ">线性表概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/definition/" class="side-nav-link ">线性表定义与基本操作</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/sequential-list/" class="side-nav-link ">顺序表</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linked-list/" class="side-nav-link ">链表</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/stack/" class="side-nav-link ">栈</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/queue/" class="side-nav-link ">队列</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/application/" class="side-nav-link ">栈和队列的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/linear-data-structure/" class="side-nav-link ">线性数据结构</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/string-index/" class="side-nav-link ">串概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/definition/" class="side-nav-link ">串的定义与实现</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/pattern-matching/" class="side-nav-link ">串的模式匹配</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/array-matrix/" class="side-nav-link ">数组和特殊矩阵</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree/" class="side-nav-link ">树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-and-binary-tree/" class="side-nav-link ">树与二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/binary-tree/" class="side-nav-link ">二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-applications/" class="side-nav-link ">树的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/graph-index/" class="side-nav-link ">图概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/definition/" class="side-nav-link ">图的定义</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/algorithms/" class="side-nav-link ">图的算法和应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/search-index/" class="side-nav-link ">查找概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/array-search/" class="side-nav-link ">数组查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/tree-search/" class="side-nav-link ">树形查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/hash-search/" class="side-nav-link ">散列表查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/sort-index/" class="side-nav-link ">排序概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/internal-sort/" class="side-nav-link ">内部排序</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/external-sort/" class="side-nav-link ">外部排序</a>
+      
+      <a href="/cc408/exam/exercise/data_structure/" class="side-nav-link ">数据结构篇</a>
+      
+      <a href="/cc408/exam/application/2023-q1/" class="side-nav-link ">2023年408真题 - 应用题第1题</a>
+      
+      <a href="/cc408/exam/choice/2024-q5/" class="side-nav-link ">2024年408真题 - 数据结构选择题第5题</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/introduction/" class="side-nav-link ">绪论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>⚙️</span><span>计算机组成原理</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/system-hierarchy/" class="side-nav-link ">计算机系统层次结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/performance/" class="side-nav-link ">计算机性能指标</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/data-index/" class="side-nav-link ">数据表示与计算</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/integers/" class="side-nav-link ">整数的表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/float/" class="side-nav-link ">浮点数表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/type-conversion/" class="side-nav-link ">类型转换</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/circuits/" class="side-nav-link ">运算电路</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/memory-index/" class="side-nav-link ">存储系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/overview/" class="side-nav-link ">存储系统概述</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/ram/" class="side-nav-link ">内存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/cache/" class="side-nav-link ">Cache</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/external/" class="side-nav-link ">外存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/virtual/" class="side-nav-link ">虚拟存储器</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/instruction-index/" class="side-nav-link ">指令系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/types/" class="side-nav-link ">指令集种类</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/format-addressing/" class="side-nav-link ">指令格式与寻址方式</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/data-alignment/" class="side-nav-link ">数据对齐</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/opcode/" class="side-nav-link ">指令操作码</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/hll-machine/" class="side-nav-link ">高级语言与机器码</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/cpu-index/" class="side-nav-link ">中央处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/function-structure/" class="side-nav-link ">CPU功能与结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/controller/" class="side-nav-link ">控制器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/exceptions/" class="side-nav-link ">异常与中断</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/pipeline/" class="side-nav-link ">指令流水线</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/multiprocessor/" class="side-nav-link ">多处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus/" class="side-nav-link ">总线</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus-io/" class="side-nav-link ">总线和I/O系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch06-io/io-system/" class="side-nav-link ">I/O系统</a>
+      
+      <a href="/cc408/exam/exercise/architecture/" class="side-nav-link ">计算机组成原理</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/introduction/" class="side-nav-link ">概论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🖥️</span><span>操作系统</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/os/ch00-overview/os-concept/" class="side-nav-link ">操作系统概念</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/os-structure/" class="side-nav-link ">操作系统结构</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/program-env/" class="side-nav-link ">程序运行环境</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-index/" class="side-nav-link ">进程管理</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-thread/" class="side-nav-link ">进程与线程</a>
+      
+      <a href="/cc408/docs/os/ch01-process/scheduling/" class="side-nav-link ">处理机调度</a>
+      
+      <a href="/cc408/docs/os/ch01-process/sync-mutex/" class="side-nav-link ">同步与互斥</a>
+      
+      <a href="/cc408/docs/os/ch01-process/classic-sync/" class="side-nav-link ">经典同步问题</a>
+      
+      <a href="/cc408/docs/os/ch01-process/deadlock/" class="side-nav-link ">死锁</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/memory-index/" class="side-nav-link ">内存管理</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/concepts/" class="side-nav-link ">内存管理概念</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/virtual/" class="side-nav-link ">虚拟内存管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-index/" class="side-nav-link ">文件管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-basics/" class="side-nav-link ">文件</a>
+      
+      <a href="/cc408/docs/os/ch03-file/directory/" class="side-nav-link ">目录</a>
+      
+      <a href="/cc408/docs/os/ch03-file/filesystem/" class="side-nav-link ">文件系统</a>
+      
+      <a href="/cc408/docs/os/ch04-io/io-index/" class="side-nav-link ">I/O管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/devices/" class="side-nav-link ">I/O设备</a>
+      
+      <a href="/cc408/docs/os/ch04-io/device-mgmt/" class="side-nav-link ">设备管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/disk/" class="side-nav-link ">磁盘</a>
+      
+      <a href="/cc408/code/clock/" class="side-nav-link ">CLOCK 时钟替换算法</a>
+      
+      <a href="/cc408/code/lru/" class="side-nav-link ">LRU 算法</a>
+      
+      <a href="/cc408/code/spinlock/" class="side-nav-link ">TAS 实现自旋锁</a>
+      
+      <a href="/cc408/exam/exercise/os/" class="side-nav-link ">操作系统</a>
+      
+      <a href="/cc408/code/reader_writer/" class="side-nav-link ">读者写着问题</a>
+      
+      <a href="/cc408/code/monitor/" class="side-nav-link ">管程实现生产者消费者</a>
+      
+      <a href="/cc408/code/producer_consumer/" class="side-nav-link ">生产者消费者问题</a>
+      
+      <a href="/cc408/code/banker/" class="side-nav-link ">银行家算法</a>
+      
+      <a href="/cc408/code/philosopher/" class="side-nav-link ">哲学家就餐问题</a>
+      
+      <a href="/cc408/exam/comprehensive/2022-q1/" class="side-nav-link ">2022年408真题 - 综合题第1题</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/computer-overview/" class="side-nav-link ">计算机系统概述</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🌐</span><span>计算机网络</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/network/ch00-overview/layered/" class="side-nav-link ">分层结构</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/protocol-summary/" class="side-nav-link ">各层协议总结</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/device-summary/" class="side-nav-link ">网络设备总结</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/phy-index/" class="side-nav-link ">物理层</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/communication/" class="side-nav-link ">通信概念</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/encoding/" class="side-nav-link ">编码与调制</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/switching/" class="side-nav-link ">交换方式</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/devices/" class="side-nav-link ">物理层设备</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/dl-index/" class="side-nav-link ">数据链路层</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/framing/" class="side-nav-link ">组帧</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/error-control/" class="side-nav-link ">差错控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/flow-control/" class="side-nav-link ">流量控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/mac/" class="side-nav-link ">介质访问控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/lan-wan/" class="side-nav-link ">局域网与广域网</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/devices/" class="side-nav-link ">数据链路层设备</a>
+      
+      <a href="/cc408/docs/network/ch03-network/nw-index/" class="side-nav-link ">网络层</a>
+      
+      <a href="/cc408/docs/network/ch03-network/ip/" class="side-nav-link ">IP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/arp/" class="side-nav-link ">ARP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/icmp/" class="side-nav-link ">ICMP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/dhcp/" class="side-nav-link ">DHCP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/routing/" class="side-nav-link active">路由算法</a>
+      
+      <a href="/cc408/docs/network/ch03-network/sdn/" class="side-nav-link ">SDN</a>
+      
+      <a href="/cc408/docs/network/ch03-network/devices/" class="side-nav-link ">网络层设备</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tp-index/" class="side-nav-link ">传输层</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tcp/" class="side-nav-link ">TCP</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/udp/" class="side-nav-link ">UDP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-index/" class="side-nav-link ">应用层</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-model/" class="side-nav-link ">网络应用模型</a>
+      
+      <a href="/cc408/docs/network/ch05-application/dns/" class="side-nav-link ">DNS</a>
+      
+      <a href="/cc408/docs/network/ch05-application/ftp/" class="side-nav-link ">FTP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/email/" class="side-nav-link ">电子邮件</a>
+      
+      <a href="/cc408/docs/network/ch05-application/www/" class="side-nav-link ">万维网</a>
+      
+      <a href="/cc408/exam/exercise/network/" class="side-nav-link ">计算机网络</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/arch-index/" class="side-nav-link ">计算机网络体系结构</a>
+      
+    </details>
+    
+  </aside>
+  <main class="content-area">
+    <h1>路由算法</h1>
+    <div class="meta-row">
+      
+      <span><span class="diff-star">★</span><span class="diff-star">★</span><span class="diff-star">★</span></span>
+      
+      <span class="tag">网络层</span>
+    </div>
+    <article><p>⭐ 中优先级</p>
+<p>本节细节比较多，但是考察得比较多的还是 RIP 协议，可以把 RIP 的一些知识点多看些，然后 OSPF 和 BGP 稍微了解下。</p>
+<h3 id="路由">路由</h3>
+<p>这一节我们首先通过三个问题来认识什么是 <strong>路由</strong> ，接下来再在此基础上介绍 <strong>路由协议</strong> 。</p>
+<p>什么是 <strong>路由</strong> ？</p>
+<p>在一个 IP 网络中，数据包要从一个设备发送到另一个设备，中间通常需要经过多个路由器的转发。每个路由器就像是一个“交通指挥员”，决定数据包该往哪个方向走。</p>
+<p>例如，PC-1（IP 地址为 192.168.1.5）通过如下图所示的网络向 PC-2（IP 地址为 10.1.1.5）发送数据包。当路由器 R1 接收到这些数据包时，它必须知道如何到达目标子网 10.1.1.0/24，否则将丢弃这些数据包。</p>
+<p><img src="/images/docs/network/13405b4500.svg"></p>
+<p>路由器 R2 知道如何到达 PC-2，因为它有一个接口位于子网 10.1.1.0/24，并在 路由表 中包含了一条直接连接路由。然而，默认情况下，路由器 R1 和 R3 不知道如何到达 10.1.1.0/24。网络管理员需要配置一条 <strong>静态路由</strong> ，或者 R2 必须自动告知 R1 和 R3，它们可以将目的地为 10.1.1.0/24 的数据包发送到 R2，这种方式叫做 <strong>动态路由</strong> 。</p>
+<p><strong>路由器</strong> 怎么知道往哪里转发？</p>
+<p>路由器 内部有一个叫 <a href="/computer_network/network/dev/#%e8%b7%af%e7%94%b1%e8%a1%a8"><strong>路由表</strong></a> 的数据结构，里面记录了各种目的 IP 地址该怎么走。这个表告诉 路由器：当收到一个 IP Packet 时，应该把包发给哪个 <strong>下一跳</strong> （下一个路由器)。</p>
+<p><strong>路由表</strong> 如何建立？</p>
+<p><strong>路由表</strong> 主要包含两种建立方式：</p>
+<ul>
+<li><strong>静态路由</strong> （Static）：人工手动配置，适合小型或稳定网络。</li>
+<li><strong>动态路由</strong> （Dynamic）：通过 <strong>路由协议</strong> 自动学习和更新路由信息。</li>
+</ul>
+<p><img src="/images/docs/network/1e6cb7eeb9.svg"></p>
+<p>两个 <strong>路由表</strong> 建立方式各自适用于不同的场景：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">特点</th>
+          <th style="text-align: left"><strong>静态路由</strong></th>
+          <th style="text-align: left"><strong>动态路由</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">配置方式</td>
+          <td style="text-align: left">手动配置</td>
+          <td style="text-align: left">自动学习和适应</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">适用性</td>
+          <td style="text-align: left">适用于小型网络或需要特定路由策略的情况</td>
+          <td style="text-align: left">适用于大型、复杂的网络</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">稳定性</td>
+          <td style="text-align: left">较稳定</td>
+          <td style="text-align: left">可能更灵活，但较复杂</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">自动故障恢复</td>
+          <td style="text-align: left">不支持自动故障恢复</td>
+          <td style="text-align: left">支持自动故障检测和恢复</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">网络变化响应速度</td>
+          <td style="text-align: left">静态，不会自动适应网络变化</td>
+          <td style="text-align: left">自动适应网络变化，响应速度较快</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">管理复杂性</td>
+          <td style="text-align: left">相对简单</td>
+          <td style="text-align: left">较复杂，需要更多计算和资源</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">适用情况</td>
+          <td style="text-align: left">较小规模的网络，特定路由策略需求</td>
+          <td style="text-align: left">大型、复杂网络，需要动态适应</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="路由协议">路由协议</h3>
+<p><strong>路由协议</strong> 是一种 <strong>用于路由器之间交换网络路由信息的通信规则</strong> 。它的主要作用是让路由器能够自动学习和维护到达各个目的网络的路径，从而实现数据包的正确转发。</p>
+<p><strong>路由协议</strong> 的主要作用有两个：</p>
+<ul>
+<li><strong>自动学习路由</strong> ：当网络结构发生变化（如新增路由器、链路断开），<strong>路由协议</strong> 能自动更新 <strong>路由表</strong> ，省去了手动配置的麻烦。</li>
+<li><strong>选择最佳路径</strong> ：如果到同一个目标有多条路径，<strong>路由协议</strong> 能根据跳数、带宽、延迟等因素计算出最优路径，提高网络效率。</li>
+</ul>
+<p><strong>路由协议</strong> 分为不同种类，各自适用于不同场景，在介绍其分类前，首先要理解计算机网络中 <strong>自治系统</strong> 的概念。</p>
+<h4 id="自治系统">自治系统</h4>
+<p>一个 <strong>自治系统</strong> （AS，Autonomous System）是由一个或多个网络组成的集合，这些网络 <strong>在统一的管理和策略控制下运行</strong> ，并对外表现为一个单一的路由实体。</p>
+<p>互联网是由无数个独立组织维护的网络组成的。每个组织内部的网络结构和路由策略不同，AS 的概念让每个组织可以作为一个独立的“区域”，既能自主控制路由，又能通过标准协议与外部沟通，保证整个互联网正常运作。</p>
+<p>AS 通常由一个 <strong>ISP</strong> （互联网服务提供商）、大型企业、大学等拥有和运营。AS 之间通过外部 <strong>路由协议</strong> 互联，组成整个互联网。</p>
+<h4 id="分类">分类</h4>
+<p><strong>路由协议</strong> 根据其使用范围的不同，可以分为两大类：<strong>内部网关协议</strong> （IGP，Interior Gateway Protocol）和<strong>外部网关协议</strong> （EGP，Exterior Gateway Protocol）。</p>
+<p><img src="/images/docs/network/a5a420f99d.svg"></p>
+<ul>
+<li><strong>内部网关协议</strong> ：在单个组织或 <strong>自治系统</strong> （AS）内部使用的路由协议，常见的 IGP 协议包括 <strong>RIP</strong> 和 <strong>OSPF</strong> 。这些协议的主要作用是在一个组织的网络内部传播和更新路由信息，以实现高效的网络通信。</li>
+<li><strong>外部网关协议</strong> ：用于在不同组织或不同 <strong>自治系统</strong> 之间交换路由信息。如今，唯一广泛使用的 EGP 协议是 <strong>BGP</strong> 。<strong>BGP</strong> 的设计初衷是为了控制跨组织网络之间的路由信息传递，从而实现 <strong>自治系统</strong> 之间的互联和路径控制。</li>
+</ul>
+<p><img src="/images/docs/network/image-20260613071900598.png"></p>
+<h4 id="对比">对比</h4>
+<p>重点掌握 <strong>RIP</strong> 、<strong>OSPF</strong> 、<strong>BGP</strong> 三个协议的区别，三者的对比如下表所示：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">项目</th>
+          <th style="text-align: left"><strong>RIP</strong></th>
+          <th style="text-align: left"><strong>OSPF</strong></th>
+          <th style="text-align: left"><strong>BGP</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>封装协议</strong></td>
+          <td style="text-align: left">UDP</td>
+          <td style="text-align: left">IP</td>
+          <td style="text-align: left">TCP</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>传播方式</strong></td>
+          <td style="text-align: left">逐跳</td>
+          <td style="text-align: left">泛洪</td>
+          <td style="text-align: left">TCP 会话间传递</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>更新内容</strong></td>
+          <td style="text-align: left">全表，周期性</td>
+          <td style="text-align: left">链路状态，事件驱动</td>
+          <td style="text-align: left">路径属性，事件驱动</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>拓扑视图</strong></td>
+          <td style="text-align: left">无全局视图</td>
+          <td style="text-align: left">拥有全图</td>
+          <td style="text-align: left">无全图，仅路径属性</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>计算算法</strong></td>
+          <td style="text-align: left">Bellman-Ford</td>
+          <td style="text-align: left">Dijkstra</td>
+          <td style="text-align: left">策略驱动</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>收敛速度</strong></td>
+          <td style="text-align: left">慢</td>
+          <td style="text-align: left">快</td>
+          <td style="text-align: left">慢（但更稳定）</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>带宽占用</strong></td>
+          <td style="text-align: left">高（周期发全表）</td>
+          <td style="text-align: left">中（仅更新变化）</td>
+          <td style="text-align: left">低（TCP 控制精细）</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>扩展性</strong></td>
+          <td style="text-align: left">差</td>
+          <td style="text-align: left">较好</td>
+          <td style="text-align: left">极强</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>应用场景</strong></td>
+          <td style="text-align: left">小型网络</td>
+          <td style="text-align: left">企业内部网络</td>
+          <td style="text-align: left">运营商/跨 AS 互联</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="rip">RIP</h3>
+<p><strong>RIP</strong> （Routing Information Protocol，路由信息协议）是一种基于 <strong>距离向量</strong> 的路由协议，主要用于小型和中型网络中的 <strong>内部网关协议</strong> 。</p>
+<h4 id="距离向量">距离向量</h4>
+<p>一个典型的 <strong>距离向量</strong> （Distance Vector）可以表示为一个列表，其中每个条目包含以下信息：</p>
+<ul>
+<li><strong>目的地</strong> （To）：目标网络或子网的地址。</li>
+<li><strong>跳数/度量值</strong> （Metric）：从当前路由器到达目标网络的 <strong>代价</strong> ，通常以跳数、延迟、带宽等度量标准表示。</li>
+<li><strong>下一跳</strong> （Next Hop）：到达目标网络的 <strong>下一跳</strong> 路由器的地址。</li>
+</ul>
+<p>下表是一个 <strong>距离向量示例</strong> ：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">目标网络</th>
+          <th style="text-align: left">跳数</th>
+          <th style="text-align: left"><strong>下一跳</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">192.168.1.0/24</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">A</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">192.168.2.0/24</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">B</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">192.168.3.0/24</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">C</td>
+      </tr>
+  </tbody>
+</table>
+<p>注意</p>
+<p><strong>RIP</strong> 规定 最大跳数 为 <em><strong>15</strong></em> ，超过 15 则认为 <strong>目标网络不可达</strong> 。</p>
+<p>此外，路由器将自己的距离向量广播给其他路由器时，距离向量中的下一跳是可以省略的，因为接收者默认认为所有距离向量中的下一跳就是发送该向量的那个路由器本身。</p>
+<h4 id="距离向量算法">距离向量算法</h4>
+<p>在 <strong>距离向量算法</strong> 中，通过 <strong>周期性地</strong> 与相邻路由器交换 <strong>距离向量</strong> 信息，每个路由器能够逐渐获得整个网络的拓扑信息，并更新其路由表以 <strong>选择最佳路径</strong> 。</p>
+<p>具体而言，工作流程如下：</p>
+<ul>
+<li><strong>初始化</strong> ：每个路由器初始化其 <strong>距离向量</strong> ，只包含自己直接连接的网络，距离设为 0。</li>
+<li><strong>周期性更新</strong> ：每个路由器周期性地（30s）将其 <strong>距离向量</strong> 广播给所有相邻的 <strong>路由器</strong> 。</li>
+<li><strong>接收和更新</strong> ：每个路由器接收到相邻路由器的 <strong>距离向量</strong> 后，检查是否有新的或更短的路径。如果有，则更新自己的 <strong>距离向量</strong> 和 <strong>路由表</strong> 。</li>
+<li><strong>收敛</strong> ：经过多次交换和更新后，所有路由器的 <strong>距离向量</strong> 和 <strong>路由表</strong> 最终会收敛到最优路径。</li>
+</ul>
+<p><img src="/images/docs/network/image-20260613071940467.png"></p>
+<h4 id="最短路径计算方法">最短路径计算方法</h4>
+<p>当路由器 A 接收到来自相邻路由器 B 发送的关于某个子网 N 的 <strong>距离向量</strong> VB​ 时，它需要将 VB​ 中的跳数加一 然后与当前的到达子网 N 的 <strong>距离向量</strong> VA​ 进行比较（需要加一的原因时从 A 出发要经过 B ，所以多了一跳），具体 <strong>比较方式</strong> 如下：</p>
+<ul>
+<li>如果 A 不存在到达子网 N 的路由的话，直接添加 VB​ 进入路由表</li>
+<li>如果 VB​ 的跳数小于 VA​ 的跳数的话，使用 VB​ 替换 VA​</li>
+</ul>
+<p><img src="/images/docs/network/image-20260613071956687.png"></p>
+<p>以上过程使用的算法名称叫做 <strong>Bellman-Ford</strong> 算法，是一种寻找单源最短路径的算法，单源最短路径的意思是从一个结点出发到达其他结点的最短路径。这个算法不会直接考察，了解这个算法的名称即可。</p>
+<h4 id="坏消息传得慢">坏消息传得慢</h4>
+<p>假设一个路由器检测到它无法到达一个网络，这个信息可能需要比较长的时间才能被网络中的所有路由器感知到，这个问题也叫做 <strong>“计数到无穷”</strong> （count to infinity）问题。</p>
+<p>举例说明：</p>
+<p>对于以下拓扑结构：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>A <span style="color:#f92672">---</span> B <span style="color:#f92672">---</span> C <span style="color:#f92672">---</span> X
+</span></span></code></pre></div><p>🟢 <strong>正常情况是这样</strong> ：</p>
+<ul>
+<li>C 广播：“我可以 1 跳到达 X”</li>
+<li>B 收到后更新：B 到 X 跳数 = 2（通过 C）</li>
+<li>A 收到后更新：A 到 X 跳数 = 3（通过 B）</li>
+</ul>
+<p>🔴 <strong>C 和 X 之间的连接断开</strong> ：</p>
+<ul>
+<li>C 发现 X 不可达，设置到 X 的跳数为 <em><strong>16</strong></em> （不可达）。</li>
+<li>但 B 和 A 互相认为“另一个可能知道路径”。</li>
+<li>A 说：“我能通过 B 到 X”，B 也说：“我能通过 A 到 X”，</li>
+<li>这个过程导致 <strong>跳数慢慢增加</strong> （4、5、6…），直到达到 <strong><em><strong>16</strong></em> （不可达）</strong>，才终止。</li>
+</ul>
+<p>这也是 <strong>RIP</strong> 的 <strong>核心缺陷</strong> ，主要由以下几个 <strong>RIP</strong> 的特性导致：</p>
+<p>📌 1. <strong><strong>RIP</strong> 是“<strong>距离向量协议</strong> ”，而不是“<strong>链路状态协议</strong> ”：</strong></p>
+<ul>
+<li><strong>RIP</strong> 每 30 秒定期广播自己的“<strong>路由表</strong> ”（包含目标网络和跳数），而不是主动通告“链路断了”。</li>
+<li>也就是说：C 不会特意说“我原本能到 X，现在不能了”，它只是不再提 X，或者说“到 X 是 <em><strong>16</strong></em> （不可达）”。</li>
+</ul>
+<p>📌 2. <strong><strong>RIP</strong> 更新是“基于 <strong>下一跳</strong> ”的，不能判断环</strong></p>
+<p>B 不知道“我从 A 学到的这条路径，实际上也是绕了一圈又回到我这里”，因为：</p>
+<ul>
+<li>B 从 A 收到：“X 的跳数是 4”</li>
+<li>B 就以为“哦，那我到 A 是 1 跳，所以我到 X 是 5 跳”</li>
+<li>B 没有办法判断这条路径是否环绕回了自己！</li>
+</ul>
+<p>它只根据“谁告诉我能到哪里”来加一跳数做判断，而不会检查路径是否形成了环路。</p>
+<h3 id="ospf">OSPF</h3>
+<p><strong>OSPF</strong> （Open Shortest Path First）是一种基于 <strong>链路状态</strong> 的 <strong>内部网关协议</strong> （IGP），广泛应用于中大型网络中。</p>
+<h4 id="链路状态">链路状态</h4>
+<p>路由器通过 <strong>链路状态通告</strong> （LSA，Link State Advertisement）来了解其与邻居之间的链路状态。</p>
+<p>在 <strong>RIP</strong> 路由算法中，路由器会定期将自己的 <strong>距离向量</strong> 发送给相邻的路由器。在 <strong>OSPF</strong> 中，也有类似的概念，不过这里传送的不是距离向量，而是 <strong>链路状态通告</strong> 。</p>
+<p>路由器将其自身的状态和与邻居的链路状态信息打包成 <strong>链路状态包</strong> （LSP，Link State Packet），并在网络中 <strong>洪泛传播</strong> （flooding）。</p>
+<p>每个 LSA 专注于描述一种类型的链路状态或网络信息。一个 LSA 包含的信息通常是：</p>
+<ul>
+<li>路由器与某一特定链路的连接状态（如 Router LSA）。</li>
+<li>某个网络的状态和与其相连的路由器信息（如 Network LSA）。</li>
+<li>区域间或外部路由信息（如 Summary LSA 和 AS External LSA）。</li>
+</ul>
+<h4 id="链路状态数据库">链路状态数据库</h4>
+<p><strong>链路状态数据库</strong> （LSDB，Link State Database）是 OSPF 协议中的关键组件，它存储了网络中所有 <strong>链路状态通告</strong> （LSA）。通过 LSDB，每个路由器可以构建整个网络的拓扑图，并使用 <strong>Dijkstra</strong> 算法计算最短路径树。</p>
+<p>这里举个例子方便大家理解 LSDB 的概念。假设我们有一个简单的网络拓扑，包含 4 个路由器（R1, R2, R3, R4）和几个网络网段（NetA, NetB, NetC）。</p>
+<p><img src="/images/docs/network/image-20260613072015084.png"></p>
+<p>在 <strong>链路状态算法</strong> 收敛之后，某个路由器的 LSDB 可能是如下这种形式：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">LSA 类型</th>
+          <th style="text-align: left">LSA ID</th>
+          <th style="text-align: left">路由器ID</th>
+          <th style="text-align: left">链路 ID</th>
+          <th style="text-align: left">链路类型</th>
+          <th style="text-align: left">路径成本</th>
+          <th style="text-align: left">连接的路由器或网络</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Router</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">R1</td>
+          <td style="text-align: left">NetA</td>
+          <td style="text-align: left">广播链路</td>
+          <td style="text-align: left">10</td>
+          <td style="text-align: left">R2</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Router</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">R1</td>
+          <td style="text-align: left">NetC</td>
+          <td style="text-align: left">广播链路</td>
+          <td style="text-align: left">5</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Router</td>
+          <td style="text-align: left">2</td>
+          <td style="text-align: left">R2</td>
+          <td style="text-align: left">NetA</td>
+          <td style="text-align: left">广播链路</td>
+          <td style="text-align: left">10</td>
+          <td style="text-align: left">R1</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Router</td>
+          <td style="text-align: left">2</td>
+          <td style="text-align: left">R2</td>
+          <td style="text-align: left">NetB</td>
+          <td style="text-align: left">广播链路</td>
+          <td style="text-align: left">15</td>
+          <td style="text-align: left">R4</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Router</td>
+          <td style="text-align: left">2</td>
+          <td style="text-align: left">R2</td>
+          <td style="text-align: left">R3</td>
+          <td style="text-align: left">点对点链路</td>
+          <td style="text-align: left">20</td>
+          <td style="text-align: left">R3</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Router</td>
+          <td style="text-align: left">3</td>
+          <td style="text-align: left">R3</td>
+          <td style="text-align: left">R2</td>
+          <td style="text-align: left">点对点链路</td>
+          <td style="text-align: left">20</td>
+          <td style="text-align: left">R2</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Router</td>
+          <td style="text-align: left">3</td>
+          <td style="text-align: left">R3</td>
+          <td style="text-align: left">R4</td>
+          <td style="text-align: left">点对点链路</td>
+          <td style="text-align: left">10</td>
+          <td style="text-align: left">R4</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Router</td>
+          <td style="text-align: left">4</td>
+          <td style="text-align: left">R4</td>
+          <td style="text-align: left">NetB</td>
+          <td style="text-align: left">广播链路</td>
+          <td style="text-align: left">15</td>
+          <td style="text-align: left">R2</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Router</td>
+          <td style="text-align: left">4</td>
+          <td style="text-align: left">R4</td>
+          <td style="text-align: left">R3</td>
+          <td style="text-align: left">点对点链路</td>
+          <td style="text-align: left">10</td>
+          <td style="text-align: left">R3</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="链路状态路由算法">链路状态路由算法</h4>
+<p><strong>距离向量</strong> 算法（如 <strong>RIP</strong> ）中，每个路由器只维护到各个目的网络的距离（如跳数）和 <strong>下一跳</strong> 信息，<strong>周期性地</strong> 将整个路由表发送给直接相邻的 路由器，依赖邻居的更新来调整自己的 <strong>路由表</strong> ，缺乏全局视角，容易形成路由环路，收敛速度较慢，并且存在坏消息传得慢的问题。</p>
+<p>而 <strong>链路状态</strong> 算法（如 <strong>OSPF</strong> ）则由每个路由器通过 <strong>链路状态广播</strong> （LSA）将本地链路信息 <strong>泛洪</strong> 给全网，所有路由器据此构建一致的网络拓扑图，然后独立运行 <strong>Dijkstra</strong> 最短路径算法计算路由，具备 <strong>全局视角</strong> ，收敛速度 <strong>快</strong> ，稳定性好，适合大型复杂网络。</p>
+<p>下图通过一个实例对比了 <strong>距离向量</strong> 和 <strong>链路状态</strong> 算法的区别：</p>
+<p><img src="/images/docs/network/image-20260613072032558.png"></p>
+<p><img src="/images/docs/network/image-20260613072040965.png"></p>
+<h3 id="bgp">BGP</h3>
+<p><strong>BGP</strong> （Border Gateway Protocol，边界网关协议）是互联网的核心路由协议，用于在不同 <a href="/computer_network/network/route/#%e8%87%aa%e6%b2%bb%e7%b3%bb%e7%bb%9f"><strong>自治系统</strong></a> 之间交换路由信息，属于路径向量（Path Vector）协议，目前广泛使用的版本是 BGP-4。</p>
+<p>在 BGP 中，<strong>自治系统</strong> （AS）是互联网的基本单位，每个 AS 是一个由单个组织控制的网络集合（如一个运营商或大型企业）。AS 与 AS 之间的路由交换就是通过 BGP 完成的，AS 之内的路由交换通过 <strong>内部网关协议</strong> 完成。</p>
+<p><strong>BGP</strong> 原理</p>
+<p>(1) <strong>选择 AS 发言人</strong></p>
+<ul>
+<li>每个 AS 内部可以有多个 <strong>BGP</strong> 路由器，但对外通常由一个或多个 <strong>“BGP 发言人”</strong> 代表整个 AS 与其他 AS 进行路由信息的交换。</li>
+</ul>
+<p><img src="/images/docs/network/8ba9dee09d.svg"></p>
+<p>(2) <strong>路径向量信息的交换</strong></p>
+<ul>
+<li><strong>BGP</strong> 发言人之间通过 <strong>TCP</strong> 连接建立 <strong>BGP</strong> 会话，并交换路由前缀及其路径属性。</li>
+<li>每个 AS 在接收到路径信息后，可以根据自身策略决定：</li>
+<li>是否接受该路由</li>
+<li>是否将其传播给其他邻居</li>
+<li>是否作为本地的最佳路径使用</li>
+</ul>
+<p><img src="/images/docs/network/e4e1e86aea.svg"></p>
+<p>(3) 路由更新与维护机制</p>
+<ul>
+<li><strong>BGP</strong> 是 <strong>事件驱动协议</strong> ，不像 <strong>RIP</strong> 周期性更新，而是在以下事件发生时才发送 UPDATE 消息：</li>
+<li>新的可达前缀出现</li>
+<li>现有前缀的属性发生变化</li>
+<li>某个前缀不再可达（发送 Withdraw 消息）</li>
+</ul>
+<h2 id="相关笔记">相关笔记</h2>
+<ul>
+<li>[[devices|数据链路层设备]]</li>
+<li>[[dl-index|数据链路层]]</li>
+<li>[[error-control|差错控制]]</li>
+<li>[[flow-control|流量控制]]</li>
+<li>[[framing|组帧]]</li>
+<li>[[lan-wan|局域网与广域网]]</li>
+<li>[[mac|介质访问控制]]</li>
+</ul>
+</article>
+
+    
+    
+    
+
+    <div class="border-top-section">
+      <a href="/cc408/docs/" class="btn btn-ghost">← 返回知识点列表</a>
+    </div>
+  </main>
+</div>
+
+<style>
+.side-nav-group[open] summary { color: var(--text-primary); }
+.side-nav-group summary::-webkit-details-marker { display: none; }
+.side-nav-group summary::after {
+  content: '▸'; margin-left: auto; font-size: var(--fs-xs); transition: transform .2s;
+}
+.side-nav-group[open] summary::after { transform: rotate(90deg); }
+</style>
+
+  </main>
+  <footer class="site-footer" role="contentinfo">
+  <p>© 2026 CC408. 408考研知识整理</p>
+</footer>
+
+</body>
+</html>

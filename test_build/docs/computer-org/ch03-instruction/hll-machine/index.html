@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>高级语言与机器码 | CC408</title>
+  <meta name="description" content="编译过程 💡 低优先级
+考查得很少，大致了解 编译的具体流程 和 每个阶段的具体任务 就行。
+一个传统的 C 程序从源代码到可执行二进制程序的过程中，需要经历 预处理 （Preprocess）、 编译 （Compile）、 汇编 （Assemble）、 链接 （Link）四个步骤，这四个步骤分别由  …">
+  <link rel="icon" href="/cc408/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" as="script" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" as="script" crossorigin="anonymous">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/cc408/css/custom.min.ecad70eed0f9849f67d23e2bf502ae36e7f590486681964e1c95bc71c8672493.css" integrity="sha256-7K1w7tD5hJ9n0j4r9QKuNuf1kEhmgZZOHJW8cchnJJM=">
+  
+
+<script src="/cc408/js/watermark.js"></script>
+
+
+  <script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.content-area img,.docs-layout img').forEach(function(i){if(!i.src.match(/\.svg$/i)){i.loading='lazy';i.fetchPriority='low';}});});</script>
+</head>
+<body style="background: var(--bg-primary); color: var(--text-primary);">
+  <a href="#main-content" class="skip-link">跳转到主要内容</a>
+  <nav class="navbar" role="navigation" aria-label="主导航">
+  <a href="/cc408/" class="navbar-brand">CC408</a>
+  <button class="navbar-toggle" aria-label="菜单" onclick="this.parentElement.querySelector('.navbar-links').classList.toggle('open')">☰</button>
+  <div class="navbar-links" role="menubar">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      首页
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/docs/" role="menuitem" class="active" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识点
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      刷题
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/quiz-collection/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      收藏
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/graph/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识图谱
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/tags/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      标签
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/resources/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      资源
+    </a>
+    
+  </div>
+  <div class="navbar-right">
+    <a href="https://cycycy5464.github.io/">个人主页 →</a>
+  </div>
+</nav>
+
+  <main id="main-content" style="padding-top: 70px; min-height: calc(100vh - 120px);">
+    
+<div class="docs-layout">
+  <aside class="side-nav">
+    
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>📊</span><span>数据结构</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/basic-concepts/" class="side-nav-link ">数据结构基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/algorithm-concepts/" class="side-nav-link ">算法基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linear-list-index/" class="side-nav-link ">线性表概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/definition/" class="side-nav-link ">线性表定义与基本操作</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/sequential-list/" class="side-nav-link ">顺序表</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linked-list/" class="side-nav-link ">链表</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/stack/" class="side-nav-link ">栈</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/queue/" class="side-nav-link ">队列</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/application/" class="side-nav-link ">栈和队列的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/linear-data-structure/" class="side-nav-link ">线性数据结构</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/string-index/" class="side-nav-link ">串概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/definition/" class="side-nav-link ">串的定义与实现</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/pattern-matching/" class="side-nav-link ">串的模式匹配</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/array-matrix/" class="side-nav-link ">数组和特殊矩阵</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree/" class="side-nav-link ">树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-and-binary-tree/" class="side-nav-link ">树与二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/binary-tree/" class="side-nav-link ">二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-applications/" class="side-nav-link ">树的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/graph-index/" class="side-nav-link ">图概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/definition/" class="side-nav-link ">图的定义</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/algorithms/" class="side-nav-link ">图的算法和应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/search-index/" class="side-nav-link ">查找概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/array-search/" class="side-nav-link ">数组查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/tree-search/" class="side-nav-link ">树形查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/hash-search/" class="side-nav-link ">散列表查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/sort-index/" class="side-nav-link ">排序概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/internal-sort/" class="side-nav-link ">内部排序</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/external-sort/" class="side-nav-link ">外部排序</a>
+      
+      <a href="/cc408/exam/exercise/data_structure/" class="side-nav-link ">数据结构篇</a>
+      
+      <a href="/cc408/exam/application/2023-q1/" class="side-nav-link ">2023年408真题 - 应用题第1题</a>
+      
+      <a href="/cc408/exam/choice/2024-q5/" class="side-nav-link ">2024年408真题 - 数据结构选择题第5题</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/introduction/" class="side-nav-link ">绪论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>⚙️</span><span>计算机组成原理</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/system-hierarchy/" class="side-nav-link ">计算机系统层次结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/performance/" class="side-nav-link ">计算机性能指标</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/data-index/" class="side-nav-link ">数据表示与计算</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/integers/" class="side-nav-link ">整数的表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/float/" class="side-nav-link ">浮点数表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/type-conversion/" class="side-nav-link ">类型转换</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/circuits/" class="side-nav-link ">运算电路</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/memory-index/" class="side-nav-link ">存储系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/overview/" class="side-nav-link ">存储系统概述</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/ram/" class="side-nav-link ">内存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/cache/" class="side-nav-link ">Cache</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/external/" class="side-nav-link ">外存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/virtual/" class="side-nav-link ">虚拟存储器</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/instruction-index/" class="side-nav-link ">指令系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/types/" class="side-nav-link ">指令集种类</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/format-addressing/" class="side-nav-link ">指令格式与寻址方式</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/data-alignment/" class="side-nav-link ">数据对齐</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/opcode/" class="side-nav-link ">指令操作码</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/hll-machine/" class="side-nav-link active">高级语言与机器码</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/cpu-index/" class="side-nav-link ">中央处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/function-structure/" class="side-nav-link ">CPU功能与结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/controller/" class="side-nav-link ">控制器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/exceptions/" class="side-nav-link ">异常与中断</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/pipeline/" class="side-nav-link ">指令流水线</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/multiprocessor/" class="side-nav-link ">多处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus/" class="side-nav-link ">总线</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus-io/" class="side-nav-link ">总线和I/O系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch06-io/io-system/" class="side-nav-link ">I/O系统</a>
+      
+      <a href="/cc408/exam/exercise/architecture/" class="side-nav-link ">计算机组成原理</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/introduction/" class="side-nav-link ">概论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🖥️</span><span>操作系统</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/os/ch00-overview/os-concept/" class="side-nav-link ">操作系统概念</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/os-structure/" class="side-nav-link ">操作系统结构</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/program-env/" class="side-nav-link ">程序运行环境</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-index/" class="side-nav-link ">进程管理</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-thread/" class="side-nav-link ">进程与线程</a>
+      
+      <a href="/cc408/docs/os/ch01-process/scheduling/" class="side-nav-link ">处理机调度</a>
+      
+      <a href="/cc408/docs/os/ch01-process/sync-mutex/" class="side-nav-link ">同步与互斥</a>
+      
+      <a href="/cc408/docs/os/ch01-process/classic-sync/" class="side-nav-link ">经典同步问题</a>
+      
+      <a href="/cc408/docs/os/ch01-process/deadlock/" class="side-nav-link ">死锁</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/memory-index/" class="side-nav-link ">内存管理</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/concepts/" class="side-nav-link ">内存管理概念</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/virtual/" class="side-nav-link ">虚拟内存管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-index/" class="side-nav-link ">文件管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-basics/" class="side-nav-link ">文件</a>
+      
+      <a href="/cc408/docs/os/ch03-file/directory/" class="side-nav-link ">目录</a>
+      
+      <a href="/cc408/docs/os/ch03-file/filesystem/" class="side-nav-link ">文件系统</a>
+      
+      <a href="/cc408/docs/os/ch04-io/io-index/" class="side-nav-link ">I/O管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/devices/" class="side-nav-link ">I/O设备</a>
+      
+      <a href="/cc408/docs/os/ch04-io/device-mgmt/" class="side-nav-link ">设备管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/disk/" class="side-nav-link ">磁盘</a>
+      
+      <a href="/cc408/code/clock/" class="side-nav-link ">CLOCK 时钟替换算法</a>
+      
+      <a href="/cc408/code/lru/" class="side-nav-link ">LRU 算法</a>
+      
+      <a href="/cc408/code/spinlock/" class="side-nav-link ">TAS 实现自旋锁</a>
+      
+      <a href="/cc408/exam/exercise/os/" class="side-nav-link ">操作系统</a>
+      
+      <a href="/cc408/code/reader_writer/" class="side-nav-link ">读者写着问题</a>
+      
+      <a href="/cc408/code/monitor/" class="side-nav-link ">管程实现生产者消费者</a>
+      
+      <a href="/cc408/code/producer_consumer/" class="side-nav-link ">生产者消费者问题</a>
+      
+      <a href="/cc408/code/banker/" class="side-nav-link ">银行家算法</a>
+      
+      <a href="/cc408/code/philosopher/" class="side-nav-link ">哲学家就餐问题</a>
+      
+      <a href="/cc408/exam/comprehensive/2022-q1/" class="side-nav-link ">2022年408真题 - 综合题第1题</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/computer-overview/" class="side-nav-link ">计算机系统概述</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🌐</span><span>计算机网络</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/network/ch00-overview/layered/" class="side-nav-link ">分层结构</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/protocol-summary/" class="side-nav-link ">各层协议总结</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/device-summary/" class="side-nav-link ">网络设备总结</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/phy-index/" class="side-nav-link ">物理层</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/communication/" class="side-nav-link ">通信概念</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/encoding/" class="side-nav-link ">编码与调制</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/switching/" class="side-nav-link ">交换方式</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/devices/" class="side-nav-link ">物理层设备</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/dl-index/" class="side-nav-link ">数据链路层</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/framing/" class="side-nav-link ">组帧</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/error-control/" class="side-nav-link ">差错控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/flow-control/" class="side-nav-link ">流量控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/mac/" class="side-nav-link ">介质访问控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/lan-wan/" class="side-nav-link ">局域网与广域网</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/devices/" class="side-nav-link ">数据链路层设备</a>
+      
+      <a href="/cc408/docs/network/ch03-network/nw-index/" class="side-nav-link ">网络层</a>
+      
+      <a href="/cc408/docs/network/ch03-network/ip/" class="side-nav-link ">IP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/arp/" class="side-nav-link ">ARP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/icmp/" class="side-nav-link ">ICMP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/dhcp/" class="side-nav-link ">DHCP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/routing/" class="side-nav-link ">路由算法</a>
+      
+      <a href="/cc408/docs/network/ch03-network/sdn/" class="side-nav-link ">SDN</a>
+      
+      <a href="/cc408/docs/network/ch03-network/devices/" class="side-nav-link ">网络层设备</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tp-index/" class="side-nav-link ">传输层</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tcp/" class="side-nav-link ">TCP</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/udp/" class="side-nav-link ">UDP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-index/" class="side-nav-link ">应用层</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-model/" class="side-nav-link ">网络应用模型</a>
+      
+      <a href="/cc408/docs/network/ch05-application/dns/" class="side-nav-link ">DNS</a>
+      
+      <a href="/cc408/docs/network/ch05-application/ftp/" class="side-nav-link ">FTP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/email/" class="side-nav-link ">电子邮件</a>
+      
+      <a href="/cc408/docs/network/ch05-application/www/" class="side-nav-link ">万维网</a>
+      
+      <a href="/cc408/exam/exercise/network/" class="side-nav-link ">计算机网络</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/arch-index/" class="side-nav-link ">计算机网络体系结构</a>
+      
+    </details>
+    
+  </aside>
+  <main class="content-area">
+    <h1>高级语言与机器码</h1>
+    <div class="meta-row">
+      
+      <span><span class="diff-star">★</span><span class="diff-star">★</span><span class="diff-star-empty">☆</span></span>
+      
+      <span class="tag">基础概念</span>
+    </div>
+    <article><h3 id="编译过程">编译过程</h3>
+<p>💡 低优先级</p>
+<p>考查得很少，大致了解 <strong>编译的具体流程</strong> 和 <strong>每个阶段的具体任务</strong> 就行。</p>
+<p><img src="/images/docs/computer-org/image-20260612225720932.png"></p>
+<p>一个传统的 C 程序从源代码到可执行二进制程序的过程中，需要经历 <strong>预处理</strong> （Preprocess）、 <strong>编译</strong> （Compile）、 <strong>汇编</strong> （Assemble）、 <strong>链接</strong> （Link）四个步骤，这四个步骤分别由 <strong>预处理器</strong> （Preprocessor）、 <strong>编译器</strong> （Compiler）、 <strong>汇编器</strong> （Assembler）、 <strong>链接器</strong> （Linker）完成。</p>
+<h4 id="预处理">预处理</h4>
+<p><strong>预处理</strong> （Preprocess）阶段负责对 <strong>源代码</strong> （source code）进行文本的转换和处理，将其转化为 <strong>扩展代码</strong> （expanded code）。具体而言，<strong>预处理</strong> 阶段包含如下工作：</p>
+<ul>
+<li><strong>头文件包含</strong> ：将 <code>#include</code> 指令包含的头文件内容插入到源文件中。</li>
+<li><strong>宏替换</strong> ：将源代码中定义的宏 <code>#define</code> 进行替换。</li>
+<li><strong>删除注释</strong> ：将代码中的注释删除。</li>
+</ul>
+<h4 id="编译">编译</h4>
+<p><strong>编译</strong> （Compile）阶段将 <strong>预处理后源代码</strong> （extended code）翻译成 <strong>汇编代码</strong> （assembly code）。编译阶段包含 词法分析、语法分析、语义分析、中间代码优化 和 汇编代码生成 等子过程。</p>
+<p>注意</p>
+<p>注意 <strong>编译</strong> （compilation）这个词一般的含义是将高级语言代码转化为二进制程序，但是如果在整个编译流程中谈到这个词，则需要将其与 <strong>汇编</strong> （assemble）进行区分：</p>
+<ul>
+<li><strong>编译</strong> 是将高级语言代码转化为 <strong>汇编代码</strong></li>
+<li><strong>汇编</strong> 是将 <strong>汇编代码</strong> 转化为二进制代码</li>
+</ul>
+<h4 id="汇编">汇编</h4>
+<p><strong>汇编</strong> （Assemble）阶段负责将 <strong>汇编代码</strong> （assembly code）转换为 <strong>目标文件</strong> （object file）。<strong>汇编器</strong> （assembler）解析 <strong>汇编指令</strong> ，将其翻译为对应的 <strong>机器码</strong> 。</p>
+<h4 id="链接">链接</h4>
+<p><img src="/images/docs/computer-org/image-20260612225742983.png"></p>
+<p>如上图所示，<strong>链接器</strong> （linker）的作用是将由编译器生成的一个或多个 <strong>目标代码文件</strong> （object file，通常是汇编器生成的机器代码）合并为一个单一的 <strong>可执行文件</strong> 。在这个过程中，链接器主要完成如下任务：</p>
+<ol>
+<li><strong>符号解析</strong> ：查找所有未定义的符号（如函数调用、全局变量）并找到对应的定义。</li>
+<li><strong>重定位</strong> ：确定 <strong>目标文件</strong> 中的符号地址，并更新相关指令或数据。</li>
+<li><strong>合并代码和数据段</strong> ：将不同 <strong>目标文件</strong> 的代码和数据合并，形成最终的 <strong>可执行文件</strong> 。</li>
+</ol>
+<p><strong>链接</strong> 分为 <strong>静态链接</strong> 和 <strong>动态链接</strong> 两种方式。</p>
+<ul>
+<li><strong>静态链接</strong> ：静态链接是在编译时将所有依赖的库代码拷贝到最终的 <strong>可执行文件</strong> 中，生成一个 <strong>完全独立的二进制文件</strong> 。</li>
+<li><strong>动态链接</strong> ：动态链接不会在编译时将库代码合并，而是在运行时加载外部共享库（.so / .dll）。<strong>可执行文件</strong> 只包含对库的引用，而不包含库的代码。</li>
+</ul>
+<p><img src="/images/docs/computer-org/fc18e65856.svg"></p>
+<h3 id="汇编代码">汇编代码</h3>
+<p>⭐ 中优先级</p>
+<p>偶尔会在大题中进行综合考查，给你一段 C 语言编译成的汇编代码段，然后结合一些指令和存储系统的知识一起考查，所以还是要能理解 <strong>常见 C 语言语句和对应汇编代码的关系</strong> 。</p>
+<p>高级语言程序对应的 <strong>汇编代码</strong> 常常与 <a href="/constitution_principle/storage/">存储系统</a> 在大题中进行综合考察，这里需要重点掌握 <strong>选择</strong> 、<strong>循环</strong> 、<strong>函数调用</strong> 语句对应的汇编代码。</p>
+<h4 id="选择结构语句">选择结构语句</h4>
+<p><strong>选择结构</strong> 在汇编中通过 <strong>条件比较指令</strong> （如 cmp）设置标志位，再利用 <strong>条件跳转指令</strong> （如 jle, jne 等）决定程序流程是否进入某个分支，同时通过 <strong>无条件跳转</strong> （jmp）跳过不应执行的分支，最终形成“判断 ➝ 跳转 ➝ 执行 ➝ 合流”的控制流图结构。</p>
+<p><img src="/images/docs/computer-org/image-20260612225807527.png"></p>
+<p>上述的汇编代码可以通过以下图示辅助理解：</p>
+<p><img src="/images/docs/computer-org/image-20260612225823114.png"></p>
+<h4 id="循环结构语句">循环结构语句</h4>
+<p><strong>循环结构</strong> 在 <strong>汇编</strong> 中以一个入口标签开始，通过 cmp 或类似指令判断循环条件，结合 <strong>条件跳转</strong> （如 jge, jl）决定是否继续执行循环体，然后在循环末尾使用 <strong>无条件跳转</strong> （jmp）返回判断处，形成“判断 ➝ 执行 ➝ 跳回 ➝ 再判断”的闭环结构，直到条件不满足跳出循环。</p>
+<p>C 语言中循环语句有 <code>while</code>、<code>do-while</code> 和 <code>for</code> 三种，三者执行流程稍有差别，但核心都在于都使用 <strong>条件跳转</strong> 控制循环流程：</p>
+<h5 id="while-语句">while 语句</h5>
+<p><code>while</code> 循环在汇编中实现的关键是 “<strong>先判断、后执行</strong> ”，即编译器会先生成一个条件判断的跳转逻辑，如果条件不满足则跳出循环，否则进入循环体执行，再跳回判断位置重复该过程。</p>
+<p><img src="/images/docs/computer-org/image-20260612230045726.png"></p>
+<p>上述的汇编代码可以通过以下图示辅助理解：</p>
+<p><img src="/images/docs/computer-org/68f9fd3be7.svg"></p>
+<h5 id="do-while-语句">do-while 语句</h5>
+<p><code>do-while</code> 循环的核心在于 <strong>“先执行一次，再判断”</strong> ，因此汇编中先直接执行循环体，然后再进行条件判断，根据比较结果决定是否跳回继续执行。这种结构通过将判断逻辑放在循环体之后，确保循环体至少执行一次。
+<img src="/images/docs/computer-org/image-20260612230057652.png"></p>
+<p>上述的汇编代码可以通过以下图示辅助理解：</p>
+<p><img src="/images/docs/computer-org/6323eac982.svg"></p>
+<h5 id="for-语句">for 语句</h5>
+<p><code>for</code> 循环在汇编中的实现是将 <strong>初始化</strong> 、<strong>判断</strong> 、<strong>更新</strong> 三个阶段明确拆分：先初始化循环变量，再判断是否进入循环体；执行完循环体后进行变量更新，并跳回判断位置。它的本质是 <code>while</code> 循环的结构化变体，但语义更集中，便于生成高效指令序列。</p>
+<p><img src="/images/docs/computer-org/image-20260612230108880.png"></p>
+<p>上述的汇编代码可以通过以下图示辅助理解：</p>
+<p><img src="/images/docs/computer-org/9568896db3.svg"></p>
+<h4 id="函数定义和调用">函数定义和调用</h4>
+<p>在 C 语言中，每一个函数调用在底层都会被编译为一套具体的 <strong>汇编指令</strong> 。为了实现 <strong>函数的参数传递</strong> 、<strong>局部变量管理</strong> 、<strong>返回值传递</strong> 等，<strong>汇编层面</strong> 必须精细地管理 <strong>栈帧</strong> （stack frame）、<strong>寄存器</strong> （register）以及 <strong>指令流程</strong> （control flow）。</p>
+<p><strong><strong>函数调用在汇编中的三大阶段</strong> ：</strong></p>
+<ol>
+<li><strong>函数入口</strong></li>
+</ol>
+<ul>
+<li><strong>保存寄存器</strong> ：保存 <strong>caller</strong> 的寄存器，以确保在函数执行完后，寄存器的值不被改变。</li>
+<li><strong>设置栈帧</strong> ：保存 <strong>caller</strong> 的栈帧，设置 <strong>callee</strong> 的栈帧。</li>
+</ul>
+<ol start="2">
+<li><strong>函数体</strong></li>
+</ol>
+<ul>
+<li>
+<p>这部分是函数的执行逻辑，会包含各种操作指令，此时 <strong>局部变量</strong> 会被保存到栈上。</p>
+<ol start="3">
+<li><strong>函数返回</strong></li>
+</ol>
+</li>
+<li>
+<p>如果函数有返回值，通常会将结果保存在 <strong>eax</strong> 寄存器中。</p>
+</li>
+<li>
+<p><strong>恢复栈帧</strong> ：恢复栈指针，确保栈帧被正确销毁。</p>
+</li>
+<li>
+<p><strong>恢复寄存器</strong> ：如果函数入口时保存了寄存器，那么在返回之前，需要将它们恢复。</p>
+</li>
+</ul>
+<p>补充</p>
+<p>在理解汇编时，<strong>caller</strong> 和 <strong>callee</strong> 是两个非常关键的术语：</p>
+<ul>
+<li><code>caller</code>：调用某个函数的一方。</li>
+<li><code>callee</code>：被调用的函数本身。</li>
+</ul>
+<p><img src="/images/docs/computer-org/3f1209a4f5.svg"></p>
+<p>这一节可以结合 <a href="/operating_system/process/process_thread/#%e5%87%bd%e6%95%b0%e8%b0%83%e7%94%a8%e6%97%b6%e5%86%85%e5%ad%98%e7%bb%93%e6%9e%84">函数调用时内存结构</a> 共同理解，下面通过几个简单的例子说明以下 <strong>函数定义</strong> 和 <strong>调用</strong> 。</p>
+<h5 id="函数定义">函数定义</h5>
+<p>本节以一个非常简单的加法函数 <code>add</code> 进行说明：</p>
+<p>​    <img src="/images/docs/computer-org/image-20260612230145362.png"></p>
+<p><strong>说明</strong></p>
+<ul>
+<li><code>add</code> 函数的两个参数 <code>x</code> 和 <code>y</code> 是通过栈传递的。<code>[ebp+8]</code> 和 <code>[ebp+12]</code> 分别代表第一个和第二个参数。</li>
+<li>函数返回值被保存在 <strong>eax</strong> 寄存器中。</li>
+<li><code>push ebp / mov ebp, esp</code> 是标准做法，用于设置新函数的栈帧，确保不同函数调用之间互不干扰。</li>
+</ul>
+<h5 id="函数调用">函数调用</h5>
+<p>再看一个稍复杂的例子，<code>func</code> 函数调用了 <code>add</code> 函数。</p>
+<p><img src="/images/docs/computer-org/image-20260612230239442.png"></p>
+<p><strong>说明：</strong></p>
+<ul>
+<li>调用 <code>add(a, b)</code> 之前，参数是从右往左压栈的，这是 <code>C</code> 语言默认的调用约定（<code>cdecl</code>）。</li>
+<li><code>call _add</code> 会把当前指令地址压入栈中（以便 <code>ret</code> 时跳回来）。</li>
+<li><strong>eax</strong> 保存了 <code>add</code> 的返回值，存入局部变量 <code>sum</code>。</li>
+<li>使用 <code>shl eax, 1</code> 是将 <code>sum</code> 乘以 <code>2</code>（左移一位即乘 <em>2</em> ）。</li>
+</ul>
+<h2 id="相关笔记">相关笔记</h2>
+<ul>
+<li>[[cache|Cache]]</li>
+<li>[[external|外存]]</li>
+<li>[[memory-index|存储系统]]</li>
+<li>[[overview|存储系统概述]]</li>
+<li>[[ram|内存]]</li>
+<li>[[virtual|虚拟存储器]]</li>
+</ul>
+</article>
+
+    
+    
+    
+
+    <div class="border-top-section">
+      <a href="/cc408/docs/" class="btn btn-ghost">← 返回知识点列表</a>
+    </div>
+  </main>
+</div>
+
+<style>
+.side-nav-group[open] summary { color: var(--text-primary); }
+.side-nav-group summary::-webkit-details-marker { display: none; }
+.side-nav-group summary::after {
+  content: '▸'; margin-left: auto; font-size: var(--fs-xs); transition: transform .2s;
+}
+.side-nav-group[open] summary::after { transform: rotate(90deg); }
+</style>
+
+  </main>
+  <footer class="site-footer" role="contentinfo">
+  <p>© 2026 CC408. 408考研知识整理</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>数据链路层 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/tags/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/</link>
+    <description>Recent content in 数据链路层 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 25 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/tags/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数据链路层</title>
+      <link>https://cycycy5464.github.io/cc408/docs/network/ch02-datalink/dl-index/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/network/ch02-datalink/dl-index/</guid>
+      <description>&lt;p&gt;在选择题中考察，个别年份也在大题中考察过，需熟练掌握介质访问控制的相关方法。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>组帧</title>
+      <link>https://cycycy5464.github.io/cc408/docs/network/ch02-datalink/framing/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/network/ch02-datalink/framing/</guid>
+      <description>&lt;p&gt;💡 低优先级&lt;/p&gt;&#xA;&lt;p&gt;较少考查，了解下几种组帧方法的原理即可。&lt;/p&gt;&#xA;&lt;p&gt;数据链路层的主要功能之一就是 &lt;strong&gt;组帧&lt;/strong&gt; 。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>基础概念 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/tags/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</link>
+    <description>Recent content in 基础概念 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 25 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/tags/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>操作系统概念</title>
+      <link>https://cycycy5464.github.io/cc408/docs/os/ch00-overview/os-concept/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/os/ch00-overview/os-concept/</guid>
+      <description>&lt;p&gt;💡 低优先级&lt;/p&gt;&#xA;&lt;p&gt;需要了解操作系统的概念，还是经常考一些 &lt;strong&gt;基础概念辨析&lt;/strong&gt; 的选择题的，当然这种题也比较简单。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>分层结构</title>
+      <link>https://cycycy5464.github.io/cc408/docs/network/ch00-overview/layered/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/network/ch00-overview/layered/</guid>
+      <description>&lt;p&gt;🔥 高优先级&lt;/p&gt;&#xA;&lt;p&gt;OSI 模型是选择题的高频考点，需要理解每一层的功能。此外，还需要了解 TCP/IP 协议栈和 OSI 协议栈的不同 以及 协议数据单元的概念。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>计算机系统层次结构</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch00-overview/system-hierarchy/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch00-overview/system-hierarchy/</guid>
+      <description>&lt;p&gt;⭐ 中优先级&lt;/p&gt;&#xA;&lt;p&gt;选择题中频考点，需要熟悉下 &lt;strong&gt;冯诺依曼结构&lt;/strong&gt; 和 &lt;strong&gt;计算机几个层次的语言&lt;/strong&gt; 。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>数据结构基本概念</title>
+      <link>https://cycycy5464.github.io/cc408/docs/data-structure/ch00-intro/basic-concepts/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/data-structure/ch00-intro/basic-concepts/</guid>
+      <description>&lt;p&gt;💡 低优先级&lt;/p&gt;&#xA;&lt;p&gt;不会直接考察类型，这里作为一个总览，帮助大家理清考题中会涉及到哪些数据结构。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>操作系统结构</title>
+      <link>https://cycycy5464.github.io/cc408/docs/os/ch00-overview/os-structure/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/os/ch00-overview/os-structure/</guid>
+      <description>&lt;p&gt;💡 低优先级&lt;/p&gt;&#xA;&lt;p&gt;偶尔在选择题中考一下 &lt;strong&gt;宏内核和微内核&lt;/strong&gt; 以及 &lt;strong&gt;虚拟机&lt;/strong&gt; 的概念。&lt;/p&gt;&#xA;&lt;h3 id=&#34;分层和模块化&#34;&gt;分层和模块化&lt;/h3&gt;&#xA;&lt;p&gt;操作系统的设计和结构在历史上经历了多种不同的方法和技巧，为了增加 &lt;strong&gt;可维护性&lt;/strong&gt; 、&lt;strong&gt;灵活性&lt;/strong&gt; 和 &lt;strong&gt;可扩展性&lt;/strong&gt; 。&lt;strong&gt;分层&lt;/strong&gt; 和 &lt;strong&gt;模块化&lt;/strong&gt; 是操作系统设计中两种主要的技术方法。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>算法基本概念</title>
+      <link>https://cycycy5464.github.io/cc408/docs/data-structure/ch00-intro/algorithm-concepts/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/data-structure/ch00-intro/algorithm-concepts/</guid>
+      <description>&lt;p&gt;⭐ 中优先级&lt;/p&gt;&#xA;&lt;p&gt;每年都会考察一道 &lt;strong&gt;复杂度分析&lt;/strong&gt; 的选择题，重点掌握时间复杂度和空间复杂度的分析方法。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>程序运行环境</title>
+      <link>https://cycycy5464.github.io/cc408/docs/os/ch00-overview/program-env/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/os/ch00-overview/program-env/</guid>
+      <description>&lt;p&gt;⭐ 中优先级&lt;/p&gt;&#xA;&lt;p&gt;这一节选择题还是经常考察的，重点在于理解 &lt;strong&gt;用户态和内核态&lt;/strong&gt; 以及 &lt;strong&gt;系统调用&lt;/strong&gt; 这两个概念，程序的链接和装入相对考察频率比较低。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>线性表概述</title>
+      <link>https://cycycy5464.github.io/cc408/docs/data-structure/ch01-linear-list/linear-list-index/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/data-structure/ch01-linear-list/linear-list-index/</guid>
+      <description>&lt;p&gt;本章是后序内容的基础，可能会涉及到在选择题中的概念考察。除此外，需要能够手写代码实现基于数组或链表的相关操作。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>通信概念</title>
+      <link>https://cycycy5464.github.io/cc408/docs/network/ch01-physical/communication/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/network/ch01-physical/communication/</guid>
+      <description>&lt;p&gt;🔥 高优先级&lt;/p&gt;&#xA;&lt;p&gt;本节的几个知识点选择题常考：奈奎斯特定理、香农定理、通信指标和接口特性，需要掌握计算方法。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>编码与调制</title>
+      <link>https://cycycy5464.github.io/cc408/docs/network/ch01-physical/encoding/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/network/ch01-physical/encoding/</guid>
+      <description>&lt;p&gt;⭐ 中优先级&lt;/p&gt;&#xA;&lt;p&gt;常在选择题中考查编码类型和调制概念，需要熟悉几种编码方式的电平特征和调制的思想。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>交换方式</title>
+      <link>https://cycycy5464.github.io/cc408/docs/network/ch01-physical/switching/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/network/ch01-physical/switching/</guid>
+      <description>&lt;p&gt;⭐ 中优先级&lt;/p&gt;&#xA;&lt;p&gt;历年真题选择题经常围绕三种交换方式的传输时间进行考查，当然也不排除未来在大题考查的可能性。这一节为理解性内容，需要理解基于比特流和存储转发方案的传输时间计算。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>存储系统概述</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch02-memory/overview/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch02-memory/overview/</guid>
+      <description>&lt;p&gt;⭐ 中优先级&lt;/p&gt;&#xA;&lt;p&gt;存储器的概念经常在选择题中考察，需要了解常见存储器的类型和特点，在选择题中看见相关名词能够辨识选出正确答案。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>串概述</title>
+      <link>https://cycycy5464.github.io/cc408/docs/data-structure/ch03-string/string-index/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/data-structure/ch03-string/string-index/</guid>
+      <description>&lt;p&gt;本章可能在选择题中出现，掌握 KMP 算法的思想，能够手工模拟 KMP 过程即可。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>内存管理概念</title>
+      <link>https://cycycy5464.github.io/cc408/docs/os/ch02-memory/concepts/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/os/ch02-memory/concepts/</guid>
+      <description>&lt;p&gt;⭐ 中优先级&lt;/p&gt;&#xA;&lt;p&gt;页式虚拟存储的细节都在 &lt;a href=&#34;https://cycycy5464.github.io/cc408/constitution_principle/storage/virtual/&#34;&gt;组成原理章节&lt;/a&gt;，对于本节，重点掌握 &lt;strong&gt;动态分区分配算法&lt;/strong&gt; 以及 &lt;strong&gt;几种内存管理方式&lt;/strong&gt; （页式、段式、段页式）的概念和特点。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>局域网与广域网</title>
+      <link>https://cycycy5464.github.io/cc408/docs/network/ch02-datalink/lan-wan/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/network/ch02-datalink/lan-wan/</guid>
+      <description>&lt;p&gt;⭐ 中优先级&lt;/p&gt;&#xA;&lt;p&gt;本节主要关注以太网的传输介质和帧格式，往年在解答题出现了传输介质的名称，如果不知道对应的带宽就难搞了。VLAN 和 广域网的概念考查频率低一些，但也比较简单，熟悉下能在选择题应对就可。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>高级语言与机器码</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch03-instruction/hll-machine/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch03-instruction/hll-machine/</guid>
+      <description>&lt;h3 id=&#34;编译过程&#34;&gt;编译过程&lt;/h3&gt;&#xA;&lt;p&gt;💡 低优先级&lt;/p&gt;&#xA;&lt;p&gt;考查得很少，大致了解 &lt;strong&gt;编译的具体流程&lt;/strong&gt; 和 &lt;strong&gt;每个阶段的具体任务&lt;/strong&gt; 就行。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>图概述</title>
+      <link>https://cycycy5464.github.io/cc408/docs/data-structure/ch05-graph/graph-index/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/data-structure/ch05-graph/graph-index/</guid>
+      <description>&lt;p&gt;本章在选择题中考察，也有可能作为一道概念题在大题中出现，需要熟练掌握图的存储结构（代码实现），并且要求在概念上理解图的应用，要求能够手工模拟。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>CPU功能与结构</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch04-cpu/function-structure/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch04-cpu/function-structure/</guid>
+      <description>&lt;p&gt;🔥 高优先级&lt;/p&gt;&#xA;&lt;p&gt;本节很重要，其实应该不需要我再强调了。本节要和指令系统放在一起理解，主要两点：1. 理解 CPU 的 &lt;strong&gt;架构方式&lt;/strong&gt; 。2. 理解 CPU 中 &lt;strong&gt;各种寄存器的功能细节&lt;/strong&gt; 。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>图的算法和应用</title>
+      <link>https://cycycy5464.github.io/cc408/docs/data-structure/ch05-graph/algorithms/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/data-structure/ch05-graph/algorithms/</guid>
+      <description>&lt;p&gt;🔥 高优先级&lt;/p&gt;&#xA;&lt;p&gt;图的应用就 &lt;strong&gt;四大天王&lt;/strong&gt; ：最小生成树、最短路径、拓扑排序 和 关键路径。需掌握这四种应用当中的 &lt;strong&gt;每个细节&lt;/strong&gt; 。当然还有 DFS 和 BFS 这两种 &lt;strong&gt;遍历方式&lt;/strong&gt; 也不能忽略。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>查找概述</title>
+      <link>https://cycycy5464.github.io/cc408/docs/data-structure/ch06-search/search-index/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/data-structure/ch06-search/search-index/</guid>
+      <description>&lt;p&gt;本章在选择题中考察，重点理解折半查找的思想以及散列表查找的冲突处理方法。&#xA;&lt;img src=&#34;https://cycycy5464.github.io/cc408/images/docs/data-structure/image-20260612141425639.png&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>多处理器</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch04-cpu/multiprocessor/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch04-cpu/multiprocessor/</guid>
+      <description>&lt;p&gt;💡 低优先级&lt;/p&gt;&#xA;&lt;p&gt;低频考点，了解基本概念，碰到选择题能大致选出来就行。&lt;/p&gt;&#xA;&lt;h3 id=&#34;弗林分类法&#34;&gt;弗林分类法&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;弗林分类法&lt;/strong&gt; （Flynn’s Taxonomy）是一种计算机体系结构的分类方法，由 &lt;strong&gt;弗林&lt;/strong&gt; （Michael J. Flynn）于 1966 年提出。它根据计算机中 &lt;strong&gt;指令流&lt;/strong&gt; 和 &lt;strong&gt;数据流&lt;/strong&gt; 的数量，将计算机体系结构分为 &lt;strong&gt;SISD&lt;/strong&gt; 、&lt;strong&gt;SIMD&lt;/strong&gt; 、&lt;strong&gt;MIMD&lt;/strong&gt; 、&lt;strong&gt;MISD&lt;/strong&gt; 四类：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>排序概述</title>
+      <link>https://cycycy5464.github.io/cc408/docs/data-structure/ch06-search/sort-index/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/data-structure/ch06-search/sort-index/</guid>
+      <description>&lt;p&gt;本章在选择题中会考察，在大题中也可能会基于本章的排序算法思想出一道相关的代码题。需要熟练掌握各个排序算法的过程，并且能够手写快速排序&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>概论</title>
+      <link>https://cycycy5464.github.io/cc408/docs/computer-org/ch00-overview/introduction/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/computer-org/ch00-overview/introduction/</guid>
+      <description>&lt;p&gt;计算机组成原理在 408 试卷中占据 45 分，和数据结构一样，是分数占比最大的科目，同样会考察 11 道选择题和两道大题。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>计算机网络体系结构</title>
+      <link>https://cycycy5464.github.io/cc408/docs/network/ch00-overview/arch-index/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/network/ch00-overview/arch-index/</guid>
+      <description>&lt;p&gt;可能在选择题中考察，需要掌握 TCP/IO 模型和 ISO/OSI 模型的不同，并且能够从一个宏观的角度看待网络不同层次之间的联系。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>计算机系统概述</title>
+      <link>https://cycycy5464.github.io/cc408/docs/os/ch00-overview/computer-overview/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/os/ch00-overview/computer-overview/</guid>
+      <description>&lt;p&gt;操作系统的基本概念，可能会在选择题中考察，看到题目能够选出答案即可。&#xA;&lt;img src=&#34;https://cycycy5464.github.io/cc408/images/docs/os/image-20260611220050546.png&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>绪论</title>
+      <link>https://cycycy5464.github.io/cc408/docs/data-structure/ch00-intro/introduction/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/data-structure/ch00-intro/introduction/</guid>
+      <description>&lt;p&gt;本章在考研中一般不直接考察，需要了解时间复杂度和空间复杂度的概念，并对算法进行相关分析。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

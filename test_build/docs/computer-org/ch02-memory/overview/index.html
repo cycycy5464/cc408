@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>存储系统概述 | CC408</title>
+  <meta name="description" content="⭐ 中优先级
+存储器的概念经常在选择题中考察，需要了解常见存储器的类型和特点，在选择题中看见相关名词能够辨识选出正确答案。
+存储系统的层次结构 存储系统是计算机体系结构的核心组成部分之一，用于存储程序指令和数据，以支持处理器的运算需求。为了平衡速度、容量和成本，现代计算机采用了分层存储体系结构，从最 …">
+  <link rel="icon" href="/cc408/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" as="script" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" as="script" crossorigin="anonymous">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/cc408/css/custom.min.ecad70eed0f9849f67d23e2bf502ae36e7f590486681964e1c95bc71c8672493.css" integrity="sha256-7K1w7tD5hJ9n0j4r9QKuNuf1kEhmgZZOHJW8cchnJJM=">
+  
+
+<script src="/cc408/js/watermark.js"></script>
+
+
+  <script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.content-area img,.docs-layout img').forEach(function(i){if(!i.src.match(/\.svg$/i)){i.loading='lazy';i.fetchPriority='low';}});});</script>
+</head>
+<body style="background: var(--bg-primary); color: var(--text-primary);">
+  <a href="#main-content" class="skip-link">跳转到主要内容</a>
+  <nav class="navbar" role="navigation" aria-label="主导航">
+  <a href="/cc408/" class="navbar-brand">CC408</a>
+  <button class="navbar-toggle" aria-label="菜单" onclick="this.parentElement.querySelector('.navbar-links').classList.toggle('open')">☰</button>
+  <div class="navbar-links" role="menubar">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      首页
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/docs/" role="menuitem" class="active" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识点
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      刷题
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/quiz-collection/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      收藏
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/graph/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识图谱
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/tags/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      标签
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/resources/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      资源
+    </a>
+    
+  </div>
+  <div class="navbar-right">
+    <a href="https://cycycy5464.github.io/">个人主页 →</a>
+  </div>
+</nav>
+
+  <main id="main-content" style="padding-top: 70px; min-height: calc(100vh - 120px);">
+    
+<div class="docs-layout">
+  <aside class="side-nav">
+    
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>📊</span><span>数据结构</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/basic-concepts/" class="side-nav-link ">数据结构基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/algorithm-concepts/" class="side-nav-link ">算法基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linear-list-index/" class="side-nav-link ">线性表概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/definition/" class="side-nav-link ">线性表定义与基本操作</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/sequential-list/" class="side-nav-link ">顺序表</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linked-list/" class="side-nav-link ">链表</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/stack/" class="side-nav-link ">栈</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/queue/" class="side-nav-link ">队列</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/application/" class="side-nav-link ">栈和队列的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/linear-data-structure/" class="side-nav-link ">线性数据结构</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/string-index/" class="side-nav-link ">串概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/definition/" class="side-nav-link ">串的定义与实现</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/pattern-matching/" class="side-nav-link ">串的模式匹配</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/array-matrix/" class="side-nav-link ">数组和特殊矩阵</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree/" class="side-nav-link ">树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-and-binary-tree/" class="side-nav-link ">树与二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/binary-tree/" class="side-nav-link ">二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-applications/" class="side-nav-link ">树的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/graph-index/" class="side-nav-link ">图概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/definition/" class="side-nav-link ">图的定义</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/algorithms/" class="side-nav-link ">图的算法和应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/search-index/" class="side-nav-link ">查找概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/array-search/" class="side-nav-link ">数组查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/tree-search/" class="side-nav-link ">树形查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/hash-search/" class="side-nav-link ">散列表查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/sort-index/" class="side-nav-link ">排序概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/internal-sort/" class="side-nav-link ">内部排序</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/external-sort/" class="side-nav-link ">外部排序</a>
+      
+      <a href="/cc408/exam/exercise/data_structure/" class="side-nav-link ">数据结构篇</a>
+      
+      <a href="/cc408/exam/application/2023-q1/" class="side-nav-link ">2023年408真题 - 应用题第1题</a>
+      
+      <a href="/cc408/exam/choice/2024-q5/" class="side-nav-link ">2024年408真题 - 数据结构选择题第5题</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/introduction/" class="side-nav-link ">绪论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>⚙️</span><span>计算机组成原理</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/system-hierarchy/" class="side-nav-link ">计算机系统层次结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/performance/" class="side-nav-link ">计算机性能指标</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/data-index/" class="side-nav-link ">数据表示与计算</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/integers/" class="side-nav-link ">整数的表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/float/" class="side-nav-link ">浮点数表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/type-conversion/" class="side-nav-link ">类型转换</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/circuits/" class="side-nav-link ">运算电路</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/memory-index/" class="side-nav-link ">存储系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/overview/" class="side-nav-link active">存储系统概述</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/ram/" class="side-nav-link ">内存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/cache/" class="side-nav-link ">Cache</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/external/" class="side-nav-link ">外存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/virtual/" class="side-nav-link ">虚拟存储器</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/instruction-index/" class="side-nav-link ">指令系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/types/" class="side-nav-link ">指令集种类</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/format-addressing/" class="side-nav-link ">指令格式与寻址方式</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/data-alignment/" class="side-nav-link ">数据对齐</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/opcode/" class="side-nav-link ">指令操作码</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/hll-machine/" class="side-nav-link ">高级语言与机器码</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/cpu-index/" class="side-nav-link ">中央处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/function-structure/" class="side-nav-link ">CPU功能与结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/controller/" class="side-nav-link ">控制器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/exceptions/" class="side-nav-link ">异常与中断</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/pipeline/" class="side-nav-link ">指令流水线</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/multiprocessor/" class="side-nav-link ">多处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus/" class="side-nav-link ">总线</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus-io/" class="side-nav-link ">总线和I/O系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch06-io/io-system/" class="side-nav-link ">I/O系统</a>
+      
+      <a href="/cc408/exam/exercise/architecture/" class="side-nav-link ">计算机组成原理</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/introduction/" class="side-nav-link ">概论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🖥️</span><span>操作系统</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/os/ch00-overview/os-concept/" class="side-nav-link ">操作系统概念</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/os-structure/" class="side-nav-link ">操作系统结构</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/program-env/" class="side-nav-link ">程序运行环境</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-index/" class="side-nav-link ">进程管理</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-thread/" class="side-nav-link ">进程与线程</a>
+      
+      <a href="/cc408/docs/os/ch01-process/scheduling/" class="side-nav-link ">处理机调度</a>
+      
+      <a href="/cc408/docs/os/ch01-process/sync-mutex/" class="side-nav-link ">同步与互斥</a>
+      
+      <a href="/cc408/docs/os/ch01-process/classic-sync/" class="side-nav-link ">经典同步问题</a>
+      
+      <a href="/cc408/docs/os/ch01-process/deadlock/" class="side-nav-link ">死锁</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/memory-index/" class="side-nav-link ">内存管理</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/concepts/" class="side-nav-link ">内存管理概念</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/virtual/" class="side-nav-link ">虚拟内存管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-index/" class="side-nav-link ">文件管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-basics/" class="side-nav-link ">文件</a>
+      
+      <a href="/cc408/docs/os/ch03-file/directory/" class="side-nav-link ">目录</a>
+      
+      <a href="/cc408/docs/os/ch03-file/filesystem/" class="side-nav-link ">文件系统</a>
+      
+      <a href="/cc408/docs/os/ch04-io/io-index/" class="side-nav-link ">I/O管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/devices/" class="side-nav-link ">I/O设备</a>
+      
+      <a href="/cc408/docs/os/ch04-io/device-mgmt/" class="side-nav-link ">设备管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/disk/" class="side-nav-link ">磁盘</a>
+      
+      <a href="/cc408/code/clock/" class="side-nav-link ">CLOCK 时钟替换算法</a>
+      
+      <a href="/cc408/code/lru/" class="side-nav-link ">LRU 算法</a>
+      
+      <a href="/cc408/code/spinlock/" class="side-nav-link ">TAS 实现自旋锁</a>
+      
+      <a href="/cc408/exam/exercise/os/" class="side-nav-link ">操作系统</a>
+      
+      <a href="/cc408/code/reader_writer/" class="side-nav-link ">读者写着问题</a>
+      
+      <a href="/cc408/code/monitor/" class="side-nav-link ">管程实现生产者消费者</a>
+      
+      <a href="/cc408/code/producer_consumer/" class="side-nav-link ">生产者消费者问题</a>
+      
+      <a href="/cc408/code/banker/" class="side-nav-link ">银行家算法</a>
+      
+      <a href="/cc408/code/philosopher/" class="side-nav-link ">哲学家就餐问题</a>
+      
+      <a href="/cc408/exam/comprehensive/2022-q1/" class="side-nav-link ">2022年408真题 - 综合题第1题</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/computer-overview/" class="side-nav-link ">计算机系统概述</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🌐</span><span>计算机网络</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/network/ch00-overview/layered/" class="side-nav-link ">分层结构</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/protocol-summary/" class="side-nav-link ">各层协议总结</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/device-summary/" class="side-nav-link ">网络设备总结</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/phy-index/" class="side-nav-link ">物理层</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/communication/" class="side-nav-link ">通信概念</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/encoding/" class="side-nav-link ">编码与调制</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/switching/" class="side-nav-link ">交换方式</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/devices/" class="side-nav-link ">物理层设备</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/dl-index/" class="side-nav-link ">数据链路层</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/framing/" class="side-nav-link ">组帧</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/error-control/" class="side-nav-link ">差错控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/flow-control/" class="side-nav-link ">流量控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/mac/" class="side-nav-link ">介质访问控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/lan-wan/" class="side-nav-link ">局域网与广域网</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/devices/" class="side-nav-link ">数据链路层设备</a>
+      
+      <a href="/cc408/docs/network/ch03-network/nw-index/" class="side-nav-link ">网络层</a>
+      
+      <a href="/cc408/docs/network/ch03-network/ip/" class="side-nav-link ">IP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/arp/" class="side-nav-link ">ARP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/icmp/" class="side-nav-link ">ICMP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/dhcp/" class="side-nav-link ">DHCP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/routing/" class="side-nav-link ">路由算法</a>
+      
+      <a href="/cc408/docs/network/ch03-network/sdn/" class="side-nav-link ">SDN</a>
+      
+      <a href="/cc408/docs/network/ch03-network/devices/" class="side-nav-link ">网络层设备</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tp-index/" class="side-nav-link ">传输层</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tcp/" class="side-nav-link ">TCP</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/udp/" class="side-nav-link ">UDP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-index/" class="side-nav-link ">应用层</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-model/" class="side-nav-link ">网络应用模型</a>
+      
+      <a href="/cc408/docs/network/ch05-application/dns/" class="side-nav-link ">DNS</a>
+      
+      <a href="/cc408/docs/network/ch05-application/ftp/" class="side-nav-link ">FTP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/email/" class="side-nav-link ">电子邮件</a>
+      
+      <a href="/cc408/docs/network/ch05-application/www/" class="side-nav-link ">万维网</a>
+      
+      <a href="/cc408/exam/exercise/network/" class="side-nav-link ">计算机网络</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/arch-index/" class="side-nav-link ">计算机网络体系结构</a>
+      
+    </details>
+    
+  </aside>
+  <main class="content-area">
+    <h1>存储系统概述</h1>
+    <div class="meta-row">
+      
+      <span><span class="diff-star">★</span><span class="diff-star-empty">☆</span><span class="diff-star-empty">☆</span></span>
+      
+      <span class="tag">基础概念</span>
+    </div>
+    <article><p>⭐ 中优先级</p>
+<p>存储器的概念经常在选择题中考察，需要了解常见存储器的类型和特点，在选择题中看见相关名词能够辨识选出正确答案。</p>
+<h3 id="存储系统的层次结构">存储系统的层次结构</h3>
+<p>存储系统是计算机体系结构的核心组成部分之一，用于存储程序指令和数据，以支持处理器的运算需求。为了平衡速度、容量和成本，现代计算机采用了分层存储体系结构，从最快速但容量有限的 <strong>寄存器</strong> 到容量大但速度较慢的辅助存储设备，形成了存储层次结构。</p>
+<p><img src="/images/docs/computer-org/001df1e8f1.svg"></p>
+<p>(distributed file systems, web servers)</p>
+<p>如上图所示，越靠近金字塔上层的容量越小但速度越快，越靠近金字塔下层的容量越大但速度越慢。计算机的存储系统包含以下层次：</p>
+<ol>
+<li><strong>寄存器</strong> （Registers）:</li>
+</ol>
+<ul>
+<li><strong>寄存器</strong> 是位于处理器内部的最快速存储单元。</li>
+<li>它们提供极快的数据访问速度，但其容量非常有限。</li>
+</ul>
+<ol start="2">
+<li><strong>一级缓存</strong> （L1 Cache）:</li>
+</ol>
+<ul>
+<li>L1 缓存位于处理器内部，比 <strong>寄存器</strong> 空间稍大，速度比 L2 和 L3 Cache 更快。</li>
+<li>它通常分为 <strong>数据缓存</strong> （用于存储数据）和指令缓存（用于存储指令）。</li>
+</ul>
+<ol start="3">
+<li><strong>二级缓存</strong> （L2 Cache）:</li>
+</ol>
+<ul>
+<li>L2 缓存比 L1 缓存大，并且位于处理器和主内存之间。</li>
+<li>它的速度比 L1 慢，但比主内存快。</li>
+</ul>
+<ol start="4">
+<li><strong>三级缓存</strong> （L3 Cache）:</li>
+</ol>
+<ul>
+<li>在某些系统中，还有 L3 缓存，这是一种更大但速度更慢的缓存。</li>
+<li>它位于 L2 缓存和主内存之间，旨在进一步减少对主内存的访问。</li>
+</ul>
+<ol start="5">
+<li><strong>主存</strong> （RAM）:</li>
+</ol>
+<ul>
+<li>就是我们常说的内存，比缓存慢，但比硬盘快得多，并且容量比缓存大。</li>
+<li><strong>主存</strong> 用于存储正在运行的程序和当前使用的数据。</li>
+</ul>
+<ol start="6">
+<li><strong>辅助存储</strong> （如硬盘驱动器或固态驱动器）:</li>
+</ol>
+<ul>
+<li><strong>辅助存储</strong> 设备提供大量的永久存储。</li>
+<li>与 <strong>RAM</strong> 相比，这些设备访问速度较慢，但能够存储更多的数据，并且在断电时不会丢失数据。</li>
+<li><a href="/constitution_principle/storage/storage/#%e6%9c%ba%e6%a2%b0%e7%a1%ac%e7%9b%98">机械硬盘</a>（HDD）和<a href="/constitution_principle/storage/storage/#%e5%9b%ba%e6%80%81%e7%a1%ac%e7%9b%98">固态硬盘</a>（SSD）是常见的 <strong>辅助存储</strong> 设备。</li>
+</ul>
+<p>存储器层次结构的主要思想是上一层的存储器作为低一层存储器的高速缓存。当 CPU 要从存储器中存取数据时，先访问 <strong>Cache</strong> ，若不在 <strong>Cache</strong> 中，则访问 <strong>主存</strong> ，若不在 <strong>主存</strong> 中，则访问磁盘，此时，操作数从磁盘读出送到 <strong>主存</strong> ，然后从 <strong>主存</strong> 送到 <strong>Cache</strong> 。</p>
+<p><strong>Cache——主存层</strong> 主要解决 CPU 和主存速度不匹配的问题，主存和 <strong>Cache</strong> 之间的数据调动是由硬件自动完成的。</p>
+<p><strong>主存一辅存层</strong> 主要解决存储系统的容量问题，主存和 <strong>辅存</strong> 之间的数据调动是由硬件和操作系统共同完成的，<strong>两者对于应用程序员都是透明的</strong> 。</p>
+<h3 id="ram">RAM</h3>
+<p>半导体随机存储器的英文为 <code>Semiconductor Random-Access Memory</code> （ <code>RAM</code> ）。</p>
+<p>首先说一下这个名词中的几个部分：</p>
+<ul>
+<li>半导体：这种存储器使用半导体材料（如硅）制成。晶体管是构成半导体存储器的基本组成部分。</li>
+<li>随机：随机的意思是随机访问，意味着可以以几乎恒定的时间访问存储器中的任意位置，它与其他存储技术（如磁盘或磁带）不同，后者需要按顺序访问数据。</li>
+</ul>
+<p>随机存储器主要分为 <strong>SRAM</strong> 和 <strong>DRAM</strong> 两种。</p>
+<h4 id="sram">SRAM</h4>
+<p><strong>SRAM</strong> （Static RAM，静态随机存取存储器）使用触发器（通常由 4-6 个晶体管组成）构成存储器的基本存储单元，存储每个比特的数据，如下图所示：</p>
+<p><img src="/images/docs/computer-org/ae6155700c.svg"></p>
+<p>只要电源持续供应，数据无需刷新即可保持稳定。</p>
+<p><strong>SRAM</strong> 通过将触发器组织成二维阵列构成存储器，每行连接一个字线（Word Line），控制该行所有单元的访问。<br>
+每列连接一对位线（Bit Line），用于传输数据。</p>
+<p><strong>SRAM</strong> <strong>主要用于</strong> CPU 缓存（L1/L2/L3 Cache）、寄存器、嵌入式系统中的小型高速存储。</p>
+<h4 id="dram">DRAM</h4>
+<p><strong>DRAM</strong> （Dynamic RAM，动态随机存储器）使用 1 个晶体管和 1 个电容器（1T1C 结构）构成存储器的基本存储单元，存储每个比特的数据。</p>
+<ul>
+<li>电容器存储电荷，表示 1 比特数据（有电荷为 1，无电荷为 0）。</li>
+<li>晶体管作为开关，控制电容器与外部位线（bit line）的连接，读写数据。</li>
+</ul>
+<p><img src="/images/docs/computer-org/image-20260612222217595.png"></p>
+<p>与触发器不同，电容器具有 <strong>动态特性</strong> ，会随时间漏电，导致数据丢失，因此需要 <strong>定期刷新</strong> （通常每几毫秒）以恢复电荷。</p>
+<p><strong>DRAM</strong> 和 <strong>SRAM</strong> 的存储阵列在宏观上类似，都采用二维矩阵结构，通过字线和位线实现随机访问，主要区别在于基本存储单元的不同：</p>
+<p><img src="/images/docs/computer-org/504f9f18f3.svg"></p>
+<p>它以低成本和高容量著称，<strong>主要用于</strong> 计算机主内存（如系统 <strong>RAM</strong> ）、显卡内存等。</p>
+<h5 id="行列复用">行列复用</h5>
+<p>需要注意一点，绝大多数 DRAM 芯片的引脚都采用了 采用了 “行列地址复用” 的方式。</p>
+<ul>
+<li>
+<p>DRAM 芯片内部存储单元是一个二维阵列：</p>
+</li>
+<li>
+<p>行表示字线。</p>
+</li>
+<li>
+<p>列表示位线。</p>
+<ul>
+<li>如果直接给每个单元提供地址引脚，需要 <strong>log₂(行数) + log₂(列数)</strong> 个引脚。</li>
+</ul>
+</li>
+<li>
+<p>例如：64K × 4 DRAM（64K 个字，每个字 4 bit），如果阵列是 256 行 × 256 列，就需要 16 根地址线。</p>
+<ul>
+<li>但在 20 世纪 70、80 年代，封装引脚数量有限，无法承受那么多地址线。</li>
+</ul>
+</li>
+</ul>
+<p>于是，引入了 <strong>行列地址复用</strong> （Address Multiplexing）：</p>
+<p>DRAM 行列复用实例</p>
+<p>假设有一个 <strong>16M × 4bit</strong> 的 DRAM 芯片：</p>
+<ul>
+<li>
+<p>存储单元总数：\(16M × 4 = 64M\) bit。</p>
+</li>
+<li>
+<p>单元阵列：4K 行 × 4K 列（因为 \(4096 × 4096 = 16M\)）。</p>
+</li>
+<li>
+<p>需要地址位数：</p>
+</li>
+<li>
+<p>行地址：12 位（\(2^{12} = 4096\)）</p>
+</li>
+<li>
+<p>列地址：12 位（\(2^{12} = 4096\)）</p>
+<ul>
+<li>
+<p>如果不复用，要 24 根地址线。</p>
+</li>
+<li>
+<p>如果复用，只要 <strong>12 根地址线</strong> ，行列分时复用即可。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>实际上就把引脚数量减半。</p>
+<ul>
+<li>芯片的外部只提供 <strong>log₂(max(行数, 列数))</strong> 根地址线。</li>
+<li>地址分两次送入：</li>
+</ul>
+<ol>
+<li>先送行地址（RAS，Row Address Strobe 信号有效时锁存）。</li>
+<li>再送列地址（CAS，Column Address Strobe 信号有效时锁存）。</li>
+</ol>
+<p>但是 <strong>SRAM</strong> 一般不使用行列复用：外部地址线一次性给出完整的地址，直接解码到存储单元。因为 SRAM 容量较小且速度有限，所以引脚数量不会太多。</p>
+<hr>
+<p>SRAM 和 DRAM 对比 如下表所示：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">特性</th>
+          <th style="text-align: left">DRAM</th>
+          <th style="text-align: left">SRAM</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">存储单元</td>
+          <td style="text-align: left">1 晶体管 +1 电容器</td>
+          <td style="text-align: left">4-6 晶体管</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">速度</td>
+          <td style="text-align: left">较慢</td>
+          <td style="text-align: left"><strong>更快</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">功耗</td>
+          <td style="text-align: left">刷新导致较高功耗</td>
+          <td style="text-align: left">静态低，总体较高</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">成本</td>
+          <td style="text-align: left">低</td>
+          <td style="text-align: left">高</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">容量</td>
+          <td style="text-align: left">大</td>
+          <td style="text-align: left">小</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">刷新需求</td>
+          <td style="text-align: left">需要 <strong>定期刷新</strong></td>
+          <td style="text-align: left">无需刷新</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">应用</td>
+          <td style="text-align: left">主内存、显存</td>
+          <td style="text-align: left">CPU 缓存、寄存器</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="flash-存储">Flash 存储</h3>
+<p>Flash 存储器是一种 <em><strong>非易失性</strong></em> 的电子存储设备，它利用半导体技术来存储数据。通常用于长期数据存储，如 USB 闪存驱动器、固态硬盘（SSD）和移动设备的内部存储。它在读取速度上比 <strong>RAM</strong> 慢，但优于传统的硬盘驱动器（HDD）。</p>
+<p>Flash 存储器使用电子方式来擦写和重新编程存储单元。这意味着可以通过电信号快速擦除和写入数据。数据存储在小型存储单元中，每个单元由浮动门晶体管组成。这些晶体管可以保持其充电状态，从而代表不同的数据位。</p>
+<p>Flash 存储主要分为 <code>NAND Flash</code> 和 <code>NOR Flash</code> 这两种类型。</p>
+<h3 id="rom">ROM</h3>
+<p><strong>ROM</strong> （Read-Only Memory）是一种 <em><strong>非易失性</strong></em> 存储设备，主要用于永久性地存储数据。</p>
+<p><strong>ROM</strong> 主要用于读取操作。虽然早期的 <strong>ROM</strong> 在制造过程中就已经被编程，不能修改，但现代的 <strong>ROM</strong> （如 EPROM 和 Flash 存储器）可以被重新编程。</p>
+<p><strong>ROM</strong> 常用于存储固件，这是一种软件程序，直接嵌入在硬件设备中，用于控制设备的基本操作。例如，BIOS（基本输入输出系统）通常存储在 <strong>ROM</strong> 中。</p>
+<p>注意一下 <strong>ROM</strong> 和 <strong>RAM</strong> 的对比如下：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">特征</th>
+          <th style="text-align: left">RAM（随机存取存储器）</th>
+          <th style="text-align: left">ROM（只读存储器）</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">易失性</td>
+          <td style="text-align: left">是（断电时数据丧失）</td>
+          <td style="text-align: left">否（数据在断电时不丧失）</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">读写能力</td>
+          <td style="text-align: left">可以被随机读取和写入</td>
+          <td style="text-align: left">通常只读，只读数据不能随机写入</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">用途</td>
+          <td style="text-align: left">用于存储正在运行的程序、操作系统和数据</td>
+          <td style="text-align: left">用于存储固定程序代码、固件、启动程序等</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">存储容量</td>
+          <td style="text-align: left">通常较大，以支持多个程序同时运行</td>
+          <td style="text-align: left">通常较小，主要用于存储核心系统和固件</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">数据持续性</td>
+          <td style="text-align: left">不持久，数据在断电时丧失</td>
+          <td style="text-align: left">持久，数据在断电时不丧失</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">修改权限</td>
+          <td style="text-align: left">可以随机修改和写入数据</td>
+          <td style="text-align: left">通常只读，只读数据无法被修改</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>ROM</strong> 的类型主要了解 <strong>EPROM</strong> 和 <strong>CDMROM</strong> 这两种：</p>
+<p>EPROM</p>
+<p><strong>EPROM</strong> 可以通过紫外线照射来擦除数据，然后重新写入数据。写入数据和擦除数据都较为繁琐，且需要物理操作。常用作电脑的 BIOS 芯片，支持随机存取。</p>
+<p>CDROM</p>
+<p><strong>CDROM</strong> 是一种光盘存储设备，数据在生产时一次性写入，不能被修改（只能读取）。</p>
+<h2 id="相关笔记">相关笔记</h2>
+<ul>
+<li>[[circuits|运算电路]]</li>
+<li>[[data-index|数据表示与计算]]</li>
+<li>[[float|浮点数表示]]</li>
+<li>[[integers|整数的表示]]</li>
+<li>[[type-conversion|类型转换]]</li>
+</ul>
+</article>
+
+    
+    
+    
+
+    <div class="border-top-section">
+      <a href="/cc408/docs/" class="btn btn-ghost">← 返回知识点列表</a>
+    </div>
+  </main>
+</div>
+
+<style>
+.side-nav-group[open] summary { color: var(--text-primary); }
+.side-nav-group summary::-webkit-details-marker { display: none; }
+.side-nav-group summary::after {
+  content: '▸'; margin-left: auto; font-size: var(--fs-xs); transition: transform .2s;
+}
+.side-nav-group[open] summary::after { transform: rotate(90deg); }
+</style>
+
+  </main>
+  <footer class="site-footer" role="contentinfo">
+  <p>© 2026 CC408. 408考研知识整理</p>
+</footer>
+
+</body>
+</html>

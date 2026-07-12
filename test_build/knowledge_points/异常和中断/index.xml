@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>异常和中断 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/knowledge_points/%E5%BC%82%E5%B8%B8%E5%92%8C%E4%B8%AD%E6%96%AD/</link>
+    <description>Recent content in 异常和中断 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/knowledge_points/%E5%BC%82%E5%B8%B8%E5%92%8C%E4%B8%AD%E6%96%AD/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2012 计算机组成原理 第22题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2012-co-022/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2012-co-022/</guid>
+      <description>&lt;p&gt;响应外部中断的过程中，中断隐指令完成的操作，除保护断点外，还包括()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2015 计算机组成原理 第22题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2015-co-022/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2015-co-022/</guid>
+      <description>&lt;p&gt;内部异常(内中断)可分为故障( fault) 、 陷阱( trap)  和终止( abort)  三类。下列有关内部异常的 叙述中，错误的是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2016 计算机组成原理 第22题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2016-co-022/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2016-co-022/</guid>
+      <description>&lt;p&gt;异常是指令执行过程中在处理器内部发生的特殊事件，中断是来自处理器外部的请求事件。下列关于 中断或异常情况的叙述中，错误的是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2020 计算机组成原理 第20题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2020-co-020/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2020-co-020/</guid>
+      <description>&lt;p&gt;下列事件中属于外部中断事件的是()。&lt;/p&gt;&#xA;&lt;p&gt;I、访存时缺页；&lt;/p&gt;&#xA;&lt;p&gt;Ⅱ、定时器延时；&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2020 计算机组成原理 第21题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2020-co-021/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2020-co-021/</guid>
+      <description>&lt;p&gt;外部中断包括不可屏蔽中断( NMI) 和可屏蔽中断，下列关于外部中断的叙述中错误的是()。 A.CPU 处于关中断状态时也能响应NMI请求；&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2021 计算机组成原理 第21题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2021-co-021/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2021-co-021/</guid>
+      <description>&lt;p&gt;异常事件在当前指令执行过程中进行检测，中断请求则在当前指令执行后进行检测。下列事件中。下 列事件中，相应处理程序执行后，必须回到当前指令重新执行的是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机组成原理 第21题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-co-021/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-co-021/</guid>
+      <description>&lt;p&gt;下列关于硬件和异常/中断关系的叙述中，错误的是()。&lt;/p&gt;&#xA;&lt;p&gt;A. CPU 在执行一条指令过程中检测异常事件  B. CPU 在执行完一条指令时检测中断请求信号&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2025 计算机组成原理 第22题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2025-co-022/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2025-co-022/</guid>
+      <description>&lt;p&gt;下列选项中，会触发外部中断请求的事件是()。&lt;/p&gt;&#xA;&lt;p&gt;A. DMA传送结束&lt;/p&gt;&#xA;&lt;p&gt;B. 总线事务结束&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

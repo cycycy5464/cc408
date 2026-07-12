@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CPU功能与结构 | CC408</title>
+  <meta name="description" content="🔥 高优先级
+本节很重要，其实应该不需要我再强调了。本节要和指令系统放在一起理解，主要两点：1. 理解 CPU 的 架构方式 。2. 理解 CPU 中 各种寄存器的功能细节 。
+CPU 作为计算机的“大脑”，CPU（中央处理器）是执行程序指令、处理数据的关键部件。从宏观的计算机体系结构来看，CPU  …">
+  <link rel="icon" href="/cc408/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" as="script" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" as="script" crossorigin="anonymous">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/cc408/css/custom.min.ecad70eed0f9849f67d23e2bf502ae36e7f590486681964e1c95bc71c8672493.css" integrity="sha256-7K1w7tD5hJ9n0j4r9QKuNuf1kEhmgZZOHJW8cchnJJM=">
+  
+
+<script src="/cc408/js/watermark.js"></script>
+
+
+  <script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.content-area img,.docs-layout img').forEach(function(i){if(!i.src.match(/\.svg$/i)){i.loading='lazy';i.fetchPriority='low';}});});</script>
+</head>
+<body style="background: var(--bg-primary); color: var(--text-primary);">
+  <a href="#main-content" class="skip-link">跳转到主要内容</a>
+  <nav class="navbar" role="navigation" aria-label="主导航">
+  <a href="/cc408/" class="navbar-brand">CC408</a>
+  <button class="navbar-toggle" aria-label="菜单" onclick="this.parentElement.querySelector('.navbar-links').classList.toggle('open')">☰</button>
+  <div class="navbar-links" role="menubar">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      首页
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/docs/" role="menuitem" class="active" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识点
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      刷题
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/quiz-collection/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      收藏
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/graph/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识图谱
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/tags/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      标签
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/resources/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      资源
+    </a>
+    
+  </div>
+  <div class="navbar-right">
+    <a href="https://cycycy5464.github.io/">个人主页 →</a>
+  </div>
+</nav>
+
+  <main id="main-content" style="padding-top: 70px; min-height: calc(100vh - 120px);">
+    
+<div class="docs-layout">
+  <aside class="side-nav">
+    
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>📊</span><span>数据结构</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/basic-concepts/" class="side-nav-link ">数据结构基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/algorithm-concepts/" class="side-nav-link ">算法基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linear-list-index/" class="side-nav-link ">线性表概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/definition/" class="side-nav-link ">线性表定义与基本操作</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/sequential-list/" class="side-nav-link ">顺序表</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linked-list/" class="side-nav-link ">链表</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/stack/" class="side-nav-link ">栈</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/queue/" class="side-nav-link ">队列</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/application/" class="side-nav-link ">栈和队列的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/linear-data-structure/" class="side-nav-link ">线性数据结构</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/string-index/" class="side-nav-link ">串概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/definition/" class="side-nav-link ">串的定义与实现</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/pattern-matching/" class="side-nav-link ">串的模式匹配</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/array-matrix/" class="side-nav-link ">数组和特殊矩阵</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree/" class="side-nav-link ">树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-and-binary-tree/" class="side-nav-link ">树与二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/binary-tree/" class="side-nav-link ">二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-applications/" class="side-nav-link ">树的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/graph-index/" class="side-nav-link ">图概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/definition/" class="side-nav-link ">图的定义</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/algorithms/" class="side-nav-link ">图的算法和应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/search-index/" class="side-nav-link ">查找概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/array-search/" class="side-nav-link ">数组查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/tree-search/" class="side-nav-link ">树形查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/hash-search/" class="side-nav-link ">散列表查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/sort-index/" class="side-nav-link ">排序概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/internal-sort/" class="side-nav-link ">内部排序</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/external-sort/" class="side-nav-link ">外部排序</a>
+      
+      <a href="/cc408/exam/exercise/data_structure/" class="side-nav-link ">数据结构篇</a>
+      
+      <a href="/cc408/exam/application/2023-q1/" class="side-nav-link ">2023年408真题 - 应用题第1题</a>
+      
+      <a href="/cc408/exam/choice/2024-q5/" class="side-nav-link ">2024年408真题 - 数据结构选择题第5题</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/introduction/" class="side-nav-link ">绪论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>⚙️</span><span>计算机组成原理</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/system-hierarchy/" class="side-nav-link ">计算机系统层次结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/performance/" class="side-nav-link ">计算机性能指标</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/data-index/" class="side-nav-link ">数据表示与计算</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/integers/" class="side-nav-link ">整数的表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/float/" class="side-nav-link ">浮点数表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/type-conversion/" class="side-nav-link ">类型转换</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/circuits/" class="side-nav-link ">运算电路</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/memory-index/" class="side-nav-link ">存储系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/overview/" class="side-nav-link ">存储系统概述</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/ram/" class="side-nav-link ">内存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/cache/" class="side-nav-link ">Cache</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/external/" class="side-nav-link ">外存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/virtual/" class="side-nav-link ">虚拟存储器</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/instruction-index/" class="side-nav-link ">指令系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/types/" class="side-nav-link ">指令集种类</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/format-addressing/" class="side-nav-link ">指令格式与寻址方式</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/data-alignment/" class="side-nav-link ">数据对齐</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/opcode/" class="side-nav-link ">指令操作码</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/hll-machine/" class="side-nav-link ">高级语言与机器码</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/cpu-index/" class="side-nav-link ">中央处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/function-structure/" class="side-nav-link active">CPU功能与结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/controller/" class="side-nav-link ">控制器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/exceptions/" class="side-nav-link ">异常与中断</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/pipeline/" class="side-nav-link ">指令流水线</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/multiprocessor/" class="side-nav-link ">多处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus/" class="side-nav-link ">总线</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus-io/" class="side-nav-link ">总线和I/O系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch06-io/io-system/" class="side-nav-link ">I/O系统</a>
+      
+      <a href="/cc408/exam/exercise/architecture/" class="side-nav-link ">计算机组成原理</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/introduction/" class="side-nav-link ">概论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🖥️</span><span>操作系统</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/os/ch00-overview/os-concept/" class="side-nav-link ">操作系统概念</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/os-structure/" class="side-nav-link ">操作系统结构</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/program-env/" class="side-nav-link ">程序运行环境</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-index/" class="side-nav-link ">进程管理</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-thread/" class="side-nav-link ">进程与线程</a>
+      
+      <a href="/cc408/docs/os/ch01-process/scheduling/" class="side-nav-link ">处理机调度</a>
+      
+      <a href="/cc408/docs/os/ch01-process/sync-mutex/" class="side-nav-link ">同步与互斥</a>
+      
+      <a href="/cc408/docs/os/ch01-process/classic-sync/" class="side-nav-link ">经典同步问题</a>
+      
+      <a href="/cc408/docs/os/ch01-process/deadlock/" class="side-nav-link ">死锁</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/memory-index/" class="side-nav-link ">内存管理</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/concepts/" class="side-nav-link ">内存管理概念</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/virtual/" class="side-nav-link ">虚拟内存管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-index/" class="side-nav-link ">文件管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-basics/" class="side-nav-link ">文件</a>
+      
+      <a href="/cc408/docs/os/ch03-file/directory/" class="side-nav-link ">目录</a>
+      
+      <a href="/cc408/docs/os/ch03-file/filesystem/" class="side-nav-link ">文件系统</a>
+      
+      <a href="/cc408/docs/os/ch04-io/io-index/" class="side-nav-link ">I/O管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/devices/" class="side-nav-link ">I/O设备</a>
+      
+      <a href="/cc408/docs/os/ch04-io/device-mgmt/" class="side-nav-link ">设备管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/disk/" class="side-nav-link ">磁盘</a>
+      
+      <a href="/cc408/code/clock/" class="side-nav-link ">CLOCK 时钟替换算法</a>
+      
+      <a href="/cc408/code/lru/" class="side-nav-link ">LRU 算法</a>
+      
+      <a href="/cc408/code/spinlock/" class="side-nav-link ">TAS 实现自旋锁</a>
+      
+      <a href="/cc408/exam/exercise/os/" class="side-nav-link ">操作系统</a>
+      
+      <a href="/cc408/code/reader_writer/" class="side-nav-link ">读者写着问题</a>
+      
+      <a href="/cc408/code/monitor/" class="side-nav-link ">管程实现生产者消费者</a>
+      
+      <a href="/cc408/code/producer_consumer/" class="side-nav-link ">生产者消费者问题</a>
+      
+      <a href="/cc408/code/banker/" class="side-nav-link ">银行家算法</a>
+      
+      <a href="/cc408/code/philosopher/" class="side-nav-link ">哲学家就餐问题</a>
+      
+      <a href="/cc408/exam/comprehensive/2022-q1/" class="side-nav-link ">2022年408真题 - 综合题第1题</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/computer-overview/" class="side-nav-link ">计算机系统概述</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🌐</span><span>计算机网络</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/network/ch00-overview/layered/" class="side-nav-link ">分层结构</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/protocol-summary/" class="side-nav-link ">各层协议总结</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/device-summary/" class="side-nav-link ">网络设备总结</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/phy-index/" class="side-nav-link ">物理层</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/communication/" class="side-nav-link ">通信概念</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/encoding/" class="side-nav-link ">编码与调制</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/switching/" class="side-nav-link ">交换方式</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/devices/" class="side-nav-link ">物理层设备</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/dl-index/" class="side-nav-link ">数据链路层</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/framing/" class="side-nav-link ">组帧</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/error-control/" class="side-nav-link ">差错控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/flow-control/" class="side-nav-link ">流量控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/mac/" class="side-nav-link ">介质访问控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/lan-wan/" class="side-nav-link ">局域网与广域网</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/devices/" class="side-nav-link ">数据链路层设备</a>
+      
+      <a href="/cc408/docs/network/ch03-network/nw-index/" class="side-nav-link ">网络层</a>
+      
+      <a href="/cc408/docs/network/ch03-network/ip/" class="side-nav-link ">IP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/arp/" class="side-nav-link ">ARP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/icmp/" class="side-nav-link ">ICMP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/dhcp/" class="side-nav-link ">DHCP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/routing/" class="side-nav-link ">路由算法</a>
+      
+      <a href="/cc408/docs/network/ch03-network/sdn/" class="side-nav-link ">SDN</a>
+      
+      <a href="/cc408/docs/network/ch03-network/devices/" class="side-nav-link ">网络层设备</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tp-index/" class="side-nav-link ">传输层</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tcp/" class="side-nav-link ">TCP</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/udp/" class="side-nav-link ">UDP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-index/" class="side-nav-link ">应用层</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-model/" class="side-nav-link ">网络应用模型</a>
+      
+      <a href="/cc408/docs/network/ch05-application/dns/" class="side-nav-link ">DNS</a>
+      
+      <a href="/cc408/docs/network/ch05-application/ftp/" class="side-nav-link ">FTP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/email/" class="side-nav-link ">电子邮件</a>
+      
+      <a href="/cc408/docs/network/ch05-application/www/" class="side-nav-link ">万维网</a>
+      
+      <a href="/cc408/exam/exercise/network/" class="side-nav-link ">计算机网络</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/arch-index/" class="side-nav-link ">计算机网络体系结构</a>
+      
+    </details>
+    
+  </aside>
+  <main class="content-area">
+    <h1>CPU功能与结构</h1>
+    <div class="meta-row">
+      
+      <span><span class="diff-star">★</span><span class="diff-star">★</span><span class="diff-star">★</span></span>
+      
+      <span class="tag">基础概念</span>
+    </div>
+    <article><p>🔥 高优先级</p>
+<p>本节很重要，其实应该不需要我再强调了。本节要和指令系统放在一起理解，主要两点：1. 理解 CPU 的 <strong>架构方式</strong> 。2. 理解 CPU 中 <strong>各种寄存器的功能细节</strong> 。</p>
+<h3 id="cpu">CPU</h3>
+<p>作为计算机的“大脑”，CPU（中央处理器）是执行程序指令、处理数据的关键部件。从宏观的计算机体系结构来看，CPU 是冯·诺依曼架构中“运算器”与“控制器”两大核心部件的具体实现与集成。因此，剖析 CPU 的内部组成，本质上就是探究现代计算机如何通过精密的硬件设计，将“运算”与“控制”这两大基本功能高效、协调地融为一体，并最终执行复杂的任务。</p>
+<h4 id="组成结构">组成结构</h4>
+<p>在介绍 CPU 的组成结构之前，首先回顾一下计算机的 <a href="/constitution_principle/overview/structure/#%e5%86%af%e8%af%ba%e4%be%9d%e6%9b%bc%e7%bb%93%e6%9e%84">冯诺依曼结构</a>，其中 <strong>运算器</strong> 、<strong>控制器</strong> 、<strong>存储器</strong> 、<strong>输入</strong> 、<strong>输出</strong> 为计算机组成的五大部件，其中 CPU 涵盖的功能就包含 <strong>运算器</strong> 和 <strong>控制器</strong> 这两个。</p>
+<p><img src="/images/docs/computer-org/image-20260612231215709.png"></p>
+<p>CPU 的核心功能包含 <strong>运算和控制</strong> 这两大模块，这对应了计算机五大部件中的 <strong>运算器</strong> 和 <strong>控制器</strong> 。具体而言：运算功能（执行功能）是指 CPU 根据指令对数据进行算术或逻辑运算；控制功能则是指 CPU 通过指令协调计算机中各个部件的工作。</p>
+<p><img src="/images/docs/computer-org/3f67409bbc.svg"></p>
+<p>CPU 的结构简图如上图所示，CPU 由 <strong>运算部件</strong> 和 <strong>控制部件</strong> 组成。但是其实这两者并不能完全涵盖 CPU 的所有结构，因为这种分类方式忽略了 CPU 了内总线，所以一种更完善的 CPU 组件分类方法是将其分为 <strong>数据通路</strong> 和 <strong>控制器</strong> 这两部分：</p>
+<ul>
+<li><strong>数据通路</strong> （Datapath）是指令执行过程中，数据所经过的路径，包括路径中的部件。它是指令的 <strong>执行部件</strong> 。</li>
+<li><strong>控制器</strong> （Control Unit）对指令进行解码，生成对应的控制信号，控制 <strong>数据通路</strong> 的动作。能够执行指令发出控制信号，是指令的 <strong>控制部件</strong> 。</li>
+</ul>
+<p><img src="/images/docs/computer-org/image-20260612231237999.png"></p>
+<h5 id="数据通路">数据通路</h5>
+<p>CPU 的 <strong>数据通路</strong> 是指 CPU 在执行指令的过程中内部数据流动的路径，<strong>ALU</strong> 、<strong>寄存器组</strong> 、<strong>多路选择器</strong> 都属于数据通路的一部分。数据通路 <strong>描述了</strong> 信息从哪里开始，中间经过哪些部件，最后被传送到哪里。数据通路由 <a href="/constitution_principle/cpu/controller/">控制部件</a> 控制，控制部件根据每条指令功能的不同，生成对数据通路的控制信号。</p>
+<p>数据通路的元件主要分为 <strong>组合逻辑元件</strong> 和 <strong>时序逻辑元件</strong> 两类：</p>
+<p>组合逻辑元件</p>
+<p><strong>组合逻辑元件</strong> （操作元件）指那些仅由 <strong>组合逻辑电路</strong> 组成的元件，其输出仅取决于当前的输入，而不受存储器或时钟信号的影响。输入和输出之间无反馈通路，信号是单向传输的。</p>
+<p>数据通路中常用的组合逻辑元件有 <strong>算数逻辑单元</strong> （<strong>ALU</strong> ）、<strong>译码器</strong> 、<strong>多路选择器</strong> 、<strong>三态门</strong> 等，如下图所示：</p>
+<p><img src="/images/docs/computer-org/image-20260612231321329.png"></p>
+<ul>
+<li><strong>译码器</strong> ：用于操作码或地址码译码， n 位输入对应 2n 种不同组合，因此有 2n 种不同的输出，但是每次只有一个输出被使能。</li>
+<li><strong>多路选择器</strong> ：有多个输入，输出与其中一个输入相同，需要用控制信号 <strong>Select</strong> 选择哪个输入作为输出。</li>
+<li><strong>三态门</strong> ：可以被视为一种控制开关，由控制信号 <strong>EN</strong> 决定信号线的通断，当 <strong>EN=1</strong> 时，三态门被打开，输入信号等于输出信号；当 <strong>EN = 0</strong> 时，输出端呈现高阻态，数据通路被断开。</li>
+</ul>
+<p>时序逻辑元件</p>
+<p>对于 <strong>时序逻辑元件</strong> （状态元件），其任何时刻的输出不仅与该时刻的输入有关，还与该时刻以前的输入有关，并且 <strong>具备状态存储</strong> 功能。此外，时序电路必须在 <strong>时钟节拍</strong> 下工作。</p>
+<p>各类 <strong>寄存器</strong> 和 <strong>存储器</strong> ，如 <strong>通用寄存器组</strong> 、<strong>程序计数器</strong> 、<strong>状态/移位/暂存/锁存寄存器</strong> 等，都属于时序逻辑元件。</p>
+<p><img src="/images/docs/computer-org/fb9540b969.svg"></p>
+<h5 id="控制器">控制器</h5>
+<p><img src="/images/docs/computer-org/771869ee9c.svg"></p>
+<p><strong>控制器</strong> 是计算机的指挥中心，它负责协调和控制计算机的所有操作。其核心功能是根据当前正在执行的<strong>指令</strong> ，生成一系列<strong>控制信号</strong> ，精确地指挥<strong>数据通路</strong> 中的各个部件（如 ALU、寄存器、多路选择器）协同工作，从而完成指令所规定的任务。</p>
+<p>控制器可以被视为整个 CPU 的“大脑”或“指挥家”。它不直接处理数据，而是决定数据在何时、何地、以何种方式流动和运算。</p>
+<p>控制器的 <strong>基本工作原理</strong> 如下：</p>
+<ol>
+<li><strong>取指令</strong> ：控制器指挥程序计数器（PC）送出当前指令地址，从存储器中取出指令，并送入指令寄存器（IR）。</li>
+<li><strong>分析指令</strong> ：对指令寄存器中的指令进行<strong>译码</strong> ，识别出指令的操作类型（如加法、跳转）、寻址方式以及所需的操作数。</li>
+<li><strong>执行指令</strong> ：根据指令译码的结果，控制器在正确的时序下，生成并发出对应的控制信号序列。这些信号控制数据通路打开或关闭特定的数据路径，选择 ALU 的运算功能，决定是否写入寄存器或内存等。</li>
+<li><strong>转向下条指令</strong> ：在完成当前指令后，控制器会更新程序计数器，为取下一条指令做好准备，从而开始新一轮的循环。</li>
+</ol>
+<p>控制器的功能和组成详见 <a href="/constitution_principle/cpu/controller/">该节</a>。</p>
+<h3 id="8086-cpu">8086 CPU</h3>
+<p>上文已经对 CPU 中的组件进行了分类，但是仅有抽象概念是不足够的，该节会提供一个非常简单的 CPU 实现来说明情况，这个 CPU 就是 <strong>8086</strong> 。</p>
+<p><strong>8086</strong> 是 Intel 首款真正的 16 位处理器，也是现代 <strong>x86</strong> 处理器的开端，只要掌握了这个 CPU 的架构，就能搞定绝大多数考试过程中会遇到的问题。</p>
+<h4 id="结构">结构</h4>
+<p><img src="/images/docs/computer-org/image-20260612231412758.png"></p>
+<p>上文已经提到了 <a href="/constitution_principle/cpu/structure/#%e7%bb%84%e6%88%90%e7%bb%93%e6%9e%84">CPU 的组成结构</a> 可以分为 <strong>数据通路</strong> 和 <strong>控制器</strong> 这两部分，<strong>8086</strong> 中的 <strong>数据通路</strong> 由指令队列、<a href="/constitution_principle/cpu/structure/#%e5%af%84%e5%ad%98%e5%99%a8">寄存器</a> 和内总线组成。<strong>控制器</strong> 中包含指令译码器、时序控制单元、标志控制逻辑和微指令控制逻辑。</p>
+<p>下文会按照这个脉络对 <strong>8086</strong> 中的组件进行详细说明。</p>
+<h4 id="寄存器">寄存器</h4>
+<p><img src="/images/docs/computer-org/image-20260612231422489.png"></p>
+<p>从功能的角度进行区分，<strong>8086 CPU</strong> 的 <strong>寄存器</strong> 可以为分为 <strong>通用寄存器</strong> 、<strong>段寄存器</strong> 、<strong>指针寄存器</strong> 、<strong>附加寄存器</strong> 和 <strong>标志寄存器</strong> 这五类：</p>
+<ol>
+<li><strong>通用寄存器</strong> ：用于存储任意的地址或者数据。</li>
+</ol>
+<ul>
+<li><code>AX</code> 寄存器：累加器（Accumulator），用于执行算术和逻辑运算。</li>
+<li><code>BX</code> 寄存器：基址寄存器（Base Register），通常用于存储内存地址。</li>
+<li><code>CX</code> 寄存器：计数寄存器（Counter Register），用于循环计数和移位操作。</li>
+<li><code>DX</code> 寄存器：数据寄存器（Data Register），用于输入/输出操作和大整数运算。</li>
+</ul>
+<ol start="2">
+<li><strong>段寄存器</strong> ：用于存储内存段的起始地址。</li>
+</ol>
+<ul>
+<li><code>CS (Code Segment)</code> 寄存器：代码段寄存器，存储指向代码段的地址。</li>
+<li><code>DS (Data Segment)</code> 寄存器：数据段寄存器，存储指向数据段的地址。</li>
+<li><code>ES (Extra Segment)</code> 寄存器：附加数据段寄存器，通常用于数据访问。</li>
+<li><code>SS (Stack Segment)</code> 寄存器：堆栈段寄存器，存储指向堆栈段的地址。</li>
+</ul>
+<ol start="3">
+<li><strong>变址寄存器</strong> ：用于支持变址寻址模式，和数组和指针操作相关。</li>
+</ol>
+<ul>
+<li><code>SI</code> 寄存器：源变址寄存器，通常用于数据传送操作。</li>
+<li><code>DI</code> 寄存器：目的变址寄存器，也通常用于数据传送操作。</li>
+</ul>
+<ol start="4">
+<li><strong>指针寄存器</strong> ：</li>
+</ol>
+<ul>
+<li><code>SP (Stack Pointer)</code> 寄存器：堆栈指针寄存器，指向函数栈的顶部。</li>
+<li><code>BP (Base Pointer)</code> 寄存器：堆栈基址寄存器，指向函数栈的底部。</li>
+<li><code>IP</code> 寄存器：指令指针寄存器，存储当前执行指令的偏移地址。</li>
+</ul>
+<ol start="5">
+<li><strong>标志寄存器</strong> ：</li>
+</ol>
+<ul>
+<li>
+<p><code>FLAGS</code> 寄存器：标志寄存器，存储有关条件和状态的信息，例如进位、零标志、溢出等。</p>
+<ol start="6">
+<li><strong>特殊寄存器</strong></li>
+</ol>
+</li>
+<li>
+<p><code>IR (Instruction Register)</code> 寄存器：暂存读取的指令。</p>
+</li>
+<li>
+<p><code>T</code> 暂存器：暂存 <strong>ALU</strong> 一端的输入。</p>
+</li>
+</ul>
+<p>注意</p>
+<p>哪些寄存器是汇编程序员可见的？</p>
+<p>有在 <strong>8086</strong> 仿真器上编写过汇编程序的人会知道，可见的寄存器就是你编写汇编程序时可以直接通过指令进行控制的寄存器。</p>
+<p>可见的寄存器包括：<strong>通用寄存器</strong> 、<strong>段寄存器</strong> 、<strong>标志寄存器</strong> （<strong>Flags</strong> ）和<strong>指令指针寄存器</strong> （<strong>IP</strong> ）。</p>
+<p>当然更为方便地是记住哪些寄存器是不可见的：<strong>MAR</strong> 、<strong>MDR</strong> 、<strong>IR</strong> 。</p>
+<h5 id="段寄存器">段寄存器</h5>
+<p><strong>段寄存器</strong> 指向程序调用时的 <strong>内存结构中不同段的起始位置</strong> ：</p>
+<ul>
+<li><strong>CS</strong> 指向代码段（.text）的起始位置</li>
+<li><strong>SS</strong> 指向栈段（User Stack）的起始位置</li>
+<li><strong>DS</strong> 指向数据段（.data）的起始位置</li>
+<li><strong>ES</strong> 指向附加段（Extra Segment）的起始位置</li>
+</ul>
+<p>对于运行在 <strong>8086</strong> 上的程序而言，其内存结构相比 <a href="/operating_system/process/process_thread/#%e8%bf%9b%e7%a8%8b%e5%86%85%e5%ad%98%e7%a9%ba%e9%97%b4">现代进程内存空间</a> 更加简单，但其中的逻辑结构是类似的：</p>
+<p><img src="/images/docs/computer-org/image-20260612231449142.png"></p>
+<p>从逻辑上来说，程序的执行需要四个段：</p>
+<ul>
+<li><strong>代码段</strong> ：存储编译后程序指令的地方</li>
+<li><strong>数据段</strong> ：存储有全局数据的地方</li>
+<li><strong>栈段</strong> ：函数嵌套调用的发生场所</li>
+<li><strong>额外段</strong> ：提供一些灵活性，供程序员发挥</li>
+</ul>
+<p>不同的段寄存器与不同的段相关联，指向相关段的起始地址。</p>
+<h5 id="指针寄存器">指针寄存器</h5>
+<p>对于有些段来说，仅仅知道其起始地址是不足够的，在程序执行过程中，需要一些额外的寄存器来实现我们需要的操作，<strong>指针寄存器</strong> 主要操作 <strong>栈段</strong> 和 <strong>代码段</strong> 。</p>
+<p>栈指针寄存器</p>
+<p><strong>栈指针寄存器</strong> 包含 <strong>BP</strong> 、<strong>SP</strong> 这两个，在进一步了解这两个寄存器之前，请复习一下 <a href="/operating_system/process/process_thread/#%e5%87%bd%e6%95%b0%e8%b0%83%e7%94%a8%e6%97%b6%e5%86%85%e5%ad%98%e7%bb%93%e6%9e%84">函数调用时的内存结构</a>。</p>
+<p>函数在执行过程中需要保存的数据与栈类似，具有先进后出的特点。</p>
+<p>函数栈从高地址向低地址增长，嵌套调用的函数所对应的函数栈 在栈段上不断堆叠。如果我们在 <code>main()</code> 主函数中嵌套调用 <code>f(g(h(1)))</code>，那么该程序对应的栈段对应的逻辑结构如下所示：</p>
+<p><img src="/images/docs/computer-org/9b88872ad1.svg"></p>
+<p>其中 <strong>BP</strong> 指向最后一个调用的函数栈的底部，<strong>SP</strong> 指向最后一个调用的函数栈的顶部，通过 <strong>BP</strong> 和 <strong>SP</strong> 我们保存了最后一个函数栈帧的栈底（开始位置）和栈顶（结束位置）。</p>
+<p>在 <strong>8086</strong> 中，指令指针寄存器指的就是 <strong>IP</strong> （Instruction Pointer）寄存器。</p>
+<p>指令在 <strong>代码段</strong> （.text 段）中是从低地址向高地址增长的，这种增长方式也符合 <strong>程序计数器</strong> （PC 或 IP）的增长逻辑：在 <a href="/constitution_principle/cpu/controller/#%e6%8c%87%e4%bb%a4%e6%89%a7%e8%a1%8c%e7%9a%84%e6%8e%a7%e5%88%b6%e4%bf%a1%e5%8f%b7">指令执行的取指阶段</a>，控制单元在完成取指后会控制 <strong>IP = IP + 指令长度</strong> ，这样 <strong>IP</strong> 就指向了 <strong>下一条待执行指令的地址</strong> 。</p>
+<p><img src="/images/docs/computer-org/a3224a147f.svg"></p>
+<h5 id="变址寄存器">变址寄存器</h5>
+<p><strong>变址寄存器</strong> 主要用于实现变址寻址模式，方便对数组、字符串等数据结构中的 <strong>第 i 个元素</strong> 进行操作。<strong>8086</strong> 中的主要变址寄存器是 <strong>SI</strong> （源变址寄存器）和 <strong>DI</strong> （目的变址寄存器），下文分别从 <strong>数组</strong> 和 <strong>字符串操作</strong> 两个例子说明一下：</p>
+<p><strong>数组操作</strong></p>
+<p>以下汇编代码段通过一个循环操作实现了对于数组中的前五个元素进行操作。注意在 <strong>8086</strong> 中，我们是在 <strong>CX</strong> 中保存 loop 的轮数，每次 <strong>LOOP</strong> 被调用后 <strong>CX</strong> 的值自动被减一。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>; <span style="color:#960050;background-color:#1e0010">假设</span> DS <span style="color:#960050;background-color:#1e0010">指向数据段并且数组从数据段开始</span>
+</span></span><span style="display:flex;"><span>MOV DS, addr         ; <span style="color:#960050;background-color:#1e0010">将数组的起始地址保存到</span> DS <span style="color:#960050;background-color:#1e0010">中</span>
+</span></span><span style="display:flex;"><span>MOV CX, <span style="color:#ae81ff">5</span>            ; CX <span style="color:#960050;background-color:#1e0010">用作循环计数器，假设数组有</span> <span style="color:#ae81ff">5</span> <span style="color:#960050;background-color:#1e0010">个元素</span>
+</span></span><span style="display:flex;"><span>MOV SI, <span style="color:#ae81ff">0</span>            ; SI <span style="color:#960050;background-color:#1e0010">作为索引寄存器，初始化为</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>NEXT_ELEMENT:
+</span></span><span style="display:flex;"><span>    MOV AX, [SI]     ; <span style="color:#960050;background-color:#1e0010">从数组当前元素读取到</span> AX
+</span></span><span style="display:flex;"><span>    ; <span style="color:#960050;background-color:#1e0010">对</span> AX <span style="color:#960050;background-color:#1e0010">中的数据进行处理</span>
+</span></span><span style="display:flex;"><span>    ADD SI, <span style="color:#ae81ff">2</span>        ; <span style="color:#960050;background-color:#1e0010">移动到下一个元素（假设每个元素</span> <span style="color:#ae81ff">2</span> <span style="color:#960050;background-color:#1e0010">字节）</span>
+</span></span><span style="display:flex;"><span>    LOOP NEXT_ELEMENT ; <span style="color:#960050;background-color:#1e0010">循环直到</span> CX <span style="color:#960050;background-color:#1e0010">为</span> <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><p><strong>字符串操作</strong></p>
+<p>以下汇编代码将一个字符串的前 <strong>length</strong> 个字符复制到另一个字符串中。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>; <span style="color:#960050;background-color:#1e0010">假设</span> DS <span style="color:#960050;background-color:#1e0010">和</span> ES <span style="color:#960050;background-color:#1e0010">已经分别指向源和目的数据段</span>
+</span></span><span style="display:flex;"><span>MOV SI, OFFSET source ; SI <span style="color:#960050;background-color:#1e0010">指向源字符串的起始位置</span>
+</span></span><span style="display:flex;"><span>MOV DI, OFFSET dest   ; DI <span style="color:#960050;background-color:#1e0010">指向目的字符串的起始位置</span>
+</span></span><span style="display:flex;"><span>CLD                   ; <span style="color:#960050;background-color:#1e0010">清除方向标志位，确保字符串操作从低地址到高地址</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>MOV CX, length        ; CX <span style="color:#960050;background-color:#1e0010">初始化为字符串的长度</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>REP MOVSB             ; <span style="color:#960050;background-color:#1e0010">复制</span> CX <span style="color:#960050;background-color:#1e0010">个字节从</span> DS:SI <span style="color:#960050;background-color:#1e0010">到</span> ES:DI
+</span></span></code></pre></div><h5 id="标志寄存器">标志寄存器</h5>
+<p><strong>标志寄存器</strong> （<strong>Flags</strong> ）用于存储处理器在 <strong>执行指令过程中产生的各种状态和条件</strong> ，这些状态可以进一步被 <a href="/constitution_principle/cpu/controller/">控制器</a> 所用，控制后续指令执行的行为。</p>
+<p>标志寄存器中的不同位用于标记某个特殊的状态，<strong>8086</strong> 中的 <strong>标志寄存器</strong> 是一个 <strong>16 位</strong> 的寄存器，其中 <em>9 个标志位</em> 被使用，其他 <em>7 个标志位</em> 没有含义。</p>
+<p><img src="/images/docs/computer-org/image-20260612231551524.png"></p>
+<p>这些标志位在逻辑上可以被分为 <strong>条件标志</strong> （conditional flags）和 <strong>控制标志</strong> （control flags）两种：</p>
+<p>条件标志</p>
+<p>条件标志用于标记指令执行后的结果状态，用于影响程序的控制流，<strong>条件标志</strong> 包含以下几种：</p>
+<ul>
+<li>
+<p><strong>OF</strong> (Overflow flag)：溢出标志。</p>
+</li>
+<li>
+<p>当 <a href="/constitution_principle/representation/integer/#%e6%9c%89%e7%ac%a6%e5%8f%b7%e6%95%b0">有符号整数</a> 运算的结果太大而无法适应目标寄存器时，<strong>OF</strong> 标志会设置为 1，表示发生了溢出。</p>
+<ul>
+<li><strong>CF</strong> (Carry flag)：进位标志。</li>
+</ul>
+</li>
+<li>
+<p>当 <a href="/constitution_principle/representation/integer/#%e6%97%a0%e7%ac%a6%e5%8f%b7%e6%95%b0">无符号整数</a> 运算的结果超出了目标寄存器的位数，<strong>CF</strong> 标志被设置为 1，表示发生了进位。</p>
+<ul>
+<li>
+<p>加法时：<strong>CF=1</strong> 表示发生了 <strong>进位</strong> （即结果超过了寄存器能表示的范围）。</p>
+</li>
+<li>
+<p>减法时：<strong>CF=1</strong> 表示发生了 <strong>借位</strong> （即被减数小于减数）。</p>
+</li>
+<li>
+<p><strong>SF</strong> (Sign flag)：符号标志。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>根据操作结果的符号位来设置，如果结果为负数，则 <strong>SF</strong> 被设置为 1，否则为 0。</p>
+<ul>
+<li><strong>ZF</strong> (Zero flag)：零标志。</li>
+</ul>
+</li>
+<li>
+<p>当操作结果为零时，<strong>ZF</strong> 标志被设置为 1，否则为 0。</p>
+<ul>
+<li><strong>AF</strong> (Auxiliary carry flag)：辅助进位标志。</li>
+</ul>
+</li>
+<li>
+<p>通常用于 BCD（二进制编码十进制）算术运算，指示低四位的进位。</p>
+<ul>
+<li><strong>PF</strong> (Parity flag)：奇偶校验标志。</li>
+</ul>
+</li>
+<li>
+<p>根据结果中二进制位 1 的个数是奇数还是偶数，设置 <strong>PF</strong> 标志。奇数个 1 则 <strong>PF</strong> 为 1，偶数个 1 则 <strong>PF</strong> 为 0。</p>
+</li>
+</ul>
+<p><img src="/images/docs/computer-org/c116186af7.svg"></p>
+<p>条件标志不需要 序员手动通过指令设置，当算数和逻辑指令（Add 和 AND 等）和 <strong>比较指令</strong> （CMP）被执行时，相关的标志位会被 <strong>自动设置</strong> 。</p>
+<p>条件标志通常用于控制 <a href="/constitution_principle/instruction/instruction_ops/#jxx-%e6%9d%a1%e4%bb%b6%e8%b7%b3%e8%bd%ac%e6%8c%87%e4%bb%a4">条件跳转指令</a> 的执行。条件跳转指令会检查条件寄存器中的标志位，根据标志位的状态决定是否将 <strong>程序计数器</strong> （PC）修改为目标地址，从而实现程序流程的跳转。</p>
+<hr>
+<p>以下我们需要说明几个需要注意的点，这些知识点很容易被混淆：</p>
+<p>注意</p>
+<p><strong>CF 和 OF 的区别？</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">标志位</th>
+          <th style="text-align: left">含义</th>
+          <th style="text-align: left">用于</th>
+          <th style="text-align: left">设置条件</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>CF</strong></td>
+          <td style="text-align: left">Carry Flag（进位标志）</td>
+          <td style="text-align: left"><em><strong>无符号数运算</strong></em></td>
+          <td style="text-align: left">加法时进位，减法时借位</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>OF</strong></td>
+          <td style="text-align: left">Overflow Flag（溢出标志）</td>
+          <td style="text-align: left"><em><strong>有符号数运算</strong></em></td>
+          <td style="text-align: left">加法或减法导致结果超出有符号数表示范围（如 +127 + 1 = -128）</td>
+      </tr>
+  </tbody>
+</table>
+<p>上述的 <strong>设置条件</strong> 只是 <strong>逻辑结果</strong> （针对 有/无符号数 的逻辑结果），硬件并不是这样判断的。</p>
+<p>对于硬件加法器，它不区分数字是 <strong>有符号</strong> 还是 <strong>无符号</strong> ，底层电路都是通过 <strong>加法器 + 补码机制</strong> 完成的。</p>
+<p>不过我们通过对一些位进行组合来 <a href="/constitution_principle/representation/circuit/#%e5%8a%a0%e6%b3%95%e5%99%a8">实现</a> 上述的逻辑结果。</p>
+<p>注意</p>
+<p><strong>OF 标志位是如何被设置的？</strong></p>
+<p>在处理两个 n 位的<strong>有符号整数</strong> 加法时，<strong>OF</strong> （Overflow Flag）用于指示结果是否超出了有符号数的可表示范围。对于补码表示的系统，可以使用以下逻辑来判断溢出：</p>
+<p>✅ <strong>一种直观但不被硬件实际使用的方法：</strong></p>
+<ul>
+<li>判断结果的<strong>最高位是否发生进位</strong> ，如果有，则 <strong>OF = 1</strong> ，否则 <strong>OF = 0</strong> 。</li>
+<li>然后 <strong>OF</strong> 和 <strong>CF</strong> 是完全不同的事情，硬件不能通过“是否最高位进位”简单推出 <strong>OF</strong> ，因此考试或工程实践中通常采用更严谨的判断方式。</li>
+</ul>
+<p>✅ <strong>常用的标准判断方式（考试常考）</strong></p>
+<p>设参与计算的两个 n 位补码数为 A 和 B ，结果为 C=A+B ，我们关注它们的<strong>符号位</strong> （即最高位，第 n−1 位）：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">情况</th>
+          <th style="text-align: left">A 的符号</th>
+          <th style="text-align: left">B 的符号</th>
+          <th style="text-align: left">C=A+B 的符号</th>
+          <th style="text-align: left">是否溢出</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">异号相加（一个正一个负）</td>
+          <td style="text-align: left">不重要</td>
+          <td style="text-align: left">不重要</td>
+          <td style="text-align: left">不重要</td>
+          <td style="text-align: left">❌ 不会溢出</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">同号相加 → 结果符号不变</td>
+          <td style="text-align: left">正 + 正 → 正</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">❌ 无溢出</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">同号相加 → 结果变号</td>
+          <td style="text-align: left">正 + 正 → 负</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">✅ 有溢出</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">同号相加 → 结果变号</td>
+          <td style="text-align: left">负 + 负 → 正</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">✅ 有溢出</td>
+      </tr>
+  </tbody>
+</table>
+<p>因此，<strong>OF</strong> 的判断规则为：</p>
+<blockquote>
+<p><strong>当两个操作数符号相同，而结果符号与它们不同，就发生了溢出。</strong></p>
+</blockquote>
+<p>用逻辑表达式表示为：</p>
+<p>OF=An−1​⋅Bn−1​⋅Cn−1​​+An−1​​⋅Bn−1​​⋅Cn−1​</p>
+<ul>
+<li>其中 An−1​,Bn−1​,Cn−1​ 分别表示 A,B,C 的最高位（符号位）</li>
+<li>也可理解为：</li>
+<li>两数为负，结果为正：溢出</li>
+<li>两数为正，结果为负：溢出</li>
+</ul>
+<p>✅ <strong>减法的溢出判断</strong></p>
+<p>由于减法 A−B 可以转化为加法 A+(−B) ，因此溢出的判断可以同样基于<strong>加法规则</strong> 来分析：</p>
+<ul>
+<li>将减法转化为加法后，使用上述符号位比较法判断 <strong>OF</strong> 。</li>
+</ul>
+<p>控制标志</p>
+<p><strong>控制标志</strong> 并不会被通常的运算指令自动修改，而是通过专门的指令来进行设置或清除。对于以下字段，了解即可：</p>
+<ul>
+<li>
+<p><strong>IF</strong> (Interrupt flag)</p>
+</li>
+<li>
+<p>控制中断处理</p>
+</li>
+<li>
+<p>当 <strong>IF</strong> 被设置为 1 时，CPU 允许中断请求。如果 <strong>IF</strong> 为 0，CPU 将禁止所有 <a href="/constitution_principle/bus/io/#%e5%8f%af%e5%b1%8f%e8%94%bd%e4%b8%ad%e6%96%ad"><strong>可屏蔽中断</strong></a>，无论是外部硬件中断还是软件中断。</p>
+<ul>
+<li><strong>TF</strong> (Trap flag)</li>
+</ul>
+</li>
+<li>
+<p>控制单步执行。</p>
+</li>
+<li>
+<p>当 <strong>TF</strong> 被设置为 1 时，CPU 将进入单步执行模式。在单步执行模式下，每执行一条指令后，CPU 将引发一个单步中断，允许程序员逐条调试程序。</p>
+<ul>
+<li><strong>DF</strong> (Direction flag)</li>
+</ul>
+</li>
+<li>
+<p>字符串操作的标志位。</p>
+</li>
+<li>
+<p>当 <strong>DF</strong> 被设置为 1 时，字符串操作（如 MOVS、LODS、STOS）在内存中向高地址方向移动。这通常用于从高地址向低地址扫描字符串。当 <strong>DF</strong> 被清除为 0 时，字符串操作在内存中向低地址方向移动。这通常用于从低地址向高地址扫描字符串。</p>
+</li>
+</ul>
+<h5 id="特殊寄存器">特殊寄存器</h5>
+<p>暂存器</p>
+<p>每次 <strong>ALU</strong> 操作都需要两个操作数，但是 <strong>数据总线</strong> 是 <strong>共享的</strong> ，同一时刻只能传输一个操作数。所以在 <strong>ALU</strong> 会按照以下方式进行计算：</p>
+<ul>
+<li>先读取第一个操作数，暂存在临时寄存器 <strong>T</strong> 中；</li>
+<li>然后再读取第二个操作数；</li>
+<li>最后，<strong>ALU</strong> 从 <strong>T</strong> 和第二个操作数一起执行运算。</li>
+</ul>
+<p>所以在 <strong>只有一个内部数据总线</strong> 的设计里，为了配合 <strong>ALU</strong> 的两个输入，<strong>暂存器</strong> 被设置用于存储前一个时钟周期的数据。</p>
+<p>指令寄存器</p>
+<p>当 <strong>CPU</strong> 从内存或指令队列中取出一条指令时，这条指令会被送入 <strong>IR</strong> （指令寄存器），暂存在这里，供后续的译码和执行阶段使用。</p>
+<p>控制单元（CU）可以对 <strong>IR</strong> 中的指令进行译码，生成一系列控制信号。</p>
+<h4 id="引脚">引脚</h4>
+<p>CPU 的 <strong>引脚</strong> （Pin）是处理器与主板之间进行电气连接的接口，是 CPU 与外部组件（如内存、I/O 设备、电源等）之间通信的桥梁。<strong>引脚</strong> 的功能包括 <strong>数据传输</strong> 、<strong>地址定位</strong> 、<strong>中断控制</strong> 、<strong>时序控制</strong> 等，是实现 CPU 与外部世界交互的关键通道。</p>
+<p>为便于理解，本节以 <strong>Intel 8086</strong> 处理器为例进行说明。需要注意的是，本节内容以了解为主，试题通常不会直接考察，但对于理解计算机体系结构十分重要。</p>
+<p><img src="/images/docs/computer-org/b5671341f8.svg"></p>
+<p>以 <strong>8086</strong> 为例，<strong>8086</strong> 为 16 位计算机，其 <strong>数据总线</strong> 为 16 位，可寻址地址空间为 1 MB，所以其 <strong>地址总线</strong> 为 20 位。数据总线和地址总线 <strong>复用</strong> ，地址总线的高位与状态线复用：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">引脚名</th>
+          <th style="text-align: left">方向</th>
+          <th style="text-align: left">说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">AD0–AD15</td>
+          <td style="text-align: left">双向</td>
+          <td style="text-align: left">地址/数据复用线：</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">- 发地址时传送 A0–A15</td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">- 传数据时传 D0–D15</td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">A16/S3–A19/S6</td>
+          <td style="text-align: left">输出</td>
+          <td style="text-align: left">高位地址线与状态线复用</td>
+      </tr>
+  </tbody>
+</table>
+<p>在 <strong>数据传输</strong> 过程中，低位地址与数据使用同一组引脚（AD0–AD15），通过时序的不同进行区分。为了确保地址被正确识别，<strong>8086</strong> 使用 <strong>ALE</strong> （地址锁存使能）信号配合外部锁存器将地址锁存下来。</p>
+<p>为了支持外设对 <strong>CPU</strong> 发起中断请求，以及对处理器进行复位操作，<strong>8086</strong> 设置了如下相关引脚：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">引脚名</th>
+          <th style="text-align: left">方向</th>
+          <th style="text-align: left">说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>NMI</strong></td>
+          <td style="text-align: left">输入</td>
+          <td style="text-align: left"><a href="/constitution_principle/bus/io/#%e4%b8%8d%e5%8f%af%e5%b1%8f%e8%94%bd%e4%b8%ad%e6%96%ad">不可屏蔽中断</a>，请求立即响应</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>INTR</strong></td>
+          <td style="text-align: left">输入</td>
+          <td style="text-align: left"><a href="/constitution_principle/bus/io/#%e5%8f%af%e5%b1%8f%e8%94%bd%e4%b8%ad%e6%96%ad">可屏蔽中断</a> 请求</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>RESET</strong></td>
+          <td style="text-align: left">输入</td>
+          <td style="text-align: left">复位输入，低电平有效，将 <strong>CPU</strong> 状态初始化</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>INTA#</strong></td>
+          <td style="text-align: left">输出</td>
+          <td style="text-align: left">中断响应信号，通知外设 <strong>CPU</strong> 正在响应中断</td>
+      </tr>
+  </tbody>
+</table>
+<p>此外，<strong>CPU</strong> 还需要通过控制信号对外设进行控制，下面列出了一些常用的控制信号：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">引脚名</th>
+          <th style="text-align: left">方向</th>
+          <th style="text-align: left">说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>RD#</strong></td>
+          <td style="text-align: left">输出</td>
+          <td style="text-align: left">读信号，低电平有效，表示从内存/I/O 读取</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>WR#</strong></td>
+          <td style="text-align: left">输出</td>
+          <td style="text-align: left">写信号，低电平有效，表示写入内存/I/O</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>ALE</strong></td>
+          <td style="text-align: left">输出</td>
+          <td style="text-align: left">地址锁存使能，表示当前 AD0–AD15 是地址</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>DT/R</strong></td>
+          <td style="text-align: left">输出</td>
+          <td style="text-align: left">数据传输方向：读=0，写=1</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>READY</strong></td>
+          <td style="text-align: left">输入</td>
+          <td style="text-align: left">外设准备就绪信号，不就绪则 <strong>CPU</strong> 等待</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>HOLD</strong></td>
+          <td style="text-align: left">输入</td>
+          <td style="text-align: left">外设 <a href="/constitution_principle/bus/io/#%e6%ad%a5%e9%aa%a4">请求总线控制权</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>HLDA</strong></td>
+          <td style="text-align: left">输出</td>
+          <td style="text-align: left">总线控制权应答（HOLD Acknowledge）</td>
+      </tr>
+  </tbody>
+</table>
+<p>其中，<strong>READY</strong> 信号的作用是支持不同速度的外设。当某些设备处理速度较慢时，<strong>CPU</strong> 会检测到 <strong>READY</strong> 为低电平，从而暂停当前操作，等待设备准备就绪，避免数据错误。</p>
+<p>而 <strong>HOLD</strong> 与 <strong>HLDA</strong> 是总线请求/响应配对信号，用于支持 <strong>DMA</strong> 等技术，使得外设可以在不经过 <strong>CPU</strong> 的情况下直接访问内存，从而提升数据传输效率。</p>
+<h2 id="相关笔记">相关笔记</h2>
+<ul>
+<li>[[data-alignment|数据对齐]]</li>
+<li>[[format-addressing|指令格式与寻址方式]]</li>
+<li>[[hll-machine|高级语言与机器码]]</li>
+<li>[[instruction-index|指令系统]]</li>
+<li>[[opcode|指令操作码]]</li>
+<li>[[types|指令集种类]]</li>
+</ul>
+</article>
+
+    
+    
+    
+
+    <div class="border-top-section">
+      <a href="/cc408/docs/" class="btn btn-ghost">← 返回知识点列表</a>
+    </div>
+  </main>
+</div>
+
+<style>
+.side-nav-group[open] summary { color: var(--text-primary); }
+.side-nav-group summary::-webkit-details-marker { display: none; }
+.side-nav-group summary::after {
+  content: '▸'; margin-left: auto; font-size: var(--fs-xs); transition: transform .2s;
+}
+.side-nav-group[open] summary::after { transform: rotate(90deg); }
+</style>
+
+  </main>
+  <footer class="site-footer" role="contentinfo">
+  <p>© 2026 CC408. 408考研知识整理</p>
+</footer>
+
+</body>
+</html>

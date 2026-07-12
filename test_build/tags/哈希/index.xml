@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>哈希 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/tags/%E5%93%88%E5%B8%8C/</link>
+    <description>Recent content in 哈希 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 25 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/tags/%E5%93%88%E5%B8%8C/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数组查找</title>
+      <link>https://cycycy5464.github.io/cc408/docs/data-structure/ch06-search/array-search/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/data-structure/ch06-search/array-search/</guid>
+      <description>&lt;p&gt;⭐ 中优先级&lt;/p&gt;&#xA;&lt;p&gt;在选择题中偶会考查，内容也不算难，关键在于掌握算法思想，也许会在算法设计题中间接考察到。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>散列表查找</title>
+      <link>https://cycycy5464.github.io/cc408/docs/data-structure/ch06-search/hash-search/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/data-structure/ch06-search/hash-search/</guid>
+      <description>&lt;p&gt;🔥 高优先级&lt;/p&gt;&#xA;&lt;p&gt;经常考查，重点掌握三点：1. &lt;strong&gt;哈希表的重要概念&lt;/strong&gt; 。2. &lt;strong&gt;冲突处理方法&lt;/strong&gt; 。 3. &lt;strong&gt;平均查找计算方法&lt;/strong&gt; 。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

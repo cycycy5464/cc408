@@ -68,7 +68,3 @@ cc408/
 - 构建命令：`hugo --minify`
 - 部署地址：`https://cycycy5464.github.io/cc408/`
 - 工作流文件：`.github/workflows/publish-cc408.yaml`
-
-### ⚠️ 设为私库会怎样？
-
-**会。GitHub Free 套餐的 Pages 只支持公开仓库。** 如果将仓库设为 private，GitHub Actions 工作流仍会运行，但 Pages 部署步骤将失败，站点无法访问。需要 **GitHub Pro 或 Team 套餐**才能在私库上使用 Pages。如需临时设为私库，建议手动 `hugo --minify` 构建后另做部署。

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>多处理机 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/knowledge_points/%E5%A4%9A%E5%A4%84%E7%90%86%E6%9C%BA/</link>
+    <description>Recent content in 多处理机 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/knowledge_points/%E5%A4%9A%E5%A4%84%E7%90%86%E6%9C%BA/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2022 计算机组成原理 第22题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2022-co-022/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2022-co-022/</guid>
+      <description>&lt;p&gt;下列关于并行处理技术的叙述中，不正确的是()。&lt;/p&gt;&#xA;&lt;p&gt;A. 多核处理器属于MIMD 结构&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

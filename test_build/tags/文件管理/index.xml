@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>文件管理 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/tags/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/</link>
+    <description>Recent content in 文件管理 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 25 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/tags/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>文件管理</title>
+      <link>https://cycycy5464.github.io/cc408/docs/os/ch03-file/file-index/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/os/ch03-file/file-index/</guid>
+      <description>&lt;p&gt;主要在选择题中考察，在大题中也会涉及到对概念的考察。文件的物理结构以及外存空闲空间管理方法要熟练掌握。&#xA;&lt;img src=&#34;https://cycycy5464.github.io/cc408/images/docs/os/image-20260611223145928.png&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>文件</title>
+      <link>https://cycycy5464.github.io/cc408/docs/os/ch03-file/file-basics/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/os/ch03-file/file-basics/</guid>
+      <description>&lt;p&gt;🔥 高优先级&lt;/p&gt;&#xA;&lt;p&gt;这一节是操作系统文件管理中最重要的一节，每个知识点的知识都要深入掌握，尤其是文件的物理结构，在大题中也经常考察。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>目录</title>
+      <link>https://cycycy5464.github.io/cc408/docs/os/ch03-file/directory/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/os/ch03-file/directory/</guid>
+      <description>&lt;p&gt;⭐ 中优先级&lt;/p&gt;&#xA;&lt;p&gt;选择题中会考察 &lt;strong&gt;目录&lt;/strong&gt; 以及 &lt;strong&gt;硬链接和软链接&lt;/strong&gt; 的概念。&lt;/p&gt;&#xA;&lt;h3 id=&#34;目录概念&#34;&gt;目录概念&lt;/h3&gt;&#xA;&lt;p&gt;目录是计算机文件系统中用于组织和存储文件和其他目录的一种 &lt;strong&gt;重要概念&lt;/strong&gt; 。目录也被称为文件夹，它是文件系统中的一个 &lt;strong&gt;关键组成部分&lt;/strong&gt; ，用于创建层次结构，方便用户管理和浏览文件。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>文件系统</title>
+      <link>https://cycycy5464.github.io/cc408/docs/os/ch03-file/filesystem/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/docs/os/ch03-file/filesystem/</guid>
+      <description>&lt;p&gt;⭐ 中优先级&lt;/p&gt;&#xA;&lt;p&gt;本节的重点在于外存空间管理的方法，其他几个知识点也偶有考察，稍微了解下概念就行。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

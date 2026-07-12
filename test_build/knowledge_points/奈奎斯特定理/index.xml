@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>奈奎斯特定理 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/knowledge_points/%E5%A5%88%E5%A5%8E%E6%96%AF%E7%89%B9%E5%AE%9A%E7%90%86/</link>
+    <description>Recent content in 奈奎斯特定理 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/knowledge_points/%E5%A5%88%E5%A5%8E%E6%96%AF%E7%89%B9%E5%AE%9A%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2022 计算机网络 第34题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2022-cn-034/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2022-cn-034/</guid>
+      <description>&lt;p&gt;在一条带宽为200kHz的无噪声信道上，若采用4个幅值的ASK 调制，则该信道的最大数据传输速率 是 ( ) 。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

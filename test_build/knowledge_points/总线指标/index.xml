@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>总线指标 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/knowledge_points/%E6%80%BB%E7%BA%BF%E6%8C%87%E6%A0%87/</link>
+    <description>Recent content in 总线指标 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/knowledge_points/%E6%80%BB%E7%BA%BF%E6%8C%87%E6%A0%87/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2014 计算机组成原理 第19题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2014-co-019/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2014-co-019/</guid>
+      <description>&lt;p&gt;某同步总线采用数据线和地址线复用方式，其中地址/数据线有32根，总线时钟频率为66MHz,  每个  时钟周期传送两次数据(上升沿和下降沿各传送一次数据),该总线的最大数据传输率(总线带宽)是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机组成原理 第21题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-co-021/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-co-021/</guid>
+      <description>&lt;p&gt;下列选项中，可提高同步总线数据传输率的是()。&lt;/p&gt;&#xA;&lt;p&gt;I.  增加总线宽度&lt;/p&gt;&#xA;&lt;p&gt;Ⅱ.提高总线工作频率&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2019 计算机组成原理 第19题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2019-co-019/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2019-co-019/</guid>
+      <description>&lt;p&gt;假定一台计算机采用3通道存储器总线，配套的内存条型号为DDR3-1333,  即内存条所接插的存储器 总线的工作频率为1333MHz,  总线宽度为64位，则存储器总线的总带宽大约是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2020 计算机组成原理 第19题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2020-co-019/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2020-co-019/</guid>
+      <description>&lt;p&gt;QPI 总线是一种点对点全工双周同步串行总线，总线上的设备可同时接收和发送信息，每个方向可同 时传输20位信息(16位数据+4位校验位),每个QPI 数据包有80位信息，分2个时钟周期传送，每个 时钟周期传递2次，因此QPI 总线带宽为每秒传送次数*2B*2。若QPI 时钟频率为2.4GHz,  则总线带宽 为 ( )。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2024 计算机组成原理 第20题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2024-co-020/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2024-co-020/</guid>
+      <description>&lt;p&gt;存储器总线的时钟频率为420MHz, 总线宽度为64位，每个时钟周期传送2次数据，支持突发传输， 最多传8次，第一个时钟传地址和读写命令，从第4~7个始终连续传8次。总线带宽最大传输速率为()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2025 计算机组成原理 第20题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2025-co-020/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2025-co-020/</guid>
+      <description>&lt;p&gt;某处理器总线采用同步，并行传输方式，每个总线时钟周期传送4次数据( quadpumped   技术),若 该总线的工作频率为1333MHz ( 实际单位是 MT/s,  表示每秒传送1333M/次),总线宽度为64位，则 总线带宽约为()。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

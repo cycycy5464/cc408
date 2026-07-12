@@ -13,7 +13,7 @@
   <div class="hero-cards mt-section">
     {{ range $subjects }}
     {{ $count := len (where $.Site.RegularPages "Params.subject" .key) }}
-    <a href="{{ .key | relURL }}" class="card subject-card {{ if eq .key "data-structure" }}ds{{ else if eq .key "computer-org" }}co{{ else if eq .key "os" }}os{{ else }}cn{{ end }}">
+    <a href="{{ printf "docs/%s" .key | relURL }}" class="card subject-card {{ if eq .key "data-structure" }}ds{{ else if eq .key "computer-org" }}co{{ else if eq .key "os" }}os{{ else }}cn{{ end }}">
       <div class="subject-card-icon">{{ .icon }}</div>
       <div class="subject-card-title">{{ .label }}</div>
       <div class="subject-card-desc">{{ .chapters }}</div>

@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>树的应用 | CC408</title>
+  <meta name="description" content="🔥 高优先级
+并查集其实没考过，编码方式和哈夫曼树也是高频考点。
+编码和解码 编码 （Encoding）是将信息从一种形式（通常是人类可读的符号或数据）转换为另一种形式（通常是机器可处理的格式，如二进制比特流）的过程。其目的是为了便于存储、传输或处理信息。编码 通常涉及将原始数据（如字符、数字等）映 …">
+  <link rel="icon" href="/cc408/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" as="script" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" as="script" crossorigin="anonymous">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/cc408/css/custom.min.ecad70eed0f9849f67d23e2bf502ae36e7f590486681964e1c95bc71c8672493.css" integrity="sha256-7K1w7tD5hJ9n0j4r9QKuNuf1kEhmgZZOHJW8cchnJJM=">
+  
+
+<script src="/cc408/js/watermark.js"></script>
+
+
+  <script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.content-area img,.docs-layout img').forEach(function(i){if(!i.src.match(/\.svg$/i)){i.loading='lazy';i.fetchPriority='low';}});});</script>
+</head>
+<body style="background: var(--bg-primary); color: var(--text-primary);">
+  <a href="#main-content" class="skip-link">跳转到主要内容</a>
+  <nav class="navbar" role="navigation" aria-label="主导航">
+  <a href="/cc408/" class="navbar-brand">CC408</a>
+  <button class="navbar-toggle" aria-label="菜单" onclick="this.parentElement.querySelector('.navbar-links').classList.toggle('open')">☰</button>
+  <div class="navbar-links" role="menubar">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      首页
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/docs/" role="menuitem" class="active" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识点
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      刷题
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/quiz-collection/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      收藏
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/graph/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识图谱
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/tags/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      标签
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/resources/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      资源
+    </a>
+    
+  </div>
+  <div class="navbar-right">
+    <a href="https://cycycy5464.github.io/">个人主页 →</a>
+  </div>
+</nav>
+
+  <main id="main-content" style="padding-top: 70px; min-height: calc(100vh - 120px);">
+    
+<div class="docs-layout">
+  <aside class="side-nav">
+    
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>📊</span><span>数据结构</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/basic-concepts/" class="side-nav-link ">数据结构基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/algorithm-concepts/" class="side-nav-link ">算法基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linear-list-index/" class="side-nav-link ">线性表概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/definition/" class="side-nav-link ">线性表定义与基本操作</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/sequential-list/" class="side-nav-link ">顺序表</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linked-list/" class="side-nav-link ">链表</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/stack/" class="side-nav-link ">栈</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/queue/" class="side-nav-link ">队列</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/application/" class="side-nav-link ">栈和队列的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/linear-data-structure/" class="side-nav-link ">线性数据结构</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/string-index/" class="side-nav-link ">串概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/definition/" class="side-nav-link ">串的定义与实现</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/pattern-matching/" class="side-nav-link ">串的模式匹配</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/array-matrix/" class="side-nav-link ">数组和特殊矩阵</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree/" class="side-nav-link ">树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-and-binary-tree/" class="side-nav-link ">树与二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/binary-tree/" class="side-nav-link ">二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-applications/" class="side-nav-link active">树的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/graph-index/" class="side-nav-link ">图概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/definition/" class="side-nav-link ">图的定义</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/algorithms/" class="side-nav-link ">图的算法和应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/search-index/" class="side-nav-link ">查找概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/array-search/" class="side-nav-link ">数组查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/tree-search/" class="side-nav-link ">树形查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/hash-search/" class="side-nav-link ">散列表查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/sort-index/" class="side-nav-link ">排序概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/internal-sort/" class="side-nav-link ">内部排序</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/external-sort/" class="side-nav-link ">外部排序</a>
+      
+      <a href="/cc408/exam/exercise/data_structure/" class="side-nav-link ">数据结构篇</a>
+      
+      <a href="/cc408/exam/application/2023-q1/" class="side-nav-link ">2023年408真题 - 应用题第1题</a>
+      
+      <a href="/cc408/exam/choice/2024-q5/" class="side-nav-link ">2024年408真题 - 数据结构选择题第5题</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/introduction/" class="side-nav-link ">绪论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>⚙️</span><span>计算机组成原理</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/system-hierarchy/" class="side-nav-link ">计算机系统层次结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/performance/" class="side-nav-link ">计算机性能指标</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/data-index/" class="side-nav-link ">数据表示与计算</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/integers/" class="side-nav-link ">整数的表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/float/" class="side-nav-link ">浮点数表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/type-conversion/" class="side-nav-link ">类型转换</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/circuits/" class="side-nav-link ">运算电路</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/memory-index/" class="side-nav-link ">存储系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/overview/" class="side-nav-link ">存储系统概述</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/ram/" class="side-nav-link ">内存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/cache/" class="side-nav-link ">Cache</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/external/" class="side-nav-link ">外存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/virtual/" class="side-nav-link ">虚拟存储器</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/instruction-index/" class="side-nav-link ">指令系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/types/" class="side-nav-link ">指令集种类</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/format-addressing/" class="side-nav-link ">指令格式与寻址方式</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/data-alignment/" class="side-nav-link ">数据对齐</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/opcode/" class="side-nav-link ">指令操作码</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/hll-machine/" class="side-nav-link ">高级语言与机器码</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/cpu-index/" class="side-nav-link ">中央处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/function-structure/" class="side-nav-link ">CPU功能与结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/controller/" class="side-nav-link ">控制器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/exceptions/" class="side-nav-link ">异常与中断</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/pipeline/" class="side-nav-link ">指令流水线</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/multiprocessor/" class="side-nav-link ">多处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus/" class="side-nav-link ">总线</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus-io/" class="side-nav-link ">总线和I/O系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch06-io/io-system/" class="side-nav-link ">I/O系统</a>
+      
+      <a href="/cc408/exam/exercise/architecture/" class="side-nav-link ">计算机组成原理</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/introduction/" class="side-nav-link ">概论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🖥️</span><span>操作系统</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/os/ch00-overview/os-concept/" class="side-nav-link ">操作系统概念</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/os-structure/" class="side-nav-link ">操作系统结构</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/program-env/" class="side-nav-link ">程序运行环境</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-index/" class="side-nav-link ">进程管理</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-thread/" class="side-nav-link ">进程与线程</a>
+      
+      <a href="/cc408/docs/os/ch01-process/scheduling/" class="side-nav-link ">处理机调度</a>
+      
+      <a href="/cc408/docs/os/ch01-process/sync-mutex/" class="side-nav-link ">同步与互斥</a>
+      
+      <a href="/cc408/docs/os/ch01-process/classic-sync/" class="side-nav-link ">经典同步问题</a>
+      
+      <a href="/cc408/docs/os/ch01-process/deadlock/" class="side-nav-link ">死锁</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/memory-index/" class="side-nav-link ">内存管理</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/concepts/" class="side-nav-link ">内存管理概念</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/virtual/" class="side-nav-link ">虚拟内存管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-index/" class="side-nav-link ">文件管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-basics/" class="side-nav-link ">文件</a>
+      
+      <a href="/cc408/docs/os/ch03-file/directory/" class="side-nav-link ">目录</a>
+      
+      <a href="/cc408/docs/os/ch03-file/filesystem/" class="side-nav-link ">文件系统</a>
+      
+      <a href="/cc408/docs/os/ch04-io/io-index/" class="side-nav-link ">I/O管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/devices/" class="side-nav-link ">I/O设备</a>
+      
+      <a href="/cc408/docs/os/ch04-io/device-mgmt/" class="side-nav-link ">设备管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/disk/" class="side-nav-link ">磁盘</a>
+      
+      <a href="/cc408/code/clock/" class="side-nav-link ">CLOCK 时钟替换算法</a>
+      
+      <a href="/cc408/code/lru/" class="side-nav-link ">LRU 算法</a>
+      
+      <a href="/cc408/code/spinlock/" class="side-nav-link ">TAS 实现自旋锁</a>
+      
+      <a href="/cc408/exam/exercise/os/" class="side-nav-link ">操作系统</a>
+      
+      <a href="/cc408/code/reader_writer/" class="side-nav-link ">读者写着问题</a>
+      
+      <a href="/cc408/code/monitor/" class="side-nav-link ">管程实现生产者消费者</a>
+      
+      <a href="/cc408/code/producer_consumer/" class="side-nav-link ">生产者消费者问题</a>
+      
+      <a href="/cc408/code/banker/" class="side-nav-link ">银行家算法</a>
+      
+      <a href="/cc408/code/philosopher/" class="side-nav-link ">哲学家就餐问题</a>
+      
+      <a href="/cc408/exam/comprehensive/2022-q1/" class="side-nav-link ">2022年408真题 - 综合题第1题</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/computer-overview/" class="side-nav-link ">计算机系统概述</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🌐</span><span>计算机网络</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/network/ch00-overview/layered/" class="side-nav-link ">分层结构</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/protocol-summary/" class="side-nav-link ">各层协议总结</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/device-summary/" class="side-nav-link ">网络设备总结</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/phy-index/" class="side-nav-link ">物理层</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/communication/" class="side-nav-link ">通信概念</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/encoding/" class="side-nav-link ">编码与调制</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/switching/" class="side-nav-link ">交换方式</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/devices/" class="side-nav-link ">物理层设备</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/dl-index/" class="side-nav-link ">数据链路层</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/framing/" class="side-nav-link ">组帧</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/error-control/" class="side-nav-link ">差错控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/flow-control/" class="side-nav-link ">流量控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/mac/" class="side-nav-link ">介质访问控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/lan-wan/" class="side-nav-link ">局域网与广域网</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/devices/" class="side-nav-link ">数据链路层设备</a>
+      
+      <a href="/cc408/docs/network/ch03-network/nw-index/" class="side-nav-link ">网络层</a>
+      
+      <a href="/cc408/docs/network/ch03-network/ip/" class="side-nav-link ">IP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/arp/" class="side-nav-link ">ARP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/icmp/" class="side-nav-link ">ICMP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/dhcp/" class="side-nav-link ">DHCP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/routing/" class="side-nav-link ">路由算法</a>
+      
+      <a href="/cc408/docs/network/ch03-network/sdn/" class="side-nav-link ">SDN</a>
+      
+      <a href="/cc408/docs/network/ch03-network/devices/" class="side-nav-link ">网络层设备</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tp-index/" class="side-nav-link ">传输层</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tcp/" class="side-nav-link ">TCP</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/udp/" class="side-nav-link ">UDP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-index/" class="side-nav-link ">应用层</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-model/" class="side-nav-link ">网络应用模型</a>
+      
+      <a href="/cc408/docs/network/ch05-application/dns/" class="side-nav-link ">DNS</a>
+      
+      <a href="/cc408/docs/network/ch05-application/ftp/" class="side-nav-link ">FTP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/email/" class="side-nav-link ">电子邮件</a>
+      
+      <a href="/cc408/docs/network/ch05-application/www/" class="side-nav-link ">万维网</a>
+      
+      <a href="/cc408/exam/exercise/network/" class="side-nav-link ">计算机网络</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/arch-index/" class="side-nav-link ">计算机网络体系结构</a>
+      
+    </details>
+    
+  </aside>
+  <main class="content-area">
+    <h1>树的应用</h1>
+    <div class="meta-row">
+      
+      <span><span class="diff-star">★</span><span class="diff-star">★</span><span class="diff-star-empty">☆</span></span>
+      
+      <span class="tag">树</span><span class="tag">二叉树</span>
+    </div>
+    <article><p>🔥 高优先级</p>
+<p>并查集其实没考过，编码方式和哈夫曼树也是高频考点。</p>
+<h3 id="编码和解码">编码和解码</h3>
+<p><img src="/images/docs/data-structure/image-20260612102435009.png"></p>
+<p><strong>编码</strong> （Encoding）是将信息从一种形式（通常是人类可读的符号或数据）转换为另一种形式（通常是机器可处理的格式，如二进制比特流）的过程。其目的是为了便于存储、传输或处理信息。<strong>编码</strong> 通常涉及将原始数据（如字符、数字等）映射为特定的代码，这些代码由一组 <strong>编码规则</strong> 定义。</p>
+<p><strong>解码</strong> （Decoding）是编码的 <strong>逆过程</strong> ，即将编码后的数据（如二进制比特流）转换回原始形式的过程。解码需要依赖编码时使用的规则或 <strong>编码表</strong> ，以确保正确还原原始信息。</p>
+<h4 id="编码集分类">编码集分类</h4>
+<p><strong>编码集</strong> 是一组用于表示特定符号或数据的 <strong>编码规则</strong> 的集合。</p>
+<p><strong>编码集</strong> 常按以下方式分类：</p>
+<ul>
+<li>
+<p><strong>固定长度</strong> vs <strong>非固定长度</strong></p>
+</li>
+<li>
+<p><strong>固定长度编码集</strong> （定长）：每个代码的长度相同，例如 ASCII 编码中每个字符都用 8 位表示。</p>
+</li>
+<li>
+<p><strong>可变长度编码集</strong> （变长）：代码长度可以不同，例如 <a href="/data_structure/tree/app/#%e5%93%88%e5%a4%ab%e6%9b%bc%e7%bc%96%e7%a0%81">哈夫曼编码</a> 中高频符号用较短代码，低频符号用较长代码，以实现数据压缩。</p>
+<ul>
+<li><strong>前缀</strong> vs <strong>非前缀</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>前缀编码</strong> ：没有一个编码是另一个编码的前缀</p>
+</li>
+<li>
+<p><strong>非前缀编码</strong> ：有编码是其他编码的前缀</p>
+</li>
+</ul>
+<h5 id="定长编码">定长编码</h5>
+<p>定长编码是指：<strong>为每个符号分配长度完全相同的二进制编码。</strong><br>
+也就是说，不管某个符号出现得多还是少，它所占用的 <strong>比特数</strong> 都是一样的。</p>
+<p>定长编码的 <strong>构建方式</strong> 如下：</p>
+<ol>
+<li><strong>统计符号集合</strong> ：先确定总共有多少个不同的符号，记为 n 。</li>
+<li><strong>计算编码长度</strong> ：要为每个符号分配一个不同的二进制码，所需的**最小码长 l **满足：</li>
+</ol>
+<p>l=⌈log2​n⌉</p>
+<p>也就是说，使用 l 位二进制，可以最多表示 2l 个不同的符号。</p>
+<ol start="3">
+<li><strong>分配编码</strong> ：从 0 开始，依次将二进制数分配给每个符号，使用前导零补足到长度 l 。</li>
+</ol>
+<p><strong>举个实例</strong> 说明一下</p>
+<p>假设有 5 个符号：A、B、C、D、E</p>
+<ul>
+<li>总数 n=5 ，因此编码长度 l=⌈log2​5⌉=3</li>
+<li>3 位二进制能编码最多 23=8 个符号，足够使用</li>
+<li>分配如下：</li>
+</ul>
+<p>编码：</p>
+<p><img src="/images/docs/data-structure/image-20260612102519913.png"></p>
+<p>根据以上构建过程可知：在定长编码中，所有 <strong>叶子结点</strong> （对应字符的结点）都位于同一层，在 变长编码 中，<strong>叶子结点</strong> 可以不位于同一层。</p>
+<p><img src="/images/docs/data-structure/image-20260612102545318.png"></p>
+<h5 id="前缀编码">前缀编码</h5>
+<p><strong>前缀编码</strong> （Prefix Code）是一种编码方式，其中没有任何编码是另一个编码的前缀。换句话说，在一组编码中，任何一个编码字符串都不会是另一个编码字符串的开头部分。这种特性确保了编码可以被唯一且无歧义地解码，常用于数据压缩和通信系统。</p>
+<p>前缀编码表示 <strong>编码集中没有编码是另一个编码的前缀</strong> ，不要这个定义和它的名字弄混了。</p>
+<p><img src="/images/docs/data-structure/image-20260612102556680.png"></p>
+<p>编码集 {1, 01, 001, 0000} 对应的二叉树如上面的左图所示。该编码集为<strong>前缀编码</strong> ，可以观察到，<strong>前缀编码</strong> 的每一个编码都处于 <strong>叶子结点</strong> 的位置，这说明在对比特流进行解码的过程中不会出现歧义（想要获取到编码需要唯一地到达 <strong>叶子结点</strong> ）。</p>
+<p>编码集 {0, 10, 110, 1011} 对应的二叉树如上面的右图所示。该编码集为<strong>非前缀编码</strong> ，可以观察到，<strong>非前缀编码</strong> 有编码处于 <strong>中间结点</strong> 的位置，这说明在对比特流进行解码的过程中会出现歧义，比如对于 10110，解码器无法确认是将开始的 10 解码为 B 还是将 1011 解码为 D。</p>
+<p>补充</p>
+<p>在<strong>前缀编码</strong> 中，由于没有编码是其他编码的前缀，接收方可以逐位读取数据流，立即确定一个编码的结束并开始解码下一个编码，无需额外的分隔符。</p>
+<h4 id="编码长度计算">编码长度计算</h4>
+<p>在信息编码相关的试题中，常会考察两种编码长度的计算方式：<strong>加权路径长度</strong> 和 <strong>加权平均长度</strong> 。这两个概念虽相关，但含义和用途不同，需要仔细辨别。</p>
+<p>此外，计算这两个指标时还涉及到两个基本的量：<strong>频次</strong> 和 <strong>概率</strong> 。它们在形式上相似，但在理解和运用时也要有所区分。</p>
+<ul>
+<li><strong>频次</strong> ：表示某个符号在整体数据中实际出现的次数。</li>
+<li><strong>概率</strong> ：表示某个符号出现的相对频率，即该符号出现的频次除以总频次。</li>
+</ul>
+<p>举个简单的例子：</p>
+<blockquote>
+<p>假设一段文本中总共有 100 个符号，其中字母 A 出现了 20 次。<br>
+那么 A 的频次是 20，概率是 10020​=0.2 。</p>
+</blockquote>
+<p>编码长度的计算可以基于<strong>频次</strong> ，也可以基于<strong>概率</strong> 。两种方法在数值上本质一致，只是表达形式不同，使用<strong>频次</strong> 适用于原始统计数据，使用<strong>概率</strong> 则适用于标准化分析。</p>
+<p>接下来我们就分别介绍这两种编码长度的具体含义及其数学计算方式。</p>
+<h5 id="加权路径长度">加权路径长度</h5>
+<p><strong>加权路径长度</strong> 是指：所有符号的编码长度与其出现<strong>频次</strong> 的乘积之和。</p>
+<p>这个量表示整体编码所需的总比特数，是衡量编码总开销的重要指标。</p>
+<p>设：</p>
+<ul>
+<li>一共有 n 个符号；</li>
+<li>第 i 个符号的出现<strong>频次</strong> 为 fi​ ；</li>
+<li>该符号的编码长度为 li​ ；</li>
+</ul>
+<p>则加权路径长度为：</p>
+<p>WPL=i=1∑n​fi​⋅li​</p>
+<p>注意</p>
+<p>“加权路径长度” 在树结构中也称为 “带权路径长度”，在各种前缀编码或变长编码场景中广泛使用。<br>
+需要注意，这些不同的表述方式本质上描述的是相同的概念。</p>
+<h5 id="加权平均长度">加权平均长度</h5>
+<p><strong>加权平均长度</strong> 是指：在整个编码过程中，平均每个符号所占用的编码长度。它是在加权路径长度的基础上，除以总<strong>频次</strong> 得到的平均值。</p>
+<p>设：</p>
+<ul>
+<li>第 i 个符号的出现<strong>频次</strong> 为 fi​ ；</li>
+<li>编码长度为 li​ ；</li>
+<li>总<strong>频次</strong> 为 F=∑i=1n​fi​ ；</li>
+</ul>
+<p>则加权平均长度 L 为：</p>
+<p>L=∑i=1n​fi​∑i=1n​fi​⋅li​​</p>
+<p>如果已将<strong>频次</strong> 标准化为概率 pi​=∑fi​fi​​ ，也可以表示为：</p>
+<p>L=i=1∑n​pi​⋅li​</p>
+<p>注意</p>
+<p>加权平均长度越小，说明编码越高效。很多编码算法（如<strong>哈夫曼编码</strong> ）的目标之一就是<strong>最小化加权平均长度</strong> 。</p>
+<hr>
+<p>接下来通过一个 <strong>实例</strong> 来说明一下两个概念的计算：</p>
+<p>假设我们有如下符号统计信息：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">符号</th>
+          <th style="text-align: left">出现频次 fi​</th>
+          <th style="text-align: left">概率 pi​</th>
+          <th style="text-align: left">编码 li​</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">A</td>
+          <td style="text-align: left">50</td>
+          <td style="text-align: left">0.50</td>
+          <td style="text-align: left">1</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">B</td>
+          <td style="text-align: left">20</td>
+          <td style="text-align: left">0.20</td>
+          <td style="text-align: left">2</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">C</td>
+          <td style="text-align: left">20</td>
+          <td style="text-align: left">0.20</td>
+          <td style="text-align: left">3</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">D</td>
+          <td style="text-align: left">10</td>
+          <td style="text-align: left">0.10</td>
+          <td style="text-align: left">3</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>计算一：加权路径长度（WPL）</strong></p>
+<p>WPL=50⋅1+20⋅2+20⋅3+10⋅3=50+40+60+30=180 位​</p>
+<p>表示：这段编码文本总共用了 <strong><em>180 位</em></strong> 。</p>
+<p><strong>计算二：加权平均长度</strong></p>
+<p>方法一（基于频次）：</p>
+<p>L=50+20+20+10180​=100180​=1.8 位/符号​</p>
+<p>方法二（基于概率）：</p>
+<p>L=0.5⋅1+0.2⋅2+0.2⋅3+0.1⋅3=0.5+0.4+0.6+0.3=1.8 位/符号​</p>
+<p>表示：平均每个符号的编码长度为 <strong><em>1.8 位/符号</em></strong> 。</p>
+<p><strong>对比总结</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">项目</th>
+          <th style="text-align: left">值</th>
+          <th style="text-align: left">单位</th>
+          <th style="text-align: left">用途</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">加权路径长度</td>
+          <td style="text-align: left">180</td>
+          <td style="text-align: left">位（bit）</td>
+          <td style="text-align: left">整体编码所占的总位数</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">加权平均长度</td>
+          <td style="text-align: left">1.8</td>
+          <td style="text-align: left">位/符号（bit/symbol）</td>
+          <td style="text-align: left">衡量单位符号的平均编码效率</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="哈夫曼树">哈夫曼树</h3>
+<p><strong>哈夫曼树</strong> （Huffman Tree）是一种特殊的 <strong>二叉树</strong> ，通常用于 <strong>数据压缩</strong> 算法中，特别是用于构建 <strong>哈夫曼编码</strong> （Huffman Coding）。哈夫曼树的主要目标是实现 <strong>无损压缩</strong> ，通过赋予不同的数据符号不同长度的编码来减少数据的存储空间。</p>
+<p><img src="/images/docs/data-structure/a3cc5b8b8d.svg"></p>
+<h4 id="特点">特点</h4>
+<ol>
+<li>哈夫曼树是一棵二叉树，通常是 <strong>带权二叉树</strong> ，其中每个 <strong>叶子节点</strong> 都对应一个数据符号，而每个内部节点都没有数据，只有 <strong>权值</strong> 。</li>
+<li>哈夫曼树的 <strong>叶子节点</strong> 的 <strong>权值</strong> 通常表示数据符号的 <strong>出现频率</strong> ，而内部节点的 <strong>权值</strong> 等于其子节点 <strong>权值之和</strong> 。</li>
+<li>哈夫曼树 的 <strong>构建目标</strong> 是找到一棵树，使得权值较高的数据符号拥有 较短的编码，权值较低的数据符号拥有较长的编码。</li>
+</ol>
+<h4 id="构建过程">构建过程</h4>
+<p><img src="/images/docs/data-structure/3b4f4eb970.svg"></p>
+<ol>
+<li>创建一个包含所有数据符号的森林（初始状态下，每个数据符号都是一棵单节点树）。</li>
+<li>从森林中 <strong>选择两棵树</strong> ，这两棵树的 <strong>权值最小</strong> 。将它们 <strong>合并为一棵新的树</strong> ，新树的 <strong>权值</strong> 为两棵树的 <strong>权值之和</strong> 。</li>
+<li>将 <strong>新的树放回森林</strong> 中，重复步骤 2，直到森林中只剩下一棵树，这棵树就是 <strong>哈夫曼树</strong> 。</li>
+<li>构建好的哈夫曼树具有一个重要的性质：权值较高的数据符号在树中的深度较浅，权值较低的数据符号在树中的深度较深。</li>
+</ol>
+<p>一旦构建了哈夫曼树，就可以生成数据符号的 <strong>哈夫曼编码</strong> 。哈夫曼编码是一种 <strong>变长编码</strong> ，用于表示不同数据符号。在哈夫曼编码中，<strong>权值较高</strong> 的数据符号通常对应 <strong>较短的编码</strong> ，<strong>权值较低</strong> 的数据符号对应 <strong>较长的编码</strong> 。这种编码方式可以实现数据的高效压缩和解压缩。</p>
+<p>哈夫曼树 和 哈夫曼编码 在 <strong>数据压缩</strong> 领域具有广泛的应用，例如在无损压缩算法中，如 ZIP 文件压缩，图像压缩（如 JPEG）等。通过构建适用的 哈夫曼树 和 编码，可以大幅减少数据的存储和传输成本。</p>
+<h4 id="哈夫曼编码">哈夫曼编码</h4>
+<p>遍历 <strong>哈夫曼树</strong> ，为每个数据符号生成相应的 <strong>哈夫曼编码</strong> 。编码的生成方式如下（左 0 右 1）：</p>
+<ul>
+<li>向左走时添加一个 0 位。</li>
+<li>向右走时添加一个 1 位。</li>
+<li>沿着树的路径一直到达 <strong>叶子节点</strong> 时，即可生成该 <strong>叶子节点</strong> 对应的数据符号的编码。</li>
+</ul>
+<p><strong>实例</strong></p>
+<p>为 a, b, c, d 四个字母生成 <strong>哈夫曼编码</strong> ，其对应的权值分别为 7, 5, 2, 4</p>
+<p><img src="/images/docs/data-structure/image-20260612102947928.png"><strong>哈夫曼编码</strong> 是一种经典的 <a href="/data_structure/tree/app/#%e5%89%8d%e7%bc%80%e7%bc%96%e7%a0%81">前缀编码</a>。</p>
+<h3 id="并查集">并查集</h3>
+<p><strong>并查集</strong> （Union-Find）是一种数据结构，主要用于解决 <strong>集合划分</strong> 及 <strong>查询问题</strong> 。它主要支持两种操作：<strong>查找</strong> （Find）和 <strong>合并</strong> （Union）。其核心思想是使用一个数组（或其他数据结构）来存储每个元素的 <strong>父节点信息</strong> 。</p>
+<h4 id="查找">查找</h4>
+<p><strong>查找操作</strong> 的目的是找到给定元素所属 <strong>集合</strong> 的代表。这可以通过追踪 <strong>父节点</strong> 来实现，直到找到 <strong>根元素</strong> （即 <strong>父节点</strong> 为其自身的元素）。<strong>路径压缩</strong> 可以在查找过程中应用，使得从指定节点到其根的路径上的每个节点都直接指向根，从而提高后续查找的效率。</p>
+<h4 id="合并">合并</h4>
+<p><strong>合并操作</strong> 的目的是将两个 <strong>集合</strong> 合并为一个集合。为了执行合并，首先使用 <strong>Find</strong> 操作找到两个集合的代表，然后决定哪个代表成为新的根。为了保持 <strong>树的平衡性</strong> ，并减少查找时间，常用的策略是 <strong>按秩合并</strong> 。其中，<strong>秩</strong> 通常表示 <strong>树的高度</strong> 。<strong>较低的树</strong> 会被附加到 <strong>较高的树</strong> 的根上。</p>
+<p><img src="/images/docs/data-structure/d6b6aa781d.svg"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#define MAXN 1000
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> parent[MAXN];  <span style="color:#75715e">// 存储每个点的父节点
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> rank[MAXN];    <span style="color:#75715e">// 秩
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 初始化
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        parent[i] <span style="color:#f92672">=</span> i;  <span style="color:#75715e">// 初始时，每个元素的父节点是其自身
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        rank[i] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;    <span style="color:#75715e">// 初始时，每个元素的秩为 0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 查找
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// 路径压缩
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 合并
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> rootY <span style="color:#f92672">=</span> <span style="color:#a6e22e">find</span>(y);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (rootX <span style="color:#f92672">!=</span> rootY) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (rank[rootX] <span style="color:#f92672">&gt;</span> rank[rootY]) {
+</span></span><span style="display:flex;"><span>            parent[rootY] <span style="color:#f92672">=</span> rootX;
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (rank[rootX] <span style="color:#f92672">&lt;</span> rank[rootY]) {
+</span></span><span style="display:flex;"><span>            parent[rootX] <span style="color:#f92672">=</span> rootY;
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            parent[rootY] <span style="color:#f92672">=</span> rootX;
+</span></span><span style="display:flex;"><span>            rank[rootX]<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="相关笔记">相关笔记</h2>
+<ul>
+<li>[[array-matrix|数组和特殊矩阵]]</li>
+<li>[[definition|串的定义与实现]]</li>
+<li>[[pattern-matching|串的模式匹配]]</li>
+<li>[[string-index|串概述]]</li>
+</ul>
+</article>
+
+    
+    
+    
+
+    <div class="border-top-section">
+      <a href="/cc408/docs/" class="btn btn-ghost">← 返回知识点列表</a>
+    </div>
+  </main>
+</div>
+
+<style>
+.side-nav-group[open] summary { color: var(--text-primary); }
+.side-nav-group summary::-webkit-details-marker { display: none; }
+.side-nav-group summary::after {
+  content: '▸'; margin-left: auto; font-size: var(--fs-xs); transition: transform .2s;
+}
+.side-nav-group[open] summary::after { transform: rotate(90deg); }
+</style>
+
+  </main>
+  <footer class="site-footer" role="contentinfo">
+  <p>© 2026 CC408. 408考研知识整理</p>
+</footer>
+
+</body>
+</html>

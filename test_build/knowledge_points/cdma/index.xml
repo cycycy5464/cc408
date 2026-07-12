@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CDMA on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/knowledge_points/cdma/</link>
+    <description>Recent content in CDMA on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/knowledge_points/cdma/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2014 计算机网络 第37题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2014-cn-037/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2014-cn-037/</guid>
+      <description>&lt;p&gt;站点 A、B、C 通过 CDMA 共享链路，A、B、C的码片序列(chipping sequence) 分别是(1,1,1,1)、 (1,-1,1,-1)和(1,1,-1,-1)。若 C  从链路上收到的序列是(2,0,2,0,0,-2,0,-2,0,2,0,2),则C  收到 A   发送的数据是()。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2023 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/years/2023/</link>
+    <description>Recent content in 2023 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/years/2023/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2023 操作系统 第23题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-os-023/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-os-023/</guid>
+      <description>&lt;p&gt;与宏内核操作系统相比，下列特征中微内核操作系统具有的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;Ⅰ. 较好的性能&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 操作系统 第24题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-os-024/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-os-024/</guid>
+      <description>&lt;p&gt;在操作系统内核中，中断向量表适合采用的数据结构是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e4%b8%ad%e6%96%adio&#34;&gt;中断IO&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A. 数组&#xA;B. 队列&#xA;C. 单向链表&#xA;D. 双向链表&#xA;[tag_link]&#xA;正确答案：A&#xA;在操作系统内核中，&#xA;&lt;a href=&#34;../../../constitution_principle/bus/io/content.md#%e4%b8%ad%e6%96%ad%e5%90%91%e9%87%8f%e8%a1%a8&#34;&gt;中断向量表&lt;/a&gt;&#xA;适合采用的数据结构是数组（选项 A）。中断向量表 是一种用于存储中断处理程序入口地址的数据结构，它以中断号作为索引，将中断号映射到相 应的中断处理程序入口地址。由于中断号是一个固定的范围（例如，0~255）采用数组可以实 现快速的索引和访问，具有较高的效率。使用数组可以直接根据中断号计算出对应的数组索引 而不需要遍历链表或队列来查找对应的处理程序入口地址，从而提高中断处理的效率。所以本 题的正确选项为 A。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 操作系统 第25题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-os-025/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-os-025/</guid>
+      <description>&lt;p&gt;某系统采用页式存储管理，用位图管理空闲页框。若页大小为 4 KB，物理内存大小为 16 GB，则位图所占空间的大小是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 操作系统 第26题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-os-026/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-os-026/</guid>
+      <description>&lt;p&gt;下列操作完成时，导致 CPU 从内核态转为用户态的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e7%94%a8%e6%88%b7%e6%80%81%e5%92%8c%e5%86%85%e6%a0%b8%e6%80%81&#34;&gt;用户态和内核态&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A. 阻塞过程&#xA;B.  执 行 CPU   调度&#xA;C. 唤醒进程&#xA;D. 执行系统调用&#xA;[tag_link]&#xA;正确答案：D&#xA;来看每个选项的含义和状态切换：&#xA;对于 A 选项，阻塞过程属于进程状态切换，不直接涉及CPU模式转换。&#xA;对于 B 选项，执行 CPU 调度属于内核调度器行为，通常保持在内核态。&#xA;对于 C 选项，唤醒进程属于进程管理操作，不直接触发模式切换&#xA;对于 D 选项，当用户程序需要访问特权指令或执行需要操作系统提供的服务时，它会通过 &lt;a href=&#34;../../../operating_system/concepts/environment/content.md#%e7%b3%bb%e7%bb%9f%e8%b0%83%e7%94%a8&#34;&gt;系统调用&lt;/a&gt; 请求进人内核态。在系统调用期间，CPU 会切换到内核态执行相应的内核代码来满足用户程序的需求。一旦系统调用执行完毕，CPU 会从内核态返回到用户态继续执行用户程序。所以，执行系统调用是导致 CPU 从内核态转为用户态的关键操作。所以该题的正确选项为 D 选项。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 操作系统 第27题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-os-027/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-os-027/</guid>
+      <description>&lt;p&gt;下列出当前线程引起的事件或执行的操作中，可能导致该线程由执行态变为就绪态的是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 操作系统 第28题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-os-028/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-os-028/</guid>
+      <description>&lt;p&gt;对于采用虚拟内存管理方式的系统，下列关于进程虚拟地址空间的叙述中，错误的是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 操作系统 第29题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-os-029/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-os-029/</guid>
+      <description>&lt;p&gt;进程 P1、P2 和 P3 进入就绪队列的的时刻，优先值（越大优先权越高）以及 CPU 的执行时间如下表所示。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 操作系统 第30题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-os-030/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-os-030/</guid>
+      <description>&lt;p&gt;进程 R 和 S 共享数据 data，若 data 在 R 和 S 中所在页的页号分别为 p1 和 p2，两个页所对应的页框号分别为 f1 和 f2，则下列叙述中，正确的是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 操作系统 第31题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-os-031/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-os-031/</guid>
+      <description>&lt;p&gt;若文件 F 仅被进程 P 打开并访问，则当进程 P 关闭 F 时，下列操作中，文件系统需要完成的是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 操作系统 第32题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-os-032/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-os-032/</guid>
+      <description>&lt;p&gt;下列因素中，设备分配需要考虑的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;Ⅰ. 设备的类型&lt;/p&gt;&#xA;&lt;p&gt;Ⅱ. 设备的访问权限&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 操作系统 第45题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-os-045/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-os-045/</guid>
+      <description>&lt;p&gt;现要求学生使用 swap 指令和布尔型变量 lock 实现临界区互斥。lock 为线程间共享的变量。lock 的值为 TRUE 时线程不能进入临界区，为 FALSE 时线程能够进入临界区。某同学编写的实现临界区互斥的伪代码如题 45(a) 图所示。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 操作系统 第46题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-os-046/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-os-046/</guid>
+      <description>&lt;p&gt;进程 P 通过执行系统调用从键盘接收一个字符的输入，已知此过程中与进程 P 相关的操作包括：①将进程 P 插入就绪队列；②将进程 P 插入阻塞队列；③将字符从键盘控制器读入系统缓冲区；④启动键盘中断处理程序；⑤进程 P 从系统调用返回；⑥用户在键盘上输入字符。以上编号①~⑥仅用于标记操作，与操作的先后顺序无关。请回答下列问题。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机网络 第33题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-cn-033/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-cn-033/</guid>
+      <description>&lt;p&gt;如图，2 段链路的数据传输速率为 100Mbps，时延带宽积（即单向传播时延*带宽）均为 1000bit。若 H1 向 H2 发送 1 个大小为 1MB 的文件，分组长度为 1000B，则从 H1 开始发送时刻起到 H2 收到文件全部数据时刻止，所需的时间至少是（注：&#xA;M=106&#xA;）?&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机网络 第34题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-cn-034/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-cn-034/</guid>
+      <description>&lt;p&gt;某无噪声理想信道带宽为 4MHz，采用 QAM 调制，若该信道的最大数据传输率是 48Mbps，则该信道采用的 QAM 调制方案是（）&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机网络 第35题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-cn-035/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-cn-035/</guid>
+      <description>&lt;p&gt;假设通过同一信道，数据链路层分别采用停等协议、GBN 协议和 SR 协议（发送窗口和接收窗口相等）传输数据，三个协议数据帧长相同，忽略确认帧长度，帧序号位数为 3 比特。若对应三个协议的发送方最大信道利用率分别是 U1、U2 和 U3，则 U1、U2 和 U3 满足的关系是（ ）&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机网络 第36题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-cn-036/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-cn-036/</guid>
+      <description>&lt;p&gt;已知 10BaseT 以太网的争用时间片为 51.2us。若网卡在发送某帧时发生了连续 4 次冲突，则基于二进制指数退避算法确定的再次尝试重发该帧前等待的最长时间是（ ）&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机网络 第37题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-cn-037/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-cn-037/</guid>
+      <description>&lt;p&gt;若甲向乙发送数据时采用 CRC 校验，生成多项式为&#xA;G(x)=x4+x+1&#xA;（即 G=10011），则乙接收到下列比特串时，可以断定其在传输过程中未发生错误的是（ ）&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机网络 第38题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-cn-038/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-cn-038/</guid>
+      <description>&lt;p&gt;某网络拓扑如下图所示，其中路由器 R2 实现 NAT 功能。若主机 H 向 Inernet 发送一个 IP 分组，则经过 R2 转发后，该 IP 分组的源 IP 地址是（ ）&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机网络 第39题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-cn-039/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-cn-039/</guid>
+      <description>&lt;p&gt;主机 168.16.84.24/20 所在子网的最小可分配地址和最大可分配地址分别是（ ）&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e7%bd%91%e7%bb%9c%e5%8f%b7%e5%92%8c%e4%b8%bb%e6%9c%ba%e5%8f%b7&#34;&gt;网络号和主机号&lt;/a&gt;&#xA;[tag_link]&#xA;正确答案：B&#xA;题目给的主机 168.16.84.24/20 用二进制展开可以得到：168.16.0101 0100.24 可以看到， 网络前缀为前 20 位，主机号为后 12 位。最小可分配地址是主机号为 1 的情况，可以得到最小 可分配地址为 168.16.0101 0000.1 = 168.16.80.1。最大可分配地址是广播地址减 1 的情况，可以 得到最大可分配地址为 168.16.0101 1111.254 = 168.16.95.254。答案选择 B 选项。 IPv4 是 32 位的地址长度，而 IPv6 是 128 位的地址长度，二者相差了 64 位，由于是 二进制表示，所以地址数量相差了 264 倍。因此 I 错误。IPv4 的基本首部有选项字段，因此长 度可变；IPv6 将可选字段移除，变成了扩展首部，但是扩展首部被放在了有效载荷中，因此基 本首部长度是不可变的，II 错误。在完全过渡到 IPv6 之前，IPv4 和 IPv6 并行使用，可以采用 双协议栈技术和隧道技术进行。III 正确。IPv6 首部的 Hop-Limit 表示跳数限制，代表了 IP 数 据报在网络中的最大跳数；而 IPv4 首部的 TTL 字段表示最大寿命，也表示了 IP 数据报在网 络中的最大跳数，如果超出了 TTL，则该 IP 数据报要被丢弃。IV 正确。综上所述，答案选择 D 选项。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机网络 第40题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-cn-040/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-cn-040/</guid>
+      <description>&lt;p&gt;下列关于 ipv6 和 ipv4 的叙述中，正确的是（ ）&lt;/p&gt;&#xA;&lt;p&gt;I. ipv6 地址空间是 ipv4 地址空间的 96 倍&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机网络 第47题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-cn-047/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-cn-047/</guid>
+      <description>&lt;p&gt;如图，主机 H 登录到 FTP 服务器后，向服务器上传一个大小为 18000B 的文件 F，假设 H 传输 F 建立数据链接时，选择的初始序号为 100，MSS=1000B，拥塞控制的初始阈值是 4MSS，RTT=10ms，忽略 TCP 的传输时延，在 F 的传送过程中，H 以 MSS 段向服务器发送数据，且始终没有错误，丢包和乱序。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机组成原理 第12题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-co-012/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-co-012/</guid>
+      <description>&lt;p&gt;若机器 M 的主频为1.5hz, 在 M  上执行程序 p 的指令条数为5*10的5次方，p  的平均 CPI 为 1.2,则 p  在 M 上的指令执行速度和用户 CPU 时间分别为()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机组成原理 第13题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-co-013/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-co-013/</guid>
+      <description>&lt;p&gt;若 short 型变量x=-8190,   则 x 的机器数为()。&lt;/p&gt;&#xA;&lt;p&gt;A.E002H&lt;/p&gt;&#xA;&lt;p&gt;B.E001H&lt;/p&gt;&#xA;&lt;p&gt;C.9FFFH&lt;/p&gt;&#xA;&lt;p&gt;D.9FFEH&lt;/p&gt;&#xA;&lt;p&gt;[tag_link]&lt;/p&gt;&#xA;&lt;p&gt;正确答案：A&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机组成原理 第14题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-co-014/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-co-014/</guid>
+      <description>&lt;p&gt;已知 float  型变量用 IEEE754 单精度浮点数格式表示。若 float  型变量 x  的机器数为8020000H, 则 x 的值 ()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机组成原理 第15题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-co-015/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-co-015/</guid>
+      <description>&lt;p&gt;某计算机的 CPU 有30 根地址线，按字节编址，CPU 和主存芯片连接时，要求主存芯片占满所有  可能存储地址空间，并且 RAM 区和 ROM 区所分配的孔家大小比为3:1,若 RAM 在连续低地址区， ROM 在连续高地址区，则 ROM  的地址范围()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机组成原理 第16题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-co-016/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-co-016/</guid>
+      <description>&lt;p&gt;已知 x、y 为 int  类型，当 x=100,y=200 时，执行 x-y 指令的到的溢出标志 OF  和借位标志 CF  分 别为0,1,那么当 x=10,y=-2 0 时，执行该指令得到的 OF 和 CF 分别是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机组成原理 第18题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-co-018/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-co-018/</guid>
+      <description>&lt;p&gt;数据通路由组合逻辑元件(操作元件)和时序逻辑元件(状态元件)组成。下列给出的元件中，属于 操作元件的是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机组成原理 第19题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-co-019/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-co-019/</guid>
+      <description>&lt;p&gt;在采用“取指、译码/取数、执行、访存、写回”5段流水线的 RISC 处理器中，执行如下指令序列 (第一列为指令序号),其中s0 、s1 、s2 、s3和t2 表示寄存器编号。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机组成原理 第21题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-co-021/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-co-021/</guid>
+      <description>&lt;p&gt;下列关于硬件和异常/中断关系的叙述中，错误的是()。&lt;/p&gt;&#xA;&lt;p&gt;A. CPU 在执行一条指令过程中检测异常事件  B. CPU 在执行完一条指令时检测中断请求信号&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机组成原理 第22题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-co-022/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-co-022/</guid>
+      <description>&lt;p&gt;下列关于 I/O  控制方式的叙述中，错误的是()。&lt;/p&gt;&#xA;&lt;p&gt;A. 查询方式下，通过 CPU 执行查询程序进行 I/O 操作&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机组成原理 第43题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-co-043/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-co-043/</guid>
+      <description>&lt;p&gt;已知计算机 M 字长为 32 位，按字节编址，采用请求调页策略的虚拟存储管理方式，虚拟地址为 32 位，页面大小为 4KB；数据 Cache 采用 4 路组相联映射，数据区大小为 8KB，主存块大小为 32B。现有 C 语言程序段如下：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机组成原理 第44题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-co-044/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-co-044/</guid>
+      <description>&lt;p&gt;上题中 C 程序段在计算机 M 上的部分机器级代码如下，每个机器级代码行中依次包含指令序号、虚拟地址、机器指令和汇编指令。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 数据结构 第10题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-ds-010/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-ds-010/</guid>
+      <description>&lt;p&gt;下列排序算法中，不稳定的是（ ）&lt;/p&gt;&#xA;&lt;p&gt;I. 希尔排序&lt;/p&gt;&#xA;&lt;p&gt;II. 归并排序&lt;/p&gt;&#xA;&lt;p&gt;III. 快速排序&lt;/p&gt;&#xA;&lt;p&gt;IV. 堆排序&lt;/p&gt;&#xA;&lt;p&gt;V. 基数排序&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 数据结构 第11题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-ds-011/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-ds-011/</guid>
+      <description>&lt;p&gt;使用快速排序算法对数据进行升序排序，若经过一次划分后得到的数据序列是 68, 11, 70, 23, 80, 77, 48, 81, 93, 88，则该次划分的轴枢（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 数据结构 第1题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-ds-001/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-ds-001/</guid>
+      <description>&lt;p&gt;下列对顺序存储的有序表（长度为 n）实现给定操作的算法中平均时间复杂度为 O(1) 的是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 数据结构 第2题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-ds-002/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-ds-002/</guid>
+      <description>&lt;p&gt;现有非空双向链表 L，其结点结构为：&lt;/p&gt;&#xA;&lt;p&gt;prev 是指向前直接前驱结点的指针，next 是指向直接后继结点的指针。若要在 L 中指针 p 所指向的结点（非尾结点）之后插入指针 s 指向的新结点，则在执行了语句序列： &lt;code&gt;s-&amp;gt;next=p-&amp;gt;next; p-&amp;gt;next=s&lt;/code&gt;，后，还要执行（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 数据结构 第3题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-ds-003/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-ds-003/</guid>
+      <description>&lt;p&gt;若采用三元组表存储结构存储系数矩阵 M。则除三元组外，下列数据中还需要保存的是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 数据结构 第41题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-ds-041/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-ds-041/</guid>
+      <description>&lt;p&gt;已知有向图 G 采用邻接矩阵存储，类型定义如下：&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;typedef&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; {                    &lt;span style=&#34;color:#75715e&#34;&gt;// 图的类型定义&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; numVertices, numEdges;      &lt;span style=&#34;color:#75715e&#34;&gt;// 图中顶点数和有向边数&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;char&lt;/span&gt; VerticesList[MAXV];        &lt;span style=&#34;color:#75715e&#34;&gt;// 顶点表，MAXV 为已定义常量&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; Edge[MAXV][MAXV];           &lt;span style=&#34;color:#75715e&#34;&gt;// 邻接矩阵&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;} MGraph;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;将图中出度大于入度的顶点称为 K 顶点。例如在题 41 图中，顶点 a 和 b 都是 K 顶点。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 数据结构 第42题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-ds-042/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-ds-042/</guid>
+      <description>&lt;p&gt;对含有 n（n &amp;gt; 0）个记录的文件进行外部排序，采用置换 - 选择排序生成初始归并段时需要使用一个工作，工作区中能保存 m 个记录，请回答下列问题，&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 数据结构 第4题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-ds-004/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-ds-004/</guid>
+      <description>&lt;p&gt;在有 6 个字符组成的字符集 S 中，各个字符出现的频次分别为 3, 4, 5, 6, 8, 10，为 S 构造的哈夫曼树的加权平均长度为（ ）&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 数据结构 第5题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-ds-005/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-ds-005/</guid>
+      <description>&lt;p&gt;已知一棵二叉树的树形如图，若其后序遍历为 f,d,b,e,c,a，则其先序序列为（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 数据结构 第6题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-ds-006/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-ds-006/</guid>
+      <description>&lt;p&gt;已知无向连通图 G 中各边的权值均为 1，下列算法中，一定能够求出图 G 中从某顶点到其余各个顶点最短路径的是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 数据结构 第7题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-ds-007/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-ds-007/</guid>
+      <description>&lt;p&gt;下列关于非空 B 树的叙述中，正确的是（ ）&lt;/p&gt;&#xA;&lt;p&gt;I. 插入操作可能增加树的高度&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 数据结构 第8题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-ds-008/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-ds-008/</guid>
+      <description>&lt;p&gt;对含有 600 个元素的有序顺序表进行折半查找，关键字之间的比较次数最多是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 数据结构 第9题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-ds-009/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-ds-009/</guid>
+      <description>&lt;p&gt;现有长度为 5，初始为空的散列表 HT，散列表函数 H(k) = (k+4) % 5 用线性探查再散列法解决冲突。若将关键字序列 2022,12,25 依次插入 HT 中，然后删除关键字 25，则 HT 中查找失败的平均查找长度（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 组成原理 第13题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-ds-013/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-ds-013/</guid>
+      <description>&lt;p&gt;若 short 型变量 x = -8190，则 x 的机器数为（ ）&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e8%a1%a5%e7%a0%81&#34;&gt;补码&lt;/a&gt;&#xA;[tag_link]&#xA;正确答案：A&#xA;机器数是计算机内部用来表示和存储数值的二进制形式。对于有符号的 short 型变量， 通常采用 16 位&#xA;&lt;a href=&#34;../../../constitution_principle/representation/integer/content.md#%e8%a1%a5%e7%a0%81%e8%a1%a8%e7%a4%ba&#34;&gt;补码&lt;/a&gt;&#xA;表示法。对于给定的 short 型变量 x=-8190，我们需要将其转换为二进制的补码表示。首先，将数值 8190 转换为二进制形式：8190 = 0001 1111 1111 1110B，然后取其二 进制补码（负数取反后加 1），补码为 1110 0000 0000 0010B，转化为 16 进制为 E002H。因此 正确选项为 A。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 组成原理 第14题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-ds-014/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-ds-014/</guid>
+      <description>&lt;p&gt;已知 float 型变量用 IEEE754 单精度浮点数格式表示。若 float 型变量 x 的机器数为 8020 0000H，则 x 的值（ ）&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 组成原理 第15题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-ds-015/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-ds-015/</guid>
+      <description>&lt;p&gt;某计算机的 CPU 有 30 根地址线，按字节编址，CPU 和主存芯片连接时，要求主存芯片占满所有可能存储地址空间，并且 RAM 区和 ROM 区所分配的容量大小比为 3:1，若 RAM 在连续低地址区，ROM 在连续高地址区，则 ROM 的地址范围（ ）&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 组成原理 第16题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-ds-016/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-ds-016/</guid>
+      <description>&lt;p&gt;已知 x、y 为 int 类型，当 x=100，y=200 时，执行 x-y 指令的到的溢出标志 OF 和借位标志 CF 分别为 0,1，那么当 x=10，y=-20 时，执行该指令得到的 OF 和 CF 分别是（ ）&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 组成原理 第17题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-ds-017/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-ds-017/</guid>
+      <description>&lt;p&gt;某运算类型指令中有一个地址码为通用寄存器编号，对应通用寄存器中存放的是操作数或操作数地址，CPU 区分两者的依据是（ ）&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 组成原理 第18题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-ds-018/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-ds-018/</guid>
+      <description>&lt;p&gt;数据通路由组合逻辑元件（操作元件）和时序逻辑元件（状态元件）组成。下列给出的元件中，属于操作元件的是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 组成原理 第19题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-ds-019/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-ds-019/</guid>
+      <description>&lt;p&gt;在采用“取指、译码/取数、执行、访存、写回”5 段流水线的 RISC 处理器中，执行如下指令序列（第一列为指令序号），其中 s0、s1、s2、s3 和 t2 表示寄存器编号。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 组成原理 第20题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-ds-020/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-ds-020/</guid>
+      <description>&lt;p&gt;某存储器总线宽度为 64 位，总线时钟频率为 1GHZ，在总线上传输一个数据或地址需要一个的时钟周期，不支持突发传送方式，若通过该总线连接 CPU 和主存，主存每次准备一个 64 位数据需要 6ns，主存块大小为 32B，则读取一个主存块需要的时间为（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 组成原理 第21题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-ds-021/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-ds-021/</guid>
+      <description>&lt;p&gt;下列关于硬件和异常/中断关系的叙述中，错误的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e5%bc%82%e5%b8%b8%e5%92%8c%e4%b8%ad%e6%96%ad&#34;&gt;异常和中断&lt;/a&gt;&#xA;[tag_link]&#xA;正确答案：D&#xA;&lt;a href=&#34;../../../constitution_principle/cpu/interrupt/content.md#%e5%bc%82%e5%b8%b8&#34;&gt;异常&lt;/a&gt;&#xA;通常指内部中断，是指令执行错误或中断指令产生的内部中断，在指令执行过程 中被检测，因此选项 A 正确。外部中断指硬件中断，在指令执行完毕后，CPU 会检查中断请 求信号，如果有中断请求发生，则进行中断响应，暂停当前的任务，保存现场并处理中断，因 此，选项 B，C 正确。外部设备通过中断控制器向 CPU 发出中断请求信号而不是中断结束信 号，选项 D 错误。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 组成原理 第22题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-ds-022/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-ds-022/</guid>
+      <description>&lt;p&gt;下列关于 I/O 控制方式的叙述中，错误的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#io%e6%96%b9%e5%bc%8f&#34;&gt;IO方式&lt;/a&gt;&#xA;[tag_link]&#xA;正确答案：C&#xA;在&#xA;&lt;a href=&#34;../../../constitution_principle/bus/io/content.md#dma-%e6%96%b9%e5%bc%8f&#34;&gt;DMA&lt;/a&gt;&#xA;（直接内存访问）方式下，CPU 并不直接执行 DMA 传送程序进行 IO 操作。 DMA 是一种特殊的 I/O 控制方式，它允许外设设备直接与主存进行数据传输，数据传输过程 是由硬件（DMA 控制器）完成的，而无需 CPU 的干预，所以 C 选项的描述错误。本题需要选 择错误的选项，因此本题的答案为 C。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -7,6 +7,7 @@
 
   <div class="exam-paper-grid">
     {{ range .Sections.ByTitle }}
+      {{ if not (hasPrefix .Name "simulate") }}
       {{ $year := "" }}
       {{ if .Params.year }}{{ $year = .Params.year | string }}{{ end }}{{ if .Params.years }}{{ $year = .Params.years }}{{ end }}
       {{ $isSim := .Params.set }}
@@ -25,6 +26,7 @@
           <span class="tag">{{ $yearCount }}题</span>
         </div>
       </a>
+      {{ end }}
     {{ end }}
   </div>
 

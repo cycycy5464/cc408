@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OSI模型 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/knowledge_points/osi%E6%A8%A1%E5%9E%8B/</link>
+    <description>Recent content in OSI模型 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/knowledge_points/osi%E6%A8%A1%E5%9E%8B/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2014 计算机网络 第33题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2014-cn-033/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2014-cn-033/</guid>
+      <description>&lt;p&gt;在 OSI 参考模型中，直接为会话层提供服务的是()。&lt;/p&gt;&#xA;&lt;p&gt;A.  应用层&lt;/p&gt;&#xA;&lt;p&gt;B. 表示层&lt;/p&gt;&#xA;&lt;p&gt;C. 传输层&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2022 计算机网络 第33题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2022-cn-033/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2022-cn-033/</guid>
+      <description>&lt;p&gt;在 IOS/OSI参考模型中，实现两个相邻结点间流量控制功能的是()。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

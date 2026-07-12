@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>文件 | CC408</title>
+  <meta name="description" content="🔥 高优先级
+这一节是操作系统文件管理中最重要的一节，每个知识点的知识都要深入掌握，尤其是文件的物理结构，在大题中也经常考察。
+文件元信息 在 UNIX 和类 UNIX 操作系统中， inode （索引节点）用于存储 文件的元数据 ，它包含了关于该文件的大部分 元数据 ，但不包括 文件名 和 文件实 …">
+  <link rel="icon" href="/cc408/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" as="script" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" as="script" crossorigin="anonymous">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/cc408/css/custom.min.ecad70eed0f9849f67d23e2bf502ae36e7f590486681964e1c95bc71c8672493.css" integrity="sha256-7K1w7tD5hJ9n0j4r9QKuNuf1kEhmgZZOHJW8cchnJJM=">
+  
+
+<script src="/cc408/js/watermark.js"></script>
+
+
+  <script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.content-area img,.docs-layout img').forEach(function(i){if(!i.src.match(/\.svg$/i)){i.loading='lazy';i.fetchPriority='low';}});});</script>
+</head>
+<body style="background: var(--bg-primary); color: var(--text-primary);">
+  <a href="#main-content" class="skip-link">跳转到主要内容</a>
+  <nav class="navbar" role="navigation" aria-label="主导航">
+  <a href="/cc408/" class="navbar-brand">CC408</a>
+  <button class="navbar-toggle" aria-label="菜单" onclick="this.parentElement.querySelector('.navbar-links').classList.toggle('open')">☰</button>
+  <div class="navbar-links" role="menubar">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      首页
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/docs/" role="menuitem" class="active" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识点
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      刷题
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/quiz-collection/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      收藏
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/graph/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识图谱
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/tags/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      标签
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/resources/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      资源
+    </a>
+    
+  </div>
+  <div class="navbar-right">
+    <a href="https://cycycy5464.github.io/">个人主页 →</a>
+  </div>
+</nav>
+
+  <main id="main-content" style="padding-top: 70px; min-height: calc(100vh - 120px);">
+    
+<div class="docs-layout">
+  <aside class="side-nav">
+    
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>📊</span><span>数据结构</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/basic-concepts/" class="side-nav-link ">数据结构基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/algorithm-concepts/" class="side-nav-link ">算法基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linear-list-index/" class="side-nav-link ">线性表概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/definition/" class="side-nav-link ">线性表定义与基本操作</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/sequential-list/" class="side-nav-link ">顺序表</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linked-list/" class="side-nav-link ">链表</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/stack/" class="side-nav-link ">栈</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/queue/" class="side-nav-link ">队列</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/application/" class="side-nav-link ">栈和队列的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/linear-data-structure/" class="side-nav-link ">线性数据结构</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/string-index/" class="side-nav-link ">串概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/definition/" class="side-nav-link ">串的定义与实现</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/pattern-matching/" class="side-nav-link ">串的模式匹配</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/array-matrix/" class="side-nav-link ">数组和特殊矩阵</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree/" class="side-nav-link ">树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-and-binary-tree/" class="side-nav-link ">树与二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/binary-tree/" class="side-nav-link ">二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-applications/" class="side-nav-link ">树的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/graph-index/" class="side-nav-link ">图概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/definition/" class="side-nav-link ">图的定义</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/algorithms/" class="side-nav-link ">图的算法和应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/search-index/" class="side-nav-link ">查找概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/array-search/" class="side-nav-link ">数组查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/tree-search/" class="side-nav-link ">树形查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/hash-search/" class="side-nav-link ">散列表查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/sort-index/" class="side-nav-link ">排序概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/internal-sort/" class="side-nav-link ">内部排序</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/external-sort/" class="side-nav-link ">外部排序</a>
+      
+      <a href="/cc408/exam/exercise/data_structure/" class="side-nav-link ">数据结构篇</a>
+      
+      <a href="/cc408/exam/application/2023-q1/" class="side-nav-link ">2023年408真题 - 应用题第1题</a>
+      
+      <a href="/cc408/exam/choice/2024-q5/" class="side-nav-link ">2024年408真题 - 数据结构选择题第5题</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/introduction/" class="side-nav-link ">绪论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>⚙️</span><span>计算机组成原理</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/system-hierarchy/" class="side-nav-link ">计算机系统层次结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/performance/" class="side-nav-link ">计算机性能指标</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/data-index/" class="side-nav-link ">数据表示与计算</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/integers/" class="side-nav-link ">整数的表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/float/" class="side-nav-link ">浮点数表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/type-conversion/" class="side-nav-link ">类型转换</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/circuits/" class="side-nav-link ">运算电路</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/memory-index/" class="side-nav-link ">存储系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/overview/" class="side-nav-link ">存储系统概述</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/ram/" class="side-nav-link ">内存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/cache/" class="side-nav-link ">Cache</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/external/" class="side-nav-link ">外存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/virtual/" class="side-nav-link ">虚拟存储器</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/instruction-index/" class="side-nav-link ">指令系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/types/" class="side-nav-link ">指令集种类</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/format-addressing/" class="side-nav-link ">指令格式与寻址方式</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/data-alignment/" class="side-nav-link ">数据对齐</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/opcode/" class="side-nav-link ">指令操作码</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/hll-machine/" class="side-nav-link ">高级语言与机器码</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/cpu-index/" class="side-nav-link ">中央处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/function-structure/" class="side-nav-link ">CPU功能与结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/controller/" class="side-nav-link ">控制器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/exceptions/" class="side-nav-link ">异常与中断</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/pipeline/" class="side-nav-link ">指令流水线</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/multiprocessor/" class="side-nav-link ">多处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus/" class="side-nav-link ">总线</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus-io/" class="side-nav-link ">总线和I/O系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch06-io/io-system/" class="side-nav-link ">I/O系统</a>
+      
+      <a href="/cc408/exam/exercise/architecture/" class="side-nav-link ">计算机组成原理</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/introduction/" class="side-nav-link ">概论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🖥️</span><span>操作系统</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/os/ch00-overview/os-concept/" class="side-nav-link ">操作系统概念</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/os-structure/" class="side-nav-link ">操作系统结构</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/program-env/" class="side-nav-link ">程序运行环境</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-index/" class="side-nav-link ">进程管理</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-thread/" class="side-nav-link ">进程与线程</a>
+      
+      <a href="/cc408/docs/os/ch01-process/scheduling/" class="side-nav-link ">处理机调度</a>
+      
+      <a href="/cc408/docs/os/ch01-process/sync-mutex/" class="side-nav-link ">同步与互斥</a>
+      
+      <a href="/cc408/docs/os/ch01-process/classic-sync/" class="side-nav-link ">经典同步问题</a>
+      
+      <a href="/cc408/docs/os/ch01-process/deadlock/" class="side-nav-link ">死锁</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/memory-index/" class="side-nav-link ">内存管理</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/concepts/" class="side-nav-link ">内存管理概念</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/virtual/" class="side-nav-link ">虚拟内存管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-index/" class="side-nav-link ">文件管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-basics/" class="side-nav-link active">文件</a>
+      
+      <a href="/cc408/docs/os/ch03-file/directory/" class="side-nav-link ">目录</a>
+      
+      <a href="/cc408/docs/os/ch03-file/filesystem/" class="side-nav-link ">文件系统</a>
+      
+      <a href="/cc408/docs/os/ch04-io/io-index/" class="side-nav-link ">I/O管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/devices/" class="side-nav-link ">I/O设备</a>
+      
+      <a href="/cc408/docs/os/ch04-io/device-mgmt/" class="side-nav-link ">设备管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/disk/" class="side-nav-link ">磁盘</a>
+      
+      <a href="/cc408/code/clock/" class="side-nav-link ">CLOCK 时钟替换算法</a>
+      
+      <a href="/cc408/code/lru/" class="side-nav-link ">LRU 算法</a>
+      
+      <a href="/cc408/code/spinlock/" class="side-nav-link ">TAS 实现自旋锁</a>
+      
+      <a href="/cc408/exam/exercise/os/" class="side-nav-link ">操作系统</a>
+      
+      <a href="/cc408/code/reader_writer/" class="side-nav-link ">读者写着问题</a>
+      
+      <a href="/cc408/code/monitor/" class="side-nav-link ">管程实现生产者消费者</a>
+      
+      <a href="/cc408/code/producer_consumer/" class="side-nav-link ">生产者消费者问题</a>
+      
+      <a href="/cc408/code/banker/" class="side-nav-link ">银行家算法</a>
+      
+      <a href="/cc408/code/philosopher/" class="side-nav-link ">哲学家就餐问题</a>
+      
+      <a href="/cc408/exam/comprehensive/2022-q1/" class="side-nav-link ">2022年408真题 - 综合题第1题</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/computer-overview/" class="side-nav-link ">计算机系统概述</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🌐</span><span>计算机网络</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/network/ch00-overview/layered/" class="side-nav-link ">分层结构</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/protocol-summary/" class="side-nav-link ">各层协议总结</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/device-summary/" class="side-nav-link ">网络设备总结</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/phy-index/" class="side-nav-link ">物理层</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/communication/" class="side-nav-link ">通信概念</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/encoding/" class="side-nav-link ">编码与调制</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/switching/" class="side-nav-link ">交换方式</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/devices/" class="side-nav-link ">物理层设备</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/dl-index/" class="side-nav-link ">数据链路层</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/framing/" class="side-nav-link ">组帧</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/error-control/" class="side-nav-link ">差错控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/flow-control/" class="side-nav-link ">流量控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/mac/" class="side-nav-link ">介质访问控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/lan-wan/" class="side-nav-link ">局域网与广域网</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/devices/" class="side-nav-link ">数据链路层设备</a>
+      
+      <a href="/cc408/docs/network/ch03-network/nw-index/" class="side-nav-link ">网络层</a>
+      
+      <a href="/cc408/docs/network/ch03-network/ip/" class="side-nav-link ">IP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/arp/" class="side-nav-link ">ARP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/icmp/" class="side-nav-link ">ICMP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/dhcp/" class="side-nav-link ">DHCP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/routing/" class="side-nav-link ">路由算法</a>
+      
+      <a href="/cc408/docs/network/ch03-network/sdn/" class="side-nav-link ">SDN</a>
+      
+      <a href="/cc408/docs/network/ch03-network/devices/" class="side-nav-link ">网络层设备</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tp-index/" class="side-nav-link ">传输层</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tcp/" class="side-nav-link ">TCP</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/udp/" class="side-nav-link ">UDP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-index/" class="side-nav-link ">应用层</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-model/" class="side-nav-link ">网络应用模型</a>
+      
+      <a href="/cc408/docs/network/ch05-application/dns/" class="side-nav-link ">DNS</a>
+      
+      <a href="/cc408/docs/network/ch05-application/ftp/" class="side-nav-link ">FTP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/email/" class="side-nav-link ">电子邮件</a>
+      
+      <a href="/cc408/docs/network/ch05-application/www/" class="side-nav-link ">万维网</a>
+      
+      <a href="/cc408/exam/exercise/network/" class="side-nav-link ">计算机网络</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/arch-index/" class="side-nav-link ">计算机网络体系结构</a>
+      
+    </details>
+    
+  </aside>
+  <main class="content-area">
+    <h1>文件</h1>
+    <div class="meta-row">
+      
+      <span><span class="diff-star">★</span><span class="diff-star">★</span><span class="diff-star-empty">☆</span></span>
+      
+      <span class="tag">文件管理</span>
+    </div>
+    <article><p>🔥 高优先级</p>
+<p>这一节是操作系统文件管理中最重要的一节，每个知识点的知识都要深入掌握，尤其是文件的物理结构，在大题中也经常考察。</p>
+<h3 id="文件元信息">文件元信息</h3>
+<p><img src="/images/docs/os/5e52aecf90.svg"></p>
+<p>在 <strong>UNIX</strong> 和类 <strong>UNIX</strong> 操作系统中， inode （索引节点）用于存储 <strong>文件的元数据</strong> ，它包含了关于该文件的大部分 <strong>元数据</strong> ，但不包括 <strong>文件名</strong> 和 <strong>文件实际内容</strong> 。</p>
+<p>inode 中包含如下信息：</p>
+<ul>
+<li><strong>文件类型</strong> ：文件是普通文件、目录还是链接文件等。</li>
+<li><strong>权限</strong> ：文件的访问控制信息，如用户、组和其他用户的读、写、执行权限。</li>
+<li><strong>所有者</strong> ：文件的所有者和组 ID。</li>
+<li><strong>大小</strong> ：文件的大小（字节数）。</li>
+<li><strong>时间戳</strong> ：文件的创建时间、最后修改时间和最后访问时间。</li>
+<li><strong>链接计数</strong> ：指向该文件的硬链接数量。当计数为 0 时，文件会被删除。</li>
+<li><strong>数据块指针</strong> ：文件内容所在的数据块（block）的位置信息。这包括直接指针、间接指针、二级间接指针和三级间接指针，用于指向存储文件内容的磁盘块。</li>
+</ul>
+<h3 id="进程文件管理">进程文件管理</h3>
+<p>在进程中可能会打开若干文件，操作系统需要以某种方式对进程打开的文件信息进行记录。这就需要用到三个数据结构：<strong>文件描述符表</strong> 、<strong>文件表</strong> 、<strong>inode 表</strong> 。</p>
+<ul>
+<li><strong>文件描述符表</strong> （File Descriptor Table）：每个进程都有自己的 <strong>文件描述符表</strong> ，这个表对应于该进程打开的文件描述符。文件描述符是进程范围内的一个小的非负整数。</li>
+<li><strong>文件打开表</strong> （Open File Table）：操作系统维护一个 <strong>全局的</strong> 文件打开表，该表记录了所有打开文件的状态信息。每次 <code>open</code> 调用成功时，都会创建一个新的 <strong>文件打开表条目</strong> 。</li>
+<li><strong>INode 表</strong> （INode Table）：系统还维护了一个 <strong>inode 表</strong> ，该表包含了文件的元数据和指向文件实际数据的指针。如果多个进程打开同一个文件，它们的 <strong>文件打开表条目</strong> 将指向 <strong>inode 表</strong> 中的同一 <strong>inode</strong> 。</li>
+</ul>
+<h4 id="inode-表">inode 表</h4>
+<p><strong>inode 表</strong> （inode table）是一个固定的、专门的区域，用来存储文件系统中所有文件和目录的 <strong>inode</strong> 结构。每个 <strong>inode</strong> 占用一个表项，表中的每个 <strong>inode</strong> 编号（inode number）对应一个唯一的文件或目录。</p>
+<p>注意 <strong>inode 表是存储所有 inode 的唯一容器</strong> ：</p>
+<ul>
+<li>每个文件/目录都有一个唯一的 <strong>inode 编号</strong></li>
+<li>文件系统通过该编号在 <strong>inode 表</strong> 中找到对应的 <strong>inode</strong></li>
+</ul>
+<p>下表给出了一个简化的 <strong>inode 表</strong> 示例：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">inode 编号</th>
+          <th style="text-align: left">文件类型</th>
+          <th style="text-align: left">权限</th>
+          <th style="text-align: left">所有者</th>
+          <th style="text-align: left">文件大小 (字节)</th>
+          <th style="text-align: left">数据块指针（简略）</th>
+          <th style="text-align: left">创建时间</th>
+          <th style="text-align: left">修改时间</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">目录</td>
+          <td style="text-align: left">drwxr-xr-x</td>
+          <td style="text-align: left">root</td>
+          <td style="text-align: left">4096</td>
+          <td style="text-align: left">[100, 101, 102]</td>
+          <td style="text-align: left">2024-01-01 10:00</td>
+          <td style="text-align: left">2024-01-02 10:00</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">2</td>
+          <td style="text-align: left">文件</td>
+          <td style="text-align: left">-rw-r–r–</td>
+          <td style="text-align: left">user</td>
+          <td style="text-align: left">1024</td>
+          <td style="text-align: left">[200, 201]</td>
+          <td style="text-align: left">2024-01-01 11:00</td>
+          <td style="text-align: left">2024-01-01 12:00</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">3</td>
+          <td style="text-align: left">符号链接</td>
+          <td style="text-align: left">lrwxrwxrwx</td>
+          <td style="text-align: left">user</td>
+          <td style="text-align: left">14</td>
+          <td style="text-align: left">[路径字符串: “/etc/abc”]</td>
+          <td style="text-align: left">2024-01-01 13:00</td>
+          <td style="text-align: left">2024-01-01 13:00</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">4</td>
+          <td style="text-align: left">文件</td>
+          <td style="text-align: left">-rwxr-xr-x</td>
+          <td style="text-align: left">user</td>
+          <td style="text-align: left">8192</td>
+          <td style="text-align: left">[300, 301, 302, 303]</td>
+          <td style="text-align: left">2024-01-02 08:00</td>
+          <td style="text-align: left">2024-01-02 08:00</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">…</td>
+          <td style="text-align: left">…</td>
+          <td style="text-align: left">…</td>
+          <td style="text-align: left">…</td>
+          <td style="text-align: left">…</td>
+          <td style="text-align: left">…</td>
+          <td style="text-align: left">…</td>
+          <td style="text-align: left">…</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>inode 表</strong> 中的每一行就是一个 <strong>inode</strong> 。</p>
+<h4 id="系统打开文件表">系统打开文件表</h4>
+<p><strong>系统打开文件表</strong> （System-wide Open File Table）是整个操作系统内核维护的一个全局结构，它记录了所有进程当前打开的文件的状态信息。</p>
+<p>每当一个进程调用 <code>open()</code> 打开一个文件时，系统会：</p>
+<ol>
+<li>创建一项“<strong>系统打开文件表</strong> ”记录（如果该文件尚未打开，或者是独立打开的）</li>
+<li>创建/更新该进程的“<strong>文件描述符表</strong> ”项，让它指向这条系统表项</li>
+</ol>
+<p>举个例子：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> fd <span style="color:#f92672">=</span> <span style="color:#a6e22e">open</span>(<span style="color:#e6db74">&#34;file.txt&#34;</span>, O_RDWR);  <span style="color:#75715e">// 进程 A 打开
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">write</span>(fd, <span style="color:#e6db74">&#34;Hello&#34;</span>, <span style="color:#ae81ff">5</span>);              <span style="color:#75715e">// offset 从 0 到 5
+</span></span></span></code></pre></div><p>这次 <code>open</code> 会创建一个 <strong>系统文件表</strong> 项：</p>
+<ul>
+<li>偏移量 0 → 写入 5 字节后变成 5</li>
+<li>文件模式：O_RDWR</li>
+<li><strong>inode</strong> 指针：指向 <code>file.txt</code> 的 <strong>inode</strong></li>
+</ul>
+<p>📊 下表给出了一个 <strong>系统文件打开表</strong> 实例：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">表项编号（索引）</th>
+          <th style="text-align: left">inode 编号</th>
+          <th style="text-align: left">打开模式</th>
+          <th style="text-align: left">当前偏移量</th>
+          <th style="text-align: left">状态标志</th>
+          <th style="text-align: left">引用计数</th>
+          <th style="text-align: left">指向的文件路径</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">1024</td>
+          <td style="text-align: left">读写 (rw)</td>
+          <td style="text-align: left">120</td>
+          <td style="text-align: left">无</td>
+          <td style="text-align: left">2</td>
+          <td style="text-align: left"><code>/home/user/a.txt</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">1050</td>
+          <td style="text-align: left">只读 (r)</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">非阻塞</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left"><code>/etc/hosts</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">2</td>
+          <td style="text-align: left">1024</td>
+          <td style="text-align: left">读写 (rw)</td>
+          <td style="text-align: left">120</td>
+          <td style="text-align: left">无</td>
+          <td style="text-align: left">共享同表项 0</td>
+          <td style="text-align: left"><code>/home/user/a.txt</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">3</td>
+          <td style="text-align: left">2001</td>
+          <td style="text-align: left">只写 (w)</td>
+          <td style="text-align: left">45</td>
+          <td style="text-align: left">O_APPEND</td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left"><code>/var/log/sys.log</code></td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="文件描述符表">文件描述符表</h4>
+<p><strong>文件描述符表</strong> （File Descriptor Table）是进程级别的表，它将整数类型的“<strong>文件描述符</strong> ”（如 0, 1, 2, 3, …）映射到 <strong>系统打开文件表</strong> 的条目上。</p>
+<p>每个进程在内核中有自己的 <strong>文件描述符表</strong> 。当你调用 <code>open()</code> 打开一个文件时，操作系统：</p>
+<ul>
+<li>在 <strong>系统打开文件表</strong> 中新建或复用一项（记录 <strong>inode</strong> 、偏移等）</li>
+<li>在该进程的 <strong>文件描述符表</strong> 中添加一个条目（索引号）</li>
+</ul>
+<p>📊 下表给出了一个进程的 <strong>文件描述符表</strong> 实例：</p>
+<p><img src="/images/docs/os/image-20260611223249219.png"></p>
+<h4 id="总体视角">总体视角</h4>
+<p>在进程 1 中执行 <code>fdA1 = open(&quot;fileA.txt&quot;, O_RDONLY)</code> 和 <code>fdAdup = dup(fdA)</code> 系统调用，在进程 2 中执行 <code>fdA2 = open(&quot;fileA.txt&quot;, O_RDONLY)</code>，系统中的三种用于进程文件管理的表如下图所示：</p>
+<p><img src="/images/docs/os/image-20260611223302379.png"></p>
+<p>三张表的逻辑关系可以理解为：<strong>进程描述符表</strong> （进程级） → <strong>系统文件打开表</strong> （系统级） → <strong>inode 表</strong> （系统级）</p>
+<p>每个进程有自己的 <strong>文件描述符表</strong> ，记录 <strong>文件描述符</strong> （如 3、4 等）指向 <strong>系统打开文件表</strong> 中的某一项；<strong>系统打开文件表</strong> 是全局共享的，记录当前文件的读写偏移量、打开模式，并指向对应的 <strong>inode</strong> ；<strong>inode 表</strong> 保存了所有文件的 <strong>元数据</strong> 和数据块地址，是文件的最终物理信息所在。通过这三层结构，系统实现了多个进程共享文件、独立管理偏移量和统一访问底层文件的能力。</p>
+<h4 id="系统调用">系统调用</h4>
+<p>在 <strong>Unix</strong> 操作系统中，“<strong>一切皆文件</strong> ”是一项核心设计哲学。无论是普通文件、设备文件，还是网络连接，操作系统都通过统一的机制进行管理——这套机制的核心，就是一组用于文件管理的 <strong>系统调用</strong> 。</p>
+<p>其中，<code>open</code>、<code>close</code>、<code>read</code>、<code>write</code> 和 <code>lseek</code> 是最基本、最常用的五个调用，很多考试题目都会以间接形式考查它们的工作原理与使用方式。</p>
+<p>打开和关闭</p>
+<p>所谓“打开一个文件”，并不仅仅是打开字面上的内容，而是操作系统在后台完成了两个关键步骤：</p>
+<ol>
+<li>检查文件是否存在、权限是否允许访问</li>
+<li>在内核中创建一个 <strong>文件描述符</strong> ，用于追踪该文件的使用状态</li>
+</ol>
+<p>因此，<code>open</code> 实际上是一次向内核“申请访问权限”的操作，它返回 <strong>文件描述符</strong> （file descriptor），<strong>文件描述符</strong> 会被存储到进程的 <a href="/operating_system/files/file/#%e6%96%87%e4%bb%b6%e6%8f%8f%e8%bf%b0%e7%ac%a6%e8%a1%a8">文件描述符表</a> 中，并将 <a href="/operating_system/files/file/#%e7%b3%bb%e7%bb%9f%e6%89%93%e5%bc%80%e6%96%87%e4%bb%b6%e8%a1%a8">系统文件打开表</a> 中的引用计数 +1。此外，如果文件是第一次被打开时，该文件的 <a href="/operating_system/files/file/#%e6%96%87%e4%bb%b6%e5%85%83%e4%bf%a1%e6%81%af">inode</a> 也会从外存中被加载到内存中。</p>
+<p>相对应的，<code>close</code> 的作用是通知内核：该文件不再使用，可以释放相关资源。若程序未正确调用 <code>close</code>，<strong>文件描述符</strong> 将无法释放，可能导致资源泄露，最终耗尽进程可用的 <strong>文件句柄</strong> 。<code>close</code> 可以理解为 <code>open</code> 的反向操作：从 <strong>文件描述符表</strong> 中删除 <strong>文件描述符</strong> ；将 <strong>系统文件打开表</strong> 中的引用计数 -1；如果引用计数为 0 时，内存中的 <strong>inode</strong> 会被释放。</p>
+<p>读写</p>
+<p>文件一旦成功打开，程序即可通过 <code>read</code> 和 <code>write</code> 系统调用与其进行交互：</p>
+<ul>
+<li><code>read(fd, buf, count)</code>：将 <strong>文件内容</strong> 从内核空间<strong>读取到用户缓冲区</strong></li>
+<li><code>write(fd, buf, count)</code>：将用户缓冲区的内容<strong>写入内核缓存区</strong></li>
+</ul>
+<p>每次读写操作结束后，系统会自动更新当前的读写偏移量（文件偏移指针），下一次操作会从上次结束的地方继续。</p>
+<p>为提高读写效率，现代操作系统在 <code>read</code> 和 <code>write</code> 调用背后引入了多种 <strong>缓存与优化策略</strong> ，常见包括：</p>
+<p><strong>1. 延迟写</strong></p>
+<p>在 <strong>Unix</strong> 系统中，<code>write</code> 系统调用并不会立即将数据写入磁盘，而是将其暂存在内核的 <strong>页缓存</strong> （page cache）中。只有在特定时机——如缓存空间不足、文件被关闭，或系统周期性同步——才会将缓存中的数据统一刷新到磁盘（思路与 <strong>cache</strong> 中的 <a href="/constitution_principle/storage/cache/#%e5%9b%9e%e5%86%99%e6%b3%95">回写法</a> 一致，需要使用到脏位）。</p>
+<p>这种设计 <strong>显著减少了磁盘 I/O 操作</strong> ，提高了写入效率，尤其是在对同一数据区域频繁写入的场景下，还能合并多次写操作，从而进一步降低成本。</p>
+<p>然而，这种 “<strong>延迟写</strong> ” 机制也带来了风险：如果在数据尚未刷盘前系统发生异常（如断电或崩溃），这些暂存在内存中的数据可能会丢失。为此，如果应用场景对数据持久性要求较高，可以使用 <code>fsync(fd)</code> 显式触发缓存刷盘，确保数据安全地写入磁盘。</p>
+<ol start="2">
+<li><strong>预读取</strong></li>
+</ol>
+<p>与写入类似，<code>read</code> 操作在内核层面也进行了性能优化。当系统识别到程序正在顺序读取文件时，会自动启用“<strong>预读取</strong> ”机制，提前将后续的多个页加载到 <strong>页缓存</strong> 中，即使用户当前并未发出读取请求。</p>
+<p>这样一来，后续的读取请求很可能直接命中缓存，从而避免了等待磁盘 I/O 的开销。这一机制充分利用了磁盘的顺序读取特性，在处理大文件或进行流式读取时，能够<strong>显著提升整体读性能</strong> 。</p>
+<p>定位</p>
+<p>在某些情况下，程序需要跳过部分内容、从文件中任意位置读取或写入数据，这就涉及到了 <code>lseek</code> 系统调用。</p>
+<p><code>lseek</code> 允许显式地移动文件的读写位置，从而实现“<strong>随机访问</strong> ”。常见用途包括：</p>
+<ul>
+<li>跳过文件前面的若干字节</li>
+<li>返回文件开头重新读取</li>
+<li>移动到文件末尾以进行追加写入</li>
+</ul>
+<p><code>lseek</code> 为文件操作提供了更高的灵活性，使得程序不仅能顺序处理数据，也能高效地实现定位和修改。</p>
+<h3 id="文件的逻辑结构">文件的逻辑结构</h3>
+<p>文件的 <strong>逻辑结构</strong> 指的是文件内部数据的组织方式，是用户和程序员所看到和使用的数据排列形式。根据记录的排列和访问方式，逻辑结构通常分为以下两种：</p>
+<p><strong>顺序文件</strong> 是将记录按一定顺序依次存储的一种 <strong>文件逻辑结构</strong> ，每条记录紧跟在前一条之后。在访问时，通常采用顺序读取的方式，即从文件的开头开始，依次读取每条记录，直到找到目标记录或读完整个文件。</p>
+<p><strong>随机文件</strong> （也称为直接文件）则不要求记录按固定顺序排列，记录可以以任意顺序存放在文件中。其显著特点是支持 <strong>随机访问</strong> ，程序可以依据记录号、关键字等定位信息直接访问某条记录，而无需逐条读取。</p>
+<h3 id="文件的物理结构">文件的物理结构</h3>
+<p>文件的 <strong>物理结构</strong> （或称 <strong>存储结构</strong> ）是指文件在物理存储介质（如磁盘、SSD）上的实际存放方式。它关注的是操作系统如何管理文件的块（block）或簇（cluster）等单位，并将逻辑上的文件映射到磁盘上的物理地址空间。</p>
+<p>与逻辑结构面向用户和程序不同，物理结构更多反映了操作系统和文件系统层面的实现细节，决定了文件的实际读写效率、空间利用率以及文件访问策略的复杂性。</p>
+<p>文件的物理结构和逻辑结果的 <strong>对应关系</strong> 如下图所示：</p>
+<p><img src="/images/docs/os/a1b649d725.svg"></p>
+<h4 id="连续分配">连续分配</h4>
+<p><strong>连续分配</strong> 方案中，每个文件占用磁盘上一个 <strong>连续的块集</strong> 。例如，如果一个文件需要 n 个块，并且给定一个块 b 作为起始位置，那么分配给该文件的块将是 b, b+1, b+2，……b+n-1。这意味着给定起始块地址和文件的长度，我们可以确定文件占用的块。</p>
+<p>连续分配方案对应的目录包含如下信息：</p>
+<p><img src="/images/docs/os/image-20260611223338366.png"></p>
+<p>下图中的文件 “file3” 从区块 19 开始，长度为 6 个区块。因此，它占用 19、20、21、22、23、24 个块。</p>
+<ul>
+<li><strong>优点</strong> ：因为文件块的连续分配，查找的次数很少，<strong>访问速度非常快</strong> 。</li>
+<li><strong>缺点</strong> ：存在内部和外部 <strong>碎片化</strong> 的问题，使得内存利用效率低下。增加文件大小困难，因为它取决于特定实例中连续内存的可用性。</li>
+</ul>
+<h4 id="链式分配">链式分配</h4>
+<p>在 <strong>链式分配</strong> 方案中，每个文件都是一个 <strong>不需要连续的磁盘块链表</strong> 。磁盘块可以分散在磁盘上的任何地方。目录项包含指向起始和结束文件块的指针。每个块包含一个指针，指向文件所占用的下一个块。</p>
+<p>目录项包含指向起始和结束文件块的指针。每个块包含一个指针，指向文件所占用的下一个块。</p>
+<p>下图中的文件 “file1” 显示了块是如何随机分布的。最后一个块 (25) 包含 <strong>-1</strong> ，表示空指针，不指向任何其他块。</p>
+<p><img src="/images/docs/os/b2b4c7acb4.svg"></p>
+<ul>
+<li><strong>优点</strong> ：可以 <strong>充分利用磁盘空间</strong> ，不会遭遇到碎片的问题。</li>
+<li><strong>缺点</strong> ：因为文件是在磁盘上随机分配的，所以访问一个文件的过程需要经历多次磁盘的检索，这使得文件读取的 <strong>速度变慢</strong> 。</li>
+</ul>
+<h4 id="文件分配表">文件分配表</h4>
+<p>基于链表的链接为 <strong>隐式链接</strong> ，每个磁盘块的末尾包含文件的下一个盘块号。</p>
+<p><strong>文件分配表</strong> FAT 也是基于链接的方式，不过文件的 <strong>链接方式是存储在一个表格当中</strong> ，表格包含两列，一列是 <strong>盘块号</strong> ，另一列是在该文件盘块之后的 <strong>下一个盘块号</strong> ，这种方式也叫做 <strong>显式链接</strong> 。</p>
+<p><img src="/images/docs/os/a7cffa5589.svg"></p>
+<h4 id="索引分配">索引分配</h4>
+<p>在 <strong>索引分配</strong> 中，一个文件所占用的所有盘块号被存储在另一个盘块中，这个盘块叫做 <strong>索引块</strong> （Index Block）。</p>
+<p>假设一个文件的大小是 4MB，一个 <strong>盘块的大小</strong> 为 4KB，<strong>盘块编号的大小</strong> 为 4B（32 位）。 在这种情况下，文件需要用 1K 个盘块存储，<strong>索引块</strong> 的内容如下图所示：</p>
+<p><img src="/images/docs/os/image-20260611223354782.png"></p>
+<p>4KB 的盘块刚好可以存储下 1K 个盘块号作为索引，在读取文件时，操作系统先读取 <strong>索引块</strong> ，确定存储文件的所有盘块号，再去读取所有存储有文件数据的盘块，如下图所示：</p>
+<p><img src="/images/docs/os/31be63e906.svg"></p>
+<p>上图给出的索引是 <strong>一级索引</strong> ，索引块的层级只有一层，索引块中直接存储数据块的盘块号。</p>
+<p>在实践中还有 <strong>多级索引</strong> ，其思路与 <a href="/constitution_principle/storage/virtual/#%e5%a4%9a%e7%ba%a7%e9%a1%b5%e8%a1%a8">多级页表</a> 一致。一级索引块中存储的是二级索引块的盘块号，最后一级索引块中才存储有数据块的盘块号。</p>
+<p><img src="/images/docs/os/219d1d68a4.svg"></p>
+<h4 id="混合索引">混合索引</h4>
+<p><strong>N 级索引</strong> 的一个显著缺点是：即使是只有两三个盘块的极小文件，也必须为其分配一个完整的 <strong>索引块</strong> 来保存这些数据块的盘块号。由于索引块的容量远大于实际需要，导致大量空间闲置，磁盘块的利用率极低。</p>
+<p>为了解决这一问题，可以采用 <strong>混合索引（combined allocation）</strong> 的方式。该方式根据文件大小采用不同的存储策略：</p>
+<ul>
+<li><strong>小文件</strong> （仅占少数盘块）直接使用 <strong>直接块（direct blocks）</strong> ，把数据块的盘块号写入 inode 中的几个固定条目；</li>
+<li><strong>大文件</strong> 则借助 <strong>单级</strong> 、<strong>双级</strong> 或 <strong>三级</strong> 索引块进行间接寻址，以支持更大的文件规模。</li>
+</ul>
+<p><strong>UNIX</strong> 系统正是采用了这种混合索引结构。其 <strong>inode</strong> （如下图）由以下几部分组成：</p>
+<p><img src="/images/docs/os/a312f59dee.svg"></p>
+<ul>
+<li><strong>直接块</strong> （Direct blocks）：若文件只有几块数据，则直接在这些条目中存放相应的盘块号，无需额外的索引块。</li>
+<li><strong>一级间接索引块</strong> （Single indirect）：指向一个仅存放数据块号的块数组；</li>
+<li><strong>二级间接索引块</strong> （Double indirect）：先指向若干一级索引块，再由这些一级索引块指向实际的数据块号；</li>
+<li><strong>三级间接索引块</strong> （Triple indirect）：层层递进，最终定位到数据块号。</li>
+</ul>
+<p>通过这种 <strong>直接块 + 多级间接块</strong> 的混合方案，系统能够在保证大文件可用的同时，避免小文件因占用完整索引块而造成的磁盘空间浪费，从而显著提升磁盘块的利用率并减少文件碎片的产生。</p>
+<h2 id="相关笔记">相关笔记</h2>
+<ul>
+<li>[[concepts|内存管理概念]]</li>
+<li>[[memory-index|内存管理]]</li>
+<li>[[virtual|虚拟内存管理]]</li>
+</ul>
+</article>
+
+    
+    
+    
+
+    <div class="border-top-section">
+      <a href="/cc408/docs/" class="btn btn-ghost">← 返回知识点列表</a>
+    </div>
+  </main>
+</div>
+
+<style>
+.side-nav-group[open] summary { color: var(--text-primary); }
+.side-nav-group summary::-webkit-details-marker { display: none; }
+.side-nav-group summary::after {
+  content: '▸'; margin-left: auto; font-size: var(--fs-xs); transition: transform .2s;
+}
+.side-nav-group[open] summary::after { transform: rotate(90deg); }
+</style>
+
+  </main>
+  <footer class="site-footer" role="contentinfo">
+  <p>© 2026 CC408. 408考研知识整理</p>
+</footer>
+
+</body>
+</html>

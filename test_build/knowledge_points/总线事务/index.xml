@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>总线事务 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/knowledge_points/%E6%80%BB%E7%BA%BF%E4%BA%8B%E5%8A%A1/</link>
+    <description>Recent content in 总线事务 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/knowledge_points/%E6%80%BB%E7%BA%BF%E4%BA%8B%E5%8A%A1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2014 计算机组成原理 第20题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2014-co-020/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2014-co-020/</guid>
+      <description>&lt;p&gt;一次总线事务中，主设备只需给出一个首地址，从设备就能从首地址开始的若干连续单元读出或写入 多个数据。这种总线事务方式称为()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2016 计算机组成原理 第21题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2016-co-021/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2016-co-021/</guid>
+      <description>&lt;p&gt;下列关干单周期处理器的叙述中，错误的是()。&lt;/p&gt;&#xA;&lt;p&gt;A. 并行总线传输比串行总线传输速度快&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机组成原理 第22题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-co-022/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-co-022/</guid>
+      <description>&lt;p&gt;下列关于外部I/O 中断的叙述中，正确的是()。&lt;/p&gt;&#xA;&lt;p&gt;A.  中断控制器按所接收中断请求的先后次序进行中断优先级排队&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>指令操作码 | CC408</title>
+  <meta name="description" content="#指令系统-指令操作码
+🔥 高优先级
+本节要和 CPU 中的 控制器 放在一起理解，也是后续 CPU 的基础。当然，其中协处理器和字符串操作指令不大重要，可以不作为重点，其他的操作码都要 深入理解 。
+不同计算机架构的指令操作码不相同，但是其中涉及到的功能却大同小异。本节以 x86 平台的指令为例， …">
+  <link rel="icon" href="/cc408/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" as="script" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" as="script" crossorigin="anonymous">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/cc408/css/custom.min.ecad70eed0f9849f67d23e2bf502ae36e7f590486681964e1c95bc71c8672493.css" integrity="sha256-7K1w7tD5hJ9n0j4r9QKuNuf1kEhmgZZOHJW8cchnJJM=">
+  
+
+<script src="/cc408/js/watermark.js"></script>
+
+
+  <script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.content-area img,.docs-layout img').forEach(function(i){if(!i.src.match(/\.svg$/i)){i.loading='lazy';i.fetchPriority='low';}});});</script>
+</head>
+<body style="background: var(--bg-primary); color: var(--text-primary);">
+  <a href="#main-content" class="skip-link">跳转到主要内容</a>
+  <nav class="navbar" role="navigation" aria-label="主导航">
+  <a href="/cc408/" class="navbar-brand">CC408</a>
+  <button class="navbar-toggle" aria-label="菜单" onclick="this.parentElement.querySelector('.navbar-links').classList.toggle('open')">☰</button>
+  <div class="navbar-links" role="menubar">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      首页
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/docs/" role="menuitem" class="active" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识点
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      刷题
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/exam/quiz-collection/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      收藏
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/graph/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      知识图谱
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/tags/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      标签
+    </a>
+    
+    
+    
+    
+      
+    
+    <a href="/cc408/resources/" role="menuitem" class="" onclick="this.closest('.navbar-links').classList.remove('open')">
+      资源
+    </a>
+    
+  </div>
+  <div class="navbar-right">
+    <a href="https://cycycy5464.github.io/">个人主页 →</a>
+  </div>
+</nav>
+
+  <main id="main-content" style="padding-top: 70px; min-height: calc(100vh - 120px);">
+    
+<div class="docs-layout">
+  <aside class="side-nav">
+    
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>📊</span><span>数据结构</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/basic-concepts/" class="side-nav-link ">数据结构基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/algorithm-concepts/" class="side-nav-link ">算法基本概念</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linear-list-index/" class="side-nav-link ">线性表概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/definition/" class="side-nav-link ">线性表定义与基本操作</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/sequential-list/" class="side-nav-link ">顺序表</a>
+      
+      <a href="/cc408/docs/data-structure/ch01-linear-list/linked-list/" class="side-nav-link ">链表</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/stack/" class="side-nav-link ">栈</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/queue/" class="side-nav-link ">队列</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/application/" class="side-nav-link ">栈和队列的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch02-stack-queue/linear-data-structure/" class="side-nav-link ">线性数据结构</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/string-index/" class="side-nav-link ">串概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/definition/" class="side-nav-link ">串的定义与实现</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/pattern-matching/" class="side-nav-link ">串的模式匹配</a>
+      
+      <a href="/cc408/docs/data-structure/ch03-string/array-matrix/" class="side-nav-link ">数组和特殊矩阵</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree/" class="side-nav-link ">树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-and-binary-tree/" class="side-nav-link ">树与二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/binary-tree/" class="side-nav-link ">二叉树</a>
+      
+      <a href="/cc408/docs/data-structure/ch04-tree/tree-applications/" class="side-nav-link ">树的应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/graph-index/" class="side-nav-link ">图概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/definition/" class="side-nav-link ">图的定义</a>
+      
+      <a href="/cc408/docs/data-structure/ch05-graph/algorithms/" class="side-nav-link ">图的算法和应用</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/search-index/" class="side-nav-link ">查找概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/array-search/" class="side-nav-link ">数组查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/tree-search/" class="side-nav-link ">树形查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/hash-search/" class="side-nav-link ">散列表查找</a>
+      
+      <a href="/cc408/docs/data-structure/ch06-search/sort-index/" class="side-nav-link ">排序概述</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/internal-sort/" class="side-nav-link ">内部排序</a>
+      
+      <a href="/cc408/docs/data-structure/ch07-sort/external-sort/" class="side-nav-link ">外部排序</a>
+      
+      <a href="/cc408/exam/exercise/data_structure/" class="side-nav-link ">数据结构篇</a>
+      
+      <a href="/cc408/exam/application/2023-q1/" class="side-nav-link ">2023年408真题 - 应用题第1题</a>
+      
+      <a href="/cc408/exam/choice/2024-q5/" class="side-nav-link ">2024年408真题 - 数据结构选择题第5题</a>
+      
+      <a href="/cc408/docs/data-structure/ch00-intro/introduction/" class="side-nav-link ">绪论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>⚙️</span><span>计算机组成原理</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/system-hierarchy/" class="side-nav-link ">计算机系统层次结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/performance/" class="side-nav-link ">计算机性能指标</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/data-index/" class="side-nav-link ">数据表示与计算</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/integers/" class="side-nav-link ">整数的表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/float/" class="side-nav-link ">浮点数表示</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/type-conversion/" class="side-nav-link ">类型转换</a>
+      
+      <a href="/cc408/docs/computer-org/ch01-data-representation/circuits/" class="side-nav-link ">运算电路</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/memory-index/" class="side-nav-link ">存储系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/overview/" class="side-nav-link ">存储系统概述</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/ram/" class="side-nav-link ">内存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/cache/" class="side-nav-link ">Cache</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/external/" class="side-nav-link ">外存</a>
+      
+      <a href="/cc408/docs/computer-org/ch02-memory/virtual/" class="side-nav-link ">虚拟存储器</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/instruction-index/" class="side-nav-link ">指令系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/types/" class="side-nav-link ">指令集种类</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/format-addressing/" class="side-nav-link ">指令格式与寻址方式</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/data-alignment/" class="side-nav-link ">数据对齐</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/opcode/" class="side-nav-link active">指令操作码</a>
+      
+      <a href="/cc408/docs/computer-org/ch03-instruction/hll-machine/" class="side-nav-link ">高级语言与机器码</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/cpu-index/" class="side-nav-link ">中央处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/function-structure/" class="side-nav-link ">CPU功能与结构</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/controller/" class="side-nav-link ">控制器</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/exceptions/" class="side-nav-link ">异常与中断</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/pipeline/" class="side-nav-link ">指令流水线</a>
+      
+      <a href="/cc408/docs/computer-org/ch04-cpu/multiprocessor/" class="side-nav-link ">多处理器</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus/" class="side-nav-link ">总线</a>
+      
+      <a href="/cc408/docs/computer-org/ch05-bus/bus-io/" class="side-nav-link ">总线和I/O系统</a>
+      
+      <a href="/cc408/docs/computer-org/ch06-io/io-system/" class="side-nav-link ">I/O系统</a>
+      
+      <a href="/cc408/exam/exercise/architecture/" class="side-nav-link ">计算机组成原理</a>
+      
+      <a href="/cc408/docs/computer-org/ch00-overview/introduction/" class="side-nav-link ">概论</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🖥️</span><span>操作系统</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/os/ch00-overview/os-concept/" class="side-nav-link ">操作系统概念</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/os-structure/" class="side-nav-link ">操作系统结构</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/program-env/" class="side-nav-link ">程序运行环境</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-index/" class="side-nav-link ">进程管理</a>
+      
+      <a href="/cc408/docs/os/ch01-process/process-thread/" class="side-nav-link ">进程与线程</a>
+      
+      <a href="/cc408/docs/os/ch01-process/scheduling/" class="side-nav-link ">处理机调度</a>
+      
+      <a href="/cc408/docs/os/ch01-process/sync-mutex/" class="side-nav-link ">同步与互斥</a>
+      
+      <a href="/cc408/docs/os/ch01-process/classic-sync/" class="side-nav-link ">经典同步问题</a>
+      
+      <a href="/cc408/docs/os/ch01-process/deadlock/" class="side-nav-link ">死锁</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/memory-index/" class="side-nav-link ">内存管理</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/concepts/" class="side-nav-link ">内存管理概念</a>
+      
+      <a href="/cc408/docs/os/ch02-memory/virtual/" class="side-nav-link ">虚拟内存管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-index/" class="side-nav-link ">文件管理</a>
+      
+      <a href="/cc408/docs/os/ch03-file/file-basics/" class="side-nav-link ">文件</a>
+      
+      <a href="/cc408/docs/os/ch03-file/directory/" class="side-nav-link ">目录</a>
+      
+      <a href="/cc408/docs/os/ch03-file/filesystem/" class="side-nav-link ">文件系统</a>
+      
+      <a href="/cc408/docs/os/ch04-io/io-index/" class="side-nav-link ">I/O管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/devices/" class="side-nav-link ">I/O设备</a>
+      
+      <a href="/cc408/docs/os/ch04-io/device-mgmt/" class="side-nav-link ">设备管理</a>
+      
+      <a href="/cc408/docs/os/ch04-io/disk/" class="side-nav-link ">磁盘</a>
+      
+      <a href="/cc408/code/clock/" class="side-nav-link ">CLOCK 时钟替换算法</a>
+      
+      <a href="/cc408/code/lru/" class="side-nav-link ">LRU 算法</a>
+      
+      <a href="/cc408/code/spinlock/" class="side-nav-link ">TAS 实现自旋锁</a>
+      
+      <a href="/cc408/exam/exercise/os/" class="side-nav-link ">操作系统</a>
+      
+      <a href="/cc408/code/reader_writer/" class="side-nav-link ">读者写着问题</a>
+      
+      <a href="/cc408/code/monitor/" class="side-nav-link ">管程实现生产者消费者</a>
+      
+      <a href="/cc408/code/producer_consumer/" class="side-nav-link ">生产者消费者问题</a>
+      
+      <a href="/cc408/code/banker/" class="side-nav-link ">银行家算法</a>
+      
+      <a href="/cc408/code/philosopher/" class="side-nav-link ">哲学家就餐问题</a>
+      
+      <a href="/cc408/exam/comprehensive/2022-q1/" class="side-nav-link ">2022年408真题 - 综合题第1题</a>
+      
+      <a href="/cc408/docs/os/ch00-overview/computer-overview/" class="side-nav-link ">计算机系统概述</a>
+      
+    </details>
+    
+    
+    <details class="side-nav-group" open>
+      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
+        <span>🌐</span><span>计算机网络</span>
+      </summary>
+      
+      
+      <a href="/cc408/docs/network/ch00-overview/layered/" class="side-nav-link ">分层结构</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/protocol-summary/" class="side-nav-link ">各层协议总结</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/device-summary/" class="side-nav-link ">网络设备总结</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/phy-index/" class="side-nav-link ">物理层</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/communication/" class="side-nav-link ">通信概念</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/encoding/" class="side-nav-link ">编码与调制</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/switching/" class="side-nav-link ">交换方式</a>
+      
+      <a href="/cc408/docs/network/ch01-physical/devices/" class="side-nav-link ">物理层设备</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/dl-index/" class="side-nav-link ">数据链路层</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/framing/" class="side-nav-link ">组帧</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/error-control/" class="side-nav-link ">差错控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/flow-control/" class="side-nav-link ">流量控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/mac/" class="side-nav-link ">介质访问控制</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/lan-wan/" class="side-nav-link ">局域网与广域网</a>
+      
+      <a href="/cc408/docs/network/ch02-datalink/devices/" class="side-nav-link ">数据链路层设备</a>
+      
+      <a href="/cc408/docs/network/ch03-network/nw-index/" class="side-nav-link ">网络层</a>
+      
+      <a href="/cc408/docs/network/ch03-network/ip/" class="side-nav-link ">IP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/arp/" class="side-nav-link ">ARP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/icmp/" class="side-nav-link ">ICMP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/dhcp/" class="side-nav-link ">DHCP协议</a>
+      
+      <a href="/cc408/docs/network/ch03-network/routing/" class="side-nav-link ">路由算法</a>
+      
+      <a href="/cc408/docs/network/ch03-network/sdn/" class="side-nav-link ">SDN</a>
+      
+      <a href="/cc408/docs/network/ch03-network/devices/" class="side-nav-link ">网络层设备</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tp-index/" class="side-nav-link ">传输层</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/tcp/" class="side-nav-link ">TCP</a>
+      
+      <a href="/cc408/docs/network/ch04-transport/udp/" class="side-nav-link ">UDP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-index/" class="side-nav-link ">应用层</a>
+      
+      <a href="/cc408/docs/network/ch05-application/app-model/" class="side-nav-link ">网络应用模型</a>
+      
+      <a href="/cc408/docs/network/ch05-application/dns/" class="side-nav-link ">DNS</a>
+      
+      <a href="/cc408/docs/network/ch05-application/ftp/" class="side-nav-link ">FTP</a>
+      
+      <a href="/cc408/docs/network/ch05-application/email/" class="side-nav-link ">电子邮件</a>
+      
+      <a href="/cc408/docs/network/ch05-application/www/" class="side-nav-link ">万维网</a>
+      
+      <a href="/cc408/exam/exercise/network/" class="side-nav-link ">计算机网络</a>
+      
+      <a href="/cc408/docs/network/ch00-overview/arch-index/" class="side-nav-link ">计算机网络体系结构</a>
+      
+    </details>
+    
+  </aside>
+  <main class="content-area">
+    <h1>指令操作码</h1>
+    <div class="meta-row">
+      
+      <span><span class="diff-star">★</span><span class="diff-star">★</span><span class="diff-star-empty">☆</span></span>
+      
+      <span class="tag">指令系统</span>
+    </div>
+    <article><p>#指令系统-指令操作码</p>
+<p>🔥 高优先级</p>
+<p>本节要和 CPU 中的 <strong>控制器</strong> 放在一起理解，也是后续 CPU 的基础。当然，其中协处理器和字符串操作指令不大重要，可以不作为重点，其他的操作码都要 <strong>深入理解</strong> 。</p>
+<p>不同计算机架构的指令操作码不相同，但是其中涉及到的功能却大同小异。本节以 x86 平台的指令为例，说明一下指令操作码的主要分类和功能。</p>
+<h3 id="数据传输指令">数据传输指令</h3>
+<h4 id="数据传送">数据传送</h4>
+<p><strong>数据传送指令</strong> 在 x86 中就是 <code>MOV</code>，将第二个操作数（<strong>寄存器</strong> 的内容、<strong>内存</strong> 中的内容或<strong>常数</strong> 值）复制到第一个操作数（<strong>寄存器</strong> 或<strong>内存</strong> ），可以实现 <strong>寄存器</strong> 、<strong>内存</strong> 之间的 <strong>数据传送</strong> 。</p>
+<p>语法</p>
+<p>数据传送指令语法
+mov <!-- raw HTML omitted -->, <!-- raw HTML omitted -->   ; 复制寄存器值
+mov <!-- raw HTML omitted -->, <!-- raw HTML omitted -->   ; 从内存加载数据到寄存器
+mov <!-- raw HTML omitted -->, <!-- raw HTML omitted -->   ; 把寄存器值存入内存
+mov <!-- raw HTML omitted -->, <!-- raw HTML omitted -->   ; 立即数赋值给寄存器
+mov <!-- raw HTML omitted -->, <!-- raw HTML omitted -->   ; 立即数赋值给内存</p>
+<p>实例
+mov eax, ebx       ; 把 ebx 复制到 eax
+mov eax, [var]     ; 把变量 var 的值存入 eax
+mov [var], eax     ; 把 eax 的值存入变量 var
+mov ecx, 100       ; 将 100 赋值给 ecx
+mov byte ptr [var], 5  ; 只修改 var 指向的 1 字节</p>
+<p><img src="/images/docs/computer-org/image-20260612230337907.png"></p>
+<h4 id="栈操作">栈操作</h4>
+<p><a href="/operating_system/process/process_thread/#%e5%87%bd%e6%95%b0%e8%b0%83%e7%94%a8%e6%97%b6%e5%86%85%e5%ad%98%e7%bb%93%e6%9e%84">堆栈</a> 指的是程序的运行栈，从高地址向低地址增长。<code>PUSH</code> 指令将 <strong>数据</strong> 压入栈顶，<code>POP</code> 指令从栈顶取出 <strong>数据</strong> ，并存入 <strong>寄存器</strong> 或者 <strong>内存单元</strong> 。</p>
+<ul>
+<li>语法</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nasm" data-lang="nasm"><span style="display:flex;"><span><span style="color:#a6e22e">push</span> <span style="color:#f92672">&lt;</span>reg<span style="color:#f92672">&gt;</span>    <span style="color:#75715e">; 将寄存器值压入堆栈</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">push</span> <span style="color:#f92672">&lt;</span>mem<span style="color:#f92672">&gt;</span>    <span style="color:#75715e">; 将内存值压入堆栈</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">push</span> <span style="color:#f92672">&lt;</span>con<span style="color:#f92672">&gt;</span>    <span style="color:#75715e">; 将立即数压入堆栈</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">pop</span> <span style="color:#f92672">&lt;</span>reg<span style="color:#f92672">&gt;</span>     <span style="color:#75715e">; 从堆栈弹出值存入寄存器</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">pop</span> <span style="color:#f92672">&lt;</span>mem<span style="color:#f92672">&gt;</span>     <span style="color:#75715e">; 从堆栈弹出值存入内存</span>
+</span></span></code></pre></div><ul>
+<li>实例</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nasm" data-lang="nasm"><span style="display:flex;"><span><span style="color:#a6e22e">push</span> eax      <span style="color:#75715e">; 将 eax 压入栈</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">push</span> <span style="color:#ae81ff">10</span>       <span style="color:#75715e">; 将 10 压入栈</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">pop</span> ebx       <span style="color:#75715e">; 弹出栈顶的值存入 ebx</span>
+</span></span></code></pre></div><ul>
+<li>入栈操作解释</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nasm" data-lang="nasm"><span style="display:flex;"><span><span style="color:#75715e">; PUSH 指令等同于以下指令序列</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">sub</span> esp, <span style="color:#ae81ff">4</span>      <span style="color:#75715e">; esp 向低地址移动</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mov</span> [esp], eax  <span style="color:#75715e">; 把 eax 的值写入栈顶</span>
+</span></span></code></pre></div><ul>
+<li>出栈操作解释</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nasm" data-lang="nasm"><span style="display:flex;"><span><span style="color:#75715e">; POP 指令等同于以下指令序列</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mov</span> ebx, [esp]  <span style="color:#75715e">; 从栈顶读取值</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">add</span> esp, <span style="color:#ae81ff">4</span>      <span style="color:#75715e">; esp 向高地址移动</span>
+</span></span></code></pre></div><ul>
+<li>当执行 <code>PUSH</code> 指令时，需要将 <code>ESP</code> 的值 <strong>减去数据大小</strong> ，然后将 <strong>数据</strong> 写入新地址处。</li>
+<li>当执行 <code>POP</code> 指令时，需要将栈顶的 <strong>数据</strong> （即 <code>[ESP]</code> 处的值）读取到目标 <strong>寄存器</strong> 或 <strong>内存</strong> ，然后将 <code>ESP</code> 的值 <strong>加上数据大小</strong> ，即弹出 <strong>数据</strong> 。</li>
+</ul>
+<p>下图给出了一个入栈出栈指令的实例，通过 <code>PUSH</code> 和 <code>POP</code> 指令实现了 <strong>寄存器</strong> <code>EAX</code> 和 <code>EBX</code> 内容交换：</p>
+<p><img src="/images/docs/computer-org/image-20260612230453033.png"></p>
+<h3 id="算术和逻辑运算指令">算术和逻辑运算指令</h3>
+<h4 id="加减">加减</h4>
+<p>可以通过 <code>ADD</code> 和 <code>SUB</code> 两个指令实现 <strong>加减</strong> 操作：</p>
+<ul>
+<li><code>ADD</code> 指令执行 <strong>加法</strong> ，将结果存入第一个操作数。</li>
+</ul>
+<p>add &lt;reg/mem&gt;, &lt;reg/mem/con&gt;   ; 加法
+sub &lt;reg/mem&gt;, &lt;reg/mem/con&gt;   ; 减法</p>
+<ul>
+<li><code>SUB</code> 指令执行 <strong>减法</strong> ：第一个操作数减去第二个操作数。</li>
+</ul>
+<p>add eax, ebx    ; eax ← eax + ebx
+sub eax, 10     ; eax ← eax - 10
+add [var], cl   ; var ← var + cl</p>
+<ul>
+<li>语法</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nasm" data-lang="nasm"><span style="display:flex;"><span><span style="color:#75715e">; 无符号乘法</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mul</span> <span style="color:#f92672">&lt;</span>reg<span style="color:#f92672">/</span>mem<span style="color:#f92672">&gt;</span>   <span style="color:#75715e">; EAX × 操作数 → EDX:EAX</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">; 有符号乘法</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">imul</span> <span style="color:#f92672">&lt;</span>reg<span style="color:#f92672">/</span>mem<span style="color:#f92672">&gt;</span>              <span style="color:#75715e">; EAX × 操作数 → EDX:EAX</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">imul</span> reg, <span style="color:#f92672">&lt;</span>reg<span style="color:#f92672">/</span>mem<span style="color:#f92672">&gt;</span>         <span style="color:#75715e">; reg ← 被乘数 × 操作数</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">imul</span> reg, <span style="color:#f92672">&lt;</span>reg<span style="color:#f92672">/</span>mem<span style="color:#f92672">&gt;</span>, <span style="color:#f92672">&lt;</span>imm<span style="color:#f92672">&gt;</span>  <span style="color:#75715e">; reg ← 操作数 × 常数</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">; 无符号除法</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">div</span> <span style="color:#f92672">&lt;</span>reg<span style="color:#f92672">/</span>mem<span style="color:#f92672">&gt;</span>   <span style="color:#75715e">; 被除数：EDX:EAX，商 → EAX，余数 → EDX</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">; 有符号除法</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">idiv</span> <span style="color:#f92672">&lt;</span>reg<span style="color:#f92672">/</span>mem<span style="color:#f92672">&gt;</span>  <span style="color:#75715e">; 被除数：EDX:EAX，商 → EAX，余数 → EDX</span>
+</span></span></code></pre></div><ul>
+<li>实例</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">```</span>nasm
+</span></span><span style="display:flex;"><span>; <span style="color:#960050;background-color:#1e0010">无符号乘法</span>
+</span></span><span style="display:flex;"><span>mov eax, <span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span>mov ebx, <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>mul ebx        ; <span style="color:#960050;background-color:#1e0010">→</span> EAX <span style="color:#f92672">=</span> <span style="color:#ae81ff">24</span>, EDX <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>; <span style="color:#960050;background-color:#1e0010">有符号乘法</span>
+</span></span><span style="display:flex;"><span>mov eax, <span style="color:#f92672">-</span><span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span>mov ebx, <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>imul ebx       ; <span style="color:#960050;background-color:#1e0010">→</span> EAX <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">24</span>, EDX <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>imul ecx, ebx      ; ecx <span style="color:#960050;background-color:#1e0010">←</span> ecx <span style="color:#f92672">*</span> ebx
+</span></span><span style="display:flex;"><span>imul edx, ebx, <span style="color:#ae81ff">10</span>  ; edx <span style="color:#960050;background-color:#1e0010">←</span> ebx <span style="color:#f92672">*</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>; <span style="color:#960050;background-color:#1e0010">无符号除法</span>
+</span></span><span style="display:flex;"><span>mov edx, <span style="color:#ae81ff">0</span>     ; <span style="color:#960050;background-color:#1e0010">高位清零</span>
+</span></span><span style="display:flex;"><span>mov eax, <span style="color:#ae81ff">20</span>
+</span></span><span style="display:flex;"><span>mov ecx, <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>div ecx        ; <span style="color:#960050;background-color:#1e0010">→</span> EAX <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>, EDX <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#960050;background-color:#1e0010">（</span><span style="color:#ae81ff">20</span> <span style="color:#960050;background-color:#1e0010">÷</span> <span style="color:#ae81ff">3</span><span style="color:#960050;background-color:#1e0010">）</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>; <span style="color:#960050;background-color:#1e0010">有符号除法</span>
+</span></span><span style="display:flex;"><span>mov eax, <span style="color:#f92672">-</span><span style="color:#ae81ff">20</span>
+</span></span><span style="display:flex;"><span>cdq            ; EDX <span style="color:#960050;background-color:#1e0010">←</span> EAX <span style="color:#960050;background-color:#1e0010">的符号扩展</span>
+</span></span><span style="display:flex;"><span>mov ecx, <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>idiv ecx       ; <span style="color:#960050;background-color:#1e0010">→</span> EAX <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">6</span>, EDX <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>
+</span></span></code></pre></div><pre tabindex="0"><code>
+
+#### 乘除
+
+在 x86 架构中，乘除法使用专门的指令 `MUL`、`IMUL`、`DIV` 和 `IDIV`，它们大多依赖默认 **寄存器** （如 `EAX` 和 `EDX`），操作前需准备好相关 **寄存器** 的值。
+
+  * 语法
+  * 实例
+
+    
+    
+```c
+; 无符号乘法
+mul &lt;reg/mem&gt;   ; EAX × 操作数 → EDX:EAX
+; 有符号乘法
+imul &lt;reg/mem&gt;              ; EAX × 操作数 → EDX:EAX
+imul reg, &lt;reg/mem&gt;         ; reg ← 被乘数 × 操作数
+imul reg, &lt;reg/mem&gt;, &lt;imm&gt;  ; reg ← 操作数 × 常数
+; 无符号除法
+div &lt;reg/mem&gt;   ; 被除数：EDX:EAX，商 → EAX，余数 → EDX
+; 有符号除法
+idiv &lt;reg/mem&gt;  ; 被除数：EDX:EAX，商 → EAX，余数 → EDX
+
+; 无符号乘法
+mov eax, 6
+mov ebx, 4
+mul ebx        ; → EAX = 24, EDX = 0
+
+; 有符号乘法
+mov eax, -6
+mov ebx, 4
+imul ebx       ; → EAX = -24, EDX = 0
+
+imul ecx, ebx      ; ecx ← ecx * ebx
+imul edx, ebx, 10  ; edx ← ebx * 10
+
+; 无符号除法
+mov edx, 0     ; 高位清零
+mov eax, 20
+mov ecx, 3
+div ecx        ; → EAX = 6, EDX = 2 （20 ÷ 3）
+
+; 有符号除法
+mov eax, -20
+cdq            ; EDX ← EAX 的符号扩展
+mov ecx, 3
+idiv ecx       ; → EAX = -6, EDX = -2
+</code></pre><p>除法指令可能会触发 <a href="/constitution_principle/cpu/interrupt/#%e5%bc%82%e5%b8%b8">异常</a>：</p>
+<ul>
+<li><strong>除数等于 0</strong> ：无符号或有符号除法中，如果除数是 0，会导致数学上未定义，立即触发异常。</li>
+<li><strong>结果溢出</strong> ：特别常见于 <code>IDIV</code> 有符号除法中，被除数是最小负数 <code>0x80000000</code>，除以 <code>-1</code> 会得到 <code>0x80000000</code>（超出 <code>32</code> 位有符号整数范围）。</li>
+</ul>
+<p>加减乘除通过什么硬件完成</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">运算类型</th>
+          <th style="text-align: left">使用的硬件单元</th>
+          <th style="text-align: left">速度</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">加 / 减</td>
+          <td style="text-align: left"><a href="/constitution_principle/representation/circuit/#%e5%8a%a0%e6%b3%95%e8%bf%90%e7%ae%97%e7%94%b5%e8%b7%af">ALU</a>（加法器电路）</td>
+          <td style="text-align: left">很快</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">乘法</td>
+          <td style="text-align: left"><a href="/constitution_principle/representation/circuit/#%e4%b9%98%e6%b3%95%e8%bf%90%e7%ae%97%e7%94%b5%e8%b7%af">乘法器</a>（Multiplier）</td>
+          <td style="text-align: left">中等</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">除法</td>
+          <td style="text-align: left"><a href="/constitution_principle/representation/circuit/#%e9%99%a4%e6%b3%95%e8%bf%90%e7%ae%97%e7%94%b5%e8%b7%af">除法器</a>（Divider）</td>
+          <td style="text-align: left">很慢</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="位操作">位操作</h4>
+<p>位操作用于对 <strong>寄存器</strong> 或 <strong>内存</strong> 中的二进制位直接进行按位运算，位操作包含如下类型：</p>
+<ul>
+<li><code>AND</code>：保留指定位，其它位清零；</li>
+<li><code>OR</code>：将指定位设置为 1；</li>
+<li><code>XOR</code>：将指定位翻转（0 ↔ 1）；</li>
+<li><code>NOT</code>：将所有位取反（补码的按位非）；</li>
+</ul>
+<p><img src="/images/docs/computer-org/653d601f94.webp"></p>
+<ul>
+<li>语法</li>
+<li>实例</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>and <span style="color:#f92672">&lt;</span>reg<span style="color:#f92672">/</span>mem<span style="color:#f92672">&gt;</span>, <span style="color:#f92672">&lt;</span>reg<span style="color:#f92672">/</span>mem<span style="color:#f92672">/</span>con<span style="color:#f92672">&gt;</span>   ; <span style="color:#960050;background-color:#1e0010">按位与：目标</span> <span style="color:#960050;background-color:#1e0010">←</span> <span style="color:#960050;background-color:#1e0010">目标</span> <span style="color:#f92672">&amp;</span> <span style="color:#960050;background-color:#1e0010">源</span>
+</span></span><span style="display:flex;"><span>or  <span style="color:#f92672">&lt;</span>reg<span style="color:#f92672">/</span>mem<span style="color:#f92672">&gt;</span>, <span style="color:#f92672">&lt;</span>reg<span style="color:#f92672">/</span>mem<span style="color:#f92672">/</span>con<span style="color:#f92672">&gt;</span>   ; <span style="color:#960050;background-color:#1e0010">按位或：目标</span> <span style="color:#960050;background-color:#1e0010">←</span> <span style="color:#960050;background-color:#1e0010">目标</span> <span style="color:#f92672">|</span> <span style="color:#960050;background-color:#1e0010">源</span>
+</span></span><span style="display:flex;"><span>xor <span style="color:#f92672">&lt;</span>reg<span style="color:#f92672">/</span>mem<span style="color:#f92672">&gt;</span>, <span style="color:#f92672">&lt;</span>reg<span style="color:#f92672">/</span>mem<span style="color:#f92672">/</span>con<span style="color:#f92672">&gt;</span>   ; <span style="color:#960050;background-color:#1e0010">按位异或：目标</span> <span style="color:#960050;background-color:#1e0010">←</span> <span style="color:#960050;background-color:#1e0010">目标</span> <span style="color:#f92672">^</span> <span style="color:#960050;background-color:#1e0010">源</span>
+</span></span><span style="display:flex;"><span>not <span style="color:#f92672">&lt;</span>reg<span style="color:#f92672">/</span>mem<span style="color:#f92672">&gt;</span>                  ; <span style="color:#960050;background-color:#1e0010">按位取反：目标</span> <span style="color:#960050;background-color:#1e0010">←</span> <span style="color:#f92672">~</span><span style="color:#960050;background-color:#1e0010">目标</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>; <span style="color:#960050;background-color:#1e0010">按位与：清除低位</span>
+</span></span><span style="display:flex;"><span>and eax, <span style="color:#ae81ff">0xF0</span>      ; eax <span style="color:#960050;background-color:#1e0010">←</span> eax <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0xF0</span><span style="color:#960050;background-color:#1e0010">，仅保留高</span> <span style="color:#ae81ff">4</span> <span style="color:#960050;background-color:#1e0010">位</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>; <span style="color:#960050;background-color:#1e0010">按位或：设置低位</span>
+</span></span><span style="display:flex;"><span>or eax, <span style="color:#ae81ff">0x0F</span>       ; eax <span style="color:#960050;background-color:#1e0010">←</span> eax <span style="color:#f92672">|</span> <span style="color:#ae81ff">0x0F</span><span style="color:#960050;background-color:#1e0010">，将低</span> <span style="color:#ae81ff">4</span> <span style="color:#960050;background-color:#1e0010">位全部置为</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>; <span style="color:#960050;background-color:#1e0010">按位异或：清零技巧</span>
+</span></span><span style="display:flex;"><span>xor eax, eax       ; eax <span style="color:#960050;background-color:#1e0010">←</span> eax <span style="color:#f92672">^</span> eax<span style="color:#960050;background-color:#1e0010">，结果为</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>; <span style="color:#960050;background-color:#1e0010">按位取反：翻转全部位</span>
+</span></span><span style="display:flex;"><span>not eax            ; eax <span style="color:#960050;background-color:#1e0010">←</span> <span style="color:#f92672">~</span>eax
+</span></span></code></pre></div><h4 id="自增自减">自增自减</h4>
+<p>自增（<code>INC</code>）与自减（<code>DEC</code>）分别等价于对操作数 <strong>加 1</strong> 或 <strong>减 1</strong> ，常用于循环计数或栈指针调整等场景。</p>
+<ul>
+<li>
+<p><code>INC</code> 等同于 <code>ADD 1</code>。</p>
+</li>
+<li>
+<p><code>DEC</code> 等同于 <code>SUB 1</code>。</p>
+</li>
+<li>
+<p>语法</p>
+</li>
+<li>
+<p>实例</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>inc <span style="color:#f92672">&lt;</span>reg<span style="color:#f92672">/</span>mem<span style="color:#f92672">&gt;</span>    ; <span style="color:#960050;background-color:#1e0010">加</span> <span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">：目标</span> <span style="color:#960050;background-color:#1e0010">←</span> <span style="color:#960050;background-color:#1e0010">目标</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>dec <span style="color:#f92672">&lt;</span>reg<span style="color:#f92672">/</span>mem<span style="color:#f92672">&gt;</span>    ; <span style="color:#960050;background-color:#1e0010">减</span> <span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">：目标</span> <span style="color:#960050;background-color:#1e0010">←</span> <span style="color:#960050;background-color:#1e0010">目标</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>inc eax          ; eax <span style="color:#960050;background-color:#1e0010">←</span> eax <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>dec ebx          ; ebx <span style="color:#960050;background-color:#1e0010">←</span> ebx <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>inc byte [cnt]   ; <span style="color:#960050;background-color:#1e0010">将内存中</span> cnt <span style="color:#960050;background-color:#1e0010">所指的字节加</span> <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><h4 id="比较">比较</h4>
+<p><code>CMP</code> 指令用于 <strong>比较</strong> 两个操作数的差值，不保存结果，只更新条件标志位（如 <code>ZF</code>、<code>SF</code>、<code>CF</code>、<code>OF</code>），常与条件跳转指令配合使用。</p>
+<p>本质上，<code>CMP A, B</code> 等价于 <code>SUB A, B</code>，但不会改变 <code>A</code> 的值。</p>
+<ul>
+<li>语法</li>
+<li>实例</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>cmp <span style="color:#f92672">&lt;</span>reg<span style="color:#f92672">/</span>mem<span style="color:#f92672">&gt;</span>, <span style="color:#f92672">&lt;</span>reg<span style="color:#f92672">/</span>mem<span style="color:#f92672">/</span>con<span style="color:#f92672">&gt;</span>  ; <span style="color:#960050;background-color:#1e0010">比较：目标</span> <span style="color:#f92672">-</span> <span style="color:#960050;background-color:#1e0010">源，仅影响标志位</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cmp eax, ebx       ; <span style="color:#960050;background-color:#1e0010">比较</span> eax <span style="color:#960050;background-color:#1e0010">和</span> ebx
+</span></span><span style="display:flex;"><span>je  equal_label    ; <span style="color:#960050;background-color:#1e0010">若</span> eax <span style="color:#f92672">==</span> ebx<span style="color:#960050;background-color:#1e0010">，跳转</span>
+</span></span><span style="display:flex;"><span>jl  less_than_zero ; <span style="color:#960050;background-color:#1e0010">若</span> [x] <span style="color:#960050;background-color:#1e0010">为负数，跳转</span>
+</span></span></code></pre></div><p>比较运算和加减操作一样，会影响以下 <a href="/constitution_principle/cpu/structure/#%e6%9d%a1%e4%bb%b6%e6%a0%87%e5%bf%97">条件标志</a>：</p>
+<ul>
+<li><code>ZF</code>（Zero Flag）：结果是否为零</li>
+<li><code>SF</code>（Sign Flag）：结果是否为负</li>
+<li><code>CF</code>（Carry Flag）：是否产生了进位/借位（无符号溢出）</li>
+<li><code>OF</code>（Overflow Flag）：是否有符号溢出</li>
+</ul>
+<p><img src="/images/docs/computer-org/7f1cc1826b.svg"></p>
+<p>这些标志用于后续的 <a href="/constitution_principle/instruction/instruction_ops/#%e6%9d%a1%e4%bb%b6%e8%b7%b3%e8%bd%ac">条件跳转</a>，如 <code>je</code>、<code>jg</code>、<code>jl</code> 等。</p>
+<h4 id="移位">移位</h4>
+<p><strong>移位</strong> 是一种常见的位运算操作，常用于实现快速的乘法、除法、符号扩展等功能。根据处理方式不同，移位可分为 <strong>逻辑移位</strong> 、<strong>算术移位</strong> 和<strong>循环移位</strong> 三类：</p>
+<ul>
+<li><strong>逻辑移位</strong> （Logical Shift）：用于 <strong>无符号整数</strong> ，空位统一用 <code>0</code> 填充。</li>
+<li><strong>算术移位</strong> （Arithmetic Shift）：用于 <strong>有符号整数</strong> ，右移时保持符号位不变。</li>
+<li><strong>循环移位</strong> （Rotate Shift）：将移出的位补回另一端，不丢失任何一位。</li>
+</ul>
+<p><img src="/images/docs/computer-org/image-20260612230711641.png"></p>
+<p>常见的移位指令如下表所示：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">指令</th>
+          <th style="text-align: left">含义</th>
+          <th style="text-align: left">说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>SHL</code>/<code>SAL</code></td>
+          <td style="text-align: left">左移（逻辑/算术）</td>
+          <td style="text-align: left">功能相同，等效于乘以 2 的幂</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>SHR</code></td>
+          <td style="text-align: left">逻辑右移</td>
+          <td style="text-align: left">高位补 <code>0</code>，用于 <strong>无符号数</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>SAR</code></td>
+          <td style="text-align: left">算术右移</td>
+          <td style="text-align: left">高位补符号位（即保留符号），用于 <strong>有符号数</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>ROL</code></td>
+          <td style="text-align: left">循环左移</td>
+          <td style="text-align: left">将最高位移出，补入最低位，位模式循环</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>ROR</code></td>
+          <td style="text-align: left">循环右移</td>
+          <td style="text-align: left">将最低位移出，补入最高位，位模式循环</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">逻辑移位</td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>逻辑移位</strong> 适用于 <strong>无符号整数</strong> ，移位时将空出的位补为 <code>0</code>，不考虑操作数的符号。</p>
+<ul>
+<li><strong>逻辑左移 (<code>SHL</code>)</strong>：整体向左移动，低位补 <code>0</code>，高位移出丢弃；</li>
+<li><strong>逻辑右移 (<code>SHR</code>)</strong>：整体向右移动，高位补 <code>0</code>，低位移出丢弃。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>; <span style="color:#960050;background-color:#1e0010">逻辑移位的实例</span>
+</span></span><span style="display:flex;"><span>mov al, <span style="color:#ae81ff">10000000</span>b  ; <span style="color:#960050;background-color:#1e0010">原值</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">128</span><span style="color:#960050;background-color:#1e0010">（补码表示）</span>
+</span></span><span style="display:flex;"><span>shr al, <span style="color:#ae81ff">1</span>          ; <span style="color:#960050;background-color:#1e0010">结果变为</span> <span style="color:#ae81ff">01000000</span>b<span style="color:#960050;background-color:#1e0010">，即十进制</span> <span style="color:#ae81ff">64</span>
+</span></span></code></pre></div><p>尽管原数是负数，但使用 <code>SHR</code> 逻辑右移时，仍然将高位补 <code>0</code>，因此结果不再保留符号。</p>
+<p>算术移位</p>
+<p><strong>算术移位</strong> 适用于 <strong>有符号整数</strong> ，在右移时会 <strong>保留符号位</strong> （最高位），使符号不变，符合数学意义上的除法。</p>
+<ul>
+<li><strong>算术左移 (<code>SAL</code>)</strong>：整体向左移动，低位补 <code>0</code>，高位移出丢弃；</li>
+<li><strong>算术右移 (<code>SAR</code>)</strong>：整体向右移动，最高位保持原符号位的值。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>; <span style="color:#960050;background-color:#1e0010">算术移位的实例</span>
+</span></span><span style="display:flex;"><span>mov al, <span style="color:#f92672">-</span><span style="color:#ae81ff">16</span>        ; <span style="color:#960050;background-color:#1e0010">二进制补码：</span><span style="color:#ae81ff">11110000</span><span style="color:#960050;background-color:#1e0010">（</span><span style="color:#ae81ff">0xF0</span><span style="color:#960050;background-color:#1e0010">）</span>
+</span></span><span style="display:flex;"><span>sar al, <span style="color:#ae81ff">1</span>          ; <span style="color:#960050;background-color:#1e0010">结果：</span><span style="color:#ae81ff">11111000</span><span style="color:#960050;background-color:#1e0010">（</span><span style="color:#ae81ff">0xF8</span><span style="color:#960050;background-color:#1e0010">）→</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">8</span>
+</span></span></code></pre></div><p>由于保留了最高位 <code>1</code>，右移后结果仍为负数。</p>
+<p>循环移位</p>
+<p><strong>循环移位</strong> （Rotate Shift）是一种将移出的位 <strong>重新从另一端补入</strong> 的移位方式，不改变位的总数，也不会丢弃任何一位，常用于加密、校验等需要 “保留所有信息” 的场景。</p>
+<p>常见类型包括：</p>
+<ul>
+<li><strong>循环左移 (<code>ROL</code>)</strong>：将最高位移出后补入最低位；</li>
+<li><strong>循环右移 (<code>ROR</code>)</strong>：将最低位移出后补入最高位。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>; <span style="color:#960050;background-color:#1e0010">循环右移的实例</span>
+</span></span><span style="display:flex;"><span>mov al, <span style="color:#ae81ff">10000001</span>b  ; <span style="color:#960050;background-color:#1e0010">原值：</span><span style="color:#ae81ff">0x81</span>
+</span></span><span style="display:flex;"><span>ror al, <span style="color:#ae81ff">1</span>          ; <span style="color:#960050;background-color:#1e0010">结果：</span><span style="color:#ae81ff">11000000</span>b<span style="color:#960050;background-color:#1e0010">（原最低位</span> <span style="color:#ae81ff">1</span> <span style="color:#960050;background-color:#1e0010">补到了最高位）</span>
+</span></span></code></pre></div><p>与逻辑移位和算术移位不同，循环移位不引入新的位填充，因此所有位的内容只是位置发生变化，适用于 <strong>无符号与有符号数</strong> 的位模式操作，但不适合做乘除法运算。</p>
+<h3 id="控制转移指令">控制转移指令</h3>
+<h4 id="无条件跳转">无条件跳转</h4>
+<p><strong>无条件跳转</strong> 到某个标签（label）。</p>
+<p>标签是一个可识别的标识符，标签通常是一个有意义的名字，后跟一个冒号，用于标记程序中的某个位置或地址。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>jmp label
+</span></span></code></pre></div><p><img src="/images/docs/computer-org/image-20260612230743709.png"></p>
+<p>跳转指令编译后通常使用 <a href="/constitution_principle/instruction/format/#%e7%9b%b8%e5%af%b9%e5%af%bb%e5%9d%80">相对寻址</a>，也就是 <strong>跳转偏移量</strong> 是相对于下一条指令的地址（即当前 PC + 指令长度） 来计算的。</p>
+<p>对于 <code>jmp label</code> 指令，若 label 在距离当前指令之后 N 字节处，则相对寻址的偏移量可以通过以下公式计算：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">偏移量</span> <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">标签地址</span> <span style="color:#f92672">-</span> (<span style="color:#960050;background-color:#1e0010">当前</span> PC <span style="color:#960050;background-color:#1e0010">值</span> <span style="color:#f92672">+</span> <span style="color:#960050;background-color:#1e0010">指令长度</span>)
+</span></span></code></pre></div><h4 id="条件跳转">条件跳转</h4>
+<p>在 <code>CMP</code> 指令后常常跟一个 <strong>条件跳转</strong> 指令，<strong>条件跳转</strong> 指令会检查 <a href="/constitution_principle/cpu/structure/#%e6%a0%87%e5%bf%97%e5%af%84%e5%ad%98%e5%99%a8">标志寄存器</a>（FLAGS）的标志，从而决定是否跳转到某个标签（条件成立时），如果选择不跳转的话，则继续向后执行。</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">指令</th>
+          <th style="text-align: left">全称</th>
+          <th style="text-align: left">跳转条件</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>JE/JZ</code></td>
+          <td style="text-align: left">jump equal/zero（相等/零）</td>
+          <td style="text-align: left"><code>ZF=1</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>JNE/JNZ</code></td>
+          <td style="text-align: left">not equal/zero（不等/非零）</td>
+          <td style="text-align: left"><code>ZF=0</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>JG</code>（大于）</td>
+          <td style="text-align: left">greater（大于）</td>
+          <td style="text-align: left"><code>ZF=0 且 SF=OF</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>JL</code>（小于）</td>
+          <td style="text-align: left">less（小于）</td>
+          <td style="text-align: left"><code>SF≠OF</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>JGE</code>（大于等于）</td>
+          <td style="text-align: left">greater equal（大于等于）</td>
+          <td style="text-align: left"><code>SF=OF</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>JLE</code>（小于等于）</td>
+          <td style="text-align: left">less equal（小于等于）</td>
+          <td style="text-align: left"><code>ZF=1 或 SF≠OF</code></td>
+      </tr>
+  </tbody>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>; <span style="color:#960050;background-color:#1e0010">比较</span> eax <span style="color:#960050;background-color:#1e0010">和</span> ebx <span style="color:#960050;background-color:#1e0010">的值</span>
+</span></span><span style="display:flex;"><span>cmp eax, ebx
+</span></span><span style="display:flex;"><span>; <span style="color:#960050;background-color:#1e0010">执行条件跳转</span>
+</span></span><span style="display:flex;"><span>je equal_label
+</span></span></code></pre></div><p>条件跳转的过程可以通过下图进行辅助理解：</p>
+<p><img src="/images/docs/computer-org/image-20260612230814865.png"></p>
+<h4 id="子程序调用">子程序调用</h4>
+<p>在汇编语言中，调用一个子程序通常使用 <code>CALL</code> 指令，执行完子程序后使用 <code>RET</code> 指令返回。两者配合，实现了 <strong>从主程序跳转到子程序，再返回继续执行</strong> 的控制流程。</p>
+<p>call subroutine
+&hellip;
+subroutine:
+; 执行一些操作
+ret</p>
+<p><code>CALL</code> 指令用于 <strong>调用子程序</strong> ，涉及以下步骤：</p>
+<ul>
+<li>保存返回地址：将当前指令的下一个地址（即返回地址）压入栈中，这样子程序返回时才知道从哪一条指令继续执行。</li>
+<li>跳转到子程序：将程序计数器设置为子程序的入口地址，开始执行子程序的代码。</li>
+</ul>
+<p><code>RET</code> 指令用于 <strong>从子程序返回到调用函数</strong> ，涉及以下步骤：</p>
+<ul>
+<li>从栈中弹出返回地址：从栈顶弹出一个值，并将这个值作为返回地址。这是之前 <code>CALL</code> 指令压入栈的地址。</li>
+<li>跳转到返回地址：将程序计数器设置为返回地址，继续执行从调用子程序的指令的下一条指令。</li>
+</ul>
+<p>子程序调用的过程可以通过下图进行辅助理解：</p>
+<p><img src="/images/docs/computer-org/image-20260612230908906.png"></p>
+<p>图的阅读顺序对应四个步骤：</p>
+<ol>
+<li><strong>CALL 跳转</strong> ：执行 <code>call 0x2000</code>，PC 被设为子程序入口地址 <code>0x2000</code>，控制流从主程序跳转过去。</li>
+<li><strong>压入返回地址</strong> ：CALL 同时把下一条指令的地址（<code>0x1008</code>，即 <code>call</code> 后面那条）压入栈顶，SP 下移指向新的栈顶。</li>
+<li><strong>弹出返回地址</strong> ：子程序执行完毕，<code>ret</code> 从栈顶弹出 <code>0x1008</code>，SP 上移恢复。</li>
+<li><strong>RET 返回</strong> ：PC 被设为弹出的 <code>0x1008</code>，控制流跳回主程序，从 <code>call</code> 的下一条指令继续执行，宛如什么都没发生过。</li>
+</ol>
+<h3 id="陷阱指令">陷阱指令</h3>
+<p><strong>陷阱指令</strong> （Trap Instruction）是一类特殊的 <strong>同步异常触发指令</strong> ，用于从 <strong>用户态切换到内核态</strong> ，以请求操作系统执行特权操作。它们本质上是一种 <strong>软件中断机制</strong> ，通常用于：</p>
+<ul>
+<li>实现 <strong>系统调用</strong> （如文件操作、进程控制等）；</li>
+<li>支持 <strong>断点调试</strong> （例如 IDE 或 GDB 中设置断点）；</li>
+<li>报告程序运行中出现的 <strong>异常情况</strong> （如除 0、非法访问）等。</li>
+</ul>
+<p>陷阱的特点是由 <strong>程序主动触发</strong> ，与硬件中断（如 I/O、时钟中断）区分开来。</p>
+<p>INT</p>
+<p><code>INT</code> 指令用于产生一个软件中断，它后面跟着一个中断向量号（通常是一个字节大小的立即数），用于指定要调用的中断或服务例程：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>INT n  ; n <span style="color:#960050;background-color:#1e0010">为中断向量号（</span><span style="color:#ae81ff">0</span><span style="color:#f92672">~</span><span style="color:#ae81ff">255</span><span style="color:#960050;background-color:#1e0010">）</span>
+</span></span></code></pre></div><p>执行后，CPU 根据中断向量号 n 查找 <a href="/constitution_principle/bus/io/#%e5%9f%ba%e7%a1%80%e6%a6%82%e5%bf%b5">中断向量表</a>（Interrupt Vector Table, IVT）中对应的处理程序地址，并跳转执行。常见用法如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>mov eax, <span style="color:#ae81ff">1</span>   ; <span style="color:#960050;background-color:#1e0010">系统调用：</span>exit
+</span></span><span style="display:flex;"><span>mov ebx, <span style="color:#ae81ff">0</span>   ; <span style="color:#960050;background-color:#1e0010">退出代码</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#ae81ff">0x80</span>     ; <span style="color:#960050;background-color:#1e0010">触发中断</span>
+</span></span></code></pre></div><p><strong>Trap 指令和 TF 标志位的区别</strong></p>
+<p><strong>陷阱指令</strong> （如 <code>INT</code>） ≠ <strong>TF 标志位</strong> 。</p>
+<ul>
+<li><code>INT</code> 指令显式触发陷阱，由程序执行。</li>
+<li><a href="/constitution_principle/cpu/structure/#%e6%8e%a7%e5%88%b6%e6%a0%87%e5%bf%97">TF</a> 是 EFLAGS 寄存器中的一个位，设置为 1 后每执行一条指令就引发一次单步中断（INT 1），用于单步调试。</li>
+<li>二者都能进入内核态，但触发机制不同。</li>
+</ul>
+<p><strong>Trap</strong> 指令一般通过 <code>INT</code> 指令执行，<strong>TF</strong> 标志位通过 <code>PUSHF</code> 和 <code>POPF</code> 修改。</p>
+<h3 id="协处理器指令">协处理器指令</h3>
+<h4 id="开关中断">开关中断</h4>
+<p><code>CLI</code> 和 <code>STI</code> 用于控制 CPU 的 <strong>中断响应</strong> 能力。具体来说，这两条指令用于修改处理器的 <strong>中断标志</strong> （IF，Interrupt Flag），从而控制外部硬件中断的使能和禁止。</p>
+<p><strong>中断标志</strong> (IF) 是状态寄存器中的一个标志位。如果 IF 位被设置（即为 1），处理器将响应外部硬件中断。如果 IF 位被清除（即为 0），处理器将忽略外部硬件中断请求。</p>
+<ul>
+<li><code>CLI</code>：清除 <strong>中断标志</strong> 位（Clear Interrupt Flag），将 IF 位设置为 0，从而禁止处理器响应外部硬件中断。</li>
+<li><code>STI</code>：设置 <strong>中断标志</strong> 位（Set Interrupt Flag），将 IF 位设置为 1，从而允许处理器响应外部硬件中断。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>cli   ; <span style="color:#960050;background-color:#1e0010">关闭中断</span>
+</span></span><span style="display:flex;"><span>sti   ; <span style="color:#960050;background-color:#1e0010">开启中断</span>
+</span></span></code></pre></div><p>补充</p>
+<p>IF 位控制的是 <a href="/constitution_principle/bus/io/#%e5%8f%af%e5%b1%8f%e8%94%bd%e4%b8%ad%e6%96%ad">可屏蔽中断</a>（IRQ），但不会影响 <a href="/constitution_principle/bus/io/#%e4%b8%8d%e5%8f%af%e5%b1%8f%e8%94%bd%e4%b8%ad%e6%96%ad">不可屏蔽中断</a>（NMI）。</p>
+<h3 id="输入输出">输入输出</h3>
+<p><code>IN</code> 和 <code>OUT</code> 指令用于处理与外部设备的 <strong>输入/输出</strong> （I/O）操作。这些指令让 CPU 可以直接与硬件端口通信，从而读取或发送数据。</p>
+<p><img src="/images/docs/computer-org/image-20260612230955536.png"></p>
+<ul>
+<li>
+<p><code>IN</code>：从指定的 <strong>I/O 端口</strong> 读取数据到 <strong>寄存器</strong> 。通过 <code>IN</code> 指令，可以从硬件设备读取状态信息或数据。</p>
+</li>
+<li>
+<p><code>OUT</code>： <strong>将寄存器</strong> 中的数据写入到指定的 <strong>I/O 端口</strong> 。通过 <code>OUT</code> 指令，CPU 可以向设备发送控制命令或数据。</p>
+</li>
+<li>
+<p>语法</p>
+</li>
+<li>
+<p>实例</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>; <span style="color:#960050;background-color:#1e0010">输入指令</span>
+</span></span><span style="display:flex;"><span>in  reg, port      ; <span style="color:#960050;background-color:#1e0010">从</span> I<span style="color:#f92672">/</span>O <span style="color:#960050;background-color:#1e0010">端口</span> port <span style="color:#960050;background-color:#1e0010">读取一个字节</span><span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">字到</span> reg <span style="color:#960050;background-color:#1e0010">寄存器</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>; <span style="color:#960050;background-color:#1e0010">输出指令</span>
+</span></span><span style="display:flex;"><span>out port, reg      ; <span style="color:#960050;background-color:#1e0010">将</span> reg <span style="color:#960050;background-color:#1e0010">寄存器中的值写入</span> I<span style="color:#f92672">/</span>O <span style="color:#960050;background-color:#1e0010">端口</span> port
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>; <span style="color:#960050;background-color:#1e0010">读取键盘控制器状态（端口</span> <span style="color:#ae81ff">0x60</span><span style="color:#960050;background-color:#1e0010">）</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>; <span style="color:#960050;background-color:#1e0010">将</span> AL <span style="color:#960050;background-color:#1e0010">中的数据再次写回键盘控制器</span>
+</span></span></code></pre></div><p>注意 <strong>I/O 端口</strong> 的 <a href="/constitution_principle/bus/io/#%e7%bc%96%e5%9d%80%e6%96%b9%e5%bc%8f">编址方式</a> 有两种：统一编址 和 独立编址，<code>IN/OUT</code> 指令仅适用于独立编址，对于统一编址，使用 <code>MOV</code> 指令即可完成输入输出。</p>
+<p><strong>输入输出指令</strong> （如 <code>IN</code> / <code>OUT</code>）常用于 <a href="/constitution_principle/bus/io/#%e7%a8%8b%e5%ba%8f%e6%9f%a5%e8%af%a2%e6%96%b9%e5%bc%8f">程序查询方式</a> 和 <a href="/constitution_principle/bus/io/#%e7%a8%8b%e5%ba%8f%e4%b8%ad%e6%96%ad%e6%96%b9%e5%bc%8f">程序中断方式</a> 中，由 CPU 发出指令与设备进行数据交换。相比之下，DMA 方式则由硬件控制器自动完成传输，通常不依赖此类指令。</p>
+<p>程序查询方式 和 程序中断方式 这两种 <strong>I/O</strong> 方式的实现的核心逻辑可以参考下述代码：</p>
+<ul>
+<li>程序查询方式</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// 用户态伪代码
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">write_to_device</span>(data) {
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">```</span>c
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> (<span style="color:#ae81ff">1</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">kernel_read_port</span>(STATUS_PORT) <span style="color:#f92672">&amp;</span> READY_BIT) { <span style="color:#75715e">// 轮询
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">kernel_write_port</span>(DATA_PORT, data);          <span style="color:#75715e">// 实际执行 OUT
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>}</p>
+<p>// 内核态驱动伪代码，用一个 C 函数封装了底层输入输出汇编指令
+// 通过读取端口内容，获取设备状态
+uint8_t kernel_read_port(uint16_t port) {</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">asm</span>(<span style="color:#e6db74">&#34;in %%dx, %%al&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;=a&#34;</span>(value) <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;d&#34;</span>(port));
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> value;
+</span></span></code></pre></div><p>}</p>
+<p>// 通过端口向设备写入
+void kernel_write_port(uint16_t port, uint8_t data) {</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">asm</span>(<span style="color:#e6db74">&#34;out %%al, %%dx&#34;</span> <span style="color:#f92672">:</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;a&#34;</span>(data), <span style="color:#e6db74">&#34;d&#34;</span>(port));
+</span></span></code></pre></div><p>}</p>
+<pre tabindex="0"><code>
+  * 中断方式
+
+```c
+// 用户程序只发起请求，挂起等待中断
+read_from_device(buffer) {
+```c
+request_read();  // 向设备发送读取命令
+</code></pre><p>}</p>
+<p>// 内核：中断服务例程
+interrupt_handler() {</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">uint8_t</span> data <span style="color:#f92672">=</span> <span style="color:#a6e22e">inb</span>(DATA_PORT);  <span style="color:#75715e">// IN 指令读取设备数据
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>kernel_buffer <span style="color:#f92672">=</span> data;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">wake_up_user</span>();
+</span></span></code></pre></div><p>}</p>
+<pre tabindex="0"><code>
+  * 在程序查询方式中，CPU 通过反复执行 **输入输出指令** 轮询设备状态，当设备准备就绪后再通过 **输入输出指令** 执行读写操作。
+  * 在中断方式中，当设备准备好数据后会向 CPU 发送中断信号；CPU 响应后进入中断服务程序，并在其中执行 **输入输出指令** 与设备进行数据交换。
+
+### 字符串操作指令
+
+字符串操作指令基本不考察，这里简单了解即可。
+
+
+复制字符串（`ES:EDI` ← `DS:ESI`）。
+```c
+movs byte ptr es:[edi], byte ptr ds:[esi]  ; 复制 1 字节
+movs dword ptr es:[edi], dword ptr ds:[esi]  ; 复制 4 字节
+</code></pre><p>从 <code>DS:ESI</code> 加载数据到 <code>AL/AX/EAX</code>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>lodsb  ; <span style="color:#960050;background-color:#1e0010">读取</span> <span style="color:#ae81ff">1</span> <span style="color:#960050;background-color:#1e0010">字节</span>
+</span></span><span style="display:flex;"><span>lodsd  ; <span style="color:#960050;background-color:#1e0010">读取</span> <span style="color:#ae81ff">4</span> <span style="color:#960050;background-color:#1e0010">字节</span>
+</span></span></code></pre></div><p>将 <code>AL/AX/EAX</code> 存储到 <code>ES:EDI</code>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>stosb  ; <span style="color:#960050;background-color:#1e0010">存储</span> <span style="color:#ae81ff">1</span> <span style="color:#960050;background-color:#1e0010">字节</span>
+</span></span><span style="display:flex;"><span>stosd  ; <span style="color:#960050;background-color:#1e0010">存储</span> <span style="color:#ae81ff">4</span> <span style="color:#960050;background-color:#1e0010">字节</span>
+</span></span></code></pre></div><p>CMPS</p>
+<p>比较两个字符串。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>cmpsb  ; <span style="color:#960050;background-color:#1e0010">比较字节</span>
+</span></span><span style="display:flex;"><span>cmpsd  ; <span style="color:#960050;background-color:#1e0010">比较</span> <span style="color:#ae81ff">4</span> <span style="color:#960050;background-color:#1e0010">字节</span>
+</span></span></code></pre></div><p><img src="/images/docs/computer-org/98d9628a3a.svg"></p>
+<h3 id="总结">总结</h3>
+<p>指令类别<img src="/images/docs/computer-org/image-20260612231116277.png"></p>
+<h2 id="相关笔记">相关笔记</h2>
+<ul>
+<li>[[cache|Cache]]</li>
+<li>[[external|外存]]</li>
+<li>[[memory-index|存储系统]]</li>
+<li>[[overview|存储系统概述]]</li>
+<li>[[ram|内存]]</li>
+<li>[[virtual|虚拟存储器]]</li>
+</ul>
+</article>
+
+    
+    
+    
+
+    <div class="border-top-section">
+      <a href="/cc408/docs/" class="btn btn-ghost">← 返回知识点列表</a>
+    </div>
+  </main>
+</div>
+
+<style>
+.side-nav-group[open] summary { color: var(--text-primary); }
+.side-nav-group summary::-webkit-details-marker { display: none; }
+.side-nav-group summary::after {
+  content: '▸'; margin-left: auto; font-size: var(--fs-xs); transition: transform .2s;
+}
+.side-nav-group[open] summary::after { transform: rotate(90deg); }
+</style>
+
+  </main>
+  <footer class="site-footer" role="contentinfo">
+  <p>© 2026 CC408. 408考研知识整理</p>
+</footer>
+
+</body>
+</html>

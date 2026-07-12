@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DMA on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/knowledge_points/dma/</link>
+    <description>Recent content in DMA on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/knowledge_points/dma/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2013 计算机组成原理 第22题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2013-co-022/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2013-co-022/</guid>
+      <description>&lt;p&gt;下列关于中断I/O 方式和DMA方式比较的叙述中，错误的是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2019 计算机组成原理 第22题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2019-co-022/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2019-co-022/</guid>
+      <description>&lt;p&gt;下列关于DMA方式的叙述中，正确的是()。&lt;/p&gt;&#xA;&lt;p&gt;I.DMA 传送前由设备驱动程序设置传送参数&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2020 计算机组成原理 第22题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2020-co-022/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2020-co-022/</guid>
+      <description>&lt;p&gt;若设备采用周期挪用DMA 方式进行输入输出，每次DMA 传送的数据块大小为512字节，相应的I/O 接口中有一个32位数数据缓冲寄存器，对于数据输入过程，下列叙述中错误的是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2022 计算机组成原理 第44题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2022-co-044/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2022-co-044/</guid>
+      <description>&lt;p&gt;假设某磁盘驱动器中有4个双面盘片，每个盘面有20000个磁道，每个磁道有500个扇区，每 个扇区可记录512字节的数据，盘片转速为7200rpm ( 转/分),平均寻道时间为5ms,  请回答下列问题。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2024 计算机组成原理 第22题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2024-co-022/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2024-co-022/</guid>
+      <description>&lt;p&gt;DMA 方式中，DMA 控制器控制的数据传输通路位于()。&lt;/p&gt;&#xA;&lt;p&gt;A.   CPU和主存之间&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2025 计算机组成原理 第21题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2025-co-021/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2025-co-021/</guid>
+      <description>&lt;p&gt;下列设备中，适合采用 DMA 输入输出的设备是()。&lt;/p&gt;&#xA;&lt;p&gt;l. 键盘&lt;/p&gt;&#xA;&lt;p&gt;I1. 网卡&lt;/p&gt;&#xA;&lt;p&gt;Ⅲ. 固态硬盘&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

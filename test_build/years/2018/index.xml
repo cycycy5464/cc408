@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2018 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/years/2018/</link>
+    <description>Recent content in 2018 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/years/2018/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2018 操作系统 第23题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-os-023/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-os-023/</guid>
+      <description>&lt;p&gt;下列关于多任务操作系统的叙述中，正确的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;Ⅰ.具有并发和并行的特点&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 操作系统 第24题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-os-024/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-os-024/</guid>
+      <description>&lt;p&gt;某系统采用基于优先权的非抢占式进程调度策略，完成一次进程调度和进程切换的系统时间开销为 1us。在 T 时刻就绪队列中有 3 个进程 P1、P2 和 P3，其在就绪队列中的等待时间、需要的 CPU 时间和优先权如下表所示。若优先权值大的进程优先获得 CPU，从 T 时刻起系统开始进程调度，则系统的平均周转时间为（）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 操作系统 第25题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-os-025/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-os-025/</guid>
+      <description>&lt;p&gt;属于同一进程的两个线程 thread1 和 thread2 并发执行，共享初值为 0 的全局变量 x。thread1 和 thread2 实现对全局变量 x 加 1 的机器级代码描述如下：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 操作系统 第26题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-os-026/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-os-026/</guid>
+      <description>&lt;p&gt;假设系统中有 4 个同类资源，进程 P1、P2 和 P3 需要的资源数分别为 4、3 和 1，P1、P2 和 P3 已申请到的资源数分别为 2、1 和 0，则执行安全性检测算法的结果是（）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 操作系统 第27题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-os-027/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-os-027/</guid>
+      <description>&lt;p&gt;下列选项中，可能导致当前进程 P 阻塞的事件是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;Ⅰ.进程 P 申请临界资源&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 操作系统 第28题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-os-028/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-os-028/</guid>
+      <description>&lt;p&gt;若 x 是管程内的条件变量，则当进程执行 x.wait() 时所做的工作是（）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e7%ae%a1%e7%a8%8b&#34;&gt;管程&lt;/a&gt;&#xA;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e6%9d%a1%e4%bb%b6%e5%8f%98%e9%87%8f&#34;&gt;条件变量&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A. 实现对变量X的互斥访问&#xA;B. 唤醒一个在X 上阻塞的进程&#xA;C. 根据X 的值判断该进程是否进入阻塞态&#xA;D. 阻塞该进程，并将之插入X 的阻塞队列中&#xA;[tag_link]&#xA;正确答案：D&#xA;&lt;a href=&#34;../../../operating_system/process/sync/content.md#%e6%9d%a1%e4%bb%b6%e5%8f%98%e9%87%8f&#34;&gt;条件变量&lt;/a&gt;&#xA;是&#xA;&lt;a href=&#34;../../../operating_system/process/sync/content.md#%e7%ae%a1%e7%a8%8b&#34;&gt;管程&lt;/a&gt;&#xA;内部说明和使用的一种特殊变量，其作用类似于信号量机制中的信号量，都是用于实现进程同步的。需要注意的是，在同一时刻，管程中只能有一个进程在执行。如果进程 A 执行了 x.wait() 操作，那么该进程会阻塞，并挂到条件变量 x 对应的阻塞队列上。这样，管程的使用权被释放，就可以有另一个进程进入管程。如果进程 B 执行了 x.signal() 操作，那么会唤醒 x 对应的阻塞队列队头进程。在 Pascal 语言的管程中，规定只有一个进程要离开管程时才能调用 signal() 操作。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 操作系统 第29题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-os-029/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-os-029/</guid>
+      <description>&lt;p&gt;定时器产生时钟中断后，由时钟中断服务程序更新的部分内容是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 操作系统 第30题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-os-030/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-os-030/</guid>
+      <description>&lt;p&gt;系统总是访问磁盘的某个磁道而不响应对其他磁道的访问请求，这种现象称为磁臂黏着。下列磁盘调度算法中，不会导致磁臂粘着的是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 操作系统 第31题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-os-031/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-os-031/</guid>
+      <description>&lt;p&gt;下列优化方法中，可以提高文件访问速度的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;Ⅰ. 提前读&lt;/p&gt;&#xA;&lt;p&gt;Ⅱ. 为文件分配连续的簇&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 操作系统 第32题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-os-032/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-os-032/</guid>
+      <description>&lt;p&gt;在下列同步机制中，可以实现让权等待的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e7%a1%ac%e4%bb%b6%e4%ba%92%e6%96%a5%e6%8c%87%e4%bb%a4&#34;&gt;硬件互斥指令&lt;/a&gt;&#xA;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e4%bf%a1%e5%8f%b7%e9%87%8f&#34;&gt;信号量&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A.Peterson 方法&#xA;B.swap指令&#xA;C. 信号量方法&#xA;D.TestAndSet指令&#xA;[tag_link]&#xA;正确答案：C&#xA;硬件方法实现进程同步需要通过&#xA;&lt;a href=&#34;../../../operating_system/process/sync/content.md#%e8%87%aa%e6%97%8b%e9%94%81&#34;&gt;自旋锁&lt;/a&gt;&#xA;，不能实现让权等待，故 B、D 错误；Peterson 算法满足有限等待但不满足让权等待，故 A 错误；记录型信号量由千引入阻塞机制，消除了不让权等待的情况，故 C 正确。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 操作系统 第45题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-os-045/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-os-045/</guid>
+      <description>&lt;p&gt;请根据题 44 图给出的虚拟存储管理方式，回答下列问题。&lt;/p&gt;&#xA;&lt;p&gt;(1) 某虚拟地址对应的页目录号为 6，在相应的页表中对应的页号为 6，页内偏移量为 8，该虚拟地址的十六进制表示是什么？&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 操作系统 第46题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-os-046/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-os-046/</guid>
+      <description>&lt;p&gt;某文件系统采用索引节点存放文件的属性和地址信息，簇大小为 4KB。每个文件索引节点占 64B，有 11 个地址项，其中直接地址项 8 个，一级、二级和三级间接地址项各 1 个，每个地址项长度为 4B。请回答下列问题。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机网络 第33题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-cn-033/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-cn-033/</guid>
+      <description>&lt;p&gt;下列 TCP/IP 应用层协议中，可以使用传输层无连接服务的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e7%bd%91%e7%bb%9c%e5%8d%8f%e8%ae%ae&#34;&gt;网络协议&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A.FTP&#xA;B.DNS&#xA;C.SMTP&#xA;D.&lt;a href=&#34;HTTP&#34;&gt;HTTP&lt;/a&gt;&#xA;[tag_link]&#xA;正确答案：B&#xA;FTP 用来传输文件，SMTP 用来发送电子邮件，HTTP 用来传输网页文件，都对可靠性的要求较高，因此都用传输层有连接的 TCP 服务。无连接 UDP 服务效率更高、开销小，DNS 在传输层采用无连接的 UDP 服务。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机网络 第34题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-cn-034/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-cn-034/</guid>
+      <description>&lt;p&gt;下列选项中，不属于物理层接口规范定义范畴的是（）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e7%89%a9%e7%90%86%e5%b1%82%e6%8e%a5%e5%8f%a3%e7%89%b9%e6%80%a7&#34;&gt;物理层接口特性&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A. 接口形状&#xA;B. 引脚功能&#xA;C. 物理地址&#xA;D. 信号电平&#xA;[tag_link]&#xA;正确答案：C&#xA;物理层的接口规范主要分为 4 种：机械特性、电气特性、功能特性、规程特性。机械特性规定连接所用设备的规格，即 A 所说的接口形状。电气特性规定信号的电压高低、阻抗匹配等，如 D 所说的信号电平。功能特性规定线路上出现的电平代表什么意义、接口部件的信号线（数据线、控制线、定时线等）的用途，如 B 所说的引脚功能。选项 C 中的物理地址就是 MAC 地址，它属于数据链路层的范畴。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机网络 第35题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-cn-035/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-cn-035/</guid>
+      <description>&lt;p&gt;IEEE 802.11 无线局域网的 MAC 协议 CSMA/CA 进行信道预约的方法是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#csma-ca&#34;&gt;CSMA/CA&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A. 发送确认帧&#xA;B. 采用二进制指数退避&#xA;C. 使用多个MAC地址&#xA;D. 交换RTS 与CTS帧&#xA;[tag_link]&#xA;正确答案：D&#xA;参考&#xA;&lt;a href=&#34;../../../computer_network/datalink/mac/content.md#%e6%b5%81%e7%a8%8b-1&#34;&gt;CSMA/CA 流程&lt;/a&gt;&#xA;，CSMA/CA 协议进行信道预约主要使用的是请求发送帧 RTS（Request to Send）和允许发送帧 CTS（Clear to Send）。当一台主机想要发送信息时，先向无线站点发送一个 RTS 帧，说明要传输的 数据及相应的时间。当无线站点收到 RTS 帧之后，会广播一个 CTS 帧作为对此的响应，既给发送端发送许可，又指示其他主机不要在这个时间内发送数据，从而预约信道，避免碰撞。发送确认帧，主要是保证信息的可靠传输；二进制指数退避法是在 CSMA/CD 中的一种冲突处理 方法；C 选项则与预约信道无关。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机网络 第36题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-cn-036/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-cn-036/</guid>
+      <description>&lt;p&gt;主机甲采用停 - 等协议向主机乙发送数据，数据传输速率是 3 kbps，单向传播延时是 200 ms，忽略确认帧的传输延时。当信道利用率等于 40% 时，数据帧的长度为（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机网络 第37题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-cn-037/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-cn-037/</guid>
+      <description>&lt;p&gt;路由器 R 通过以太网交换机 S1 和 S2 连接两个网络，R 的接口、主机 H1 和 H2 的 IP 地址与 MAC 地址如下图所示。若 H1 向 H2 发送一个 IP 分组 P，则 H1 发出的封装 P 的以太网帧的目的 MAC 地址、H2 收到的封装 P 的以太网帧的源 MAC 地址分别是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机网络 第38题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-cn-038/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-cn-038/</guid>
+      <description>&lt;p&gt;某路由表中有转发接口相同的 4 条路由表项，其目的网络地址分别是 35.230.32.0/21、35.230.40.0/21、35.230.48.0/21 和 35.230.56.0/21，将该 4 条路由聚合后的目的网络地址为（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机网络 第39题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-cn-039/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-cn-039/</guid>
+      <description>&lt;p&gt;UDP 协议实现分用 (demultiplexing) 时所依据的头部字段是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#udp&#34;&gt;UDP&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A. 源端口号&#xA;B.  目的端口号&#xA;C.  长度&#xA;D. 校验和&#xA;[tag_link]&#xA;正确答案：B&#xA;传输层分用的定义是：接收方的传输层剥去报文首部后，能把这些数据正确交付到目的进程。C 和 D 选项显然不符。端口号是传输层服务访问点 TSAP, 用来标识主机中的应用进程。对于 A 和 B 选项，源端口号是在需要对方回信时选用，不需要时可用全 0。目的端口号是在终点交付报文时使用到，符合题意，故选 B。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机网络 第40题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-cn-040/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-cn-040/</guid>
+      <description>&lt;p&gt;无需转换即可由 SMTP 协议直接传输的内容是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e7%94%b5%e5%ad%90%e9%82%ae%e4%bb%b6&#34;&gt;电子邮件&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A.JPEG 图形&#xA;B. MPEG视频&#xA;C. EXE 文件&#xA;D.ASCII文本&#xA;[tag_link]&#xA;正确答案：D&#xA;&lt;a href=&#34;../../../computer_network/application/mail/content.md&#34;&gt;电子邮件&lt;/a&gt;&#xA;出现得较早，当时的数据传输能力较弱，使用者们往往也不需要传输较大的图片、视频等，因此 SMTP 具有一些目前来看较为老旧的性质，例如限制所有邮件报文的体部分，只能采用 7 位 ASCII 来表示。在如今的传输过程中，如果传输了非文本文件，往往需要将这些多媒体文件重新编码为 ASCII 再传输。因此无须转换即可传输的是 ASCII 文本，答案为 D。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机网络 第47题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-cn-047/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-cn-047/</guid>
+      <description>&lt;p&gt;某公司网络如题 47 图所示。IP 地址空间 192.168.1.0/24 被均分给销售部和技术部两个子网，并已分别为部分主机和路由器接口分配了 IP 地址，销售部子网的 MTU=1500 B，技术部子网的 MTU=800 B。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机组成原理 第12题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-co-012/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-co-012/</guid>
+      <description>&lt;p&gt;冯诺依曼结构计算机中数据采用二进制编码表示，其主要原因是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机组成原理 第13题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-co-013/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-co-013/</guid>
+      <description>&lt;p&gt;假定带符号整数采用补码表示，若int 型变量x 和y 的机器数分别是FFFF FFDFH和00000041H,  则 x、y的值以及X-y的机器数分别是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机组成原理 第14题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-co-014/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-co-014/</guid>
+      <description>&lt;p&gt;IEEE 754 单精度浮点格式表示的数中，最小的规格化正数是()。&lt;/p&gt;&#xA;&lt;p&gt;A.1.0×2-126&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机组成原理 第15题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-co-015/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-co-015/</guid>
+      <description>&lt;p&gt;某32位计算机按字节编址，采用小端 ( Little  Endian) 方式。若语令“int  i=0” 对应指令的机器代码 为“C745FC         00000000”,则语句“int i=-64” 对应指令的机器代码是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机组成原理 第16题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-co-016/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-co-016/</guid>
+      <description>&lt;p&gt;整数X的机器数为11011000,分别对X进行逻辑右移 1位和算术右移1位操作，得到的机器数各是()。 A.11101100 、11101100&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机组成原理 第17题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-co-017/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-co-017/</guid>
+      <description>&lt;p&gt;假定DRAM芯片中存储阵列的行数为r 、列数为c,  对于一个2K×1  位的DRAM 芯片，为保证其地 址引脚数最少，并尽量减少刷新开销，则r 、c 的取值分别是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机组成原理 第18题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-co-018/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-co-018/</guid>
+      <description>&lt;p&gt;按字节编址的计算机中，某double 型数组A 的首地址为2000H, 使用变址寻址和循环结构访问数组A,  保存数组下标的变址寄存器初值为0,每次循环取一个数组元素，其偏移地址为变址值乘以sizeof(double), 取完后变址寄存器内容自动加1。若某次循环所取元素的地址为2100H,  则进入该次循环时变址寄存器的 内 容 是 ( ) 。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机组成原理 第19题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-co-019/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-co-019/</guid>
+      <description>&lt;p&gt;减法指令“sub R1,R2,R3”的功能为&amp;quot;(R1)-(R2)→R3&amp;quot;, 该指令执行后将生成进位/借位标志CF 和溢 出标志OF。若(R1)=FFFFFFFFH,( R2)=FFFFFFFOH,则该减法指令执行后，CF与 OF 分别为()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机组成原理 第20题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-co-020/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-co-020/</guid>
+      <description>&lt;p&gt;若某计算机最复杂指令的执行需要完成5个子功能，分别由功能部件A~E实现，各功能部件所需时间 分别为80ps 、50ps 、50ps、70ps和50ps, 采用流水线方式执行指令，流水段寄存器延时为20ps,  则CPU 时钟周期至少为()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机组成原理 第21题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-co-021/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-co-021/</guid>
+      <description>&lt;p&gt;下列选项中，可提高同步总线数据传输率的是()。&lt;/p&gt;&#xA;&lt;p&gt;I.  增加总线宽度&lt;/p&gt;&#xA;&lt;p&gt;Ⅱ.提高总线工作频率&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机组成原理 第22题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-co-022/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-co-022/</guid>
+      <description>&lt;p&gt;下列关于外部I/O 中断的叙述中，正确的是()。&lt;/p&gt;&#xA;&lt;p&gt;A.  中断控制器按所接收中断请求的先后次序进行中断优先级排队&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机组成原理 第43题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-co-043/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-co-043/</guid>
+      <description>&lt;p&gt;假定计算机的主频为 500MHz，CPI 为 4。现有设备 A 和 B，其数据传输率分别为 2MBps 和 40MBps，对应 I/O 接口中各有一个 32 位数据缓冲寄存器。请回答下列问题，要求给出计算过程。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机组成原理 第44题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-co-044/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-co-044/</guid>
+      <description>&lt;p&gt;某计算机采用页式虚拟存储管理方式，按字节编址。CPU 进行存储访问的过程如题 44 图所示。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 数据结构 第10题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-ds-010/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-ds-010/</guid>
+      <description>&lt;p&gt;对初始数据序列 (8, 3, 9, 11, 2, 1, 4, 7, 5, 10, 6) 进行希尔排序。若第一趟排序结果为 (1, 3, 7, 5, 2, 6, 4, 9, 11, 10, 8)，第二趟排序结果为 (1, 2, 6, 4, 3, 7, 5, 8, 11, 10, 9)，则两趟排序采用的增量（间隔）依次是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 数据结构 第11题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-ds-011/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-ds-011/</guid>
+      <description>&lt;p&gt;在将数据序列 (6, 1, 5, 9, 8, 4, 7) 建成大根堆时，正确的序列变化过程是（）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 数据结构 第1题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-ds-001/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-ds-001/</guid>
+      <description>&lt;p&gt;若栈 S1 中保存整数，栈 S2 中保存运算符，函数 F() 依次执行下述各步操作：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 数据结构 第2题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-ds-002/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-ds-002/</guid>
+      <description>&lt;p&gt;现有队列 Q 与栈 S，初始时 Q 中的元素依次是 1,2,3,4,5,6（1 在队头），S 为空。若仅允许下列 3 种操作：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 数据结构 第3题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-ds-003/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-ds-003/</guid>
+      <description>&lt;p&gt;设有一个&#xA;12×12&#xA;的对称矩阵&#xA;M&#xA;，将其上三角部分的元素&#xA;mi,j​(1≤i≤j≤12)&#xA;按行优先存入 C 语言的一维数组&#xA;N&#xA;中，元素&#xA;m6,6​&#xA;在&#xA;N&#xA;中的下标是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 数据结构 第41题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-ds-041/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-ds-041/</guid>
+      <description>&lt;p&gt;给定一个含 n(n≥1) 个整数的数组，请设计一个在时间上尽可能高效的算法，找出数组中未出现的最小正整数。例如，数组{-5, 3, 2, 3}中未出现的最小正整数是 1；数组{1, 2, 3}中未出现的最小正整数是 4。要求：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 数据结构 第42题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-ds-042/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-ds-042/</guid>
+      <description>&lt;p&gt;拟建设一个光通信骨干网络连通 BJ、CS、XA、QD、JN、NJ、TL 和 WH 等 8 个城市，题 42 图中无向边上的权值表示两个城市间备选光缆的铺设费用。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 数据结构 第4题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-ds-004/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-ds-004/</guid>
+      <description>&lt;p&gt;设一棵非空完全二叉树 T 的所有叶结点均位于同一层，且每个非叶结点都有 2 个子结点。若 T 有 k 个叶结点，则 T 的结点总数是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 数据结构 第5题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-ds-005/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-ds-005/</guid>
+      <description>&lt;p&gt;已知字符集{a, b, c, d, e, f}，若各字符出现的次数分别为 6, 3, 8, 2, 10, 4，则对应字符集中各字符的哈夫曼编码可能是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 数据结构 第6题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-ds-006/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-ds-006/</guid>
+      <description>&lt;p&gt;已知二叉排序树如下图所示，元素之间应满足的大小关系是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://cycycy5464.github.io/cc408/images/paper/2018/6.drawio.svg&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e4%ba%8c%e5%8f%89%e6%8e%92%e5%ba%8f%e6%a0%91&#34;&gt;二叉排序树&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 数据结构 第7题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-ds-007/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-ds-007/</guid>
+      <description>&lt;p&gt;下列选项中，不是如下有向图的拓扑序列的是（ ）&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e6%8b%93%e6%89%91%e6%8e%92%e5%ba%8f&#34;&gt;拓扑排序&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A.1,5,2,3,6,4&#xA;B.5,1,2,6,3,4&#xA;C.5,1,2,3,6,4&#xA;D.5,2,1,6,3,4&#xA;[tag_link]&#xA;正确答案：D&#xA;&lt;a href=&#34;../../../data_structure/graph/operation/content.md#%e6%8b%93%e6%89%91%e6%8e%92%e5%ba%8f&#34;&gt;拓扑排序&lt;/a&gt;&#xA;每次选取入度为 0 的结点输出，经观察不难发现拓扑序列前两位一定是 1,5 或 5,1（因为只有 1 和 5 的入度均为 0，且其他结点都不满足仅有 1 或仅有 5 作为前驱）。因此 D 显然错误。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 数据结构 第8题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-ds-008/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-ds-008/</guid>
+      <description>&lt;p&gt;高度为 5 的 3 阶 B 树含有的关键字个数至少是（ ）&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#b%e6%a0%91&#34;&gt;B树&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A.15&#xA;B.31&#xA;C.62&#xA;D.242&#xA;[tag_link]&#xA;正确答案：B&#xA;m&#xA;阶&#xA;&lt;a href=&#34;../../../data_structure/search/tree/content.md#%e7%89%b9%e6%80%a7&#34;&gt;B 树&lt;/a&gt;&#xA;的基本性质：根结点以外的非叶结点最少含有&#xA;⌈m/2⌉−1&#xA;个关键字，代入&#xA;m=3&#xA;得到每个非叶结点中最少包含 1 个关键字，而根结点含有 1 个关键字，因此所有非叶结点都有两个孩子。此时其树形与 h=5 的满二叉树相同，可求得关键字最少为 31 个。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 数据结构 第9题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-ds-009/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-ds-009/</guid>
+      <description>&lt;p&gt;现有长度为 7、初始为空的散列表 HT，散列函数 H(k) = k % 7，用线性探测再散列法解决冲突。将关键字 22, 43, 15 依次插人到 HT 后，查找成功的平均查找长度是（ ）&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 组成原理 第13题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-ds-013/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-ds-013/</guid>
+      <description>&lt;p&gt;假定带符号整数采用补码表示，若 int 型变量 x 和 y 的机器数分别是 FFFF FFDFH 和 0000 0041H，则 x、y 的值以及 x-y 的机器数分别是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 组成原理 第14题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-ds-014/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-ds-014/</guid>
+      <description>&lt;p&gt;IEEE 754 单精度浮点格式表示的数中，最小的规格化正数是 ( )&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#ieee%e6%b5%ae%e7%82%b9%e6%95%b0%e8%a1%a8%e7%a4%ba&#34;&gt;IEEE浮点数表示&lt;/a&gt;&#xA;[tag_link]&#xA;正确答案：A&#xA;&lt;a href=&#34;../../../constitution_principle/representation/floats/content.md#ieee-%e6%b5%ae%e7%82%b9%e6%95%b0%e8%a1%a8%e7%a4%ba&#34;&gt;IEEE754&lt;/a&gt;&#xA;单精度浮点数的符号位、阶码位、尾数位（省去正数位 1）所占的位数分别是 1、8、23 位。最小正数，数符位取 0，移码的取值范围是 1~254，取 1，得阶码值 1-127=-126（127 为我们规定的偏置值），尾数取全 0，最终推出最小规格化正数为 A 选项。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 组成原理 第15题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-ds-015/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-ds-015/</guid>
+      <description>&lt;p&gt;某 32 位计算机按字节编址，采用小端（Little Endian）方式。若语句 &lt;code&gt;int i=0&lt;/code&gt; 对应指令的机器代码为 &lt;code&gt;C7 45 FC 00 00 00 00&lt;/code&gt;，则语句 &lt;code&gt;int i=-64&lt;/code&gt; 对应指令的机器代码是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 组成原理 第16题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-ds-016/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-ds-016/</guid>
+      <description>&lt;p&gt;整数 x 的机器数为 11011000，分别对 x 进行逻辑右移 1 位和算术右移 1 位操作，得到的机器数各是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 组成原理 第17题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-ds-017/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-ds-017/</guid>
+      <description>&lt;p&gt;假定 DRAM 芯片中存储阵列的行数为 r、列数为 c，对于一个 2K×1 位的 DRAM 芯片，为保证其地址引脚数最少，并尽量减少刷新开销，则 r、c 的取值分别是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 组成原理 第18题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-ds-018/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-ds-018/</guid>
+      <description>&lt;p&gt;按字节编址的计算机中，某 double 型数组 A 的首地址为 2000H，使用变址寻址和循环结构访问数组 A，保存数组下标的变址寄存器初值为 0，每次循环取一个数组元素，其偏移地址为变址值乘以 sizeof(double)，取完后变址寄存器内容自动加 1。若某次循环所取元素的地址为 2100H，则进入该次循环时变址寄存器的内容是（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 组成原理 第19题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-ds-019/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-ds-019/</guid>
+      <description>&lt;p&gt;减法指令 &lt;code&gt;sub R1,R2,R3&lt;/code&gt; 的功能为 &lt;code&gt;(R1)-(R2)→R3&lt;/code&gt;，该指令执行后将生成进位/借位标志 CF 和溢出标志 OF。若 &lt;code&gt;(R1)=FFFFFFFFH&lt;/code&gt;，&lt;code&gt;(R2)=FFFFFFF0H&lt;/code&gt;，则该减法指令执行后，CF 与 OF 分别为（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 组成原理 第20题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-ds-020/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-ds-020/</guid>
+      <description>&lt;p&gt;若某计算机最复杂指令的执行需要完成 5 个子功能，分别由功能部件 A~E 实现，各功能部件所需时间分别为 80ps、50ps、50ps、70ps 和 50ps，采用流水线方式执行指令，流水段寄存器延时为 20ps，则 CPU 时钟周期至少为（ ）。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 组成原理 第21题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-ds-021/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-ds-021/</guid>
+      <description>&lt;p&gt;下列选项中，可提高同步总线数据传输率的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;Ⅰ. 增加总线宽度&lt;/p&gt;&#xA;&lt;p&gt;Ⅱ. 提高总线工作频率&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 组成原理 第22题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-ds-022/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-ds-022/</guid>
+      <description>&lt;p&gt;下列关于外部 I/O 中断的叙述中，正确的是（ ）。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e6%80%bb%e7%ba%bf%e4%ba%8b%e5%8a%a1&#34;&gt;总线事务&lt;/a&gt;&#xA;&lt;a href=&#34;https://cycycy5464.github.io/cc408/study_methods/tags/408quiz//#%e4%b8%ad%e6%96%adio&#34;&gt;中断IO&lt;/a&gt;&#xA;[tag_link]&#xA;正确答案：C&#xA;本题考察&#xA;&lt;a href=&#34;../../../constitution_principle/bus/bus/content.md#%e7%aa%81%e5%8f%91%e6%80%bb%e7%ba%bf%e4%bc%a0%e8%be%93%e4%ba%8b%e5%8a%a1&#34;&gt;突发总线传输事务&lt;/a&gt;&#xA;，中断优先级由屏蔽字决定，而不是根据请求的先后次序，因此 A 错误。中断隐指令完成的工作有：① 关中断；② 保存断点；③ 引出中断服务程序，通用寄存器的保护由中断服务程序完成，B 错误。中断允许状态即开中断后，才能响应中断请求，C 正确。有中断请求时，先要由中断隐指令完成中断前程序的状态保存，D 错误。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

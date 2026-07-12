@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>408 考研 SVG 预览</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: system-ui, sans-serif; background: #f5f5f5; padding: 20px; }
+h1 { margin-bottom: 20px; color: #333; }
+.year-section { margin-bottom: 30px; }
+.year-header {
+  background: #4a90d9; color: #fff; padding: 10px 20px; border-radius: 8px;
+  margin-bottom: 15px; font-size: 18px; cursor: pointer; user-select: none;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.year-header:hover { background: #357abd; }
+.year-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 15px; }
+.svg-card {
+  background: #fff; border: 2px solid #e0e0e0; border-radius: 8px; overflow: hidden;
+  transition: box-shadow 0.2s; position: relative;
+}
+.svg-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.15); }
+.svg-card .filename {
+  padding: 6px 10px; font-size: 12px; color: #555; background: #fafafa;
+  border-bottom: 1px solid #eee; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.svg-card .preview { padding: 8px; min-height: 100px; display: flex; align-items: center; justify-content: center; }
+.svg-card .preview img { max-width: 100%; max-height: 100px; }
+.svg-card.error { border-color: #e74c3c; }
+.svg-card.error .filename { background: #fde8e8; color: #c0392b; }
+.svg-card .error-msg { display: none; text-align: center; color: #e74c3c; font-size: 13px; padding: 20px; }
+.svg-card .error-msg.show { display: block; }
+.svg-card .preview.hide { display: none; }
+.summary-bar {
+  position: sticky; top: 0; background: #333; color: #fff; padding: 10px 20px;
+  border-radius: 8px; margin-bottom: 20px; z-index: 100;
+  display: flex; gap: 20px; flex-wrap: wrap; align-items: center;
+}
+.summary-bar .badge { padding: 2px 10px; border-radius: 12px; font-size: 13px; }
+.badge.ok { background: #27ae60; color: #fff; }
+.badge.err { background: #e74c3c; color: #fff; }
+#error-list { display: none; margin-bottom: 20px; background: #fff0f0; border: 2px solid #e74c3c; border-radius: 8px; padding: 15px; }
+#error-list.show { display: block; }
+#error-list h3 { color: #c0392b; margin-bottom: 10px; font-size: 16px; }
+#error-list ul { columns: 3 300px; list-style: none; }
+#error-list li { font-family: monospace; font-size: 13px; padding: 2px 0; color: #555; }
+@media(max-width:600px) {
+  .year-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<h1>408 考研题目 SVG 预览</h1>
+<div class="summary-bar" id="summary">加载中...</div>
+<div id="error-list"><h3>❌ 加载失败的 SVG</h3><ul id="error-files"></ul></div>
+<div id="content"></div>
+<script>
+const EXISTING = [
+"2009_Q3_1.svg","2009_Q4_2.svg","2009_Q41_7.svg","2009_Q44_8.svg","2009_Q47_9.svg","2009_Q6_3.svg","2009_Q9_6.svg","2009_Qx_10.svg","2009_Qx_4.svg","2009_Qx_5.svg",
+"2010_Q28_6.svg","2010_Q3_1.svg","2010_Q34_7.svg","2010_Q4_2.svg","2010_Q43_8.svg","2010_Q45_11.svg","2010_Q46_12.svg","2010_Q8_4.svg","2010_Qx_10.svg","2010_Qx_13.svg","2010_Qx_3.svg","2010_Qx_5.svg","2010_Qx_9.svg",
+"2011_Q11_1.svg","2011_Q27_2.svg","2011_Q37_3.svg","2011_Q41_4.svg","2011_Q44_8.svg","2011_Q47_10.svg","2011_Qx_5.svg","2011_Qx_6.svg","2011_Qx_7.svg","2011_Qx_9.svg",
+"2012_Q4_1.svg","2012_Q40_8.svg","2012_Q41_9.svg","2012_Q42_10.svg","2012_Q44_12.svg","2012_Q47_14.svg","2012_Q7_2.svg","2012_Q9_3.svg","2012_Qx_11.svg","2012_Qx_13.svg","2012_Qx_15.svg","2012_Qx_4.svg","2012_Qx_5.svg","2012_Qx_6.svg","2012_Qx_7.svg",
+"2013_Q11_5.svg","2013_Q27_6.svg","2013_Q3_1.svg","2013_Q34_7.svg","2013_Q44_9.svg","2013_Q46_12.svg","2013_Q47_16.svg","2013_Q8_3.svg","2013_Q9_4.svg","2013_Qx_10.svg","2013_Qx_11.svg","2013_Qx_13.svg","2013_Qx_14.svg","2013_Qx_15.svg","2013_Qx_17.svg","2013_Qx_2.svg","2013_Qx_8.svg",
+"2014_Q34_3.svg","2014_Q4_1.svg","2014_Q42_4.svg","2014_Q43_5.svg","2014_Q44_6.svg","2014_Q7_2.svg",
+"2015_Q10_4.svg","2015_Q18_5.svg","2015_Q34_6.svg","2015_Q41_7.svg","2015_Q42_9.svg","2015_Q43_10.svg","2015_Q44_11.svg","2015_Q47_13.svg","2015_Q6_2.svg","2015_Q7_3.svg","2015_Qx_1.svg","2015_Qx_12.svg","2015_Qx_8.svg",
+"2016_Q1_1.svg","2016_Q17_7.svg","2016_Q19_8.svg","2016_Q24_9.svg","2016_Q28_10.svg","2016_Q29_11.svg","2016_Q3_3.svg","2016_Q32_12.svg","2016_Q41_13.svg","2016_Q44_14.svg","2016_Q45_15.svg","2016_Q47_16.svg","2016_Q6_5.svg","2016_Q8_6.svg","2016_Qx_17.svg","2016_Qx_2.svg","2016_Qx_4.svg",
+"2017_Q35_4.svg","2017_Q41_5.svg","2017_Q42_6.svg","2017_Q5_1.svg","2017_Q8_2.svg","2017_Qx_3.svg","2017_Qx_7.svg",
+"2018_Q11_4.svg","2018_Q37_5.svg","2018_Q38_6.svg","2018_Q42_7.svg","2018_Q44_9.svg","2018_Q47_10.svg","2018_Q5_1.svg","2018_Q6_2.svg","2018_Q7_3.svg","2018_Qx_8.svg",
+"2019_Q18_6.svg","2019_Q31_7.svg","2019_Q38_8.svg","2019_Q4_1.svg","2019_Q42_9.svg","2019_Q47_11.svg","2019_Q5_4.svg","2019_Q6_5.svg","2019_Qx_10.svg","2019_Qx_2.svg","2019_Qx_3.svg",
+"2020_Q10_6.svg","2020_Q33_8.svg","2020_Q35_9.svg","2020_Q37_10.svg","2020_Q4_1.svg","2020_Q40_11.svg","2020_Q47_13.svg","2020_Q5_2.svg","2020_Q7_4.svg","2020_Qx_12.svg","2020_Qx_14.svg","2020_Qx_15.svg","2020_Qx_3.svg","2020_Qx_5.svg","2020_Qx_7.svg",
+"2021_Q1_1.svg","2021_Q11_5.svg","2021_Q28_6.svg","2021_Q34_7.svg","2021_Q37_8.svg","2021_Q40_9.svg","2021_Q43_10.svg","2021_Q47_11.svg","2021_Q6_2.svg","2021_Q7_3.svg","2021_Q8_4.svg",
+"2022_Q15_6.svg","2022_Q19_8.svg","2022_Q26_9.svg","2022_Q3_1.svg","2022_Q36_10.svg","2022_Q41_11.svg","2022_Q43_14.svg","2022_Q45_15.svg","2022_Q46_16.svg","2022_Q47_17.svg","2022_Q5_2.svg","2022_Q6_3.svg","2022_Q7_4.svg","2022_Q8_5.svg","2022_Qx_12.svg","2022_Qx_13.svg","2022_Qx_7.svg",
+"2023_Q2_1.svg","2023_Q33_6.svg","2023_Q38_7.svg","2023_Q4_2.svg","2023_Q41_8.svg","2023_Q45_9.svg","2023_Q47_10.svg","2023_Q5_3.svg","2023_Qx_4.svg","2023_Qx_5.svg",
+"2024_Q33_5.svg","2024_Q35_6.svg","2024_Q37_7.svg","2024_Q4_1.svg","2024_Q43_8.svg","2024_Q44_10.svg","2024_Q45_11.svg","2024_Q47_12.svg","2024_Q7_3.svg","2024_Q9_4.svg","2024_Qx_2.svg","2024_Qx_9.svg",
+"2025_Q36_2.svg","2025_Q38_3.svg","2025_Q42_4.svg","2025_Q44_5.svg","2025_Q46_6.svg","2025_Q47_7.svg",
+"2026_Q26_1.svg","2026_Q36_2.svg","2026_Q43_4.svg","2026_Q44_5.svg","2026_Q46_6.svg","2026_Qx_3.svg"
+];
+
+// Group by year
+const byYear = {};
+EXISTING.forEach(f => {
+  const year = f.slice(0,4);
+  if (!byYear[year]) byYear[year] = [];
+  byYear[year].push(f);
+});
+
+let okCount = 0, errCount = 0;
+const failedFiles = [];
+const container = document.getElementById('content');
+const summary = document.getElementById('summary');
+const errorList = document.getElementById('error-list');
+const errorFiles = document.getElementById('error-files');
+
+const years = Object.keys(byYear).sort();
+years.forEach(year => {
+  const files = byYear[year];
+  const section = document.createElement('div');
+  section.className = 'year-section';
+  const hdr = document.createElement('div');
+  hdr.className = 'year-header';
+  hdr.innerHTML = `<span>${year} 年 <span class="count">(${files.length} 个)</span></span>`;
+  hdr.onclick = () => { const g = section.querySelector('.year-grid'); g.style.display = g.style.display === 'none' ? 'grid' : 'none'; };
+  const grid = document.createElement('div');
+  grid.className = 'year-grid';
+  files.forEach(f => {
+    const card = document.createElement('div');
+    card.className = 'svg-card';
+    card.innerHTML = `<div class="filename">${f}</div>
+      <div class="preview"><img src="${f}" onerror="imgErr(this)" onload="imgOk(this)"></div>
+      <div class="error-msg">⚠ 加载失败</div>`;
+    grid.appendChild(card);
+  });
+  section.appendChild(hdr);
+  section.appendChild(grid);
+  container.appendChild(section);
+});
+
+function imgErr(img) {
+  const card = img.closest('.svg-card');
+  card.classList.add('error');
+  card.querySelector('.preview').classList.add('hide');
+  card.querySelector('.error-msg').classList.add('show');
+  const name = card.querySelector('.filename').textContent;
+  if (!failedFiles.includes(name)) failedFiles.push(name);
+  errCount++;
+  updateSum();
+  renderErrorList();
+}
+
+function imgOk(img) {
+  const card = img.closest('.svg-card');
+  if (!card.classList.contains('error')) okCount++;
+  else { okCount++; errCount--; }
+  updateSum();
+  renderErrorList();
+}
+
+function renderErrorList() {
+  if (failedFiles.length > 0) {
+    errorList.classList.add('show');
+    errorFiles.innerHTML = failedFiles.map(f => `<li>${f}</li>`).join('');
+  } else {
+    errorList.classList.remove('show');
+  }
+}
+
+function updateSum() {
+  const total = EXISTING.length;
+  summary.innerHTML = `
+    <span>共 <strong>${total}</strong> 个 SVG</span>
+    <span class="badge ok">✓ ${okCount} 正常</span>
+    ${errCount > 0 ? `<span class="badge err">✗ ${errCount} 异常</span> <a href="#error-list" style="color:#fff;font-size:13px;">查看列表</a>` : ''}
+  `;
+}
+updateSum();
+</script>
+</body>
+</html>

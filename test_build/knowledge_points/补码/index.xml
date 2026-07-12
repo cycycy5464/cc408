@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>补码 on CC408</title>
+    <link>https://cycycy5464.github.io/cc408/knowledge_points/%E8%A1%A5%E7%A0%81/</link>
+    <description>Recent content in 补码 on CC408</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cycycy5464.github.io/cc408/knowledge_points/%E8%A1%A5%E7%A0%81/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2010 计算机组成原理 第13题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2010-co-013/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2010-co-013/</guid>
+      <description>&lt;p&gt;假定有4个整数用8位补码分别表示 r1=FEH,r2=F2H,r3=90H,r4=F8H,        若将运算结果存放在 一个8位寄存器中，则下列运算中会发生溢出的是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2013 计算机组成原理 第14题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2013-co-014/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2013-co-014/</guid>
+      <description>&lt;p&gt;某字长为8位的计算机中，已知整型变量x 、v的机器数分别为 Ixla=11110100,[yl=10110000 。 若 整型变量z=2x+y/2, 则z 的机器数为()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2014 计算机组成原理 第13题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2014-co-013/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2014-co-013/</guid>
+      <description>&lt;p&gt;若 x=103,y=-25,    则下列表达式采用8位定点补码运算实现时，会发生溢出的是()。 A.x+y&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2018 计算机组成原理 第13题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2018-co-013/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2018-co-013/</guid>
+      <description>&lt;p&gt;假定带符号整数采用补码表示，若int 型变量x 和y 的机器数分别是FFFF FFDFH和00000041H,  则 x、y的值以及X-y的机器数分别是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2019 计算机组成原理 第13题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2019-co-013/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2019-co-013/</guid>
+      <description>&lt;p&gt;考虑以下C 语言代码：&lt;/p&gt;&#xA;&lt;p&gt;unsigned  short  usi   = 65535; short     si    =usi;&lt;/p&gt;&#xA;&lt;p&gt;执行上述程序段后，si 的 值 是 ( ) 。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2020 计算机组成原理 第13题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2020-co-013/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2020-co-013/</guid>
+      <description>&lt;p&gt;已知带符号整数用补码表示，float   型数据用 IEEE  754 标准表示，假定变量 x  的类型只能是 int   或 float 。 当 x  的机器数为 C8000000H  时 ，x  的值可能是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2021 计算机组成原理 第13题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2021-co-013/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2021-co-013/</guid>
+      <description>&lt;p&gt;已知带符号整数用补码表示，变量x,y,z      的机器数分别为FFFDH,FFDFH,7FFCH,        下列结论中， 正确的是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2022 计算机组成原理 第13题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2022-co-013/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2022-co-013/</guid>
+      <description>&lt;p&gt;32位补码所能表示的整数范围是()。&lt;/p&gt;&#xA;&lt;p&gt;A.-2³²~2³¹-1&lt;/p&gt;&#xA;&lt;p&gt;B.-2³¹~2³¹-1&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2023 计算机组成原理 第13题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2023-co-013/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2023-co-013/</guid>
+      <description>&lt;p&gt;若 short 型变量x=-8190,   则 x 的机器数为()。&lt;/p&gt;&#xA;&lt;p&gt;A.E002H&lt;/p&gt;&#xA;&lt;p&gt;B.E001H&lt;/p&gt;&#xA;&lt;p&gt;C.9FFFH&lt;/p&gt;&#xA;&lt;p&gt;D.9FFEH&lt;/p&gt;&#xA;&lt;p&gt;[tag_link]&lt;/p&gt;&#xA;&lt;p&gt;正确答案：A&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2024 计算机组成原理 第12题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2024-co-012/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2024-co-012/</guid>
+      <description>&lt;p&gt;C   语言代码如下：&lt;/p&gt;&#xA;&lt;p&gt;int    i         = 32777;&lt;/p&gt;&#xA;&lt;p&gt;short   si = i;&lt;/p&gt;&#xA;&lt;p&gt;int    j    =si;&lt;/p&gt;&#xA;&lt;p&gt;执行上述代码段后，j  的 值 为 ( ) 。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2024 计算机组成原理 第14题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2024-co-014/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2024-co-014/</guid>
+      <description>&lt;p&gt;某科学实验中，需要使用大量的整型参数，为了在保证表数精度的基础上提高运算速度，需要选择合 理的数据表示方法。若整型参数a 和β的取值范围分别为-2²⁰&lt;del&gt;20、-24⁰&lt;/del&gt;240,则下列选项中，α和β最适 宜采用的数据表示方法分别是()。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2025 计算机组成原理 第14题</title>
+      <link>https://cycycy5464.github.io/cc408/question/2025-co-014/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://cycycy5464.github.io/cc408/question/2025-co-014/</guid>
+      <description>&lt;p&gt;假设8位字长的计算机中，两个带符号整数x 和 y 的补码表示分别时x 补=A3H,yx=75H,        则通过 补码加减运算器得到的 x-y 的值及 OF 标志分别为()。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
