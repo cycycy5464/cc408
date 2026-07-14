@@ -28,8 +28,8 @@
 | # | 问题 | 文件位置 | 状态 |
 |---|------|----------|------|
 | 3 | 知识图谱构建 O(n³) 三层嵌套循环 | layouts/partials/knowledge-graph-data.html:18-29 | ✅ 已优化为 O(n*k) |
-| 7 | convert-all-content.py 硬编码本地路径 | scripts/convert-all-content.py:126 | ⬜ 待修复 |
-| 8 | process_code_blocks 误判代码块 | scripts/convert-all-content.py:145-163 | ⬜ 待修复 |
+| 7 | convert-all-content.py 硬编码本地路径 | scripts/convert-all-content.py:126 | ✅ 已改为命令行参数 |
+| 8 | process_code_blocks 误判代码块 | scripts/convert-all-content.py:145-163 | ✅ 已修复，不再强制标记语言 |
 
 ### 🔵 工程建议
 
@@ -42,9 +42,9 @@
 ## 统计
 
 - 总问题数：12
-- 已解决：**10**
-- 待解决：2
-- 完成率：**83.3%**
+- 已解决：**12**
+- 待解决：0
+- 完成率：**100%**
 
 ---
 
