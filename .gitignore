@@ -1,17 +1,42 @@
-# Build output
+# Hugo 构建产物
 public/
-.hugo_build.lock
+test_build/
 resources/_gen/
+.hugo_build.lock
 hugo_stats.json
 *.bak
 content/exam/408quiz/backup/
 
-# Module cache
+# Hugo 缓存
 hugo_cache/
+
+# 临时文件
+_tmp/
+_tmp_*
+
+# 安全敏感 - 私钥
+id_ed25519*
+
+# Node.js
+node_modules/
+package-lock.json
+
+# IDE/编辑器本地配置
+.claude/
+.codebuddy/
+.reasonix/
 
 # Python
 __pycache__/
 *.pyc
 *.pyo
-id_ed25519*
-CC408*.docx
+
+# 文档
+*.docx
+
+# 测试文件
+test_goldmark.md
+test_script.py
+
+# 配置
+reasonix.toml
