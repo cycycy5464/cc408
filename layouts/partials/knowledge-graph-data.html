@@ -1,4 +1,5 @@
 {{/* Generate knowledge graph JSON data from docs content */}}
+{{/* Optimized: O(n*k) instead of O(n²*k) using batch matching */}}
 {{ $nodes := slice }}
 {{ range where .Site.RegularPages "Section" "docs" }}
   {{ $nodes = $nodes | append (dict
@@ -9,15 +10,23 @@
     "prerequisites" (default slice .Params.prerequisites)
   )}}
 {{ end }}
-{{/* Generate links: match each node's prerequisites to other node labels */}}
+
+{{/* Build title-to-id index for O(1) lookup */}}
+{{ $titleIndex := dict }}
+{{ range $nodes }}
+  {{ $titleIndex = merge $titleIndex (dict .label .id) }}
+{{ end }}
+
+{{/* Generate links: match each node's prerequisites using index */}}
 {{ $links := slice }}
 {{ range $nodes }}
   {{ $sourceId := .id }}
   {{ range .prerequisites }}
-    {{ $target := index (where $nodes "label" "eq" .) 0 }}
-    {{ if $target }}
-      {{ $links = $links | append (dict "source" $sourceId "target" $target.id) }}
+    {{ $targetId := index $titleIndex . }}
+    {{ if $targetId }}
+      {{ $links = $links | append (dict "source" $sourceId "target" $targetId) }}
     {{ end }}
   {{ end }}
 {{ end }}
+
 {{ dict "nodes" $nodes "links" $links | jsonify }}
