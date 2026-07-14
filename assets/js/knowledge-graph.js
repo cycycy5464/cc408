@@ -2,6 +2,9 @@
 (function () {
   'use strict';
 
+  // Base URL from Hugo template (injected at build time)
+  var BASE_URL = '{{ .Site.BaseURL }}';
+
   var container = document.getElementById('knowledge-graph');
   if (!container) { console.error('KG: #knowledge-graph not found'); document.body.insertAdjacentHTML('beforeend','<div style="color:red;padding:1rem">KG init error: container not found</div>'); return; }
   console.log('KG init OK');
@@ -122,8 +125,8 @@
 
   function loadMapping(callback) {
     if (state.mapping) { callback(); return; }
-    console.log('KG: loading mapping JSON from', '/cc408/mapping/question-kp-mapping.json');
-    var dataFile = '/cc408/mapping/question-kp-mapping.json';
+    console.log('KG: loading mapping JSON from', BASE_URL + 'mapping/question-kp-mapping.json');
+    var dataFile = BASE_URL + 'mapping/question-kp-mapping.json';
     fetch(dataFile)
       .then(function (r) { return r.json(); })
       .then(function (data) {
@@ -564,7 +567,7 @@
         type: 'question',
         subject: subject,
         meta: file,
-        url: '/cc408/question/' + file.replace('.md', '/'),
+        url: BASE_URL + 'question/' + file.replace('.md', '/'),
         _parentKp: kp
       });
       links.push({
@@ -798,7 +801,7 @@
       if (d.url) {
         window.open(d.url, '_blank');
       } else if (d.type === 'question' && d.meta) {
-        var url = '/cc408/question/' + d.meta.replace('.md', '/');
+        var url = BASE_URL + 'question/' + d.meta.replace('.md', '/');
         window.open(url, '_blank');
       } else if (!state.adminMode) {
         // Drill down on double-click too
@@ -941,7 +944,7 @@
       infoLink.href = d.url;
       infoLink.style.display = 'inline-block';
     } else if (d.type === 'question' && d.meta) {
-      infoLink.href = '/cc408/question/' + d.meta.replace('.md', '/');
+      infoLink.href = BASE_URL + 'question/' + d.meta.replace('.md', '/');
       infoLink.style.display = 'inline-block';
     } else {
       infoLink.style.display = 'none';

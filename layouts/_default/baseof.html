@@ -21,6 +21,16 @@
     });"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  {{/* 在样式加载前设置主题，避免深浅色闪烁 (FOUC) */}}
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('cc408-theme');
+        if (!t) { t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'; }
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
   {{ $css := resources.Get "css/custom.scss" | css.Sass | resources.Minify | resources.Fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
   {{ partial "watermark.html" . }}
@@ -33,5 +43,7 @@
     {{ block "main" . }}{{ end }}
   </main>
   {{ partial "footer.html" . }}
+  {{ $themeToggle := resources.Get "js/theme-toggle.js" | resources.Minify | resources.Fingerprint }}
+  <script src="{{ $themeToggle.RelPermalink }}" integrity="{{ $themeToggle.Data.Integrity }}" defer></script>
 </body>
 </html>

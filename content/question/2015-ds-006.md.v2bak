@@ -1,0 +1,44 @@
+---
+title: "2015 数据结构 第6题"
+date: 2026-07-07
+type: question
+years:
+  - "2015"
+subjects:
+  - "数据结构"
+knowledge_points:
+  - "数据结构"
+question_type: "choice"
+difficulty: 3
+source: "408真题"
+number: 6
+---
+
+求下面带权图的最小（代价）生成树时，可能是克鲁斯卡（Kruskal）算法第 2 次选中但不是普里姆（Prim）算法（从 V4 开始）第 2 次选中的边是（）。
+
+![](/cc408/images/questions/exam/2015/2015_Q6_2.svg)
+
+[最小生成树](/study_methods/tags/408quiz//#%e6%9c%80%e5%b0%8f%e7%94%9f%e6%88%90%e6%a0%91)
+
+A\. (b, e)
+B\. (a, e)
+C\. (d, c)
+D\. (a, b)
+
+[tag_link]
+
+选中的第一条边一定是权值最小的 (
+V1​
+,
+V4​
+), B 错误。由于
+V1​
+和
+V4​
+已经可达，第二条边含有
+V1​
+和
+V4​
+的权值为 8 的一定符合
+[prim 算法](../../../data_structure/graph/operation/content.md#prim-%e7%ae%97%e6%b3%95)
+，排除 A、D。

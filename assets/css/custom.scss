@@ -35,6 +35,59 @@
   --radius-sm: 6px; --radius-md: 10px; --radius-lg: 16px;
   --shadow-glow: 0 0 24px rgba(57,186,230,0.15);
   --shadow-card: 0 2px 12px rgba(0,0,0,0.25);
+  /* 真题页 exam.css 使用的变量（集中在此定义，使其在深浅色下都能正确解析，避免浅色孤岛） */
+  --primary: var(--accent);
+  --border: var(--border-color);
+  --code-bg: var(--bg-secondary);
+  --code-inline-bg: rgba(57,186,230,0.1);
+  --table-header-bg: var(--bg-secondary);
+  --table-row-alt: rgba(255,255,255,0.02);
+  --tag-bg: rgba(57,186,230,0.1);
+  --tag-border: rgba(57,186,230,0.15);
+  --answer-color: #ff6b6b;
+}
+
+/* === 浅色主题 token（覆盖默认深色）===
+   使用 :root[data-theme="light"] 提高优先级，确保覆盖 :root 的默认值 */
+:root[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f0f3f8;
+  --bg-card: #ffffff;
+  --bg-hover: #eef2f7;
+  --accent: #1a72c4;
+  --accent-glow: rgba(26,114,196,0.18);
+  --accent2: #0f9d8a;
+  --color-ds: #1a72c4;
+  --color-co: #e0761a;
+  --color-os: #7a3ff0;
+  --color-cn: #0f9d8a;
+  --text-primary: #1f2a38;
+  --text-secondary: #44566a;
+  --text-muted: #66788a;
+  --border-color: #dde3ed;
+  --border-light: #c8d2df;
+  --shadow-card: 0 2px 12px rgba(15,23,42,0.08);
+  --primary: var(--accent);
+  --border: var(--border-color);
+  --code-bg: #f0f3f8;
+  --code-inline-bg: rgba(26,114,196,0.08);
+  --table-header-bg: #eef2f7;
+  --table-row-alt: #f7f9fc;
+  --tag-bg: rgba(26,114,196,0.08);
+  --tag-border: rgba(26,114,196,0.2);
+  --answer-color: #d7322a;
+}
+
+/* 浅色主题下导航栏与若干半透明表层需单独覆盖 */
+:root[data-theme="light"] .navbar {
+  background: rgba(255,255,255,0.8);
+  border-bottom-color: rgba(15,23,42,0.06);
+}
+:root[data-theme="light"] .navbar-links {
+  background: var(--bg-secondary);
+}
+:root[data-theme="light"] .site-footer {
+  background: var(--bg-secondary);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -56,9 +109,12 @@ a:hover{color:var(--accent2)}
 .navbar-links a:hover{color:var(--text-primary)}
 .navbar-links a.active{color:var(--accent)}
 .navbar-links a.active::after{content:"";position:absolute;bottom:-6px;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:1px}
-.navbar-right{margin-left:auto}
+.navbar-right{margin-left:auto;display:flex;align-items:center;gap:1rem}
 .navbar-right a{color:var(--text-muted);text-decoration:none;font-size:var(--fs-xs);transition:color .2s}
 .navbar-right a:hover{color:var(--text-secondary)}
+.theme-toggle-btn{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:var(--radius-md);border:1px solid var(--border-light);background:rgba(255,255,255,.03);color:var(--text-primary);cursor:pointer;font-size:1rem;line-height:1;transition:all .2s}
+.theme-toggle-btn:hover{border-color:var(--accent);color:var(--accent);box-shadow:var(--shadow-glow)}
+.theme-toggle-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .navbar-toggle{display:none;background:none;border:none;color:var(--text-primary);font-size:1.5rem;cursor:pointer}
 .hero{text-align:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden;min-height:70vh;display:flex;flex-direction:column;justify-content:center;align-items:center}
 .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(57,186,230,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(57,186,230,.03) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,#000 30%,transparent 70%)}
