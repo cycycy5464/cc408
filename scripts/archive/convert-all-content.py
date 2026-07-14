@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 """Universal content converter for all 408 subjects"""
-import os, re, shutil, sys
+import os, re, shutil, sys, argparse
 
-SUBJECT = sys.argv[1] if len(sys.argv) > 1 else ''
-if not SUBJECT:
-    print('Usage: python convert-all.py [computer-org|os|network]')
-    sys.exit(1)
+parser = argparse.ArgumentParser(description='Convert 408 content to Hugo format')
+parser.add_argument('subject', choices=['computer-org', 'os', 'network'], help='Subject to convert')
+parser.add_argument('--src', required=True, help='Source directory path')
+parser.add_argument('--images', help='Global images directory path')
+args = parser.parse_args()
+
+SUBJECT = args.subject
 
 # Subject configs
 CONFIGS = {
@@ -123,7 +126,7 @@ if not cfg:
     print(f'Unknown subject: {SUBJECT}')
     sys.exit(1)
 
-SRC_BASE = f"D:/内容整理/考研杂货铺/{cfg['dir']}"
+SRC_BASE = args.src
 DST_BASE = f"content/docs/{cfg['tag']}"
 IMG_DST = f"static/images/docs/{cfg['static_dir']}"
 TMP = f'_tmp/{cfg["tag"]}_source'
@@ -143,17 +146,20 @@ def fix_image_paths(text, src_filename):
     return text
 
 def process_code_blocks(text):
+    """Convert indented code blocks to fenced code blocks without forcing language."""
     lines = text.split('\n')
     result = []
     i = 0
     while i < len(lines):
         line = lines[i]
-        if line.startswith('    ') and line.strip():
+        # Match lines with 4-space indent that look like code (not just list items)
+        if line.startswith('    ') and line.strip() and not line.strip().startswith(('-', '*', '1.', '2.', '3.', '4.', '5.', '6.', '7.', '8.', '9.')):
             code_lines = []
             while i < len(lines) and lines[i].startswith('    '):
                 code_lines.append(lines[i][4:])
                 i += 1
-            result.append('```c')
+            # Use plain fenced block without language tag
+            result.append('```')
             result.extend(code_lines)
             result.append('```')
             result.append('')
@@ -255,8 +261,8 @@ for folder in asset_folders:
             shutil.copy2(src, dst)
             img_count += 1
 
-global_src = r'D:\内容整理\考研杂货铺\images'
-if os.path.isdir(global_src):
+global_src = args.images
+if global_src and os.path.isdir(global_src):
     for img in os.listdir(global_src):
         src = os.path.join(global_src, img)
         dst = os.path.join(IMG_DST, img)
