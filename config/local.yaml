@@ -1,0 +1,40 @@
+# Hugo 本地开发优化配置
+# 使用方法: hugo server -D --config config/_default/hugo.yaml,config/local.yaml
+
+# 优化选项
+enableGitInfo: false          # 禁用 git 信息
+enableRobotsTXT: false        # 禁用 robots.txt
+enableEmoji: false            # 禁用 emoji 处理
+
+# 输出优化 - 只生成必要格式
+outputs:
+  home: [HTML]                # 首页只生成 HTML，移除 RSS/headers/redirects/backlinks
+  section: [HTML]             # 章节只生成 HTML，移除 RSS
+
+# 构建优化
+build:
+  writeStats: true
+  cacheDir: /tmp/hugo_cache   # 使用系统缓存目录
+
+# 分类优化 - 减少不需要的分类
+taxonomies:
+  tag: tags
+  subject: subjects
+
+# Markdown 优化
+markup:
+  goldmark:
+    renderer:
+      unsafe: false
+    parser:
+      autoHeadingID: true     # 自动生成标题 ID
+  highlight:
+    lineNos: false            # 禁用行号
+    noClasses: true           # 使用内联样式
+
+# 内存优化
+timeout: 300000               # 5分钟超时
+paginate: 20                  # 每页20条
+
+# 静态文件优化
+staticDir: static             # 只处理 static 目录

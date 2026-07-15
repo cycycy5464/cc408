@@ -15,26 +15,55 @@ difficulty: 3
 number: 14
 ---
 
-单精度 IEEE754 标准规格化的 float 类型所能表示的最接近 0 的负数是（ ）。
+单精度 IEEE754 标准规格化的 float 类型所能表示的最接近 0 的负数是（　）。
 
-A\.
-
-B\.
-
-C\.
-
-D\.
+A\. <span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8974em;vertical-align:-.0833em></span><span class=mord>−</span><span class=mord><span class=mord>2</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8141em><span style=top:-3.063em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">126</span></span></span></span></span></span></span></span></span></span></span></span>
+B\. <span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1.0641em;vertical-align:-.25em></span><span class=mord>−</span><span class=mopen>(</span><span class=mord><span class=mord>2</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8141em><span style=top:-3.063em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">23</span></span></span></span></span></span></span></span></span><span class=mclose>)</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>⋅</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.8141em></span><span class=mord><span class=mord>2</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8141em><span style=top:-3.063em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">126</span></span></span></span></span></span></span></span></span></span></span></span>
+C\. <span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1.0641em;vertical-align:-.25em></span><span class=mord>−</span><span class=mopen>(</span><span class=mord><span class=mord>2</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8141em><span style=top:-3.063em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">23</span></span></span></span></span></span></span></span></span><span class=mclose>)</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>⋅</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.8141em></span><span class=mord><span class=mord>2</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8141em><span style=top:-3.063em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">127</span></span></span></span></span></span></span></span></span></span></span></span>
+D\. <span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8974em;vertical-align:-.0833em></span><span class=mord>−</span><span class=mord><span class=mord>2</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8141em><span style=top:-3.063em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">127</span></span></span></span></span></span></span></span></span></span></span></span>
 
 [tag_link]
 
 正确答案：A
-> 单精度 IEEE754 浮点数��用 32 位表示，包含 1 位符号位、8 位指数位和 23 位尾数位。
-> 规格化数的指数位不全为 0 也不全为 1，实际指数 E = e − 127 （其中 e 为指数位的无符号值），范围在 − 126 到 127 之间；
-> 尾数部分隐含最高位 1，即实际尾数 M = 1 + f （ f 为尾数位表示的小数）。
-> 规格化负数的值为： − ( 1 + f ) × 2 E 最接近 0 的负数需绝对值最小，因此应取最小指数 E = − 126 （对应 e = 1 ）和最小尾数 M = 1 （对应 f = 0 ）。
-> 代入公式得： − 1 × 2 − 126 = − 2 − 126 即选项 A。
-> 选项 B 和 C 涉及因子 2 − 23 ，对应于非规格化数（指数 e = 0 时尾数无隐含 1），不符合本题要求的规格化数条件；
-> 选项 D 的指数 − 127 低于规格化指数最小值 − 126 ，不符合规格化规则。
+> <p>
+单精度 IEEE754 浮点数采用 32 位表示，包含 1 位符号位、8 位指数位和 23 位尾数位。
+> 规格化数的指数位不全为 0 也不全为 1，实际指数
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6833em></span><span class="mord mathnormal" style=margin-right:.05764em>E</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6667em;vertical-align:-.0833em></span><span class="mord mathnormal">e</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>127</span></span></span></span>
+（其中
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.4306em></span><span class="mord mathnormal">e</span></span></span></span>
+为指数位的无符号值），范围在
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7278em;vertical-align:-.0833em></span><span class=mord>−</span><span class=mord>126</span></span></span></span>
+到
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6444em></span><span class=mord>127</span></span></span></span>
+之间；
+> 尾数部分隐含最高位 1，即实际尾数
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6833em></span><span class="mord mathnormal" style=margin-right:.10903em>M</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.7278em;vertical-align:-.0833em></span><span class=mord>1</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.8889em;vertical-align:-.1944em></span><span class="mord mathnormal" style=margin-right:.10764em>f</span></span></span></span>
+（
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8889em;vertical-align:-.1944em></span><span class="mord mathnormal" style=margin-right:.10764em>f</span></span></span></span>
+为尾数位表示的小数）。
+> 规格化负数的值为：
+
+<div class=td-max-width-on-larger-screens><span class=katex-display><span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>−</span><span class=mopen>(</span><span class=mord>1</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class="mord mathnormal" style=margin-right:.10764em>f</span><span class=mclose>)</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.8913em></span><span class=mord><span class=mord>2</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8913em><span style=top:-3.113em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style=margin-right:.05764em>E</span></span></span></span></span></span></span></span></span></span></span></span></span></div><p>最接近 0 的负数需绝对值最小，因此应取最小指数
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6833em></span><span class="mord mathnormal" style=margin-right:.05764em>E</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.7278em;vertical-align:-.0833em></span><span class=mord>−</span><span class=mord>126</span></span></span></span>
+（对应
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.4306em></span><span class="mord mathnormal">e</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>1</span></span></span></span>
+）和最小尾数
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6833em></span><span class="mord mathnormal" style=margin-right:.10903em>M</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>1</span></span></span></span>
+（对应
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8889em;vertical-align:-.1944em></span><span class="mord mathnormal" style=margin-right:.10764em>f</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>0</span></span></span></span>
+）。
+> 代入公式得：
+
+<div class=td-max-width-on-larger-screens><span class=katex-display><span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7278em;vertical-align:-.0833em></span><span class=mord>−</span><span class=mord>1</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.8641em></span><span class=mord><span class=mord>2</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8641em><span style=top:-3.113em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">126</span></span></span></span></span></span></span></span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.9474em;vertical-align:-.0833em></span><span class=mord>−</span><span class=mord><span class=mord>2</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8641em><span style=top:-3.113em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">126</span></span></span></span></span></span></span></span></span></span></span></span></span></div><p>即选项 A。
+> <p>选项 B 和 C 涉及因子
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8141em></span><span class=mord><span class=mord>2</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8141em><span style=top:-3.063em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">23</span></span></span></span></span></span></span></span></span></span></span></span>
+，对应于非规格化数（指数
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.4306em></span><span class="mord mathnormal">e</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>0</span></span></span></span>
+时尾数无隐含 1），不符合本题要求的规格化数条件；
+> 选项 D 的指数
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7278em;vertical-align:-.0833em></span><span class=mord>−</span><span class=mord>127</span></span></span></span>
+低于规格化指数最小值
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7278em;vertical-align:-.0833em></span><span class=mord>−</span><span class=mord>126</span></span></span></span>
+，不符合规格化规则。
 > 因此，只有 A 正确。
 >
-

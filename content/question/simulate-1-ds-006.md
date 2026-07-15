@@ -18,11 +18,8 @@ number: 6
 设无向图 G=(V,E) 和 G&rsquo;=(V&rsquo;,E&rsquo;)，如果 G&rsquo; 是 G 的生成树，则下面说法错误的是（ ）。
 
 A\. G&rsquo; 是 G 的子图
-
 B\. G&rsquo; 是 G 的连通分量
-
 C\. G&rsquo; 是 G 的极小连通子图且 V&rsquo;=V
-
 D\. G&rsquo; 是 G 的一个无环子图
 
 [tag_link]
@@ -36,4 +33,3 @@ D\. G&rsquo; 是 G 的一个无环子图
 > 选项C正确，生成树是极小连通子图，意味着去掉任意一条边都会破坏其连通性，并且顶点集与原图相同（V&rsquo;=V）。
 > 选项D正确，生成树作为树结构，不包含任何环，因此是无环子图。
 >
-

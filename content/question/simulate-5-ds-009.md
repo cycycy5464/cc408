@@ -18,23 +18,35 @@ number: 9
 折半查找有序表 (2,10,25,35,40,65,70,75,81,82,88,100)，若查找元素 75，需依次与表中元素（ ）进行比较。
 
 A\. 65,82,75
-
 B\. 70,82,75
-
 C\. 65,81,75
-
 D\. 65,81,70,75
 
 [tag_link]
 
 正确答案：D
-> 考查折半查找的查找过程。
-> 有序表长度为 12，依据折半查找的思想： 第一次查找第 ⌊( 1 + 12 ) /2 ⌋ = 6 个元素，即 65；
-> 第二次查找第 ⌊(( 6 + 1 ) + 12 ) /2 ⌋ = 9 个元素，即 81；
-> 第三次查找第 ⌊( 7 + ( 9 − 1 )) /2 ⌋ = 7 个元素，即 70；
-> 第四次查找第 ⌊( 7 + 1 ) + 8 ⌋ /2 = 8 个元素，即 75。
-> 比较的元素依次为 65、81、70、75。
+> <p> 考查折半查找的查找过程。
+> 有序表长度为 12，依据折半查找的思想：
+<ul><li>第一次查找第
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>⌊(</span><span class=mord>1</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>12</span><span class=mclose>)</span><span class=mord>/2</span><span class=mclose>⌋</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>6</span></span></span></span>
+个元素，即 65；
+> </li><li>第二次查找第
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>⌊((</span><span class=mord>6</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>1</span><span class=mclose>)</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>12</span><span class=mclose>)</span><span class=mord>/2</span><span class=mclose>⌋</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>9</span></span></span></span>
+个元素，即 81；
+> </li><li>第三次查找第
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>⌊(</span><span class=mord>7</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>9</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>1</span><span class=mclose>))</span><span class=mord>/2</span><span class=mclose>⌋</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>7</span></span></span></span>
+个元素，即 70；
+> </li><li>第四次查找第
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>⌊(</span><span class=mord>7</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>1</span><span class=mclose>)</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>8</span><span class=mclose>⌋</span><span class=mord>/2</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>8</span></span></span></span>
+个元素，即 75。
+> </li></ul><p>比较的元素依次为 65、81、70、75。
 > 对应的折半查找判定树如下图所示。
-> 65 / \ 25 81 / \ / \ 2 35 70 88 / \ \ / \ 10 40 75 82 100
+> <pre tabindex=0>`        65
+      /    \
+    25      81
+   /  \     /  \
+  2    35  70   88
+ /     \    \   /  \
+10      40   75 82  100
+`</pre>
 >
-

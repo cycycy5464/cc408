@@ -15,28 +15,56 @@ difficulty: 3
 number: 4
 ---
 
-设高度为 100 的二叉树上只有度为 0 和度为 2 的结点，则此类二叉树中所包含的结点数最少为（ ）。
+设高度为 100 的二叉树上只有度为 0 和度为 2 的结点，则此类二叉树中所包含的结点数最少为（　）。
 
 A\. 100
-
 B\. 201
-
 C\. 199
-
 D\. 200
 
 [tag_link]
 
 正确答案：C
-> 首先，由题意可知，二叉树中只有度为0和度为2的结点，根据二叉树性质，有 n 0 ​ = n 2 ​ + 1 （其中 n 0 ​ 为叶子结点数， n 2 ​ 为度为2的结点数），因此总结点数 n = n 0 ​ + n 2 ​ = 2 n 2 ​ + 1 ，即 n 必为奇数，排除选项A和D。
-> 其次，考虑最小结点数的情况。
+> <p> 首先，由题意可知，二叉树中只有度为0和度为2的结点，根据二叉树性质，有
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.5806em;vertical-align:-.15em></span><span class=mord><span class="mord mathnormal">n</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.7333em;vertical-align:-.15em></span><span class=mord><span class="mord mathnormal">n</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>1</span></span></span></span>
+（其中
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.5806em;vertical-align:-.15em></span><span class=mord><span class="mord mathnormal">n</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span></span></span></span>
+为叶子结点数，
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.5806em;vertical-align:-.15em></span><span class=mord><span class="mord mathnormal">n</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span></span></span></span>
+为度为2的结点数），因此总结点数
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.4306em></span><span class="mord mathnormal">n</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.7333em;vertical-align:-.15em></span><span class=mord><span class="mord mathnormal">n</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.5806em;vertical-align:-.15em></span><span class=mord><span class="mord mathnormal">n</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.7944em;vertical-align:-.15em></span><span class=mord>2</span><span class=mord><span class="mord mathnormal">n</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>1</span></span></span></span>
+，即
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.4306em></span><span class="mord mathnormal">n</span></span></span></span>
+必为奇数，排除选项A和D。
+> <p>其次，考虑最小结点数的情况。
 > 高度为100通常指树的层数为100（根结点在第1层）。
 > 为了使结点数最少，树应形成一种“偏斜”形状：每个内部结点（度为2）有一个子结点为内部结点延续高度，另一个子结点为叶子结点。
 > 这样，从根到最深叶子路径上的结点均为内部结点（除最深叶子外），且每个内部结点附带一个不在该路径上的叶子结点。
-> 具体计算：设高度为 h （层数），则路径上有 h 个结点，其中前 h − 1 层为内部结点，第 h 层为叶子结点。
-> 内部结点数为 h − 1 ，每个内部结点附带一个叶子结点，故附加叶子结点数为 h − 1 ，加上路径上的叶子结点1个，总叶子结点数为 h 。
-> 因此总结点数 n = ( h − 1 ) + h = 2 h − 1 。
-> 代入 h = 100 ，得 n = 2 × 100 − 1 = 199 。
-> 若高度定义为边数，则最小结点数为 2 h + 1 = 201 ，但结合常见教材定义（高度指层数）及选项奇偶性，本题应取层数定义，故最小结点数为199。
+> <p>具体计算：设高度为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6944em></span><span class="mord mathnormal">h</span></span></span></span>
+（层数），则路径上有
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6944em></span><span class="mord mathnormal">h</span></span></span></span>
+个结点，其中前
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7778em;vertical-align:-.0833em></span><span class="mord mathnormal">h</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>1</span></span></span></span>
+层为内部结点，第
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6944em></span><span class="mord mathnormal">h</span></span></span></span>
+层为叶子结点。
+> 内部结点数为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7778em;vertical-align:-.0833em></span><span class="mord mathnormal">h</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>1</span></span></span></span>
+，每个内部结点附带一个叶子结点，故附加叶子结点数为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7778em;vertical-align:-.0833em></span><span class="mord mathnormal">h</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>1</span></span></span></span>
+，加上路径上的叶子结点1个，总叶子结点数为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6944em></span><span class="mord mathnormal">h</span></span></span></span>
+。
+> 因此总结点数
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.4306em></span><span class="mord mathnormal">n</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class="mord mathnormal">h</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>1</span><span class=mclose>)</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6944em></span><span class="mord mathnormal">h</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.7778em;vertical-align:-.0833em></span><span class=mord>2</span><span class="mord mathnormal">h</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>1</span></span></span></span>
+。
+> 代入
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6944em></span><span class="mord mathnormal">h</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>100</span></span></span></span>
+，得
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.4306em></span><span class="mord mathnormal">n</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.7278em;vertical-align:-.0833em></span><span class=mord>2</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.7278em;vertical-align:-.0833em></span><span class=mord>100</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>1</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>199</span></span></span></span>
+。
+> <p>若高度定义为边数，则最小结点数为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7778em;vertical-align:-.0833em></span><span class=mord>2</span><span class="mord mathnormal">h</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>1</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>201</span></span></span></span>
+，但结合常见教材定义（高度指层数）及选项奇偶性，本题应取层数定义，故最小结点数为199。
 >
-

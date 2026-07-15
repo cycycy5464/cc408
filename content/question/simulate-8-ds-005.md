@@ -18,20 +18,32 @@ number: 5
 含有 20 个结点的平衡二叉树的最大深度为（ ）。
 
 A\. 4
-
 B\. 5
-
 C\. 6
-
 D\. 7
 
 [tag_link]
 
 正确答案：C
-> 平衡二叉树（例如 AVL 树）要求每个结点的左右子树高度差不超过 1。
+> <p> 平衡二叉树（例如 AVL 树）要求每个结点的左右子树高度差不超过 1。
 > 对于给定的结点数，最大深度对应于结点数最少的平衡二叉树结构——为了最大化深度，树应尽可能“瘦”，但平衡条件限制了子树的深度差。
-> 设深度为 d （根结点深度为 1）的平衡二叉树的最小结点数为 M ( d ) ，满足递归关系： M ( d ) = M ( d − 1 ) + M ( d − 2 ) + 1 , 其中 M ( 1 ) = 1 ， M ( 2 ) = 2 。
-> 计算可得： M ( 3 ) = 4 , M ( 4 ) = 7 , M ( 5 ) = 12 , M ( 6 ) = 20 , M ( 7 ) = 33. 现有 20 个结点，因为 M ( 6 ) = 20 ，即深度为 6 时至少需要 20 个结点，而深度为 7 至少需要 33 个结点（ 20 &lt; 33 ），所以 20 个结点可以构建深度为 6 的平衡二叉树，但无法构建深度为 7 的平衡二叉树。
-> 因此，最大深度为 6 。
->
+> <p>设深度为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6944em></span><span class="mord mathnormal">d</span></span></span></span>
+（根结点深度为 1）的平衡二叉树的最小结点数为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class="mord mathnormal" style=margin-right:.10903em>M</span><span class=mopen>(</span><span class="mord mathnormal">d</span><span class=mclose>)</span></span></span></span>
+，满足递归关系：
 
+<div class=td-max-width-on-larger-screens><span class=katex-display><span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class="mord mathnormal" style=margin-right:.10903em>M</span><span class=mopen>(</span><span class="mord mathnormal">d</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class="mord mathnormal" style=margin-right:.10903em>M</span><span class=mopen>(</span><span class="mord mathnormal">d</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>1</span><span class=mclose>)</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class="mord mathnormal" style=margin-right:.10903em>M</span><span class=mopen>(</span><span class="mord mathnormal">d</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>2</span><span class=mclose>)</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>1</span><span class=mpunct>,</span></span></span></span></span></div><p>其中
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class="mord mathnormal" style=margin-right:.10903em>M</span><span class=mopen>(</span><span class=mord>1</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>1</span></span></span></span>
+，
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class="mord mathnormal" style=margin-right:.10903em>M</span><span class=mopen>(</span><span class=mord>2</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>2</span></span></span></span>
+。
+> 计算可得：
+
+<div class=td-max-width-on-larger-screens><span class=katex-display><span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class="mord mathnormal" style=margin-right:.10903em>M</span><span class=mopen>(</span><span class=mord>3</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>4</span><span class=mpunct>,</span><span class=mspace style=margin-right:1em></span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal" style=margin-right:.10903em>M</span><span class=mopen>(</span><span class=mord>4</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>7</span><span class=mpunct>,</span><span class=mspace style=margin-right:1em></span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal" style=margin-right:.10903em>M</span><span class=mopen>(</span><span class=mord>5</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>12</span><span class=mpunct>,</span><span class=mspace style=margin-right:1em></span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal" style=margin-right:.10903em>M</span><span class=mopen>(</span><span class=mord>6</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>20</span><span class=mpunct>,</span><span class=mspace style=margin-right:1em></span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal" style=margin-right:.10903em>M</span><span class=mopen>(</span><span class=mord>7</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>33.</span></span></span></span></span></div><p>现有 20 个结点，因为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class="mord mathnormal" style=margin-right:.10903em>M</span><span class=mopen>(</span><span class=mord>6</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>20</span></span></span></span>
+，即深度为 6 时至少需要 20 个结点，而深度为 7 至少需要 33 个结点（
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6835em;vertical-align:-.0391em></span><span class=mord>20</span><span class=mspace style=margin-right:.2778em></span><span class=mrel><</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>33</span></span></span></span>
+），所以 20 个结点可以构建深度为 6 的平衡二叉树，但无法构建深度为 7 的平衡二叉树。
+> 因此，最大深度为 **6**。
+>

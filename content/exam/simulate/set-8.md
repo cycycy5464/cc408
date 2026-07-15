@@ -1,0 +1,1477 @@
+# 408 计算机学科专业基础综合模拟卷 8
+
+#### 数据结构
+
+##### 1
+
+6 个元素以 6、5、4、3、2、1 的顺序进栈，下列不合法的出栈序列是（ ）。
+
+A\. 5, 4, 3, 6, 1, 2
+B\. 4, 5, 3, 1, 2, 6
+C\. 3, 4, 6, 5, 2, 1
+D\. 2, 3, 4, 1, 5, 6
+
+[tag_link]
+
+正确答案：C
+> <p>
+栈是后进先出（LIFO）的数据结构，元素以固定顺序 6、5、4、3、2、1 依次进栈。
+> 合法的出栈序列必须满足：在模拟进栈和出栈过程中，每次出栈的元素要么是栈顶元素，要么可以通过压入剩余进栈元素后成为栈顶元素。
+> <p>对于选项 A（5、4、3、6、1、2）：模拟过程可行，例如先压入 6、5，出栈 5；
+> 压入 4，出栈 4；
+> 压入 3，出栈 3；
+> 出栈 6；
+> 压入 2、1，出栈 1，出栈 2。
+> 序列合法。
+> <p>对于选项 B（4、5、3、1、2、6）：模拟过程可行，例如压入 6、5、4，出栈 4；
+> 出栈 5；
+> 压入 3，出栈 3；
+> 压入 2、1，出栈 1；
+> 出栈 2；
+> 出栈 6。
+> 序列合法。
+> <p>对于选项 C（3、4、6、5、2、1）：模拟时，先压入 6、5、4、3，出栈 3；
+> 出栈 4；
+> 此时栈顶为 5，但下一个出栈元素是 6。
+> 由于 6 在栈底，被 5 压住，必须先出栈 5 才能出栈 6，但序列中 6 在 5 之前，无法实现。
+> 因此序列不合法。
+> <p>对于选项 D（2、3、4、1、5、6）：模拟过程可行，例如压入 6、5、4、3、2，出栈 2；
+> 出栈 3；
+> 出栈 4；
+> 压入 1，出栈 1；
+> 出栈 5；
+> 出栈 6。
+> 序列合法。
+> <p>综上，不合法的出栈序列是选项 C。
+>
+
+##### 2
+
+用链表方式存储的队列（有头尾指针非循环），在进行删除运算时（ ）。
+
+A\. 仅修改头指针
+B\. 仅修改尾指针
+C\. 头、尾指针都要修改
+D\. 头、尾指针可能都要修改
+
+[tag_link]
+
+正确答案：D
+> <p> 在链表方式存储的队列中，头指针指向队头节点，尾指针指向队尾节点，且为非循环链表。
+> 进行删除运算时，通常从队头删除节点。
+> <p>如果队列中有多个节点，删除队头节点后，只需修改头指针指向下一个节点，尾指针保持不变，因为队尾节点未变。
+> 如果队列中只有一个节点，删除后队列为空，此时需要将头指针和尾指针都修改为 NULL，表示队列为空。
+> <p>因此，删除操作中头指针总是需要修改，而尾指针仅在队列变空时需要修改，否则不变。
+> 这意味着头、尾指针可能都要修改，也可能只修改头指针，故选项 D 正确。
+>
+
+##### 3
+
+一棵二叉树的前序遍历序列为 1234567，它的中序遍历序列可能是（ ）。
+
+A\. 3124567
+B\. 1234567
+C\. 4135627
+D\. 2153647
+
+[tag_link]
+
+正确答案：B
+> <p>
+前序遍历序列为 1234567，因此根节点是 1。
+> 中序遍历的顺序是左子树、根、右子树。
+> 对于根节点 1，在中序遍历中，所有在 1 左侧的节点构成左子树，在 1 右侧的节点构成右子树。
+> 同时，前序遍历中根 1 之后应首先遍历左子树（如果存在），然后遍历右子树。
+> <p>选项 A 的中序为 3124567，即序列 3,1,2,4,5,6,7。
+> 此时根 1 左侧有节点 3，说明左子树非空。
+> 但前序序列中根 1 之后是 2，而不是左子树的节点 3，这导致矛盾，因此不可能。
+> <p>选项 C 的中序为 4135627，即序列 4,1,3,5,6,2,7。
+> 根 1 左侧有节点 4，左子树非空。
+> 但前序序列中根 1 之后是 2，而不是左子树的节点 4，同样矛���，因此不可能。
+> <p>选项 D 的中序为 2153647，即序列 2,1,5,3,6,4,7。
+> 根 1 左侧有节点 2，左子树非空。
+> 前序序列中根 1 之后是 2，这符合左子树根为 2 的情况。
+> 然而，右子树的中序为 5,3,6,4,7，其根应为前序中 2 之后的 3。
+> 但根据右子树的结构，根 3 应有左子树节点 5，因此在前序中 3 之后应先出现 5，而实际前序序列中 3 之后是 4，导致矛盾，因此不可能。
+> <p>选项 B 的中序为 1234567，即序列 1,2,3,4,5,6,7。
+> 此时根 1 左侧无节点，左子树为空，所有节点都在右子树。
+> 右子树的结构类似：根 2 左子树为空，右子树根 3，依此类推，形成每个节点只有右孩子的向右倾斜二叉树。
+> 这种情况下，前序遍历和中序遍历序列均为 1234567，完全匹配，因此是可能的。
+> <p>综上，只有选项 B 的中序遍历序列可能对应前序遍历序列为 1234567 的二叉树。
+>
+
+##### 4
+
+下图所示的二叉树是（ ）。
+
+A\. 二叉判定树
+B\. 二叉排序树
+C\. 二叉平衡树
+D\. 堆
+
+[tag_link]
+
+正确答案：B
+> <p> 首先，需要明确题目中各个选项的定义：二叉判定树通常用于描述算法中的判定过程，如比较排序中的决策树，其结构不一定有序；
+> 二叉排序树（又称二叉搜索树）的特点是对于任意节点，其左子树的所有节点值均小于该节点值，右子树的所有节点值均大于该节点值，整个树呈现有序性；
+> 二叉平衡树（如 AVL 树）在二叉排序树的基础上要求左右子树的高度差不超过 1，以保持查询效率；
+> 堆是一种完全二叉树，满足堆属性（如最大堆中父节点值大于等于子节点值）。
+> <p>题目中的图片为占位符，未展示具体二叉树结构。
+> 但根据常见考试题型和数据结构知识，若二叉树节点值呈现有序排列（左小右大），则通常归类为二叉排序树。
+> 图示二叉树往往符合这一特征，且二叉排序树是基础且常见的数据结构，因此选项 B 最符合题意。
+> 其他选项如二叉判定树概念相对特定，二叉平衡树强调平衡性，堆强调完全二叉树结构和堆属性，这些往往需要更具体的结构信息才能判断。
+>
+
+##### 5
+
+含有 20 个结点的平衡二叉树的最大深度为（ ）。
+
+A\. 4
+B\. 5
+C\. 6
+D\. 7
+
+[tag_link]
+
+正确答案：C
+> <p> 平衡二叉树（例如 AVL 树）要求每个结点的左右子树高度差不超过 1。
+> 对于给定的结点数，最大深度对应于结点数最少的平衡二叉树结构——为了最大化深度，树应尽可能“瘦”，但平衡条件限制了子树的深度差。
+> <p>设深度为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6944em></span><span class="mord mathnormal">d</span></span></span></span>
+（根结点深度为 1）的平衡二叉树的最小结点数为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class="mord mathnormal" style=margin-right:.10903em>M</span><span class=mopen>(</span><span class="mord mathnormal">d</span><span class=mclose>)</span></span></span></span>
+，满足递归关系：
+
+<div class=td-max-width-on-larger-screens><span class=katex-display><span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class="mord mathnormal" style=margin-right:.10903em>M</span><span class=mopen>(</span><span class="mord mathnormal">d</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class="mord mathnormal" style=margin-right:.10903em>M</span><span class=mopen>(</span><span class="mord mathnormal">d</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>1</span><span class=mclose>)</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class="mord mathnormal" style=margin-right:.10903em>M</span><span class=mopen>(</span><span class="mord mathnormal">d</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>2</span><span class=mclose>)</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>1</span><span class=mpunct>,</span></span></span></span></span></div><p>其中
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class="mord mathnormal" style=margin-right:.10903em>M</span><span class=mopen>(</span><span class=mord>1</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>1</span></span></span></span>
+，
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class="mord mathnormal" style=margin-right:.10903em>M</span><span class=mopen>(</span><span class=mord>2</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>2</span></span></span></span>
+。
+> 计算可得：
+
+<div class=td-max-width-on-larger-screens><span class=katex-display><span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class="mord mathnormal" style=margin-right:.10903em>M</span><span class=mopen>(</span><span class=mord>3</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>4</span><span class=mpunct>,</span><span class=mspace style=margin-right:1em></span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal" style=margin-right:.10903em>M</span><span class=mopen>(</span><span class=mord>4</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>7</span><span class=mpunct>,</span><span class=mspace style=margin-right:1em></span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal" style=margin-right:.10903em>M</span><span class=mopen>(</span><span class=mord>5</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>12</span><span class=mpunct>,</span><span class=mspace style=margin-right:1em></span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal" style=margin-right:.10903em>M</span><span class=mopen>(</span><span class=mord>6</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>20</span><span class=mpunct>,</span><span class=mspace style=margin-right:1em></span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal" style=margin-right:.10903em>M</span><span class=mopen>(</span><span class=mord>7</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>33.</span></span></span></span></span></div><p>现有 20 个结点，因为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class="mord mathnormal" style=margin-right:.10903em>M</span><span class=mopen>(</span><span class=mord>6</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>20</span></span></span></span>
+，即深度为 6 时至少需要 20 个结点，而深度为 7 至少需要 33 个结点（
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6835em;vertical-align:-.0391em></span><span class=mord>20</span><span class=mspace style=margin-right:.2778em></span><span class=mrel><</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>33</span></span></span></span>
+），所以 20 个结点可以构建深度为 6 的平衡二叉树，但无法构建深度为 7 的平衡二叉树。
+> 因此，最大深度为 **6**。
+>
+
+##### 6
+
+一个有 n 个顶点和 n 条边的无向图一定是（ ）。
+
+A\. 连通的
+B\. 不连通的
+C\. 无环的
+D\. 有环的
+
+[tag_link]
+
+正确答案：D
+> <p>
+一个无向图若有
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.4306em></span><span class="mord mathnormal">n</span></span></span></span>
+个顶点和
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.4306em></span><span class="mord mathnormal">n</span></span></span></span>
+条边，则它一定包含环。
+> 这是因为无环图（即森林）最多只有
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6667em;vertical-align:-.0833em></span><span class="mord mathnormal">n</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>1</span></span></span></span>
+条边：若图无环，则每个连通分量都是一棵树，设共有
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6944em></span><span class="mord mathnormal" style=margin-right:.03148em>k</span></span></span></span>
+个连通分量，总边数
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.4306em></span><span class="mord mathnormal">e</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6667em;vertical-align:-.0833em></span><span class="mord mathnormal">n</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.8304em;vertical-align:-.136em></span><span class="mord mathnormal" style=margin-right:.03148em>k</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>≤</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6667em;vertical-align:-.0833em></span><span class="mord mathnormal">n</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>1</span></span></span></span>
+。
+> 但题中边数为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.4306em></span><span class="mord mathnormal">n</span></span></span></span>
+，大于
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6667em;vertical-align:-.0833em></span><span class="mord mathnormal">n</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>1</span></span></span></span>
+，因此不可能无环，即必有环。
+> <p>对于其他选项，图不一定连通或不连通。
+> 例如，当
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.4306em></span><span class="mord mathnormal">n</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>6</span></span></span></span>
+时，可以构造一个连通的六边形（6 个顶点和 6 条边），也可以构造两个不连通的三角形（每个三角形 3 个顶点和 3 条边）。
+> 因此，连通性无法确定，但环的存在是必然的。
+>
+
+##### 7
+
+已知有向图 G=(V, A)，其中 V={a,b,c,d,e}，A={<a,b>, <a,c>, <d,c>, <d,e>, <b,e>, <c,e>}，对该图进行拓扑排序，下面序列中不是拓扑排序的是（ ）。
+
+A\. a,d,c,b,e
+B\. d,a,b,c,e
+C\. a,b,d,c,e
+D\. a,h,c,d,e
+
+[tag_link]
+
+正确答案：D
+> <p> 拓扑排序要求对于有向图中的每一条边<u,v>，在排序序列中顶点 u 必须出现在顶点 v 之前。
+> 给定图 G 的顶点集 V={a,b,c,d,e}，边集 A={<a,b>, <a,c>, <d,c>, <d,e>, <b,e>, <c,e>}，因此约束条件为：a 在 b 和 c 之前，d 在 c 和 e 之前，b 在 e 之前，c 在 e 之前。
+> <p>逐一检查选项：
+<ul><li>选项 A（a,d,c,b,e）：a 在 b 和 c 之前，d 在 c 和 e 之前，b 和 c 在 e 之前，所有边约束均满足，是拓扑排序。
+> </li><li>选项 B（d,a,b,c,e）：d 在 c 和 e 之前，a 在 b 和 c 之前，b 和 c 在 e 之前，所有边约束均满足，是拓扑排序。
+> </li><li>选项 C（a,b,d,c,e）：a 在 b 和 c 之前，d 在 c 和 e 之前，b 和 c 在 e 之前，所有边约束均满足，是拓扑排序。
+> </li><li>选项 D（a,h,c,d,e）：序列中包含顶点 h，而 h 不在图 G 的顶点集 V 中，因此不是有效序列。
+> 即使假设 h 是 b 的笔误，序列变为 a,b,c,d,e，此时边<d,c>要求 d 在 c 之前，但序列中 d 在 c 之后，违反约束。
+> 故选项 D 不是拓扑排序。
+> </li></ul><p>因此，不是拓扑排序的序列是选项 D。
+>
+
+##### 8
+
+散列表的地址范围为 0-17，散列函数为 H(k)=k mod 17。采用线性探测法处理冲突，将关键字序列 26,25,72,38,8,18,59 依次存储到散列表中。元素 59 存放在散列表中的地址是（ ）。
+
+A\. 8
+B\. 9
+C\. 10
+D\. 11
+
+[tag_link]
+
+正确答案：D
+> <p> 散列表地址范围为 0 到 17，共 18 个地址。
+> 散列函数为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class="mord mathnormal" style=margin-right:.08125em>H</span><span class=mopen>(</span><span class="mord mathnormal" style=margin-right:.03148em>k</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6944em></span><span class="mord mathnormal" style=margin-right:.03148em>k</span><span class=mspace style=margin-right:.0556em></span><span class=mspace style=margin-right:.2222em></span><span class=mbin><span class=mord><span class="mord mathrm">mod</span></span></span><span class=mspace style=margin-right:.0556em></span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>17</span></span></span></span>
+，采用线性探测法处理冲突。
+> 将关键字序列 26, 25, 72, 38, 8, 18, 59 依次插入：
+<ul><li>插入 26：
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class="mord mathnormal" style=margin-right:.08125em>H</span><span class=mopen>(</span><span class=mord>26</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6944em></span><span class=mord>26</span><span class=mspace style=margin-right:.0556em></span><span class=mspace style=margin-right:.2222em></span><span class=mbin><span class=mord><span class="mord mathrm">mod</span></span></span><span class=mspace style=margin-right:.0556em></span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>17</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>9</span></span></span></span>
+，地址 9 为空，存入。
+> </li><li>插入 25：
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class="mord mathnormal" style=margin-right:.08125em>H</span><span class=mopen>(</span><span class=mord>25</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6944em></span><span class=mord>25</span><span class=mspace style=margin-right:.0556em></span><span class=mspace style=margin-right:.2222em></span><span class=mbin><span class=mord><span class="mord mathrm">mod</span></span></span><span class=mspace style=margin-right:.0556em></span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>17</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>8</span></span></span></span>
+，地址 8 为空，存入。
+> </li><li>插入 72：
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class="mord mathnormal" style=margin-right:.08125em>H</span><span class=mopen>(</span><span class=mord>72</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6944em></span><span class=mord>72</span><span class=mspace style=margin-right:.0556em></span><span class=mspace style=margin-right:.2222em></span><span class=mbin><span class=mord><span class="mord mathrm">mod</span></span></span><span class=mspace style=margin-right:.0556em></span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>17</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>4</span></span></span></span>
+，地址 4 为空，存入。
+> </li><li>插入 38：
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class="mord mathnormal" style=margin-right:.08125em>H</span><span class=mopen>(</span><span class=mord>38</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6944em></span><span class=mord>38</span><span class=mspace style=margin-right:.0556em></span><span class=mspace style=margin-right:.2222em></span><span class=mbin><span class=mord><span class="mord mathrm">mod</span></span></span><span class=mspace style=margin-right:.0556em></span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>17</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>4</span></span></span></span>
+，地址 4 冲突，线性探测下一个地址 5，地址 5 为空，存入。
+> </li><li>插入 8：
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class="mord mathnormal" style=margin-right:.08125em>H</span><span class=mopen>(</span><span class=mord>8</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6944em></span><span class=mord>8</span><span class=mspace style=margin-right:.0556em></span><span class=mspace style=margin-right:.2222em></span><span class=mbin><span class=mord><span class="mord mathrm">mod</span></span></span><span class=mspace style=margin-right:.0556em></span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>17</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>8</span></span></span></span>
+，地址 8 冲突，线性探测地址 9 冲突，地址 10 为空，存入。
+> </li><li>插入 18：
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class="mord mathnormal" style=margin-right:.08125em>H</span><span class=mopen>(</span><span class=mord>18</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6944em></span><span class=mord>18</span><span class=mspace style=margin-right:.0556em></span><span class=mspace style=margin-right:.2222em></span><span class=mbin><span class=mord><span class="mord mathrm">mod</span></span></span><span class=mspace style=margin-right:.0556em></span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>17</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>1</span></span></span></span>
+，地址 1 为空，存入。
+> </li><li>插入 59：
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class="mord mathnormal" style=margin-right:.08125em>H</span><span class=mopen>(</span><span class=mord>59</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6944em></span><span class=mord>59</span><span class=mspace style=margin-right:.0556em></span><span class=mspace style=margin-right:.2222em></span><span class=mbin><span class=mord><span class="mord mathrm">mod</span></span></span><span class=mspace style=margin-right:.0556em></span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>17</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>8</span></span></span></span>
+，地址 8 冲突，线性探测地址 9 冲突，地址 10 冲突，地址 11 为空，存入。
+> </li></ul><p>因此，元素 59 存放在地址 11。
+>
+
+##### 9
+
+排序趟数与序列的原始状态有关的排序方法是（ ）。
+
+A\. 插入排序
+B\. 选择排序
+C\. 冒泡排序
+D\. 快速排序
+
+[tag_link]
+
+正确答案：C
+> <p> 排序算法的趟数通常指完成排序所需的全过程遍历次数。
+> 对于选项中的几种排序方法：插入排序和选择排序的趟数都是固定的，与序列的原始状态无关。
+> 插入排序需要 n-1 趟将每个元素插入已排序部分，选择排序也需要 n-1 趟选择最小元素，它们的趟数仅由元素个数决定。
+> <p>冒泡排序的趟数则与序列的原始状态密切相关。
+> 在优化后的冒泡排序中，每一趟遍历比较相邻元素，如果某一趟没有发生任何交换，说明序列已经有序，排序可以提前结束。
+> 因此，在最好情况下（序列已有序），只需一趟即可完成；
+> 在最坏情况下（序列逆序），需要 n-1 趟。
+> 这使得趟数直接受原始序列顺序影响。
+> <p>快速排序的性能虽与原始状态有关，但“排序趟数”并非其标准描述方式，它更侧重于递归深度或划分次数，这些虽与原始状态相关，但概念上不如冒泡排序的趟数明确。
+> 因此，本题中排序趟数与序列原始状态有关的方法是冒泡排序。
+>
+
+##### 10
+
+对关键序列为{23,17,72,60,25,8,68,71,52}进行堆排序，输出两个最小关键字后的剩余堆是（ ）。
+
+A\. {23,72,60,25,68,71,52}
+B\. {23,25,52,60,71,72,68}
+C\. {71,23,25,60,72,68}
+D\. {23,25,68,52,60,72,71}
+
+[tag_link]
+
+正确答案：D
+> <p>
+首先，将关键序列 {23,17,72,60,25,8,68,71,52} 构建成最小堆。
+> 构建过程如下：从最后一个非叶子节点开始向下调整，最终得到最小堆序列为 {8,17,23,52,25,72,68,71,60}。
+> <p>输出第一个最小关键字 8：将堆顶 8 与最后一个元素 60 交换，移除 8，对剩余前 8 个元素调整堆，得到新堆 {17,25,23,52,60,72,68,71}。
+> <p>输出第二个最小关键字 17：将堆顶 17 与最后一个元素 71 交换，移除 17，对剩余前 7 个元素调整堆，得到新堆 {23,25,68,52,60,72,71}。
+> <p>因此，输出两个最小关键字后的剩余堆为 {23,25,68,52,60,72,71}，对应选项 D。
+>
+
+##### 11
+
+若对 29 个记录只进行三趟多路平衡归并，则选取的归并路数至少是（ ）。
+
+A\. 2
+B\. 3
+C\. 4
+D\. 5
+
+[tag_link]
+
+正确答案：C
+> <p> 在多路平衡归并中，归并趟数
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6151em></span><span class="mord mathnormal">t</span></span></span></span>
+与归并路数
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6944em></span><span class="mord mathnormal" style=margin-right:.03148em>k</span></span></span></span>
+、初始归并段数
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.4306em></span><span class="mord mathnormal">m</span></span></span></span>
+之间的关系为：经过
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6151em></span><span class="mord mathnormal">t</span></span></span></span>
+趟归并，最多能处理
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7936em></span><span class=mord><span class="mord mathnormal" style=margin-right:.03148em>k</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.7936em><span style=top:-3.063em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span></span></span></span></span></span></span></span>
+个初始归并段，即需满足
+
+<div class=td-max-width-on-larger-screens><span class=katex-display><span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.9795em;vertical-align:-.136em></span><span class=mord><span class="mord mathnormal" style=margin-right:.03148em>k</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8436em><span style=top:-3.113em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span></span></span></span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>≥</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.4306em></span><span class="mord mathnormal">m</span><span class=mord>.</span></span></span></span></span></div><p>本题中，对 29 个记录排序，初始归并段数
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.4306em></span><span class="mord mathnormal">m</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>29</span></span></span></span>
+，要求只进行三趟归并（
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6151em></span><span class="mord mathnormal">t</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>3</span></span></span></span>
+），因此需满足
+
+<div class=td-max-width-on-larger-screens><span class=katex-display><span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1.0001em;vertical-align:-.136em></span><span class=mord><span class="mord mathnormal" style=margin-right:.03148em>k</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8641em><span style=top:-3.113em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>≥</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>29.</span></span></span></span></span></div><p>计算各选项的立方：
+
+<div class=td-max-width-on-larger-screens><span class=katex-display><span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8641em></span><span class=mord><span class=mord>2</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8641em><span style=top:-3.113em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6835em;vertical-align:-.0391em></span><span class=mord>8</span><span class=mspace style=margin-right:.2778em></span><span class=mrel><</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:1.0585em;vertical-align:-.1944em></span><span class=mord>29</span><span class=mpunct>,</span><span class=mspace style=margin-right:1em></span><span class=mspace style=margin-right:.1667em></span><span class=mord><span class=mord>3</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8641em><span style=top:-3.113em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6835em;vertical-align:-.0391em></span><span class=mord>27</span><span class=mspace style=margin-right:.2778em></span><span class=mrel><</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:1.0585em;vertical-align:-.1944em></span><span class=mord>29</span><span class=mpunct>,</span><span class=mspace style=margin-right:1em></span><span class=mspace style=margin-right:.1667em></span><span class=mord><span class=mord>4</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8641em><span style=top:-3.113em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.7804em;vertical-align:-.136em></span><span class=mord>64</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>≥</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:1.0585em;vertical-align:-.1944em></span><span class=mord>29</span><span class=mpunct>,</span><span class=mspace style=margin-right:1em></span><span class=mspace style=margin-right:.1667em></span><span class=mord><span class=mord>5</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8641em><span style=top:-3.113em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.7804em;vertical-align:-.136em></span><span class=mord>125</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>≥</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>29.</span></span></span></span></span></div><p>若
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6944em></span><span class="mord mathnormal" style=margin-right:.03148em>k</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>3</span></span></span></span>
+，则
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6835em;vertical-align:-.0391em></span><span class=mord>27</span><span class=mspace style=margin-right:.2778em></span><span class=mrel><</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>29</span></span></span></span>
+，需至少四趟归并，不符合“只进行三趟”的要求；
+> <span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6944em></span><span class="mord mathnormal" style=margin-right:.03148em>k</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>4</span></span></span></span>
+时，
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7804em;vertical-align:-.136em></span><span class=mord>64</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>≥</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>29</span></span></span></span>
+，可在三趟内完成。
+> 因此归并路数至少为 4。
+>
+
+---
+#### 计算机组成原理
+
+##### 12
+
+下列关于指令字长、机器字长和存储字长的说法中，正确的是（ ）。
+
+A\. I、III 和 IV
+B\. II、III 和 IV
+C\. II 和 III
+D\. I 和 IV
+
+[tag_link]
+
+正确答案：C
+> <p>
+指令字长、机器字长和存储字长是计算机组成中的基本概念。
+> 机器字长指 CPU 一次能处理的二进制位数，存储字长指存储器一次读写操作的数据位数，指令字长则是一条指令所占的二进制位数。
+> <p>对于说法 I：指令字长等于机器字长时，取指周期不一定等于机器周期。
+> 取指周期涉及内存访问，而机器周期是 CPU 的基本时间单位，两者关系受内存速度和 CPU 设计影响，即使指令字长等于机器字长，取指也可能需要多个机器周期，因此 I 错误。
+> <p>对于说法 II：指令字长等于存储字长时，取一条指令只需一次内存访问。
+> 在许多同步设计中，机器周期被设置为等于存储周期，因此取指周期可以等于机器周期，这简化了时序控制，II 可以视为正确。
+> <p>对于说法 III：指令字长和机器字长确实没有必然联系。
+> 在不同架构中，指令字长可能固定或可变，可能等于、小于或大于机器字长，例如 RISC 架构中指令字长常固定，而 CISC 架构中指令字长可变，因此 III 正确。
+> <p>对于说法 IV：为了硬件设计方便，指令字长常与存储字长成整数倍关系，但并非“都一样大”。
+> 现代计算机中指令字长可能可变，如 x86 架构，因此 IV 过于绝对，错误。
+> <p>综上，II 和 III 正确，对应选项 C。
+>
+
+##### 13
+
+已知
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>[</span><span class="mord mathnormal" style=margin-right:.07847em>X</span><span class=mclose><span class=mclose>]</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3283em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord text mtight"><span class="mord cjk_fallback mtight">补</span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6833em></span><span class=mord>8</span><span class="mord text"><span class=mord>CH</span></span></span></span></span>
+，计算机的机器字长为 8 位二进制编码，则
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>[</span><span class="mord mathnormal" style=margin-right:.07847em>X</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>4</span><span class=mclose><span class=mclose>]</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3283em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord text mtight"><span class="mord cjk_fallback mtight">补</span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span></span></span></span>
+为（  ）。
+
+A\. 8CH
+B\. 18H
+C\. E3H
+D\. F1H
+
+[tag_link]
+
+正确答案：C
+> 已知
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>[</span><span class="mord mathnormal" style=margin-right:.07847em>X</span><span class=mclose><span class=mclose>]</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3283em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord cjk_fallback mtight">补</span></span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6833em></span><span class=mord>8</span><span class="mord text"><span class=mord>CH</span></span></span></span></span>
+，机器字长为 8 位，8CH 对应的二进制为 1000 1100。
+> 由于最高位为 1，因此
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6833em></span><span class="mord mathnormal" style=margin-right:.07847em>X</span></span></span></span>
+为负数。
+> 在补码运算中，除以 4 可通过算术右移两位实现。
+> 对于负数，算术右移时高位补 1。
+> 将 1000 1100 算术右移一位得 1100 0110，再右移一位得 1110 0011，即十六进制 E3H。
+> 因此，
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>[</span><span class="mord mathnormal" style=margin-right:.07847em>X</span><span class=mord>/4</span><span class=mclose><span class=mclose>]</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3283em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord cjk_fallback mtight">补</span></span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span></span></span></span>
+为 E3H。
+> 题目中虽写为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>[</span><span class="mord mathnormal" style=margin-right:.07847em>X</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>4</span><span class=mclose><span class=mclose>]</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3283em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord cjk_fallback mtight">补</span></span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span></span></span></span>
+，但根据选项和计算，实际应为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>[</span><span class="mord mathnormal" style=margin-right:.07847em>X</span><span class=mord>/4</span><span class=mclose><span class=mclose>]</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3283em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord cjk_fallback mtight">补</span></span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span></span></span></span>
+，故正确答案为 E3H。
+>
+
+##### 14
+
+在 C 语言中，若有如下定义：
+
+A\. 7.500000
+B\. 7
+C\. 7.000000
+D\. 8
+
+[tag_link]
+
+正确答案：A
+> 首先计算表达式各部分：`a + b` 的值为 13，经过 `(float)` 强制转换为 13.0，然后除以 2 得到 6.5。
+> 接着，`(int)x` 将 4.2 截断为 4，`(int)y` 将 3.4 截断为 3，`4 % 3` 的结果为整数 1。
+> 最后执行加法 `6.5 + 1`，由于 6.5 是浮点类型，整数 1 自动提升为浮点数，得到 7.5。
+> 在 C 语言中，以浮点数格式输出时通常显示为 7.500000，因此选项 A 正确。
+>
+
+##### 15
+
+设存储器容量为 32 字，字长为 64 位。模块数 m=4，采用低位交叉方式。存储周期 T=200ns，数据总线宽度为 64 位，总线传输周期 t=50ns。则该交叉存储器在连续读出 4 个字的带宽是（ ）。
+
+A\. <span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7278em;vertical-align:-.0833em></span><span class=mord>32</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.8141em></span><span class=mord>1</span><span class=mord><span class=mord>0</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8141em><span style=top:-3.063em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span></span></span></span></span></span></span></span>
+bit/s
+B\. <span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7278em;vertical-align:-.0833em></span><span class=mord>8</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.8141em></span><span class=mord>1</span><span class=mord><span class=mord>0</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8141em><span style=top:-3.063em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span></span></span></span></span></span></span></span>
+bit/s
+C\. <span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7278em;vertical-align:-.0833em></span><span class=mord>73</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.8141em></span><span class=mord>1</span><span class=mord><span class=mord>0</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8141em><span style=top:-3.063em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span></span></span></span></span></span></span></span>
+bit/s
+D\. <span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7278em;vertical-align:-.0833em></span><span class=mord>18</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.8141em></span><span class=mord>1</span><span class=mord><span class=mord>0</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8141em><span style=top:-3.063em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span></span></span></span></span></span></span></span>
+bit/s
+
+[tag_link]
+
+正确答案：C
+> <p>
+交叉存储器采用低位交叉方式，模块数
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.4306em></span><span class="mord mathnormal">m</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>4</span></span></span></span>
+，存储周期
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6833em></span><span class="mord mathnormal" style=margin-right:.13889em>T</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>200</span><span class=mspace style=margin-right:.1667em></span><span class="mord text"><span class=mord>ns</span></span></span></span></span>
+，总线传输周期
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6151em></span><span class="mord mathnormal">t</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>50</span><span class=mspace style=margin-right:.1667em></span><span class="mord text"><span class=mord>ns</span></span></span></span></span>
+。
+> 连续读出 4 个字时，由于地址低位交叉分布在不同模块上，访问时间可以重叠。
+> 读取第一个字需要存储周期
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6833em></span><span class="mord mathnormal" style=margin-right:.13889em>T</span></span></span></span>
+，后续每个字的读取可以与前一个字部分重叠，通常每隔时间
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6151em></span><span class="mord mathnormal">t</span></span></span></span>
+启动一个模块访问。
+> 因此，连续读出 4 个字的总时间为
+
+<div class=td-max-width-on-larger-screens><span class=katex-display><span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7667em;vertical-align:-.0833em></span><span class="mord mathnormal" style=margin-right:.13889em>T</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>4</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>1</span><span class=mclose>)</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6151em></span><span class="mord mathnormal">t</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.7278em;vertical-align:-.0833em></span><span class=mord>200</span><span class=mspace style=margin-right:.1667em></span><span class="mord text"><span class=mord>ns</span></span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.7278em;vertical-align:-.0833em></span><span class=mord>3</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>50</span><span class=mspace style=margin-right:.1667em></span><span class="mord text"><span class=mord>ns</span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>350</span><span class=mspace style=margin-right:.1667em></span><span class="mord text"><span class=mord>ns</span></span><span class=mord>.</span></span></span></span></span></div><p>总数据传输量为
+
+<div class=td-max-width-on-larger-screens><span class=katex-display><span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7667em;vertical-align:-.0833em></span><span class=mord>4</span><span class=mspace> </span><span class="mord text"><span class="mord cjk_fallback">字</span></span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>64</span><span class=mspace> </span><span class="mord text"><span class="mord cjk_fallback">位</span><span class=mord>/</span><span class="mord cjk_fallback">字</span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6833em></span><span class=mord>256</span><span class=mspace> </span><span class="mord text"><span class="mord cjk_fallback">位</span></span><span class=mord>.</span></span></span></span></span></div><p>带宽为数据传输量除以总时间，即
+
+<div class=td-max-width-on-larger-screens><span class=katex-display><span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:2.0463em;vertical-align:-.686em></span><span class=mord><span class="mopen nulldelimiter"></span><span class=mfrac><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:1.3603em><span style=top:-2.314em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>350</span><span class=mspace style=margin-right:.1667em></span><span class="mord text"><span class=mord>ns</span></span></span></span><span style=top:-3.23em><span class=pstrut style=height:3em></span><span class=frac-line style=border-bottom-width:.04em></span></span><span style=top:-3.677em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>256</span><span class=mspace> </span><span class="mord text"><span class="mord cjk_fallback">位</span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.686em><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:2.0908em;vertical-align:-.7693em></span><span class=mord><span class="mopen nulldelimiter"></span><span class=mfrac><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:1.3214em><span style=top:-2.314em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>3.5</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span><span class=mord>1</span><span class=mord><span class=mord>0</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.7401em><span style=top:-2.989em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">7</span></span></span></span></span></span></span></span></span><span class=mspace style=margin-right:.1667em></span><span class="mord text"><span class=mord>s</span></span></span></span><span style=top:-3.23em><span class=pstrut style=height:3em></span><span class=frac-line style=border-bottom-width:.04em></span></span><span style=top:-3.677em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>256</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.7693em><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>≈</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.7278em;vertical-align:-.0833em></span><span class=mord>731.43</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1.1141em;vertical-align:-.25em></span><span class=mord>1</span><span class=mord><span class=mord>0</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8641em><span style=top:-3.113em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">6</span></span></span></span></span></span></span></span></span><span class=mspace style=margin-right:.1667em></span><span class="mord text"><span class=mord>bit/s</span></span><span class=mord>.</span></span></span></span></span></div><p>选项中最接近的是 C（
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7278em;vertical-align:-.0833em></span><span class=mord>73</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1.0641em;vertical-align:-.25em></span><span class=mord>1</span><span class=mord><span class=mord>0</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8141em><span style=top:-3.063em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">6</span></span></span></span></span></span></span></span></span><span class=mspace style=margin-right:.1667em></span><span class="mord text"><span class=mord>bit/s</span></span></span></span></span>
+），可能为数值表示或四舍五入差异，因此选择 C。
+>
+
+##### 16
+
+下列关于 Cache 和虚拟存储器的说法中，错误的有（ ）。
+I. 当 Cache 失效（即不命中）时，处理器将会切换进程，以更新 Cache 中的内容
+II. 当虚拟存储器失效（如缺页）时，处理器将会切换进程，以更新主存中的内容
+III. Cache 和虚拟存储器由硬件和 OS 共同实现，对应应用程序均是透明的
+IV.虚拟存储器的容量等于主存和辅存的容量之和
+
+A\. I 和 IV
+B\. III 和 IV
+C\. I、II 和 III
+D\. I、III 和 IV
+
+[tag_link]
+
+正确答案：D
+> <p>
+本题要求找出关于 Cache 和虚拟存储器的错误说法。
+> 下面对各说法逐一分析：
+<p>说法 I：当 Cache 失效（不命中）时，处理器不会切换进程来更新 Cache 内容。
+> Cache 失效由硬件直接处理，处理器可能停顿或继续执行其他指令，但进程切换由操作系统调度，与 Cache 失效无关。
+> 因此说法 I 错误。
+> <p>说法 II：当虚拟存储器失效（如缺页）时，处理器会切换进程。
+> 缺页中断会触发操作系统介入，当前进程被阻塞，操作系统调度另一个进程运行，同时将所需页面从辅存调入主存。
+> 因此说法 II 正确。
+> <p>说法 III：Cache 通常由硬件独立管理（如 CPU 缓存），对操作系统和应用程序透明；
+> 虚拟存储器则由硬件（如 MMU）和操作系统共同实现，对应用程序透明。
+> 但 Cache 并非由硬件和 OS 共同实现，OS 一般不参与 Cache 的具体操作。
+> 因此说法 III 错误。
+> <p>说法 IV：虚拟存储器的容量由地址空间决定（如 32 位系统为 4GB），并非主存和辅存的物理容量之和。
+> 虚拟存储器利用主存和辅存扩展地址空间，但容量不等于两者之和。
+> 因此说法 IV 错误。
+> <p>综上，错误说法为 I、III、IV，对应选项 D。
+>
+
+##### 17
+
+下列关于基址寻址和变址寻址的说法中，正确的是（ ）。
+I. 两者都扩大指令的寻址范围
+II. 变址寻址适合于编制循环程序
+III. 基址寻址适合于多程序设计
+IV. 基址寄存器的内容由操作系统确定，在执行的过程中可变
+V. 变址寄存器的内容由用户确定，在执行的过程中不可变
+
+A\. I、II 和 III
+B\. I、II 和 V
+C\. II 和 III
+D\. II、III、IV 和 V
+
+[tag_link]
+
+正确答案：A
+> <p> 基址寻址和变址寻址都是通过将寄存器内容与指令中的地址字段相加来形成有效地址，这可以突破指令地址字段的长度限制，从而扩大寻址范围，因此说法 I 正确。
+> 变址寻址中，变址寄存器的值可以在程序执行中动态变化，便于遍历数组或重复执行类似操作，非常适合编制循环程序，说法 II 正确。
+> 基址寻址通过基址寄存器实现程序重定位，使操作系统能将程序加载到内存任意位置，利于多道程序设计中的内存管理，说法 III 正确。
+> <p>说法 IV 错误，因为基址寄存器的内容通常由操作系统在程序加载时设定，但在程序执行过程中一般保持不变，以确保地址翻译的稳定性。
+> 说法 V 错误，变址寄存器的内容由用户程序设定，且在执行过程中经常变化（如在循环中修改），以实现灵活的数据访问。
+> 因此，正确说法为 I、II 和 III，对应选项 A。
+>
+
+##### 18
+
+下列部件不属于运算器的是（ ）。
+
+A\. 状态寄存器
+B\. 通用寄存器
+C\. ALU
+D\. 数据高速缓存
+
+[tag_link]
+
+正确答案：D
+> <p> 运算器是 CPU 的核心部件之一，主要负责执行算术运算和逻辑运算。
+> 其典型组成包括 ALU（算术逻辑单元）、通用寄存器和状态寄存器等。
+> ALU 是运算器的核心，直接处理数据运算；
+> 通用寄存器用于临时存储运算数据和中间结果；
+> 状态寄存器则记录运算结果的状态标志，如进位、溢出等。
+> 这些部件共同协作完成运算任务。
+> <p>数据高速缓存属于存储器层次结构，位于 CPU 和主存之间，用于加快数据访问速度，减少 CPU 等待时间。
+> 它是存储系统的一部分，并不直接参与运算过程，因此不属于运算器的组成部分。
+> 所以，本题中不属于运算器的部件是数据高速缓存。
+>
+
+##### 19
+
+流水线计算机中，下列语句发生的数据相关类型是（ ）。
+ADD R1, R2, R3; (R2)+(R3)→R1
+ADD R4, R1, R5; (R1)+(R5)→R4
+
+A\. 写后写
+B\. 读后写
+C\. 写后读
+D\. 读后读
+
+[tag_link]
+
+正确答案：C
+> <p> 在流水线计算机中，数据相关是指令之间由于共享寄存器或内存位置而导致的依赖关系。
+> 分析给定的两条指令：第一条指令 ADD R1, R2, R3 将 R2 和 R3 的值相加后写入 R1；
+> 第二条指令 ADD R4, R1, R5 需要读取 R1 的值与 R5 相加后写入 R4。
+> 因此，第二条指令读取 R1 的操作依赖于第一条指令写入 R1 的结果。
+> <p>这种依赖关系是第一条指令“写”R1，第二条指令“读”R1，即写操作之后发生读操作，属于写后读数据相关。
+> 在流水线执行中，如果第二条指令的读阶段在第一条指令的写阶段之前发生，就会读取到旧值，导致数据冲突。
+> 其他选项如写后写、读后写和读后读均不匹配此处依赖，因为指令间没有写入同一寄存器或先读后写的场景。
+>
+
+##### 20
+
+在以下描述 PCI 总线的基本概念中，正确的描述是（ ）。
+I. PCI 总线是一个与处理器无关的高速外围总线
+II. PCI 总线的基���传输机制是猝发式传送
+III. PCI 设备一定是主设备
+IV. 系统中只允许有一条 PCI 总线
+
+A\. 仅 I
+B\. 仅 II
+C\. II、III 和 IV
+D\. I 和 II
+
+[tag_link]
+
+正确答案：D
+> <p>
+首先，分析每个描述的正确性。
+> <p>描述 I 指出 PCI 总线是一个与处理器无关的高速外围总线。
+> PCI 总线在设计上独立于特定处理器架构，可以兼容多种 CPU 系统，同时它确实是一种高速总线，用于连接外围设备如显卡、网卡等，因此描述 I 正确。
+> <p>描述 II 提到 PCI 总线的基本传输机制是猝发式传送。
+> PCI 总线支持猝发传输模式，允许在单一事务中连续传输多个数据单元，以提高数据传输效率，这是其基本特性之一，因此描述 II 正确。
+> <p>描述 III 声称 PCI 设备一定是主设备。
+> 实际上，PCI 总线上的设备可以扮演主设备（发起传输）或从设备（响应传输）的角色，并非所有设备都是主设备，例如一些存储控制器可能仅作为从设备，因此描述 III 错误。
+> <p>描述 IV 认为系统中只允许有一条 PCI 总线。
+> PCI 总线架构允许通过桥接器（如 PCI-to-PCI 桥）扩展多条总线，因此一个系统中可以存在多条 PCI 总线，描述 IV 错误。
+> <p>综上，只有描述 I 和 II 正确，对应选项 D。
+>
+
+##### 21
+
+在总线上，（ ）信息的传输为单向传输。
+I. 地址
+II. 数据
+III. 控制
+IV. 状态
+
+A\. I、II 和 IV
+B\. III 和 IV
+C\. I 和 II
+D\. I、III 和 IV
+
+[tag_link]
+
+正确答案：D
+> 在计算机系统总线上，不同信息的传输方向有所不同。
+> 地址信息总是从 CPU 或主控制器单向传输到内存或 I/O 设备，用于指定访问位置，因此是单向的。
+> 数据信息则需要在 CPU 和内存或 I/O 设备之间双向流动，如读取和写入操作，因此是双向传输。
+> 控制信息包括读、写等命令信号，通常从 CPU 发出到外设，属于单向输出，但其中部分信号如中断请求可能为输入，整体上控制信息的传输被视为主要单向。
+> 状态信息如设备就绪或忙碌，是从外设单向传输到 CPU，属于单向输入。
+> 综合来看，单向传输的信息包括地址、控制（主要部分）和状态，因此选项 D（I、III 和 IV）正确。
+> 选项 A 和 C 错误包含了双向传输的数据信息；
+> 选项 B 未包含明确单向的地址信息，因此不全面。
+>
+
+##### 22
+
+设 CPU 与 I/O 设备以中断方式进行数据传送。CPU 响应中断时，该 I/O 设备接口控制器送给 CPU 的中断向量表（中断向量表存放在段向量）的指针是 0800H，800H 单元中的值为 1200H，则该 I/O 设备的中断服务程序在主存中的入口地址为（ ）。
+
+A\. 0800H
+B\. 0801H
+C\. 1200H
+D\. 1201H
+
+[tag_link]
+
+正确答案：C
+> 在中断方式下，CPU 响应中断时，I/O 设备接口控制器会提供一个中断向量表指针，该指针指向中断向量表中对应中断服务程序入口地址的存储位置。
+> 本题中，指针为 0800H（与 800H 数值相同，均指地址 0x0800），该地址单元中存储的值为 1200H。
+> 由于中断向量表条目通常直接存放中断服务程序的入口地址（在简化模型或特定系统中，可能为物理地址或偏移地址，段地址隐含），因此 1200H 即为该 I/O 设备中断服务程序在主存中的入口地址。
+> 选项中，1200H 符合这一结果，故选择 C。
+>
+
+---
+#### 操作系统
+
+##### 23
+
+下列关于进程和线程的叙述中，正确的是（ ）。
+I. 一个进程可包含多个线程，各线程共享进程的虚拟地址空间
+II. 一个进程可包含多个线程，各线程共享栈
+III. 当一个多线程进程（采用一对一线程模型）中某个线程被阻塞后，其他线程将继续工作
+IV. 当一个多线程进程中某个线程被阻塞后，该阻塞进程将被撤销
+
+A\. I、II、III
+B\. I、III
+C\. II、III
+D\. II、IV
+
+[tag_link]
+
+正确答案：B
+> I 正确，因为一个进程可以拥有多个线程，这些线程共享进程的虚拟地址空间，包括代码段、数据段和堆等，但每个线程有独立的栈和寄存器状态。
+> II 错误，线程虽然共享进程的虚拟地址空间，但每个线程都拥有自己独立的栈，用于存储局部变量和函数调用信息，因此栈并不被所有线程共享。
+> III 正确，在一对一线程模型（即每个用户线程映射到一个内核线程）中，如果某个线程因等待 I/O 等操作被阻塞，其他线程作为独立的执行流仍可被调度执行，不会全部阻塞。
+> IV 错误，当多线程进程中某个线程被阻塞时，并不会导致整个进程被撤销；
+> 进程可能继续运行，其他线程仍可工作，进程的撤销通常由操作系统基于资源或错误决定，与单个线程阻塞无关。
+> 综上，只有 I 和 III 正确，对应选项 B。
+>
+
+##### 24
+
+（ ）调度算法有利于 CPU 繁忙型的进程，而不利于 I/O 繁忙型的进程。
+
+A\. 时间片轮转
+B\. 先来先服务
+C\. 短进程优先
+D\. 优先级调度
+
+[tag_link]
+
+正确答案：B
+> <p> 先来先服务（FCFS）调度算法是一种非抢占式算法，进程按到达顺序运行，直到完成。
+> CPU 繁忙型进程通常需要长时间连续使用 CPU 进行计算，FCFS 允许它们一旦开始运行便独占 CPU 直至结束，减少了上下文切换的开销，因此有利于这类进程。
+> 相反，I/O 繁忙型进程频繁进行 I/O 操作，运行时间较短，但在 FCFS 中，如果它们排在 CPU 繁忙型进程之后，必须等待长时间才能获得 CPU，导致响应延迟；
+> 同时，即使 I/O 操作释放了 CPU，FCFS 的非抢占特性也可能让 CPU 空闲或由长进程占用，不利于 I/O 繁忙型进程的快速切换。
+> 因此，FCFS 有利于 CPU 繁忙型进程，而不利于 I/O 繁忙型进程。
+> <p>其他算法分析：时间片轮转通过分时共享促进公平，利于 I/O 繁忙型进程在 I/O 等待后快速重获 CPU；
+> 短进程优先优先运行短进程，I/O 繁忙型进程通常受益，而 CPU 繁忙型进程被推迟；
+> 优先级调度的效果取决于优先级设置，不直接针对进程类型，故不明确符合题意。
+>
+
+##### 25
+
+N 个进程共享 M 台打印机（其中 N>M），假设每台打印机为临界资源，必须独占使用，则打印机共享的互斥信号量的取值范围为（ ）。
+
+A\. -(N-1)~M
+B\. -(N-M)~M
+C\. -(N-M)~1
+D\. -(N-1)~1
+
+[tag_link]
+
+正确答案：B
+> <p>
+互斥信号量用于控制对临界资源的访问，初始值通常设置为可用资源的数量。
+> 本题中有 M 台打印机，因此信号量初始值为 M，表示���初有 M 台打印机空闲可用。
+> <p>当进程申请使用打印机时执行 P 操作，信号量减 1；
+> 当进程释放打印机时执行 V 操作，信号量加 1。
+> 信号量的值代表当前可用打印机的数量，如果为负数，其绝对值表示等待使用打印机的进程数。
+> <p>由于进程总数 N 大于打印机数 M，在最坏情况下，所有 M 台打印机都被占用，此时信号量为 0。
+> 如果还有进程申请打印机，信号量将继续减小变为负值。
+> 最多可能有 N-M 个进程同时等待（因为 M 个进程正在使用打印机，其余 N-M 个进程等待），因此信号量的最小值为-(N-M)。
+> <p>信号量的最大值出现在没有进程使用打印机时，所有 M 台打印机均空闲，此时信号量为 M。
+> <p>综上，信号量的取值范围是从最小值-(N-M) 到最大值 M，对应选项 B。
+> 其他选项中，A 的等待进程数最多为 N-1，不符合实际；
+> C 和 D 的最大值错误，应为 M 而非 1。
+>
+
+##### 26
+
+关于优先级大小的论述中，错误的是（ ）。
+I. 计算型作业的优先级，应高于 I/O 型作业的优先级
+II. 短作业的优先级，应高于长作业的优先级
+III. 用户进程的优先级，应高于系统进程的优先级
+IV. 资源要求多的作业的优先级应高于对资源要求少的优先级
+
+A\. I 和 IV
+B\. III 和 IV
+C\. I、III 和 IV
+D\. I、II、III 和 IV
+
+[tag_link]
+
+正确答案：C
+> <p>
+优先级调度需要综合考虑系统效率和资源利用率。
+> 对于论述 I，计算型作业主要占用 CPU，而 I/O 型作业频繁进行输入输出操作，若计算型作业优先级更高，可能导致 I/O 设备闲置，降低系统整体吞吐量，因此通常 I/O 型作业优先级更高，I 错误。
+> <p>对于论述 II，短作业优先调度可减少平均等待时间，提高系统响应性，因此短作业优先级高于长作业是合理的，II 正确。
+> <p>对于论述 III，系统进程（如内核进程）负责关键系统功能，必须优先运行以确保系统稳定，用户进程优先级一般较低，III 错误。
+> <p>对于论述 IV，资源要求多的作业若优先级高，可能长期占用资源导致其他作业饥饿，不利于资源均衡利用，通常资源要求少的作业优先级更高，IV 错误。
+> <p>因此，错误的论述是 I、III 和 IV，对应选项 C。
+>
+
+##### 27
+
+假设系统有 5 个进程，A、B、C 三类资源。某时刻进程和资源状态如下：
+
+A\. 系统不安全
+B\. 该时刻，系统安全，安全序列为<P1,P2,P3,P4,P5>
+C\. 该时刻，系统安全，安全序列为<P2,P3,P4,P5,P1>
+D\. 该时刻，系统安全，安全序列为<P4,P5,P1,P2,P3>
+
+[tag_link]
+
+正确答案：D
+> <p> 首先，根据给定的分配矩阵和最大需求矩阵，计算每个进程的需求矩阵，需求 = 最大需求 - 分配。
+> 计算如下：
+进程 P1 需求 =
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>5</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>2</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>5</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>1</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>9</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>2</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>3</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>4</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>7</span><span class=mclose>)</span></span></span></span>
+；
+> 进程 P2 需求 =
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>5</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>4</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>3</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>0</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>6</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>2</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>1</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>3</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>4</span><span class=mclose>)</span></span></span></span>
+；
+> 进程 P3 需求 =
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>4</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>4</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>0</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>0</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>11</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>5</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>0</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>0</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>6</span><span class=mclose>)</span></span></span></span>
+；
+> 进程 P4 需求 =
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>4</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>2</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>2</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>0</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>5</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>4</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>2</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>2</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>1</span><span class=mclose>)</span></span></span></span>
+；
+> 进程 P5 需求 =
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>4</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>3</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>2</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>1</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>4</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>4</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>1</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>1</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>0</span><span class=mclose>)</span></span></span></span>
+。
+> <p>初始可用资源向量为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>2</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>3</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>3</span><span class=mclose>)</span></span></span></span>
+。
+> <p>接下来，检查各选项的安全序列。
+> <ul><li>选项 B 序列为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>⟨</span><span class="mord mathnormal" style=margin-right:.13889em>P</span><span class=mord>1</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal" style=margin-right:.13889em>P</span><span class=mord>2</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal" style=margin-right:.13889em>P</span><span class=mord>3</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal" style=margin-right:.13889em>P</span><span class=mord>4</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal" style=margin-right:.13889em>P</span><span class=mord>5</span><span class=mclose>⟩</span></span></span></span>
+，但进程 P1 需求
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>3</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>4</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>7</span><span class=mclose>)</span></span></span></span>
+大于初始可用资源
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>2</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>3</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>3</span><span class=mclose>)</span></span></span></span>
+，不满足条件，因此无效。
+> </li><li>选项 C 序列为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>⟨</span><span class="mord mathnormal" style=margin-right:.13889em>P</span><span class=mord>2</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal" style=margin-right:.13889em>P</span><span class=mord>3</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal" style=margin-right:.13889em>P</span><span class=mord>4</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal" style=margin-right:.13889em>P</span><span class=mord>5</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal" style=margin-right:.13889em>P</span><span class=mord>1</span><span class=mclose>⟩</span></span></span></span>
+，进程 P2 需求
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>1</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>3</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>4</span><span class=mclose>)</span></span></span></span>
+中资源 C 的需求
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6444em></span><span class=mord>4</span></span></span></span>
+大于初始可用资源中的
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6444em></span><span class=mord>3</span></span></span></span>
+，不满足，因此无效。
+> </li><li>选项 D 序列为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>⟨</span><span class="mord mathnormal" style=margin-right:.13889em>P</span><span class=mord>4</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal" style=margin-right:.13889em>P</span><span class=mord>5</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal" style=margin-right:.13889em>P</span><span class=mord>1</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal" style=margin-right:.13889em>P</span><span class=mord>2</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal" style=margin-right:.13889em>P</span><span class=mord>3</span><span class=mclose>⟩</span></span></span></span>
+，逐步检查：<ol><li>进程 P4 需求
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>2</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>2</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>1</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>≤</span></span></span></span>
+当前可用资源
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>2</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>3</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>3</span><span class=mclose>)</span></span></span></span>
+，运行后可用资源更新为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>4</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>3</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>7</span><span class=mclose>)</span></span></span></span>
+；
+> </li><li>进程 P5 需求
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>1</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>1</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>0</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>≤</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>4</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>3</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>7</span><span class=mclose>)</span></span></span></span>
+，运行后可用资源更新为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>7</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>4</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>11</span><span class=mclose>)</span></span></span></span>
+；
+> </li><li>进程 P1 需求
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>3</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>4</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>7</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>≤</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>7</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>4</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>11</span><span class=mclose>)</span></span></span></span>
+，运行后可用资源更新为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>9</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>5</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>13</span><span class=mclose>)</span></span></span></span>
+；
+> </li><li>进程 P2 需求
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>1</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>3</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>4</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>≤</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>9</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>5</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>13</span><span class=mclose>)</span></span></span></span>
+，运行后可用资源更新为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>13</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>5</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>15</span><span class=mclose>)</span></span></span></span>
+；
+> </li><li>进程 P3 需求
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>0</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>0</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>6</span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>≤</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>13</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>5</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mord>15</span><span class=mclose>)</span></span></span></span>
+，所有进程可完成。
+> 因此序列 D 是有效的安全序列，系统安全。
+> </li></ol></li></ul><p>选项 A 声称系统不安全，但存在安全序列，故错误。
+> 综上所述，正确答案为 D。
+>
+
+##### 28
+
+支持程序存放在不连续内存中的存储管理方法有（ ）。
+I. 动态分区分配
+II. 固定分区分配
+III. 分页式分配
+IV. 段页式分配
+V. 分段式分配
+
+A\. I 和 II
+B\. III 和 IV
+C\. III、IV 和 V
+D\. I、III、IV 和 V
+
+[tag_link]
+
+正确答案：C
+> <p> 动态分区分配和固定分区分配都属于连续内存分配方式，它们要求程序整体存放在一个连续的内存区域中，因此不支持不连续存放。
+> <p>分页式分配将内存划分为固定大小的页框，程序也分成相应的页，这些页可以分散存储在内存的任何可用页框中，无需连续，从而支持不连续存放。
+> 段页式分配结合了分段和分页，程序先分段、段内再分页，通过分页机制实现了内存的不连续分配。
+> 分段式分配将程序按逻辑划分为多个段，每个段可以独立分配到内存的不同位置，段间可以不连续存放，因此也支持程序的不连续存储。
+> <p>综上，支持程序存放在不连续内存中的方法为分页式分配、段页式分配和分段式分配，即 III、IV 和 V。
+>
+
+##### 29
+
+下面关于虚拟存储器的论述中，正确的是（ ）。
+
+A\. 在段页式系统中以段为单位管理用户的逻辑空间，以页为单位管理内存的物理空间，有了虚拟存储器才允许用户使用比内存更大的地址空间
+B\. 为了提高请求分页系统中内存的利用率允许用户使用不同大小的页面
+C\. 为了能让更多的作业同时运行，通常只装入 10%～30% 的作业即启动运行
+D\. 最佳适应算法是实现虚拟存储器的常用算法
+
+[tag_link]
+
+正确答案：A
+> <p>
+<p>选项 A 正确描述了虚拟存储器的核心特性和段页式系统的管理方式。
+> 在段页式系统中，用户的逻辑地址空间确实以段为单位进行组织和管理，这有助于反映程序的逻辑结构；
+> 而物理内存则以固定大小的页为单位进行分配和管理，提高了内存的利用效率。
+> 虚拟存储器通过将部分数据暂存于磁盘等辅助存储中，允许程序使用比物理内存更大的逻辑地址空间，这正是虚拟存储器的基本定义和优势所在。
+> 因此，A 的论述准确。
+> <p>选项 B 不正确，因为请求分页系统通常采用固定大小的页面，以简化硬件设计和内存管理；
+> 若允许用户使用不同大小的页面，反而容易导致内存外部碎片，降低利用率，实践中并不常见。
+> <p>选项 C 的表述不够严谨。
+> 虚拟存储器确实允许作业仅部分装入内存即可启动运行，从而支持更多作业并发执行，但具体装入比例（如 10%～30%）并非固定或通用标准，它取决于程序的工作集特性和系统调度策略，因此不能作为一般性论述。
+> <p>选项 D 错误，因为最佳适应算法主要用于动态分区内存管理中的空闲块分配，目的是减少外部碎片；
+> 而虚拟存储器的实现涉及页面置换算法（如 LRU、FIFO 等），最佳适应算法并非其常用算法。
+>
+
+##### 30
+
+从下列关于目录检索的说法中，正确的是（ ）。
+
+A\. 由于 Hash 具有较快的检索速度，故现代操作系统中都用它来替代传统的顺序检索法
+B\. 在利用顺序检索法时，对树型目录应采用文件的路径名，且应从根目录开始逐级检索
+C\. 在利用顺序检索法时，只要路径名的一个分量名未找到，便应停止查找
+D\. 在顺序检索法时的查找完成后，即可得到文件的物理地址
+
+[tag_link]
+
+正确答案：C
+> <p>
+首先，选项 A 不正确。
+> Hash 检索虽具有较快的检索速度，但现代操作系统中目录检索方法多样，Hash 法并未完全替代顺序检索法，例如在小型目录或某些文件系统中顺序检索仍因简单可靠而被使用。
+> <p>其次，选项 B 不准确。
+> 在树型目录中利用顺序检索法时，路径名可以是绝对路径或相对路径；
+> 对于绝对路径应从根目录开始逐级检索，但对于相对路径则需从当前目录开始，因此“应从根目录开始”的说法过于绝对，未考虑路径名类型的差异。
+> <p>选项 C 正确。
+> 顺序检索法在解析路径名时，需要逐级查找每个分量名（即路径中的目录或文件名）；
+> 只要有一个分量名未找到，就说明路径无效，查找过程应立即停止并返回错误信息，这是目录检索的基本规则。
+> <p>最后，选项 D 错误。
+> 顺序检索法查找完成后，通常获得的是文件的逻辑信息（如 inode 号或文件控制块），而非直接得到物理地址；
+> 物理地址需要借助文件系统的映射机制（如通过 inode 访问磁盘块）进一步获取。
+>
+
+##### 31
+
+设某文件为链接文件，由 5 个逻辑记录组成，每个逻辑记录的大小与磁盘块的大小相等，均为 512 字节，并依次存放在 50、121、75、80、63 号磁盘块上。若要存取文件的第 1569 逻辑字节处的信息，则应访问（ ）号磁盘块。
+
+A\. 3
+B\. 80
+C\. 75
+D\. 63
+
+[tag_link]
+
+正确答案：B
+> <p> 首先，文件由 5 个逻辑记录组成，每个逻辑记录大小为 512 字节，相当于一个磁盘块。
+> 逻辑记录依次存放在 50、121、75、80、63 号磁盘块上，即逻���记录 1 对应块 50，逻辑记录 2 对应块 121，逻辑记录 3 对应块 75，逻辑记录 4 对应块 80，逻辑记录 5 对应块 63。
+> <p>要存取第 1569 逻辑字节处的信息，需确定该字节属于哪个逻辑记录。
+> 由于字节位置通常从 1 开始计数，计算逻辑记录编号：每个逻辑记录包含 512 字节，因此前三个逻辑记录共覆盖字节 1～1536（因为 512×3=1536）。
+> 第 1569 字节大于 1536，属于第 4 个逻辑记录（字节 1537～2048）。
+> <p>逻辑记录 4 对应的磁盘块号为 80，因此应访问 80 号磁盘块。
+> 即使从 0 开始计数字节，第 1569 字节（索引 1568）仍落在第 4 个逻辑记录范围内，结论一致。
+>
+
+##### 32
+
+下列有关设备管理概念的叙述中，（ ）是不正确的。
+I. 通道可视为一种软件，其作用是提高了 CPU 的利用率
+II. 编制好的通道程序是存放在主存储器中的
+III. 用户给出的设备编号是设备的物理号
+IV. 来自通道的 I/O 中断事件应该由设备管理负责
+
+A\. I 和 III
+B\. I 和 IV
+C\. II、III 和 IV
+D\. II 和 IV
+
+[tag_link]
+
+正确答案：A
+> <p>
+通道（I/O 通道）是一种硬件设备，专门用于处理输入输出操作，以减轻 CPU 的负担，从而提高 CPU 的利用率。
+> 因此，叙述 I 中“通道可视为一种软件”的说法不正确，通道本质上是硬件而非软件。
+> <p>用户在使用设备时，通常通过逻辑设备号来指定设备，由操作系统将逻辑号映射到物理设备号。
+> 因此，叙述 III 中“用户给出的设备编号是设备的物理号”不正确，用户给出的是逻辑号。
+> <p>叙述 II 正确：编制好的通道程序确实存放在主存储器中，通道从主存读取并执行这些程序。
+> 叙述 IV 也正确：来自通道的 I/O 中断事件由操作系统的设备管理部分负责处理，以协调 I/O 操作。
+> <p>综上，不正确的叙述是 I 和 III，对应选项 A。
+>
+
+---
+#### 计算机网络
+
+##### 33
+
+设待传送数据总长度为 L 位，分组长度为 P 位，其中头部开销长度为 H 位，源结点到目的结点之间的链路数为 h，每个链路上的延迟时间为 D 秒，数据传输速率为 B bps，电路交换建立连接的时间为 S 秒，则电路交换方式传送完所有数据需要的时间是（ ）秒。
+
+A\. hD+L/B
+B\. S+hD+L/B
+C\. S+hD+P(L-(P-H)B)
+D\. S+L/B
+
+[tag_link]
+
+正确答案：B
+> <p> 在电路交换方式中，数据传输前需要先建立连接，建立连接的时间为 S 秒。
+> 连接建立后，数据以连续方式传输，不进行分组，因此分组长度 P 和头部开销 H 是无关参数，不参与时间计算。
+> 数据传输时间由总数据长度 L 和传输速率 B 决定，为 L/B 秒。
+> 此外，信号在链路上传播存在延迟，源结点到目的结点之间有 h 条链路，每条链路延迟为 D 秒，因此总传播延迟为 hD 秒。
+> 综合以上三部分，电路交换的总时间为建立连接时间、数据传输时间和传播延迟之和，即 S + hD + L/B 秒。
+> <p>选项 A 缺少建立连接时间 S，选项 C 错误引入了分组交换相关的计算，选项 D 缺少传播延迟 hD，因此只有选项 B 正确。
+>
+
+##### 34
+
+以下各项中，不是数据报服务特点的是（ ）。
+
+A\. 每个分组自身携带有足够的信息，它的传送被单独处理
+B\. 在整个传送过程中，不需要建立虚电路
+C\. 使所有分组按顺序到达目的端系统
+D\. 网络结点要为每个分组做出路由选择
+
+[tag_link]
+
+正确答案：C
+> 数据报服务是一种无连接的网络服务，其核心特点在于每个分组（即数据报）都独立携带完整的地址和路由信息，使得分组能够被单独处理和传送。
+> 在整个传输过程中，不需要预先建立虚电路，网络节点会为每个分组独立进行路由选择。
+> 由于分组可能经由不同路径到达目的端系统，数据报服务无法保证所有分组按顺序到达，顺序问题通常由上层协议（如 TCP）处理。
+> 因此，选项 C 所述的“使所有分组按顺序到达目的端系统”不符合数据报服务的特点。
+>
+
+##### 35
+
+考虑建立一个 CSMA/CD 网，电缆长度为 1km，不使用中继器，传输速率为 1Gbps，电缆中信号的传播速率是 200000km/s，则该网络中最小帧长是（ ）。
+
+A\. 10000bit
+B\. 1000bit
+C\. 5000bit
+D\. 20000bit
+
+[tag_link]
+
+正确答案：A
+> <p>
+首先，计算信号在电缆中的传播时延。
+> 电缆长度为 1 km，信号传播速率为 200000 km/s，因此传播时延为长度除以传播速率：
+
+<div class=td-max-width-on-larger-screens><span class=katex-display><span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>1</span><span class="mord text"><span class=mord> km</span></span><span class=mord>/200000</span><span class="mord text"><span class=mord> km/s</span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.7278em;vertical-align:-.0833em></span><span class=mord>5</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.8641em></span><span class=mord>1</span><span class=mord><span class=mord>0</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8641em><span style=top:-3.113em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">6</span></span></span></span></span></span></span></span></span><span class="mord text"><span class=mord> </span><span class="mord cjk_fallback">秒</span></span></span></span></span></span></div><p>即 5 微秒。
+> <p>在 CSMA/CD 网络中，最小帧长需确保在帧传输过程中能检测到冲突，这要求帧的发送时间不小于信号往返传播的时间（即冲突窗口）。
+> 冲突窗口时间为 2 倍传播时延：
+
+<div class=td-max-width-on-larger-screens><span class=katex-display><span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7278em;vertical-align:-.0833em></span><span class=mord>2</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6833em></span><span class=mord>5</span><span class="mord text"><span class=mord> </span><span class="mord cjk_fallback">微秒</span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6833em></span><span class=mord>10</span><span class="mord text"><span class=mord> </span><span class="mord cjk_fallback">微秒</span></span></span></span></span></span></div><p>传输速率为 1 Gbps，即
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7278em;vertical-align:-.0833em></span><span class=mord>1</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.8141em></span><span class=mord>1</span><span class=mord><span class=mord>0</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8141em><span style=top:-3.063em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span></span>
+比特/秒。
+> 最小帧长等于冲突窗口时间乘以传输速率：
+
+<div class=td-max-width-on-larger-screens><span class=katex-display><span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7667em;vertical-align:-.0833em></span><span class=mord>10</span><span class="mord text"><span class=mord> </span><span class="mord cjk_fallback">微秒</span></span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1.1141em;vertical-align:-.25em></span><span class=mord>1</span><span class=mord><span class=mord>0</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8641em><span style=top:-3.113em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">9</span></span></span></span></span></span></span></span></span><span class="mord text"><span class=mord> </span><span class="mord cjk_fallback">比特</span><span class=mord>/</span><span class="mord cjk_fallback">秒</span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.7278em;vertical-align:-.0833em></span><span class=mord>10</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.9474em;vertical-align:-.0833em></span><span class=mord>1</span><span class=mord><span class=mord>0</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8641em><span style=top:-3.113em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">6</span></span></span></span></span></span></span></span></span><span class="mord text"><span class=mord> </span><span class="mord cjk_fallback">秒</span></span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1.1141em;vertical-align:-.25em></span><span class=mord>1</span><span class=mord><span class=mord>0</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8641em><span style=top:-3.113em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">9</span></span></span></span></span></span></span></span></span><span class="mord text"><span class=mord> </span><span class="mord cjk_fallback">比特</span><span class=mord>/</span><span class="mord cjk_fallback">秒</span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6833em></span><span class=mord>10000</span><span class="mord text"><span class=mord> </span><span class="mord cjk_fallback">比特</span></span></span></span></span></span></div><p>因此，最小帧长为 10000 比特，对应选项 A。
+>
+
+##### 36
+
+在一条点对点链路上，为了减少地址的浪费，子网掩码应该指定为（ ）。
+
+A\. 255.255.255.252
+B\. 255.255.255.248
+C\. 255.255.255.240
+D\. 255.255.255.196
+
+[tag_link]
+
+正确答案：A
+> <p> 在点对点链路上，通常只有两个设备（例如两个路由器）需要 IP 地址，因此为了最小化地址浪费，应选择能提供恰好两个可用 IP 地址的子网掩码。
+> 可用 IP 地址数由主机位数决定，公式为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7477em;vertical-align:-.0833em></span><span class=mord><span class=mord>2</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.6644em><span style=top:-3.063em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>2</span></span></span></span>
+（减去网络地址和广播地址），其中
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.4306em></span><span class="mord mathnormal">n</span></span></span></span>
+为主机位数。
+> 要满足两个可用地址，需
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7477em;vertical-align:-.0833em></span><span class=mord><span class=mord>2</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.6644em><span style=top:-3.063em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.7804em;vertical-align:-.136em></span><span class=mord>2</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>≥</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>2</span></span></span></span>
+，解得
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7719em;vertical-align:-.136em></span><span class="mord mathnormal">n</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>≥</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>2</span></span></span></span>
+。
+> 当
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.4306em></span><span class="mord mathnormal">n</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>2</span></span></span></span>
+时，总 IP 地址数为 4，可用地址数为 2，正好满足需求且浪费最少。
+> <p>此时网络位为 30 位（IPv4 地址共 32 位），对应的子网掩码为 255.255.255.252（即 /30），其二进制形式为 11111111.11111111.11111111.11111100，主机位为 2 位。
+> 选项 A 符合此条件。
+> <p>其他选项中，B（255.255.255.248）为主机位 3 位，提供 8 个总地址和 6 个可用地址，造成浪费；
+> C（255.255.255.240）为主机位 4 位，提供 16 个总地址和 14 个可用地址，浪费更大；
+> D（255.255.255.196）不是标准的连续子网掩码（二进制 11000100 不连续），通常无效或不被采用。
+> 因此，A 是最佳选择。
+> <p>需要注意的是，点对点链路有时使用 /31 掩码（255.255.255.254）可进一步实现零浪费，但该选项未列出，且 /30 在传统网络中广泛支持，符合题意要求。
+>
+
+##### 37
+
+某同学在校园网访问因特网，从该同学打开计算机电源到使用命令 ftp202.37.0.25 连接文件服务器的过程中，（ ）协议可能没有使用到。
+
+A\. IP
+B\. ICMP
+C\. ARP
+D\. DHCP
+
+[tag_link]
+
+正确答案：B
+> 在该同学从打开计算机电源到使用 ftp 命令连接文件服务器的过程中，IP 协议是网络层核心协议，负责数据包的路由和转发，因此必然被使用。
+> ARP 协议用于将 IP 地址解析为 MAC 地址，以便在局域网中封装和传输数据帧，在访问任何网络资源时（无论目标服务器在本地子网还是通过网关），通常都需要 ARP 来解析下一跳的 MAC 地址，因此也很可能被使用。
+> DHCP 协议用于动态获取 IP 地址等网络配置，在校园网中常见，但如果计算机已配置静态 IP 地址，则 DHCP 可能没有被使用；
+> 不过，考虑到校园网环境通常默认使用 DHCP，其被使用的可能性较高。
+> 而 ICMP 协议主要用于网络错误报告和诊断（如 ping 命令），在正常的 ftp 连接建立和数据传输过程中，如果没有出现网络故障或不需要进行诊断，ICMP 可能完全没有被触发或使用。
+> 因此，在上述过程中，ICMP 是可能没有使用到的协议。
+>
+
+##### 38
+
+某路由器的路由表如下所示。如果它收到一个目的地址为 192.168.10.23 的 IP 数据报，那么它为该数据报选择的下一跳路由器地址是（ ）。
+
+A\. 192.168.1.35
+B\. 192.168.2.66
+C\. 直接投递
+D\. 丢弃
+
+[tag_link]
+
+正确答案：B
+> <p> 路由表匹配遵循最长前缀匹配原则。
+> 目的地址 192.168.10.23 的前三个八位组为 192.168.10，而路由表中前三条特定网络条目分别为 192.168.1.0、192.168.2.0 和 192.168.3.0，这些通常表示/24 网络（即子网掩码 255.255.255.0），因此它们分别覆盖 192.168.1.x、192.168.2.x 和 192.168.3.x 的地址范围。
+> 由于 192.168.10.23 不在这些范围内，故不匹配。
+> <p>第四条条目 0.0.0.0 是默认路由（子网掩码 0.0.0.0），匹配任何目的地址。
+> 因此，该数据报将匹配默认路由，其下一跳路由器地址为 192.168.2.66。
+> 选项 A 对应 192.168.3.0 网络的下一跳，不匹配；
+> 选项 C 和 D 均不符合路由表规则。
+>
+
+##### 39
+
+一个长度为 3000 字节的 UDP 数据报，在数据链路层使用以太网进行传输，为了正确传输，则需要将其拆分成（ ）个 IP 数据片。
+
+A\. 2
+B\. 3
+C\. 4
+D\. 不拆分
+
+[tag_link]
+
+正确答案：B
+> <p>
+<p>首先，UDP 数据报长度为 3000 字节，在传输时会被封装成 IP 数据报。
+> IP 数据报包括 IP 头部和 IP 数据部分，其中 IP 数据部分就是整个 UDP 数据报。
+> 标准 IP 头部长度为 20 字节，因此 IP 数据报的总长度为 3000 + 20 = 3020 字节。
+> <p>以太网的数据链路层 MTU（最大传输单元）通常为 1500 字节，这意味着每个 IP 数据报在以太网中传输时，总长度不能超过 1500 字节。
+> 因此，当 IP 数据报长度超过 MTU 时，IP 层需要进行分片。
+> <p>分片时，每个 IP 数据片都包含自己的 IP 头部（20 字节），因此每个数据片的数据部分最大为 1500 - 20 = 1480 字节。
+> 此外，IP 分片偏移字段以 8 字节为单位，要求数据部分大小是 8 的倍数；
+> 1480 字节正好是 8 的倍数（1480 ÷ 8 = 185），符合要求。
+> <p>IP 数据报的数据部分总长度为 3000 字节。
+> 计算分片数量：第一个数据片携带 1480 字节数据，剩余 1520 字节；
+> 第二个数据片携带 1480 字节数据，剩余 40 字节；
+> 第三个数据片携带 40 字节数据。
+> 因此，共需要 3 个 IP 数据片。
+> <p>分片后，第三个数据片的总长度为 20 字节头部加 40 字节数据，共 60 字节，小于 MTU，传输正常。
+> 综上，正确答案是 3 个分片，对应选项 B。
+>
+
+##### 40
+
+TCP 是互联网中的传输层协议，TCP 协议进行流量控制的方式是（ ）。
+
+A\. 使用停等 ARQ 协议
+B\. 使用后退 N 帧 ARQ 协议
+C\. 使用固定大小的滑动窗口协议
+D\. 使用可变大小的滑动窗口协议
+
+[tag_link]
+
+正确答案：D
+> <p> TCP 协议采用可变大小的滑动窗口协议来实现流量控制。
+> 在 TCP 通信中，接收方通过每个确认报文段中的窗口字段（即接收窗口 rwnd）向发送方通告其当前可用的缓冲区大小。
+> 发送方根据这个窗口值动态调整自己的发送窗口，确保发送的数据量不会超过接收方的处理能力，从而防止缓冲区溢出和数据丢失。
+> <p>这种方式允许 TCP 适应网络状况和接收方负载的变化，实现高效的端到端流量管理。
+> 相比之下，停等 ARQ 协议和后退 N 帧 ARQ 协议主要用于差错控制，而非流量控制；
+> 固定大小的滑动窗口协议缺乏灵活性，无法适应动态变化的网络环境。
+> 因此，TCP 的流量控制依赖于可变大小的滑动窗口机制。
+>
+
+---
+
+#### 数据结构
+
+##### 41
+
+（11 分）使用散列函数 hash(x)=x mod 11，把一个整数值转换成散列表下标，现要把数据：1,13,12,34,38,33,27,22 插入到散列表中。
+（1）使用链地址的冲突处理方法来构造散列表。
+（2）分别计算等概率情况下，查找成功和查找不成功的平均探查长度。（假设探查到空结点也算一次探查）
+（3）若查找关键字 34，则需要依次与哪些关键字比较。
+
+[tag_link]
+
+<p>**【解析】**
+(1) 采用链地址法构造散列表时，在直接计算出关键字对应的哈希地址后，将关键字结点插入到此哈希地址所在的链表中。由 `hashf(x) = x mod 11` 可知，散列地址空间是 0 到 10。链地址法构造的表如下：
+<div class=img-container style=height:auto;width:70% oncontextmenu=return!1> [图片] </div><p>(2) 在链地址表中查找成功时，查找关键字为 33 的记录需进行 1 次探测，查找关键字为 22 的记录需进行 2 次探测，依此类推。因此：
+<div class=td-max-width-on-larger-screens><span class=katex-display><span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8333em;vertical-align:-.15em></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style=margin-right:.05764em>S</span><span class=mord><span class="mord mathnormal">L</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3283em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord cjk_fallback mtight">成功</span></span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:2.0074em;vertical-align:-.686em></span><span class=mord><span class="mopen nulldelimiter"></span><span class=mfrac><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:1.3214em><span style=top:-2.314em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>8</span></span></span><span style=top:-3.23em><span class=pstrut style=height:3em></span><span class=frac-line style=border-bottom-width:.04em></span></span><span style=top:-3.677em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>1</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span><span class=mord>4</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span><span class=mord>2</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span><span class=mord>3</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span><span class=mord>3</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.686em><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:2.0074em;vertical-align:-.686em></span><span class=mord><span class="mopen nulldelimiter"></span><span class=mfrac><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:1.3214em><span style=top:-2.314em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>8</span></span></span><span style=top:-3.23em><span class=pstrut style=height:3em></span><span class=frac-line style=border-bottom-width:.04em></span></span><span style=top:-3.677em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>13</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.686em><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></div><p>查找失败时，假设对空结点的查找长度为 1，则对于地址 0，查找失败的探测次数为 3；对于地址 1，查找失败的探测次数为 4，则平均探查长度为：
+<div class=td-max-width-on-larger-screens><span class=katex-display><span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8333em;vertical-align:-.15em></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style=margin-right:.05764em>S</span><span class=mord><span class="mord mathnormal">L</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3283em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord cjk_fallback mtight">失败</span></span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:2.0074em;vertical-align:-.686em></span><span class=mord><span class="mopen nulldelimiter"></span><span class=mfrac><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:1.3214em><span style=top:-2.314em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>11</span></span></span><span style=top:-3.23em><span class=pstrut style=height:3em></span><span class=frac-line style=border-bottom-width:.04em></span></span><span style=top:-3.677em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>3</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span><span class=mord>4</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span><span class=mord>2</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span><span class=mord>1</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span><span class=mord>3</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span><span class=mord>1</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span><span class=mord>1</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span><span class=mord>1</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span><span class=mord>1</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span><span class=mord>1</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span><span class=mord>1</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.686em><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:2.0074em;vertical-align:-.686em></span><span class=mord><span class="mopen nulldelimiter"></span><span class=mfrac><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:1.3214em><span style=top:-2.314em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>11</span></span></span><span style=top:-3.23em><span class=pstrut style=height:3em></span><span class=frac-line style=border-bottom-width:.04em></span></span><span style=top:-3.677em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>19</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.686em><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></div><p>(3) 由 (1) 可知，查找关键字 34，需要依次与关键字 1, 12, 34 进行比较。
+<p>【扩展】对同样一组关键字，设定相同的散列函数，则不同处理冲突方法将得到不同的散列表，它们的平均查找长度也不同，本题若采用线性探查法处理冲突，题目应如何解答？
+</div><script src=/js/quiz.js defer></script><script>if(typeof window.quizDB=="undefined"){class e{constructor(){this.dbName="QuizCollectionsDB",this.storeName="quizzes",this.version=1,this.db=null}async init(){return new Promise((e,t)=>{const n=indexedDB.open(this.dbName,this.version);n.onerror=()=>t(n.error),n.onsuccess=()=>{this.db=n.result,e(this.db)},n.onupgradeneeded=e=>{const t=e.target.result;if(!t.objectStoreNames.contains(this.storeName)){const e=t.createObjectStore(this.storeName,{keyPath:"id"});e.createIndex("collectedAt","collectedAt",{unique:!1}),e.createIndex("tags","tags",{unique:!1,multiEntry:!0}),e.createIndex("type","type",{unique:!1})}}})}async add(e){return this.db||await this.init(),new Promise((t,n)=>{const o=this.db.transaction([this.storeName],"readwrite"),i=o.objectStore(this.storeName),s=i.add(e);s.onsuccess=()=>t(s.result),s.onerror=()=>n(s.error)})}async remove(e){return this.db||await this.init(),new Promise((t,n)=>{const o=this.db.transaction([this.storeName],"readwrite"),i=o.objectStore(this.storeName),s=i.delete(e);s.onsuccess=()=>t(s.result),s.onerror=()=>n(s.error)})}async get(e){return this.db||await this.init(),new Promise((t,n)=>{const o=this.db.transaction([this.storeName],"readonly"),i=o.objectStore(this.storeName),s=i.get(e);s.onsuccess=()=>t(s.result),s.onerror=()=>n(s.error)})}async getAll(){return this.db||await this.init(),new Promise((e,t)=>{const s=this.db.transaction([this.storeName],"readonly"),o=s.objectStore(this.storeName),n=o.getAll();n.onsuccess=()=>e(n.result),n.onerror=()=>t(n.error)})}async getAllIds(){return this.db||await this.init(),new Promise((e,t)=>{const s=this.db.transaction([this.storeName],"readonly"),o=s.objectStore(this.storeName),n=o.getAllKeys();n.onsuccess=()=>e(n.result),n.onerror=()=>t(n.error)})}}window.quizDB=new e}function toggleSolutionDetail(e,t){const n=document.getElementById("solution-"+t);n&&(n.style.display==="none"||n.style.display===""?(n.style.display="block",e.textContent="隐藏答案与解析"):(n.style.display="none",e.textContent="查看答案与解析"))}async function collectAnswerQuiz(e,t){const s=document.getElementById("quiz-"+e);if(!s)return;let n=s.previousElementSibling;const a=[];let o="";for(;n&&n.tagName!=="H5";)a.unshift(n),n=n.previousElementSibling;n&&n.tagName==="H5"&&(o=n.innerText.trim());const i=a.map(e=>{const t=e.cloneNode(!0);return t.querySelectorAll("button, script, style").forEach(e=>e.remove()),t.outerHTML.trim()}).filter(e=>e.length>0),r=document.getElementById("solution-"+e);let c="";if(r){const e=r.cloneNode(!0);e.querySelectorAll("button, script, style").forEach(e=>e.remove()),c=e.innerHTML.trim()}const l=s.dataset.pageUrl,d=getSubjectFromUrl(l),u={id:e,type:"answer",quizNumber:o,question:i.length>0?i:["题目"],questionText:i.map(e=>{const t=document.createElement("div");return t.innerHTML=e,t.textContent.trim()}).join(`
+`),answer:"",explanation:c,tags:s.dataset.tags,subject:d,pageUrl:s.dataset.pageUrl+`/#${o}`,pageTitle:s.dataset.pageTitle+` 第 ${o} 题`,collectedAt:(new Date).toISOString()};try{const n=await window.quizDB.get(e);n?(await window.quizDB.remove(e),t.classList.remove("collected"),t.innerHTML='<i class="fa-regular fa-bookmark"></i> 收藏',t.title="收藏此题",showNotification("已取消收藏")):(await window.quizDB.add(u),t.classList.add("collected"),t.innerHTML='<i class="fa-solid fa-bookmark"></i> 已收藏',t.title="取消收藏",showNotification("已添加到收藏"))}catch(e){console.error("Error managing answer quiz collection:",e),showNotification("操作失败，请重试")}}if(document.addEventListener("DOMContentLoaded",async function(){try{await window.quizDB.init();const e=await window.quizDB.getAllIds();document.querySelectorAll(".answer-container .collect-btn").forEach(t=>{const n=t.closest(".answer-container");n&&e.includes(n.id.replace("quiz-",""))&&(t.classList.add("collected"),t.innerHTML='<i class="fa-solid fa-bookmark"></i> 已收藏',t.title="取消收藏")})}catch(e){console.error("Error initializing answer quiz collections:",e)}}),!document.getElementById("quiz-animations")){const e=document.createElement("style");e.id="quiz-animations",e.textContent=`
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes slideOut {
+      from { transform: translateX(0); opacity: 1; }
+      to { transform: translateX(100%); opacity: 0; }
+    }
+  `,document.head.appendChild(e)}</script><h5 id=42>42</h5><p>单链表有环，是指单链表的最后一个结点的指针指向了链表中的某个结点（通常单链表的最后一个结点的指针域是为空的）。试编写算法判断单链表是否存在环。
+（1）给出算法的基本设计思想。
+（2）根据设计思想，采用 C 或 C++ 语言描述算法，关键之处给出注释。
+（3）说明你所设计算法的时间复杂度和空间复杂度。
+<div class="answer-container td-max-width-on-larger-screens" id=quiz-answer-940de506bfc79619fca63900cf0f0338-2 data-tags data-page-url=http://www.csgraduates.com/study_methods/408simulate/8/ data-page-title="模拟卷 8"><div class=quiz-tag-container></div><div class=quiz-actions><button class=toggle-btn onclick='toggleSolutionDetail(this,"answer-940de506bfc79619fca63900cf0f0338-2")'>查看答案与解析</button>
+<button class=collect-btn onclick='collectAnswerQuiz("answer-940de506bfc79619fca63900cf0f0338-2",this)' title=收藏此题>
+<i class="fa-regular fa-bookmark"></i> 收藏</button>
+
+##### 42
+
+单链表有环，是指单链表的最后一个结点的指针指向了链表中的某个结点（通常单链表的最后一个结点的指针域是为空的）。试编写算法判断单链表是否存在环。
+（1）给出算法的基本设计思想。
+（2）根据设计思想，采用 C 或 C++ 语言描述算法，关键之处给出注释。
+（3）说明你所设计算法的时间复杂度和空间复杂度。
+
+[tag_link]
+
+<p>**【答案】**
+（1）基本设计思想：采用快慢指针法（Floyd 判圈算法）。设置两个指针，慢指针每次移动一步，快指针每次移动两步。如果链表中存在环，快指针最终会追上慢指针并相遇；如果不存在环，快指针会首先到达链表尾部（即指向 NULL）。
+<p>（2）算法描述（C++）：
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#204a87;font-weight:700>struct</span> <span style=color:#000>ListNode</span> <span style=color:#000;font-weight:700>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#204a87;font-weight:700>int</span> <span style=color:#000>val</span><span style=color:#000;font-weight:700>;</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>ListNode</span> <span style=color:#ce5c00;font-weight:700>*</span><span style=color:#000>next</span><span style=color:#000;font-weight:700>;</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>ListNode</span><span style=color:#000;font-weight:700>(</span><span style=color:#204a87;font-weight:700>int</span> <span style=color:#000>x</span><span style=color:#000;font-weight:700>)</span> <span style=color:#ce5c00;font-weight:700>:</span> <span style=color:#000>val</span><span style=color:#000;font-weight:700>(</span><span style=color:#000>x</span><span style=color:#000;font-weight:700>),</span> <span style=color:#000>next</span><span style=color:#000;font-weight:700>(</span><span style=color:#204a87>NULL</span><span style=color:#000;font-weight:700>)</span> <span style=color:#000;font-weight:700>{}</span>
+</span></span><span style=display:flex><span><span style=color:#000;font-weight:700>};</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#204a87;font-weight:700>bool</span> <span style=color:#000>hasCycle</span><span style=color:#000;font-weight:700>(</span><span style=color:#000>ListNode</span> <span style=color:#ce5c00;font-weight:700>*</span><span style=color:#000>head</span><span style=color:#000;font-weight:700>)</span> <span style=color:#000;font-weight:700>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#204a87;font-weight:700>if</span> <span style=color:#000;font-weight:700>(</span><span style=color:#000>head</span> <span style=color:#ce5c00;font-weight:700>==</span> <span style=color:#204a87>NULL</span> <span style=color:#ce5c00;font-weight:700>||</span> <span style=color:#000>head</span><span style=color:#ce5c00;font-weight:700>-></span><span style=color:#000>next</span> <span style=color:#ce5c00;font-weight:700>==</span> <span style=color:#204a87>NULL</span><span style=color:#000;font-weight:700>)</span> <span style=color:#000;font-weight:700>{</span>
+</span></span><span style=display:flex><span>        <span style=color:#204a87;font-weight:700>return</span> <span style=color:#204a87>false</span><span style=color:#000;font-weight:700>;</span> <span style=color:#8f5902;font-style:italic>// 空链表或只有一个节点且无环
+</span></span></span><span style=display:flex><span><span style=color:#8f5902;font-style:italic></span>    <span style=color:#000;font-weight:700>}</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>ListNode</span> <span style=color:#ce5c00;font-weight:700>*</span><span style=color:#000>slow</span> <span style=color:#ce5c00;font-weight:700>=</span> <span style=color:#000>head</span><span style=color:#000;font-weight:700>;</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>ListNode</span> <span style=color:#ce5c00;font-weight:700>*</span><span style=color:#000>fast</span> <span style=color:#ce5c00;font-weight:700>=</span> <span style=color:#000>head</span><span style=color:#000;font-weight:700>;</span>
+</span></span><span style=display:flex><span>    <span style=color:#204a87;font-weight:700>while</span> <span style=color:#000;font-weight:700>(</span><span style=color:#000>fast</span> <span style=color:#ce5c00;font-weight:700>!=</span> <span style=color:#204a87>NULL</span> <span style=color:#ce5c00;font-weight:700>&&</span> <span style=color:#000>fast</span><span style=color:#ce5c00;font-weight:700>-></span><span style=color:#000>next</span> <span style=color:#ce5c00;font-weight:700>!=</span> <span style=color:#204a87>NULL</span><span style=color:#000;font-weight:700>)</span> <span style=color:#000;font-weight:700>{</span>
+</span></span><span style=display:flex><span>        <span style=color:#000>slow</span> <span style=color:#ce5c00;font-weight:700>=</span> <span style=color:#000>slow</span><span style=color:#ce5c00;font-weight:700>-></span><span style=color:#000>next</span><span style=color:#000;font-weight:700>;</span>          <span style=color:#8f5902;font-style:italic>// 慢指针移动一步
+</span></span></span><span style=display:flex><span><span style=color:#8f5902;font-style:italic></span>        <span style=color:#000>fast</span> <span style=color:#ce5c00;font-weight:700>=</span> <span style=color:#000>fast</span><span style=color:#ce5c00;font-weight:700>-></span><span style=color:#000>next</span><span style=color:#ce5c00;font-weight:700>-></span><span style=color:#000>next</span><span style=color:#000;font-weight:700>;</span>    <span style=color:#8f5902;font-style:italic>// 快指针移动两步
+</span></span></span><span style=display:flex><span><span style=color:#8f5902;font-style:italic></span>        <span style=color:#204a87;font-weight:700>if</span> <span style=color:#000;font-weight:700>(</span><span style=color:#000>slow</span> <span style=color:#ce5c00;font-weight:700>==</span> <span style=color:#000>fast</span><span style=color:#000;font-weight:700>)</span> <span style=color:#000;font-weight:700>{</span>
+</span></span><span style=display:flex><span>            <span style=color:#204a87;font-weight:700>return</span> <span style=color:#204a87>true</span><span style=color:#000;font-weight:700>;</span>            <span style=color:#8f5902;font-style:italic>// 相遇，说明有环
+</span></span></span><span style=display:flex><span><span style=color:#8f5902;font-style:italic></span>        <span style=color:#000;font-weight:700>}</span>
+</span></span><span style=display:flex><span>    <span style=color:#000;font-weight:700>}</span>
+</span></span><span style=display:flex><span>    <span style=color:#204a87;font-weight:700>return</span> <span style=color:#204a87>false</span><span style=color:#000;font-weight:700>;</span>                   <span style=color:#8f5902;font-style:italic>// 快指针到达尾部，说明无环
+</span></span></span><span style=display:flex><span><span style=color:#8f5902;font-style:italic></span><span style=color:#000;font-weight:700>}</span>
+</span></span>`</pre></div><p>（3）时间复杂度：O(n)，其中 n 为链表节点数。在最坏情况下，需要遍历整个链表一次或两次。空间复杂度：O(1)，仅使用了两个额外指针。
+<p>**【解析】**
+该算法的核心是快慢指针的追逐原理。如果链表有环，快指针每次比慢指针多移动一步，两者在环内的相对距离每次减少一步，因此必然会在有限步内相遇；如果链表无环，快指针将先到达链表尾部（即遇到 NULL）。时间复杂度为 O(n)，因为每个节点最多被访问两次（快指针可能遍历两次）；空间复杂度为 O(1)，因为只使用了常数级别的额外空间。这种方法是判断链表是否存在环的最优解之一，既高效又节省内存。
+</div><h5 id=43>43</h5><p>（10 分）设某机中，CPU 的地址总线 A₁₅～A₀，数据总线 D₇～D₀（A₀、D₀为最低位），存储器地址空间为 3000H～67FFH。其中 3000H～4FFFH 为 ROM 区，选用 4K×2 的 ROM 芯片；5000H～67FFH 为 RAM 区，选用 2K×4 的 SRAM 芯片。请问：
+（1）组成该存储器需要多少片 ROM 芯片和 SRAM 芯片？
+（2）ROM 芯片、SRAM 芯片各需连接 CPU 的哪几根地址线和数据线？
+（3）应如何设置片选信号，分别写出各片选信号的逻辑表达式。
+<div class="answer-container td-max-width-on-larger-screens" id=quiz-answer-940de506bfc79619fca63900cf0f0338-3 data-tags data-page-url=http://www.csgraduates.com/study_methods/408simulate/8/ data-page-title="模拟卷 8"><div class=quiz-tag-container></div><div class=quiz-actions><button class=toggle-btn onclick='toggleSolutionDetail(this,"answer-940de506bfc79619fca63900cf0f0338-3")'>查看答案与解析</button>
+<button class=collect-btn onclick='collectAnswerQuiz("answer-940de506bfc79619fca63900cf0f0338-3",this)' title=收藏此题>
+<i class="fa-regular fa-bookmark"></i> 收藏</button>
+
+---
+#### 计算机组成原理
+
+##### 43
+
+（10 分）设某机中，CPU 的地址总线 A₁₅～A₀，数据总线 D₇～D₀（A₀、D₀为最低位），存储器地址空间为 3000H～67FFH。其中 3000H～4FFFH 为 ROM 区，选用 4K×2 的 ROM 芯片；5000H～67FFH 为 RAM 区，选用 2K×4 的 SRAM 芯片。请问：
+（1）组成该存储器需要多少片 ROM 芯片和 SRAM 芯片？
+（2）ROM 芯片、SRAM 芯片各需连接 CPU 的哪几根地址线和数据线？
+（3）应如何设置片选信号，分别写出各片选信号的逻辑表达式。
+
+[tag_link]
+
+<p>**【解析】**
+本题考查存储器的扩展。根据各个存储区所要求的容量和选定的存储芯片容量，可以计算出所需芯片数目，即：
+<p>总片数 = 总容量 / 每片容量
+<p>将多个芯片组合起来常采用**位扩展法**、**字扩展法**、**字和位同时扩展法**。
+<ul><li>**位扩展**是指仅在位数方向扩展（加大字长），芯片的字数与存储器的字数一致；</li><li>**字扩展**是指仅在字数方向扩展，位数不变，此时将芯片的地址线、数据线、读写线并联，由片选信号区分各个芯片。
+本题需采用**字和位同时扩展**，即在字数方向和位数方向上同时扩展。</li></ul><p>（1）已知数据总线为 8 位，ROM 区为 3000H～4FFFH，故 ROM 的容量为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7667em;vertical-align:-.0833em></span><span class=mord>8</span><span class="mord mathnormal" style=margin-right:.07153em>K</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>8</span></span></span></span>
+；
+ROM 芯片数 =
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7667em;vertical-align:-.0833em></span><span class=mord>8</span><span class="mord mathnormal" style=margin-right:.07153em>K</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>8/4</span><span class="mord mathnormal" style=margin-right:.07153em>K</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>2</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>8</span></span></span></span>
+片（分为 2 组，每组 4 片）。
+RAM 区为 5000H～67FFH，故 RAM 的容量为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7667em;vertical-align:-.0833em></span><span class=mord>6</span><span class="mord mathnormal" style=margin-right:.07153em>K</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>8</span></span></span></span>
+；
+SRAM 芯片数 =
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7667em;vertical-align:-.0833em></span><span class=mord>6</span><span class="mord mathnormal" style=margin-right:.07153em>K</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>8/2</span><span class="mord mathnormal" style=margin-right:.07153em>K</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>4</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>6</span></span></span></span>
+片（分为 3 组，每组 2 片）。
+<p>（2）ROM 芯片容量为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7667em;vertical-align:-.0833em></span><span class=mord>4</span><span class="mord mathnormal" style=margin-right:.07153em>K</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>2</span></span></span></span>
+，具有 12 根地址线、2 根数据线，因此 ROM 芯片的地址线连接 CPU 地址线的低 12 位
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8333em;vertical-align:-.15em></span><span class=mord><span class="mord mathnormal">A</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">11</span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>∼</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.8333em;vertical-align:-.15em></span><span class=mord><span class="mord mathnormal">A</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span></span></span></span>
+，每组 ROM 内的 4 片芯片分别连接 CPU 数据线的
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8333em;vertical-align:-.15em></span><span class=mord><span class="mord mathnormal" style=margin-right:.02778em>D</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:-.0278em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">7</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mord><span class="mord mathnormal" style=margin-right:.02778em>D</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:-.0278em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span></span></span></span>
+、
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8333em;vertical-align:-.15em></span><span class=mord><span class="mord mathnormal" style=margin-right:.02778em>D</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:-.0278em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mord><span class="mord mathnormal" style=margin-right:.02778em>D</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:-.0278em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span></span></span></span>
+、
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8333em;vertical-align:-.15em></span><span class=mord><span class="mord mathnormal" style=margin-right:.02778em>D</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:-.0278em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mord><span class="mord mathnormal" style=margin-right:.02778em>D</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:-.0278em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span></span></span></span>
+、
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8333em;vertical-align:-.15em></span><span class=mord><span class="mord mathnormal" style=margin-right:.02778em>D</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:-.0278em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mord><span class="mord mathnormal" style=margin-right:.02778em>D</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:-.0278em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span></span></span></span>
+。
+SRAM 芯片容量为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7667em;vertical-align:-.0833em></span><span class=mord>2</span><span class="mord mathnormal" style=margin-right:.07153em>K</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>4</span></span></span></span>
+，具有 11 根地址线、4 根数据线，因此 SRAM 芯片的地址线连接 CPU 地址线的低 11 位
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8333em;vertical-align:-.15em></span><span class=mord><span class="mord mathnormal">A</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>∼</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.8333em;vertical-align:-.15em></span><span class=mord><span class="mord mathnormal">A</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span></span></span></span>
+，每组 SRAM 内的 2 片芯片分别连接 CPU 数据线的
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8333em;vertical-align:-.15em></span><span class=mord><span class="mord mathnormal" style=margin-right:.02778em>D</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:-.0278em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">7</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mord><span class="mord mathnormal" style=margin-right:.02778em>D</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:-.0278em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mord><span class="mord mathnormal" style=margin-right:.02778em>D</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:-.0278em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mord><span class="mord mathnormal" style=margin-right:.02778em>D</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:-.0278em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span></span></span></span>
+、
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8333em;vertical-align:-.15em></span><span class=mord><span class="mord mathnormal" style=margin-right:.02778em>D</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:-.0278em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mord><span class="mord mathnormal" style=margin-right:.02778em>D</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:-.0278em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mord><span class="mord mathnormal" style=margin-right:.02778em>D</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:-.0278em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mord><span class="mord mathnormal" style=margin-right:.02778em>D</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:-.0278em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span></span></span></span>
+。
+<p>（3）ROM 区有 2 个片选信号，RAM 区有 3 个片选信号，共需 5 个片选信号。根据地址分配要求，各片选信号的逻辑表达式如下：
+<div class=td-max-width-on-larger-screens><span class=katex-display><span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:4.63em;vertical-align:-2.065em></span><span class=mord><span class=mtable><span class=col-align-c><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:2.565em><span style=top:-4.6817em><span class=pstrut style=height:3em></span><span class=mord><span class=mord><span class=mord><span class="mord mathrm">CS</span></span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span><span class="mord overline"><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.8833em><span style=top:-3em><span class=pstrut style=height:3em></span><span class=mord><span class=mord><span class="mord mathnormal">A</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">15</span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span></span></span><span style=top:-3.8033em><span class=pstrut style=height:3em></span><span class=overline-line style=border-bottom-width:.04em></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span><span class=mord><span class="mord mathnormal">A</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">14</span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class="mord overline"><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.8833em><span style=top:-3em><span class=pstrut style=height:3em></span><span class=mord><span class=mord><span class="mord mathnormal">A</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">13</span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span></span></span><span style=top:-3.8033em><span class=pstrut style=height:3em></span><span class=overline-line style=border-bottom-width:.04em></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span><span class="mord overline"><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.8833em><span style=top:-3em><span class=pstrut style=height:3em></span><span class=mord><span class=mord><span class="mord mathnormal">A</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">12</span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span></span></span><span style=top:-3.8033em><span class=pstrut style=height:3em></span><span class=overline-line style=border-bottom-width:.04em></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span><span class=mpunct>,</span><span class=mspace style=margin-right:1em></span><span class=mspace style=margin-right:.1667em></span><span class=mord><span class=mord><span class="mord mathrm">CS</span></span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span><span class="mord overline"><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.8833em><span style=top:-3em><span class=pstrut style=height:3em></span><span class=mord><span class=mord><span class="mord mathnormal">A</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">15</span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span></span></span><span style=top:-3.8033em><span class=pstrut style=height:3em></span><span class=overline-line style=border-bottom-width:.04em></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span><span class=mord><span class="mord mathnormal">A</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">14</span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mord><span class="mord mathnormal">A</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">13</span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class="mord overline"><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.8833em><span style=top:-3em><span class=pstrut style=height:3em></span><span class=mord><span class=mord><span class="mord mathnormal">A</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">12</span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span></span></span><span style=top:-3.8033em><span class=pstrut style=height:3em></span><span class=overline-line style=border-bottom-width:.04em></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span></span><span style=top:-3.1383em><span class=pstrut style=height:3em></span><span class=mord><span class=mord><span class=mord><span class="mord mathrm">CS</span></span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span><span class="mord overline"><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.8833em><span style=top:-3em><span class=pstrut style=height:3em></span><span class=mord><span class=mord><span class="mord mathnormal">A</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">15</span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span></span></span><span style=top:-3.8033em><span class=pstrut style=height:3em></span><span class=overline-line style=border-bottom-width:.04em></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span><span class=mord><span class="mord mathnormal">A</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">14</span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class="mord overline"><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.8833em><span style=top:-3em><span class=pstrut style=height:3em></span><span class=mord><span class=mord><span class="mord mathnormal">A</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">13</span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span></span></span><span style=top:-3.8033em><span class=pstrut style=height:3em></span><span class=overline-line style=border-bottom-width:.04em></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span><span class=mord><span class="mord mathnormal">A</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">12</span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class="mord overline"><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.8833em><span style=top:-3em><span class=pstrut style=height:3em></span><span class=mord><span class=mord><span class="mord mathnormal">A</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">11</span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span></span></span><span style=top:-3.8033em><span class=pstrut style=height:3em></span><span class=overline-line style=border-bottom-width:.04em></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span><span class=mpunct>,</span><span class=mspace style=margin-right:1em></span><span class=mspace style=margin-right:.1667em></span><span class=mord><span class=mord><span class="mord mathrm">CS</span></span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span><span class="mord overline"><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.8833em><span style=top:-3em><span class=pstrut style=height:3em></span><span class=mord><span class=mord><span class="mord mathnormal">A</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">15</span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span></span></span><span style=top:-3.8033em><span class=pstrut style=height:3em></span><span class=overline-line style=border-bottom-width:.04em></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span><span class=mord><span class="mord mathnormal">A</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">14</span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class="mord overline"><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.8833em><span style=top:-3em><span class=pstrut style=height:3em></span><span class=mord><span class=mord><span class="mord mathnormal">A</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">13</span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span></span></span><span style=top:-3.8033em><span class=pstrut style=height:3em></span><span class=overline-line style=border-bottom-width:.04em></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span><span class=mord><span class="mord mathnormal">A</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">12</span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mord><span class="mord mathnormal">A</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">11</span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span></span></span><span style=top:-1.595em><span class=pstrut style=height:3em></span><span class=mord><span class=mord><span class=mord><span class="mord mathrm">CS</span></span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span><span class="mord overline"><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.8833em><span style=top:-3em><span class=pstrut style=height:3em></span><span class=mord><span class=mord><span class="mord mathnormal">A</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">15</span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span></span></span><span style=top:-3.8033em><span class=pstrut style=height:3em></span><span class=overline-line style=border-bottom-width:.04em></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span><span class=mord><span class="mord mathnormal">A</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">14</span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mord><span class="mord mathnormal">A</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">13</span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class="mord overline"><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.8833em><span style=top:-3em><span class=pstrut style=height:3em></span><span class=mord><span class=mord><span class="mord mathnormal">A</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">12</span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span></span></span><span style=top:-3.8033em><span class=pstrut style=height:3em></span><span class=overline-line style=border-bottom-width:.04em></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span><span class=mord><span class="mord mathnormal">A</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3011em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">11</span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:2.065em><span></span></span></span></span></span></span></span></span></span></span></span>
+
+##### 44
+
+（11 分）设某计算机有 4 级中断 A、B、C、D，其硬件排队优先级次序为 A>B>C>D。如表所示列出了执行每级中断服务程序所需的时间。
+
+如果以执行中断服务程序的时间作为确定中断优先级的尺度：时间越短优先级越高。
+（1）如何为各级中断服务程序设置屏蔽码？
+（2）如果 A、B、C、D 分别在 0μs、8μs、10μs、0μs 时刻发出中断请求，请画出 CPU 执行中断服务程序的序列。
+（3）基于上题，请计算上述 4 个中断服务程序的平均执行时间。
+
+[tag_link]
+
+<p>**【解析】**
+本题考查中断处理次序。中断响应次序和中断处理次序是两个不同的概念。
+中断响应次序也称为硬件排队次序，它是不可改变的。在不改变硬件排队电路的前提下，可以通过改变中断屏蔽字来改变中断处理的优先级，使原来级别较低的中断源变成较高的级别。
+<p>（1）由题意，可知中断处理的次序为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7224em;vertical-align:-.0391em></span><span class="mord mathnormal" style=margin-right:.07153em>C</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>></span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.7224em;vertical-align:-.0391em></span><span class="mord mathnormal">A</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>></span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.7224em;vertical-align:-.0391em></span><span class="mord mathnormal" style=margin-right:.02778em>D</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>></span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6833em></span><span class="mord mathnormal" style=margin-right:.05017em>B</span></span></span></span>
+。屏蔽码中的“1”表示屏蔽该中断源的中断请求，“0”表示没有屏蔽，各中断服务程序的屏蔽码如下表所示。
+<div class=td-max-width-on-larger-screens><span class=katex-display><span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6861em></span><span class="mord text"><span class="mord textbf cjk_fallback">中断屏蔽码</span></span></span></span></span></span></div><p>
+<div class=td-max-width-on-larger-screens><span class=katex-display><span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:6.04em;vertical-align:-2.75em></span><span class=mord><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:3.29em><span style=top:-5.25em><span class=pstrut style=height:5.25em></span><span class=mtable><span class=vertical-separator style="height:6em;border-right-width:.04em;border-right-style:solid;margin:0 -.02em;vertical-align:-2.75em"></span><span class=arraycolsep style=width:.5em></span><span class=col-align-c><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:3.25em><span style=top:-5.41em><span class=pstrut style=height:3em></span><span class=mord><span class="mord text"><span class="mord cjk_fallback">中断源</span></span></span></span><span style=top:-4.21em><span class=pstrut style=height:3em></span><span class=mord><span class="mord mathnormal">A</span></span></span><span style=top:-3.01em><span class=pstrut style=height:3em></span><span class=mord><span class="mord mathnormal" style=margin-right:.05017em>B</span></span></span><span style=top:-1.81em><span class=pstrut style=height:3em></span><span class=mord><span class="mord mathnormal" style=margin-right:.07153em>C</span></span></span><span style=top:-.61em><span class=pstrut style=height:3em></span><span class=mord><span class="mord mathnormal" style=margin-right:.02778em>D</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:2.75em><span></span></span></span></span></span><span class=arraycolsep style=width:.5em></span><span class=vertical-separator style="height:6em;border-right-width:.04em;border-right-style:solid;margin:0 -.02em;vertical-align:-2.75em"></span><span class=arraycolsep style=width:.5em></span><span class=col-align-c><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:3.25em><span style=top:-5.41em><span class=pstrut style=height:3em></span><span class=mord><span class="mord text"><span class=mord>A</span></span></span></span><span style=top:-4.21em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>1</span></span></span><span style=top:-3.01em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>0</span></span></span><span style=top:-1.81em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>1</span></span></span><span style=top:-.61em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>1</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:2.75em><span></span></span></span></span></span><span class=arraycolsep style=width:.5em></span><span class=vertical-separator style="height:6em;border-right-width:.04em;border-right-style:solid;margin:0 -.02em;vertical-align:-2.75em"></span><span class=arraycolsep style=width:.5em></span><span class=col-align-c><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:3.25em><span style=top:-5.41em><span class=pstrut style=height:3em></span><span class=mord><span class="mord text"><span class=mord>B</span></span></span></span><span style=top:-4.21em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>1</span></span></span><span style=top:-3.01em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>1</span></span></span><span style=top:-1.81em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>1</span></span></span><span style=top:-.61em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>0</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:2.75em><span></span></span></span></span></span><span class=arraycolsep style=width:.5em></span><span class=vertical-separator style="height:6em;border-right-width:.04em;border-right-style:solid;margin:0 -.02em;vertical-align:-2.75em"></span><span class=arraycolsep style=width:.5em></span><span class=col-align-c><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:3.25em><span style=top:-5.41em><span class=pstrut style=height:3em></span><span class=mord><span class="mord text"><span class=mord>C</span></span></span></span><span style=top:-4.21em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>0</span></span></span><span style=top:-3.01em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>0</span></span></span><span style=top:-1.81em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>1</span></span></span><span style=top:-.61em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>1</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:2.75em><span></span></span></span></span></span><span class=arraycolsep style=width:.5em></span><span class=vertical-separator style="height:6em;border-right-width:.04em;border-right-style:solid;margin:0 -.02em;vertical-align:-2.75em"></span><span class=arraycolsep style=width:.5em></span><span class=col-align-c><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:3.25em><span style=top:-5.41em><span class=pstrut style=height:3em></span><span class=mord><span class="mord text"><span class=mord>D</span></span></span></span><span style=top:-4.21em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>1</span></span></span><span style=top:-3.01em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>0</span></span></span><span style=top:-1.81em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>1</span></span></span><span style=top:-.61em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>1</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:2.75em><span></span></span></span></span></span><span class=arraycolsep style=width:.5em></span><span class=vertical-separator style="height:6em;border-right-width:.04em;border-right-style:solid;margin:0 -.02em;vertical-align:-2.75em"></span></span></span><span style=top:-2.5em><span class=pstrut style=height:5.25em></span><span class=hline style=border-bottom-width:.04em></span></span><span style=top:-3.7em><span class=pstrut style=height:5.25em></span><span class=hline style=border-bottom-width:.04em></span></span><span style=top:-4.9em><span class=pstrut style=height:5.25em></span><span class=hline style=border-bottom-width:.04em></span></span><span style=top:-6.1em><span class=pstrut style=height:5.25em></span><span class=hline style=border-bottom-width:.04em></span></span><span style=top:-7.3em><span class=pstrut style=height:5.25em></span><span class=hline style=border-bottom-width:.04em></span></span><span style=top:-8.5em><span class=pstrut style=height:5.25em></span><span class=hline style=border-bottom-width:.04em></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:2.75em><span></span></span></span></span></span></span></span></span></span></div><p>（2）根据各级中断发出的中断请求信号的时刻，画出 CPU 执行中断服务程序的序列，如下图所示。
+<p>第
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>0</span><span class="mord mathnormal">μ</span><span class="mord mathnormal">s</span></span></span></span>
+时，D 请求到来，由于没有其他的中断请求，所以开始执行中断服务程序 D。
+第
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>6</span><span class="mord mathnormal">μ</span><span class="mord mathnormal">s</span></span></span></span>
+时，A 请求到来，A 的优先级高于 D，转去执行中断服务程序 A。
+第
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>8</span><span class="mord mathnormal">μ</span><span class="mord mathnormal">s</span></span></span></span>
+时，B 请求到来，由于 B 的优先级低于 A，所以不响应 B 请求，继续执行中断服务程序 A。
+第
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>10</span><span class="mord mathnormal">μ</span><span class="mord mathnormal">s</span></span></span></span>
+时，C 请求到来，C 的优先级最高，虽然此时中断服务程序 A 还没结束，也必须暂停转去执行中断服务程序 C。
+中断服务程序 C 所需时间为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>3</span><span class="mord mathnormal">μ</span><span class="mord mathnormal">s</span></span></span></span>
+，当第
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>13</span><span class="mord mathnormal">μ</span><span class="mord mathnormal">s</span></span></span></span>
+时，中断服务程序 C 执行完毕，返回执行中断服务程序 A。
+第
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>14</span><span class="mord mathnormal">μ</span><span class="mord mathnormal">s</span></span></span></span>
+时，中断服务程序 A 执行完毕（共执行
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>5</span><span class="mord mathnormal">μ</span><span class="mord mathnormal">s</span></span></span></span>
+），返回执行中断服务程序 D。
+第
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>20</span><span class="mord mathnormal">μ</span><span class="mord mathnormal">s</span></span></span></span>
+时，中断服务程序 D 执行完毕（共执行
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>12</span><span class="mord mathnormal">μ</span><span class="mord mathnormal">s</span></span></span></span>
+），返回现行程序。
+因为 B 请求还存在，所以此时开始执行中断服务程序 B，直至
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>35</span><span class="mord mathnormal">μ</span><span class="mord mathnormal">s</span></span></span></span>
+结束（共执行
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>15</span><span class="mord mathnormal">μ</span><span class="mord mathnormal">s</span></span></span></span>
+）。
+<div class=img-container style=height:auto;width:70% oncontextmenu=return!1> [图片] </div><p>注意：有同学会问执行完 D 为什么又要返回现行程序再响应 B 的中断，这是因为 B 的中断在有 A、C、D 的条件下 B 中断都是被屏蔽而暂时不响应的，而当上述 3 种中断执行完毕后，回到主程序，B 中断才不被屏蔽，所以这时候才会直接响应 B 的中断，如果不回到主程序而直接响应 B 的中断是错误的。
+<p>（3）在
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>35</span><span class="mord mathnormal">μ</span><span class="mord mathnormal">s</span></span></span></span>
+时间内，完成了 4 级中断的处理，所以平均执行时间为
+
+<div class=td-max-width-on-larger-screens><span class=katex-display><span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:2.0074em;vertical-align:-.686em></span><span class=mord><span class="mopen nulldelimiter"></span><span class=mfrac><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:1.3214em><span style=top:-2.314em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>4</span></span></span><span style=top:-3.23em><span class=pstrut style=height:3em></span><span class=frac-line style=border-bottom-width:.04em></span></span><span style=top:-3.677em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>35</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.686em><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>8.75</span><span class="mord mathnormal">μ</span><span class="mord mathnormal">s</span></span></span></span></span>
+
+---
+#### 操作系统
+
+##### 45
+
+（8 分）某一个计算机系统采用虚拟页式存储管理方式，当前在处理机上执行的某一个进程的页表如下所示，所有的数字均为十进制，每一项的起始编号是 0，并且所有的地址均按字节编址，每页的大小为 1024 字节。
+
+（1）将下列逻辑地址转换为物理地址，写出计算过程，对不能计算的说明为什么？
+
+0793, 1197, 2099, 3320, 4188, 5332
+
+(2) 假设程序欲访问第 2 页，页面置换算法为改进的 CLOCK 算法，请问该淘汰哪页？页表如何修改？页表修改后 (1) 问中地址的转换结果是否改变？变成多少？
+
+长）？
+
+(3) 若距离减少到 2km，为了保证网络正常工作，则最小帧长度是多少？
+
+(4) 若发送速率提高，最小帧长不变，为了保证网络正常工作应采取什么解决方案？
+
+[tag_link]
+
+<p>**【解析】**
+本题考查逻辑地址到物理地址的转换以及页面置换过程。
+地址转换的一般过程是：先取出逻辑页号，然后查找页表，得到对应的页框号；将页框号与页内偏移相加，即可得到物理地址。
+若在页表中找不到该页对应的页框号，说明该页不在内存中，此时会产生缺页中断，系统开始请求调页。
+<p>如果内存中有足够的空闲物理页框，则可以直接分配一个新的页面；如果没有空闲页框，则必须在现有页面中选择一页进行置换。
+被置换的页面可以是系统中的任意一页（称为全局置换），也可以仅限于本进程的页面（称为局部置换）。
+<p>为了尽可能减少缺页中断的次数，可以采用多种页面置换算法。本题使用的是改进的 CLOCK 算法。
+该算法需要利用页表中的引用位和修改位，由这两位组合成四种优先级：
+<ol><li>未被引用且未修改的页面（优先淘汰）</li><li>未被引用但已修改的页面</li><li>已被引用但未修改的页面</li><li>既被引用又被修改的页面（最后淘汰）</li></ol><p>当多个页面的引用位和修改位状态相同时，则随机选择一页进行淘汰。
+<p>（1）根据题意，每页 1024 字节，地址又是按字节编址，计算逻辑地址的页号和页内偏移量，合成物理地址如下表所示。
+<div class=td-max-width-on-larger-screens><span class=katex-display><span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:8.44em;vertical-align:-3.95em></span><span class=mord><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:4.49em><span style=top:-6.45em><span class=pstrut style=height:6.45em></span><span class=mtable><span class=vertical-separator style="height:8.4em;border-right-width:.04em;border-right-style:solid;margin:0 -.02em;vertical-align:-3.95em"></span><span class=arraycolsep style=width:.5em></span><span class=col-align-c><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:4.45em><span style=top:-6.61em><span class=pstrut style=height:3em></span><span class=mord><span class="mord text"><span class="mord cjk_fallback">逻辑地址</span></span></span></span><span style=top:-5.41em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>0793</span></span></span><span style=top:-4.21em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>1197</span></span></span><span style=top:-3.01em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>2099</span></span></span><span style=top:-1.81em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>3320</span></span></span><span style=top:-.61em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>4188</span></span></span><span style=top:.59em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>5332</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:3.95em><span></span></span></span></span></span><span class=arraycolsep style=width:.5em></span><span class=vertical-separator style="height:8.4em;border-right-width:.04em;border-right-style:solid;margin:0 -.02em;vertical-align:-3.95em"></span><span class=arraycolsep style=width:.5em></span><span class=col-align-c><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:4.45em><span style=top:-6.61em><span class=pstrut style=height:3em></span><span class=mord><span class="mord text"><span class="mord cjk_fallback">逻辑页号</span></span></span></span><span style=top:-5.41em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>0</span></span></span><span style=top:-4.21em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>1</span></span></span><span style=top:-3.01em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>2</span></span></span><span style=top:-1.81em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>3</span></span></span><span style=top:-.61em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>4</span></span></span><span style=top:.59em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>5</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:3.95em><span></span></span></span></span></span><span class=arraycolsep style=width:.5em></span><span class=vertical-separator style="height:8.4em;border-right-width:.04em;border-right-style:solid;margin:0 -.02em;vertical-align:-3.95em"></span><span class=arraycolsep style=width:.5em></span><span class=col-align-c><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:4.45em><span style=top:-6.61em><span class=pstrut style=height:3em></span><span class=mord><span class="mord text"><span class="mord cjk_fallback">页内偏移量</span></span></span></span><span style=top:-5.41em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>793</span></span></span><span style=top:-4.21em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>173</span></span></span><span style=top:-3.01em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>51</span></span></span><span style=top:-1.81em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>248</span></span></span><span style=top:-.61em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>92</span></span></span><span style=top:.59em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>212</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:3.95em><span></span></span></span></span></span><span class=arraycolsep style=width:.5em></span><span class=vertical-separator style="height:8.4em;border-right-width:.04em;border-right-style:solid;margin:0 -.02em;vertical-align:-3.95em"></span><span class=arraycolsep style=width:.5em></span><span class=col-align-c><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:4.45em><span style=top:-6.61em><span class=pstrut style=height:3em></span><span class=mord><span class="mord text"><span class="mord cjk_fallback">页框号</span></span></span></span><span style=top:-5.41em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>4</span></span></span><span style=top:-4.21em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>3</span></span></span><span style=top:-3.01em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>−</span><span class=mord>−</span></span></span><span style=top:-1.81em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>1</span></span></span><span style=top:-.61em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>−</span><span class=mord>−</span></span></span><span style=top:.59em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>5</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:3.95em><span></span></span></span></span></span><span class=arraycolsep style=width:.5em></span><span class=vertical-separator style="height:8.4em;border-right-width:.04em;border-right-style:solid;margin:0 -.02em;vertical-align:-3.95em"></span><span class=arraycolsep style=width:.5em></span><span class=col-align-c><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:4.45em><span style=top:-6.61em><span class=pstrut style=height:3em></span><span class=mord><span class="mord text"><span class="mord cjk_fallback">物理地址</span></span></span></span><span style=top:-5.41em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>4889</span></span></span><span style=top:-4.21em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>3245</span></span></span><span style=top:-3.01em><span class=pstrut style=height:3em></span><span class=mord><span class="mord text"><span class="mord cjk_fallback">缺页中断</span></span></span></span><span style=top:-1.81em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>1272</span></span></span><span style=top:-.61em><span class=pstrut style=height:3em></span><span class=mord><span class="mord text"><span class="mord cjk_fallback">缺页中断</span></span></span></span><span style=top:.59em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>5332</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:3.95em><span></span></span></span></span></span><span class=arraycolsep style=width:.5em></span><span class=vertical-separator style="height:8.4em;border-right-width:.04em;border-right-style:solid;margin:0 -.02em;vertical-align:-3.95em"></span></span></span><span style=top:-2.5em><span class=pstrut style=height:6.45em></span><span class=hline style=border-bottom-width:.04em></span></span><span style=top:-3.7em><span class=pstrut style=height:6.45em></span><span class=hline style=border-bottom-width:.04em></span></span><span style=top:-4.9em><span class=pstrut style=height:6.45em></span><span class=hline style=border-bottom-width:.04em></span></span><span style=top:-6.1em><span class=pstrut style=height:6.45em></span><span class=hline style=border-bottom-width:.04em></span></span><span style=top:-7.3em><span class=pstrut style=height:6.45em></span><span class=hline style=border-bottom-width:.04em></span></span><span style=top:-8.5em><span class=pstrut style=height:6.45em></span><span class=hline style=border-bottom-width:.04em></span></span><span style=top:-9.7em><span class=pstrut style=height:6.45em></span><span class=hline style=border-bottom-width:.04em></span></span><span style=top:-10.9em><span class=pstrut style=height:6.45em></span><span class=hline style=border-bottom-width:.04em></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:3.95em><span></span></span></span></span></span></span></span></span></span></div><p>以逻辑地址 0793 为例，逻辑页号为 $0793 \div 1024 = 0$，在页表中存在，页内偏移量为 $0793 % 1024 = 793$，对应的页框号为 4，故物理地址为 $4 \times 1024 + 793 = 4889$。
+<p>（2）第 2 页不在内存，产生缺页中断，根据改进 CLOCK 算法，第 3 页为没被引用和没修改的页面，故淘汰。新页面进入，页表修改如下：
+<div class=td-max-width-on-larger-screens><span class=katex-display><span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:8.44em;vertical-align:-3.95em></span><span class=mord><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:4.49em><span style=top:-6.45em><span class=pstrut style=height:6.45em></span><span class=mtable><span class=vertical-separator style="height:8.4em;border-right-width:.04em;border-right-style:solid;margin:0 -.02em;vertical-align:-3.95em"></span><span class=arraycolsep style=width:.5em></span><span class=col-align-c><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:4.45em><span style=top:-6.61em><span class=pstrut style=height:3em></span><span class=mord><span class="mord text"><span class="mord cjk_fallback">逻辑页号</span></span></span></span><span style=top:-5.41em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>0</span></span></span><span style=top:-4.21em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>1</span></span></span><span style=top:-3.01em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>2</span></span></span><span style=top:-1.81em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>3</span></span></span><span style=top:-.61em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>4</span></span></span><span style=top:.59em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>5</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:3.95em><span></span></span></span></span></span><span class=arraycolsep style=width:.5em></span><span class=vertical-separator style="height:8.4em;border-right-width:.04em;border-right-style:solid;margin:0 -.02em;vertical-align:-3.95em"></span><span class=arraycolsep style=width:.5em></span><span class=col-align-c><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:4.45em><span style=top:-6.61em><span class=pstrut style=height:3em></span><span class=mord><span class="mord text"><span class="mord cjk_fallback">存在位</span></span></span></span><span style=top:-5.41em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>1</span></span></span><span style=top:-4.21em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>1</span></span></span><span style=top:-3.01em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>0</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:.2778em></span><span class=mord>1</span></span></span><span style=top:-1.81em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>1</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:.2778em></span><span class=mord>0</span></span></span><span style=top:-.61em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>0</span></span></span><span style=top:.59em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>1</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:3.95em><span></span></span></span></span></span><span class=arraycolsep style=width:.5em></span><span class=vertical-separator style="height:8.4em;border-right-width:.04em;border-right-style:solid;margin:0 -.02em;vertical-align:-3.95em"></span><span class=arraycolsep style=width:.5em></span><span class=col-align-c><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:4.45em><span style=top:-6.61em><span class=pstrut style=height:3em></span><span class=mord><span class="mord text"><span class="mord cjk_fallback">引用位</span></span></span></span><span style=top:-5.41em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>1</span></span></span><span style=top:-4.21em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>1</span></span></span><span style=top:-3.01em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>0</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:.2778em></span><span class=mord>1</span></span></span><span style=top:-1.81em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>0</span></span></span><span style=top:-.61em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>0</span></span></span><span style=top:.59em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>0</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:3.95em><span></span></span></span></span></span><span class=arraycolsep style=width:.5em></span><span class=vertical-separator style="height:8.4em;border-right-width:.04em;border-right-style:solid;margin:0 -.02em;vertical-align:-3.95em"></span><span class=arraycolsep style=width:.5em></span><span class=col-align-c><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:4.45em><span style=top:-6.61em><span class=pstrut style=height:3em></span><span class=mord><span class="mord text"><span class="mord cjk_fallback">修改位</span></span></span></span><span style=top:-5.41em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>0</span></span></span><span style=top:-4.21em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>1</span></span></span><span style=top:-3.01em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>0</span></span></span><span style=top:-1.81em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>0</span></span></span><span style=top:-.61em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>0</span></span></span><span style=top:.59em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>1</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:3.95em><span></span></span></span></span></span><span class=arraycolsep style=width:.5em></span><span class=vertical-separator style="height:8.4em;border-right-width:.04em;border-right-style:solid;margin:0 -.02em;vertical-align:-3.95em"></span><span class=arraycolsep style=width:.5em></span><span class=col-align-c><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:4.45em><span style=top:-6.61em><span class=pstrut style=height:3em></span><span class=mord><span class="mord text"><span class="mord cjk_fallback">页框号</span></span></span></span><span style=top:-5.41em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>4</span></span></span><span style=top:-4.21em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>3</span></span></span><span style=top:-3.01em><span class=pstrut style=height:3em></span><span class=mord><span class="mord text"><span class=mord>–</span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:.2778em></span><span class=mord>1</span></span></span><span style=top:-1.81em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>1</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>→</span><span class=mspace style=margin-right:.2778em></span><span class="mord text"><span class=mord>–</span></span></span></span><span style=top:-.61em><span class=pstrut style=height:3em></span><span class=mord><span class="mord text"><span class=mord>–</span></span></span></span><span style=top:.59em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>5</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:3.95em><span></span></span></span></span></span><span class=arraycolsep style=width:.5em></span><span class=vertical-separator style="height:8.4em;border-right-width:.04em;border-right-style:solid;margin:0 -.02em;vertical-align:-3.95em"></span><span class=arraycolsep style=width:.5em></span><span class=col-align-c><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:4.45em><span style=top:-6.61em><span class=pstrut style=height:3em></span><span class=mord><span class="mord text"><span class="mord cjk_fallback">操作</span></span></span></span><span style=top:-5.41em><span class=pstrut style=height:3em></span><span class=mord></span></span><span style=top:-4.21em><span class=pstrut style=height:3em></span><span class=mord></span></span><span style=top:-3.01em><span class=pstrut style=height:3em></span><span class=mord><span class="mord text"><span class="mord cjk_fallback">调入</span></span></span></span><span style=top:-1.81em><span class=pstrut style=height:3em></span><span class=mord><span class="mord text"><span class="mord cjk_fallback">淘汰</span></span></span></span><span style=top:-.61em><span class=pstrut style=height:3em></span><span class=mord></span></span><span style=top:.59em><span class=pstrut style=height:3em></span><span class=mord></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:3.95em><span></span></span></span></span></span><span class=arraycolsep style=width:.5em></span><span class=vertical-separator style="height:8.4em;border-right-width:.04em;border-right-style:solid;margin:0 -.02em;vertical-align:-3.95em"></span></span></span><span style=top:-2.5em><span class=pstrut style=height:6.45em></span><span class=hline style=border-bottom-width:.04em></span></span><span style=top:-3.7em><span class=pstrut style=height:6.45em></span><span class=hline style=border-bottom-width:.04em></span></span><span style=top:-4.9em><span class=pstrut style=height:6.45em></span><span class=hline style=border-bottom-width:.04em></span></span><span style=top:-6.1em><span class=pstrut style=height:6.45em></span><span class=hline style=border-bottom-width:.04em></span></span><span style=top:-7.3em><span class=pstrut style=height:6.45em></span><span class=hline style=border-bottom-width:.04em></span></span><span style=top:-8.5em><span class=pstrut style=height:6.45em></span><span class=hline style=border-bottom-width:.04em></span></span><span style=top:-9.7em><span class=pstrut style=height:6.45em></span><span class=hline style=border-bottom-width:.04em></span></span><span style=top:-10.9em><span class=pstrut style=height:6.45em></span><span class=hline style=border-bottom-width:.04em></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:3.95em><span></span></span></span></span></span></span></span></span></span></div><p>因为页面 2 调入是为了使用，所以页面 2 的引用位必须改为 1。
+<p>地址转换变为如下表：
+<div class=td-max-width-on-larger-screens><span class=katex-display><span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:8.44em;vertical-align:-3.95em></span><span class=mord><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:4.49em><span style=top:-6.45em><span class=pstrut style=height:6.45em></span><span class=mtable><span class=vertical-separator style="height:8.4em;border-right-width:.04em;border-right-style:solid;margin:0 -.02em;vertical-align:-3.95em"></span><span class=arraycolsep style=width:.5em></span><span class=col-align-c><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:4.45em><span style=top:-6.61em><span class=pstrut style=height:3em></span><span class=mord><span class="mord text"><span class="mord cjk_fallback">逻辑地址</span></span></span></span><span style=top:-5.41em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>0793</span></span></span><span style=top:-4.21em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>1197</span></span></span><span style=top:-3.01em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>2099</span></span></span><span style=top:-1.81em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>3320</span></span></span><span style=top:-.61em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>4188</span></span></span><span style=top:.59em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>5332</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:3.95em><span></span></span></span></span></span><span class=arraycolsep style=width:.5em></span><span class=vertical-separator style="height:8.4em;border-right-width:.04em;border-right-style:solid;margin:0 -.02em;vertical-align:-3.95em"></span><span class=arraycolsep style=width:.5em></span><span class=col-align-c><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:4.45em><span style=top:-6.61em><span class=pstrut style=height:3em></span><span class=mord><span class="mord text"><span class="mord cjk_fallback">逻辑页号</span></span></span></span><span style=top:-5.41em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>0</span></span></span><span style=top:-4.21em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>1</span></span></span><span style=top:-3.01em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>2</span></span></span><span style=top:-1.81em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>3</span></span></span><span style=top:-.61em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>4</span></span></span><span style=top:.59em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>5</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:3.95em><span></span></span></span></span></span><span class=arraycolsep style=width:.5em></span><span class=vertical-separator style="height:8.4em;border-right-width:.04em;border-right-style:solid;margin:0 -.02em;vertical-align:-3.95em"></span><span class=arraycolsep style=width:.5em></span><span class=col-align-c><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:4.45em><span style=top:-6.61em><span class=pstrut style=height:3em></span><span class=mord><span class="mord text"><span class="mord cjk_fallback">页内偏移量</span></span></span></span><span style=top:-5.41em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>793</span></span></span><span style=top:-4.21em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>173</span></span></span><span style=top:-3.01em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>51</span></span></span><span style=top:-1.81em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>248</span></span></span><span style=top:-.61em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>92</span></span></span><span style=top:.59em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>212</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:3.95em><span></span></span></span></span></span><span class=arraycolsep style=width:.5em></span><span class=vertical-separator style="height:8.4em;border-right-width:.04em;border-right-style:solid;margin:0 -.02em;vertical-align:-3.95em"></span><span class=arraycolsep style=width:.5em></span><span class=col-align-c><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:4.45em><span style=top:-6.61em><span class=pstrut style=height:3em></span><span class=mord><span class="mord text"><span class="mord cjk_fallback">页框号</span></span></span></span><span style=top:-5.41em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>4</span></span></span><span style=top:-4.21em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>3</span></span></span><span style=top:-3.01em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>1</span></span></span><span style=top:-1.81em><span class=pstrut style=height:3em></span><span class=mord><span class="mord text"><span class=mord>–</span></span></span></span><span style=top:-.61em><span class=pstrut style=height:3em></span><span class=mord><span class="mord text"><span class=mord>–</span></span></span></span><span style=top:.59em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>5</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:3.95em><span></span></span></span></span></span><span class=arraycolsep style=width:.5em></span><span class=vertical-separator style="height:8.4em;border-right-width:.04em;border-right-style:solid;margin:0 -.02em;vertical-align:-3.95em"></span><span class=arraycolsep style=width:.5em></span><span class=col-align-c><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:4.45em><span style=top:-6.61em><span class=pstrut style=height:3em></span><span class=mord><span class="mord text"><span class="mord cjk_fallback">物理地址</span></span></span></span><span style=top:-5.41em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>4889</span></span></span><span style=top:-4.21em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>3245</span></span></span><span style=top:-3.01em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>1075</span></span></span><span style=top:-1.81em><span class=pstrut style=height:3em></span><span class=mord><span class="mord text"><span class="mord cjk_fallback">缺页中断</span></span></span></span><span style=top:-.61em><span class=pstrut style=height:3em></span><span class=mord><span class="mord text"><span class="mord cjk_fallback">缺页中断</span></span></span></span><span style=top:.59em><span class=pstrut style=height:3em></span><span class=mord><span class=mord>5332</span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:3.95em><span></span></span></span></span></span><span class=arraycolsep style=width:.5em></span><span class=vertical-separator style="height:8.4em;border-right-width:.04em;border-right-style:solid;margin:0 -.02em;vertical-align:-3.95em"></span></span></span><span style=top:-2.5em><span class=pstrut style=height:6.45em></span><span class=hline style=border-bottom-width:.04em></span></span><span style=top:-9.7em><span class=pstrut style=height:6.45em></span><span class=hline style=border-bottom-width:.04em></span></span><span style=top:-10.9em><span class=pstrut style=height:6.45em></span><span class=hline style=border-bottom-width:.04em></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:3.95em><span></span></span></span></span></span></span></span></span></span>
+
+##### 46
+
+（8 分）一个文件系统中有一个 20MB 大文件和一个 20KB 小文件，当分别采用连续分配、隐式链接分配方案时，每块大小为 4096B，每块地址用 4B 表示，问：
+
+(1) 该文件系统所能管理的最大文件是多少？
+
+(2) 每种方案对大、小两文件各需要多少专用块来记录文件的物理地址（说明各块的用途）？
+
+(3) 如需要读大文件前面第 5.5KB 的信息和后面第 (16M+5.5KB) 的信息，则每个方案各需要多少次磁盘 I/O 操作？
+
+[tag_link]
+
+<p>**【解析】**
+本题考查文件物理结构的分配方案：连续分配、链接分配和索引分配。
+<p>（1）**连续分配**：文件大小理论上不受限制，可大到整个磁盘文件区。
+**链接分配**：由于块地址占 4 字节（32 位），能表示的最大块数为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8141em></span><span class=mord><span class=mord>2</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8141em><span style=top:-3.063em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">32</span></span></span></span></span></span></span></span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6833em></span><span class=mord>4</span><span class="mord text"><span class=mord>G</span></span></span></span></span>
+，每个盘块存放文件内容的大小为 4092 字节，因此链接分配可管理的最大文件为：
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7667em;vertical-align:-.0833em></span><span class=mord>4</span><span class="mord text"><span class=mord>G</span></span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6833em></span><span class=mord>4092</span><span class="mord text"><span class=mord>B</span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6833em></span><span class=mord>16368</span><span class="mord text"><span class=mord>GB</span></span></span></span></span>
+。
+<p>注意：有同学认为最后一块可以不存放指针而使用全部 4096 字节，但一般文件系统的块结构是固定的，为了多出 4 字节的空间会增加很多额外开销，因此通常不会这样做。
+<p>（2）**连续分配**：对大小文件都只需在文件控制块 FCB 中设置两项，一是首块物理块号，另一是文件总块数，不需要专用块记录文件的物理地址。
+**链接分配**：对大小文件也只需在 FCB 中设置两项，一是首块物理块号，另一是文件最后一个物理块号；同时在每个物理块中设置存放下一个块号的指针。
+<p>（3）**连续分配**：读取大文件前面或后面的信息时，需先计算信息在文件中的相对块号。
+前面信息的相对逻辑块号为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>5.5</span><span class="mord text"><span class=mord>K</span></span><span class=mord>/4</span><span class="mord text"><span class=mord>K</span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>1</span></span></span></span>
+（从 0 开始编号），
+后面信息的相对逻辑块号为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>16</span><span class="mord text"><span class=mord>M</span></span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>5.5</span><span class="mord text"><span class=mord>K</span></span><span class=mclose>)</span><span class=mord>/4</span><span class="mord text"><span class=mord>K</span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>4097</span></span></span></span>
+。
+物理块号 = 文件首块号 + 相对逻辑块号，每块只需一次磁盘 I/O 操作即可读出。
+<p>**链接分配**：读取大文件前面 5.5KB 的信息时，先读一次文件头块得到信息所在块的块号，再读一次第 1 号逻辑块得到所需信息，共需 2 次读盘。
+读取大文件
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7667em;vertical-align:-.0833em></span><span class=mord>16</span><span class="mord text"><span class=mord>MB</span></span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6833em></span><span class=mord>5.5</span><span class="mord text"><span class=mord>KB</span></span></span></span></span>
+处的信息时，逻辑块号为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>16</span><span class="mord text"><span class=mord>M</span></span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>5.5</span><span class="mord text"><span class=mord>K</span></span><span class=mclose>)</span><span class=mord>/4092</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>4101</span></span></span></span>
+，需要先顺序读出该块之前的所有块，共花费 4101 次磁盘 I/O 操作得到目标块的块号，最后再花一次 I/O 操作读出该块信息。因此总共需要 4102 次 I/O 操作。
+</div><h5 id=47>47</h5><p>（9 分）设 A、B 两站相距 4km，使用 CSMA/CD 协议，信号在网络上的传播速度为 200000km/s，两站发送速率为 100Mbps，A 站先发送数据，如果发生碰撞，则：
+<p>(1) 最先发送数据的 A 站最晚经过多长时间才检测到发生了碰撞？最快又是多少？
+<p>(2) 检测到碰撞后，A 站已发送数据长度的范围是多少（设 A 要发送的帧足够长）？
+<div class="answer-container td-max-width-on-larger-screens" id=quiz-answer-940de506bfc79619fca63900cf0f0338-7 data-tags data-page-url=http://www.csgraduates.com/study_methods/408simulate/8/ data-page-title="模拟卷 8"><div class=quiz-tag-container></div><div class=quiz-actions><button class=toggle-btn onclick='toggleSolutionDetail(this,"answer-940de506bfc79619fca63900cf0f0338-7")'>查看答案与解析</button>
+<button class=collect-btn onclick='collectAnswerQuiz("answer-940de506bfc79619fca63900cf0f0338-7",this)' title=收藏此题>
+<i class="fa-regular fa-bookmark"></i> 收藏</button>
+
+---
+#### 计算机网络
+
+##### 47
+
+（9 分）设 A、B 两站相距 4km，使用 CSMA/CD 协议，信号在网络上的传播速度为 200000km/s，两站发送速率为 100Mbps，A 站先发送数据，如果发生碰撞，则：
+
+(1) 最先发送数据的 A 站最晚经过多长时间才检测到发生了碰撞？最快又是多少？
+
+(2) 检测到碰撞后，A 站已发送数据长度的范围是多少（设 A 要发送的帧足够长）？
+
+[tag_link]
+
+<p>**【解析】**
+本题考查 CSMA/CD 协议的原理。
+<p>解答前应先明确时延的概念，传输时延（发送时延）是指发送数据时，数据块从结点进入传输媒体所需的时间，即发送数据帧的第一个比特开始，到该帧的最后一个比特发送完毕所需的时间，发送时延=数据块长度/信道带宽（发送速率）。传播时延是电磁波在信道中需要传播一定的距离而花费的时间。信号传输速率（发送速率）和信号在信道上的传播速率是完全不同的概念。传播时延=信道长度/信号在信道上的传播速度。之后，在根据 CSMA/CD 协议的原理即可求解。
+<p>（1）当 A 站发送的数据就要到达 B 站时 B 站才发送数据，此时 A 站检测到冲突的时间最长，即两倍的传输延迟的时间：
+<div class=td-max-width-on-larger-screens><span class=katex-display><span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8333em;vertical-align:-.15em></span><span class=mord><span class="mord mathnormal" style=margin-right:.13889em>T</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.1514em><span style=top:-2.55em;margin-left:-.1389em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">max</span></span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.7278em;vertical-align:-.0833em></span><span class=mord>2</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>4</span><span class=mspace style=margin-right:.1667em></span><span class="mord text"><span class=mord>km</span></span><span class=mspace style=margin-right:.2222em></span><span class=mbin>÷</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>200</span><span class=mspace style=margin-right:.1667em></span><span class=mord>000</span><span class=mspace style=margin-right:.1667em></span><span class="mord text"><span class=mord>km/s</span></span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>40</span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal">μ</span><span class="mord text"><span class=mord>s</span></span></span></span></span></span></div><p>当站 A 和站 B 同时向对方发送数据时，A 站检测到冲突的时间最短，即一倍的传输延迟的时间：
+<div class=td-max-width-on-larger-screens><span class=katex-display><span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8333em;vertical-align:-.15em></span><span class=mord><span class="mord mathnormal" style=margin-right:.13889em>T</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.1514em><span style=top:-2.55em;margin-left:-.1389em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">max</span></span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.7778em;vertical-align:-.0833em></span><span class=mord>4</span><span class=mspace style=margin-right:.1667em></span><span class="mord text"><span class=mord>km</span></span><span class=mspace style=margin-right:.2222em></span><span class=mbin>÷</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>200</span><span class=mspace style=margin-right:.1667em></span><span class=mord>000</span><span class=mspace style=margin-right:.1667em></span><span class="mord text"><span class=mord>km/s</span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>20</span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal">μ</span><span class="mord text"><span class=mord>s</span></span></span></span></span></span></div><p>注意：检测到冲突一定是某方在发送数据的同时监测到同一线路上有别的主机也在发送数据时才算检测到冲突，而不是在线路上两端数据“碰撞”的时候，这一点一定要弄清楚。
+<p>（2）因为已发送数据的位数=发送速率×发送时间，所以即发送的帧的长短取决于发送时间。而上问中已经算出了发送时间的最大最小值，这一问可以直接利
+用即可。因此，当检测冲突时间为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>40</span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal">μ</span><span class="mord text"><span class=mord>s</span></span></span></span></span>
+时，发送的数据最多，为
+
+<div class=td-max-width-on-larger-screens><span class=katex-display><span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8333em;vertical-align:-.15em></span><span class=mord><span class="mord mathnormal">L</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.1514em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">max</span></span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.8889em;vertical-align:-.1944em></span><span class=mord>100</span><span class=mspace style=margin-right:.1667em></span><span class="mord text"><span class=mord>Mbps</span></span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>40</span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal">μ</span><span class="mord text"><span class=mord>s</span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6944em></span><span class=mord>4000</span><span class=mspace style=margin-right:.1667em></span><span class="mord text"><span class=mord>bit</span></span></span></span></span></span></div><p>当检测冲突时间为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>20</span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal">μ</span><span class="mord text"><span class=mord>s</span></span></span></span></span>
+时，发送的数据最少，为
+
+<div class=td-max-width-on-larger-screens><span class=katex-display><span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8333em;vertical-align:-.15em></span><span class=mord><span class="mord mathnormal">L</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3175em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">min</span></span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.8889em;vertical-align:-.1944em></span><span class=mord>100</span><span class=mspace style=margin-right:.1667em></span><span class="mord text"><span class=mord>Mbps</span></span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>20</span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal">μ</span><span class="mord text"><span class=mord>s</span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6944em></span><span class=mord>2000</span><span class=mspace style=margin-right:.1667em></span><span class="mord text"><span class=mord>bit</span></span></span></span></span></span></div><p>故，已发送数据长度的范围为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>[</span><span class=mord>2000</span><span class=mspace style=margin-right:.1667em></span><span class="mord text"><span class=mord>bit</span></span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class=mspace style=margin-right:.1667em></span><span class=mord>4000</span><span class=mspace style=margin-right:.1667em></span><span class="mord text"><span class=mord>bit</span></span><span class=mclose>]</span></span></span></span>
+。
+<p>（3）当距离减少到
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6944em></span><span class=mord>2</span><span class=mspace style=margin-right:.1667em></span><span class="mord text"><span class=mord>km</span></span></span></span></span>
+后，单程传播时延为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>2/200000</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.8141em></span><span class=mord>1</span><span class=mord><span class=mord>0</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8141em><span style=top:-3.063em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">5</span></span></span></span></span></span></span></span></span><span class=mspace style=margin-right:.1667em></span><span class="mord text"><span class=mord>s</span></span></span></span></span>
+，即
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>10</span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal">μ</span><span class="mord text"><span class=mord>s</span></span></span></span></span>
+，往返传播时延是
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>20</span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal">μ</span><span class="mord text"><span class=mord>s</span></span></span></span></span>
+。为了使 CSMA/CD 协议能正常工作，最小帧长的发送时间不能小于
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>20</span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal">μ</span><span class="mord text"><span class=mord>s</span></span></span></span></span>
+。发送速率为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8889em;vertical-align:-.1944em></span><span class=mord>100</span><span class=mspace style=margin-right:.1667em></span><span class="mord text"><span class=mord>Mbps</span></span></span></span></span>
+，则
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>20</span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal">μ</span><span class="mord text"><span class=mord>s</span></span></span></span></span>
+可以发送的比特数为发送时间×发送速度
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.3669em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>20</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1.0641em;vertical-align:-.25em></span><span class=mord>1</span><span class=mord><span class=mord>0</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8141em><span style=top:-3.063em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">6</span></span></span></span></span></span></span></span></span><span class=mclose>)</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>1</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1.0641em;vertical-align:-.25em></span><span class=mord>1</span><span class=mord><span class=mord>0</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8141em><span style=top:-3.063em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">8</span></span></span></span></span></span></span></span><span class=mclose>)</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>2000</span></span></span></span>
+，因此，最小帧长应该为 2000。
+<p>（4）当提高发送速率时，保持最小帧长不变，则 A 站发送最小帧长的时间会缩短。此时，应相应地缩短往返传播时延，因此应缩短 A、B 两站的距离，以减少传播时延。
+
+---

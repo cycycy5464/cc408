@@ -1,6 +1,7 @@
 {{ define "main" }}
 <div class="exam-layout">
-  <div class="content-area content-area-wide">
+{{ partial "exam-year-nav.html" . }}
+<div class="content-area content-area-wide">
   <h1>{{ .Title }}</h1>
 
   {{ $year := .Params.year | string }}
@@ -37,9 +38,10 @@
 </div>
 
 <nav class="exam-toc" id="exam-toc">
-  <button class="toc-reveal-btn toc-reveal-vertical" id="reveal-all-btn-toc" type="button" aria-pressed="false" aria-label="查看全部答案与解析">查看全部解析</button>
+  <div class="exam-toc-body">
   <div class="exam-toc-header">
     题目导航
+    <button class="toc-reveal-btn toc-reveal-horizontal" id="reveal-all-btn-toc" type="button" aria-pressed="false" aria-label="查看全部答案与解析">查看全部解析</button>
   </div>
   <div class="exam-toc-list">
     {{ range $q := $yearQ }}
@@ -94,36 +96,31 @@
 .exam-toc-num { font-family: var(--font-mono); font-size: .8rem; min-width: 1.4rem; }
 .exam-toc-subj-label { font-size: .7rem; opacity: .85; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 4rem; }
 .exam-toc-kp { font-size: .68rem; opacity: .55; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 4rem; margin-left: auto; }
-.toc-reveal-vertical {
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  position: sticky;
-  top: 90px;
-  display: block;
-  width: fit-content;
-  margin: 0 auto .9rem;
-  padding: 1.1rem .4rem;
+.toc-reveal-horizontal {
+  margin-left: auto;
+  flex-shrink: 0;
+  padding: .3rem .7rem;
   background: linear-gradient(135deg, var(--accent), var(--accent2));
   color: #fff;
   border: none;
   border-radius: var(--radius-sm);
-  font-size: .8rem;
+  font-size: .75rem;
   font-weight: 600;
-  letter-spacing: .25em;
+  white-space: nowrap;
   cursor: pointer;
   box-shadow: var(--shadow-card);
   transition: all .2s;
 }
-.toc-reveal-vertical:hover { box-shadow: var(--shadow-glow); transform: translateY(-1px); }
-.toc-reveal-vertical:focus-visible { outline: 2px solid var(--text-primary); outline-offset: 2px; }
-.toc-reveal-vertical[aria-pressed="true"] {
+.toc-reveal-horizontal:hover { box-shadow: var(--shadow-glow); transform: translateY(-1px); }
+.toc-reveal-horizontal:focus-visible { outline: 2px solid var(--text-primary); outline-offset: 2px; }
+.toc-reveal-horizontal[aria-pressed="true"] {
   background: var(--bg-hover);
   color: var(--text-primary);
   border: 1px solid var(--border-color);
   box-shadow: none;
 }
 .exam-toc-header {
-  display: flex; align-items: center; gap: .5rem;
+  display: flex; align-items: center; gap: .5rem; justify-content: space-between;
   font-size: 1rem; font-weight: 700; color: var(--text-primary);
   padding: .25rem .75rem .6rem; border-bottom: 1px solid var(--border-color);
   margin-bottom: .5rem;
@@ -504,6 +501,20 @@ function toggleAnswer(btn) {
       pageUrl: pageUrl, pageTitle: pageTitle, collectedAt: new Date().toISOString()
     };
   }
+})();
+// 题目导航初始位置与首题顶部平齐
+(function() {
+  function alignToc() {
+    var toc = document.getElementById('exam-toc');
+    var firstQ = document.querySelector('.question-block');
+    if (!toc || !firstQ) return;
+    var tr = toc.getBoundingClientRect(), qr = firstQ.getBoundingClientRect();
+    var delta = qr.top - tr.top;
+    if (delta > 0) toc.style.marginTop = delta + 'px';
+  }
+  window.addEventListener('load', alignToc);
+  window.addEventListener('resize', alignToc);
+  if (document.readyState !== 'loading') alignToc();
 })();
 </script>
 {{ end }}

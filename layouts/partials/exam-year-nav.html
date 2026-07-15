@@ -1,0 +1,23 @@
+<nav class="exam-year-nav" id="exam-year-nav" aria-label="{{ if .Params.set }}模拟卷导航{{ else }}真题年份导航{{ end }}">
+  <div class="exam-year-nav-header">{{ if .Params.set }}模拟卷{{ else }}真题年份{{ end }}</div>
+  <div class="exam-year-nav-list">
+    {{ $cur := . }}
+    {{ with .Parent }}
+      {{ if $cur.Params.set }}
+        {{ range sort .Pages "Params.set" "asc" }}
+          {{ if .Params.set }}
+            {{ $active := eq .Params.set $cur.Params.set }}
+            <a href="{{ .RelPermalink }}" class="exam-year-nav-item{{ if $active }} active{{ end }}"{{ if $active }} aria-current="page"{{ end }}>模拟卷{{ .Params.set }}</a>
+          {{ end }}
+        {{ end }}
+      {{ else }}
+        {{ range sort .Pages "Params.year" "asc" }}
+          {{ if .Params.year }}
+            {{ $active := eq .Params.year $cur.Params.year }}
+            <a href="{{ .RelPermalink }}" class="exam-year-nav-item{{ if $active }} active{{ end }}"{{ if $active }} aria-current="page"{{ end }}>{{ .Params.year }}</a>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  </div>
+</nav>

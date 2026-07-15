@@ -1,5 +1,6 @@
 {{ define "main" }}
 <div class="exam-layout">
+{{ partial "exam-year-nav.html" . }}
 <div class="content-area content-area-wide">
   <h1>{{ .Title }}</h1>
 
@@ -37,11 +38,6 @@
     {{ end }}
   </div>
 
-  <div class="question-actions" style="display:none;">
-    <button class="reveal-btn" id="reveal-all-btn">查看全部答案与解析</button>
-    <button class="reveal-btn" style="background:var(--text-muted)" id="hide-all-btn" onclick="document.querySelectorAll('.answer-panel').forEach(function(p){p.style.display='none';});document.querySelectorAll('.exam-option').forEach(function(o){o.classList.remove('correct','wrong');});this.previousElementSibling.textContent='查看全部答案与解析';">隐藏全部答案</button>
-  </div>
-
   <div class="mt-section" style="margin-top:2rem;">
     {{ if .Params.set }}
     <a href="{{ "exam/simulate/" | relURL }}" class="btn-ghost">← 返回模拟卷列表</a>
@@ -52,12 +48,10 @@
 </div>
 
 <nav class="exam-toc" id="exam-toc">
+  <div class="exam-toc-body">
   <div class="exam-toc-header">
     题目导航
-    <div class="toc-actions">
-      <button class="toc-reveal-btn" id="reveal-all-btn-toc">查看全部答案与解析</button>
-      <button class="toc-reveal-btn toc-hide-btn" id="hide-all-btn-toc">隐藏全部</button>
-    </div>
+    <button class="toc-reveal-btn toc-reveal-horizontal" id="reveal-all-btn-toc" type="button" aria-pressed="false" aria-label="查看全部答案与解析">查看全部解析</button>
   </div>
   <div class="exam-toc-list">
     {{ range $q := $yearQ }}
@@ -105,26 +99,35 @@
 .exam-option.correct { border-color: #4caf50; background: rgba(76,175,80,.15); }
 .exam-option.wrong { border-color: #f44336; background: rgba(244,67,54,.15); }
 
-/* TOC reveal/hide buttons */
-.toc-actions { display: inline-flex; gap: .3rem; margin-left: auto; }
-.toc-reveal-btn {
-  padding: .25rem .6rem; border-radius: var(--radius-sm); cursor: pointer;
-  font-size: .7rem; font-weight: 500; transition: all .2s;
-  background: var(--accent); color: white; border: none;
+/* TOC 竖排“查看全部解析”按钮 */
+.toc-reveal-horizontal {
+  margin-left: auto;
+  flex-shrink: 0;
+  padding: .3rem .7rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: .75rem;
+  font-weight: 600;
   white-space: nowrap;
+  cursor: pointer;
+  box-shadow: var(--shadow-card);
+  transition: all .2s;
 }
-.toc-reveal-btn:hover { opacity: .85; }
-.toc-reveal-btn.toc-hide-btn {
-  background: transparent; border: 1px solid var(--border-color);
-  color: var(--text-muted);
-}
-.toc-reveal-btn.toc-hide-btn:hover {
-  border-color: var(--text-muted); color: var(--text-primary);
+.toc-reveal-horizontal:hover { box-shadow: var(--shadow-glow); transform: translateY(-1px); }
+.toc-reveal-horizontal:focus-visible { outline: 2px solid var(--text-primary); outline-offset: 2px; }
+.toc-reveal-horizontal[aria-pressed="true"] {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  box-shadow: none;
 }
 .exam-toc-header {
-  display: flex; align-items: center; gap: .5rem;
-  font-size: .95rem; font-weight: 700; color: var(--accent);
-  padding: .5rem; border-bottom: 1px solid var(--border-color);
+  display: flex; align-items: center; gap: .5rem; justify-content: space-between;
+  font-size: 1rem; font-weight: 700; color: var(--text-primary);
+  padding: .25rem .75rem .6rem; border-bottom: 1px solid var(--border-color);
+  margin-bottom: .5rem;
 }
 </style>
 
@@ -547,42 +550,34 @@ function toggleAnswer(btn) {
   }
 }
 
-// TOC reveal/hide all buttons (in nav sidebar)
+// TOC 竖排“查看全部解析”按钮：点击展开 / 收起全部答案
 (function() {
-  var revealAllBtn = document.getElementById('reveal-all-btn-toc');
-  var hideAllBtn = document.getElementById('hide-all-btn-toc');
-  if (!revealAllBtn) return;
-  
-  revealAllBtn.addEventListener('click', function() {
+  var tocRevealBtn = document.getElementById('reveal-all-btn-toc');
+  if (!tocRevealBtn) return;
+  tocRevealBtn.addEventListener('click', function() {
     var panels = document.querySelectorAll('.answer-panel');
-    for (var i = 0; i < panels.length; i++) {
-      panels[i].style.display = 'block';
+    var anyHidden = Array.prototype.some.call(panels, function(p) { return p.style.display === 'none'; });
+    var reveal = anyHidden; // 任一隐藏则展开全部，否则收起全部
+    Array.prototype.forEach.call(panels, function(p) { p.style.display = reveal ? 'block' : 'none'; });
+
+    if (reveal) {
+      document.querySelectorAll('.question-block').forEach(function(block) {
+        var ap = block.querySelector('.answer-panel');
+        var correct = ap ? ap.getAttribute('data-answer') : null;
+        if (correct) {
+          block.querySelectorAll('.exam-option').forEach(function(opt) {
+            if (opt.getAttribute('data-opt') === correct) opt.classList.add('correct');
+            else if (opt.classList.contains('selected')) opt.classList.add('wrong');
+          });
+        }
+      });
+      tocRevealBtn.textContent = '收起全部解析';
+      tocRevealBtn.setAttribute('aria-pressed', 'true');
+    } else {
+      document.querySelectorAll('.exam-option').forEach(function(o) { o.classList.remove('correct', 'wrong'); });
+      tocRevealBtn.textContent = '查看全部解析';
+      tocRevealBtn.setAttribute('aria-pressed', 'false');
     }
-    var blocks = document.querySelectorAll('.question-block');
-    for (var j = 0; j < blocks.length; j++) {
-      var btn = blocks[j].querySelector('.reveal-btn');
-      if (btn) btn.textContent = '隐藏答案';
-    }
-    revealAllBtn.textContent = '隐藏全部';
-    revealAllBtn.classList.add('active');
-  });
-  
-  hideAllBtn.addEventListener('click', function() {
-    var panels = document.querySelectorAll('.answer-panel');
-    for (var i = 0; i < panels.length; i++) {
-      panels[i].style.display = 'none';
-    }
-    var blocks = document.querySelectorAll('.question-block');
-    for (var j = 0; j < blocks.length; j++) {
-      var btn = blocks[j].querySelector('.reveal-btn');
-      if (btn) btn.textContent = '查看答案';
-      var opts = blocks[j].querySelectorAll('.exam-option');
-      for (var k = 0; k < opts.length; k++) {
-        opts[k].classList.remove('correct', 'wrong');
-      }
-    }
-    revealAllBtn.textContent = '查看全部答案与解析';
-    revealAllBtn.classList.remove('active');
   });
 })();
 
@@ -622,6 +617,20 @@ function toggleAnswer(btn) {
   }
   window.addEventListener('scroll', updateActive, { passive: true });
   updateActive();
+})();
+// 题目导航初始位置与首题顶部平齐
+(function() {
+  function alignToc() {
+    var toc = document.getElementById('exam-toc');
+    var firstQ = document.querySelector('.question-block');
+    if (!toc || !firstQ) return;
+    var tr = toc.getBoundingClientRect(), qr = firstQ.getBoundingClientRect();
+    var delta = qr.top - tr.top;
+    if (delta > 0) toc.style.marginTop = delta + 'px';
+  }
+  window.addEventListener('load', alignToc);
+  window.addEventListener('resize', alignToc);
+  if (document.readyState !== 'loading') alignToc();
 })();
 </script>
 {{ end }}

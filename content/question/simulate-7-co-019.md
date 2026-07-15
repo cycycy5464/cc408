@@ -17,20 +17,42 @@ number: 19
 
 设指令由取指、分析、执行三个子部件完成，每个子部件的工作周期均为 t，采用常规标量流水线处理。若连续执行 10 条指令，则需要的时间为（ ）。
 
-A\.
-
-B\.
-
-C\.
-
-D\.
+A\. <span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6444em></span><span class=mord>8</span><span class="mord mathnormal">t</span></span></span></span>
+B\. <span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6444em></span><span class=mord>10</span><span class="mord mathnormal">t</span></span></span></span>
+C\. <span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6444em></span><span class=mord>12</span><span class="mord mathnormal">t</span></span></span></span>
+D\. <span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6444em></span><span class=mord>14</span><span class="mord mathnormal">t</span></span></span></span>
 
 [tag_link]
 
 正确答案：C
-> 在常规标量流水线中，指令执行分为取指、分析、执行三个阶段，每个阶段耗时均为 t 。
+> <p> 在常规标量流水线中，指令执行分为取指、分析、执行三个阶段，每个阶段耗时均为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6151em></span><span class="mord mathnormal">t</span></span></span></span>
+。
 > 流水线处理允许连续指令重叠执行不同阶段，从而提升效率。
-> 对于 k 个阶段（本题 k = 3 ）和 n 条指令（本题 n = 10 ），总时间计算公式为： 总时间 = ( k + n − 1 ) ⋅ t 代入具体数值： 总时间 = ( 3 + 10 − 1 ) ⋅ t = 12 t 这意味着第一条指令在 3 t 时完成，后续指令每隔 t 时间完成一条，第 10 条指令在 12 t 时完成，因此连续执行 10 条指令需要 12 t 时间。
-> 选项中，A. 8 t 、B. 10 t 、D. 14 t 均不符合计算结果，故正确答案为 C。
+> 对于
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6944em></span><span class="mord mathnormal" style=margin-right:.03148em>k</span></span></span></span>
+个阶段（本题
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6944em></span><span class="mord mathnormal" style=margin-right:.03148em>k</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>3</span></span></span></span>
+）和
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.4306em></span><span class="mord mathnormal">n</span></span></span></span>
+条指令（本题
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.4306em></span><span class="mord mathnormal">n</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>10</span></span></span></span>
+），总时间计算公式为：
+<div class=td-max-width-on-larger-screens><span class=katex-display><span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6833em></span><span class="mord text"><span class="mord cjk_fallback">总时间</span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class="mord mathnormal" style=margin-right:.03148em>k</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6667em;vertical-align:-.0833em></span><span class="mord mathnormal">n</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>1</span><span class=mclose>)</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>⋅</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6151em></span><span class="mord mathnormal">t</span></span></span></span></span></div><p>代入具体数值：
+<div class=td-max-width-on-larger-screens><span class=katex-display><span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6833em></span><span class="mord text"><span class="mord cjk_fallback">总时间</span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>(</span><span class=mord>3</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>+</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.7278em;vertical-align:-.0833em></span><span class=mord>10</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>−</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>1</span><span class=mclose>)</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>⋅</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6151em></span><span class="mord mathnormal">t</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>12</span><span class="mord mathnormal">t</span></span></span></span></span></div><p>这意味着第一条指令在
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6444em></span><span class=mord>3</span><span class="mord mathnormal">t</span></span></span></span>
+时完成，后续指令每隔
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6151em></span><span class="mord mathnormal">t</span></span></span></span>
+时间完成一条，第 10 条指令在
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6444em></span><span class=mord>12</span><span class="mord mathnormal">t</span></span></span></span>
+时完成，因此连续执行 10 条指令需要
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6444em></span><span class=mord>12</span><span class="mord mathnormal">t</span></span></span></span>
+时间。
+> <p>选项中，A.
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6444em></span><span class=mord>8</span><span class="mord mathnormal">t</span></span></span></span>
+、B.
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6444em></span><span class=mord>10</span><span class="mord mathnormal">t</span></span></span></span>
+、D.
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6444em></span><span class=mord>14</span><span class="mord mathnormal">t</span></span></span></span>
+均不符合计算结果，故正确答案为 C。
 >
-

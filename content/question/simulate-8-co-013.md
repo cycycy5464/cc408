@@ -15,25 +15,35 @@ difficulty: 3
 number: 13
 ---
 
-已知 [ X ] 补 ​ = 8 CH ，计算机的机器字长为 8 位二进制编码，则 [ X × 4 ] 补 ​ 为（ ）。
+已知
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>[</span><span class="mord mathnormal" style=margin-right:.07847em>X</span><span class=mclose><span class=mclose>]</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3283em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord text mtight"><span class="mord cjk_fallback mtight">补</span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6833em></span><span class=mord>8</span><span class="mord text"><span class=mord>CH</span></span></span></span></span>
+，计算机的机器字长为 8 位二进制编码，则
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>[</span><span class="mord mathnormal" style=margin-right:.07847em>X</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>4</span><span class=mclose><span class=mclose>]</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3283em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord text mtight"><span class="mord cjk_fallback mtight">补</span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span></span></span></span>
+为（  ）。
 
 A\. 8CH
-
 B\. 18H
-
 C\. E3H
-
 D\. F1H
 
 [tag_link]
 
 正确答案：C
-> 已知 [ X ] 补 ​ = 8 CH ，机器字长为 8 位，8CH 对应的二进制为 1000 1100。
-> 由于最高位为 1，因此 X 为负数。
+> 已知
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>[</span><span class="mord mathnormal" style=margin-right:.07847em>X</span><span class=mclose><span class=mclose>]</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3283em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord cjk_fallback mtight">补</span></span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6833em></span><span class=mord>8</span><span class="mord text"><span class=mord>CH</span></span></span></span></span>
+，机器字长为 8 位，8CH 对应的二进制为 1000 1100。
+> 由于最高位为 1，因此
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6833em></span><span class="mord mathnormal" style=margin-right:.07847em>X</span></span></span></span>
+为负数。
 > 在补码运算中，除以 4 可通过算术右移两位实现。
 > 对于负数，算术右移时高位补 1。
 > 将 1000 1100 算术右移一位得 1100 0110，再右移一位得 1110 0011，即十六进制 E3H。
-> 因此， [ X /4 ] 补 ​ 为 E3H。
-> 题目中虽写为 [ X × 4 ] 补 ​ ，但根据选项和计算，实际应为 [ X /4 ] 补 ​ ，故正确答案为 E3H。
+> 因此，
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>[</span><span class="mord mathnormal" style=margin-right:.07847em>X</span><span class=mord>/4</span><span class=mclose><span class=mclose>]</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3283em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord cjk_fallback mtight">补</span></span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span></span></span></span>
+为 E3H。
+> 题目中虽写为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>[</span><span class="mord mathnormal" style=margin-right:.07847em>X</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>4</span><span class=mclose><span class=mclose>]</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3283em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord cjk_fallback mtight">补</span></span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span></span></span></span>
+，但根据选项和计算，实际应为
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mopen>[</span><span class="mord mathnormal" style=margin-right:.07847em>X</span><span class=mord>/4</span><span class=mclose><span class=mclose>]</span><span class=msupsub><span class="vlist-t vlist-t2"><span class=vlist-r><span class=vlist style=height:.3283em><span style=top:-2.55em;margin-left:0;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord cjk_fallback mtight">补</span></span></span></span></span></span><span class=vlist-s></span></span><span class=vlist-r><span class=vlist style=height:.15em><span></span></span></span></span></span></span></span></span></span>
+，故正确答案为 E3H。
 >
-

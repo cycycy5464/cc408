@@ -15,25 +15,33 @@ difficulty: 3
 number: 27
 ---
 
-设 m 为同类资源数， n 为系统中并发进程数。当 n 个进程共享 m 个互斥资源时，每个进程的最大需求是 w ，则下列情况会出现系统死锁的是（ ）。
+设
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.4306em></span><span class="mord mathnormal">m</span></span></span></span>
+为同类资源数，
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.4306em></span><span class="mord mathnormal">n</span></span></span></span>
+为系统中并发进程数。当
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.4306em></span><span class="mord mathnormal">n</span></span></span></span>
+个进程共享
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.4306em></span><span class="mord mathnormal">m</span></span></span></span>
+个互斥资源时，每个进程的最大需求是
+<span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.4306em></span><span class="mord mathnormal" style=margin-right:.02691em>w</span></span></span></span>
+，则下列情况会出现系统死锁的是（ ）。
 
-A\.
-
-B\.
-
-C\.
-
-D\.
+A\. <span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.4306em></span><span class="mord mathnormal">m</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>2</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal">n</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>1</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal" style=margin-right:.02691em>w</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>2</span></span></span></span>
+B\. <span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.4306em></span><span class="mord mathnormal">m</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>2</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal">n</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>2</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal" style=margin-right:.02691em>w</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>1</span></span></span></span>
+C\. <span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.4306em></span><span class="mord mathnormal">m</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>4</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal">n</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>3</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal" style=margin-right:.02691em>w</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>2</span></span></span></span>
+D\. <span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.4306em></span><span class="mord mathnormal">m</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>4</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal">n</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.8389em;vertical-align:-.1944em></span><span class=mord>2</span><span class=mpunct>,</span><span class=mspace style=margin-right:.1667em></span><span class="mord mathnormal" style=margin-right:.02691em>w</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>3</span></span></span></span>
 
 [tag_link]
 
 正确答案：D
-> 系统死锁的一个常见条件是当所有进程都持有部分资源并等待更多资源时，资源总数不足以满足任何进程的剩余需求。
+> <p>
+系统死锁的一个常见条件是当所有进程都持有部分资源并等待更多资源时，资源总数不足以满足任何进程的剩余需求。
 > 具体来说，如果每个进程的最大需求为 w，那么在最坏情况下，每个进程都已获得 w-1 个资源并等待最后一个资源。
 > 此时，已分配资源总数为 n(w-1)，如果资源总数 m 不超过 n(w-1)，即 m ≤ n(w-1)，则系统可能陷入死锁。
-> 分析各个选项： A. m=2, n=1, w=2：计算 n(w-1)=1×(2-1)=1，m=2>1，不会死锁。
+> <p>分析各个选项：
+A. m=2, n=1, w=2：计算 n(w-1)=1×(2-1)=1，m=2>1，不会死锁。
 > B. m=2, n=2, w=1：计算 n(w-1)=2×(1-1)=0，m=2>0，不会死锁。
 > C. m=4, n=3, w=2：计算 n(w-1)=3×(2-1)=3，m=4>3，不会死锁。
 > D. m=4, n=2, w=3：计算 n(w-1)=2×(3-1)=4，m=4 恰好等于 n(w-1)，此时两个进程各获得 2 个资源后，所有资源被占用，每个进程还需 1 个资源才能完成，但无可用资源，因此系统会出现死锁。
 >
-

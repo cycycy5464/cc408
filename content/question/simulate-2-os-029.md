@@ -15,14 +15,11 @@ difficulty: 3
 number: 29
 ---
 
-下列叙述中错误的是（ ）。
+下列叙述中错误的是（　）。
 
 A\. I、III 和 IV
-
 B\. II、III 和 IV
-
 C\. III 和 IV
-
 D\. I、II、III 和 IV
 
 [tag_link]
@@ -35,4 +32,3 @@ D\. I、II、III 和 IV
 > 实际物理资源（主存和辅存）用于支持虚拟地址空间的映射和交换。
 > 综上，错误叙述为 I、III 和 IV，对应选项 A。
 >
-
