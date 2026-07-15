@@ -1,5 +1,5 @@
 ---
-title: "模拟卷8 计算机组成原理 第19题"
+title: "模拟卷8 组成原理 第19题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,14 @@ years:
 source: "模拟题"
 set: 8
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "汇编代码"
+  - "流水线概念"
 question_type: "choice"
 difficulty: 3
 number: 19
+
 ---
 
 流水线计算机中，下列语句发生的数据相关类型是（ ）。
@@ -23,6 +25,9 @@ A\. 写后写
 B\. 读后写
 C\. 写后读
 D\. 读后读
+
+[汇编代码](/study_methods/tags/408quiz//#%e6%b1%87%e7%bc%96%e4%bb%a3%e7%a0%81)
+[流水线概念](/study_methods/tags/408quiz//#%e6%b5%81%e6%b0%b4%e7%ba%bf%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

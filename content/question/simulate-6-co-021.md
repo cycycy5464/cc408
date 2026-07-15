@@ -1,5 +1,5 @@
 ---
-title: "模拟卷6 计算机组成原理 第21题"
+title: "模拟卷6 组成原理 第21题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 6
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "异常和中断"
 question_type: "choice"
 difficulty: 3
 number: 21
+
 ---
 
 关于外中断（故障除外）和 DMA，下列哪个说法是正确的（ ）。
@@ -21,6 +22,8 @@ A\. I 和 V
 B\. I 和 IV
 C\. I
 D\. II 和 III
+
+[异常和中断](/study_methods/tags/408quiz//#%e5%bc%82%e5%b8%b8%e5%92%8c%e4%b8%ad%e6%96%ad)
 
 [tag_link]
 

@@ -9,10 +9,11 @@ set: 8
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "信号量"
 question_type: "choice"
 difficulty: 3
 number: 25
+
 ---
 
 N 个进程共享 M 台打印机（其中 N>M），假设每台打印机为临界资源，必须独占使用，则打印机共享的互斥信号量的取值范围为（ ）。
@@ -21,6 +22,8 @@ A\. -(N-1)~M
 B\. -(N-M)~M
 C\. -(N-M)~1
 D\. -(N-1)~1
+
+[信号量](/study_methods/tags/408quiz//#%e4%bf%a1%e5%8f%b7%e9%87%8f)
 
 [tag_link]
 

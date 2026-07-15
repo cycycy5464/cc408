@@ -1,5 +1,5 @@
 ---
-title: "模拟卷7 计算机组成原理 第21题"
+title: "模拟卷7 组成原理 第21题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 7
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "计算机性能指标"
 question_type: "choice"
 difficulty: 3
 number: 21
+
 ---
 
 某计算机系统中的软盘驱动器以中断方式与处理机进行 I/O 通信，通信以 16bit 为传输单位，传输率为 50KB/s。每次传输的开销（包括中断）为 100 个节拍，处理器的主频为 50MHz，则磁盘使用时占用处理器时间的比例为（ ）。
@@ -21,6 +22,8 @@ A\. 5%
 B\. 10%
 C\. 15%
 D\. 20%
+
+[计算机性能指标](/study_methods/tags/408quiz//#%e8%ae%a1%e7%ae%97%e6%9c%ba%e6%80%a7%e8%83%bd%e6%8c%87%e6%a0%87)
 
 [tag_link]
 

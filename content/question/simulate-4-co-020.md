@@ -1,5 +1,5 @@
 ---
-title: "模拟卷4 计算机组成原理 第20题"
+title: "模拟卷4 组成原理 第20题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 4
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "操作系统概念"
 question_type: "choice"
 difficulty: 3
 number: 20
+
 ---
 
 在做手术过程中，医生将手伸出，等护士将手术刀递上，待医生握紧后，护士才松手。如果把医生和护士看作两个通信模块，上述一系列动作相当于（ ）。
@@ -21,6 +22,8 @@ A\. 同步通信
 B\. 异步通信的全互锁方式
 C\. 异步通信的半互锁方式
 D\. 异步通信的不互锁方式
+
+[操作系统概念](/study_methods/tags/408quiz//#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

@@ -1,5 +1,5 @@
 ---
-title: "模拟卷2 计算机组成原理 第44题"
+title: "模拟卷2 组成原理 第44题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 2
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "寄存器类型"
 question_type: "comprehensive"
 difficulty: 4
 number: 44
+
 ---
 
 已知带返转指令的含义如下图所示：
@@ -24,6 +25,8 @@ number: 44
 （3）假设该机指令系统采用 6 位定长操作码格式，共对应多少个微程序？
 
 （4）在原理、执行速度和灵活性三个方面分析硬布线控制和微程序控制的区别。
+
+[寄存器类型](/study_methods/tags/408quiz//#%e5%af%84%e5%ad%98%e5%99%a8%e7%b1%bb%e5%9e%8b)
 
 [tag_link]
 

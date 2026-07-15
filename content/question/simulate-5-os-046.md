@@ -9,10 +9,11 @@ set: 5
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "地址翻译"
 question_type: "comprehensive"
 difficulty: 4
 number: 46
+
 ---
 
 （8 分）在某段式存储管理系统中，逻辑地址为 32 位，其中高 16 位为段号，低 16 位为段内偏移量，以下是段表（其中的地址均为 16 进制）：
@@ -25,6 +26,8 @@ number: 46
 （2）若栈指针 SP 的当前值为 70FF0H，push x 指令的执行过程：先将 SP 减 4，然后存储 x 的值。试问存储 x 的物理地址是多少？
 （3）call sin 指令的执行过程：先将当前 PC 值入栈，然后在 PC 内装入目标 PC 值。请问：哪个值被压入栈了？新的 SP 指针的值是多少？新的 PC 值是多少？
 （4）“mov r2,4+(SP)”的功能是什么？（假设指令集与 x86 系列 CPU 相同）
+
+[地址翻译](/study_methods/tags/408quiz//#%e5%9c%b0%e5%9d%80%e7%bf%bb%e8%af%91)
 
 [tag_link]
 

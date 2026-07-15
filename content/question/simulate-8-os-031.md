@@ -9,10 +9,12 @@ set: 8
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "磁盘概念"
+  - "文件概念"
 question_type: "choice"
 difficulty: 3
 number: 31
+
 ---
 
 设某文件为链接文件，由 5 个逻辑记录组成，每个逻辑记录的大小与磁盘块的大小相等，均为 512 字节，并依次存放在 50、121、75、80、63 号磁盘块上。若要存取文件的第 1569 逻辑字节处的信息，则应访问（ ）号磁盘块。
@@ -21,6 +23,9 @@ A\. 3
 B\. 80
 C\. 75
 D\. 63
+
+[磁盘概念](/study_methods/tags/408quiz//#%e7%a3%81%e7%9b%98%e6%a6%82%e5%bf%b5)
+[文件概念](/study_methods/tags/408quiz//#%e6%96%87%e4%bb%b6%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

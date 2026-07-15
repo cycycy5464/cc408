@@ -1,5 +1,5 @@
 ---
-title: "模拟卷1 操作系统 第11题"
+title: "模拟卷1 数据结构 第11题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,14 @@ years:
 source: "模拟题"
 set: 1
 subjects:
-  - "操作系统"
+  - "数据结构"
 knowledge_points:
-  - "操作系统"
+  - "外部排序"
+  - "操作系统概念"
 question_type: "choice"
 difficulty: 3
 number: 11
+
 ---
 
 18 个初始归并段进行 5 路平衡归并，需要增加（ ）个虚拟归并段。
@@ -21,6 +23,9 @@ A\. 1
 B\. 2
 C\. 3
 D\. 4
+
+[外部排序](/study_methods/tags/408quiz//#%e5%a4%96%e9%83%a8%e6%8e%92%e5%ba%8f)
+[操作系统概念](/study_methods/tags/408quiz//#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

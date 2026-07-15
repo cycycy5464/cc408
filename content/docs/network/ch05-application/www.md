@@ -35,7 +35,7 @@ chapter_title: "万维网"
 
 #### 组成部分
 
-![](/images/docs/network/0213698d42.svg)
+![](/cc408/images/docs/network/0213698d42.svg)
 
 上图展示了 HTTP 协议的几个重要组成部分，对于考试而言，**重点关注** 以下字段：
 
@@ -69,7 +69,7 @@ chapter_title: "万维网"
 
 ##### 长连接和短连接
 
-![](/images/docs/network/image-20260613073042223.png)
+![](/cc408/images/docs/network/image-20260613073042223.png)
 
 
 **长连接和短连接含义**
@@ -87,7 +87,7 @@ chapter_title: "万维网"
 ##### 流水线和非流水线
 
 
-![](/images/docs/network/image-20260613073052685.png)
+![](/cc408/images/docs/network/image-20260613073052685.png)
 
 
 **HTTP 流水线和非流水线含义**
@@ -112,7 +112,7 @@ chapter_title: "万维网"
 ##### cookie
 
 
-![](/images/docs/network/6261a9c05e.svg)
+![](/cc408/images/docs/network/6261a9c05e.svg)
 
 **HTTP** 协议是 **无状态** 的，这意味着每个请求都是独立的，**服务器** 默认情况下无法知道两个请求是否来自同一客户端或用户。**Cookie** 的引入使得 **服务器** 能够跨多个请求“识别”和“记住”用户。
 

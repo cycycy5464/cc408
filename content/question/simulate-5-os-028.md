@@ -9,10 +9,12 @@ set: 5
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "操作系统概念"
+  - "栈"
 question_type: "choice"
 difficulty: 3
 number: 28
+
 ---
 
 总体上说，“按需调页”（Demand-paging）是一个很好的虚拟内存管理策略。但是，有些程序设计技术并不适合于这种环境。例如，（ ）。
@@ -21,6 +23,9 @@ A\. 堆栈
 B\. 线性搜索
 C\. 矢量运算
 D\. 二分搜索
+
+[操作系统概念](/study_methods/tags/408quiz//#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f%e6%a6%82%e5%bf%b5)
+[栈](/study_methods/tags/408quiz//#%e6%a0%88)
 
 [tag_link]
 

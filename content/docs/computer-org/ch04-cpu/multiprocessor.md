@@ -19,7 +19,7 @@ chapter_title: "多处理器"
 
 **弗林分类法** （Flynn’s Taxonomy）是一种计算机体系结构的分类方法，由 **弗林** （Michael J. Flynn）于 1966 年提出。它根据计算机中 **指令流** 和 **数据流** 的数量，将计算机体系结构分为 **SISD** 、**SIMD** 、**MIMD** 、**MISD** 四类：
 
-![](/images/docs/computer-org/image-20260612233714079.png)
+![](/cc408/images/docs/computer-org/image-20260612233714079.png)
 
 #### 指令流、数据流
 
@@ -32,7 +32,7 @@ chapter_title: "多处理器"
 #### SISD
 
 
-![](/images/docs/computer-org/9f0d32c6e1.svg)
+![](/cc408/images/docs/computer-org/9f0d32c6e1.svg)
 
 **SISD** \(Single Instruction Single Data\) 指的是单指令流单数据流，每个指令部件每次仅译码一条指令，而且在执行时仅为操作部件提供一份数据。
 
@@ -67,14 +67,14 @@ chapter_title: "多处理器"
 现代计算机中的 **多核处理器** 就是 **MIMD** 架构的典型代表。
 
 
-![](/images/docs/computer-org/247358c395.svg)
+![](/cc408/images/docs/computer-org/247358c395.svg)
 
 如上图所示，与 **SIMD** 不同，**MIMD** 中的不同 **处理单元** 可以去处理不同的 **指令流** 。
 
 ### 多核处理器
 
 
-![](/images/docs/computer-org/c305a78cb5.svg)
+![](/cc408/images/docs/computer-org/c305a78cb5.svg)
 
 #### 物理核心
 
@@ -93,7 +93,7 @@ chapter_title: "多处理器"
 **超线程** 技术的核心思想是将一个 **物理核心** 模拟成多个 **逻辑核心** （线程），从而在同一时间内执行多个 **线程** 。每个 **逻辑核心** 都拥有自己的寄存器集合和执行单元，这些 **逻辑核心** 之间共享 **物理核心** 的资源，如 **缓存** 和执行单元。
 
 
-![](/images/docs/computer-org/6e1b14b258.svg)
+![](/cc408/images/docs/computer-org/6e1b14b258.svg)
 
 
 **超线程** 技术旨在提高 CPU 的利用率，特别是在多线程应用程序中。  
@@ -106,7 +106,7 @@ chapter_title: "多处理器"
 **共享内存多处理机** （Shared Memory Multiprocessor）是一种并行计算机体系结构，其中多个处理器共享同一个 **物理内存空间** 。这种架构允许处理器之间通过读写 **共享内存** 来进行通信和数据交换，从而实现并行计算。
 
 
-![](/images/docs/computer-org/70ceab805c.svg)
+![](/cc408/images/docs/computer-org/70ceab805c.svg)
 
 **共享内存多处理机** 有两大主要架构特点：
 

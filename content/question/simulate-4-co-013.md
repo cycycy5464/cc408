@@ -1,5 +1,5 @@
 ---
-title: "模拟卷4 计算机组成原理 第13题"
+title: "模拟卷4 组成原理 第13题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 4
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "差错控制"
 question_type: "choice"
 difficulty: 3
 number: 13
+
 ---
 
 已知小写英文字母“a”的 ASCII 码值为 61H，现字母“g”被存放在某个存储单元中，若采用偶校验（假设最高位作为校验位），则该存储单元中存放的十六进制数是（ ）。
@@ -21,6 +22,8 @@ A\. 66H
 B\. E6H
 C\. 67H
 D\. E7H
+
+[差错控制](/study_methods/tags/408quiz//#%e5%b7%ae%e9%94%99%e6%8e%a7%e5%88%b6)
 
 [tag_link]
 

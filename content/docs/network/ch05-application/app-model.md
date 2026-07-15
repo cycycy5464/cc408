@@ -15,7 +15,7 @@ chapter_title: "网络应用模型"
 
 非常简单的两个概念，简单看看，基本就是常识，选择题有小概率考查，都是送分题。
 
-![](/images/docs/network/image-20260613072845220.png)
+![](/cc408/images/docs/network/image-20260613072845220.png)
 
 ### C/S 模型
 

@@ -9,10 +9,11 @@ set: 2
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "页表"
 question_type: "choice"
 difficulty: 3
 number: 30
+
 ---
 
 在一个 64 位的计算机系统中，地址线宽为 64 位，实际使用的虚拟地址空间的大小是
@@ -25,6 +26,8 @@ A\. 3
 B\. 4
 C\. 5
 D\. 6
+
+[页表](/study_methods/tags/408quiz//#%e9%a1%b5%e8%a1%a8)
 
 [tag_link]
 

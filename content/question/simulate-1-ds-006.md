@@ -9,10 +9,12 @@ set: 1
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "最小生成树"
+  - "图的概念"
 question_type: "choice"
 difficulty: 3
 number: 6
+
 ---
 
 设无向图 G=(V,E) 和 G&rsquo;=(V&rsquo;,E&rsquo;)，如果 G&rsquo; 是 G 的生成树，则下面说法错误的是（ ）。
@@ -21,6 +23,9 @@ A\. G&rsquo; 是 G 的子图
 B\. G&rsquo; 是 G 的连通分量
 C\. G&rsquo; 是 G 的极小连通子图且 V&rsquo;=V
 D\. G&rsquo; 是 G 的一个无环子图
+
+[最小生成树](/study_methods/tags/408quiz//#%e6%9c%80%e5%b0%8f%e7%94%9f%e6%88%90%e6%a0%91)
+[图的概念](/study_methods/tags/408quiz//#%e5%9b%be%e7%9a%84%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

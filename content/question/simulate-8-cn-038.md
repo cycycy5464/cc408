@@ -9,10 +9,12 @@ set: 8
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "路由表"
+  - "路由器"
 question_type: "choice"
 difficulty: 3
 number: 38
+
 ---
 
 某路由器的路由表如下所示。如果它收到一个目的地址为 192.168.10.23 的 IP 数据报，那么它为该数据报选择的下一跳路由器地址是（ ）。
@@ -21,6 +23,9 @@ A\. 192.168.1.35
 B\. 192.168.2.66
 C\. 直接投递
 D\. 丢弃
+
+[路由表](/study_methods/tags/408quiz//#%e8%b7%af%e7%94%b1%e8%a1%a8)
+[路由器](/study_methods/tags/408quiz//#%e8%b7%af%e7%94%b1%e5%99%a8)
 
 [tag_link]
 

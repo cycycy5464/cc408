@@ -9,10 +9,12 @@ set: 8
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "页表"
+  - "缺页异常"
 question_type: "comprehensive"
 difficulty: 4
 number: 45
+
 ---
 
 （8 分）某一个计算机系统采用虚拟页式存储管理方式，当前在处理机上执行的某一个进程的页表如下所示，所有的数字均为十进制，每一项的起始编号是 0，并且所有的地址均按字节编址，每页的大小为 1024 字节。
@@ -28,6 +30,9 @@ number: 45
 (3) 若距离减少到 2km，为了保证网络正常工作，则最小帧长度是多少？
 
 (4) 若发送速率提高，最小帧长不变，为了保证网络正常工作应采取什么解决方案？
+
+[页表](/study_methods/tags/408quiz//#%e9%a1%b5%e8%a1%a8)
+[缺页异常](/study_methods/tags/408quiz//#%e7%bc%ba%e9%a1%b5%e5%bc%82%e5%b8%b8)
 
 [tag_link]
 

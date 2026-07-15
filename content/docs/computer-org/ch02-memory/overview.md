@@ -20,7 +20,7 @@ chapter_title: "存储系统概述"
 存储系统是计算机体系结构的核心组成部分之一，用于存储程序指令和数据，以支持处理器的运算需求。为了平衡速度、容量和成本，现代计算机采用了分层存储体系结构，从最快速但容量有限的 **寄存器** 到容量大但速度较慢的辅助存储设备，形成了存储层次结构。
 
 
-![](/images/docs/computer-org/001df1e8f1.svg)
+![](/cc408/images/docs/computer-org/001df1e8f1.svg)
 
 
 \(distributed file systems, web servers\)  
@@ -87,7 +87,7 @@ chapter_title: "存储系统概述"
 
 **SRAM** （Static RAM，静态随机存取存储器）使用触发器（通常由 4-6 个晶体管组成）构成存储器的基本存储单元，存储每个比特的数据，如下图所示：
 
-![](/images/docs/computer-org/ae6155700c.svg)
+![](/cc408/images/docs/computer-org/ae6155700c.svg)
 
 只要电源持续供应，数据无需刷新即可保持稳定。
 
@@ -104,14 +104,14 @@ chapter_title: "存储系统概述"
   * 晶体管作为开关，控制电容器与外部位线（bit line）的连接，读写数据。
 
 
-![](/images/docs/computer-org/image-20260612222217595.png)
+![](/cc408/images/docs/computer-org/image-20260612222217595.png)
 
 
 与触发器不同，电容器具有 **动态特性** ，会随时间漏电，导致数据丢失，因此需要 **定期刷新** （通常每几毫秒）以恢复电荷。
 
 **DRAM** 和 **SRAM** 的存储阵列在宏观上类似，都采用二维矩阵结构，通过字线和位线实现随机访问，主要区别在于基本存储单元的不同：
 
-![](/images/docs/computer-org/504f9f18f3.svg)
+![](/cc408/images/docs/computer-org/504f9f18f3.svg)
 
 它以低成本和高容量著称，**主要用于** 计算机主内存（如系统 **RAM** ）、显卡内存等。
 

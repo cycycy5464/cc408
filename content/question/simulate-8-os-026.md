@@ -9,10 +9,12 @@ set: 8
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "进程和线程"
+  - "进程概念"
 question_type: "choice"
 difficulty: 3
 number: 26
+
 ---
 
 关于优先级大小的论述中，错误的是（ ）。
@@ -25,6 +27,9 @@ A\. I 和 IV
 B\. III 和 IV
 C\. I、III 和 IV
 D\. I、II、III 和 IV
+
+[进程和线程](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e5%92%8c%e7%ba%bf%e7%a8%8b)
+[进程概念](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

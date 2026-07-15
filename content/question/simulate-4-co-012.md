@@ -1,5 +1,5 @@
 ---
-title: "模拟卷4 计算机组成原理 第12题"
+title: "模拟卷4 组成原理 第12题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 4
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "计算机性能指标"
 question_type: "choice"
 difficulty: 3
 number: 12
+
 ---
 
 已知一台时钟频率为 2GHz 的计算机的 CPI 为 1.2。某程序 P 在该计算机上的指令条数为 4×10⁷ 条。若在该计算机上，程序 P 从开始启动到执行结束所经历的时间是 4s，则运行 P 所用 CPU 时间占整个 CPU 时间的百分比大约是（ ）。
@@ -21,6 +22,8 @@ A\. 40%
 B\. 60%
 C\. 80%
 D\. 100%
+
+[计算机性能指标](/study_methods/tags/408quiz//#%e8%ae%a1%e7%ae%97%e6%9c%ba%e6%80%a7%e8%83%bd%e6%8c%87%e6%a0%87)
 
 [tag_link]
 

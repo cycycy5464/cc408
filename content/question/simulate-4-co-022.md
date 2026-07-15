@@ -1,5 +1,5 @@
 ---
-title: "模拟卷4 计算机组成原理 第22题"
+title: "模拟卷4 组成原理 第22题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,14 @@ years:
 source: "模拟题"
 set: 4
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "总线类型"
+  - "异常和中断"
 question_type: "choice"
 difficulty: 3
 number: 22
+
 ---
 
 在 DMA 方式下，数据从内存传送到外设经过的路径是（ ）。
@@ -24,6 +26,9 @@ B\. 内存 → 数据总线 → DMA → 外设
 C\. 内存 → CPU → 数据总线 → 外设
 
 D\. 外设 → 内存
+
+[总线类型](/study_methods/tags/408quiz//#%e6%80%bb%e7%ba%bf%e7%b1%bb%e5%9e%8b)
+[异常和中断](/study_methods/tags/408quiz//#%e5%bc%82%e5%b8%b8%e5%92%8c%e4%b8%ad%e6%96%ad)
 
 [tag_link]
 

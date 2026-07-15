@@ -9,10 +9,11 @@ set: 4
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "完全二叉树"
 question_type: "choice"
 difficulty: 3
 number: 3
+
 ---
 
 若一棵深度为 6 的完全二叉树的第 6 层有 3 个叶子结点，则该二叉树共有（ ）个叶子结点。
@@ -21,6 +22,8 @@ A\. 17
 B\. 18
 C\. 19
 D\. 20
+
+[完全二叉树](/study_methods/tags/408quiz//#%e5%ae%8c%e5%85%a8%e4%ba%8c%e5%8f%89%e6%a0%91)
 
 [tag_link]
 

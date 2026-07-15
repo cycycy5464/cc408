@@ -9,10 +9,11 @@ set: 5
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "子网划分"
 question_type: "choice"
 difficulty: 3
 number: 36
+
 ---
 
 一台主机的 IP 地址为 11.1.1.100，子网掩码为 255.0.0.0。现在用户需要配置该主机的默认路由。经过观察发现，与该主机直接相连的路由器具有如下 4 个 IP 地址和子网掩码：
@@ -25,6 +26,8 @@ A\. I 和 II
 B\. I 和 III
 C\. I、III 和 IV
 D\. III 和 IV
+
+[子网划分](/study_methods/tags/408quiz//#%e5%ad%90%e7%bd%91%e5%88%92%e5%88%86)
 
 [tag_link]
 

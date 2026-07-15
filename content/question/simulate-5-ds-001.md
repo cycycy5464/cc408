@@ -9,10 +9,12 @@ set: 5
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "栈"
+  - "入栈出栈序列"
 question_type: "choice"
 difficulty: 3
 number: 1
+
 ---
 
 假设栈的容量为 3，入栈的序列为 1,2,3,4,5，则出栈的序列可能为（ ）。
@@ -21,6 +23,9 @@ A\. 3,2,1,5,4
 B\. 1,5,4,3,2
 C\. 5,4,3,2,1
 D\. 4,3,2,1,5
+
+[栈](/study_methods/tags/408quiz//#%e6%a0%88)
+[入栈出栈序列](/study_methods/tags/408quiz//#%e5%85%a5%e6%a0%88%e5%87%ba%e6%a0%88%e5%ba%8f%e5%88%97)
 
 [tag_link]
 

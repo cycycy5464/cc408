@@ -1,5 +1,5 @@
 ---
-title: "模拟卷7 计算机组成原理 第12题"
+title: "模拟卷7 组成原理 第12题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 7
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "操作系统概念"
 question_type: "choice"
 difficulty: 3
 number: 12
+
 ---
 
 冯·诺伊曼机可以区分指令和数据的部件是（ ）。
@@ -21,6 +22,8 @@ A\. 总线
 B\. 控制器
 C\. 控制存储器
 D\. 运算器
+
+[操作系统概念](/study_methods/tags/408quiz//#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

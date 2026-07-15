@@ -14,7 +14,7 @@ chapter_title: "树与二叉树"
 本章在选择题中考察，需熟练掌握树的各种概念，并且能够手工模拟基于树的各种算法流程。
 
 学习思维导图
-![](/images/docs/data-structure/image-20260612092437321.png)
+![](/cc408/images/docs/data-structure/image-20260612092437321.png)
 
 ## 树的基本概念
 

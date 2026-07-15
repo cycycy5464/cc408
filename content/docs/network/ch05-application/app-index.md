@@ -14,7 +14,7 @@ chapter_title: "应用层"
 可能会在选择题中考察，主要涉及到一些应用层协议的基本概念。
 
 学习思维导图：
-   ![](/images/docs/network/image-20260613072827253.png)
+   ![](/cc408/images/docs/network/image-20260613072827253.png)
 ## 网络应用模型
 
 - C/S模型

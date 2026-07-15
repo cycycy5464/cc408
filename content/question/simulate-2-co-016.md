@@ -1,5 +1,5 @@
 ---
-title: "模拟卷2 计算机组成原理 第16题"
+title: "模拟卷2 组成原理 第16题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 2
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "访存过程"
 question_type: "choice"
 difficulty: 3
 number: 16
+
 ---
 
 某计算机的存储系统由 Cache-主存系统构成，Cache 的存取周期为 10ns，主存的存取周期为 50ns。在 CPU 执行一段程序时，Cache 完成存取的次数为 4800 次，主存完成的存取次数为 200 次，该 Cache-主存系统的效率是（　）。（设 Cache 和主存不能同时访问）
@@ -21,6 +22,8 @@ A\. 0.833
 B\. 0.856
 C\. 0.958
 D\. 0.862
+
+[访存过程](/study_methods/tags/408quiz//#%e8%ae%bf%e5%ad%98%e8%bf%87%e7%a8%8b)
 
 [tag_link]
 

@@ -1,5 +1,5 @@
 ---
-title: "模拟卷6 计算机组成原理 第12题"
+title: "模拟卷6 组成原理 第12题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 6
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "计算机性能指标"
 question_type: "choice"
 difficulty: 3
 number: 12
+
 ---
 
 以下有关计算机机运算速度衡量指标的描述中，正确的是（ ）。
@@ -21,6 +22,8 @@ A\. MIPS 大的机器一定比 MIPS 小的机器快
 B\. CPU 的主频越高速度越快
 C\. 执行不同的程序，测得的同一台计算机的 CPI 可能不同
 D\. CPU 执行程序的时间就是观测到用户程序的执行时间
+
+[计算机性能指标](/study_methods/tags/408quiz//#%e8%ae%a1%e7%ae%97%e6%9c%ba%e6%80%a7%e8%83%bd%e6%8c%87%e6%a0%87)
 
 [tag_link]
 

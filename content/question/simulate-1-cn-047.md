@@ -9,10 +9,11 @@ set: 1
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "协议数据单元"
 question_type: "comprehensive"
 difficulty: 4
 number: 47
+
 ---
 
 （9 分）TCP 的拥塞窗口 cwnd 大小与传输轮次 n 的关系如下所示：
@@ -28,6 +29,8 @@ number: 47
 （5）在第几轮次发送出第 70 个报文段？
 
 （6）假定在第 26 轮次之后收到了三个重复的确认，因而检测出了报文段的丢失，那么拥塞窗口 cwnd 和门限 ssthresh 应设置为多大？
+
+[协议数据单元](/study_methods/tags/408quiz//#%e5%8d%8f%e8%ae%ae%e6%95%b0%e6%8d%ae%e5%8d%95%e5%85%83)
 
 [tag_link]
 

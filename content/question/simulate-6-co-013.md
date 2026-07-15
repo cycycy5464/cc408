@@ -1,5 +1,5 @@
 ---
-title: "模拟卷6 计算机组成原理 第13题"
+title: "模拟卷6 组成原理 第13题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,14 @@ years:
 source: "模拟题"
 set: 6
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "补码"
+  - "标志寄存器"
 question_type: "choice"
 difficulty: 3
 number: 13
+
 ---
 
 在补码表示的机器中，若寄存器 R 中原来存的数为 9EH，执行一条指令后现存的数为 CFH，则表明该指令不可能是（ ）。
@@ -21,6 +23,9 @@ A\. XOR 异或运算指令
 B\. IMUL 有符号数乘法指令
 C\. SAR 算术右移指令
 D\. ADD 加法指令
+
+[补码](/study_methods/tags/408quiz//#%e8%a1%a5%e7%a0%81)
+[标志寄存器](/study_methods/tags/408quiz//#%e6%a0%87%e5%bf%97%e5%af%84%e5%ad%98%e5%99%a8)
 
 [tag_link]
 

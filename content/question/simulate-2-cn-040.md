@@ -9,10 +9,12 @@ set: 2
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "通信指标"
+  - "窗口大小限制"
 question_type: "choice"
 difficulty: 3
 number: 40
+
 ---
 
 A 和 B 建立 TCP 连接，MSS 为 1KB。某时，慢开始门限值为 2KB，A 的拥塞窗口为 4KB，在接下来的一个 RTT 内，A 向 B 发送了 4KB 的数据（TCP 的数据部分），并且得到了 B 的确认，确认报文中的窗口字段的值为 2KB，那么，请问在下一个 RTT 中，A 最多能向 B 发送的数据（ ）。
@@ -24,6 +26,9 @@ B\. 5KB
 C\. 5KB
 
 D\. 4KB
+
+[通信指标](/study_methods/tags/408quiz//#%e9%80%9a%e4%bf%a1%e6%8c%87%e6%a0%87)
+[窗口大小限制](/study_methods/tags/408quiz//#%e7%aa%97%e5%8f%a3%e5%a4%a7%e5%b0%8f%e9%99%90%e5%88%b6)
 
 [tag_link]
 

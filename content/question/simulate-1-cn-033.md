@@ -9,10 +9,11 @@ set: 1
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "网络应用模型"
 question_type: "choice"
 difficulty: 3
 number: 33
+
 ---
 
 在不同网络结点的对等层之间通信需要的是（ ）。
@@ -21,6 +22,8 @@ A\. 模块接口
 B\. 对等层协议
 C\. 服务原语
 D\. 电信号
+
+[网络应用模型](/study_methods/tags/408quiz//#%e7%bd%91%e7%bb%9c%e5%ba%94%e7%94%a8%e6%a8%a1%e5%9e%8b)
 
 [tag_link]
 

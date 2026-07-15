@@ -55,7 +55,7 @@ int SequentialSearch(int A[], int n, int value) {
 下图给出了一个实例，从数组中折半查找元素 23：
 
 
-![](/images/docs/data-structure/image-20260612141452857.png)
+![](/cc408/images/docs/data-structure/image-20260612141452857.png)
 
 折半查找可以基于 **迭代实现** ，也可以作为一个 **递归函数实现** ：
 
@@ -158,7 +158,7 @@ int BinarySearchRecursive(int A[], int low, int high, int value) {
 
 最后可以得到如下折半查找判定树：
 
-![](/images/docs/data-structure/image-20260612141532987.png)
+![](/cc408/images/docs/data-structure/image-20260612141532987.png)
 
 ### 分块查找
 
@@ -172,7 +172,7 @@ int BinarySearchRecursive(int A[], int low, int high, int value) {
 **Index Table**
 
 
-![](/images/docs/data-structure/image-20260612141548244.png)
+![](/cc408/images/docs/data-structure/image-20260612141548244.png)
 
 
 ## 相关笔记

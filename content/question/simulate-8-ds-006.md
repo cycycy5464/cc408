@@ -9,10 +9,11 @@ set: 8
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "图的概念"
 question_type: "choice"
 difficulty: 3
 number: 6
+
 ---
 
 一个有 n 个顶点和 n 条边的无向图一定是（ ）。
@@ -21,6 +22,8 @@ A\. 连通的
 B\. 不连通的
 C\. 无环的
 D\. 有环的
+
+[图的概念](/study_methods/tags/408quiz//#%e5%9b%be%e7%9a%84%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

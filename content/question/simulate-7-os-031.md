@@ -9,10 +9,12 @@ set: 7
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "文件概念"
+  - "操作系统概念"
 question_type: "choice"
 difficulty: 3
 number: 31
+
 ---
 
 物理文件的组织方式是由（ ）确定的。
@@ -21,6 +23,9 @@ A\. 应用程序
 B\. 存储介质
 C\. 外存容量
 D\. 存储介质和操作系统
+
+[文件概念](/study_methods/tags/408quiz//#%e6%96%87%e4%bb%b6%e6%a6%82%e5%bf%b5)
+[操作系统概念](/study_methods/tags/408quiz//#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

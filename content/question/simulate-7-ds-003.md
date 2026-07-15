@@ -9,10 +9,11 @@ set: 7
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "栈"
 question_type: "choice"
 difficulty: 3
 number: 3
+
 ---
 
 执行完下列语句段后，i 值为（ ）。
@@ -21,6 +22,8 @@ A\. 2
 B\. 4
 C\. 8
 D\. 无限递归
+
+[栈](/study_methods/tags/408quiz//#%e6%a0%88)
 
 [tag_link]
 

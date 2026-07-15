@@ -9,13 +9,16 @@ set: 2
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "调度指标"
 question_type: "comprehensive"
 difficulty: 4
 number: 45
+
 ---
 
 （7 分）系统有 5 个进程，其就绪时刻（指在该时刻已进入就绪队列）、服务时间如下表所示。分别计算采用先来先服务、短作业优先、高响应比优先的平均周转时间和带权周转时间。
+
+[调度指标](/study_methods/tags/408quiz//#%e8%b0%83%e5%ba%a6%e6%8c%87%e6%a0%87)
 
 [tag_link]
 

@@ -26,14 +26,14 @@ chapter_title: "图的定义"
 **树** 是受限制的 **图** 类型，只是有更多的规则。每棵 **树** 都是一个 **图** ，但不是所有的 **图** 都是 **树** 。链表、**树** 和堆都是 **图** 的特殊情况。
 
 
-![](/images/docs/data-structure/1c7ad63112.svg)
+![](/cc408/images/docs/data-structure/1c7ad63112.svg)
 
 在 **图论** 中，根据边的方向性、连接方式、顶点间的关系等，可以进一步划分出多种类型的图，并引入如 **连通性** 、**完全性** 、**度数** 等一系列关键概念。这些分类和术语有助于我们更好地理解 图的结构特点和应用场景，下面我们将逐一进行介绍。
 
 #### 方向
 
 
-![](/images/docs/data-structure/3c5046799f.svg)
+![](/cc408/images/docs/data-structure/3c5046799f.svg)
 
 
   * **有向图** （directed graph）：边是有方向的，从一个定点指向另一个定点
@@ -42,7 +42,7 @@ chapter_title: "图的定义"
 #### 连通性
 
 
-![](/images/docs/data-structure/187b4b6a04.svg)
+![](/cc408/images/docs/data-structure/187b4b6a04.svg)
 
 
   * **连通图** （Connected Graph）：图中的每一对不同顶点都可以通过一条或多条边相互连接，也就是说，从图中的任意一个顶点出发，都可以到达图中的任意其他顶点。
@@ -50,7 +50,7 @@ chapter_title: "图的定义"
   * **完全图** （Complete Graph）：完全图是一种特殊的图，其中每一对不同的顶点都直接相连，也就是说，完全图中的任意两个顶点之间都存在一条边。如果一个完全图有 n 个顶点，那么它将有 C\(n,2\)=n\(n−1\)/2 条边，其中 C\(n,2\) 表示从 n 个顶点中选择 2 个顶点的组合数。
 
 
-![](/images/docs/data-structure/c984c89c23.svg)
+![](/cc408/images/docs/data-structure/c984c89c23.svg)
 
   * **连通分量** （Connected Components）：也称为连通子图，是一个无向图中的一个重要概念。一个连通分量是指在无向图中，如果从其中一个顶点出发，可以通过边的路径到达该连通分量内的任何其他顶点，而无法通过图中的边到达其他连通分量内的顶点。
 
@@ -68,7 +68,7 @@ chapter_title: "图的定义"
 #### 路径
 
 
-![](/images/docs/data-structure/image-20260612103034086.png)
+![](/cc408/images/docs/data-structure/image-20260612103034086.png)
 
   * **简单路径** ：顶点不出现重复的路径
   * **非简单路径** ：顶点出现重复的路径
@@ -87,9 +87,9 @@ chapter_title: "图的定义"
 
 在邻接矩阵中，行和列分别代表 **图的顶点** ，矩阵的元素表示顶点之间是否相邻或者 **边的权重** 。
 
-![](/images/docs/data-structure/image-20260612103108129.png)
+![](/cc408/images/docs/data-structure/image-20260612103108129.png)
 
-![](/images/docs/data-structure/image-20260612103119286.png)
+![](/cc408/images/docs/data-structure/image-20260612103119286.png)
 
   1. 对于 **无向图** ：
 * 如果顶点 i 和顶点 j 之间存在边，则邻接矩阵中 \(i,j\) 和 \(j,i\) 位置的元素都被标记为 1 （或者表示 边 的权重）。
@@ -142,7 +142,7 @@ TODO
 ##### 入度出度
 
 
-![](/images/docs/data-structure/4cf2e528ea.svg)
+![](/cc408/images/docs/data-structure/4cf2e528ea.svg)
 
 
 如果需要计算 **邻接矩阵** 中某个 **顶点** 的 **出度** 的话，假设 **顶点** 编号为 i，我们统计 **邻接矩阵** 中的 **第 i 行** 有多少元素不为 0 即可（该顶点指向哪些顶点）。
@@ -158,7 +158,7 @@ TODO
 邻接表的主要思想是为 **每个顶点创建一个链表** ，链表中的每个节点表示与该顶点相邻的另一个顶点。对于无向图，通常需要为每一条边创建两个链表节点，分别表示两个相邻的顶点。
 
 
-![](/images/docs/data-structure/image-20260612140211934.png)
+![](/cc408/images/docs/data-structure/image-20260612140211934.png)
 
 ##### 实现
 
@@ -253,7 +253,7 @@ void addEdge(struct Graph* graph, int src, int dest) {
 **邻接多重表** （Adjacency Multi-list）是一种用于表示 **无向图** 的数据结构，主要用于避免在 **邻接表** 存储方式中重复存储 **无向边** ，提高存储效率，同时便于图的操作（如 **边** 的删除）。
 
 
-![](/images/docs/data-structure/0b09968e42.svg)
+![](/cc408/images/docs/data-structure/0b09968e42.svg)
 
 
 邻接多重表中顶点种类 **分为两种** ：
@@ -270,11 +270,11 @@ void addEdge(struct Graph* graph, int src, int dest) {
 
 
 
-![](/images/docs/data-structure/8951f1257e.svg)
+![](/cc408/images/docs/data-structure/8951f1257e.svg)
 
 还是举个实际例子说明，在上述的邻接多重表中，总共需要存储 5 条边，每条边只需要存储一次，所以总共有 5 个边结点，每个边结点中存储的数据如下表所示：
 
-![](/images/docs/data-structure/image-20260612140533384.png)
+![](/cc408/images/docs/data-structure/image-20260612140533384.png)
 
 `ilink` 和 `jlink` 的含义是什么？
 
@@ -291,7 +291,7 @@ void addEdge(struct Graph* graph, int src, int dest) {
 **十字链表** （Orthogonal List）是一种用于表示 **有向图** 的链式存储结构，它兼顾了 **出边** 和 **入边** 的高效查找。相比 **邻接表** 只方便查找 **出边** ，**十字链表** 允许同时高效遍历某个顶点的所有出边和所有入边。
 
 
-![](/images/docs/data-structure/image-20260612140547573.png)
+![](/cc408/images/docs/data-structure/image-20260612140547573.png)
 
 在 **十字链表** （Orthogonal List）中，顶点种类也可以分为两种：
 
@@ -317,7 +317,7 @@ void addEdge(struct Graph* graph, int src, int dest) {
 下图给出了一个 **十字链表** 的一个实例，其中忽略了 **边结点** 的 `info` 字段。我们可以沿着 **顶点结点** 的 `firstin` 和 `firstout` 字段高效遍历所有的 **入边** 和 **出边** 。
 
 
-![](/images/docs/data-structure/image-20260612140601621.png)
+![](/cc408/images/docs/data-structure/image-20260612140601621.png)
 
 
 ## 相关笔记

@@ -9,10 +9,12 @@ set: 3
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "网络应用模型"
+  - "网络协议要素"
 question_type: "choice"
 difficulty: 3
 number: 39
+
 ---
 
 TCP 协议中，发送双方发送报文的初始序号分别为 X 和 Y，在第一次握手时发送方发送给接收方报文，正确的字段是（ ）。
@@ -21,6 +23,9 @@ A\. SYN=1，序号=X
 B\. SYN=1，序号=X+1，ACK_X=1
 C\. SYN=1, 序号=Y
 D\. SYN=1, 序号=Y, ACK_{Y+1}=1
+
+[网络应用模型](/study_methods/tags/408quiz//#%e7%bd%91%e7%bb%9c%e5%ba%94%e7%94%a8%e6%a8%a1%e5%9e%8b)
+[网络协议要素](/study_methods/tags/408quiz//#%e7%bd%91%e7%bb%9c%e5%8d%8f%e8%ae%ae%e8%a6%81%e7%b4%a0)
 
 [tag_link]
 

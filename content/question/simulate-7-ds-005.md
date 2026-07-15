@@ -9,10 +9,11 @@ set: 7
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "平衡二叉树"
 question_type: "choice"
 difficulty: 3
 number: 5
+
 ---
 
 由元素序列（27,16,75,38,51）构造平衡二叉树，则首次出现的最小不平衡子树的根（即离插入结点最近且平衡因子的绝对值为 2 的结点）是（ ）。
@@ -21,6 +22,8 @@ A\. 27
 B\. 38
 C\. 51
 D\. 75
+
+[平衡二叉树](/study_methods/tags/408quiz//#%e5%b9%b3%e8%a1%a1%e4%ba%8c%e5%8f%89%e6%a0%91)
 
 [tag_link]
 

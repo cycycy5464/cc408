@@ -9,10 +9,12 @@ set: 7
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "进程和线程"
+  - "进程概念"
 question_type: "choice"
 difficulty: 3
 number: 25
+
 ---
 
 并发进程运行时，其推进的相对速度是（ ）。
@@ -21,6 +23,9 @@ A\. 由进程的程序结构决定
 B\. 由进程自己的代码控制
 C\. 与进程调度策略有关
 D\. 在进程创建时确定的
+
+[进程和线程](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e5%92%8c%e7%ba%bf%e7%a8%8b)
+[进程概念](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

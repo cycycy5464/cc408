@@ -9,10 +9,11 @@ set: 4
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "最小生成树"
 question_type: "choice"
 difficulty: 3
 number: 6
+
 ---
 
 在具有 n 个顶点的图 G 中，若最小生成树不唯一，则（ ）。
@@ -21,6 +22,8 @@ A\. G 的边数一定大于 n-1
 B\. G 的权值最小的边一定有多条
 C\. G 的最小生成树代价不一定相等
 D\. 上述选项都不对
+
+[最小生成树](/study_methods/tags/408quiz//#%e6%9c%80%e5%b0%8f%e7%94%9f%e6%88%90%e6%a0%91)
 
 [tag_link]
 

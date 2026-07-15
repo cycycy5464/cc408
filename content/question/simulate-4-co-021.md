@@ -1,5 +1,5 @@
 ---
-title: "模拟卷4 计算机组成原理 第21题"
+title: "模拟卷4 组成原理 第21题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 4
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "补码"
 question_type: "choice"
 difficulty: 3
 number: 21
+
 ---
 
 当有中断源发出请求时，CPU 可执行相应的中断服务程序，以下可以提出中断的是（ ）。
@@ -26,6 +27,8 @@ A\. I、III 和 IV
 B\. I 和 V
 C\. I、II 和 III
 D\. I、III 和 V
+
+[补码](/study_methods/tags/408quiz//#%e8%a1%a5%e7%a0%81)
 
 [tag_link]
 

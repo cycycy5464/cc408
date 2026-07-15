@@ -9,10 +9,11 @@ set: 5
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "数组查找"
 question_type: "choice"
 difficulty: 3
 number: 9
+
 ---
 
 折半查找有序表 (2,10,25,35,40,65,70,75,81,82,88,100)，若查找元素 75，需依次与表中元素（ ）进行比较。
@@ -21,6 +22,8 @@ A\. 65,82,75
 B\. 70,82,75
 C\. 65,81,75
 D\. 65,81,70,75
+
+[数组查找](/study_methods/tags/408quiz//#%e6%95%b0%e7%bb%84%e6%9f%a5%e6%89%be)
 
 [tag_link]
 

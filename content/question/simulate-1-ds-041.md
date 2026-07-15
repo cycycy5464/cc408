@@ -9,14 +9,17 @@ set: 1
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "最小生成树"
 question_type: "comprehensive"
 difficulty: 4
 number: 41
+
 ---
 
 （10 分）下面有一种称为“破圈法”的求解最小生成树的方法：所谓“破圈法”就是“任取一圈，去掉圈上权最大的边”，反复执行这一步骤，直到没有圈为止。
 试判断这种方法是否正确。如果正确，请说明理由；如果不正确，举出反例（注：圈就是回路）。
+
+[最小生成树](/study_methods/tags/408quiz//#%e6%9c%80%e5%b0%8f%e7%94%9f%e6%88%90%e6%a0%91)
 
 [tag_link]
 

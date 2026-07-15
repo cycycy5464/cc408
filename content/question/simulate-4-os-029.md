@@ -9,10 +9,11 @@ set: 4
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "文件概念"
 question_type: "choice"
 difficulty: 3
 number: 29
+
 ---
 
 下列关于文件系统的说法中，错误的是（ ）。
@@ -25,6 +26,8 @@ A\. I、II 和 III
 B\. I、III
 C\. I、III、IV
 D\. I、II、III 和 IV
+
+[文件概念](/study_methods/tags/408quiz//#%e6%96%87%e4%bb%b6%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

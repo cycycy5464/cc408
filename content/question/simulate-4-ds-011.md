@@ -9,10 +9,11 @@ set: 4
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "复杂度分析"
 question_type: "choice"
 difficulty: 3
 number: 11
+
 ---
 
 设待排序元素序列所有元素的关键字都相等，则下列排序方法中排序速度最慢的是（ ）。
@@ -24,6 +25,8 @@ B\. 冒泡排序
 C\. 简单选择排序
 
 D\. 基数排序
+
+[复杂度分析](/study_methods/tags/408quiz//#%e5%a4%8d%e6%9d%82%e5%ba%a6%e5%88%86%e6%9e%90)
 
 [tag_link]
 

@@ -9,10 +9,11 @@ set: 6
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "队列"
 question_type: "choice"
 difficulty: 3
 number: 3
+
 ---
 
 若用一个大小为 6 的数组来实现循环队列，且当前 rear 和 front 的值分别为 0 和 3，其移动按数组下标增大的方向进行（当下标不等于 m-1 时）。当从队列中删除一个元素，再加入两个元素后，rear 和 front 的值分别为（ ）。
@@ -21,6 +22,8 @@ A\. 1 和 5
 B\. 2 和 4
 C\. 4 和 2
 D\. 5 和 1
+
+[队列](/study_methods/tags/408quiz//#%e9%98%9f%e5%88%97)
 
 [tag_link]
 

@@ -9,10 +9,11 @@ set: 2
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "队列"
 question_type: "choice"
 difficulty: 3
 number: 2
+
 ---
 
 循环队列用数组 `A[0...m-1]` 存放其元素值，头尾指针分别为 `front` 和 `rear`，`front` 指向队头元素，`rear` 指向队尾元素的下一个元素，其移动按数组下标增大的方向进行（`rear != m-1` 时），则当前队列中的元素个数是（　）。
@@ -21,6 +22,8 @@ A\. `(rear - front + m) % m`
 B\. `(rear - front + 1) % m`
 C\. `rear - front - 1`
 D\. `rear - front`
+
+[队列](/study_methods/tags/408quiz//#%e9%98%9f%e5%88%97)
 
 [tag_link]
 

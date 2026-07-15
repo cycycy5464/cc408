@@ -9,10 +9,12 @@ set: 4
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "协议数据单元"
+  - "路由器"
 question_type: "choice"
 difficulty: 3
 number: 39
+
 ---
 
 下列网络设备中，能隔离 ARP 广播帧的是（ ）。
@@ -21,6 +23,9 @@ A\. 路由器
 B\. 网桥
 C\. 以太网交换机
 D\. 集线器
+
+[协议数据单元](/study_methods/tags/408quiz//#%e5%8d%8f%e8%ae%ae%e6%95%b0%e6%8d%ae%e5%8d%95%e5%85%83)
+[路由器](/study_methods/tags/408quiz//#%e8%b7%af%e7%94%b1%e5%99%a8)
 
 [tag_link]
 

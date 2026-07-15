@@ -9,10 +9,11 @@ set: 3
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "栈"
 question_type: "choice"
 difficulty: 3
 number: 2
+
 ---
 
 当字符序列 `t3_` 作为栈的输入时，则输出长度为 3，且可用 C 语言标识符的序列有（ ）个。
@@ -21,6 +22,8 @@ A\. 4
 B\. 5
 C\. 3
 D\. 6
+
+[栈](/study_methods/tags/408quiz//#%e6%a0%88)
 
 [tag_link]
 

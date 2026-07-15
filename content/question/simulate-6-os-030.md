@@ -9,10 +9,11 @@ set: 6
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "抖动"
 question_type: "choice"
 difficulty: 3
 number: 30
+
 ---
 
 下列哪些存储分配方案可能使系统抖动，（ ）。
@@ -21,6 +22,8 @@ A\. I、II 和 V
 B\. III 和 IV
 C\. 只有 III
 D\. III 和 VI
+
+[抖动](/study_methods/tags/408quiz//#%e6%8a%96%e5%8a%a8)
 
 [tag_link]
 

@@ -1,5 +1,5 @@
 ---
-title: "模拟卷2 计算机组成原理 第14题"
+title: "模拟卷2 组成原理 第14题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 2
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "补码"
 question_type: "choice"
 difficulty: 3
 number: 14
+
 ---
 
 单精度 IEEE754 标准规格化的 float 类型所能表示的最接近 0 的负数是（　）。
@@ -21,6 +22,8 @@ A\. <span class=katex><span class=katex-html aria-hidden=true><span class=base><
 B\. <span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1.0641em;vertical-align:-.25em></span><span class=mord>−</span><span class=mopen>(</span><span class=mord><span class=mord>2</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8141em><span style=top:-3.063em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">23</span></span></span></span></span></span></span></span></span><span class=mclose>)</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>⋅</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.8141em></span><span class=mord><span class=mord>2</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8141em><span style=top:-3.063em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">126</span></span></span></span></span></span></span></span></span></span></span></span>
 C\. <span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1.0641em;vertical-align:-.25em></span><span class=mord>−</span><span class=mopen>(</span><span class=mord><span class=mord>2</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8141em><span style=top:-3.063em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">23</span></span></span></span></span></span></span></span></span><span class=mclose>)</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>⋅</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.8141em></span><span class=mord><span class=mord>2</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8141em><span style=top:-3.063em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">127</span></span></span></span></span></span></span></span></span></span></span></span>
 D\. <span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.8974em;vertical-align:-.0833em></span><span class=mord>−</span><span class=mord><span class=mord>2</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8141em><span style=top:-3.063em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">127</span></span></span></span></span></span></span></span></span></span></span></span>
+
+[补码](/study_methods/tags/408quiz//#%e8%a1%a5%e7%a0%81)
 
 [tag_link]
 

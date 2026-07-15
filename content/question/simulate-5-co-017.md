@@ -1,5 +1,5 @@
 ---
-title: "模拟卷5 计算机组成原理 第17题"
+title: "模拟卷5 组成原理 第17题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 5
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "寄存器类型"
 question_type: "choice"
 difficulty: 3
 number: 17
+
 ---
 
 在通用计算机指令系统的二地址指令中，操作数的物理位置可安排在（ ）。
@@ -26,6 +27,8 @@ A\. II、III 和 IV
 B\. II、III
 C\. I、II 和 III
 D\. I、II、III 和 V
+
+[寄存器类型](/study_methods/tags/408quiz//#%e5%af%84%e5%ad%98%e5%99%a8%e7%b1%bb%e5%9e%8b)
 
 [tag_link]
 

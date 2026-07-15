@@ -9,10 +9,11 @@ set: 1
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "完全二叉树"
 question_type: "choice"
 difficulty: 3
 number: 3
+
 ---
 
 已知 A[1..N] 是一棵顺序存储的完全二叉树，9 号结点和 11 号结点共同的祖先是（ ）。
@@ -21,6 +22,8 @@ A\. 4
 B\. 6
 C\. 2
 D\. 8
+
+[完全二叉树](/study_methods/tags/408quiz//#%e5%ae%8c%e5%85%a8%e4%ba%8c%e5%8f%89%e6%a0%91)
 
 [tag_link]
 

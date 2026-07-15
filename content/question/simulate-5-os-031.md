@@ -9,10 +9,11 @@ set: 5
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "磁盘概念"
 question_type: "choice"
 difficulty: 3
 number: 31
+
 ---
 
 信息在外存空间的排列也会影响存取等待时间。考虑几个逻辑记录 A、B、C、…、J，它们被存放在磁盘上，每个磁道存放 10 个记录，安排如表 1 所示。
@@ -21,6 +22,8 @@ A\. 60ms
 B\. 104ms
 C\. 144ms
 D\. 204ms
+
+[磁盘概念](/study_methods/tags/408quiz//#%e7%a3%81%e7%9b%98%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

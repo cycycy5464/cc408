@@ -1,5 +1,5 @@
 ---
-title: "模拟卷5 计算机组成原理 第20题"
+title: "模拟卷5 组成原理 第20题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,14 @@ years:
 source: "模拟题"
 set: 5
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "总线类型"
+  - "主存容量的扩展"
 question_type: "choice"
 difficulty: 3
 number: 20
+
 ---
 
 数据总线的宽度由总线的（ ）定义。
@@ -21,6 +23,9 @@ A\. 物理特性
 B\. 功能特性
 C\. 电气特性
 D\. 时间特性
+
+[总线类型](/study_methods/tags/408quiz//#%e6%80%bb%e7%ba%bf%e7%b1%bb%e5%9e%8b)
+[主存容量的扩展](/study_methods/tags/408quiz//#%e4%b8%bb%e5%ad%98%e5%ae%b9%e9%87%8f%e7%9a%84%e6%89%a9%e5%b1%95)
 
 [tag_link]
 

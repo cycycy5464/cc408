@@ -9,10 +9,12 @@ set: 3
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "二叉树的遍历"
+  - "二叉树遍历"
 question_type: "choice"
 difficulty: 3
 number: 5
+
 ---
 
 前序遍历和中序遍历结果相同的二叉树为（ ）。
@@ -25,6 +27,9 @@ A\. 仅有 I
 B\. I、II 和 IV
 C\. I 和 III
 D\. I 和 IV
+
+[二叉树的遍历](/study_methods/tags/408quiz//#%e4%ba%8c%e5%8f%89%e6%a0%91%e7%9a%84%e9%81%8d%e5%8e%86)
+[二叉树遍历](/study_methods/tags/408quiz//#%e4%ba%8c%e5%8f%89%e6%a0%91%e9%81%8d%e5%8e%86)
 
 [tag_link]
 

@@ -9,10 +9,11 @@ set: 1
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "缓冲区"
 question_type: "choice"
 difficulty: 3
 number: 32
+
 ---
 
 CPU 输出数据的速度远高于打印机的打印速度，为解决这一矛盾，可采用的技术是（ ）。
@@ -21,6 +22,8 @@ A\. 并行技术
 B\. 通道技术
 C\. 缓冲技术
 D\. 堆存技术
+
+[缓冲区](/study_methods/tags/408quiz//#%e7%bc%93%e5%86%b2%e5%8c%ba)
 
 [tag_link]
 

@@ -1,5 +1,5 @@
 ---
-title: "模拟卷1 计算机组成原理 第16题"
+title: "模拟卷1 组成原理 第16题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 1
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "访存过程"
 question_type: "choice"
 difficulty: 3
 number: 16
+
 ---
 
 下列因素中，与 Cache 的命中率无关的是（ ）。
@@ -21,6 +22,8 @@ A\. Cache 块的大小
 B\. Cache 的容量
 C\. Cache 的存取速度
 D\. Cache 的组织方式
+
+[访存过程](/study_methods/tags/408quiz//#%e8%ae%bf%e5%ad%98%e8%bf%87%e7%a8%8b)
 
 [tag_link]
 

@@ -21,7 +21,7 @@ chapter_title: "散列表查找"
 
 散列表（hash table），也叫 **哈希表** ，是一种常用的数据结构，提供了快速的数据存储和检索操作。它使用一个数组（通常称为 **桶** 或 **槽** ）来存储数据。为了将数据存储到散列表中，数据项首先与一个 **键** 关联，然后使用一个 **散列函数** 将该键转换为数组的索引。这样，通过该键可以快速找到相应的数据项。
 
-![](/images/docs/data-structure/088fdc8748.svg)
+![](/cc408/images/docs/data-structure/088fdc8748.svg)
 
 散列表的关键性能指标是其 **装载因子** ，通常表示为 **λ** 。装载因子是散列表中当前存储的元素数量与散列表的容量之比。随着装载因子的增加，**散列冲突** 的可能性也会增加，这可能会降低散列表的性能。
 
@@ -29,7 +29,7 @@ chapter_title: "散列表查找"
 
 **散列函数** （Hash Function）是一种函数，它接受一个输入（或“键”）并返回一个输出（或“值”），通常用作数组的索引。其主要目的是均匀地分布键到数组中，以便在可能的范围内平均分配值，从而最大限度地减少冲突。
 
-![](/images/docs/data-structure/ec8cec825f.svg)
+![](/cc408/images/docs/data-structure/ec8cec825f.svg)
 
 一个好的散列函数应具有以下特性：
 
@@ -41,7 +41,7 @@ chapter_title: "散列表查找"
 ##### 同义词
 
 
-![](/images/docs/data-structure/d2a310fb76.svg)
+![](/cc408/images/docs/data-structure/d2a310fb76.svg)
 
 在哈希表中，**同义词** （synonym）指的是多个不同的键（key）通过哈希函数计算后，映射到 **同一个哈希表位置** （即相同的哈希值或索引）。这通常会导致 **冲突** ，因为哈希表的一个槽位（bucket）只能存储一个键值对。
 
@@ -71,7 +71,7 @@ chapter_title: "散列表查找"
 #### 查找方式
 
 
-![](/images/docs/data-structure/de7e7ffd36.svg)
+![](/cc408/images/docs/data-structure/de7e7ffd36.svg)
 
 散列表的查找算法如下：
 
@@ -86,7 +86,7 @@ chapter_title: "散列表查找"
 
 散列表的冲突处理策略总结为以下几种：
 
-![](/images/docs/data-structure/ae58b94466.svg)
+![](/cc408/images/docs/data-structure/ae58b94466.svg)
 
 #### 开放定址法
 
@@ -96,7 +96,7 @@ chapter_title: "散列表查找"
 
 ##### 线性探测法
 
-![](/images/docs/data-structure/image-20260612142219085.png)
+![](/cc408/images/docs/data-structure/image-20260612142219085.png)
 
   * 原理：当发生冲突时，线性探测法会不断查找下一个可用的槽位（通常是 **下一个连续的位置** ），直到找到一个空槽位为止。
   * 操作：
@@ -109,7 +109,7 @@ chapter_title: "散列表查找"
 
 ##### 平方探测法
 
-![](/images/docs/data-structure/image-20260612142228609.png)
+![](/cc408/images/docs/data-structure/image-20260612142228609.png)
 
   * 原理：与线性探测法相似，但它不是每次冲突后移动到下一个连续的槽位，而是移动到 12 、 −11 、 22 、 −22 、 32 、 −32... 位置直到找到一个空槽位。
   * 操作：
@@ -127,7 +127,7 @@ Hash₁\(k\) = k mod 11 \(主散列函数\)
 
 Hash₂\(k\) = 7 - \(k mod 7\) \(步长函数\)
 
-![](/images/docs/data-structure/image-20260612142255321.png)
+![](/cc408/images/docs/data-structure/image-20260612142255321.png)
 
   * 原理：双散列法使用 **两个独立的散列函数** ：一个是常规的散列函数 Hash1​ ，另一个是用于冲突解决的散列函数 Hash2​ 。
   * 操作：
@@ -148,7 +148,7 @@ Hi​=\(Hash1​\(key\)+i×Hash2​\(key\)\)modn
 
 拉链法（Seperate Chaining）使用数组与 **链表** 相结合的方式。散列表的每个 **槽位** 都包含一个链表（或其他数据结构，如平衡树）。当发生冲突时，键值对被添加到相应槽位的链表中。
 
-![](/images/docs/data-structure/dfdc2d3523.svg)
+![](/cc408/images/docs/data-structure/dfdc2d3523.svg)
 
   * 操作：
 * 查找：通过散列函数找到对应的索引位置，在该索引的链表中顺序查找键。
@@ -163,7 +163,7 @@ Hi​=\(Hash1​\(key\)+i×Hash2​\(key\)\)modn
 #### 查找失败
 
 
-![](/images/docs/data-structure/image-20260612142314717.png)
+![](/cc408/images/docs/data-structure/image-20260612142314717.png)
 
 在考题中常常需要计算散列表 **查找失败** 时的平均查找长度，这里举一个实例说明。
 
@@ -178,7 +178,7 @@ Hi​=\(Hash1​\(key\)+i×Hash2​\(key\)\)modn
 当查找一个新的 key 时，初始查询位置根据哈希函数计算可能在 0 到 6 之间，对于每个位置，查询失败时，需要查找的长度如下表所示：
 
 
-![](/images/docs/data-structure/image-20260612142325218.png)
+![](/cc408/images/docs/data-structure/image-20260612142325218.png)
 
 查找失败的 **平均查找长度** 为 **6** （`(9 + 8 + 7 + 6 + 5 + 4 + 3) / 7 = 6`）。
 
@@ -219,13 +219,13 @@ Hi​=\(Hash1​\(key\)+i×Hash2​\(key\)\)modn
 对于使用开放定址法的哈希表，扩容的过程如下图所示：
 
 
-![](/images/docs/data-structure/image-20260612142340801.png)
+![](/cc408/images/docs/data-structure/image-20260612142340801.png)
 
 对于使用拉链法的哈希表，扩容前后的哈希表如下图所示：
 
-![](/images/docs/data-structure/image-20260612142357323.png)
+![](/cc408/images/docs/data-structure/image-20260612142357323.png)
 
-![](/images/docs/data-structure/image-20260612142402790.png)
+![](/cc408/images/docs/data-structure/image-20260612142402790.png)
 
 
 ## 相关笔记

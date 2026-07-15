@@ -20,7 +20,7 @@ chapter_title: "队列"
 队列是一种遵循 **先入先出** \(FIFO, First In First Out\) 原则的线性数据结构。元素在 **队尾** 添加，在 **队首** 删除。
 
 
-![](/images/docs/data-structure/45c3792af3.svg)
+![](/cc408/images/docs/data-structure/45c3792af3.svg)
 
 ### 基本操作
 
@@ -37,7 +37,7 @@ chapter_title: "队列"
 顺序队列通常是指使用固定大小的数组来存储 **队列** 中的元素。在顺序队列中，通常有两个指标：一个是 **队头** （front），另一个是 **队尾** （rear）。当插入（入队）或删除（出队）元素时，这两个指标会移动。
 
 
-![](/images/docs/data-structure/ce1ef4b9e7.svg)
+![](/cc408/images/docs/data-structure/ce1ef4b9e7.svg)
 
 顺序队列有一个明显的问题：随着时间的推移，**队列** 中的元素可能向数组的末尾移动，即使 **队列** 并不满，也可能无法再插入新的元素，因为 **队尾** 已经达到了数组的末尾。这种现象称为 **假溢出** 。
 
@@ -46,7 +46,7 @@ chapter_title: "队列"
 为了解决上述问题，可以使用 **循环队列** （也称为环形队列）。**循环队列** 是顺序队列的一个变种，它把数组视为一个循环的结构。当 **队尾** 指标达到数组的最后一个位置并且还需要进一步移动时，它会回到数组的起始位置。
 
 
-![](/images/docs/data-structure/dda1f42ffd.svg)
+![](/cc408/images/docs/data-structure/dda1f42ffd.svg)
 
 需要注意的是，在 **循环队列** 中需要牺牲一个存储单元以区分 **队空** 和 **队满** 的情况。
 
@@ -153,7 +153,7 @@ return (q->rear + 1) % MAX_SIZE == q->front;
 **链式队列** 是使用 **链表结构** 来实现的 **队列** 。它充分利用了链表的动态性质，允许队列在运行时 **动态增长或缩小** ，不存在顺序存储中需要预先分配空间的问题。
 
 
-![](/images/docs/data-structure/image-20260612085155321.png)
+![](/cc408/images/docs/data-structure/image-20260612085155321.png)
 
 链式队列通常包含三个指针：
 

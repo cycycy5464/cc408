@@ -12,7 +12,7 @@ chapter_title: "查找概述"
 ---
 
 本章在选择题中考察，重点理解折半查找的思想以及散列表查找的冲突处理方法。
-![](/images/docs/data-structure/image-20260612141425639.png)
+![](/cc408/images/docs/data-structure/image-20260612141425639.png)
 ## 基本概念
 
 ## 顺序查找法

@@ -1,5 +1,5 @@
 ---
-title: "模拟卷1 计算机组成原理 第44题"
+title: "模拟卷1 组成原理 第44题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,14 @@ years:
 source: "模拟题"
 set: 1
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "异常和中断"
+  - "计算机性能指标"
 question_type: "comprehensive"
 difficulty: 4
 number: 44
+
 ---
 
 （12 分）假定硬盘传输数据以 32 位的字为单位，传输速率为 1MB/s。CPU 的时钟频率为 50MHz。
@@ -22,6 +24,9 @@ number: 44
 （2）采用中断方法进行控制，每次传输的开销（包括中断处理）为 100 个时钟周期。求 CPU 为传输硬盘数据花费的时间比率。
 
 （3）采用 DMA 控制器进行输入输出操作，假定 DMA 的启动操作需要 1000 个时钟周期，DMA 完成时处理中断需要 500 个时钟周期。如果平均传输的数据长度为 4KB（此处，1MB=1000KB），问在硬盘工作的一次传输中，处理器将用多少时间比重进行输入输出操作，忽略 DMA 申请使用总线的影响。
+
+[异常和中断](/study_methods/tags/408quiz//#%e5%bc%82%e5%b8%b8%e5%92%8c%e4%b8%ad%e6%96%ad)
+[计算机性能指标](/study_methods/tags/408quiz//#%e8%ae%a1%e7%ae%97%e6%9c%ba%e6%80%a7%e8%83%bd%e6%8c%87%e6%a0%87)
 
 [tag_link]
 

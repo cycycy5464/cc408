@@ -42,10 +42,10 @@ LayeredOScluster\_os分层操作系统结构app应用程序层\(用户程序\)sy
 
 
 
-![](/images/docs/os/aabe33294d.svg)
+![](/cc408/images/docs/os/aabe33294d.svg)
 
 
-![](/images/docs/os/image-20260611220009794.png)
+![](/cc408/images/docs/os/image-20260611220009794.png)
 
 
 
@@ -79,7 +79,7 @@ LayeredOScluster\_os分层操作系统结构app应用程序层\(用户程序\)sy
 #### 宏内核
 
 
-![](/images/docs/os/8a761a2180.svg)
+![](/cc408/images/docs/os/8a761a2180.svg)
 
 宏内核（monolithic kernel）将所有操作系统功能集成在一个大的内核程序中，运行在内核态。
 
@@ -124,7 +124,7 @@ Hypervisor，也称为虚拟机监视器（Virtual Machine Monitor, VMM），是
 Hypervisor 通常运行在比操作系统更高的 **特权级** （如硬件虚拟化支持的 **VMX root mode** 或 **Ring -1** ），以便有效管理虚拟机及其资源。相比之下，虚拟机中的操作系统通常运行在较低的特权级（如 **Ring 0** ）。这种特权级差异确保 Hypervisor 能够完全控制硬件资源并协调多个虚拟机的运行，而不会与虚拟机中的操作系统发生冲突。
 
 
-![](/images/docs/os/2b431bead5.svg)
+![](/cc408/images/docs/os/2b431bead5.svg)
 
 注意
 

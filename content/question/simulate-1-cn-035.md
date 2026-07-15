@@ -9,10 +9,11 @@ set: 1
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "以太网"
 question_type: "choice"
 difficulty: 3
 number: 35
+
 ---
 
 以太网中，在第 5 次碰撞之后，一个节点选择的 r 值为 4 的概率是（ ）。
@@ -21,6 +22,8 @@ A\. 1/8
 B\. 1/16
 C\. 1/32
 D\. 1/64
+
+[以太网](/study_methods/tags/408quiz//#%e4%bb%a5%e5%a4%aa%e7%bd%91)
 
 [tag_link]
 

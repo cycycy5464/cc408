@@ -9,10 +9,12 @@ set: 4
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "进程和线程"
+  - "进程概念"
 question_type: "choice"
 difficulty: 3
 number: 24
+
 ---
 
 支持多道程序设计的操作系统在运行过程中，会不断选择新进程来运行，共享 CPU 资源，但是下面哪个不是操作系统选择新进程的直接原因，（ ）。
@@ -21,6 +23,9 @@ A\. 运行进程的时间片用完
 B\. 运行进程出错
 C\. 运行进程等待某个事件的发生
 D\. 有新的进程被创建进入就绪队列
+
+[进程和线程](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e5%92%8c%e7%ba%bf%e7%a8%8b)
+[进程概念](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

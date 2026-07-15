@@ -13,7 +13,7 @@ chapter_title: "排序概述"
 
 本章在选择题中会考察，在大题中也可能会基于本章的排序算法思想出一道相关的代码题。需要熟练掌握各个排序算法的过程，并且能够手写快速排序
 
-![](/images/docs/data-structure/image-20260612142423265.png)
+![](/cc408/images/docs/data-structure/image-20260612142423265.png)
 
 ## 排序的基本概念
 

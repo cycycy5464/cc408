@@ -9,10 +9,11 @@ set: 5
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "介质访问控制"
 question_type: "choice"
 difficulty: 3
 number: 35
+
 ---
 
 以下几种 CSMA 协议中，什么协议在监听到介质是空闲时一定发送（ ）。
@@ -24,6 +25,8 @@ A\. 只有 I
 B\. I 和 III
 C\. I 和 II
 D\. I、II 和 III
+
+[介质访问控制](/study_methods/tags/408quiz//#%e4%bb%8b%e8%b4%a8%e8%ae%bf%e9%97%ae%e6%8e%a7%e5%88%b6)
 
 [tag_link]
 

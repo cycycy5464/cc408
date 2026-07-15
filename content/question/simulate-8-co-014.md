@@ -1,5 +1,5 @@
 ---
-title: "模拟卷8 计算机组成原理 第14题"
+title: "模拟卷8 组成原理 第14题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 8
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "补码"
 question_type: "choice"
 difficulty: 3
 number: 14
+
 ---
 
 在 C 语言中，若有如下定义：
@@ -21,6 +22,8 @@ A\. 7.500000
 B\. 7
 C\. 7.000000
 D\. 8
+
+[补码](/study_methods/tags/408quiz//#%e8%a1%a5%e7%a0%81)
 
 [tag_link]
 

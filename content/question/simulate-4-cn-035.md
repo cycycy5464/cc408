@@ -9,10 +9,12 @@ set: 4
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "协议数据单元"
+  - "信道利用率"
 question_type: "choice"
 difficulty: 3
 number: 35
+
 ---
 
 信道速率为 4kbps，采用停止—等待协议，设传播时延
@@ -23,6 +25,9 @@ A\. 40bit
 B\. 80bit
 C\. 160bit
 D\. 320bit
+
+[协议数据单元](/study_methods/tags/408quiz//#%e5%8d%8f%e8%ae%ae%e6%95%b0%e6%8d%ae%e5%8d%95%e5%85%83)
+[信道利用率](/study_methods/tags/408quiz//#%e4%bf%a1%e9%81%93%e5%88%a9%e7%94%a8%e7%8e%87)
 
 [tag_link]
 

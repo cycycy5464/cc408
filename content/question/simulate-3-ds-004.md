@@ -9,10 +9,11 @@ set: 3
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "树的概念"
 question_type: "choice"
 difficulty: 3
 number: 4
+
 ---
 
 有关二叉树下列说法正确的是（ ）。
@@ -21,6 +22,8 @@ A\. 二叉树的度为 2
 B\. 一棵二叉树的度可以小于 2
 C\. 二叉树中至少有一个结点的度为 2
 D\. 二叉树就是度为 2 的有序树
+
+[树的概念](/study_methods/tags/408quiz//#%e6%a0%91%e7%9a%84%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

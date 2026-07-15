@@ -1,5 +1,5 @@
 ---
-title: "模拟卷7 计算机组成原理 第22题"
+title: "模拟卷7 组成原理 第22题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 7
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "异常和中断"
 question_type: "choice"
 difficulty: 3
 number: 22
+
 ---
 
 对于单 CPU 单通道工作过程，下列可以完全并行工作的是（ ）。
@@ -24,6 +25,8 @@ B\. 程序和通道之间
 C\. 程序和设备之间
 
 D\. 设备和设备之间
+
+[异常和中断](/study_methods/tags/408quiz//#%e5%bc%82%e5%b8%b8%e5%92%8c%e4%b8%ad%e6%96%ad)
 
 [tag_link]
 

@@ -9,10 +9,12 @@ set: 1
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "进程和线程"
+  - "进程概念"
 question_type: "choice"
 difficulty: 3
 number: 27
+
 ---
 
 利用死锁定理简化下列进程资源图，则处于死锁状态的是（ ）。
@@ -21,6 +23,9 @@ A\. I
 B\. II
 C\. I 和 II
 D\. 都不处于死锁状态
+
+[进程和线程](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e5%92%8c%e7%ba%bf%e7%a8%8b)
+[进程概念](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

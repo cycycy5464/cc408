@@ -20,7 +20,7 @@ chapter_title: "电子邮件"
 电子邮件系统由 **用户代理** 、**邮件服务器** 以及 **电子邮件协议** 这三个核心组成部分协同工作，确保邮件的发送、接收和存储。
 
 
-![](/images/docs/network/image-20260613072939954.png)
+![](/cc408/images/docs/network/image-20260613072939954.png)
 
 #### 用户代理
 
@@ -84,7 +84,7 @@ chapter_title: "电子邮件"
 一封电子邮件由 **信封** 和 **内容** 两部分组成，其中邮件 **内容** 又可分为 **首部** 和 **主体** 。  
 邮件的 **首部格式** 由 RFC 标准定义，而 **主体部分** 则由用户自由撰写。
 
-![](/images/docs/network/image-20260613072953036.png)
+![](/cc408/images/docs/network/image-20260613072953036.png)
 
 用户在填写完邮件首部后，系统会自动提取 **信封** 所需的信息，无需用户手动填写 **信封** 内容。
 
@@ -100,7 +100,7 @@ chapter_title: "电子邮件"
     
 
 
-![](/images/docs/network/1777c6774a.svg)
+![](/cc408/images/docs/network/1777c6774a.svg)
 
 Please find the meeting schedule attached.
 
@@ -115,7 +115,7 @@ Please find the meeting schedule attached.
 早期的电子邮件只能传输 **纯文本** （ASCII 码），不支持发送图片、音频、视频或非英语字符（如中文）。这严重限制了电子邮件的用途。**MIME** 的出现，就是为了解决这些问题。
 
 
-![](/images/docs/network/image-20260613073004749.png)
+![](/cc408/images/docs/network/image-20260613073004749.png)
 
 **MIME** 主要包含以下三点 **核心功能** ：
 

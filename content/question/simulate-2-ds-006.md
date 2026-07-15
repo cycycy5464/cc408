@@ -9,10 +9,11 @@ set: 2
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "平衡二叉树"
 question_type: "choice"
 difficulty: 3
 number: 6
+
 ---
 
 在含有 15 个结点的平衡二叉树上，查找关键字为 28（存在该结点）的结点，则依次比较的关键字有可能是（　）。
@@ -21,6 +22,8 @@ A\. 30,36
 B\. 38,48,28
 C\. 48,18,38,28
 D\. 60,20,50,40,38,28
+
+[平衡二叉树](/study_methods/tags/408quiz//#%e5%b9%b3%e8%a1%a1%e4%ba%8c%e5%8f%89%e6%a0%91)
 
 [tag_link]
 

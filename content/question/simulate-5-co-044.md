@@ -1,5 +1,5 @@
 ---
-title: "模拟卷5 计算机组成原理 第44题"
+title: "模拟卷5 组成原理 第44题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,14 @@ years:
 source: "模拟题"
 set: 5
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "汇编代码"
+  - "流水线概念"
 question_type: "comprehensive"
 difficulty: 4
 number: 44
+
 ---
 
 （12 分）现有 4 级流水线，分别完成取指、指令译码并取数、运算、回写四步操作。假设完成各部操作的时间依次为 100ns、100ns、80ns、50ns。请问：
@@ -22,6 +24,9 @@ number: 44
 （2）若相邻两条指令如下，发生数据相关，而且在硬件上不采取措施，那么第 2 条指令要推迟多少时间进行？
 
 （3）如果在硬件设计上加以改进，至少需要推迟多少时间？
+
+[汇编代码](/study_methods/tags/408quiz//#%e6%b1%87%e7%bc%96%e4%bb%a3%e7%a0%81)
+[流水线概念](/study_methods/tags/408quiz//#%e6%b5%81%e6%b0%b4%e7%ba%bf%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

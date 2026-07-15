@@ -9,15 +9,20 @@ set: 5
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "协议数据单元"
+  - "数据报和虚电路"
 question_type: "comprehensive"
 difficulty: 4
 number: 47
+
 ---
 
 （9 分）在本地主机使用 Ping 命令测试与远端主机 192.168.0.101 的连通性，Ping 测试仅进行了一次，由于测试数据较大，在 IP 层进行了数据分片。Ping 命令执行时，使用 Sniffer 工具捕获本机以太网发送方向的所有通信流量，得到 6 个 IP 数据报，表 1 以 16 进制格式逐字节给出了六个 IP 数据报的前 40 个字节。
 
 IP 分组头的结构如图 1 所示。
+
+[协议数据单元](/study_methods/tags/408quiz//#%e5%8d%8f%e8%ae%ae%e6%95%b0%e6%8d%ae%e5%8d%95%e5%85%83)
+[数据报和虚电路](/study_methods/tags/408quiz//#%e6%95%b0%e6%8d%ae%e6%8a%a5%e5%92%8c%e8%99%9a%e7%94%b5%e8%b7%af)
 
 [tag_link]
 

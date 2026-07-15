@@ -9,10 +9,11 @@ set: 3
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "页表"
 question_type: "choice"
 difficulty: 3
 number: 27
+
 ---
 
 请求调页存储管理的页表描述字中的修改位，供（ ）参考。
@@ -21,6 +22,8 @@ A\. 程序修改
 B\. 分配页面
 C\. 淘汰页面
 D\. 调入页面
+
+[页表](/study_methods/tags/408quiz//#%e9%a1%b5%e8%a1%a8)
 
 [tag_link]
 

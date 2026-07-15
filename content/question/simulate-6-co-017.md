@@ -1,5 +1,5 @@
 ---
-title: "模拟卷6 计算机组成原理 第17题"
+title: "模拟卷6 组成原理 第17题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,14 @@ years:
 source: "模拟题"
 set: 6
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "虚拟页式管理"
+  - "页表"
 question_type: "choice"
 difficulty: 3
 number: 17
+
 ---
 
 虚拟存储器中的页表有快表和慢表之分，下面关于页表的叙述中正确的是（ ）。
@@ -21,6 +23,9 @@ A\. 快表与慢表都存储在主存中，但快表比慢表容量小
 B\. 快表采用了优化的搜索算法，因此查找速度更快
 C\. 快表比慢表的命中率高，因此快表可以得到更多的搜索结果
 D\. 快表采用高速存储器件组成，按照查找内容访问，因此比慢表查找速度快
+
+[虚拟页式管理](/study_methods/tags/408quiz//#%e8%99%9a%e6%8b%9f%e9%a1%b5%e5%bc%8f%e7%ae%a1%e7%90%86)
+[页表](/study_methods/tags/408quiz//#%e9%a1%b5%e8%a1%a8)
 
 [tag_link]
 

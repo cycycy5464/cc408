@@ -9,10 +9,11 @@ set: 8
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "文件概念"
 question_type: "comprehensive"
 difficulty: 4
 number: 46
+
 ---
 
 （8 分）一个文件系统中有一个 20MB 大文件和一个 20KB 小文件，当分别采用连续分配、隐式链接分配方案时，每块大小为 4096B，每块地址用 4B 表示，问：
@@ -22,6 +23,8 @@ number: 46
 (2) 每种方案对大、小两文件各需要多少专用块来记录文件的物理地址（说明各块的用途）？
 
 (3) 如需要读大文件前面第 5.5KB 的信息和后面第 (16M+5.5KB) 的信息，则每个方案各需要多少次磁盘 I/O 操作？
+
+[文件概念](/study_methods/tags/408quiz//#%e6%96%87%e4%bb%b6%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

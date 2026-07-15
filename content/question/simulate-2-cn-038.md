@@ -9,10 +9,11 @@ set: 2
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "网络号和主机号"
 question_type: "choice"
 difficulty: 3
 number: 38
+
 ---
 
 ARP 的作用是由 IP 地址求 MAC 地址，某节点响应其他节点的 ARP 请求是通过（　）发送的。
@@ -21,6 +22,8 @@ A\. 单播
 B\. 组播
 C\. 广播
 D\. 点播
+
+[网络号和主机号](/study_methods/tags/408quiz//#%e7%bd%91%e7%bb%9c%e5%8f%b7%e5%92%8c%e4%b8%bb%e6%9c%ba%e5%8f%b7)
 
 [tag_link]
 

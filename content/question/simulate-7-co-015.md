@@ -1,5 +1,5 @@
 ---
-title: "模拟卷7 计算机组成原理 第15题"
+title: "模拟卷7 组成原理 第15题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 7
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "访存过程"
 question_type: "choice"
 difficulty: 3
 number: 15
+
 ---
 
 某存储系统中，主存容量是 Cache 容量的 4096 倍，Cache 被分为 64 块，当主存地址和 Cache 地址采用直接映射方式时，地址映射表的大小应为（ ）。（假设不考虑一致维护位）
@@ -25,6 +26,8 @@ C\. <span class=katex><span class=katex-html aria-hidden=true><span class=base><
 bit
 D\. <span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7278em;vertical-align:-.0833em></span><span class=mord>64</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>13</span></span></span></span>
 bit
+
+[访存过程](/study_methods/tags/408quiz//#%e8%ae%bf%e5%ad%98%e8%bf%87%e7%a8%8b)
 
 [tag_link]
 

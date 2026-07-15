@@ -9,10 +9,11 @@ set: 4
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "缺页异常"
 question_type: "choice"
 difficulty: 3
 number: 28
+
 ---
 
 在一个请求分页系统中，采用 LRU 页面置换算法时，假如一个作业的页面走向为 1,3,2,1,1,3,5,1,3,2,1,5。当分配给该作业的物理块数分别为 3 和 4 时，则在访问过程中所发生的缺页率分别为（ ）。
@@ -21,6 +22,8 @@ A\. 50%、33%
 B\. 25%、100%
 C\. 25%、33%
 D\. 50%、75%
+
+[缺页异常](/study_methods/tags/408quiz//#%e7%bc%ba%e9%a1%b5%e5%bc%82%e5%b8%b8)
 
 [tag_link]
 

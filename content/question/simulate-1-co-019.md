@@ -1,5 +1,5 @@
 ---
-title: "模拟卷1 计算机组成原理 第19题"
+title: "模拟卷1 组成原理 第19题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,14 @@ years:
 source: "模拟题"
 set: 1
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "指令格式"
+  - "指令操作码"
 question_type: "choice"
 difficulty: 3
 number: 19
+
 ---
 
 在微程序控制器中，微程序的入口地址是由（ ）形成的。
@@ -21,6 +23,9 @@ A\. 机器指令的地址码字段
 B\. 微指令的微地址字段
 C\. 机器指令的操作码字段
 D\. 微指令的操作码字段
+
+[指令格式](/study_methods/tags/408quiz//#%e6%8c%87%e4%bb%a4%e6%a0%bc%e5%bc%8f)
+[指令操作码](/study_methods/tags/408quiz//#%e6%8c%87%e4%bb%a4%e6%93%8d%e4%bd%9c%e7%a0%81)
 
 [tag_link]
 

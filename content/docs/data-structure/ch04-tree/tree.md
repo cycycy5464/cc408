@@ -26,7 +26,7 @@ chapter_title: "树"
 #### 度
 
 
-![](/images/docs/data-structure/d84542ef29.svg)
+![](/cc408/images/docs/data-structure/d84542ef29.svg)
 
 
 树的度 = max\(结点度\) = 3
@@ -39,7 +39,7 @@ chapter_title: "树"
 #### 深度
 
 
-![](/images/docs/data-structure/image-20260612092728656.png)
+![](/cc408/images/docs/data-structure/image-20260612092728656.png)
 
 
   * **树的深度** （Depth）：从根结点到最远叶子结点的 **结点总数** 。
@@ -54,7 +54,7 @@ chapter_title: "树"
 #### 高度
 
 
-![](/images/docs/data-structure/image-20260612092739578.png)
+![](/cc408/images/docs/data-structure/image-20260612092739578.png)
 
 
   * **树的高度** （Height）：从根结点到最远叶子结点的 **结点总数** 。
@@ -72,7 +72,7 @@ chapter_title: "树"
 #### 路径
 
 
-![](/images/docs/data-structure/87593f3395.svg)
+![](/cc408/images/docs/data-structure/87593f3395.svg)
 
 带权路径长度
 
@@ -107,7 +107,7 @@ typedef struct {
 
 
 
-![](/images/docs/data-structure/image-20260612092808507.png)
+![](/cc408/images/docs/data-structure/image-20260612092808507.png)
 
 #### 孩子表示法
 
@@ -135,7 +135,7 @@ typedef struct {
 ```
 
 
-![](/images/docs/data-structure/image-20260612092825981.png)
+![](/cc408/images/docs/data-structure/image-20260612092825981.png)
 
 #### 孩子兄弟表示法
 
@@ -150,13 +150,13 @@ typedef struct CSNode {
 ```
 
 
-![](/images/docs/data-structure/image-20260612092842121.png)
+![](/cc408/images/docs/data-structure/image-20260612092842121.png)
 
 
 ### 森林的基本概念
 
 
-![](/images/docs/data-structure/image-20260612092849779.png)
+![](/cc408/images/docs/data-structure/image-20260612092849779.png)
 
 **森林** （Forest）是一组互不相交的树的集合。换句话说，森林由若干棵树组成，每棵树都是一个独立的层次结构，且这些树之间没有连接关系。
 
@@ -173,7 +173,7 @@ typedef struct CSNode {
 #### 树转化为二叉树
 
 
-  ![](/images/docs/data-structure/3872b08cb8.svg)
+  ![](/cc408/images/docs/data-structure/3872b08cb8.svg)
 
   * 若树的根结点有孩子，那么第一个孩子是 **二叉树** 的左孩子，其他的孩子结点依次作为前一个孩子结点的右孩子。
   * 对每个孩子执行上述步骤。
@@ -183,7 +183,7 @@ typedef struct CSNode {
 #### 森林转二叉树
 
 
-  ![](/images/docs/data-structure/1a1d305b63.svg)
+  ![](/cc408/images/docs/data-structure/1a1d305b63.svg)
 
   * 把森林中的每一棵树转换为 **二叉树** 。
   * 第一棵二叉树不动，从第二棵二叉树开始，依次将后一棵二叉树的根作为前一棵二叉树的右孩子。其结果是一个 **二叉树** 。

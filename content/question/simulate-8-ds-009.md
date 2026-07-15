@@ -9,10 +9,12 @@ set: 8
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "排序算法"
+  - "插入排序"
 question_type: "choice"
 difficulty: 3
 number: 9
+
 ---
 
 排序趟数与序列的原始状态有关的排序方法是（ ）。
@@ -21,6 +23,9 @@ A\. 插入排序
 B\. 选择排序
 C\. 冒泡排序
 D\. 快速排序
+
+[排序算法](/study_methods/tags/408quiz//#%e6%8e%92%e5%ba%8f%e7%ae%97%e6%b3%95)
+[插入排序](/study_methods/tags/408quiz//#%e6%8f%92%e5%85%a5%e6%8e%92%e5%ba%8f)
 
 [tag_link]
 

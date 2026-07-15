@@ -9,10 +9,12 @@ set: 8
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "栈"
+  - "入栈出栈序列"
 question_type: "choice"
 difficulty: 3
 number: 1
+
 ---
 
 6 个元素以 6、5、4、3、2、1 的顺序进栈，下列不合法的出栈序列是（ ）。
@@ -21,6 +23,9 @@ A\. 5, 4, 3, 6, 1, 2
 B\. 4, 5, 3, 1, 2, 6
 C\. 3, 4, 6, 5, 2, 1
 D\. 2, 3, 4, 1, 5, 6
+
+[栈](/study_methods/tags/408quiz//#%e6%a0%88)
+[入栈出栈序列](/study_methods/tags/408quiz//#%e5%85%a5%e6%a0%88%e5%87%ba%e6%a0%88%e5%ba%8f%e5%88%97)
 
 [tag_link]
 

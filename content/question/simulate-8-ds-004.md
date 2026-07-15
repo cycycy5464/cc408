@@ -9,10 +9,12 @@ set: 8
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "二叉排序树"
+  - "完全二叉树"
 question_type: "choice"
 difficulty: 3
 number: 4
+
 ---
 
 下图所示的二叉树是（ ）。
@@ -21,6 +23,9 @@ A\. 二叉判定树
 B\. 二叉排序树
 C\. 二叉平衡树
 D\. 堆
+
+[二叉排序树](/study_methods/tags/408quiz//#%e4%ba%8c%e5%8f%89%e6%8e%92%e5%ba%8f%e6%a0%91)
+[完全二叉树](/study_methods/tags/408quiz//#%e5%ae%8c%e5%85%a8%e4%ba%8c%e5%8f%89%e6%a0%91)
 
 [tag_link]
 

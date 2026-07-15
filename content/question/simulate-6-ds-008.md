@@ -9,10 +9,11 @@ set: 6
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "图的遍历"
 question_type: "choice"
 difficulty: 3
 number: 8
+
 ---
 
 如右图所示，在下面的 5 个序列中，符合深度优先遍历的序列有多少个（ ）。
@@ -21,6 +22,8 @@ A\. 5
 B\. 4
 C\. 3
 D\. 2
+
+[图的遍历](/study_methods/tags/408quiz//#%e5%9b%be%e7%9a%84%e9%81%8d%e5%8e%86)
 
 [tag_link]
 

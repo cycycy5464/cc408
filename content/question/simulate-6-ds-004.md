@@ -9,10 +9,11 @@ set: 6
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "树的概念"
 question_type: "choice"
 difficulty: 3
 number: 4
+
 ---
 
 若一棵二叉树中有 24 个叶结点，有 28 个仅有一个孩子的结点，则该二叉树的总结点数为（ ）。
@@ -21,6 +22,8 @@ A\. 70
 B\. 73
 C\. 75
 D\. 77
+
+[树的概念](/study_methods/tags/408quiz//#%e6%a0%91%e7%9a%84%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

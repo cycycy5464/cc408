@@ -9,10 +9,12 @@ set: 1
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "银行家算法"
+  - "死锁的处理方法"
 question_type: "choice"
 difficulty: 3
 number: 26
+
 ---
 
 死锁与安全状态的关系是（ ）。
@@ -21,6 +23,9 @@ A\. 死锁状态有可能是安全状态
 B\. 安全状态有可能成为死锁状态
 C\. 不安全状态就是死锁状态
 D\. 死锁状态一定是不安全状态
+
+[银行家算法](/study_methods/tags/408quiz//#%e9%93%b6%e8%a1%8c%e5%ae%b6%e7%ae%97%e6%b3%95)
+[死锁的处理方法](/study_methods/tags/408quiz//#%e6%ad%bb%e9%94%81%e7%9a%84%e5%a4%84%e7%90%86%e6%96%b9%e6%b3%95)
 
 [tag_link]
 

@@ -9,10 +9,12 @@ set: 7
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "树的概念"
+  - "哈夫曼树"
 question_type: "choice"
 difficulty: 3
 number: 6
+
 ---
 
 在下列二叉树中，（ ）的所有非叶结点的度均为 2。
@@ -26,6 +28,9 @@ A\. Ⅱ和Ⅳ
 B\. Ⅰ和Ⅲ
 C\. Ⅱ、Ⅳ和Ⅴ
 D\. Ⅱ、Ⅲ和Ⅳ
+
+[树的概念](/study_methods/tags/408quiz//#%e6%a0%91%e7%9a%84%e6%a6%82%e5%bf%b5)
+[哈夫曼树](/study_methods/tags/408quiz//#%e5%93%88%e5%a4%ab%e6%9b%bc%e6%a0%91)
 
 [tag_link]
 

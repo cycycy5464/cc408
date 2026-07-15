@@ -9,10 +9,12 @@ set: 5
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "协议数据单元"
+  - "窗口大小限制"
 question_type: "choice"
 difficulty: 3
 number: 34
+
 ---
 
 以下滑动窗口协议中，一定按序接收到达的分组的有（ ）。
@@ -24,6 +26,9 @@ A\. I 和 II
 B\. I 和 III
 C\. II 和 III
 D\. I、II 和 III
+
+[协议数据单元](/study_methods/tags/408quiz//#%e5%8d%8f%e8%ae%ae%e6%95%b0%e6%8d%ae%e5%8d%95%e5%85%83)
+[窗口大小限制](/study_methods/tags/408quiz//#%e7%aa%97%e5%8f%a3%e5%a4%a7%e5%b0%8f%e9%99%90%e5%88%b6)
 
 [tag_link]
 

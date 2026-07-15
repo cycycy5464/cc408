@@ -9,10 +9,12 @@ set: 2
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "栈"
+  - "入栈出栈序列"
 question_type: "choice"
 difficulty: 3
 number: 3
+
 ---
 
 将 5 个字母 “ooops” 按此顺序进栈，则有（　）种不同的出栈顺序可以仍然得到 “ooops”。
@@ -21,6 +23,9 @@ A\. 1
 B\. 3
 C\. 5
 D\. 6
+
+[栈](/study_methods/tags/408quiz//#%e6%a0%88)
+[入栈出栈序列](/study_methods/tags/408quiz//#%e5%85%a5%e6%a0%88%e5%87%ba%e6%a0%88%e5%ba%8f%e5%88%97)
 
 [tag_link]
 

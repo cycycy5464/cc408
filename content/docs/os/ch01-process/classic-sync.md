@@ -20,7 +20,7 @@ chapter_title: "经典同步问题"
 **Producer**
 
 
-![](/images/docs/os/aa1263419a.svg)
+![](/cc408/images/docs/os/aa1263419a.svg)
 
 
 
@@ -59,12 +59,12 @@ semaphore full  = 0;          // 忙缓冲区数量
 
 生产者消费者过程可以参考以下流程图理解：
 
-![](/images/docs/os/3b8c075a6a.svg)
+![](/cc408/images/docs/os/3b8c075a6a.svg)
 
 ### 读者 - 写者问题
 
 
-![](/images/docs/os/image-20260611221433589.png)
+![](/cc408/images/docs/os/image-20260611221433589.png)
 
 
 
@@ -239,11 +239,11 @@ while (1) {
 
 试题中如果考察读者写者问题的话，一般考察的还是读者优先，读者优先的同步实现方案可以通过以下流程图进行理解：
 
-![](/images/docs/os/a025a153ee.svg)
+![](/cc408/images/docs/os/a025a153ee.svg)
 
 ### 哲学家就餐问题
 
-![](/images/docs/os/image-20260611221716758.png)
+![](/cc408/images/docs/os/image-20260611221716758.png)
 
 假设有五位 **哲学家** 坐在一个 **圆桌** 周围，每两位哲学家之间有一把 **叉子** 。哲学家的生活由 **思考和吃饭** 两种活动组成。为了吃饭，一个哲学家需要两把叉子——左边和右边的一把。问题在于，如何设计一个算法使得哲学家们可以正常就餐，而不会因为竞争叉子而导致死锁或饥饿。
 
@@ -278,9 +278,9 @@ void philosopher(int i) {
 
 哲学家就餐过程可以参考以下流程图理解：
 
-![](/images/docs/os/image-20260611221818129.png)
+![](/cc408/images/docs/os/image-20260611221818129.png)
 
-![](/images/docs/os/image-20260611221830941.png)
+![](/cc408/images/docs/os/image-20260611221830941.png)
 
 
 ## 相关笔记

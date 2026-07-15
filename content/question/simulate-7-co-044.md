@@ -1,5 +1,5 @@
 ---
-title: "模拟卷7 计算机组成原理 第44题"
+title: "模拟卷7 组成原理 第44题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 7
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "流水线概念"
 question_type: "comprehensive"
 difficulty: 4
 number: 44
+
 ---
 
 （11 分）设有一个 CPU 的指令执行部件如下图所示，由 Cache 每隔 100ns 提供 1 条指令。（注：B1、B2 和 B3 是三个相同的并行部件）
@@ -20,6 +21,8 @@ number: 44
 （1）画出该指令流水线功能段的时空图。
 
 （2）试计算流水线执行这 4 条指令的实际吞吐率和效率。
+
+[流水线概念](/study_methods/tags/408quiz//#%e6%b5%81%e6%b0%b4%e7%ba%bf%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

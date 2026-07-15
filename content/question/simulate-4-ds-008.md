@@ -9,10 +9,12 @@ set: 4
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "数组查找"
+  - "平均查找长度"
 question_type: "choice"
 difficulty: 3
 number: 8
+
 ---
 
 在关键字随机分布的情况下，用二分查找树的方法进行查找，其平均查找长度与（ ）量级相当。
@@ -21,6 +23,9 @@ A\. 顺序查找
 B\. 折半查找
 C\. 分块查找
 D\. 散列查找
+
+[数组查找](/study_methods/tags/408quiz//#%e6%95%b0%e7%bb%84%e6%9f%a5%e6%89%be)
+[平均查找长度](/study_methods/tags/408quiz//#%e5%b9%b3%e5%9d%87%e6%9f%a5%e6%89%be%e9%95%bf%e5%ba%a6)
 
 [tag_link]
 

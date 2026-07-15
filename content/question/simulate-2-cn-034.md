@@ -9,10 +9,11 @@ set: 2
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "香农定理"
 question_type: "choice"
 difficulty: 3
 number: 34
+
 ---
 
 设信道带宽为 4KHz，信噪比为 30dB，按照香农定理，信道的最大数据速率约等于（　）。
@@ -21,6 +22,8 @@ A\. 10 kb/s
 B\. 20 kb/s
 C\. 30 kb/s
 D\. 40 kb/s
+
+[香农定理](/study_methods/tags/408quiz//#%e9%a6%99%e5%86%9c%e5%ae%9a%e7%90%86)
 
 [tag_link]
 

@@ -9,10 +9,12 @@ set: 3
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "磁盘概念"
+  - "文件概念"
 question_type: "choice"
 difficulty: 3
 number: 30
+
 ---
 
 设有一个记录文件，采用隐式存储接分配方式，逻辑记录的固定长度为 100B，在磁盘上存储时采用连续成组分配格式。盘块长度为 512B。如果该文件的目录已经读入内存，要找到第 22 个逻辑记录共需启动磁盘（ ）次。
@@ -21,6 +23,9 @@ A\. 3
 B\. 4
 C\. 5
 D\. 6
+
+[磁盘概念](/study_methods/tags/408quiz//#%e7%a3%81%e7%9b%98%e6%a6%82%e5%bf%b5)
+[文件概念](/study_methods/tags/408quiz//#%e6%96%87%e4%bb%b6%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

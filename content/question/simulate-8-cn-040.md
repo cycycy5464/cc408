@@ -9,10 +9,11 @@ set: 8
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "窗口大小限制"
 question_type: "choice"
 difficulty: 3
 number: 40
+
 ---
 
 TCP 是互联网中的传输层协议，TCP 协议进行流量控制的方式是（ ）。
@@ -24,6 +25,8 @@ B\. 使用后退 N 帧 ARQ 协议
 C\. 使用固定大小的滑动窗口协议
 
 D\. 使用可变大小的滑动窗口协议
+
+[窗口大小限制](/study_methods/tags/408quiz//#%e7%aa%97%e5%8f%a3%e5%a4%a7%e5%b0%8f%e9%99%90%e5%88%b6)
 
 [tag_link]
 

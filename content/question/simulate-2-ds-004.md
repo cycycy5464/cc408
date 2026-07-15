@@ -9,10 +9,11 @@ set: 2
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "树的概念"
 question_type: "choice"
 difficulty: 3
 number: 4
+
 ---
 
 设高度为 100 的二叉树上只有度为 0 和度为 2 的结点，则此类二叉树中所包含的结点数最少为（　）。
@@ -21,6 +22,8 @@ A\. 100
 B\. 201
 C\. 199
 D\. 200
+
+[树的概念](/study_methods/tags/408quiz//#%e6%a0%91%e7%9a%84%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

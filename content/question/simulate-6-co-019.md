@@ -1,5 +1,5 @@
 ---
-title: "模拟卷6 计算机组成原理 第19题"
+title: "模拟卷6 组成原理 第19题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,14 @@ years:
 source: "模拟题"
 set: 6
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "数据通路"
+  - "信道利用率"
 question_type: "choice"
 difficulty: 3
 number: 19
+
 ---
 
 下列关于微指令编码方式的说法中，错误的是（ ）。
@@ -21,6 +23,9 @@ A\. I、III 和 IV
 B\. II 和 IV
 C\. II 和 IV
 D\. I、II 和 IV
+
+[数据通路](/study_methods/tags/408quiz//#%e6%95%b0%e6%8d%ae%e9%80%9a%e8%b7%af)
+[信道利用率](/study_methods/tags/408quiz//#%e4%bf%a1%e9%81%93%e5%88%a9%e7%94%a8%e7%8e%87)
 
 [tag_link]
 

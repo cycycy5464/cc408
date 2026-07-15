@@ -9,10 +9,12 @@ set: 2
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "快速排序"
+  - "插入排序"
 question_type: "choice"
 difficulty: 3
 number: 10
+
 ---
 
 对一组数据（84,47,15,21,25）排序，数据在排序的过程中的变化如下：
@@ -21,6 +23,9 @@ A\. 堆排序
 B\. 冒泡排序
 C\. 快速排序
 D\. 插入排序
+
+[快速排序](/study_methods/tags/408quiz//#%e5%bf%ab%e9%80%9f%e6%8e%92%e5%ba%8f)
+[插入排序](/study_methods/tags/408quiz//#%e6%8f%92%e5%85%a5%e6%8e%92%e5%ba%8f)
 
 [tag_link]
 

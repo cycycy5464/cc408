@@ -1,5 +1,5 @@
 ---
-title: "模拟卷2 计算机组成原理 第12题"
+title: "模拟卷2 组成原理 第12题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,14 @@ years:
 source: "模拟题"
 set: 2
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "寄存器类型"
+  - "汇编代码"
 question_type: "choice"
 difficulty: 3
 number: 12
+
 ---
 
 对汇编语言程序员来说，以下部件中不透明的是（　）。
@@ -21,6 +23,9 @@ A\. I、II和III
 B\. IV、V和VI
 C\. III和IV
 D\. I、II、V和VI
+
+[寄存器类型](/study_methods/tags/408quiz//#%e5%af%84%e5%ad%98%e5%99%a8%e7%b1%bb%e5%9e%8b)
+[汇编代码](/study_methods/tags/408quiz//#%e6%b1%87%e7%bc%96%e4%bb%a3%e7%a0%81)
 
 [tag_link]
 

@@ -9,10 +9,11 @@ set: 8
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "交换方式"
 question_type: "choice"
 difficulty: 3
 number: 33
+
 ---
 
 设待传送数据总长度为 L 位，分组长度为 P 位，其中头部开销长度为 H 位，源结点到目的结点之间的链路数为 h，每个链路上的延迟时间为 D 秒，数据传输速率为 B bps，电路交换建立连接的时间为 S 秒，则电路交换方式传送完所有数据需要的时间是（ ）秒。
@@ -21,6 +22,8 @@ A\. hD+L/B
 B\. S+hD+L/B
 C\. S+hD+P(L-(P-H)B)
 D\. S+L/B
+
+[交换方式](/study_methods/tags/408quiz//#%e4%ba%a4%e6%8d%a2%e6%96%b9%e5%bc%8f)
 
 [tag_link]
 

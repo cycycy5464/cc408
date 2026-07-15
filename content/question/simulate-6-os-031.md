@@ -9,10 +9,12 @@ set: 6
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "磁盘概念"
+  - "文件系统"
 question_type: "choice"
 difficulty: 3
 number: 31
+
 ---
 
 某文件系统采用多级索引结构，每个文件的索引节点（inode）中包含：
@@ -21,6 +23,9 @@ A\. 1 次
 B\. 2 次
 C\. 3 次
 D\. 4 次
+
+[磁盘概念](/study_methods/tags/408quiz//#%e7%a3%81%e7%9b%98%e6%a6%82%e5%bf%b5)
+[文件系统](/study_methods/tags/408quiz//#%e6%96%87%e4%bb%b6%e7%b3%bb%e7%bb%9f)
 
 [tag_link]
 

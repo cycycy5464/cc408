@@ -9,10 +9,12 @@ set: 2
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "归并排序"
+  - "希尔排序"
 question_type: "choice"
 difficulty: 3
 number: 9
+
 ---
 
 对一组数据（25,84,21,47,15,27,68,35,20）进行排序，前三趟的排序结果如下：
@@ -21,6 +23,9 @@ A\. 选择排序
 B\. 希尔排序
 C\. 归并排序
 D\. 快速排序
+
+[归并排序](/study_methods/tags/408quiz//#%e5%bd%92%e5%b9%b6%e6%8e%92%e5%ba%8f)
+[希尔排序](/study_methods/tags/408quiz//#%e5%b8%8c%e5%b0%94%e6%8e%92%e5%ba%8f)
 
 [tag_link]
 

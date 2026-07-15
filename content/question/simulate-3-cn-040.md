@@ -9,10 +9,12 @@ set: 3
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "网络应用模型"
+  - "通信指标"
 question_type: "choice"
 difficulty: 3
 number: 40
+
 ---
 
 下列哪种技术可以最有效地降低访问 WWW 服务器的时延（ ）。
@@ -24,6 +26,9 @@ B\. 高性能 WWW 服务器
 C\. WWW 高速缓存
 
 D\. 本地域名服务器
+
+[网络应用模型](/study_methods/tags/408quiz//#%e7%bd%91%e7%bb%9c%e5%ba%94%e7%94%a8%e6%a8%a1%e5%9e%8b)
+[通信指标](/study_methods/tags/408quiz//#%e9%80%9a%e4%bf%a1%e6%8c%87%e6%a0%87)
 
 [tag_link]
 

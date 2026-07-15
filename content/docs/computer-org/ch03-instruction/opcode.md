@@ -41,7 +41,7 @@ mov [var], eax     ; 把 eax 的值存入变量 var
 mov ecx, 100       ; 将 100 赋值给 ecx
 mov byte ptr [var], 5  ; 只修改 var 指向的 1 字节
 
-![](/images/docs/computer-org/image-20260612230337907.png)
+![](/cc408/images/docs/computer-org/image-20260612230337907.png)
 
 #### 栈操作
 
@@ -87,7 +87,7 @@ add esp, 4      ; esp 向高地址移动
 
 下图给出了一个入栈出栈指令的实例，通过 `PUSH` 和 `POP` 指令实现了 **寄存器** `EAX` 和 `EBX` 内容交换：
 
-![](/images/docs/computer-org/image-20260612230453033.png)
+![](/cc408/images/docs/computer-org/image-20260612230453033.png)
 
 ### 算术和逻辑运算指令
 
@@ -223,7 +223,7 @@ idiv ecx       ; → EAX = -6, EDX = -2
   * `XOR`：将指定位翻转（0 ↔ 1）；
   * `NOT`：将所有位取反（补码的按位非）；
 
-![](/images/docs/computer-org/653d601f94.webp)
+![](/cc408/images/docs/computer-org/653d601f94.webp)
 
   * 语法
   * 实例
@@ -302,7 +302,7 @@ jl  less_than_zero ; 若 [x] 为负数，跳转
   * `CF`（Carry Flag）：是否产生了进位/借位（无符号溢出）
   * `OF`（Overflow Flag）：是否有符号溢出
 
-![](/images/docs/computer-org/7f1cc1826b.svg)
+![](/cc408/images/docs/computer-org/7f1cc1826b.svg)
 
 这些标志用于后续的 [条件跳转](</constitution_principle/instruction/instruction_ops/#%e6%9d%a1%e4%bb%b6%e8%b7%b3%e8%bd%ac>)，如 `je`、`jg`、`jl` 等。
 
@@ -314,7 +314,7 @@ jl  less_than_zero ; 若 [x] 为负数，跳转
   * **算术移位** （Arithmetic Shift）：用于 **有符号整数** ，右移时保持符号位不变。
   * **循环移位** （Rotate Shift）：将移出的位补回另一端，不丢失任何一位。
 
-![](/images/docs/computer-org/image-20260612230711641.png)
+![](/cc408/images/docs/computer-org/image-20260612230711641.png)
 
 常见的移位指令如下表所示：
 
@@ -397,7 +397,7 @@ jmp label
 
 
 
-![](/images/docs/computer-org/image-20260612230743709.png)
+![](/cc408/images/docs/computer-org/image-20260612230743709.png)
 
 跳转指令编译后通常使用 [相对寻址](</constitution_principle/instruction/format/#%e7%9b%b8%e5%af%b9%e5%af%bb%e5%9d%80>)，也就是 **跳转偏移量** 是相对于下一条指令的地址（即当前 PC + 指令长度） 来计算的。
 
@@ -433,7 +433,7 @@ je equal_label
 
 条件跳转的过程可以通过下图进行辅助理解：
 
-![](/images/docs/computer-org/image-20260612230814865.png)
+![](/cc408/images/docs/computer-org/image-20260612230814865.png)
 
 #### 子程序调用
 
@@ -461,7 +461,7 @@ subroutine:
 
 子程序调用的过程可以通过下图进行辅助理解：
 
-![](/images/docs/computer-org/image-20260612230908906.png)
+![](/cc408/images/docs/computer-org/image-20260612230908906.png)
 
 图的阅读顺序对应四个步骤：
 
@@ -536,7 +536,7 @@ IF 位控制的是 [可屏蔽中断](</constitution_principle/bus/io/#%e5%8f%af%
 `IN` 和 `OUT` 指令用于处理与外部设备的 **输入/输出** （I/O）操作。这些指令让 CPU 可以直接与硬件端口通信，从而读取或发送数据。
 
 
-![](/images/docs/computer-org/image-20260612230955536.png)
+![](/cc408/images/docs/computer-org/image-20260612230955536.png)
 
   * `IN`：从指定的 **I/O 端口** 读取数据到 **寄存器** 。通过 `IN` 指令，可以从硬件设备读取状态信息或数据。
   * `OUT`： **将寄存器** 中的数据写入到指定的 **I/O 端口** 。通过 `OUT` 指令，CPU 可以向设备发送控制命令或数据。
@@ -661,11 +661,11 @@ cmpsd  ; 比较 4 字节
 
 
 
-![](/images/docs/computer-org/98d9628a3a.svg)
+![](/cc408/images/docs/computer-org/98d9628a3a.svg)
 
 ### 总结
 
-指令类别![](/images/docs/computer-org/image-20260612231116277.png)
+指令类别![](/cc408/images/docs/computer-org/image-20260612231116277.png)
 
 
 ## 相关笔记

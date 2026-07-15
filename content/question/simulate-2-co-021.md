@@ -1,5 +1,5 @@
 ---
-title: "模拟卷2 计算机组成原理 第21题"
+title: "模拟卷2 组成原理 第21题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 2
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "寄存器类型"
 question_type: "choice"
 difficulty: 3
 number: 21
+
 ---
 
 CPU 响应中断时，保护两个关键的硬件状态是（　）。
@@ -21,6 +22,8 @@ A\. PC 和 PSW
 B\. PC 和 IR
 C\. AR 和 IR
 D\. AR 和 PSW
+
+[寄存器类型](/study_methods/tags/408quiz//#%e5%af%84%e5%ad%98%e5%99%a8%e7%b1%bb%e5%9e%8b)
 
 [tag_link]
 

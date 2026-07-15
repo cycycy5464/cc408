@@ -9,10 +9,11 @@ set: 6
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "特殊矩阵"
 question_type: "choice"
 difficulty: 3
 number: 2
+
 ---
 
 设有一个 10 阶对称矩阵 A，采用压缩存储方式，以行序为主存储，a₁₁为第一个元素，其存储地址为 1，每个元素占一个地址空间，则 a₆₅ 的地址可能是（ ）。
@@ -21,6 +22,8 @@ A\. 13
 B\. 33
 C\. 18
 D\. 40
+
+[特殊矩阵](/study_methods/tags/408quiz//#%e7%89%b9%e6%ae%8a%e7%9f%a9%e9%98%b5)
 
 [tag_link]
 

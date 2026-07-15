@@ -51,7 +51,7 @@ struct TreeNode* right;
 顺序存储表示用数组存储一颗树，如下图所示。
 
 
-![](/images/docs/data-structure/942e7c4d8d.svg)
+![](/cc408/images/docs/data-structure/942e7c4d8d.svg)
 
 理解顺序存储的关键在于理解其 **结点的隐式链接关系** 以及 **空指针的定义** 这两点。
 
@@ -95,7 +95,7 @@ int rchild(int i) {
 简单来说，**满二叉树** 必须每一层结点数都是满的， **完全二叉树** 允许最后一层的最后几个结点为空。
 
 
-![](/images/docs/data-structure/cc432ff6c1.svg)
+![](/cc408/images/docs/data-structure/cc432ff6c1.svg)
 
 #### 满二叉树
 
@@ -125,7 +125,7 @@ int rchild(int i) {
 当使用 DFS 遍历二叉树中的结点时，算法会优先探索树的深度，直到达到最深的节点。 当达到叶子节点或无法继续深入时，算法会回溯返回到上一个节点，探索其他分支。
 
 
-![](/images/docs/data-structure/image-20260612100626281.png)
+![](/cc408/images/docs/data-structure/image-20260612100626281.png)
 
 二叉树的深度优先（DFS）遍历方式包含前序、中序、后序遍历三种。 理解这三种遍历方式的关键在于理解其递归过程，不同方式的递归顺序不一样。 具体不同点如下表所示：
 
@@ -153,7 +153,7 @@ int rchild(int i) {
 
 
 ```c
-![](/images/docs/data-structure/image-20260612101748942.png)
+![](/cc408/images/docs/data-structure/image-20260612101748942.png)
 
     void preorderTraversal(struct TreeNode* root) {
         if (root == NULL) {
@@ -182,7 +182,7 @@ int rchild(int i) {
 
 
 ```c
-![](/images/docs/data-structure/image-20260612101815059.png)
+![](/cc408/images/docs/data-structure/image-20260612101815059.png)
 
 ```c
 void inorderTraversal(struct TreeNode* root) {
@@ -213,7 +213,7 @@ void inorderTraversal(struct TreeNode* root) {
 
 
 ```c
-![](/images/docs/data-structure/image-20260612101835603.png)
+![](/cc408/images/docs/data-structure/image-20260612101835603.png)
 
     void postorderTraversal(struct TreeNode* root) {
         if (root == NULL) {
@@ -234,7 +234,7 @@ void inorderTraversal(struct TreeNode* root) {
 二叉树的层次遍历（Level Order Traversal），也称为 **广度优先搜索** （BFS），是一种从上到下、从左到右逐层访问二叉树节点的方法。
 
 BFS 算法从根节点开始，**逐层访问节点** 。同一层级的节点按照从左到右的顺序访问。
-![](/images/docs/data-structure/image-20260612101856435.png)        
+![](/cc408/images/docs/data-structure/image-20260612101856435.png)        
 
 ```c
 void levelOrderTraversal(struct TreeNode* root) {
@@ -278,7 +278,7 @@ while (queue->front != NULL) {
 ### 线索二叉树
 
 
-![](/images/docs/data-structure/image-20260612101929222.png)
+![](/cc408/images/docs/data-structure/image-20260612101929222.png)
 
 **线索二叉树** （Threaded Binary Tree）是一种为了提高二叉树遍历效率而设计的数据结构。它通过利用二叉树中原本为空的指针域来存储指向前驱或后继结点的指针（称为“线索”），从而省去递归或栈的遍历方式。
 
@@ -371,7 +371,7 @@ for (; p != NULL; p = p->rchild) {
 
 但是如果在遍历时显式地写出空指针（`#`），序列就变得 **无歧义** 。
 
-![](/images/docs/data-structure/image-20260612102019699.png)
+![](/cc408/images/docs/data-structure/image-20260612102019699.png)
 
 举个例子，对于以上二叉树，我们可以使用以下方法构建二叉树：
 
@@ -439,7 +439,7 @@ return cur;
 中序遍历：
 
 
-![](/images/docs/data-structure/cfeebcb302.svg)
+![](/cc408/images/docs/data-structure/cfeebcb302.svg)
 
 如上图所示，给定起始序列，可以判断先序序列中的第一个元素 A 是树的根结点。 再根据中序序列，可以判断 B、D 在 A 的左子树中，C、E 在 A 的右子树中。
 
@@ -479,7 +479,7 @@ A
   2. 若它的 **右子树** 不空，则右子树上所有结点的值均 **大于** 它的根结点的值。
   3. 它的左、右子树也分别为二叉排序树。
 
-![](/images/docs/data-structure/3959cfd97b.svg)
+![](/cc408/images/docs/data-structure/3959cfd97b.svg)
 
 二叉查找树的 **主要操作** 有：
 
@@ -609,7 +609,7 @@ return root;
 
 **平衡二叉树** （Balanced Binary Tree），也叫做 **AVL 树** 。它的特点是任意节点的左右子树高度差（**平衡因子** ）的绝对值不超过 1，这确保了树的高度始终保持在 O\(log2​n\) 的水平，使得查找、插入和删除操作的时间复杂度都保持在 O\(log2​n\) 。
 
-![](/images/docs/data-structure/5a539fc142.svg)
+![](/cc408/images/docs/data-structure/5a539fc142.svg)
 
 理解 AVL 的关键在于理解 AVL 的 **旋转过程** ，以下针对几个疑问带大家迅速了解关键知识：
 
@@ -635,7 +635,7 @@ return root;
   3. **LR** ，N 在 A 的左子树的右子树中（A 的平衡因子 +2，A 的左子树根节点平衡因子 -1）：A 的左子树左旋，然后 A 右旋
   4. **RL** ，N 在 A 的右子树的左子树中（A 的平衡因子 -2，A 的右子树根节点平衡因子 +1）：A 的右子树右旋，然后 A 左旋
 
-![](/images/docs/data-structure/3ee40d3239.svg)
+![](/cc408/images/docs/data-structure/3ee40d3239.svg)
 
 AVL 平衡旋转的代码实现如下所示，过程比较繁琐，了解即可，重点在与如何掌握如何“人脑”模拟旋转过程。
 

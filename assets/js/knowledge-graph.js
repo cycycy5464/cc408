@@ -19,21 +19,21 @@
   };
   var subjectNames = {
     'data-structure': '数据结构',
-    'computer-org': '计算机组成原理',
+    'computer-org': '组成原理',
     'os': '操作系统',
     'network': '计算机网络',
     'exam': '试题'
   };
   var subjectCodeMap = {
     '数据结构': 'data-structure',
-    '计算机组成原理': 'computer-org',
+    '组成原理': 'computer-org',
     '操作系统': 'os',
     '计算机网络': 'network'
   };
   // reverse of subjectNames
   var subjectNameFromCode = {
     'data-structure': '数据结构',
-    'computer-org': '计算机组成原理',
+    'computer-org': '组成原理',
     'os': '操作系统',
     'network': '计算机网络'
   };

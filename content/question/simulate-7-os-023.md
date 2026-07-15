@@ -9,10 +9,12 @@ set: 7
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "系统调用"
+  - "操作系统概念"
 question_type: "choice"
 difficulty: 3
 number: 23
+
 ---
 
 用户在编写程序时计划读取某个数据文件中的 20 个数据记录，他使用操作系统提供的接口是（ ）。
@@ -21,6 +23,9 @@ A\. 系统调用
 B\. 图形用户接口
 C\. 原语
 D\. 命令行输入控制
+
+[系统调用](/study_methods/tags/408quiz//#%e7%b3%bb%e7%bb%9f%e8%b0%83%e7%94%a8)
+[操作系统概念](/study_methods/tags/408quiz//#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

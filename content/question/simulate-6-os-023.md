@@ -9,10 +9,12 @@ set: 6
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "进程和线程"
+  - "进程概念"
 question_type: "choice"
 difficulty: 3
 number: 23
+
 ---
 
 多用户系统有必要保证进程的独立性，保证操作系统本身的安全，但为了向用户提供更大的灵活性，应尽可能地限制用户进程。下面列出的各操作中，（ ）是必须加以保护的。
@@ -21,6 +23,9 @@ A\. 从用户模式切换到特权模式
 B\. 从内存中读取自己的数据
 C\. 打开自己的用户文件
 D\. 执行自己的程序代码
+
+[进程和线程](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e5%92%8c%e7%ba%bf%e7%a8%8b)
+[进程概念](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

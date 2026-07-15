@@ -9,10 +9,12 @@ set: 2
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "进程和线程"
+  - "进程概念"
 question_type: "choice"
 difficulty: 3
 number: 26
+
 ---
 
 对于两个并发进程，设互斥信号量为 mutex，若 mutex=0，则表示（　）。
@@ -21,6 +23,9 @@ A\. 没有进程进入临界区
 B\. 有一个进程进入临界区
 C\. 有一个进程进入临界区，另一个进程等待进入
 D\. 有一个进程在等待进入
+
+[进程和线程](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e5%92%8c%e7%ba%bf%e7%a8%8b)
+[进程概念](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

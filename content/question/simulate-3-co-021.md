@@ -1,5 +1,5 @@
 ---
-title: "模拟卷3 计算机组成原理 第21题"
+title: "模拟卷3 组成原理 第21题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 3
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "通信指标"
 question_type: "choice"
 difficulty: 3
 number: 21
+
 ---
 
 影响总线带宽的因素（ ）。
@@ -26,6 +27,8 @@ A\. Ⅰ、Ⅱ和Ⅴ
 B\. Ⅰ、Ⅱ、Ⅲ和Ⅳ
 C\. Ⅰ、Ⅲ和Ⅳ
 D\. Ⅰ、Ⅱ、Ⅲ、Ⅳ和Ⅴ
+
+[通信指标](/study_methods/tags/408quiz//#%e9%80%9a%e4%bf%a1%e6%8c%87%e6%a0%87)
 
 [tag_link]
 

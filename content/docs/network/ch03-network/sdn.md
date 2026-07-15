@@ -20,7 +20,7 @@ chapter_title: "SDN"
 SDN 的架构如下图所示：
 
 
-![](/images/docs/network/image-20260613072104215.png)
+![](/cc408/images/docs/network/image-20260613072104215.png)
 
 ### 控制平面和数据平面
 

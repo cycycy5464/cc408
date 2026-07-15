@@ -26,7 +26,7 @@ chapter_title: "图的算法和应用"
   3. 如果无法继续深度遍历（即当前顶点没有未访问的邻居），则回溯到上一个顶点，继续遍历其他未访问的邻居。
   4. 重复步骤 2 和步骤 3，直到所有顶点都被访问。
 
-![](/images/docs/data-structure/image-20260612140738926.png)
+![](/cc408/images/docs/data-structure/image-20260612140738926.png)
 
 图中 **DFS** 实现的框架与 [树的遍历](</data_structure/tree/tree/#%e6%a0%91%e7%9a%84%e9%81%8d%e5%8e%86>) 类似，不同点在于需要使用 `visit` 数组记录已经访问过的节点，避免重复遍历：
 function DFS(G, v, visited):
@@ -110,7 +110,7 @@ void dfs(struct Graph* graph, int start) {
   3. 遍历该顶点的所有未被访问的邻居，将它们放入队列中，并标记为已访问。
   4. 重复步骤 2 和步骤 3，直到队列为空。
 
-![](/images/docs/data-structure/image-20260612140818762.png)
+![](/cc408/images/docs/data-structure/image-20260612140818762.png)
 
 **BFS** 的伪代码实现如下所示，基于 **邻接矩阵** 或 **邻接表** 的 **BFS** 都遵循这个框架：
 
@@ -211,7 +211,7 @@ void bfs(struct Graph* graph, int start) {
 
 最小生成树（**Minimum Spanning Tree** ，**MST** ）是在一个连接所有顶点的无向图中，通过选择一部分边而形成的树，使得树的总权重（或成本）最小。
 
-![](/images/docs/data-structure/b242e8463f.svg)
+![](/cc408/images/docs/data-structure/b242e8463f.svg)
 
 准确的 **MST** 定义如下：在无向图 G=\(V,E\) 中， \(u,v\) 代表连接顶点 u 和顶点 v 的边，而 w\(u,v\) 代表此边的权重，若存在 T 为 E 的子集且 \(V,T\) 为树，使得 w\(T\)=∑\(u,v\)∈T​w\(u,v\) 最小，则此 T 为 G 的 **最小生成树** 。
 
@@ -237,7 +237,7 @@ Prim 算法通过 **逐步扩展顶点集合** 来构建最小生成树：从一
 
 
 
-![](/images/docs/data-structure/5f3bec1aab.svg)
+![](/cc408/images/docs/data-structure/5f3bec1aab.svg)
 
 
 
@@ -265,17 +265,17 @@ Prim 算法的贪心思想就在这里：每次都从这组横切边里挑出一
 
 参考 prim 算法的流程图如下：
 
-![](/images/docs/data-structure/935ff767f7.svg)
+![](/cc408/images/docs/data-structure/935ff767f7.svg)
 
 举个实际例子，对于以下的无向图，假设我们从顶点 a 出发使用 prim 算法寻找最小生成树，会逐步选择出 ab、bc、ci、cf、fg、gh、cd 以得到最小生成树：
 
 
-![](/images/docs/data-structure/2e6184bdba.svg)
+![](/cc408/images/docs/data-structure/2e6184bdba.svg)
 
 #### kruskal 算法
 
 
-![](/images/docs/data-structure/8e9ec9c43b.svg)
+![](/cc408/images/docs/data-structure/8e9ec9c43b.svg)
 
 **Kruskal** 算法是一种用于求解 **最小生成树** （**MST** ）的贪心算法。**Kruskal** 算法的基本思想是从边的权重最小的边开始，逐步构建生成树，确保不会形成环路。
 
@@ -290,7 +290,7 @@ Prim 算法的贪心思想就在这里：每次都从这组横切边里挑出一
 继续使用上文中 prim 中的无向图作为例子，使用 kruskal 算法，会依次选择 hg、ic、gf、ab、cf、cd、ah 以得到最小生成树：
 
 
-![](/images/docs/data-structure/c2c9393619.svg)
+![](/cc408/images/docs/data-structure/c2c9393619.svg)
 
 ### 最短路径
 
@@ -305,7 +305,7 @@ Prim 算法的贪心思想就在这里：每次都从这组横切边里挑出一
 
 Dijkstra 算法是一种 **贪心算法** 。它的 **核心思想** 是：从起点出发，不断“扩展”到距离起点最近的节点，并利用这些节点去尝试更新其他节点的最短路径，直到所有节点的最短路径都被确定。
 
-换句话说，算法始终保持一个 “已确定最短路径的集合”，并且在每一步中把离起点最近的“候选节点”加入其中：![](/images/docs/data-structure/6e5f0c05a1.svg)
+换句话说，算法始终保持一个 “已确定最短路径的集合”，并且在每一步中把离起点最近的“候选节点”加入其中：![](/cc408/images/docs/data-structure/6e5f0c05a1.svg)
 
 prim 算法和 dijkstra 算法的核心步骤十分类似：
 
@@ -357,7 +357,7 @@ prim 算法和 dijkstra 算法的核心步骤十分类似：
 
 Dijkstra 算法流程可以通过以下流程图理解：
 
-![](/images/docs/data-structure/654e91721f.svg)
+![](/cc408/images/docs/data-structure/654e91721f.svg)
 
 Dijkstra 的考察侧重于手工模拟其过程，代码实现一般不会考察，这里给出算法的简单 **伪代码实现** ，帮助各位理清其中的处理细节。
 function Dijkstra_Simple(Graph, source):
@@ -393,7 +393,7 @@ dist\[i\]\[j\]=min\(dist\[i\]\[j\],dist\[i\]\[k\]+dist\[k\]\[j\]\)
 
 这个过程会遍历所有可能的中转点 k ，不断优化路径。
 
-![](/images/docs/data-structure/ff244ebe49.svg)
+![](/cc408/images/docs/data-structure/ff244ebe49.svg)
 
 ✨ 算法具体流程如下：
 
@@ -435,7 +435,7 @@ dist\[i\]\[j\]=min\(dist\[i\]\[j\],dist\[i\]\[k\]+dist\[k\]\[j\]\)
 
 **AOV** （Activity on Vertex Network）网是一种以顶点表示活动或任务的网络模型。每个 **顶点** 代表一个 **任务或活动** ，而 **边** 表示任务之间的 **依赖关系** 。在AOV网中，任务或活动通常表示为顶点，而依赖关系（任务的先后顺序）表示为有向边。
 
-![](/images/docs/data-structure/f3d9745ad8.svg)
+![](/cc408/images/docs/data-structure/f3d9745ad8.svg)
 
 #### 算法步骤
 
@@ -452,9 +452,9 @@ Kahn算法
 
 下图展示了一个采用 **Kahn** 算法输出 **AOE** 网中的 **拓扑序列** 的实例：
 
-![](/images/docs/data-structure/image-20260612141245941.png)
+![](/cc408/images/docs/data-structure/image-20260612141245941.png)
 
-![](/images/docs/data-structure/image-20260612141300332.png)
+![](/cc408/images/docs/data-structure/image-20260612141300332.png)
 
 此外，可以通过 **DFS+栈** 得到 **拓扑序列** ，其步骤如下：
 
@@ -462,7 +462,7 @@ Kahn算法
   2. 每个节点 **DFS** 结束后将其压入栈中。
   3. 最后将栈中元素逆序输出，就是 **拓扑排序** 结果。
 
-![](/images/docs/data-structure/f73b3b4cd7.svg)
+![](/cc408/images/docs/data-structure/f73b3b4cd7.svg)
 
 **DFS** 过程中，每个节点在其所有后继节点访问完成后才被加入栈中，因此栈中元素的逆序正好满足 **拓扑排序** 所需的“前驱先于后继”的约束。
 
@@ -484,7 +484,7 @@ Kahn算法
 
 **AOE** （Activity on Edge Network）网是一种以边表示活动或任务的网络模型。每条边代表一个任务或活动，而顶点通常表示事件，表示任务的开始或完成时间。
 
-![](/images/docs/data-structure/d0f24b6611.svg)
+![](/cc408/images/docs/data-structure/d0f24b6611.svg)
 
 
 
@@ -552,7 +552,7 @@ Kahn算法
   * dij​ ：活动持续时间
 
 
-![](/images/docs/data-structure/a5906da53d.svg)
+![](/cc408/images/docs/data-structure/a5906da53d.svg)
 
 **关键路径** 上的所有活动都是 **关键活动** ，它是决定整个工程的关键因素，因此可通过加快关键活动来缩短整个工程的工期。
 
@@ -605,7 +605,7 @@ vl\(k\)=vj​∈Succ\(vk​\)min​\{vl\(j\)−weight\(vk​,vj​\)\}
   * 若某个顶点满足 `ve(i) = vl(i)`，则说明该顶点没有时间浮动，必须严格按时发生；
   * 将这些顶点按拓扑顺序连接起来，得到关键路径。
 
-![](/images/docs/data-structure/e9a3cd7ca8.svg)
+![](/cc408/images/docs/data-structure/e9a3cd7ca8.svg)
 
 ### 用图表达树
 
@@ -616,7 +616,7 @@ vl\(k\)=vj​∈Succ\(vk​\)min​\{vl\(j\)−weight\(vk​,vj​\)\}
 
 比如对于表达式 `(x + y) * ((x + y) / x)`，用二叉树和 **DAG** 的表示如下图：
 
-![](/images/docs/data-structure/de1d3ffa80.svg)
+![](/cc408/images/docs/data-structure/de1d3ffa80.svg)
 
 
 ## 相关笔记

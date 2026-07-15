@@ -25,7 +25,7 @@
     results.innerHTML = '<p style="color:var(--text-secondary);margin-bottom:1rem">共 ' + hits.length + ' 条结果</p>' +
       '<div class="exam-paper-grid">' +
       hits.map(function(h) {
-        var subj = h.subject === 'data-structure' ? '数据结构' : h.subject === 'computer-org' ? '计算机组成原理' : h.subject === 'os' ? '操作系统' : h.subject === 'network' ? '计算机网络' : h.subject || '';
+        var subj = h.subject === 'data-structure' ? '数据结构' : h.subject === 'computer-org' ? '组成原理' : h.subject === 'os' ? '操作系统' : h.subject === 'network' ? '计算机网络' : h.subject || '';
         return '<a href="' + h.url + '" class="exam-paper-card">' +
           '<div class="title">' + h.title + '</div>' +
           '<div class="meta">' + (subj ? '<span class="tag">' + subj + '</span>' : '') +

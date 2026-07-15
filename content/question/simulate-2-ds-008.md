@@ -9,10 +9,11 @@ set: 2
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "B+树"
 question_type: "choice"
 difficulty: 3
 number: 8
+
 ---
 
 下列关于 B-树和 B+树的叙述中，不正确的是（　）。
@@ -21,6 +22,8 @@ A\. B-树和 B+树都能有效地支持顺序查找
 B\. B-树和 B+树都是平衡的多叉树
 C\. B-树和 B+树都能有效地支持随机查找
 D\. B-树和 B+树都可以用于文件索引结构
+
+[B+树](/study_methods/tags/408quiz//#b%2b%e6%a0%91)
 
 [tag_link]
 

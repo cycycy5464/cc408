@@ -1,5 +1,5 @@
 ---
-title: "模拟卷8 计算机组成原理 第22题"
+title: "模拟卷8 组成原理 第22题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 8
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "异常和中断"
 question_type: "choice"
 difficulty: 3
 number: 22
+
 ---
 
 设 CPU 与 I/O 设备以中断方式进行数据传送。CPU 响应中断时，该 I/O 设备接口控制器送给 CPU 的中断向量表（中断向量表存放在段向量）的指针是 0800H，800H 单元中的值为 1200H，则该 I/O 设备的中断服务程序在主存中的入口地址为（ ）。
@@ -24,6 +25,8 @@ B\. 0801H
 C\. 1200H
 
 D\. 1201H
+
+[异常和中断](/study_methods/tags/408quiz//#%e5%bc%82%e5%b8%b8%e5%92%8c%e4%b8%ad%e6%96%ad)
 
 [tag_link]
 

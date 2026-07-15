@@ -9,10 +9,11 @@ set: 6
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "协议数据单元"
 question_type: "choice"
 difficulty: 3
 number: 35
+
 ---
 
 在简单停止 - 等待协议中，为了解决重复帧的问题，需要采用（ ）。
@@ -21,6 +22,8 @@ A\. 帧序号
 B\. 定时器
 C\. ACK 机制
 D\. NAK 机制
+
+[协议数据单元](/study_methods/tags/408quiz//#%e5%8d%8f%e8%ae%ae%e6%95%b0%e6%8d%ae%e5%8d%95%e5%85%83)
 
 [tag_link]
 

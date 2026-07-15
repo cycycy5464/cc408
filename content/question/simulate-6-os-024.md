@@ -9,10 +9,11 @@ set: 6
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "进程状态"
 question_type: "choice"
 difficulty: 3
 number: 24
+
 ---
 
 下列关于进程状态的说法中，正确的是（ ）。
@@ -21,6 +22,8 @@ A\. I、II 和 III
 B\. I、II 和 V
 C\. I、II 和 IV
 D\. I、II、III 和 V
+
+[进程状态](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e7%8a%b6%e6%80%81)
 
 [tag_link]
 

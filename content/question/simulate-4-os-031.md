@@ -9,10 +9,11 @@ set: 4
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "位图法"
 question_type: "choice"
 difficulty: 3
 number: 31
+
 ---
 
 若用 8 个字（字长 32 位，且字号和位号都从 0 开始计数）组成的位示图管理内存，假设用户归还一个块号为 100 的内存块时，它对应位示图的位置为（ ）。
@@ -21,6 +22,8 @@ A\. 字号为 3，位号为 5
 B\. 字号为 4，位号为 4
 C\. 字号为 3，位号为 4
 D\. 字号为 4，位号为 5
+
+[位图法](/study_methods/tags/408quiz//#%e4%bd%8d%e5%9b%be%e6%b3%95)
 
 [tag_link]
 

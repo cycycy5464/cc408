@@ -9,10 +9,11 @@ set: 5
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "队列"
 question_type: "choice"
 difficulty: 3
 number: 2
+
 ---
 
 若以 1234 作为双端队列的输入序列，则既不能由输入受限的双端队列得到，也不能由输出受限的双端队列得到的输出序列是（ ）。
@@ -21,6 +22,8 @@ A\. 1234
 B\. 4132
 C\. 4231
 D\. 4213
+
+[队列](/study_methods/tags/408quiz//#%e9%98%9f%e5%88%97)
 
 [tag_link]
 

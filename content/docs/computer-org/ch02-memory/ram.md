@@ -78,7 +78,7 @@ DRAM 的刷新方式包括：
 也就是说，**一整个存储体连续存储一段地址空间** ，相邻地址数据往往在同一个存储体中。如下图所示：
 
 
-![](/images/docs/computer-org/image-20260612222315264.png)
+![](/cc408/images/docs/computer-org/image-20260612222315264.png)
 
 由于这种方式下，相邻数据集中在一个存储体中，**多个存储体无法并行工作** ，而是 **串行工作** ：
 
@@ -87,7 +87,7 @@ DRAM 的刷新方式包括：
 
 这种串行访问的结构较为简单，适用于对并行性能要求不高的场景，但 **无法提升带宽或访问效率** ，无法发挥出多体结构的优势。
 
-![](/images/docs/computer-org/df24dd9d5c.svg)
+![](/cc408/images/docs/computer-org/df24dd9d5c.svg)
 
 ##### 低位交叉编址
 
@@ -95,11 +95,11 @@ DRAM 的刷新方式包括：
 
 以 4 个存储体为例，地址 0~~3 分别对应**M0、M1、M2、M3** ，地址 4~~7 也分别映射到 **M0~M3** ，以此类推。这样就实现了 **相邻地址分散存储在不同存储体中** 的效果：
 
-![](/images/docs/computer-org/image-20260612222343961.png)
+![](/cc408/images/docs/computer-org/image-20260612222343961.png)
 
 在这种方式下，多个存储体可以 **并行工作** ，大大提高了访问效率。但为了支持并行，每个存储体 **都需配备自己的地址寄存器和数据寄存器** ，如下图所示：
 
-![](/images/docs/computer-org/4d4244121c.svg)
+![](/cc408/images/docs/computer-org/4d4244121c.svg)
 
 ##### 并行性
 
@@ -133,7 +133,7 @@ DRAM 的刷新方式包括：
 
 假设 CPU 的时钟周期为 t ， P1​ 和 P3​ 的耗时为一个时钟周期即 t 。 P2​ 的耗时为四个时钟周期即 4×t ，那么对于上图所示的 四体交叉存储器，读取 八个字长的数据 的流水线如下所示：
 
-![](/images/docs/computer-org/355b15a129.svg)
+![](/cc408/images/docs/computer-org/355b15a129.svg)
 
 采用流水线方式后，即使存储体尚未完成其自身内部访问，也可以开始对其他体的下一条指令进行地址投送，实现访问阶段的 **重叠执行** ，从而提升 **吞吐率** 。
 
@@ -151,7 +151,7 @@ DRAM 的刷新方式包括：
   * **字扩展** ：扩展字数
   * **字位扩展** ：同时扩展字长和字数
 
-![](/images/docs/computer-org/image-20260612222432586.png)
+![](/cc408/images/docs/computer-org/image-20260612222432586.png)
 
 **主存扩展方式和交叉编址方式有什么关系**
 
@@ -168,7 +168,7 @@ DRAM 的刷新方式包括：
 
 ##### 位扩展
 
-![](/images/docs/computer-org/0119c6f69c.svg)
+![](/cc408/images/docs/computer-org/0119c6f69c.svg)
 
 如上图所示，用 16K×8 bit 的存储芯片用来构建 16K×32 bit 的存储器。
 
@@ -182,7 +182,7 @@ DRAM 的刷新方式包括：
 
 ##### 字扩展
 
-![](/images/docs/computer-org/6906d8df43.svg)
+![](/cc408/images/docs/computer-org/6906d8df43.svg)
 
 如上图所示，用 16K×8 bit 的存储芯片用来构建 64K×8 bit 的存储器。
 
@@ -192,7 +192,7 @@ DRAM 的刷新方式包括：
 
 ##### 字位扩展
 
-![](/images/docs/computer-org/ba6c1401b4.svg)
+![](/cc408/images/docs/computer-org/ba6c1401b4.svg)
 
 如上图所示，用 16K×8 bit 的存储芯片用来构建 32K×16 bit 的存储器。
 

@@ -9,10 +9,11 @@ set: 5
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "树的概念"
 question_type: "choice"
 difficulty: 3
 number: 3
+
 ---
 
 在下列遍历算法中，在遍历序列中叶结点之间的次序可能与其他算法不同的算法是（ ）。
@@ -21,6 +22,8 @@ A\. 先序遍历算法
 B\. 中序遍历算法
 C\. 后序遍历算法
 D\. 层次遍历算法
+
+[树的概念](/study_methods/tags/408quiz//#%e6%a0%91%e7%9a%84%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

@@ -9,10 +9,12 @@ set: 7
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "复杂度分析"
+  - "平衡二叉树"
 question_type: "comprehensive"
 difficulty: 4
 number: 42
+
 ---
 
 （13 分）已知一棵二叉树采用二叉链表存储，结点结构为：
@@ -24,6 +26,9 @@ root 指向根结点。请编写算法判断该二叉树是否是平衡二叉树
 （1）给出算法的基本设计思想。
 
 （2）根据设计思想，采用 C 或 C++ 语言描述算法，关键之处给出注释。
+
+[复杂度分析](/study_methods/tags/408quiz//#%e5%a4%8d%e6%9d%82%e5%ba%a6%e5%88%86%e6%9e%90)
+[平衡二叉树](/study_methods/tags/408quiz//#%e5%b9%b3%e8%a1%a1%e4%ba%8c%e5%8f%89%e6%a0%91)
 
 [tag_link]
 

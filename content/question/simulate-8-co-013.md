@@ -1,5 +1,5 @@
 ---
-title: "模拟卷8 计算机组成原理 第13题"
+title: "模拟卷8 组成原理 第13题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 8
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "补码"
 question_type: "choice"
 difficulty: 3
 number: 13
+
 ---
 
 已知
@@ -25,6 +26,8 @@ A\. 8CH
 B\. 18H
 C\. E3H
 D\. F1H
+
+[补码](/study_methods/tags/408quiz//#%e8%a1%a5%e7%a0%81)
 
 [tag_link]
 

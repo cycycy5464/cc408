@@ -9,10 +9,12 @@ set: 5
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "进程和线程"
+  - "进程概念"
 question_type: "choice"
 difficulty: 3
 number: 25
+
 ---
 
 进程从运行状态到等待状态可能是（ ）。
@@ -21,6 +23,9 @@ A\. 运行进程执行了 P 操作
 B\. 进程调度程序的调度
 C\. 运行进程的时间片用完
 D\. 运行进程执行了 V 操作
+
+[进程和线程](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e5%92%8c%e7%ba%bf%e7%a8%8b)
+[进程概念](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

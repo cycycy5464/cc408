@@ -1,5 +1,5 @@
 ---
-title: "模拟卷8 操作系统 第11题"
+title: "模拟卷8 数据结构 第11题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,14 @@ years:
 source: "模拟题"
 set: 8
 subjects:
-  - "操作系统"
+  - "数据结构"
 knowledge_points:
-  - "操作系统"
+  - "操作系统概念"
+  - "外部排序"
 question_type: "choice"
 difficulty: 3
 number: 11
+
 ---
 
 若对 29 个记录只进行三趟多路平衡归并，则选取的归并路数至少是（ ）。
@@ -21,6 +23,9 @@ A\. 2
 B\. 3
 C\. 4
 D\. 5
+
+[操作系统概念](/study_methods/tags/408quiz//#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f%e6%a6%82%e5%bf%b5)
+[外部排序](/study_methods/tags/408quiz//#%e5%a4%96%e9%83%a8%e6%8e%92%e5%ba%8f)
 
 [tag_link]
 

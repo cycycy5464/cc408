@@ -20,7 +20,7 @@ chapter_title: "ICMP协议"
 ### 首部
 
 
-![](/images/docs/network/a4e6b7572f.svg)
+![](/cc408/images/docs/network/a4e6b7572f.svg)
 
 
   1. **类型** `(Type)` ： _8_ 位
@@ -126,7 +126,7 @@ chapter_title: "ICMP协议"
 
 **Ping** 是一个简单的工具，用于测试两台主机之间的 **网络连接性** ，测量往返时延（**RTT** ，Round-Trip Time），并检测是否有 **数据包丢失** 。
 
-![](/images/docs/network/4485b96ace.png)
+![](/cc408/images/docs/network/4485b96ace.png)
 
 **ping** 利用了 **ICMP** 中的 **Echo Request/Reply** 消息类型：
 
@@ -139,7 +139,7 @@ chapter_title: "ICMP协议"
 
 Traceroute 用于跟踪数据包从源到目标的 **路径** ，显示沿途经过的路由器（**跳点** ）及其 **延迟** 。
 
-![](/images/docs/network/f76898b377.png)
+![](/cc408/images/docs/network/f76898b377.png)
 
 Traceroute 利用 ICMP 的 **Time Exceeded** 消息和 IP 数据包的 **TTL** （Time To Live） 字段：
 

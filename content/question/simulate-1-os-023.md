@@ -9,10 +9,11 @@ set: 1
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "用户态和内核态"
 question_type: "choice"
 difficulty: 3
 number: 23
+
 ---
 
 在操作系统中，有些指令只能在系统的内核态下运行，而不允许普通用户程序使用。下列操作中，可以运行在用户态下的是（ ）。
@@ -21,6 +22,8 @@ A\. 设置定时器的初值
 B\. 触发 Trap 指令
 C\. 内存单元复位
 D\. 关闭中断允许位
+
+[用户态和内核态](/study_methods/tags/408quiz//#%e7%94%a8%e6%88%b7%e6%80%81%e5%92%8c%e5%86%85%e6%a0%b8%e6%80%81)
 
 [tag_link]
 

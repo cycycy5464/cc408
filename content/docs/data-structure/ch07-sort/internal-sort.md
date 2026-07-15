@@ -57,7 +57,7 @@ chapter_title: "内部排序"
 
 #### 复杂度
 
-![](/images/docs/data-structure/c7dcdf5ef9.svg)
+![](/cc408/images/docs/data-structure/c7dcdf5ef9.svg)
 
 排序方式| 时间复杂度| 空间复杂度| 是否稳定  
 ---|---|---|---  
@@ -99,9 +99,9 @@ chapter_title: "内部排序"
 排序算法| 一趟操作含义| 一趟后的数组特征  
 
 
-![](/images/docs/data-structure/84cafceb47.svg)
+![](/cc408/images/docs/data-structure/84cafceb47.svg)
 
-![](/images/docs/data-structure/image-20260612142459096.png)
+![](/cc408/images/docs/data-structure/image-20260612142459096.png)
 
 #### 伪代码
 
@@ -199,16 +199,16 @@ MaxHeapify(arr, i, n)
 
 **第一次冒泡** ：将最大的数放到最后一个位置
 
-![](/images/docs/data-structure/image-20260612142555022.png)
+![](/cc408/images/docs/data-structure/image-20260612142555022.png)
 
 **第二次冒泡** ：将第二大的数放到倒数第二个位置
 
-![](/images/docs/data-structure/image-20260612215108493.png)
+![](/cc408/images/docs/data-structure/image-20260612215108493.png)
 
 ### 插入排序
 
 
-![](/images/docs/data-structure/image-20260612215142668.png)
+![](/cc408/images/docs/data-structure/image-20260612215142668.png)
 
 插入排序（Insertion Sort）将数组分为 **未排序部分** 和 **已排序部分** ，每次选取未排序部分的第一个元素作为插入元素，在已排序序列中 **从后向前** 扫描，找到相应位置并插入。
 
@@ -225,7 +225,7 @@ MaxHeapify(arr, i, n)
 
 以排序数组`11, 25, 12, 22, 64`为例：
 
-![](/images/docs/data-structure/image-20260612215219666.png)
+![](/cc408/images/docs/data-structure/image-20260612215219666.png)
 
 ### 归并排序
 
@@ -237,7 +237,7 @@ MaxHeapify(arr, i, n)
   2. **递归** ：递归地排序两个子数组。
   3. **合并** ：合并（归并）两个已排序的子数组以产生排序好的数据数组。
 
-![](/images/docs/data-structure/image-20260612215246018.png)
+![](/cc408/images/docs/data-structure/image-20260612215246018.png)
 
 ### 快速排序
 
@@ -247,7 +247,7 @@ MaxHeapify(arr, i, n)
   2. **分区** （Partition）：重新排列数组，使得所有小于基准的元素都在其左侧，所有大于基准的元素都在其右侧。在这个分区结束之后，该基准就处于数组的最终排序位置。
   3. **递归地排序子序列** ：递归地对基准左侧和右侧的子数组进行快速排序。
 
-![](/images/docs/data-structure/image-20260612215309924.png)
+![](/cc408/images/docs/data-structure/image-20260612215309924.png)
 
 #### 代码实现
 
@@ -332,14 +332,14 @@ int quickSelect(int a[], int low, int high, int k) {
 
 
 
-![](/images/docs/data-structure/ce0b8e0b97.svg)
+![](/cc408/images/docs/data-structure/ce0b8e0b97.svg)
 
 基于这些性质，堆常常被用于实现 **优先队列** 。对于大根堆，我们总是可以在 **O\(1\)** 的时间内得到最大的元素（即根结点），而对于小根堆，我们总是可以在 **O\(1\)** 的时间内得到最小的元素。
 
 ##### 实现
 
 
-![](/images/docs/data-structure/665a0309c7.svg)
+![](/cc408/images/docs/data-structure/665a0309c7.svg)
 
 二叉树结构
 
@@ -376,7 +376,7 @@ int quickSelect(int a[], int low, int high, int k) {
 假设从该非叶子结点执行 heapify
 
 
-![](/images/docs/data-structure/image-20260612215620341.png)
+![](/cc408/images/docs/data-structure/image-20260612215620341.png)
 
 注意堆化的过程是递归的，当我们交换父结点和子结点后，需要从子结点进一步执行堆化操作。
 
@@ -389,11 +389,11 @@ int quickSelect(int a[], int low, int high, int k) {
 
 以数组 `1,3,5,4,6,13,10,9,8,15,17` 为例，假设我们使用方法 2 将其初始化为大根堆，会发生如下图所示的过程：
 
-![](/images/docs/data-structure/image-20260612215654428.png)
+![](/cc408/images/docs/data-structure/image-20260612215654428.png)
 
-![](/images/docs/data-structure/image-20260612215712685.png)
+![](/cc408/images/docs/data-structure/image-20260612215712685.png)
 
-![](/images/docs/data-structure/image-20260612215738940.png)
+![](/cc408/images/docs/data-structure/image-20260612215738940.png)
 
 
 删除
@@ -511,7 +511,7 @@ heapify(heap, *size, 0);   // 调整堆
   3. 将结点 `i` 与 **最大的子结点** 交换。
   4. 交换后可能会破坏下一层的堆结构，所以需要对换到的子结点重复步骤 1‑3 的调整，直到整个子树满足堆的性质。
 
-![](/images/docs/data-structure/image-20260612215911815.png)
+![](/cc408/images/docs/data-structure/image-20260612215911815.png)
 
 堆排序的代码实现如下所示：
    
@@ -576,7 +576,7 @@ for (int i = size - 1; i >= 0; i--) {
 以数组 `32, 95, 16, 82, 24, 66, 35, 19, 75, 54, 40, 43, 93, 68` 为例进行 **希尔排序** ，数组长度为 14，初始步长为 7，然后选择步长 3、1，依次按照步长对所有子数组排序。
 
 
-![](/images/docs/data-structure/image-20260612220019405.png)
+![](/cc408/images/docs/data-structure/image-20260612220019405.png)
 
 同色的元素表示该轮次 shell sort 根据 gap 选择的子数组
 
@@ -593,7 +593,7 @@ for (int i = size - 1; i >= 0; i--) {
 举个例子，对 `12, 9, 24, 4, 19, 21, 14, 6, 2, 16` 进行桶排序的过程如下：
 
 
-![](/images/docs/data-structure/image-20260612220040659.png)
+![](/cc408/images/docs/data-structure/image-20260612220040659.png)
 
 ### 基数排序
 
@@ -607,13 +607,13 @@ for (int i = size - 1; i >= 0; i--) {
   2. 然后按照次低位进行 **桶排序** ，但保持上一轮的相对顺序（**稳定排序** ）。
   3. 依次进行，直到最高位排序完成。
 
-![](/images/docs/data-structure/image-20260612220249408.png)
+![](/cc408/images/docs/data-structure/image-20260612220249408.png)
 
-![](/images/docs/data-structure/image-20260612220258778.png)
+![](/cc408/images/docs/data-structure/image-20260612220258778.png)
 
 以上排序的效果如下：
 
-![](/images/docs/data-structure/image-20260612220308621.png)
+![](/cc408/images/docs/data-structure/image-20260612220308621.png)
 
 首先对最低位排序，然后对次低位排序，最后对最高位排序。通过三轮排序，可以保证结果序列是有序的。
 
@@ -621,14 +621,14 @@ for (int i = size - 1; i >= 0; i--) {
 
 MSD（高位优先）基数排序的核心思想是从最高位开始，对数据进行递归分类，直到所有数字或字符串都排好序。
 
-![](/images/docs/data-structure/2978d19ba9.svg)
+![](/cc408/images/docs/data-structure/2978d19ba9.svg)
 
 如上图所示，MSD 首先根据最高位对数据进行分组，然后再根据次高位对数据进行分组，以此类推，递归直到每组中只有一个元素。
 
 MSD 基数排序适用于 **字符串或变长数据** ，因为它先处理最高位，可以提前分组。适合 **字典序排序** ，如 IP 地址、文件名、长整型数值等。
 
 
-![](/images/docs/data-structure/a053a53857.svg)
+![](/cc408/images/docs/data-structure/a053a53857.svg)
 
 使用 MSD 对字符串进行排序，绿色表示递归的范围
 

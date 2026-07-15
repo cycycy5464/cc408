@@ -19,7 +19,7 @@ chapter_title: "数组和特殊矩阵"
 
 在计算机内存中，数组元素是 **连续存放** 的。对于一个二维数组来说，它实际上只是对一维数组的一种逻辑抽象。理解其存储方式的关键在于：**如何将二维坐标 \\\(\(i, j\)\\\) 映射到一维的线性内存地址** 。
 
-![](/images/docs/data-structure/52d0dda451.svg)
+![](/cc408/images/docs/data-structure/52d0dda451.svg)
 
 假设：
 
@@ -81,7 +81,7 @@ int a[2][3] = {{1, 2, 3}, {4, 5, 6}};
 
 什么是 **对称矩阵** ：对于矩阵 A 中的任意一个元素 ai,j​ 都有 ai,j​=aj,i​ ，
 
-![](/images/docs/data-structure/f00ed7acad.svg)
+![](/cc408/images/docs/data-structure/f00ed7acad.svg)
 
 
 所以为了 **节省存储空间** ，可以使用一位数组 B 进行存储
@@ -92,15 +92,15 @@ int a[2][3] = {{1, 2, 3}, {4, 5, 6}};
 
 A 中的元素 ai,j​ 在数组 B 的下标
 
-![](/images/docs/data-structure/image-20260612090739870.png)
+![](/cc408/images/docs/data-structure/image-20260612090739870.png)
 
 #### 三角矩阵
 
 
-![](/images/docs/data-structure/2c833c31f8.svg)
+![](/cc408/images/docs/data-structure/2c833c31f8.svg)
 
 
-![](/images/docs/data-structure/8e68fd9eb2.svg)
+![](/cc408/images/docs/data-structure/8e68fd9eb2.svg)
 
   * **下三角矩阵** 是一个方阵，其主对角线及其以下（右下部分）的所有元素都不为零，而主对角线以上的所有元素都为零。
   * **上三角矩阵** 是一个方阵，其主对角线及其以上（左上部分）的所有元素都不为零，而主对角线以下的所有元素都为常数。
@@ -111,7 +111,7 @@ A 中的元素 ai,j​ 在数组 B 的下标
 
 A 中的元素 ai,j​ 在数组 B 的下标
 
-![](/images/docs/data-structure/image-20260612090820800.png)
+![](/cc408/images/docs/data-structure/image-20260612090820800.png)
 
 #### 稀疏矩阵
 
@@ -127,7 +127,7 @@ A6×7​=​0 0 3 0 0 0​020000​100000​000500​000060​000007​000004​
 
 对于一个 $m \times n$ 的稀疏矩阵 $A$，若仅有 $t$ 个非零元素，则对应的三元组表长度为 $t$。存储时通常采用**行序优先**规则：先按行号升序排列，行号相同则再按列号升序排列，方便后续矩阵运算与查找。
 
-![](/images/docs/data-structure/77565ee3bd.svg)
+![](/cc408/images/docs/data-structure/77565ee3bd.svg)
 
 在程序实现时，常见的两种方式是：
 
@@ -185,7 +185,7 @@ typedef struct {
 下图给出了一个十字链表的实例：
 
 
-![](/images/docs/data-structure/image-20260612090927809.png)
+![](/cc408/images/docs/data-structure/image-20260612090927809.png)
 
 在十字链表中，每一个非零元素都会建立一个结点。该结点需要记录**行号（i）、列号（j）、元素值（value）** ，同时还要保存两个方向的指针：**right 指针** 指向同一行中的下一个非零元素，**down 指针** 指向同一列中的下一个非零元素。借助这两个指针，矩阵可以在行链和列链之间灵活切换，实现双向高效的访问。
 

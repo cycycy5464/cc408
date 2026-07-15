@@ -1,5 +1,5 @@
 ---
-title: "模拟卷5 计算机组成原理 第16题"
+title: "模拟卷5 组成原理 第16题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,14 @@ years:
 source: "模拟题"
 set: 5
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "地址翻译"
+  - "页表"
 question_type: "choice"
 difficulty: 3
 number: 16
+
 ---
 
 在页面尺寸为 4KB 的页式存储管理中，页表中的内容如下图所示，则物理地址 32773 对应的逻辑地址为（ ）。
@@ -21,6 +23,9 @@ A\. 32773
 B\. 42773
 C\. 12293
 D\. 62773
+
+[地址翻译](/study_methods/tags/408quiz//#%e5%9c%b0%e5%9d%80%e7%bf%bb%e8%af%91)
+[页表](/study_methods/tags/408quiz//#%e9%a1%b5%e8%a1%a8)
 
 [tag_link]
 

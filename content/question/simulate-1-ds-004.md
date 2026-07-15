@@ -9,10 +9,11 @@ set: 1
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "二叉排序树"
 question_type: "choice"
 difficulty: 3
 number: 4
+
 ---
 
 在常用的描述二叉排序树的存储结构中，关键字值最大的结点是（ ）。
@@ -21,6 +22,8 @@ A\. 左指针一定为空
 B\. 右指针一定为空
 C\. 左、右指针均为空
 D\. 左、右指针均不为空
+
+[二叉排序树](/study_methods/tags/408quiz//#%e4%ba%8c%e5%8f%89%e6%8e%92%e5%ba%8f%e6%a0%91)
 
 [tag_link]
 

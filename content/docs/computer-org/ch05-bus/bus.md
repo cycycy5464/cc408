@@ -15,7 +15,7 @@ chapter_title: "总线"
 
 本节几个概念是选择题常考点：**总线指标** 、**总线分类** 、**总线事务** 、**总线定时** 。
 
-![](/images/docs/computer-org/image-20260612233753544.png)
+![](/cc408/images/docs/computer-org/image-20260612233753544.png)
 
 ### 基本概念
 
@@ -34,7 +34,7 @@ chapter_title: "总线"
 **总线** 的数据传输方式包含 **串行** 和 **并行** 两种：
 
 
-![](/images/docs/computer-org/image-20260612233809362.png)
+![](/cc408/images/docs/computer-org/image-20260612233809362.png)
 
   1. **串行总线** ：只含有一条双向数据线或两条单向数据线，数据按位分时传送。适合远距离通信，大多数 **通信总线** 属于 **串行总线**
   2. **并行总线** ：含有多条双向数据线，可实现多位同时传送。传输效率高，但相邻数据线之间会相互干扰，适合近距离传输。大多数 **系统总线** 属于 **并行总线**
@@ -84,7 +84,7 @@ chapter_title: "总线"
 #### 单总线结构
 
 
-![](/images/docs/computer-org/image-20260612233822359.png)
+![](/cc408/images/docs/computer-org/image-20260612233822359.png)
 
 
 **单总线结构**
@@ -96,7 +96,7 @@ chapter_title: "总线"
 #### 多总线结构
 
 
-![](/images/docs/computer-org/image-20260612233831054.png)
+![](/cc408/images/docs/computer-org/image-20260612233831054.png)
 
   * **多总线结构** 在 **单总线** 的基础上进行拓展，**引入多条功能分化的总线** ，例如系统总线、I/O 总线、存储器总线等。
   * 常见做法是将 **处理器与主存之间的数据传输** 放在一条专用总线（如 **CPU-主存总线** ），而 **I/O** 设备通过桥接芯片连接至另一条总线（如 **I/O 总线** ）。
@@ -201,7 +201,7 @@ chapter_title: "总线"
 
 ###### Peripheral Component Interconnect
 
-![](/images/docs/computer-org/1672101a67.jpg)
+![](/cc408/images/docs/computer-org/1672101a67.jpg)
 
 长条形插槽，通常为长方形，长度较长，内部有多个金属触点，呈平行排列，用于插入扩展卡。边缘有一缺口，用于固定卡的位置。
 
@@ -209,7 +209,7 @@ chapter_title: "总线"
 
 ###### Serial Advanced Technology Attachment
 
-![](/images/docs/computer-org/8589588bff.jpg)
+![](/cc408/images/docs/computer-org/8589588bff.jpg)
 
 较小的 L 形连接器，扁平且细长，端口一侧有明显的 L 形弯角，内部有几根细小金属针脚，用于连接存储设备（如硬盘驱动器和光盘驱动器）到计算机。
 
@@ -217,7 +217,7 @@ chapter_title: "总线"
 
 ###### Universal Serial Bus
 
-![](/images/docs/computer-org/0e9e54cd56.webp)
+![](/cc408/images/docs/computer-org/0e9e54cd56.webp)
 
 矩形接口，较为紧凑，内部有金属触点，常见为USB-A的扁平长方形设计，端口内部有塑料隔板和触点，用于连接各种外设如鼠标、键盘或U盘。
 
@@ -253,7 +253,7 @@ chapter_title: "总线"
 
 **突发（Burst） 总线传输事务** 是指在总线通信中，一次性连续传输多个数据单元（通常是字节或字）而无需为每个数据单元单独发起请求或握手的过程。这种传输方式广泛应用于现代计算机体系结构中，以提高数据传输效率和总线利用率。
 
-![](/images/docs/computer-org/2822f9ddfc.jpg)
+![](/cc408/images/docs/computer-org/2822f9ddfc.jpg)
 
 ### 总线周期
 
@@ -278,7 +278,7 @@ chapter_title: "总线"
 这个时钟信号每次都产生一个相等的时间间隔，这个间隔为一个 **总线传输周期** ，主设备和从设备必须在这个限定的时间内完成规定的操作。
 
 
-![](/images/docs/computer-org/c33cef5532.svg)
+![](/cc408/images/docs/computer-org/c33cef5532.svg)
 
   * T1​ 的上升沿到来时，主模块向从模块发送地址
   * T2​ 的上升沿到来时，主模块发送读命令
@@ -298,7 +298,7 @@ chapter_title: "总线"
   * **半互锁** ：主设备接收到来自从设备的回答后停止发送请求，从设备发送回答一段时间，默认主设备接收到回答。
   * **全互锁** ：从 **半互锁** 的基础上，从设备接收到来自于主设备的回答后停止发送回答。
 
-![](/images/docs/computer-org/image-20260612233912845.png)
+![](/cc408/images/docs/computer-org/image-20260612233912845.png)
 
 
 ## 相关笔记

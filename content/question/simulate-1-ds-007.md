@@ -9,10 +9,11 @@ set: 1
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "图的概念"
 question_type: "choice"
 difficulty: 3
 number: 7
+
 ---
 
 若 G 是一个具有 36 条边的非连通无向简单图，则图 G 的结点数至少是（ ）。
@@ -21,6 +22,8 @@ A\. 11
 B\. 10
 C\. 9
 D\. 8
+
+[图的概念](/study_methods/tags/408quiz//#%e5%9b%be%e7%9a%84%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

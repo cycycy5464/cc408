@@ -9,10 +9,12 @@ set: 1
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "进程和线程"
+  - "进程概念"
 question_type: "choice"
 difficulty: 3
 number: 25
+
 ---
 
 对计型信号量 S 执行 V 操作后，下列选项中错误的是（ ）。
@@ -24,6 +26,9 @@ A\. Ⅰ、Ⅲ
 B\. Ⅰ、Ⅳ
 C\. Ⅰ、Ⅱ、Ⅲ
 D\. Ⅱ、Ⅲ
+
+[进程和线程](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e5%92%8c%e7%ba%bf%e7%a8%8b)
+[进程概念](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

@@ -9,10 +9,12 @@ set: 2
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "复杂度分析"
+  - "归并排序"
 question_type: "choice"
 difficulty: 3
 number: 11
+
 ---
 
 下列排序方法中，时间性能与待排序记录的初始状态无关的是（ ）。
@@ -24,6 +26,9 @@ B\. 归并排序和快速排序
 C\. 选择排序和归并排序
 
 D\. 插入排序和归并排序
+
+[复杂度分析](/study_methods/tags/408quiz//#%e5%a4%8d%e6%9d%82%e5%ba%a6%e5%88%86%e6%9e%90)
+[归并排序](/study_methods/tags/408quiz//#%e5%bd%92%e5%b9%b6%e6%8e%92%e5%ba%8f)
 
 [tag_link]
 

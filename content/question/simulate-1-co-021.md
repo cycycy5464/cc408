@@ -1,5 +1,5 @@
 ---
-title: "模拟卷1 计算机组成原理 第21题"
+title: "模拟卷1 组成原理 第21题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 1
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "磁盘性能指标"
 question_type: "choice"
 difficulty: 3
 number: 21
+
 ---
 
 传输一幅分辨率为 640 像素×480 像素，6.5 万色的照片（图像），假设采用数据传输速率为 56k/s，大约需要的时间是（ ）。
@@ -21,6 +22,8 @@ A\. 34.82s
 B\. 42.86s
 C\. 85.71s
 D\. 87.7s
+
+[磁盘性能指标](/study_methods/tags/408quiz//#%e7%a3%81%e7%9b%98%e6%80%a7%e8%83%bd%e6%8c%87%e6%a0%87)
 
 [tag_link]
 

@@ -1,5 +1,5 @@
 ---
-title: "模拟卷2 计算机组成原理 第13题"
+title: "模拟卷2 组成原理 第13题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 2
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "补码"
 question_type: "choice"
 difficulty: 3
 number: 13
+
 ---
 
 一个 8 位的二进制整数，若采用补码表示，且由 3 个“1”和 5 个“0”组成，则最小值为（　）。
@@ -21,6 +22,8 @@ A\. -127
 B\. -32
 C\. -125
 D\. -3
+
+[补码](/study_methods/tags/408quiz//#%e8%a1%a5%e7%a0%81)
 
 [tag_link]
 

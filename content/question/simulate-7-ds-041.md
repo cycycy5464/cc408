@@ -9,10 +9,11 @@ set: 7
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "入栈出栈序列"
 question_type: "comprehensive"
 difficulty: 4
 number: 41
+
 ---
 
 （9 分）对于一个堆栈，若其入栈序列为
@@ -26,6 +27,8 @@ number: 41
 （即
 <span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.4306em></span><span class="mord mathnormal">n</span><span class=mspace style=margin-right:.2778em></span><span class=mrel>=</span><span class=mspace style=margin-right:.2778em></span></span><span class=base><span class=strut style=height:.6444em></span><span class=mord>3</span></span></span></span>
 ）为例加以说明。
+
+[入栈出栈序列](/study_methods/tags/408quiz//#%e5%85%a5%e6%a0%88%e5%87%ba%e6%a0%88%e5%ba%8f%e5%88%97)
 
 [tag_link]
 

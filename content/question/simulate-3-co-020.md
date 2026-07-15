@@ -1,5 +1,5 @@
 ---
-title: "模拟卷3 计算机组成原理 第20题"
+title: "模拟卷3 组成原理 第20题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 3
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "总线类型"
 question_type: "choice"
 difficulty: 3
 number: 20
+
 ---
 
 间接寻址第一次访问内存所得到信息经系统总线的（ ）传送到 CPU。
@@ -21,6 +22,8 @@ A\. 数据总线
 B\. 地址总线
 C\. 控制总线
 D\. 总线控制器
+
+[总线类型](/study_methods/tags/408quiz//#%e6%80%bb%e7%ba%bf%e7%b1%bb%e5%9e%8b)
 
 [tag_link]
 

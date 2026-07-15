@@ -9,10 +9,12 @@ set: 4
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "路由表"
+  - "子网划分"
 question_type: "comprehensive"
 difficulty: 4
 number: 47
+
 ---
 
 （9 分）考虑某路由器具有下列路由表项：
@@ -24,6 +26,9 @@ number: 47
 （3）在上面的路由表中增加一条路由表项，使所有目的地址与该路由表中任何路由表项都不匹配的 IP 分组被转发到下一跳“E”。
 
 （4）将 142.150.64.0/24 划分为 4 个规模尽可能大的等长子网，给出子网掩码及每个子网的可分配地址范围。
+
+[路由表](/study_methods/tags/408quiz//#%e8%b7%af%e7%94%b1%e8%a1%a8)
+[子网划分](/study_methods/tags/408quiz//#%e5%ad%90%e7%bd%91%e5%88%92%e5%88%86)
 
 [tag_link]
 

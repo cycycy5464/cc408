@@ -21,7 +21,7 @@ chapter_title: "交换方式"
 
 **电路交换** 、**报文交换** 和 **分组交换** 是三种主要方式，其中分组交换又可以进一步分为 [数据报和虚电路](</computer_network/physical/switching/#%e6%95%b0%e6%8d%ae%e6%8a%a5%e5%92%8c%e8%99%9a%e7%94%b5%e8%b7%af>) 两种方式：
 
-![](/images/docs/network/image-20260613065744540.png)
+![](/cc408/images/docs/network/image-20260613065744540.png)
 
 #### 电路交换
 
@@ -31,7 +31,7 @@ chapter_title: "交换方式"
   2. **数据传输** ：电路建立后，数据（语音、视频等）通过这条固定路径连续传输。整个通信期间，路径保持独占，即使没有数据传输，资源也不会释放。
   3. **连接释放** ：通信结束后，发送方或接收方发出终止信号，交换设备拆除电路，释放占用的资源（如带宽、端口）供其他用户使用。
 
-![](/images/docs/network/748ca4f640.svg)
+![](/cc408/images/docs/network/748ca4f640.svg)
 
 电路交换的典型应用是 **传统电话网络** （PSTN）。其优缺点如下：
 
@@ -50,7 +50,7 @@ chapter_title: "交换方式"
 
 #### 报文交换
 
-![](/images/docs/network/7ceb66f5fd.svg)
+![](/cc408/images/docs/network/7ceb66f5fd.svg)
 
 **报文交换** （Message Switching）不需要建立专用路径，整个报文作为一个单元传输，节点存储并转发整个报文。其过程如下：
 
@@ -76,7 +76,7 @@ chapter_title: "交换方式"
 #### 分组交换
 
 
-![](/images/docs/network/4220d4036c.svg)
+![](/cc408/images/docs/network/4220d4036c.svg)
 
 **分组交换** （Packet Switching）将数据分成小的分组（或数据包），每个分组独立传输，并可能通过不同路径到达目的地。其过程如下：
 
@@ -112,7 +112,7 @@ chapter_title: "交换方式"
 下图包含三种交换方式传输的时空图，横向表示距离，纵向表示时间：
 
 
-![](/images/docs/network/dd14130ef8.svg)
+![](/cc408/images/docs/network/dd14130ef8.svg)
 
 需要能够图中的那一部分是 **传播时间** ，哪一部分是 **传输时间** ，这一部分内容可以和 [数据链路层信道利用率](</computer_network/datalink/flow_control/#%e4%bf%a1%e9%81%93%e5%88%a9%e7%94%a8%e7%8e%87>) 对比学习。
 
@@ -134,7 +134,7 @@ Ttotal​=Tsetup​+Ttransmission​
 
 **报文交换** 和 **分组交换** 的场景更加复杂一些，我们需考虑多种时延 以及 不同链路之间的带宽差异。 但是两者的思路类似，不同点在于报文和分组的大小不同，这里以分组交换来进行说明。
 
-![](/images/docs/network/e570cad230.svg)
+![](/cc408/images/docs/network/e570cad230.svg)
 
 下面举一个比较全面的例子来说明一下，网络中有 A、B、C、D 四个结点，其中链路的带宽分别为 B1​ 、 B2​ 、 B3​ 。 在从结点 A 发送分组至结点 D 的过程中，总时间主要包含三种时延：传播时延、传输时间 和 排队时间。
 
@@ -168,7 +168,7 @@ Ttotal​=Tsetup​+Ttransmission​
   * 电路交换：在通信开始前，为发送方和接收方建立一条 **专用物理电路** ，整个通信期间独占该路径。数据通过固定路径连续传输，资源不共享。
   * 虚电路：在 **分组交换** 网络中，**模拟电路交换** 的行为，通过逻辑路径（虚电路）传输数据。虚电路并非物理独占，而是通过协议在分组交换网络中建立的逻辑连接。
 
-![](/images/docs/network/0cdfd02bf0.svg)
+![](/cc408/images/docs/network/0cdfd02bf0.svg)
 
 下表对比了数据报和虚电路的特性：
 

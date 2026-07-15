@@ -54,7 +54,7 @@ chapter_title: "设备管理"
 由于两个 **缓冲区** 交替使用， _I/O 操作和数据处理可以并行进行_ ，从而减少了等待时间，提高了效率。
 
 
-![](/images/docs/os/e41e17164f.svg)
+![](/cc408/images/docs/os/e41e17164f.svg)
 
 ##### 循环缓冲
 
@@ -92,7 +92,7 @@ chapter_title: "设备管理"
 在操作系统中，为了有效管理和访问外围设备，经常使用一种数据结构叫做 **设备控制表** （Device Control Table，简称 DCT）。这是一个特殊的数据结构，用于存储有关连接到系统的每个设备的信息。
 
 
-![](/images/docs/os/245d351f34.svg)
+![](/cc408/images/docs/os/245d351f34.svg)
 
 #### 设备分配方式
 
@@ -116,7 +116,7 @@ chapter_title: "设备管理"
 
 例如，在 Unix/Linux 系统中，`/dev` 目录下的文件就是 **逻辑设备名** ，比如：
 
-![](/images/docs/os/4f9d5e6f84.jpg)
+![](/cc408/images/docs/os/4f9d5e6f84.jpg)
 
 这些设备文件本质上是对 **物理设备** 的逻辑映射，内核会将它们映射到底层实际的设备驱动和硬件资源。例如，`/dev/sda` 对应的 **物理设备** 可能是挂在 SATA 总线上的某个 SSD，而内核中通过设备树或 PCI 设备信息知道它的实际 **物理地址** 和资源。
 
@@ -127,7 +127,7 @@ chapter_title: "设备管理"
 **SPOOLing** （Simultaneous Peripheral Operations On-Line，**联机并发外设操作** ），中文常称为“假脱机”技术，是一种用于高效管理慢速 _I/O 设备_ （如打印机、磁带机）的计算机系统技术。它的主要作用是 **缓冲数据、解耦处理流程** ，提高系统资源的使用效率。
 
 
-![](/images/docs/os/image-20260611223713833.png)
+![](/cc408/images/docs/os/image-20260611223713833.png)
 
 **什么是 SPOOLing？**
 

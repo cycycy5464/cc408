@@ -9,10 +9,11 @@ set: 5
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "信号量"
 question_type: "choice"
 difficulty: 3
 number: 24
+
 ---
 
 有一个计数信号量 S，若干个进程对 S 进行了 28 次 P 操作和 18 次 V 操作后，信号量 S 的值为 0。然后又对信号量 S 进行了 3 次 V 操作。此时有（ ）个进程等待在信号量 S 的队列中。
@@ -21,6 +22,8 @@ A\. 2
 B\. 0
 C\. 3
 D\. 7
+
+[信号量](/study_methods/tags/408quiz//#%e4%bf%a1%e5%8f%b7%e9%87%8f)
 
 [tag_link]
 

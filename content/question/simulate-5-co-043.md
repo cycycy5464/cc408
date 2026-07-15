@@ -1,5 +1,5 @@
 ---
-title: "模拟卷5 计算机组成原理 第43题"
+title: "模拟卷5 组成原理 第43题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,14 @@ years:
 source: "模拟题"
 set: 5
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "寄存器类型"
+  - "补码"
 question_type: "comprehensive"
 difficulty: 4
 number: 43
+
 ---
 
 （11 分）已知两个实数
@@ -31,6 +33,9 @@ number: 43
 与
 <span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.625em;vertical-align:-.1944em></span><span class="mord mathnormal" style=margin-right:.03588em>y</span></span></span></span>
 相减后的结果存放在 D 寄存器中，寄存器 D 中的内容是什么？
+
+[寄存器类型](/study_methods/tags/408quiz//#%e5%af%84%e5%ad%98%e5%99%a8%e7%b1%bb%e5%9e%8b)
+[补码](/study_methods/tags/408quiz//#%e8%a1%a5%e7%a0%81)
 
 [tag_link]
 

@@ -9,10 +9,11 @@ set: 6
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "银行家算法"
 question_type: "choice"
 difficulty: 3
 number: 27
+
 ---
 
 利用银行家算法进行安全序列检查时，不需要的参数是（ ）。
@@ -21,6 +22,8 @@ A\. 系统资源总数
 B\. 满足系统安全的最少资源数
 C\. 用户最大需求数
 D\. 用户已占有的资源数
+
+[银行家算法](/study_methods/tags/408quiz//#%e9%93%b6%e8%a1%8c%e5%ae%b6%e7%ae%97%e6%b3%95)
 
 [tag_link]
 

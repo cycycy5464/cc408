@@ -1,5 +1,5 @@
 ---
-title: "模拟卷5 计算机组成原理 第15题"
+title: "模拟卷5 组成原理 第15题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 5
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "访存过程"
 question_type: "choice"
 difficulty: 3
 number: 15
+
 ---
 
 设有一主存-Cache 层次的存储器，其主存容量 1MB，Cache 容量 16KB，每字块有 8 个字，每字 32 位，采用直接地址映像方式，若主存地址为 35301H，且 CPU 访问 Cache 命中，则该主存块在 Cache 的第（ ）字块中（Cache 起始字块为第 0 字块）。
@@ -21,6 +22,8 @@ A\. 152
 B\. 153
 C\. 154
 D\. 151
+
+[访存过程](/study_methods/tags/408quiz//#%e8%ae%bf%e5%ad%98%e8%bf%87%e7%a8%8b)
 
 [tag_link]
 

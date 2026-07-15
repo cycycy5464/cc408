@@ -9,10 +9,11 @@ set: 1
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "文件概念"
 question_type: "choice"
 difficulty: 3
 number: 29
+
 ---
 
 在文件系统中，“Open” 系统调用的主要功能是（ ）。
@@ -21,6 +22,8 @@ A\. 把文件的内容从外存读入内存
 B\. 把文件控制信息从外存读入内存
 C\. 把文件的 FAT 表从外存读入内存
 D\. 把磁盘的超级块从外存读到内存
+
+[文件概念](/study_methods/tags/408quiz//#%e6%96%87%e4%bb%b6%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

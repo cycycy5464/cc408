@@ -41,3 +41,5 @@ test_script.py
 
 # 配置
 reasonix.toml
+.env
+.DS_Store

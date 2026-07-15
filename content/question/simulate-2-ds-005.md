@@ -9,10 +9,11 @@ set: 2
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "二叉树的遍历"
 question_type: "choice"
 difficulty: 3
 number: 5
+
 ---
 
 由某种序列可以唯一地确定一棵二叉树，不能唯一地确定一棵二叉树是（　）。
@@ -21,6 +22,8 @@ A\. 先序序列和中序序列
 B\. 后序序列和中序序列
 C\. 中序序列和层序序列
 D\. 先序序列和层序序列
+
+[二叉树的遍历](/study_methods/tags/408quiz//#%e4%ba%8c%e5%8f%89%e6%a0%91%e7%9a%84%e9%81%8d%e5%8e%86)
 
 [tag_link]
 

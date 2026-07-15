@@ -20,7 +20,7 @@ chapter_title: "ARP协议"
 **ARP** （Address Resolution Protocol，地址解析协议） 是一种在 **TCP/IP 网络** 中使用的协议，用于将 **IP 地址** 转换为 **物理硬件地址** （例如，**MAC 地址** ）。ARP 的主要目的是确定要通过网络传输数据的目标设备的 **物理硬件地址** ，以便将数据帧正确地传送到目标设备。
 
 
-![](/images/docs/network/a9a62ad409.svg)
+![](/cc408/images/docs/network/a9a62ad409.svg)
 
 ### 流程
 

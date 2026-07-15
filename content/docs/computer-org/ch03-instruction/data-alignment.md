@@ -19,7 +19,7 @@ chapter_title: "数据对齐"
 
 **数据对齐** （Data Alignment）是指数据在内存中的存放方式，它要求数据的起始地址必须是某个数（通常是 1、2、4、8）的整数倍，这个数被称为 **对齐因子** （Alignment Factor）。数据对齐的目的是为了提高 **内存访问** 的效率，因为许多计算机系统都是按照数据的对齐边界来设计 **内存访问** 硬件的。
 
-![](/images/docs/computer-org/b151c18981-17812757494931.svg)
+![](/cc408/images/docs/computer-org/b151c18981-17812757494931.svg)
 
 **不对齐** 的数据访问可能会导致 **性能下降** ，因为处理器可能需要额外的 **内存访问** 来获取不完整的数据。在一些严格要求 **数据对齐** 的架构中，**不对齐** 的数据访问甚至会导致 **硬件异常** 。
 
@@ -80,7 +80,7 @@ _Alignof(size_t)     = 8
 以下图中的结构体定义为例，假设我们定义一个 **变量** ，变量的类型长度为 K 个字节，那么这个 **变量** 在 **内存** 中的地址 **addr** 必须是 K 的整数倍，即 _**addr % K == 0**_ 。
 
 
-![](/images/docs/computer-org/image-20260612224959714.png)
+![](/cc408/images/docs/computer-org/image-20260612224959714.png)
 
 上图中 **变量** b 和 a 之间增加了 1 个字节的 **padding** ，**变量** d 的末尾也增加了 3 个字节 **padding** ，以保证下一个 **数据** 的开始是 4 的整数倍。
 
@@ -89,10 +89,10 @@ _Alignof(size_t)     = 8
 **大小端** （Endianness）是指多字节 **数据在内存中的字节序** ，也就是 **字节** 的排列顺序。主要有两种存放方式：
 
 
-![](/images/docs/computer-org/88e5ba26bf.svg)
+![](/cc408/images/docs/computer-org/88e5ba26bf.svg)
 
 
-![](/images/docs/computer-org/d413b9bde7.svg)
+![](/cc408/images/docs/computer-org/d413b9bde7.svg)
 
 
 
@@ -104,7 +104,7 @@ _Alignof(size_t)     = 8
 
 举一个例子，假如定义数组 `long a[2] = {0x76543210, 0xFEDCBA98}`，`long` 类型的大小为 8 字节，数组`a` 在内存中的起始地址为 `0x1000`，则数组中两个元素在内存中的字节排列如下图所示：
 
-![](/images/docs/computer-org/image-20260612225050750.png)
+![](/cc408/images/docs/computer-org/image-20260612225050750.png)
 
 注意
 

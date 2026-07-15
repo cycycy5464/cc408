@@ -1,5 +1,5 @@
 ---
-title: "模拟卷7 计算机组成原理 第17题"
+title: "模拟卷7 组成原理 第17题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,14 @@ years:
 source: "模拟题"
 set: 7
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "寄存器类型"
+  - "指令寻址方式"
 question_type: "choice"
 difficulty: 3
 number: 17
+
 ---
 
 假设寄存器 R 中的数值为 200，主存地址为 200 和 300 的地址单元中存放的内容分别是 300 和 400，则（ ）访问到的操作数为 200。
@@ -21,6 +23,9 @@ A\. Ⅰ和Ⅳ
 B\. Ⅱ、Ⅲ
 C\. Ⅲ、Ⅳ
 D\. 只有Ⅰ
+
+[寄存器类型](/study_methods/tags/408quiz//#%e5%af%84%e5%ad%98%e5%99%a8%e7%b1%bb%e5%9e%8b)
+[指令寻址方式](/study_methods/tags/408quiz//#%e6%8c%87%e4%bb%a4%e5%af%bb%e5%9d%80%e6%96%b9%e5%bc%8f)
 
 [tag_link]
 

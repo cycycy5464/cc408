@@ -9,10 +9,12 @@ set: 6
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "协议数据单元"
+  - "数据报和虚电路"
 question_type: "choice"
 difficulty: 3
 number: 37
+
 ---
 
 当路由器接收到一个 1500 字节的 IP 数据报时，需要将其转发到 MTU 为 980 的子网，分片后产生两个 IP 数据报，长度分别是（ ）。（首部长度为 20B）
@@ -21,6 +23,9 @@ A\. 750, 750
 B\. 980, 520
 C\. 980, 540
 D\. 976, 544
+
+[协议数据单元](/study_methods/tags/408quiz//#%e5%8d%8f%e8%ae%ae%e6%95%b0%e6%8d%ae%e5%8d%95%e5%85%83)
+[数据报和虚电路](/study_methods/tags/408quiz//#%e6%95%b0%e6%8d%ae%e6%8a%a5%e5%92%8c%e8%99%9a%e7%94%b5%e8%b7%af)
 
 [tag_link]
 

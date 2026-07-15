@@ -9,10 +9,11 @@ set: 1
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "平均查找长度"
 question_type: "choice"
 difficulty: 3
 number: 9
+
 ---
 
 具有 12 个关键字的有序表中，对每个关键字的查找概率相同，折半查找查找成功和查找失败的平均查找长度依次为（ ）。
@@ -21,6 +22,8 @@ A\. 37/12,49/13
 B\. 35/12,39/13
 C\. 37/13,49/13
 D\. 37/12,49/12
+
+[平均查找长度](/study_methods/tags/408quiz//#%e5%b9%b3%e5%9d%87%e6%9f%a5%e6%89%be%e9%95%bf%e5%ba%a6)
 
 [tag_link]
 

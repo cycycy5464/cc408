@@ -9,10 +9,11 @@ set: 3
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "缓冲区"
 question_type: "choice"
 difficulty: 3
 number: 32
+
 ---
 
 某操作系统采用双缓冲区传送磁盘上的数据。设一次从磁盘将数据传送到缓冲区所用时间为 T 1 ​ ，一次将缓冲区中数据传送到用户区所用时间为 T 2 ​ （假设 T 2 ​ 远小于 T 1 ​ 、 T 3 ​ ），CPU 处理一次数据所用时间为 T 3 ​ ，则处理该数据共重复 n 次该过程，系统所用总时间为（ ）。
@@ -24,6 +25,8 @@ B\.
 C\.
 
 D\.
+
+[缓冲区](/study_methods/tags/408quiz//#%e7%bc%93%e5%86%b2%e5%8c%ba)
 
 [tag_link]
 

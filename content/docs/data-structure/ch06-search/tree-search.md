@@ -36,7 +36,7 @@ chapter_title: "树形查找"
 查找过程可以通过以下图示进行理解：
 
 
-![](/images/docs/data-structure/31b8ecfab3.svg)
+![](/cc408/images/docs/data-structure/31b8ecfab3.svg)
 
 查找操作的时间复杂度，取决于树的 **高度** （Height）：
 
@@ -55,7 +55,7 @@ AVL| \\\(O\(\log\_2\{n\}\)\\\)| \\\(O\(\log\_2\{n\}\)\\\)| 通过严格的平衡
 是一种自平衡的树形数据结构，它广泛应用于数据库和文件系统中，用于高效地存储和检索大量有序数据。
 
 
-![](/images/docs/data-structure/0ddb24fe59.svg)
+![](/cc408/images/docs/data-structure/0ddb24fe59.svg)
 
 #### 特性
 
@@ -95,7 +95,7 @@ AVL| \\\(O\(\log\_2\{n\}\)\\\)| \\\(O\(\log\_2\{n\}\)\\\)| 通过严格的平衡
 
 **B 树** 结点结构如下：
 
-![](/images/docs/data-structure/image-20260612141716596.png)
+![](/cc408/images/docs/data-structure/image-20260612141716596.png)
 
 其中
 
@@ -103,7 +103,7 @@ AVL| \\\(O\(\log\_2\{n\}\)\\\)| \\\(O\(\log\_2\{n\}\)\\\)| 通过严格的平衡
   * Ki​\(i=1,2,⋯,n\) 为结点中存储的 **关键字** ，且满足 K1​<K2​<⋯<Kn​
   * Pi​\(i=0,1,⋯,n\) 为指向 **子树** 根结点的指针，且指针 Pi−1​ 所指 **子树** 中所有结点的 **关键字** 均小于 Ki​ ， Pi​ 所指 **子树** 中所有结点的 **关键字** 均大于 Ki​
 
-![](/images/docs/data-structure/image-20260612141730016.png)
+![](/cc408/images/docs/data-structure/image-20260612141730016.png)
 
 
 以上图中的 5 **阶 B 树** 为例，说明 **B 树** 的性质：
@@ -121,7 +121,7 @@ AVL| \\\(O\(\log\_2\{n\}\)\\\)| \\\(O\(\log\_2\{n\}\)\\\)| 通过严格的平衡
 **B 树** 查找与普通二叉查找树相似，但在每个节点上，需要进行多次比较。
 
 
-![](/images/docs/data-structure/image-20260612141739507.png)
+![](/cc408/images/docs/data-structure/image-20260612141739507.png)
 
   1. **从**根节点** 开始**：
 * 检查当前节点的键列表，键按升序排列。
@@ -177,7 +177,7 @@ AVL| \\\(O\(\log\_2\{n\}\)\\\)| \\\(O\(\log\_2\{n\}\)\\\)| 通过严格的平衡
 
 
 
-![](/images/docs/data-structure/image-20260612141806537.png)
+![](/cc408/images/docs/data-structure/image-20260612141806537.png)
 
 **3 阶 B 树中的插入操作**
 
@@ -192,7 +192,7 @@ AVL| \\\(O\(\log\_2\{n\}\)\\\)| \\\(O\(\log\_2\{n\}\)\\\)| 通过严格的平衡
 
 下图展示了一个三阶 **B 树** 的多次插入过程：
 
-![](/images/docs/data-structure/image-20260612141820457.png)
+![](/cc408/images/docs/data-structure/image-20260612141820457.png)
 
 
 
@@ -230,9 +230,9 @@ AVL| \\\(O\(\log\_2\{n\}\)\\\)| \\\(O\(\log\_2\{n\}\)\\\)| 通过严格的平衡
 
 下面以 3 **阶 B 树** 为例说明一下删除的多种情况：
 
-![](/images/docs/data-structure/image-20260612141841946.png)
+![](/cc408/images/docs/data-structure/image-20260612141841946.png)
 
-![](/images/docs/data-structure/image-20260612141857223.png)
+![](/cc408/images/docs/data-structure/image-20260612141857223.png)
 
 **B 树** 删除过程细节过多，这里建议还是和学习平衡二叉树时采用相同方法，通过实际例子建立直觉即可。
 
@@ -242,10 +242,10 @@ AVL| \\\(O\(\log\_2\{n\}\)\\\)| \\\(O\(\log\_2\{n\}\)\\\)| 通过严格的平衡
 
 实际上存储有 **KV 对** 的 **B 树** 的结构如下图所示：
 
-![](/images/docs/data-structure/image-20260612142014696.png)
+![](/cc408/images/docs/data-structure/image-20260612142014696.png)
 
 **B+ 树** 是 **B 树** 的一种扩展。  
-在 **B+ 树** 中，只有 **叶子节点** 存储数据，而内部节点只存储键。所有的数据记录都存储在 **叶子节点** 中，并且 **叶子节点** 通过指针连接形成一个有序链表，如下图所示：![](/images/docs/data-structure/image-20260612142025019.png)
+在 **B+ 树** 中，只有 **叶子节点** 存储数据，而内部节点只存储键。所有的数据记录都存储在 **叶子节点** 中，并且 **叶子节点** 通过指针连接形成一个有序链表，如下图所示：![](/cc408/images/docs/data-structure/image-20260612142025019.png)
 
 
 
@@ -279,7 +279,7 @@ AVL| \\\(O\(\log\_2\{n\}\)\\\)| \\\(O\(\log\_2\{n\}\)\\\)| 通过严格的平衡
 
 
 
-![](/images/docs/data-structure/4ac40b4c22.svg)
+![](/cc408/images/docs/data-structure/4ac40b4c22.svg)
 
 #### 操作
 
@@ -307,7 +307,7 @@ AVL| \\\(O\(\log\_2\{n\}\)\\\)| \\\(O\(\log\_2\{n\}\)\\\)| 通过严格的平衡
 
 
 
-![](/images/docs/data-structure/121672eb9b.svg)
+![](/cc408/images/docs/data-structure/121672eb9b.svg)
 
 ### B 和 B+ 树对比
 

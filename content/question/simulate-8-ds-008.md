@@ -9,10 +9,11 @@ set: 8
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "散列表"
 question_type: "choice"
 difficulty: 3
 number: 8
+
 ---
 
 散列表的地址范围为 0-17，散列函数为 H(k)=k mod 17。采用线性探测法处理冲突，将关键字序列 26,25,72,38,8,18,59 依次存储到散列表中。元素 59 存放在散列表中的地址是（ ）。
@@ -21,6 +22,8 @@ A\. 8
 B\. 9
 C\. 10
 D\. 11
+
+[散列表](/study_methods/tags/408quiz//#%e6%95%a3%e5%88%97%e8%a1%a8)
 
 [tag_link]
 

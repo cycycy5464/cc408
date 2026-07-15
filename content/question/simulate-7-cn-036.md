@@ -9,10 +9,12 @@ set: 7
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "散列表"
+  - "协议数据单元"
 question_type: "choice"
 difficulty: 3
 number: 36
+
 ---
 
 在 CSMA/CD 协议中，下列指标与冲突时间没有关系的是（ ）。
@@ -21,6 +23,9 @@ A\. 检测一次冲突所需要的最长时间
 B\. 最小帧长度
 C\. 最大帧长度
 D\. 最大帧碎片长度
+
+[散列表](/study_methods/tags/408quiz//#%e6%95%a3%e5%88%97%e8%a1%a8)
+[协议数据单元](/study_methods/tags/408quiz//#%e5%8d%8f%e8%ae%ae%e6%95%b0%e6%8d%ae%e5%8d%95%e5%85%83)
 
 [tag_link]
 

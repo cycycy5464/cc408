@@ -9,10 +9,12 @@ set: 6
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "协议数据单元"
+  - "磁盘性能指标"
 question_type: "choice"
 difficulty: 3
 number: 36
+
 ---
 
 一个 2Mbps 的网络，线路长度为 1km，传输速度为 20m/ms，分组大小为 100 字节，应答帧大小可以忽略。若采用“停止—等待”协议，则实际数据速率是（ ）。
@@ -21,6 +23,9 @@ A\. 2Mbps
 B\. 1Mbps
 C\. 8Kbps
 D\. 16Kbps
+
+[协议数据单元](/study_methods/tags/408quiz//#%e5%8d%8f%e8%ae%ae%e6%95%b0%e6%8d%ae%e5%8d%95%e5%85%83)
+[磁盘性能指标](/study_methods/tags/408quiz//#%e7%a3%81%e7%9b%98%e6%80%a7%e8%83%bd%e6%8c%87%e6%a0%87)
 
 [tag_link]
 

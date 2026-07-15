@@ -22,7 +22,7 @@ chapter_title: "运算电路"
 最基本的加法单元是 **半加器** （Half Adder）。它有两个输入，一个是加数，一个是被加数，并有两个输出，一个是和，一个是进位。
 
 
-![](/images/docs/computer-org/9035bd53ca.svg)
+![](/cc408/images/docs/computer-org/9035bd53ca.svg)
 
 
 如上图所示，通过对两个输入（A 和 B）进行 **异或** （XOR）计算，可以得到 **和** （S）。  
@@ -35,7 +35,7 @@ chapter_title: "运算电路"
 **全加器** （Full Adder）是 **半加器** 的扩展，它加上了前一位的 **进位** （Cin）作为第三个输入，并有两个输出，一个是 **和** （S），一个是 **进位** （C）。
 
 
-![](/images/docs/computer-org/2e87ac31a8.svg)
+![](/cc408/images/docs/computer-org/2e87ac31a8.svg)
 
 **半加器** 用于处理两个位的简单加法，而 **全加器** 则可以处理包括 **进位** 在内的三位加法，是构建复杂加法电路的基础。
 
@@ -43,13 +43,13 @@ chapter_title: "运算电路"
 
 为了进行多位数的加法，**全加器** 可以串联起来形成一个 **加法器** ，以处理多个位的二进制数加法。在这种安排中，每个 **全加器** 的 **进位输出** 连接到下一个 **全加器** 的 **进位输入** 。这样，一个 n 位的 **加法器** 可以通过串联 n 个 **全加器** 来实现。
 
-![](/images/docs/computer-org/1d2253d867.svg)
+![](/cc408/images/docs/computer-org/1d2253d867.svg)
 
 上述 **加法器** 既可以处理 **无符号加法** （unisnged），也可以处理 **有符号加法** （int），因为二进制加法与数据类型无关，从 **加法器** 来说，只是对 0 和 1 进行操作，数据类型是对于二进制的解释方式。
 
 一般而言，对于 **有符号加法** ，加法器还需要考虑 **标志位** ，所以加法器也被扩展为如下结构：
 
-![](/images/docs/computer-org/a836bc1611.svg)
+![](/cc408/images/docs/computer-org/a836bc1611.svg)
 
 值得一提的是带符号加法器电路是如何输出各个 [标志位](</constitution_principle/cpu/structure/#%e6%9d%a1%e4%bb%b6%e6%a0%87%e5%bf%97>) 的，简单而言，每个 **标志位** 都可以通过 **加法器** 电路中的位信息组合得到。
 
@@ -79,7 +79,7 @@ chapter_title: "运算电路"
 以下电路可以实现操作数 **A** 和操作数 **B** 的 **加减法** 。
 
 
-![](/images/docs/computer-org/10cb902122.svg)
+![](/cc408/images/docs/computer-org/10cb902122.svg)
 
 如果是计算 **A+B** 的话，将 **Sub** 设置为 0，直接对 **A** 和 **B** 进行 **加法** 计算。
 
@@ -128,7 +128,7 @@ unsigned int multiply(unsigned int a, unsigned int b) {
 
 通过硬件的方式串行地模拟手工计算的方式，无符号数的 **乘法硬件电路** 如下图所示（了解即可）：
 
-![](/images/docs/computer-org/222aa0be96.svg)
+![](/cc408/images/docs/computer-org/222aa0be96.svg)
 
 其思路是通过 **右移** 和 **加法** ，每次输出 **乘法结果** 中的一位，由于原理稍复杂，这里不阐述更多细节。
 
@@ -183,7 +183,7 @@ unsigned int multiply(unsigned int a, unsigned int b) {
 
 简单的 **除法电路** 结构也是通过模拟以上过程实现（了解即可）：
 
-![](/images/docs/computer-org/e07cf9a55c.svg)
+![](/cc408/images/docs/computer-org/e07cf9a55c.svg)
 
 在 **除法电路** 中，在每次迭代中我们将当前 **余数** 左移一位，并引入 **被除数** 的下一位，然后执行 **余数减去除数** 的操作，接下来通过条件判断检测 **减法结果** 的符号以确定 **商** 的当前位。
 

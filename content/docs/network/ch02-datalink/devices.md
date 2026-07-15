@@ -27,7 +27,7 @@ chapter_title: "数据链路层设备"
   * **端口号** ：设备连接的交换机端口。
   * **附加信息** （可选）：如 **VLAN** 标识或条目有效时间。
 
-![](/images/docs/network/630b880c23.svg)
+![](/cc408/images/docs/network/630b880c23.svg)
 
 如上图所示，交换机 A 和 B 分别通过 **转发表** 记录了通往每个 **MAC 地址** 的端口。
 
@@ -53,7 +53,7 @@ chapter_title: "数据链路层设备"
 
 
 
-![](/images/docs/network/0d269d662b.svg)
+![](/cc408/images/docs/network/0d269d662b.svg)
 
 注意
 
@@ -67,13 +67,13 @@ chapter_title: "数据链路层设备"
   * 存储转发 ：交换机接收完整数据帧后，存储在缓冲区中，进行 **CRC** （循环冗余校验）检查，确认数据帧无误后再根据 **MAC 地址表** 转发。
   * **碎片隔离** ：介于直通交换和存储转发之间，检查数据帧的前64字节（以太网最小帧长），若帧长不足64字节（碎片），则丢弃；若正常，则转发。
 
-![](/images/docs/network/717037c6dc.svg)
+![](/cc408/images/docs/network/717037c6dc.svg)
 
 ### 网桥
 
 网桥（Bridge）的功能和 **交换机** 基本一致，两者都是二层网络设备，用于转发数据帧。网桥中也有 **转发表** 的概念，转发过程和 **交换机** 一致，这里不再赘述。
 
-![](/images/docs/network/dfb7d4b2a0.svg)
+![](/cc408/images/docs/network/dfb7d4b2a0.svg)
 
 那么 网桥和交换机区别 在哪里呢？
 

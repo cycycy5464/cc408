@@ -9,10 +9,12 @@ set: 6
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "树的概念"
+  - "哈夫曼树"
 question_type: "choice"
 difficulty: 3
 number: 7
+
 ---
 
 给定结点个数 n，在下面二叉树中，叶结点个数不能确定的是（ ）。
@@ -21,6 +23,9 @@ A\. 满二叉树
 B\. 完全二叉树
 C\. 哈夫曼树
 D\. 二叉排序树
+
+[树的概念](/study_methods/tags/408quiz//#%e6%a0%91%e7%9a%84%e6%a6%82%e5%bf%b5)
+[哈夫曼树](/study_methods/tags/408quiz//#%e5%93%88%e5%a4%ab%e6%9b%bc%e6%a0%91)
 
 [tag_link]
 

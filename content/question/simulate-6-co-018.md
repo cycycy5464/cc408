@@ -1,5 +1,5 @@
 ---
-title: "模拟卷6 计算机组成原理 第18题"
+title: "模拟卷6 组成原理 第18题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 6
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "寄存器类型"
 question_type: "choice"
 difficulty: 3
 number: 18
+
 ---
 
 在计算机体系结构中，CPU 内部包括程序计数器 PC、存储器数据寄存器 MDR、指令寄存器 IR 和存储器地址寄存器 MAR 等。若 CPU 要执行的指令为：MOV RO, #100（即将数值 100 传送到寄存器 RO），则 CPU 首先完成的操作是（ ）。
@@ -21,6 +22,8 @@ A\. 100→RO
 B\. 100→MDR
 C\. PC→MAR
 D\. PC→IR
+
+[寄存器类型](/study_methods/tags/408quiz//#%e5%af%84%e5%ad%98%e5%99%a8%e7%b1%bb%e5%9e%8b)
 
 [tag_link]
 

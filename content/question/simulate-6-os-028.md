@@ -9,10 +9,12 @@ set: 6
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "页表"
+  - "操作系统概念"
 question_type: "choice"
 difficulty: 3
 number: 28
+
 ---
 
 下列关于页式存储的说法中，正确的是（ ）。
@@ -21,6 +23,9 @@ A\. I、II 和 IV
 B\. I 和 IV
 C\. I
 D\. I 和 III
+
+[页表](/study_methods/tags/408quiz//#%e9%a1%b5%e8%a1%a8)
+[操作系统概念](/study_methods/tags/408quiz//#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

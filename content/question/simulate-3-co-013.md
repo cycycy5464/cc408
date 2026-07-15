@@ -1,5 +1,5 @@
 ---
-title: "模拟卷3 计算机组成原理 第13题"
+title: "模拟卷3 组成原理 第13题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 3
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "大小端"
 question_type: "choice"
 difficulty: 3
 number: 13
+
 ---
 
 设机器数字长 16 位，有一个 C 语言程序段如下：
@@ -21,6 +22,8 @@ A\. 50DBH
 B\. BD05H
 C\. A1B6H
 D\. D0DBH
+
+[大小端](/study_methods/tags/408quiz//#%e5%a4%a7%e5%b0%8f%e7%ab%af)
 
 [tag_link]
 

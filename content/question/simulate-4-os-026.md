@@ -9,10 +9,12 @@ set: 4
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "信号量"
+  - "进程和线程"
 question_type: "choice"
 difficulty: 3
 number: 26
+
 ---
 
 某系统有 3 台打印机，N 个进程共享使用。每个进程需先申请 1 台打印机，使用完毕后再释放。用 PV 操作管理时，设置信号量 S 的初值为 3，以下关于信号量 S 的叙述中，正确的是（）
@@ -21,6 +23,9 @@ A\. 当前 S 的值表示系统中当前可用的打印机台数
 B\. 当前 S 的值表示系统中当前被占用的打印机台数
 C\. 当前 S 的值表示系统中当前阻塞等待打印机的进程数
 D\. 若当前 S 的值为 0，则一定没有进程正在使用打印机
+
+[信号量](/study_methods/tags/408quiz//#%e4%bf%a1%e5%8f%b7%e9%87%8f)
+[进程和线程](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e5%92%8c%e7%ba%bf%e7%a8%8b)
 
 [tag_link]
 

@@ -9,10 +9,12 @@ set: 7
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "入栈出栈序列"
+  - "栈"
 question_type: "choice"
 difficulty: 3
 number: 2
+
 ---
 
 若已知一个栈的入栈序列是 1,2,3,4。其出栈序列为 p1,p2,p3,p4，则 p2,p4 不可能是（ ）。
@@ -21,6 +23,9 @@ A\. 2、4
 B\. 2、1
 C\. 4、3
 D\. 3、4
+
+[入栈出栈序列](/study_methods/tags/408quiz//#%e5%85%a5%e6%a0%88%e5%87%ba%e6%a0%88%e5%ba%8f%e5%88%97)
+[栈](/study_methods/tags/408quiz//#%e6%a0%88)
 
 [tag_link]
 

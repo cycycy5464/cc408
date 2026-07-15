@@ -20,7 +20,7 @@ chapter_title: "栈"
 **栈** 是一个元素的集合，加入元素的操作叫做 **“压栈”（push）** ，而移除元素的操作叫做 **“出栈”（pop）** 。它遵循 **后进先出（LIFO, Last In First Out）** 的原则。 _这意味着最后被压入栈的元素是第一个被弹出的元素_ 。
 
 
-![](/images/docs/data-structure/87bc389ec2.svg)
+![](/cc408/images/docs/data-structure/87bc389ec2.svg)
 
 ### 基本操作
 
@@ -42,7 +42,7 @@ chapter_title: "栈"
 与普通的线性表不同，**栈** 的操作被限制在表的一端进行，这一端被称为 **栈顶 \(Top\)** ，另一端被称为 **栈底 \(Bottom\)** 。
 
 
-![](/images/docs/data-structure/a9c67520fe.svg)
+![](/cc408/images/docs/data-structure/a9c67520fe.svg)
 
 **顺序栈** 的关键在于 **栈顶指针** ，**栈顶指针** 是一个整数变量，用于指示 **栈顶** 元素在 **数组** 中的位置。其值的变化直接反映了栈中元素的变化。
 
@@ -165,7 +165,7 @@ return stack->top == MAX_SIZE - 1;
 
 栈的 **链式存储结构** 利用 **[单链表](</data_structure/linearlist/linked/#%e5%8d%95%e9%93%be%e8%a1%a8%e5%ae%9a%e4%b9%89>)** 来实现栈的功能。
 
-![](/images/docs/data-structure/159403def3.svg)
+![](/cc408/images/docs/data-structure/159403def3.svg)
 
 在 **链式栈** 实现中，一般 **头结点不存放数据** ，仅作为链表的固定起点。栈顶元素始终为 `head->next`。这样依然可以保证 入栈 和 出栈 的时间复杂度为 O\(1\) 。
 

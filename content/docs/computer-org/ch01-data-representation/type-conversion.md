@@ -46,7 +46,7 @@ chapter_title: "类型转换"
 
 当 **int** 和 **unsigned** 进行 **类型转化** 时，**位模式** 不变，可以理解成计算机存储单元中的二进制表示没有变化，只是从程序层面阐述该二进制数据的方式变了，如下图所示：
 
-![](/images/docs/computer-org/e837dda0ac.svg)
+![](/cc408/images/docs/computer-org/e837dda0ac.svg)
 
 ### 整形和浮点数
 
@@ -93,7 +93,7 @@ chapter_title: "类型转换"
 
 
 
-![](/images/docs/computer-org/f378a7ce22.svg)
+![](/cc408/images/docs/computer-org/f378a7ce22.svg)
 
 以 `short` 和 `int` 的类型转化为例说明：
 ```c
@@ -119,7 +119,7 @@ short s = i;
   * **隐式类型转换** （Implicit Type Conversion）（也称为 **类型提升** ，Type Promotion）
   * **显式类型转换** （Explicit Type Conversion）（也称为 **强制转换** ，Type Casting）
 
-![](/images/docs/computer-org/e34437b0e0.svg)
+![](/cc408/images/docs/computer-org/e34437b0e0.svg)
 
 #### 隐式类型转换
 

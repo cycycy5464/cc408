@@ -9,10 +9,11 @@ set: 7
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "散列表"
 question_type: "choice"
 difficulty: 3
 number: 35
+
 ---
 
 CSMA 协议可以利用多种监听算法来减小发送冲突的概率，下面关于各种监听算法的描述中，错误的是（ ）。
@@ -21,6 +22,8 @@ A\. Ⅰ、Ⅱ和Ⅲ
 B\. Ⅱ和Ⅲ
 C\. Ⅰ、Ⅱ和Ⅳ
 D\. Ⅱ和Ⅳ
+
+[散列表](/study_methods/tags/408quiz//#%e6%95%a3%e5%88%97%e8%a1%a8)
 
 [tag_link]
 

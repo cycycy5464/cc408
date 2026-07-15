@@ -9,10 +9,11 @@ set: 1
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "路由器"
 question_type: "choice"
 difficulty: 3
 number: 38
+
 ---
 
 在 IP 分组传输的过程中（不包括 NAT 情况），以下 IP 分组头中的域保持不变的是（ ）。
@@ -21,6 +22,8 @@ A\. 总长度
 B\. 首部校验和
 C\. 生存时间
 D\. 源 IP 地址
+
+[路由器](/study_methods/tags/408quiz//#%e8%b7%af%e7%94%b1%e5%99%a8)
 
 [tag_link]
 

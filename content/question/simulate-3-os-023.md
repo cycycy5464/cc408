@@ -9,10 +9,12 @@ set: 3
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "操作系统概念"
+  - "处理机调度概念"
 question_type: "choice"
 difficulty: 3
 number: 23
+
 ---
 
 在操作系统的以下功能中，不需要专门硬件支持的是（ ）。
@@ -25,6 +27,9 @@ A\. Ⅱ和Ⅳ
 B\. Ⅱ和Ⅳ
 C\. Ⅰ和Ⅳ
 D\. 只有Ⅳ
+
+[操作系统概念](/study_methods/tags/408quiz//#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f%e6%a6%82%e5%bf%b5)
+[处理机调度概念](/study_methods/tags/408quiz//#%e5%a4%84%e7%90%86%e6%9c%ba%e8%b0%83%e5%ba%a6%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

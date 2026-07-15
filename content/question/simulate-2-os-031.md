@@ -9,10 +9,12 @@ set: 2
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "文件概念"
+  - "文件系统"
 question_type: "choice"
 difficulty: 3
 number: 31
+
 ---
 
 某文件系统物理结构采用三级索引分配方法，如果每个磁盘块的大小为 1024B，每个盘块索引号占用 4 字节，请问在该文件系统中，最大的文件长度约为（　）。
@@ -21,6 +23,9 @@ A\. 16GB
 B\. 32GB
 C\. 8GB
 D\. 以上均不对
+
+[文件概念](/study_methods/tags/408quiz//#%e6%96%87%e4%bb%b6%e6%a6%82%e5%bf%b5)
+[文件系统](/study_methods/tags/408quiz//#%e6%96%87%e4%bb%b6%e7%b3%bb%e7%bb%9f)
 
 [tag_link]
 

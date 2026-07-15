@@ -9,10 +9,12 @@ set: 5
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "最小生成树"
+  - "信号量"
 question_type: "comprehensive"
 difficulty: 4
 number: 41
+
 ---
 
 （10 分）下图所示是一带权有向图的邻接表。其中出边表中的每个结点均含有三个字段，依次为边的另一个顶点在顶点表中的序号、边上的权值和指向下一个边结点的指针。试求：
@@ -22,6 +24,9 @@ number: 41
 （3）以顶点 V1 为起点的深度优先搜索生成树。
 （4）由顶点 V1 到顶点 V3 的最短路径。
 （5）若将该图看成无向图，用 Prim 算法给出图 G 的一棵最小生成树的生成过程。
+
+[最小生成树](/study_methods/tags/408quiz//#%e6%9c%80%e5%b0%8f%e7%94%9f%e6%88%90%e6%a0%91)
+[信号量](/study_methods/tags/408quiz//#%e4%bf%a1%e5%8f%b7%e9%87%8f)
 
 [tag_link]
 

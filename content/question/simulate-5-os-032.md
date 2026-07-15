@@ -9,10 +9,11 @@ set: 5
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "操作系统概念"
 question_type: "choice"
 difficulty: 3
 number: 32
+
 ---
 
 下列有关虚拟设备的论述中，正确的是（ ）。
@@ -24,6 +25,8 @@ B\. 虚拟设备是指允许用户以标准化方式来使用物理设备
 C\. 虚拟设备是把一个物理设备变换成多个对应的逻辑设备
 
 D\. 虚拟设备是允许用户程序不必全部装入多个对应的逻辑设备
+
+[操作系统概念](/study_methods/tags/408quiz//#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

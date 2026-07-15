@@ -9,10 +9,12 @@ set: 4
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "森林的概念"
+  - "二叉树的遍历"
 question_type: "choice"
 difficulty: 3
 number: 5
+
 ---
 
 某二叉树结点的中序序列为 BDAECF，后序序列为 DBEFCA，则该二叉树对应的森林包括（ ）棵树。
@@ -21,6 +23,9 @@ A\. 1
 B\. 2
 C\. 3
 D\. 4
+
+[森林的概念](/study_methods/tags/408quiz//#%e6%a3%ae%e6%9e%97%e7%9a%84%e6%a6%82%e5%bf%b5)
+[二叉树的遍历](/study_methods/tags/408quiz//#%e4%ba%8c%e5%8f%89%e6%a0%91%e7%9a%84%e9%81%8d%e5%8e%86)
 
 [tag_link]
 

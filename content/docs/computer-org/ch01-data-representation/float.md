@@ -68,7 +68,7 @@ b=i=−n∑m​2i×bi​
 **IEEE 754 标准** 是定义浮点数表示和算术的国际标准，它定义了多种不同精度的浮点数格式，但最常见的是 **单精度** _single precesion_ （32 位）和 **双精度** _double precesion_ （64 位），浮点数分为 `s`（**符号位** ）、`exp`（**阶码** ）、`frac`（**尾数** ）三个部分存储：
 
 
-![](/images/docs/computer-org/cdf375bdee.svg)
+![](/cc408/images/docs/computer-org/cdf375bdee.svg)
 
 
 
@@ -115,7 +115,7 @@ b=i=−n∑m​2i×bi​
 
 总结 单精度 和 双精度 浮点数中各个字段的范围如下图所示：
 
-![](/images/docs/computer-org/18491d9f99.svg)
+![](/cc408/images/docs/computer-org/18491d9f99.svg)
 
 #### 异常值
 
@@ -125,7 +125,7 @@ b=i=−n∑m​2i×bi​
 下图是 **浮点数** 各种类型的图示（以 **单精度** 为例）：
 
 
-![](/images/docs/computer-org/image-20260612221719257.png)
+![](/cc408/images/docs/computer-org/image-20260612221719257.png)
 
   * **非正常值** （Denormalized）的 **阶码** 全为 0
   * **无穷大** （Infinity）的 **阶码** 全为 1，**尾数** 位为 0
@@ -192,7 +192,7 @@ i=0∑3​f×2i,f∈\{0,1\}
 在数轴中对应 \[0, 1\] 区间中的 8 个点：
 
 
-![](/images/docs/computer-org/fd3b626cf2.svg)
+![](/cc408/images/docs/computer-org/fd3b626cf2.svg)
 
 
 如果一个尾数的大小与这些点都不相同的话，则需要找一个临近的点来近似，这也是导致 **精度** 丢失的原因：尾数的二进制表示法无法精确地表示 \[0, 1\] 中的每一个 **实数** ，对于无法精确表示的，只能去近似。
@@ -244,7 +244,7 @@ i=0∑3​f×2i,f∈\{0,1\}
 在 **对阶** 和 **尾数规格化** 的过程中，由于可能存在 **尾数** 右移，所以可能会导致 **精度缺失** 。  
 因为 IEEE 浮点数尾数的位数是有限的，如果右移的过程中尾数中最右边的 1 被清除，就会导致 **精度缺失** 。
 
-![](/images/docs/computer-org/image-20260612221842721.png)
+![](/cc408/images/docs/computer-org/image-20260612221842721.png)
 
 * * *
 

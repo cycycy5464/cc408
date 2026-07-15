@@ -9,10 +9,11 @@ set: 2
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "协议数据单元"
 question_type: "choice"
 difficulty: 3
 number: 33
+
 ---
 
 在 OSI 参考模型中，为上一层提供可靠、无错误的数据信息的协议层是（　）。
@@ -21,6 +22,8 @@ A\. 物理层
 B\. 数据链路层
 C\. 网络层
 D\. 传输层
+
+[协议数据单元](/study_methods/tags/408quiz//#%e5%8d%8f%e8%ae%ae%e6%95%b0%e6%8d%ae%e5%8d%95%e5%85%83)
 
 [tag_link]
 

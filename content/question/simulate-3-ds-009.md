@@ -9,10 +9,12 @@ set: 3
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "B树"
+  - "树的概念"
 question_type: "choice"
 difficulty: 3
 number: 9
+
 ---
 
 下列关于 m 阶 B-树的说法中，正确的有（ ）。
@@ -25,6 +27,9 @@ A\. I、II
 B\. II、III
 C\. III、IV
 D\. III
+
+[B树](/study_methods/tags/408quiz//#b%e6%a0%91)
+[树的概念](/study_methods/tags/408quiz//#%e6%a0%91%e7%9a%84%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

@@ -9,10 +9,12 @@ set: 8
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "队列"
+  - "链表"
 question_type: "choice"
 difficulty: 3
 number: 2
+
 ---
 
 用链表方式存储的队列（有头尾指针非循环），在进行删除运算时（ ）。
@@ -21,6 +23,9 @@ A\. 仅修改头指针
 B\. 仅修改尾指针
 C\. 头、尾指针都要修改
 D\. 头、尾指针可能都要修改
+
+[队列](/study_methods/tags/408quiz//#%e9%98%9f%e5%88%97)
+[链表](/study_methods/tags/408quiz//#%e9%93%be%e8%a1%a8)
 
 [tag_link]
 

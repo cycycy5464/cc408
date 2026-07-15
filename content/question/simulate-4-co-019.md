@@ -1,5 +1,5 @@
 ---
-title: "模拟卷4 计算机组成原理 第19题"
+title: "模拟卷4 组成原理 第19题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 4
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "计算机性能指标"
 question_type: "choice"
 difficulty: 3
 number: 19
+
 ---
 
 流水 CPU 是由一系列叫做“段”的处理部件组成的。当流水稳定后，相比具备
@@ -25,6 +26,8 @@ A\. 具备同等水平的吞吐能力
 B\. 不具备同等能力的吞吐能力
 C\. 吞吐能力小于前者的吞吐能力
 D\. 吞吐能力大于后者的吞吐能力
+
+[计算机性能指标](/study_methods/tags/408quiz//#%e8%ae%a1%e7%ae%97%e6%9c%ba%e6%80%a7%e8%83%bd%e6%8c%87%e6%a0%87)
 
 [tag_link]
 

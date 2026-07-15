@@ -1,5 +1,5 @@
 ---
-title: "模拟卷8 计算机组成原理 第44题"
+title: "模拟卷8 组成原理 第44题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 8
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "异常和中断"
 question_type: "comprehensive"
 difficulty: 4
 number: 44
+
 ---
 
 （11 分）设某计算机有 4 级中断 A、B、C、D，其硬件排队优先级次序为 A>B>C>D。如表所示列出了执行每级中断服务程序所需的时间。
@@ -24,6 +25,8 @@ number: 44
 （2）如果 A、B、C、D 分别在 0μs、8μs、10μs、0μs 时刻发出中断请求，请画出 CPU 执行中断服务程序的序列。
 
 （3）基于上题，请计算上述 4 个中断服务程序的平均执行时间。
+
+[异常和中断](/study_methods/tags/408quiz//#%e5%bc%82%e5%b8%b8%e5%92%8c%e4%b8%ad%e6%96%ad)
 
 [tag_link]
 

@@ -1,5 +1,5 @@
 ---
-title: "模拟卷5 计算机组成原理 第18题"
+title: "模拟卷5 组成原理 第18题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 5
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "指令格式"
 question_type: "choice"
 difficulty: 3
 number: 18
+
 ---
 
 某微机的指令格式如下所示：
@@ -21,6 +22,8 @@ A\. 22H
 B\. 1144H
 C\. 1256H
 D\. 0059H
+
+[指令格式](/study_methods/tags/408quiz//#%e6%8c%87%e4%bb%a4%e6%a0%bc%e5%bc%8f)
 
 [tag_link]
 

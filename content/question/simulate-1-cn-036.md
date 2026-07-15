@@ -9,10 +9,11 @@ set: 1
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "散列表"
 question_type: "choice"
 difficulty: 3
 number: 36
+
 ---
 
 以太网中如果发生介质访问冲突，按照二进制指数后退算法决定下一次重发的时间，使用二进制后退算法的好处是（ ）。
@@ -21,6 +22,8 @@ A\. 这种算法简单
 B\. 这种算法执行速度快
 C\. 这种算法考虑了网络负载对冲突的影响
 D\. 这种算法与网络的规模大小无关
+
+[散列表](/study_methods/tags/408quiz//#%e6%95%a3%e5%88%97%e8%a1%a8)
 
 [tag_link]
 

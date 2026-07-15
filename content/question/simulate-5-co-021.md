@@ -1,5 +1,5 @@
 ---
-title: "模拟卷5 计算机组成原理 第21题"
+title: "模拟卷5 组成原理 第21题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 5
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "异常和中断"
 question_type: "choice"
 difficulty: 3
 number: 21
+
 ---
 
 DMA 方式的接口电路中有程序中断部件，其作用包括（ ）。
@@ -25,6 +26,8 @@ A\. 仅 III
 B\. III 和 IV
 C\. I、III 和 IV
 D\. I 和 II
+
+[异常和中断](/study_methods/tags/408quiz//#%e5%bc%82%e5%b8%b8%e5%92%8c%e4%b8%ad%e6%96%ad)
 
 [tag_link]
 

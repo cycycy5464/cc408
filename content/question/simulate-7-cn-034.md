@@ -9,10 +9,11 @@ set: 7
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "协议数据单元"
 question_type: "choice"
 difficulty: 3
 number: 34
+
 ---
 
 若数据链路的发送窗口尺寸 WT=4，在发送 3 号帧，并接到 2 号帧的确认帧后，发送方还可以连续发送的帧数是（ ）。
@@ -21,6 +22,8 @@ A\. 2 帧
 B\. 3 帧
 C\. 4 帧
 D\. 1 帧
+
+[协议数据单元](/study_methods/tags/408quiz//#%e5%8d%8f%e8%ae%ae%e6%95%b0%e6%8d%ae%e5%8d%95%e5%85%83)
 
 [tag_link]
 

@@ -1,5 +1,5 @@
 ---
-title: "模拟卷4 计算机组成原理 第17题"
+title: "模拟卷4 组成原理 第17题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,14 @@ years:
 source: "模拟题"
 set: 4
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "寄存器类型"
+  - "指令寻址方式"
 question_type: "choice"
 difficulty: 3
 number: 17
+
 ---
 
 为了缩短指令中某个地址段的位数，有效的方法是采取（ ）。
@@ -21,6 +23,9 @@ A\. 立即寻址
 B\. 变址寻址
 C\. 间接寻址
 D\. 寄存器寻址
+
+[寄存器类型](/study_methods/tags/408quiz//#%e5%af%84%e5%ad%98%e5%99%a8%e7%b1%bb%e5%9e%8b)
+[指令寻址方式](/study_methods/tags/408quiz//#%e6%8c%87%e4%bb%a4%e5%af%bb%e5%9d%80%e6%96%b9%e5%bc%8f)
 
 [tag_link]
 

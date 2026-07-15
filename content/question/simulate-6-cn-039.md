@@ -9,10 +9,11 @@ set: 6
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "通信指标"
 question_type: "choice"
 difficulty: 3
 number: 39
+
 ---
 
 假设在没有发生拥塞的情况下，在一条往返时间 RTT 为 10ms 的线路上采用慢开始控制策略。如果接收窗口的大小为 24KB，最大报文段 MSS 为 2KB。那么发送方能发送出一个完全窗口（也就是发送窗口达到 24KB）需要的时间是（ ）。
@@ -21,6 +22,8 @@ A\. 30ms
 B\. 60ms
 C\. 50ms
 D\. 40ms
+
+[通信指标](/study_methods/tags/408quiz//#%e9%80%9a%e4%bf%a1%e6%8c%87%e6%a0%87)
 
 [tag_link]
 

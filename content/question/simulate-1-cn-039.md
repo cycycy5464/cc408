@@ -9,10 +9,11 @@ set: 1
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "通信指标"
 question_type: "choice"
 difficulty: 3
 number: 39
+
 ---
 
 信道带宽为 1Gbps，端到端时延为 10ms，TCP 的发送窗口为 65535B，则可能达到的最大吞吐量是（ ）。
@@ -21,6 +22,8 @@ A\. 1Mbps
 B\. 3.3Mbps
 C\. 26.2Mbps
 D\. 52.4Mbps
+
+[通信指标](/study_methods/tags/408quiz//#%e9%80%9a%e4%bf%a1%e6%8c%87%e6%a0%87)
 
 [tag_link]
 

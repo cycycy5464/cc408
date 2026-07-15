@@ -1,5 +1,5 @@
 ---
-title: "模拟卷4 计算机组成原理 第16题"
+title: "模拟卷4 组成原理 第16题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 4
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "访存过程"
 question_type: "choice"
 difficulty: 3
 number: 16
+
 ---
 
 在 Cache 和主存构成的两级存储体系中，Cache 的存取时间是 100ns，主存的存取时间是 1000ns，如果希望有效（平均）存取时间不超过 Cache 存取时间 15%，则 Cache 的命中率至少应为（ ）。（设 Cache 和主存不能同时访问。）
@@ -21,6 +22,8 @@ A\. 90%
 B\. 98%
 C\. 95%
 D\. 99%
+
+[访存过程](/study_methods/tags/408quiz//#%e8%ae%bf%e5%ad%98%e8%bf%87%e7%a8%8b)
 
 [tag_link]
 

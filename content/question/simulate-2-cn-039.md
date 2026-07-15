@@ -9,10 +9,12 @@ set: 2
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "协议数据单元"
+  - "数据报和虚电路"
 question_type: "choice"
 difficulty: 3
 number: 39
+
 ---
 
 下列关于 TCP 协议的叙述中，错误的是（　）。
@@ -21,6 +23,9 @@ A\. I 和 II
 B\. I、II 和 III
 C\. II 和 III
 D\. I、II、III 和 IV
+
+[协议数据单元](/study_methods/tags/408quiz//#%e5%8d%8f%e8%ae%ae%e6%95%b0%e6%8d%ae%e5%8d%95%e5%85%83)
+[数据报和虚电路](/study_methods/tags/408quiz//#%e6%95%b0%e6%8d%ae%e6%8a%a5%e5%92%8c%e8%99%9a%e7%94%b5%e8%b7%af)
 
 [tag_link]
 

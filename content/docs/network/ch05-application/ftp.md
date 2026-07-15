@@ -18,7 +18,7 @@ chapter_title: "FTP"
 ### 工作原理
 
 
-![](/images/docs/network/a990b640cd.svg)
+![](/cc408/images/docs/network/a990b640cd.svg)
 
 FTP 的传输流程如下：
 
@@ -66,7 +66,7 @@ FTP 的传输流程如下：
 ### 控制连接
 
 
-![](/images/docs/network/8321dc0ceb.svg)
+![](/cc408/images/docs/network/8321dc0ceb.svg)
 
   * **控制连接** 是 FTP 会话中首先建立的连接，通常使用 **TCP 端口 21** 。
   * 主要作用是传输 **命令和响应** ，用于 **控制 FTP 会话的行为** 。

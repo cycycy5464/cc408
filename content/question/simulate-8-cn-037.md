@@ -9,10 +9,12 @@ set: 8
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "文件概念"
+  - "子网划分"
 question_type: "choice"
 difficulty: 3
 number: 37
+
 ---
 
 某同学在校园网访问因特网，从该同学打开计算机电源到使用命令 ftp202.37.0.25 连接文件服务器的过程中，（ ）协议可能没有使用到。
@@ -21,6 +23,9 @@ A\. IP
 B\. ICMP
 C\. ARP
 D\. DHCP
+
+[文件概念](/study_methods/tags/408quiz//#%e6%96%87%e4%bb%b6%e6%a6%82%e5%bf%b5)
+[子网划分](/study_methods/tags/408quiz//#%e5%ad%90%e7%bd%91%e5%88%92%e5%88%86)
 
 [tag_link]
 

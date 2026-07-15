@@ -9,10 +9,11 @@ set: 6
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "完全二叉树"
 question_type: "choice"
 difficulty: 3
 number: 6
+
 ---
 
 下列说法中，正确的是（ ）。
@@ -21,6 +22,8 @@ A\. 对于有 n 个结点的二叉树，其高度为 ⌈log₂n⌉
 B\. 完全二叉树中，若一个结点没有左孩子，则它必是叶结点
 C\. 高度为 h（h>0）的完全二叉树对应的森林所含的树的个数一定是 h
 D\. 一棵树中的叶子数一定等于其对应的二叉树的叶子数
+
+[完全二叉树](/study_methods/tags/408quiz//#%e5%ae%8c%e5%85%a8%e4%ba%8c%e5%8f%89%e6%a0%91)
 
 [tag_link]
 

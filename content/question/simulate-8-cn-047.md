@@ -9,10 +9,12 @@ set: 8
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "通信指标"
+  - "协议数据单元"
 question_type: "comprehensive"
 difficulty: 4
 number: 47
+
 ---
 
 （9 分）设 A、B 两站相距 4km，使用 CSMA/CD 协议，信号在网络上的传播速度为 200000km/s，两站发送速率为 100Mbps，A 站先发送数据，如果发生碰撞，则：
@@ -20,6 +22,9 @@ number: 47
 (1) 最先发送数据的 A 站最晚经过多长时间才检测到发生了碰撞？最快又是多少？
 
 (2) 检测到碰撞后，A 站已发送数据长度的范围是多少（设 A 要发送的帧足够长）？
+
+[通信指标](/study_methods/tags/408quiz//#%e9%80%9a%e4%bf%a1%e6%8c%87%e6%a0%87)
+[协议数据单元](/study_methods/tags/408quiz//#%e5%8d%8f%e8%ae%ae%e6%95%b0%e6%8d%ae%e5%8d%95%e5%85%83)
 
 [tag_link]
 

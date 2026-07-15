@@ -9,10 +9,12 @@ set: 2
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "操作系统概念"
+  - "通信指标"
 question_type: "choice"
 difficulty: 3
 number: 28
+
 ---
 
 对外存对换区的管理应以（　）为主要目标。
@@ -21,6 +23,9 @@ A\. 提高系统吞吐量
 B\. 提高存储空间的利用率
 C\. 降低存储费用
 D\. 提高换入、换出速度
+
+[操作系统概念](/study_methods/tags/408quiz//#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f%e6%a6%82%e5%bf%b5)
+[通信指标](/study_methods/tags/408quiz//#%e9%80%9a%e4%bf%a1%e6%8c%87%e6%a0%87)
 
 [tag_link]
 

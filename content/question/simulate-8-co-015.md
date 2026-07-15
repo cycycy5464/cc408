@@ -1,5 +1,5 @@
 ---
-title: "模拟卷8 计算机组成原理 第15题"
+title: "模拟卷8 组成原理 第15题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,14 @@ years:
 source: "模拟题"
 set: 8
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "通信指标"
+  - "总线类型"
 question_type: "choice"
 difficulty: 3
 number: 15
+
 ---
 
 设存储器容量为 32 字，字长为 64 位。模块数 m=4，采用低位交叉方式。存储周期 T=200ns，数据总线宽度为 64 位，总线传输周期 t=50ns。则该交叉存储器在连续读出 4 个字的带宽是（ ）。
@@ -25,6 +27,9 @@ C\. <span class=katex><span class=katex-html aria-hidden=true><span class=base><
 bit/s
 D\. <span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.7278em;vertical-align:-.0833em></span><span class=mord>18</span><span class=mspace style=margin-right:.2222em></span><span class=mbin>×</span><span class=mspace style=margin-right:.2222em></span></span><span class=base><span class=strut style=height:.8141em></span><span class=mord>1</span><span class=mord><span class=mord>0</span><span class=msupsub><span class=vlist-t><span class=vlist-r><span class=vlist style=height:.8141em><span style=top:-3.063em;margin-right:.05em><span class=pstrut style=height:2.7em></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span></span></span></span></span></span></span></span>
 bit/s
+
+[通信指标](/study_methods/tags/408quiz//#%e9%80%9a%e4%bf%a1%e6%8c%87%e6%a0%87)
+[总线类型](/study_methods/tags/408quiz//#%e6%80%bb%e7%ba%bf%e7%b1%bb%e5%9e%8b)
 
 [tag_link]
 

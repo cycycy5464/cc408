@@ -11,7 +11,7 @@ chapter: 1
 chapter_title: "数据表示与计算"
 ---
 
-本章在选择题中考察，需要熟练掌握补码表示以及浮点数的 IEEE 标准。![](/images/docs/computer-org/image-20260612221259476.png)
+本章在选择题中考察，需要熟练掌握补码表示以及浮点数的 IEEE 标准。![](/cc408/images/docs/computer-org/image-20260612221259476.png)
 ## 数制和编码
 
 - 进位计数制及其数据之间的相互转换

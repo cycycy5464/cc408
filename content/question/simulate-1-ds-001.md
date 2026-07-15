@@ -9,10 +9,12 @@ set: 1
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "栈"
+  - "入栈出栈序列"
 question_type: "choice"
 difficulty: 3
 number: 1
+
 ---
 
 已知一个栈的进栈序列是 1、2、3、…、n，其输出序列为 p₁、p₂、p₃、…、pₙ，若 p₁=3，则 p₂ 为（ ）。
@@ -21,6 +23,9 @@ A\. 2 或 4、5、…、n 都有可能
 B\. 可能是 1
 C\. 一定是 2
 D\. 只可能是 2 或 4
+
+[栈](/study_methods/tags/408quiz//#%e6%a0%88)
+[入栈出栈序列](/study_methods/tags/408quiz//#%e5%85%a5%e6%a0%88%e5%87%ba%e6%a0%88%e5%ba%8f%e5%88%97)
 
 [tag_link]
 

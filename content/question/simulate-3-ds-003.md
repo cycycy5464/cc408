@@ -9,10 +9,11 @@ set: 3
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "栈"
 question_type: "choice"
 difficulty: 3
 number: 3
+
 ---
 
 将中缀表达式转换为等价的后缀表达式的过程中要利用堆栈保存运算符。对于中缀表达式
@@ -25,6 +26,8 @@ A\. `-×`
 B\. `-(×`
 C\. `-+`
 D\. `-(+`
+
+[栈](/study_methods/tags/408quiz//#%e6%a0%88)
 
 [tag_link]
 

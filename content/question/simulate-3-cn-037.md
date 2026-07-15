@@ -9,10 +9,11 @@ set: 3
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "路由器"
 question_type: "choice"
 difficulty: 3
 number: 37
+
 ---
 
 当 IP 分组经过路由器进行分片时，其首部发生变化的字段有（ ）。
@@ -26,6 +27,8 @@ A\. Ⅰ、Ⅱ和Ⅲ
 B\. Ⅱ、Ⅲ、Ⅳ和Ⅴ
 C\. Ⅱ、Ⅲ和Ⅳ
 D\. Ⅱ和Ⅲ
+
+[路由器](/study_methods/tags/408quiz//#%e8%b7%af%e7%94%b1%e5%99%a8)
 
 [tag_link]
 

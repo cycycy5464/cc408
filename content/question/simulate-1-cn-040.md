@@ -9,10 +9,11 @@ set: 1
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "网络应用模型"
 question_type: "choice"
 difficulty: 3
 number: 40
+
 ---
 
 域名系统 DNS 的组成包括（ ）。 Ⅰ. 域名空间 Ⅱ. 分布式数据库 Ⅲ. 域名服务器 Ⅳ. 从内部 IP 地址到外部 IP 地址的翻译程序
@@ -21,6 +22,8 @@ A\. Ⅰ 和 Ⅱ
 B\. Ⅰ、Ⅱ 和 Ⅲ
 C\. Ⅱ 和 Ⅲ
 D\. Ⅰ、Ⅱ、Ⅲ 和 Ⅳ
+
+[网络应用模型](/study_methods/tags/408quiz//#%e7%bd%91%e7%bb%9c%e5%ba%94%e7%94%a8%e6%a8%a1%e5%9e%8b)
 
 [tag_link]
 

@@ -1,5 +1,5 @@
 ---
-title: "模拟卷5 计算机组成原理 第13题"
+title: "模拟卷5 组成原理 第13题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 5
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "大小端"
 question_type: "choice"
 difficulty: 3
 number: 13
+
 ---
 
 若数据在存储器中以小端方式存放，则十六进制数 12345678H 按字节地址从小到大依次为（ ）。
@@ -21,6 +22,8 @@ A\. 78563412H
 B\. 87654321H
 C\. 12345678H
 D\. 21436587H
+
+[大小端](/study_methods/tags/408quiz//#%e5%a4%a7%e5%b0%8f%e7%ab%af)
 
 [tag_link]
 

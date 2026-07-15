@@ -18,7 +18,7 @@ chapter_title: "物理层设备"
 ### 集线器
 
 
-![](/images/docs/network/e8dc06c917.svg)
+![](/cc408/images/docs/network/e8dc06c917.svg)
 
 定义：集线器（Hub）是一个 **物理层设备** ，用于将多台计算机或其他网络设备连接在一起，从而形成一个单一的网络段。
 
@@ -28,7 +28,7 @@ chapter_title: "物理层设备"
 
 ### 中继器
 
-![](/images/docs/network/b580eeb146.jpg)
+![](/cc408/images/docs/network/b580eeb146.jpg)
 
 **定义** ：中继器是一个 **物理层设备** ，用于 **放大** 或 **再生** 数字 **信号** 。
 
@@ -38,7 +38,7 @@ chapter_title: "物理层设备"
 
 ### 网络适配器
 
-![](/images/docs/network/9770e38a2f.jpg)
+![](/cc408/images/docs/network/9770e38a2f.jpg)
 
 **定义** ：网络适配器 \(Network Adapter\)，也称为网络接口卡（NIC）或简称 **网卡** ，是一种硬件组件，用于 **连接计算机到一个网络** 。
 
@@ -54,19 +54,19 @@ chapter_title: "物理层设备"
 
 * * *
 
-![](/images/docs/network/01ad62f7ed.jpg)
+![](/cc408/images/docs/network/01ad62f7ed.jpg)
 
 **双绞线** （twisted pair cable）的结构如上图所示，“双绞线”之所以叫“双绞线”，是因为它的结构真的就是两根 **绝缘铜线** 按照一定方式互相“绞”在一起。 这种“绞合”结构是为了 **抗干扰** ，让数据传输更加 **稳定可靠** 。
 
 * * *
 
-![](/images/docs/network/859f487bd9.webp)
+![](/cc408/images/docs/network/859f487bd9.webp)
 
 **光纤** （fiber optic）的结构如上图所示，光纤利用光在里面的 **反射** 来传输数据。相比电信号，它的 **抗干扰能力** 更强、**传输速度** 更快、**距离** 也更远，非常适合 **高速** 的数据通信。
 
 * * *
 
-![](/images/docs/network/919f29afbb.jpg)
+![](/cc408/images/docs/network/919f29afbb.jpg)
 
 **同轴电缆** （coaxial cable）的结构如上图所示，它由 **中心铜导体** 、**绝缘层** 、**金属屏蔽层** 和 **外护套** 组成。 其中，金属屏蔽层可以有效减少外界电磁干扰，同时也防止信号向外泄漏。
 

@@ -9,10 +9,12 @@ set: 7
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "地址翻译"
+  - "页表"
 question_type: "choice"
 difficulty: 3
 number: 29
+
 ---
 
 在请求分页存储管理系统中，地址变换过程可能会因为（ ）而产生中断。
@@ -25,6 +27,9 @@ A\. Ⅰ和Ⅱ
 B\. Ⅰ、Ⅱ、Ⅲ和Ⅳ
 C\. 仅Ⅱ
 D\. Ⅰ、Ⅱ和Ⅲ
+
+[地址翻译](/study_methods/tags/408quiz//#%e5%9c%b0%e5%9d%80%e7%bf%bb%e8%af%91)
+[页表](/study_methods/tags/408quiz//#%e9%a1%b5%e8%a1%a8)
 
 [tag_link]
 

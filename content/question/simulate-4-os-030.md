@@ -9,10 +9,11 @@ set: 4
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "文件概念"
 question_type: "choice"
 difficulty: 3
 number: 30
+
 ---
 
 现代操作系统中，文件系统都有效地解决了文件重名（即允许不同用户的文件可以具有相同的文件名）问题，系统是通过（ ）来实现这一功能的。
@@ -21,6 +22,8 @@ A\. 重名翻译机构
 B\. 建立索引表
 C\. 树型目录结构
 D\. 建立指针
+
+[文件概念](/study_methods/tags/408quiz//#%e6%96%87%e4%bb%b6%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

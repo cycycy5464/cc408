@@ -9,10 +9,12 @@ set: 4
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "堆的概念"
+  - "平衡二叉树"
 question_type: "choice"
 difficulty: 3
 number: 10
+
 ---
 
 从二叉树的任一结点出发到根的路径上，所经过的结点序列必按其关键字降序排列的是（ ）。
@@ -21,6 +23,9 @@ A\. 二叉排序树
 B\. 大顶堆
 C\. 小顶堆
 D\. 平衡二叉树
+
+[堆的概念](/study_methods/tags/408quiz//#%e5%a0%86%e7%9a%84%e6%a6%82%e5%bf%b5)
+[平衡二叉树](/study_methods/tags/408quiz//#%e5%b9%b3%e8%a1%a1%e4%ba%8c%e5%8f%89%e6%a0%91)
 
 [tag_link]
 

@@ -1,5 +1,5 @@
 ---
-title: "模拟卷8 计算机组成原理 第16题"
+title: "模拟卷8 组成原理 第16题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,14 @@ years:
 source: "模拟题"
 set: 8
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "操作系统概念"
+  - "访存过程"
 question_type: "choice"
 difficulty: 3
 number: 16
+
 ---
 
 下列关于 Cache 和虚拟存储器的说法中，错误的有（ ）。
@@ -25,6 +27,9 @@ A\. I 和 IV
 B\. III 和 IV
 C\. I、II 和 III
 D\. I、III 和 IV
+
+[操作系统概念](/study_methods/tags/408quiz//#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f%e6%a6%82%e5%bf%b5)
+[访存过程](/study_methods/tags/408quiz//#%e8%ae%bf%e5%ad%98%e8%bf%87%e7%a8%8b)
 
 [tag_link]
 

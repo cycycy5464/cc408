@@ -9,10 +9,11 @@ set: 5
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "交换方式"
 question_type: "choice"
 difficulty: 3
 number: 33
+
 ---
 
 电路交换的优点有（ ）。
@@ -21,6 +22,8 @@ A\. I 和 II
 B\. II 和 III
 C\. I 和 III
 D\. II 和 IV
+
+[交换方式](/study_methods/tags/408quiz//#%e4%ba%a4%e6%8d%a2%e6%96%b9%e5%bc%8f)
 
 [tag_link]
 

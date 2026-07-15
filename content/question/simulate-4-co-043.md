@@ -1,5 +1,5 @@
 ---
-title: "模拟卷4 计算机组成原理 第43题"
+title: "模拟卷4 组成原理 第43题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,14 @@ years:
 source: "模拟题"
 set: 4
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "寄存器类型"
+  - "标志寄存器"
 question_type: "comprehensive"
 difficulty: 4
 number: 43
+
 ---
 
 （12 分）假设有两个整数
@@ -40,6 +42,9 @@ number: 43
 和
 <span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.625em;vertical-align:-.1944em></span><span class="mord mathnormal" style=margin-right:.03588em>y</span></span></span></span>
 相减后的结果存放在 D 寄存器中，寄存器 D 中的内容是什么？此时，溢出标志位 OF 是什么？符号标志位 SF 是什么？进位标志位 CF 是什么？
+
+[寄存器类型](/study_methods/tags/408quiz//#%e5%af%84%e5%ad%98%e5%99%a8%e7%b1%bb%e5%9e%8b)
+[标志寄存器](/study_methods/tags/408quiz//#%e6%a0%87%e5%bf%97%e5%af%84%e5%ad%98%e5%99%a8)
 
 [tag_link]
 

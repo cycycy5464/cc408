@@ -9,10 +9,11 @@ set: 8
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "拓扑排序"
 question_type: "choice"
 difficulty: 3
 number: 7
+
 ---
 
 已知有向图 G=(V, A)，其中 V={a,b,c,d,e}，A={<a,b>, <a,c>, <d,c>, <d,e>, <b,e>, <c,e>}，对该图进行拓扑排序，下面序列中不是拓扑排序的是（ ）。
@@ -21,6 +22,8 @@ A\. a,d,c,b,e
 B\. d,a,b,c,e
 C\. a,b,d,c,e
 D\. a,h,c,d,e
+
+[拓扑排序](/study_methods/tags/408quiz//#%e6%8b%93%e6%89%91%e6%8e%92%e5%ba%8f)
 
 [tag_link]
 

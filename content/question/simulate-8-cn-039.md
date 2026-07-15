@@ -9,10 +9,12 @@ set: 8
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "协议数据单元"
+  - "数据报和虚电路"
 question_type: "choice"
 difficulty: 3
 number: 39
+
 ---
 
 一个长度为 3000 字节的 UDP 数据报，在数据链路层使用以太网进行传输，为了正确传输，则需要将其拆分成（ ）个 IP 数据片。
@@ -21,6 +23,9 @@ A\. 2
 B\. 3
 C\. 4
 D\. 不拆分
+
+[协议数据单元](/study_methods/tags/408quiz//#%e5%8d%8f%e8%ae%ae%e6%95%b0%e6%8d%ae%e5%8d%95%e5%85%83)
+[数据报和虚电路](/study_methods/tags/408quiz//#%e6%95%b0%e6%8d%ae%e6%8a%a5%e5%92%8c%e8%99%9a%e7%94%b5%e8%b7%af)
 
 [tag_link]
 

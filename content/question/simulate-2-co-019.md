@@ -1,5 +1,5 @@
 ---
-title: "模拟卷2 计算机组成原理 第19题"
+title: "模拟卷2 组成原理 第19题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 2
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "进程的互斥"
 question_type: "choice"
 difficulty: 3
 number: 19
+
 ---
 
 当微指令采用分段编码时，我们将互斥性微命令（　）。
@@ -21,6 +22,8 @@ A\. 放在同一段中
 B\. 用多级译码来区分
 C\. 放在不同段中
 D\. 任意存放
+
+[进程的互斥](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e7%9a%84%e4%ba%92%e6%96%a5)
 
 [tag_link]
 

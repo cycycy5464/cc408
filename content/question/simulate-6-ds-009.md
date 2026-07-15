@@ -9,10 +9,12 @@ set: 6
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "邻接表"
+  - "图的概念"
 question_type: "choice"
 difficulty: 3
 number: 9
+
 ---
 
 下列可用于表示有向图的存储结构有（ ）。
@@ -21,6 +23,9 @@ A\. I 和 II
 B\. II 和 IV
 C\. I、II 和 III
 D\. I、II 和 IV
+
+[邻接表](/study_methods/tags/408quiz//#%e9%82%bb%e6%8e%a5%e8%a1%a8)
+[图的概念](/study_methods/tags/408quiz//#%e5%9b%be%e7%9a%84%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

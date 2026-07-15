@@ -1,5 +1,5 @@
 ---
-title: "模拟卷6 计算机组成原理 第15题"
+title: "模拟卷6 组成原理 第15题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 6
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "主存容量的扩展"
 question_type: "choice"
 difficulty: 3
 number: 15
+
 ---
 
 下列的说法中，正确的是（ ）。
@@ -21,6 +22,8 @@ A\. I 和 III
 B\. II 和 III
 C\. I 和 IV
 D\. 只有 I
+
+[主存容量的扩展](/study_methods/tags/408quiz//#%e4%b8%bb%e5%ad%98%e5%ae%b9%e9%87%8f%e7%9a%84%e6%89%a9%e5%b1%95)
 
 [tag_link]
 

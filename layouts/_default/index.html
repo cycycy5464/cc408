@@ -42,7 +42,7 @@
   {{ end }}
   {{ $subj := "未分类" }}
   {{ if eq .Params.subject "data-structure" }}{{ $subj = "数据结构" }}
-  {{ else if eq .Params.subject "computer-org" }}{{ $subj = "计算机组成原理" }}
+  {{ else if eq .Params.subject "computer-org" }}{{ $subj = "组成原理" }}
   {{ else if eq .Params.subject "os" }}{{ $subj = "操作系统" }}
   {{ else if eq .Params.subject "network" }}{{ $subj = "计算机网络" }}
   {{ end }}

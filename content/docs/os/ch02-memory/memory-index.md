@@ -12,7 +12,7 @@ chapter_title: "内存管理"
 ---
 
 内容与[存储系统](</constitution_principle/storage/>)关联很大，放在一起对比复习。
-![](/images/docs/os/image-20260611221932175.png)
+![](/cc408/images/docs/os/image-20260611221932175.png)
     
 
 ## 基础

@@ -9,10 +9,11 @@ set: 7
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "信号量"
 question_type: "choice"
 difficulty: 3
 number: 26
+
 ---
 
 在使用信号量机制实现互斥和同步时，互斥信号量和同步信号量的初值分别为（ ）。
@@ -21,6 +22,8 @@ A\. 0、1
 B\. 1、0
 C\. 1、1
 D\. 1、由用户确定
+
+[信号量](/study_methods/tags/408quiz//#%e4%bf%a1%e5%8f%b7%e9%87%8f)
 
 [tag_link]
 

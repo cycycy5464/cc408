@@ -9,10 +9,11 @@ set: 8
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "分段内存管理"
 question_type: "choice"
 difficulty: 3
 number: 28
+
 ---
 
 支持程序存放在不连续内存中的存储管理方法有（ ）。
@@ -26,6 +27,8 @@ A\. I 和 II
 B\. III 和 IV
 C\. III、IV 和 V
 D\. I、III、IV 和 V
+
+[分段内存管理](/study_methods/tags/408quiz//#%e5%88%86%e6%ae%b5%e5%86%85%e5%ad%98%e7%ae%a1%e7%90%86)
 
 [tag_link]
 

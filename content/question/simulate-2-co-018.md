@@ -1,5 +1,5 @@
 ---
-title: "模拟卷2 计算机组成原理 第18题"
+title: "模拟卷2 组成原理 第18题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 2
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "数据通路"
 question_type: "choice"
 difficulty: 3
 number: 18
+
 ---
 
 在微程序控制器中，以下说法正确的是（　）。
@@ -21,6 +22,8 @@ A\. I 和 II
 B\. II 和 IV
 C\. I 和 III
 D\. II、III 和 IV
+
+[数据通路](/study_methods/tags/408quiz//#%e6%95%b0%e6%8d%ae%e9%80%9a%e8%b7%af)
 
 [tag_link]
 

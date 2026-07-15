@@ -1,5 +1,5 @@
 ---
-title: "模拟卷3 计算机组成原理 第43题"
+title: "模拟卷3 组成原理 第43题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,14 @@ years:
 source: "模拟题"
 set: 3
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "补码"
+  - "指令格式"
 question_type: "comprehensive"
 difficulty: 4
 number: 43
+
 ---
 
 （12 分）已知 32 位寄存器中存放的变量 x 的机器码为 C000004H，请问：
@@ -22,6 +24,9 @@ number: 43
 （2）当 `x` 是带符号整数（补码）时：
 
 （3）当 `x` 是 `float` 型浮点数时：
+
+[补码](/study_methods/tags/408quiz//#%e8%a1%a5%e7%a0%81)
+[指令格式](/study_methods/tags/408quiz//#%e6%8c%87%e4%bb%a4%e6%a0%bc%e5%bc%8f)
 
 [tag_link]
 

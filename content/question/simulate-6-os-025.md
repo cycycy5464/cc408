@@ -9,10 +9,11 @@ set: 6
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "调度指标"
 question_type: "choice"
 difficulty: 3
 number: 25
+
 ---
 
 设有 3 个作业，它们的到达时间和运行时间如下表所示，并在一台处理机上按单道方式运行。如按高响应比优先算法，则作业执行的次序和平均周转时间依次为（ ）。
@@ -21,6 +22,8 @@ A\. J1,J2,J3、1.73
 B\. J1,J3,J2、1.83
 C\. J1,J3,J2、2.08
 D\. J1,J2,J3、1.83
+
+[调度指标](/study_methods/tags/408quiz//#%e8%b0%83%e5%ba%a6%e6%8c%87%e6%a0%87)
 
 [tag_link]
 

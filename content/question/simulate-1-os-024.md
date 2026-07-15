@@ -9,10 +9,11 @@ set: 1
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "进程和线程"
 question_type: "choice"
 difficulty: 3
 number: 24
+
 ---
 
 以下描述中，哪个不是多线程系统的特长，（ ）。
@@ -21,6 +22,8 @@ A\. 利用线程并行地执行矩阵乘法运算
 B\. Web 服务器利用线程请求 HTTP 服务
 C\. 键盘驱动程序为每一个正在运行的应用配备一个线程，用来响应相应的键盘输入
 D\. 基于 GUI 的 debugger 用不同线程处理用户的输入、计算、跟踪等操作。
+
+[进程和线程](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e5%92%8c%e7%ba%bf%e7%a8%8b)
 
 [tag_link]
 

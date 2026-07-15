@@ -9,10 +9,12 @@ set: 8
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "数据报和虚电路"
+  - "协议数据单元"
 question_type: "choice"
 difficulty: 3
 number: 34
+
 ---
 
 以下各项中，不是数据报服务特点的是（ ）。
@@ -21,6 +23,9 @@ A\. 每个分组自身携带有足够的信息，它的传送被单独处理
 B\. 在整个传送过程中，不需要建立虚电路
 C\. 使所有分组按顺序到达目的端系统
 D\. 网络结点要为每个分组做出路由选择
+
+[数据报和虚电路](/study_methods/tags/408quiz//#%e6%95%b0%e6%8d%ae%e6%8a%a5%e5%92%8c%e8%99%9a%e7%94%b5%e8%b7%af)
+[协议数据单元](/study_methods/tags/408quiz//#%e5%8d%8f%e8%ae%ae%e6%95%b0%e6%8d%ae%e5%8d%95%e5%85%83)
 
 [tag_link]
 

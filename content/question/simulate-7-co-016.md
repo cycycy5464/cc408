@@ -1,5 +1,5 @@
 ---
-title: "模拟卷7 计算机组成原理 第16题"
+title: "模拟卷7 组成原理 第16题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,14 @@ years:
 source: "模拟题"
 set: 7
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "访存过程"
+  - "页面置换算法"
 question_type: "choice"
 difficulty: 3
 number: 16
+
 ---
 
 某虚拟存储系统采用页式存储管理，只有 a、b 和 c 三个页框，页面访问的顺序为：
@@ -23,6 +25,9 @@ A\. 20%
 B\. 26.7%
 C\. 15%
 D\. 50%
+
+[访存过程](/study_methods/tags/408quiz//#%e8%ae%bf%e5%ad%98%e8%bf%87%e7%a8%8b)
+[页面置换算法](/study_methods/tags/408quiz//#%e9%a1%b5%e9%9d%a2%e7%bd%ae%e6%8d%a2%e7%ae%97%e6%b3%95)
 
 [tag_link]
 

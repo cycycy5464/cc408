@@ -9,10 +9,12 @@ set: 3
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "网络设备"
+  - "传输介质"
 question_type: "choice"
 difficulty: 3
 number: 34
+
 ---
 
 在一种网络中，超过一定长度，传输介质中的数据就会衰减。如果需要比较长的传输距离，就需要安装（ ）设备。
@@ -21,6 +23,9 @@ A\. 放大器
 B\. 中继器
 C\. 路由器
 D\. 网桥
+
+[网络设备](/study_methods/tags/408quiz//#%e7%bd%91%e7%bb%9c%e8%ae%be%e5%a4%87)
+[传输介质](/study_methods/tags/408quiz//#%e4%bc%a0%e8%be%93%e4%bb%8b%e8%b4%a8)
 
 [tag_link]
 

@@ -12,7 +12,7 @@ chapter_title: "指令系统"
 ---
 
 本章也是重点，常常在大题中与 CPU 放在一起考察。需要熟练掌握指令的格式以及寻址方式，并且能够根据题目灵活应变。
-![](/images/docs/computer-org/image-20260612224139501.png)
+![](/cc408/images/docs/computer-org/image-20260612224139501.png)
 ## 基本概念
 
 ## 指令格式

@@ -9,10 +9,12 @@ set: 3
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "二叉树的遍历"
+  - "二叉树遍历"
 question_type: "comprehensive"
 difficulty: 4
 number: 42
+
 ---
 
 （13 分）假设二叉树采用二叉链表存储结构存储，设计一个算法，求先序遍历序列中第 k（1≤k≤二叉树中结点个数）个结点的值，要求：
@@ -22,6 +24,9 @@ number: 42
 （2）写出二叉树采用的存储结构代码。
 
 （3）根据设计思想，采用 C 或 C++ 语言描述算法，关键之处给出注释。
+
+[二叉树的遍历](/study_methods/tags/408quiz//#%e4%ba%8c%e5%8f%89%e6%a0%91%e7%9a%84%e9%81%8d%e5%8e%86)
+[二叉树遍历](/study_methods/tags/408quiz//#%e4%ba%8c%e5%8f%89%e6%a0%91%e9%81%8d%e5%8e%86)
 
 [tag_link]
 

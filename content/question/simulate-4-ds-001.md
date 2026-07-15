@@ -9,10 +9,11 @@ set: 4
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "队列"
 question_type: "choice"
 difficulty: 3
 number: 1
+
 ---
 
 若循环队列以数组 `Q[0..m-1]` 为其存储结构，变量 `rear` 表示循环队列中的队尾元素的实际位置，其移动按 `rear=(rear+1) MOD m` 进行，变量 `length` 表示当前循环队列中的元素个数，则循环队列的队首元素的实际位置是（ ）。
@@ -21,6 +22,8 @@ A\. `rear-length`
 B\. `(rear-length+m) MOD m`
 C\. `(1+rear-m-length) MOD m`
 D\. `(rear-length-1) MOD m`
+
+[队列](/study_methods/tags/408quiz//#%e9%98%9f%e5%88%97)
 
 [tag_link]
 

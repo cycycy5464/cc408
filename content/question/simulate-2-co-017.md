@@ -1,5 +1,5 @@
 ---
-title: "模拟卷2 计算机组成原理 第17题"
+title: "模拟卷2 组成原理 第17题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 2
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "栈"
 question_type: "choice"
 difficulty: 3
 number: 17
+
 ---
 
 在运算类的零地址指令中，它的操作数来自（　）。
@@ -21,6 +22,8 @@ A\. 暂存器和总线
 B\. 寄存器
 C\. 暂存器和 ALU
 D\. 栈顶和次栈顶
+
+[栈](/study_methods/tags/408quiz//#%e6%a0%88)
 
 [tag_link]
 

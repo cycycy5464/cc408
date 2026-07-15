@@ -18,7 +18,7 @@ chapter_title: "UDP"
 ### UDP 数据报
 
 
-![](/images/docs/network/09f34d82af.svg)
+![](/cc408/images/docs/network/09f34d82af.svg)
 
 
 **UDP** （User Datagram Protocol）首部的长度固定为 **8 个字节** （64 位），不论 UDP 携带的数据量大小如何，其首部都保持不变。UDP 首部的各个字段如下：
@@ -31,7 +31,7 @@ chapter_title: "UDP"
 当传输层从 IP 层收到 UDP 数据报时，就根据首部中的 **目的端口** ，把 UDP 数据报通过相应的端口，上交最后的终点——应用进程，如下图所示：
 
 
-![](/images/docs/network/aa7236d715.svg)
+![](/cc408/images/docs/network/aa7236d715.svg)
 
 若接收方 UDP 发现收到的报文中的 **目的端口号** 不正确（即不存在对应于端口号的应用进程），则就丢弃该报文，并由 **ICMP** 发送“端口不可达”差错报文给发送方。
 
@@ -46,7 +46,7 @@ chapter_title: "UDP"
 **UDP** 的发送方需要计算 **checksum** 字段的值，并且填充进 **UDP** 首部相应字段中。发送方计算 **checksum** 包含 **构造伪首部、组合校验数据、计算 16 位和、按位取反** 四个步骤。
 
 
-![](/images/docs/network/ea9600e08f.svg)
+![](/cc408/images/docs/network/ea9600e08f.svg)
 
   1. **构造伪头部** ：为了确保源和目的地址的正确性，**UDP** 校验和包含一个 **伪头部** （不实际传输，仅用于计算）。伪头部包括：
 * **源 IP 地址** （32 位，IPv4）
@@ -124,7 +124,7 @@ chapter_title: "UDP"
 则得到 16 位组合数据和校验和计算过程如下所示：
 
 
-![](/images/docs/network/574c9b9fdb.svg)
+![](/cc408/images/docs/network/574c9b9fdb.svg)
 
 计算得到的 **校验和** 为： _00111011 00011111_ （十六进制：**0x3B1F** ）。
 

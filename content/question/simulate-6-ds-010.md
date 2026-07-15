@@ -9,10 +9,11 @@ set: 6
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "串"
 question_type: "choice"
 difficulty: 3
 number: 10
+
 ---
 
 串"acaba"的 next 数组值为（ ）。

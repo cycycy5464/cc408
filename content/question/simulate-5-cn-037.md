@@ -9,10 +9,11 @@ set: 5
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "路由器"
 question_type: "choice"
 difficulty: 3
 number: 37
+
 ---
 
 路由器中发现 TTL 值为 0 的分组，将进行（ ）处理，并向源主机返回（ ）的 ICMP 报文。
@@ -21,6 +22,8 @@ A\. 返回发送方，源点抑制
 B\. 继续转发，改变路由
 C\. 丢弃，时间超过
 D\. 本地提交，终点不可达
+
+[路由器](/study_methods/tags/408quiz//#%e8%b7%af%e7%94%b1%e5%99%a8)
 
 [tag_link]
 

@@ -1,5 +1,5 @@
 ---
-title: "模拟卷1 计算机组成原理 第22题"
+title: "模拟卷1 组成原理 第22题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 1
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "异常和中断"
 question_type: "choice"
 difficulty: 3
 number: 22
+
 ---
 
 下列说法中，错误的是（ ）。 Ⅰ. 在中断响应周期，置 “0” 允许中断触发器是由关中断指令完成的。 Ⅱ. 中断服务程序的最后一条指令是转移指令 Ⅲ. CPU 通过中断来实现对通道的控制 Ⅳ. 程序中断和通道方式都是由软件和硬件结合实现的 I/O 方式
@@ -21,6 +22,8 @@ A\. Ⅱ和Ⅲ和Ⅳ
 B\. Ⅲ和Ⅳ
 C\. Ⅰ、Ⅱ和Ⅲ
 D\. Ⅰ、Ⅲ和Ⅳ
+
+[异常和中断](/study_methods/tags/408quiz//#%e5%bc%82%e5%b8%b8%e5%92%8c%e4%b8%ad%e6%96%ad)
 
 [tag_link]
 

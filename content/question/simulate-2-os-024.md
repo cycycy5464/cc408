@@ -9,10 +9,12 @@ set: 2
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "时间片轮转"
+  - "处理机调度概念"
 question_type: "choice"
 difficulty: 3
 number: 24
+
 ---
 
 下列各种调度算法中，属于基于时间片的调度算法的是（　）。
@@ -21,6 +23,9 @@ A\. I 和 II
 B\. I、II 和 IV
 C\. I、II 和 IV
 D\. I、II 和 III
+
+[时间片轮转](/study_methods/tags/408quiz//#%e6%97%b6%e9%97%b4%e7%89%87%e8%bd%ae%e8%bd%ac)
+[处理机调度概念](/study_methods/tags/408quiz//#%e5%a4%84%e7%90%86%e6%9c%ba%e8%b0%83%e5%ba%a6%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

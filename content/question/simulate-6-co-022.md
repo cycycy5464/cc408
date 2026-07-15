@@ -1,5 +1,5 @@
 ---
-title: "模拟卷6 计算机组成原理 第22题"
+title: "模拟卷6 组成原理 第22题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 6
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "异常和中断"
 question_type: "choice"
 difficulty: 3
 number: 22
+
 ---
 
 通道方式的工作过程中，下列步骤的正确顺序是（ ）。
@@ -24,6 +25,8 @@ B\. ②→③→①→④
 C\. ④→③→②→①
 
 D\. ③→④→①→②
+
+[异常和中断](/study_methods/tags/408quiz//#%e5%bc%82%e5%b8%b8%e5%92%8c%e4%b8%ad%e6%96%ad)
 
 [tag_link]
 

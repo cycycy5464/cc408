@@ -1,5 +1,5 @@
 ---
-title: "模拟卷5 计算机组成原理 第14题"
+title: "模拟卷5 组成原理 第14题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 5
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "补码"
 question_type: "choice"
 difficulty: 3
 number: 14
+
 ---
 
 按 IEEE754 标准规定的 32 位浮点数（单精度浮点数）41A4C000H 对应的十进制数是（ ）。
@@ -21,6 +22,8 @@ A\. 4.59375
 B\. -20.59375
 C\. -4.59375
 D\. 20.59375
+
+[补码](/study_methods/tags/408quiz//#%e8%a1%a5%e7%a0%81)
 
 [tag_link]
 

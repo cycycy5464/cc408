@@ -9,10 +9,11 @@ set: 4
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "栈"
 question_type: "choice"
 difficulty: 3
 number: 2
+
 ---
 
 若一个栈以向量 `V[1..n]` 存储，初始栈顶指针 `top` 为 `n+1`，则 `x` 进栈的正确操作是（ ）。
@@ -21,6 +22,8 @@ A\. `top=top+1; V[top]=x`
 B\. `V[top]=x; top=top+1`
 C\. `top=top-1; V[top]=x`
 D\. `V[top]=x; top=top-1`
+
+[栈](/study_methods/tags/408quiz//#%e6%a0%88)
 
 [tag_link]
 

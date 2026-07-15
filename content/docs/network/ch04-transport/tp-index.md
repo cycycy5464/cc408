@@ -15,7 +15,7 @@ chapter_title: "传输层"
 
 学习思维导图
 ```c
-![](/images/docs/network/image-20260613072232774.png)
+![](/cc408/images/docs/network/image-20260613072232774.png)
 ```
 
 

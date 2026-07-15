@@ -9,10 +9,12 @@ set: 2
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "缺页异常"
+  - "操作系统概念"
 question_type: "choice"
 difficulty: 3
 number: 29
+
 ---
 
 下列叙述中错误的是（　）。
@@ -21,6 +23,9 @@ A\. I、III 和 IV
 B\. II、III 和 IV
 C\. III 和 IV
 D\. I、II、III 和 IV
+
+[缺页异常](/study_methods/tags/408quiz//#%e7%bc%ba%e9%a1%b5%e5%bc%82%e5%b8%b8)
+[操作系统概念](/study_methods/tags/408quiz//#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

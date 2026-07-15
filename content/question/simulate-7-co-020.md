@@ -1,5 +1,5 @@
 ---
-title: "模拟卷7 计算机组成原理 第20题"
+title: "模拟卷7 组成原理 第20题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 7
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "计算机性能指标"
 question_type: "choice"
 difficulty: 3
 number: 20
+
 ---
 
 在 32 位总线系统中，若时钟频率为 500MHz，传送一个 32 位字需要 5 个时钟周期，则该总线系统的数据传输速率是（ ）。
@@ -21,6 +22,8 @@ A\. <span class=katex><span class=katex-html aria-hidden=true><span class=base><
 B\. <span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>400</span><span class="mord mathnormal" style=margin-right:.05017em>MB</span><span class=mord>/</span><span class="mord mathnormal">s</span></span></span></span>
 C\. <span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>600</span><span class="mord mathnormal" style=margin-right:.05017em>MB</span><span class=mord>/</span><span class="mord mathnormal">s</span></span></span></span>
 D\. <span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:1em;vertical-align:-.25em></span><span class=mord>800</span><span class="mord mathnormal" style=margin-right:.05017em>MB</span><span class=mord>/</span><span class="mord mathnormal">s</span></span></span></span>
+
+[计算机性能指标](/study_methods/tags/408quiz//#%e8%ae%a1%e7%ae%97%e6%9c%ba%e6%80%a7%e8%83%bd%e6%8c%87%e6%a0%87)
 
 [tag_link]
 

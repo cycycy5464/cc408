@@ -9,10 +9,11 @@ set: 6
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "协议数据单元"
 question_type: "choice"
 difficulty: 3
 number: 33
+
 ---
 
 在 OSI 参考模型中，上层协议实体与下层协议实体之间的逻辑接口称为服务访问点（SAP）。在 Internet 数据帧中，目的地址“0x000F781C6001”属于（ ）的服务访问点。
@@ -21,6 +22,8 @@ A\. 数据链路层
 B\. 网络层
 C\. 传输层
 D\. 应用层
+
+[协议数据单元](/study_methods/tags/408quiz//#%e5%8d%8f%e8%ae%ae%e6%95%b0%e6%8d%ae%e5%8d%95%e5%85%83)
 
 [tag_link]
 

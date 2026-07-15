@@ -9,10 +9,12 @@ set: 5
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "协议数据单元"
+  - "窗口大小限制"
 question_type: "choice"
 difficulty: 3
 number: 40
+
 ---
 
 第一次传输时，设 TCP 的拥塞窗口的慢启动门限初始值为 8（单位为报文段），当拥塞窗口上升到 12 时，网络发生超时，TCP 开始慢启动和拥塞避免，那么第 12 次传输时拥塞窗口大小为（ ）。
@@ -24,6 +26,9 @@ B\. 6
 C\. 7
 
 D\. 8
+
+[协议数据单元](/study_methods/tags/408quiz//#%e5%8d%8f%e8%ae%ae%e6%95%b0%e6%8d%ae%e5%8d%95%e5%85%83)
+[窗口大小限制](/study_methods/tags/408quiz//#%e7%aa%97%e5%8f%a3%e5%a4%a7%e5%b0%8f%e9%99%90%e5%88%b6)
 
 [tag_link]
 

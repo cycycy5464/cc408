@@ -9,10 +9,12 @@ set: 7
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "二叉排序树"
+  - "卡特兰数"
 question_type: "choice"
 difficulty: 3
 number: 4
+
 ---
 
 含有 4 个元素值均不相同的结点的二叉排序树有（ ）种。
@@ -21,6 +23,9 @@ A\. 4
 B\. 6
 C\. 10
 D\. 14
+
+[二叉排序树](/study_methods/tags/408quiz//#%e4%ba%8c%e5%8f%89%e6%8e%92%e5%ba%8f%e6%a0%91)
+[卡特兰数](/study_methods/tags/408quiz//#%e5%8d%a1%e7%89%b9%e5%85%b0%e6%95%b0)
 
 [tag_link]
 

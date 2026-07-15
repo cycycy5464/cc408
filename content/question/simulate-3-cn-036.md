@@ -9,10 +9,12 @@ set: 3
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "路由器"
+  - "交换机"
 question_type: "choice"
 difficulty: 3
 number: 36
+
 ---
 
 在下图的网络配置中，总共有（ ）个广播域、（ ）个冲突域。
@@ -21,6 +23,9 @@ A\. 2, 2
 B\. 2, 7
 C\. 2, 6
 D\. 3, 6
+
+[路由器](/study_methods/tags/408quiz//#%e8%b7%af%e7%94%b1%e5%99%a8)
+[交换机](/study_methods/tags/408quiz//#%e4%ba%a4%e6%8d%a2%e6%9c%ba)
 
 [tag_link]
 

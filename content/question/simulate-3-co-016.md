@@ -1,5 +1,5 @@
 ---
-title: "模拟卷3 计算机组成原理 第16题"
+title: "模拟卷3 组成原理 第16题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 3
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "访存过程"
 question_type: "choice"
 difficulty: 3
 number: 16
+
 ---
 
 某计算机 Cache 的容量为 128KB，块大小为 16 字节，采用 8 路组相联映射方式。则字节地址为 1234567H 的单元调入该 Cache 后，其 Tag 为（ ）。
@@ -21,6 +22,8 @@ A\. 1234H
 B\. 2468H
 C\. 048DH
 D\. 12345H
+
+[访存过程](/study_methods/tags/408quiz//#%e8%ae%bf%e5%ad%98%e8%bf%87%e7%a8%8b)
 
 [tag_link]
 

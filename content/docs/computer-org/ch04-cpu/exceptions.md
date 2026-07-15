@@ -21,7 +21,7 @@ chapter_title: "异常与中断"
 
 #### 类型
 
-![](/images/docs/computer-org/fa967633fe.svg)
+![](/cc408/images/docs/computer-org/fa967633fe.svg)
 
 在执行指令的过程，可能发生如下五类异常：
 
@@ -109,7 +109,7 @@ char c = *bad_addr;  // 假设该地址引发硬件错误
   2. **系统调用** 用户程序请求操作系统服务（如打开文件、分配内存等）时，会使用特定的指令（如 x86 的 `syscall`）触发自陷，从而进入内核态执行系统调用处理程序。
   3. **调试断点** 在调试程序时，可以设置断点。当程序运行到断点位置时，会触发自陷，暂停程序以供调试器介入。
 
-![](/images/docs/computer-org/d18a8de847.svg)
+![](/cc408/images/docs/computer-org/d18a8de847.svg)
 
 **自陷处理流程** （简化版）如下：
 
@@ -162,7 +162,7 @@ char c = *bad_addr;  // 假设该地址引发硬件错误
 
 中断的分类可以通过下图辅助理解：
 
-![](/images/docs/computer-org/86c5569439.svg)
+![](/cc408/images/docs/computer-org/86c5569439.svg)
 
 
 
@@ -177,13 +177,13 @@ char c = *bad_addr;  // 假设该地址引发硬件错误
 异常 \(Exception\)
 
 
-![](/images/docs/computer-org/image-20260612233032873.png)
+![](/cc408/images/docs/computer-org/image-20260612233032873.png)
 
 在这里注意一下即可，面对题目可以灵活分辨即可。
 
 #### 中断处理流程
 
-中断处理流程参考计算机组成原理中的 [该节](</constitution_principle/bus/io/#%e7%a8%8b%e5%ba%8f%e4%b8%ad%e6%96%ad%e6%96%b9%e5%bc%8f>)。
+中断处理流程参考组成原理中的 [该节](</constitution_principle/bus/io/#%e7%a8%8b%e5%ba%8f%e4%b8%ad%e6%96%ad%e6%96%b9%e5%bc%8f>)。
 
 
 ## 相关笔记

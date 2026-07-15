@@ -1,5 +1,5 @@
 ---
-title: "模拟卷1 计算机组成原理 第13题"
+title: "模拟卷1 组成原理 第13题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 1
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "补码"
 question_type: "choice"
 difficulty: 3
 number: 13
+
 ---
 
 如果某单精度浮点数、某原码、某补码、某移码的 32 位机器数均为 0xF0000000，这些数从大到小的顺序是（ ）。
@@ -21,6 +22,8 @@ A\. 浮点数>原码>补码>移码
 B\. 浮点数>移码>补码>原码
 C\. 移码>原码>补码>浮点数
 D\. 移码>补码>原码>浮点数
+
+[补码](/study_methods/tags/408quiz//#%e8%a1%a5%e7%a0%81)
 
 [tag_link]
 

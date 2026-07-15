@@ -9,10 +9,11 @@ set: 1
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "栈"
 question_type: "choice"
 difficulty: 3
 number: 2
+
 ---
 
 利用栈求表达式的值时，设立运算数栈 OPEN。假设 OPEN 只有两个存储单元，则在下列表达式中，不会发生溢出的是（ ）。
@@ -21,6 +22,8 @@ A\. A-B*(C-D)
 B\. (A-B)*C-D
 C\. (A-B*C)-D
 D\. (A-B)*(C-D)
+
+[栈](/study_methods/tags/408quiz//#%e6%a0%88)
 
 [tag_link]
 

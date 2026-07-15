@@ -9,10 +9,11 @@ set: 6
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "网络应用模型"
 question_type: "choice"
 difficulty: 3
 number: 40
+
 ---
 
 一台域名服务器希望解析域名 www.google.com 。如果这台主机配置的 DNS 地址为 a，Internet 的根域名服务器为 b，而存储域名 www.google.com 与其 IP 地址对应关系的域名服务器为 c，那么这台主机通常先查询（ ）。
@@ -24,6 +25,8 @@ B\. 域名服务器 b
 C\. 域名服务器 c
 
 D\. 不确定
+
+[网络应用模型](/study_methods/tags/408quiz//#%e7%bd%91%e7%bb%9c%e5%ba%94%e7%94%a8%e6%a8%a1%e5%9e%8b)
 
 [tag_link]
 

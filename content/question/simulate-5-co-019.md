@@ -1,5 +1,5 @@
 ---
-title: "模拟卷5 计算机组成原理 第19题"
+title: "模拟卷5 组成原理 第19题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,14 @@ years:
 source: "模拟题"
 set: 5
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "指令格式"
+  - "进程的互斥"
 question_type: "choice"
 difficulty: 3
 number: 19
+
 ---
 
 某机采用微程序控制方式，微指令字长 24 位，采用水平型编码控制的微指令格式，断定方式。共有微命令 30 个，构成 4 个互斥类，各包含 5 个、8 个、14 个和 3 个微命令，外部条件共 3 个。则控制存储器的容量应该为（ ）。
@@ -21,6 +23,9 @@ A\. 256×24bit
 B\. 30×24bit
 C\. 31×24bit
 D\. 24×24bit
+
+[指令格式](/study_methods/tags/408quiz//#%e6%8c%87%e4%bb%a4%e6%a0%bc%e5%bc%8f)
+[进程的互斥](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e7%9a%84%e4%ba%92%e6%96%a5)
 
 [tag_link]
 

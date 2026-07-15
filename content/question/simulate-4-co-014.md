@@ -1,5 +1,5 @@
 ---
-title: "模拟卷4 计算机组成原理 第14题"
+title: "模拟卷4 组成原理 第14题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 4
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "补码"
 question_type: "choice"
 difficulty: 3
 number: 14
+
 ---
 
 设浮点数的基数为 4，尾数用原码表示，则以下（ ）是规格化的数。
@@ -21,6 +22,8 @@ A\. 1.001101
 B\. 0.001101
 C\. 1.011011
 D\. 0.000010
+
+[补码](/study_methods/tags/408quiz//#%e8%a1%a5%e7%a0%81)
 
 [tag_link]
 

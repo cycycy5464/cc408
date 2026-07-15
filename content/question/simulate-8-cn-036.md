@@ -9,10 +9,11 @@ set: 8
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "子网划分"
 question_type: "choice"
 difficulty: 3
 number: 36
+
 ---
 
 在一条点对点链路上，为了减少地址的浪费，子网掩码应该指定为（ ）。
@@ -21,6 +22,8 @@ A\. 255.255.255.252
 B\. 255.255.255.248
 C\. 255.255.255.240
 D\. 255.255.255.196
+
+[子网划分](/study_methods/tags/408quiz//#%e5%ad%90%e7%bd%91%e5%88%92%e5%88%86)
 
 [tag_link]
 

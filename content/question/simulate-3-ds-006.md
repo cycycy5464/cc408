@@ -9,10 +9,12 @@ set: 3
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "二叉排序树"
+  - "二叉树的遍历"
 question_type: "choice"
 difficulty: 3
 number: 6
+
 ---
 
 以下关于二叉排序树的说法中，错误的有（ ）个。
@@ -21,6 +23,9 @@ A\. 1
 B\. 2
 C\. 3
 D\. 4
+
+[二叉排序树](/study_methods/tags/408quiz//#%e4%ba%8c%e5%8f%89%e6%8e%92%e5%ba%8f%e6%a0%91)
+[二叉树的遍历](/study_methods/tags/408quiz//#%e4%ba%8c%e5%8f%89%e6%a0%91%e7%9a%84%e9%81%8d%e5%8e%86)
 
 [tag_link]
 

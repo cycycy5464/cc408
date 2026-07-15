@@ -9,10 +9,11 @@ set: 4
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "最小生成树"
 question_type: "comprehensive"
 difficulty: 4
 number: 41
+
 ---
 
 请回答下列问题：
@@ -20,6 +21,8 @@ number: 41
 (1) 试证明若图中各条边的权值各不相同，则它的最小生成树唯一。
 (2) Prim 算法和 Kruskal 算法生成的最小生成树一定相同吗？
 (3) 画出下列带权图 G 的所有最小生成树。
+
+[最小生成树](/study_methods/tags/408quiz//#%e6%9c%80%e5%b0%8f%e7%94%9f%e6%88%90%e6%a0%91)
 
 [tag_link]
 

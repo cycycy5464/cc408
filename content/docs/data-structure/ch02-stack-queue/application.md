@@ -18,7 +18,7 @@ chapter_title: "栈和队列的应用"
 ### 二叉表达式树
 
 
-![](/images/docs/data-structure/b21610e69a.svg)
+![](/cc408/images/docs/data-structure/b21610e69a.svg)
 
 **二叉表达式树** 是一种特殊的二叉树，用于表示算术或逻辑表达式。它的每个 **叶子节点** 通常存放 **操作数** （operand，如数字或变量），每个 **非叶子节点** 存放 **操作符** （operator，如 `+`, `-`, `*`, `/`）。
 
@@ -27,7 +27,7 @@ ExpressionTreen1/n2\*n1->n2n37n1->n3n4+n2->n4n5-n2->n5n63n4->n6n74n4->n7n85n5->n
 ### 表达式种类
 
 
-![](/images/docs/data-structure/e72c75d9f0.svg)
+![](/cc408/images/docs/data-structure/e72c75d9f0.svg)
 
 前序表达式（Preorder，波兰表示法）、中序表达式（Infix）和后序表达式（Postorder，逆波兰表示法）是根据二叉表达式树的不同遍历方式得到的表达式结果。具体来说：
 
@@ -92,7 +92,7 @@ ExpressionTreen1/n2\*n1->n2n37n1->n3n4+n2->n4n5-n2->n5n63n4->n6n74n4->n7n85n5->n
 中序表达式求值的过程可以参照以下流程图进行理解：
 
 
-![](/images/docs/data-structure/23a81c214f.svg)
+![](/cc408/images/docs/data-structure/23a81c214f.svg)
 
 以表达式 `3 + (5 * 2 - 8)` 说明计算过程：
 
@@ -236,7 +236,7 @@ A[开始：初始化操作符栈] --> B[从左向右扫描中缀表达式]
 
 
 
-![](/images/docs/data-structure/image-20260612090306923.png)
+![](/cc408/images/docs/data-structure/image-20260612090306923.png)
 
 * * *
 
@@ -280,7 +280,7 @@ A[开始：初始化操作符栈] --> B[从左向右扫描中缀表达式]
 也就是说，对于下图这种情况，A 被 B 压住了，在出栈序列中，A 一定在 B 的后面。如果某个出栈序列中 A 在 B 的前面，则这种出栈序列是不可能出现的。
 
 
-![](/images/docs/data-structure/e608caa076.svg)
+![](/cc408/images/docs/data-structure/e608caa076.svg)
 
 出栈序列： • • • B A • • • 
 

@@ -1,5 +1,5 @@
 ---
-title: "模拟卷1 计算机组成原理 第12题"
+title: "模拟卷1 组成原理 第12题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 1
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "计算机性能指标"
 question_type: "choice"
 difficulty: 3
 number: 12
+
 ---
 
 某工作站采用时钟频率 f 为 15MHz、处理速率为 10MIPS 的处理机来执行一个已知混合程序。假定该混合型程序平均每条指令需要 1 次访存，且每次存取存储器存取为 1 周期延迟，试问此计算机的有效 CPI 是（ ）。
@@ -21,6 +22,8 @@ A\. 2.5
 B\. 2
 C\. 1.5
 D\. 1
+
+[计算机性能指标](/study_methods/tags/408quiz//#%e8%ae%a1%e7%ae%97%e6%9c%ba%e6%80%a7%e8%83%bd%e6%8c%87%e6%a0%87)
 
 [tag_link]
 

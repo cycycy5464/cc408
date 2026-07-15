@@ -23,7 +23,7 @@
   <div class="exam-content" id="exam-container">
     {{ range $qIndex, $q := $yearQ }}
       <div class="question-block" id="q-{{ $q.Params.number }}" data-subject="{{ index $q.Params.subjects 0 }}" data-number="{{ $q.Params.number }}">
-        <div class="q-number">第 {{ $q.Params.number }} 题 <span class="q-subject-tag">{{ index $q.Params.subjects 0 }}</span></div>
+        <div class="q-number">第 {{ $q.Params.number }} 题 <span class="q-subject-tag">{{ index $q.Params.subjects 0 }}</span>{{ with $q.Params.knowledge_points }}<span class="q-kp-tag">{{ index . 0 }}</span>{{ end }}</div>
         <div class="q-body">
           {{ $q.Content }}
         </div>
@@ -55,10 +55,11 @@
   </div>
   <div class="exam-toc-list">
     {{ range $q := $yearQ }}
-    <a href="#q-{{ $q.Params.number }}" class="exam-toc-item" data-number="{{ $q.Params.number }}" data-subject="{{ index $q.Params.subjects 0 }}">
+    <a href="#q-{{ $q.Params.number }}" class="exam-toc-item" data-number="{{ $q.Params.number }}" data-subject="{{ index $q.Params.subjects 0 }}"{{ with $q.Params.knowledge_points }} data-kp="{{ index . 0 }}"{{ end }}>
       <span class="exam-toc-dot"></span>
       <span class="exam-toc-num">{{ $q.Params.number }}</span>
       <span class="exam-toc-subj-label">{{ index $q.Params.subjects 0 }}</span>
+      {{ with $q.Params.knowledge_points }}<span class="exam-toc-kp">{{ index . 0 }}</span>{{ end }}
     </a>
     {{ end }}
   </div>
@@ -71,6 +72,8 @@
 .question-block { margin-bottom: .5rem; }
 .q-number { font-size: .9rem; font-weight: 700; color: var(--accent); margin-bottom: .5rem; }
 .q-subject-tag { font-size: .75rem; font-weight: 400; color: var(--text-muted); background: var(--bg-secondary); padding: 1px 6px; border-radius: 3px; margin-left: .5rem; }
+.q-kp-tag { font-size: .72rem; font-weight: 400; color: var(--accent); background: rgba(57,186,230,.12); padding: 1px 6px; border-radius: 3px; margin-left: .4rem; }
+.exam-toc-kp { font-size: .68rem; opacity: .6; flex: 1 1 auto; min-width: 0; text-align: left; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .question-block .question-actions { margin-top: .5rem; display: flex; gap: .5rem; align-items: center; }
 .question-block .reveal-btn, .question-block .favorite-btn {
   padding: .4rem .9rem; border-radius: var(--radius-sm); cursor: pointer;

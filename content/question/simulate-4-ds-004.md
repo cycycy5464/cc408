@@ -9,10 +9,12 @@ set: 4
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "二叉树的遍历"
+  - "二叉树遍历"
 question_type: "choice"
 difficulty: 3
 number: 4
+
 ---
 
 在一棵非空二叉树的中序遍历序列中，根结点的右边（ ）。
@@ -21,6 +23,9 @@ A\. 只有右子树上的所有结点
 B\. 只有右子树上的部分结点
 C\. 只有左子树上的部分结点
 D\. 只有左子树上的所有结点
+
+[二叉树的遍历](/study_methods/tags/408quiz//#%e4%ba%8c%e5%8f%89%e6%a0%91%e7%9a%84%e9%81%8d%e5%8e%86)
+[二叉树遍历](/study_methods/tags/408quiz//#%e4%ba%8c%e5%8f%89%e6%a0%91%e9%81%8d%e5%8e%86)
 
 [tag_link]
 

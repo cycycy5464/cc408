@@ -9,10 +9,12 @@ set: 4
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "以太网"
+  - "协议数据单元"
 question_type: "choice"
 difficulty: 3
 number: 38
+
 ---
 
 下图中，主机 A 发送一个 IP 数据报给主机 B。通信过程中以太网 1 上出现的以太网帧中承载一个 IP 数据报，该以太网帧中的目的地址和 IP 报头中的目的地址分别是（ ）。
@@ -21,6 +23,9 @@ A\. B 的 MAC 地址，B 的 IP 地址
 B\. B 的 MAC 地址，R1 的 IP 地址
 C\. R1 的 MAC 地址，B 的 IP 地址
 D\. R1 的 MAC 地址，R1 的 IP 地址
+
+[以太网](/study_methods/tags/408quiz//#%e4%bb%a5%e5%a4%aa%e7%bd%91)
+[协议数据单元](/study_methods/tags/408quiz//#%e5%8d%8f%e8%ae%ae%e6%95%b0%e6%8d%ae%e5%8d%95%e5%85%83)
 
 [tag_link]
 

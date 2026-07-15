@@ -9,10 +9,11 @@ set: 7
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "散列表"
 question_type: "choice"
 difficulty: 3
 number: 9
+
 ---
 
 下列关于散列表的说法中，不正确的是（ ）个。
@@ -25,6 +26,8 @@ A\. 1
 B\. 2
 C\. 3
 D\. 4
+
+[散列表](/study_methods/tags/408quiz//#%e6%95%a3%e5%88%97%e8%a1%a8)
 
 [tag_link]
 

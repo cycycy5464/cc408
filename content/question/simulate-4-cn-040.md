@@ -9,10 +9,11 @@ set: 4
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "网络应用模型"
 question_type: "choice"
 difficulty: 3
 number: 40
+
 ---
 
 下列关于客户/服务器模型的描述中，错误的是（ ）。 I. 客户端和服务器必须都事先知道对方的地址，以提供请求和服务 II. HTTP 基于客户/服务器模型，客户端和服务器端的默认端口号都是 80 III. 浏览器显示的内容来自服务器 IV. 客户端是请求方，即使连接建立后，服务器也不能主动发送数据
@@ -24,6 +25,8 @@ B\. II 和 IV
 C\. I、II 和 IV
 
 D\. 只有 IV
+
+[网络应用模型](/study_methods/tags/408quiz//#%e7%bd%91%e7%bb%9c%e5%ba%94%e7%94%a8%e6%a8%a1%e5%9e%8b)
 
 [tag_link]
 

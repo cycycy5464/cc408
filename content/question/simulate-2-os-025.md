@@ -9,10 +9,11 @@ set: 2
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "临界资源"
 question_type: "choice"
 difficulty: 3
 number: 25
+
 ---
 
 ��某个十字路口，每个车道只允许一辆汽车通过，且允许直行、左拐和右拐，如图 1 所示。如果把各个方向的车看成进程，则需要对这些进程进行同步，那么这里临界资源个数至少应该有（　）个。
@@ -21,6 +22,8 @@ A\. 1
 B\. 2
 C\. 4
 D\. 不确定
+
+[临界资源](/study_methods/tags/408quiz//#%e4%b8%b4%e7%95%8c%e8%b5%84%e6%ba%90)
 
 [tag_link]
 

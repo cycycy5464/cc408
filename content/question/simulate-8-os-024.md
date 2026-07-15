@@ -9,10 +9,12 @@ set: 8
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "进程和线程"
+  - "进程概念"
 question_type: "choice"
 difficulty: 3
 number: 24
+
 ---
 
 （ ）调度算法有利于 CPU 繁忙型的进程，而不利于 I/O 繁忙型的进程。
@@ -21,6 +23,9 @@ A\. 时间片轮转
 B\. 先来先服务
 C\. 短进程优先
 D\. 优先级调度
+
+[进程和线程](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e5%92%8c%e7%ba%bf%e7%a8%8b)
+[进程概念](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

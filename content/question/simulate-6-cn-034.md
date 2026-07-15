@@ -9,10 +9,12 @@ set: 6
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "香农定理"
+  - "通信指标"
 question_type: "choice"
 difficulty: 3
 number: 34
+
 ---
 
 一个传输数字信号的模拟信道的信号功率是 0.62W，噪音功率是 0.02W，频率范围是 3.5～3.9MHz，该信道的最高数据传输速率是（ ）。
@@ -21,6 +23,9 @@ A\. 1Mbps
 B\. 2Mbps
 C\. 4Mbps
 D\. 8Mbps
+
+[香农定理](/study_methods/tags/408quiz//#%e9%a6%99%e5%86%9c%e5%ae%9a%e7%90%86)
+[通信指标](/study_methods/tags/408quiz//#%e9%80%9a%e4%bf%a1%e6%8c%87%e6%a0%87)
 
 [tag_link]
 

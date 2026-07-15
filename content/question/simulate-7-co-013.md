@@ -1,5 +1,5 @@
 ---
-title: "模拟卷7 计算机组成原理 第13题"
+title: "模拟卷7 组成原理 第13题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,14 @@ years:
 source: "模拟题"
 set: 7
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "补码"
+  - "寄存器类型"
 question_type: "choice"
 difficulty: 3
 number: 13
+
 ---
 
 已知 C 程序中，某类型为 int 的变量 x 的值为 -1088。程序执行时，x 先被存放在 16 位寄存器 R1 中，然后被进行算术右移 4 位的操作。则此时 R1 中的内容（以十六进制表示）是（ ）。
@@ -21,6 +23,9 @@ A\. FBCOH
 B\. FFBCH
 C\. 0FBCH
 D\. 87BCH
+
+[补码](/study_methods/tags/408quiz//#%e8%a1%a5%e7%a0%81)
+[寄存器类型](/study_methods/tags/408quiz//#%e5%af%84%e5%ad%98%e5%99%a8%e7%b1%bb%e5%9e%8b)
 
 [tag_link]
 

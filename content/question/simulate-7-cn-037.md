@@ -9,10 +9,11 @@ set: 7
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "子网划分"
 question_type: "choice"
 difficulty: 3
 number: 37
+
 ---
 
 某端口的 IP 地址为 172.16.7.131.26，则该 IP 地址所在网络的广播地址（ ）。
@@ -21,6 +22,8 @@ A\. 172.16.7.191
 B\. 172.16.7.129
 C\. 172.16.7.255
 D\. 172.16.7.252
+
+[子网划分](/study_methods/tags/408quiz//#%e5%ad%90%e7%bd%91%e5%88%92%e5%88%86)
 
 [tag_link]
 

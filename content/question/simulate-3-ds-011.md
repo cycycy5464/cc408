@@ -9,10 +9,11 @@ set: 3
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "排序算法"
 question_type: "choice"
 difficulty: 3
 number: 11
+
 ---
 
 如果一台计算机具有多个可以并行运行的 CPU，就可以同时执行相互独立的任务，则下列排序算法中，适合并行处理的是（ ）。
@@ -24,6 +25,8 @@ B\. II、III 和 V
 C\. II、III、IV 和 V
 
 D\. I、II、III、IV 和 V
+
+[排序算法](/study_methods/tags/408quiz//#%e6%8e%92%e5%ba%8f%e7%ae%97%e6%b3%95)
 
 [tag_link]
 

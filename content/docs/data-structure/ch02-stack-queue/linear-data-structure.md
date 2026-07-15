@@ -14,7 +14,7 @@ chapter_title: "线性数据结构"
 本章以选择题形式考察，需要熟练掌握栈和队列的操作以及应用，另外还需要了解如何用数组实现栈和队列，可能会在代码题中考察。
 
 学习思维导图：
-![](/images/docs/data-structure/image-20260612084819344.png)
+![](/cc408/images/docs/data-structure/image-20260612084819344.png)
 
 ## 栈和队列基本概念
 

@@ -37,7 +37,7 @@ chapter_title: "指令格式与寻址方式"
 
 
 
-![](/images/docs/computer-org/a666de410e.svg)
+![](/cc408/images/docs/computer-org/a666de410e.svg)
 
 ### 指令类型
 
@@ -90,14 +90,14 @@ chapter_title: "指令格式与寻址方式"
 
 
 
-![](/images/docs/computer-org/ace6209fa6.svg)
+![](/cc408/images/docs/computer-org/ace6209fa6.svg)
 
 #### 根据地址个数分类
 
 根据指令中的 **地址** 个数，可以将指令划分为以下类型。  
 这些地址可以是 **寄存器** 、**内存地址** ，也可以是 **立即数** 。
 
-![](/images/docs/computer-org/6edc36b37c.svg)
+![](/cc408/images/docs/computer-org/6edc36b37c.svg)
 
 指令格式| 指令格式| 含义  
 ---|---|---  
@@ -112,7 +112,7 @@ chapter_title: "指令格式与寻址方式"
 
 
 
-![](/images/docs/computer-org/c57680f988.svg)
+![](/cc408/images/docs/computer-org/c57680f988.svg)
 
 指令长度的设计可以分为两类：
 
@@ -141,7 +141,7 @@ chapter_title: "指令格式与寻址方式"
 
 即：当某条指令所需的 **地址字段** 不足以填满整个固定长度时，剩余部分使用 **填充值** （无效字段）占位。这些填充值不会影响指令执行，仅用于保证每条指令长度一致，简化硬件解码逻辑。
 
-![](/images/docs/computer-org/2fcac1bbf5.svg)
+![](/cc408/images/docs/computer-org/2fcac1bbf5.svg)
 
 **问题 2：变长指令中如何识别指令边界？**
 
@@ -180,13 +180,13 @@ chapter_title: "指令格式与寻址方式"
 那么 **三地址指令** 格式如下：
 
 
-![](/images/docs/computer-org/image-20260612224246909.png)
+![](/cc408/images/docs/computer-org/image-20260612224246909.png)
 
 **二地址指令** 复用 **三地址指令** 的 A1 字段，**一地址指令** 复用 **三地址指令** 的 A1 和 A2 字段，**零地址指令** 复用 **三地址指令** 的 A1、A2 和 A3 字段。
 
 可以通过树形扩展得到不同指令的 **op 前缀** ：
 
-![](/images/docs/computer-org/image-20260612224301159.png)
+![](/cc408/images/docs/computer-org/image-20260612224301159.png)
 
 沿着树的边一直走到叶子结点，可以得到如下格式的指令：
 
@@ -210,7 +210,7 @@ chapter_title: "指令格式与寻址方式"
 举个实际例子，下图是指令 `MOV AX, 4567H` 存储结构和执行示意图，指令直接将 **立即数** `4567H` 存储到寄存器 R1 中：
 
 
-![](/images/docs/computer-org/image-20260612224313677.png)
+![](/cc408/images/docs/computer-org/image-20260612224313677.png)
 
 
 📌 示例应用
@@ -227,7 +227,7 @@ chapter_title: "指令格式与寻址方式"
 举个实际例子，指令 `MOV AX, BX` 表示将寄存器 BX 中的值复制到寄存器 AX 中：
 
 
-![](/images/docs/computer-org/image-20260612224349485.png)
+![](/cc408/images/docs/computer-org/image-20260612224349485.png)
 
 
 📌 示例应用
@@ -246,7 +246,7 @@ chapter_title: "指令格式与寻址方式"
 举个实际例子，下图是指令 `MOV R1, [1000]` 的执行示意图，以 **立即数** 1000 作为访存地址，指令从内存地址 1000 的单元读取数据并加载到寄存器 R1 中：
 
 
-![](/images/docs/computer-org/image-20260612224630567.png)
+![](/cc408/images/docs/computer-org/image-20260612224630567.png)
 
 
 📌 示例应用
@@ -266,7 +266,7 @@ chapter_title: "指令格式与寻址方式"
 举个实际例子，下图是指令 `MOV R1, [R2]` 的执行示意图，访存地址间接地存储在寄存器 R2 中，指令首先从 R2 中读取目标地址，然后在相应的地址中读取数据加载进入 R1 中：
 
 
-![](/images/docs/computer-org/image-20260612224801732.png)
+![](/cc408/images/docs/computer-org/image-20260612224801732.png)
 
 **间接寻址** 包含多种类型，其中最常见的是 **寄存器间接寻址** ：
 
@@ -284,7 +284,7 @@ chapter_title: "指令格式与寻址方式"
 
 **基址寻址** （Base Addressing）是一种通过 **基址寄存器与偏移值相加** 来访问结构体字段或局部变量的方式，常见于函数调用过程中的栈帧操作。
 
-![](/images/docs/computer-org/d595dd64b3.svg)
+![](/cc408/images/docs/computer-org/d595dd64b3.svg)
 
 📌 示例应用
 
@@ -313,7 +313,7 @@ chapter_title: "指令格式与寻址方式"
 
 **变址寻址** （Indexed Addressing）是一种通过 **变址寄存器的值加上偏移量** 来获取操作数地址的寻址方式，通常用于数组或表格中元素的访问。
 
-![](/images/docs/computer-org/9f942b1926.svg)
+![](/cc408/images/docs/computer-org/9f942b1926.svg)
 
 📌 示例应用
 
@@ -330,7 +330,7 @@ chapter_title: "指令格式与寻址方式"
 在 **相对寻址** 中，以当前程序计数器（PC）作为基准，通过加上一个有符号的偏移量来计算跳转目标地址。这种寻址方式便于编写可重定位代码。
 
 
-![](/images/docs/computer-org/b2d2aa67d6.svg)
+![](/cc408/images/docs/computer-org/b2d2aa67d6.svg)
 
 
 📌 示例应用
@@ -348,7 +348,7 @@ chapter_title: "指令格式与寻址方式"
 在 **堆栈寻址** 中，利用 **SP** （栈指针）或 **BP** （基址指针）定位栈中元素，通过栈顶向下或向上偏移来读取或写入局部变量、返回地址等。通常与 **PUSH** 、**POP** 、**CALL** 、**RET** 等指令结合使用。
 
 
-![](/images/docs/computer-org/98d5d6282a.svg)
+![](/cc408/images/docs/computer-org/98d5d6282a.svg)
 
 
 📌 示例应用

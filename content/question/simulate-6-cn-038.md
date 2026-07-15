@@ -9,10 +9,11 @@ set: 6
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "子网划分"
 question_type: "choice"
 difficulty: 3
 number: 38
+
 ---
 
 路由器收到一个数据包，其目地址为 195.26.17.4，该地址属于（ ）子网。
@@ -21,6 +22,8 @@ A\. 195.26.0.0/21
 B\. 195.26.8.0/22
 C\. 195.26.16.0/20
 D\. 195.26.20.0/22
+
+[子网划分](/study_methods/tags/408quiz//#%e5%ad%90%e7%bd%91%e5%88%92%e5%88%86)
 
 [tag_link]
 

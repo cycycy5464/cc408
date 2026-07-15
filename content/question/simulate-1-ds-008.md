@@ -9,10 +9,11 @@ set: 1
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "拓扑排序"
 question_type: "choice"
 difficulty: 3
 number: 8
+
 ---
 
 在有向图 G 的拓扑序列中，若顶点 Vᵢ 在顶点 Vⱼ 之前，则下列情形不可能出现的是（ ）。
@@ -21,6 +22,8 @@ A\. G 中有弧<Vᵢ, Vⱼ>
 B\. G 中有一条从 Vᵢ 到 Vⱼ 的路径
 C\. G 中没有弧<Vᵢ, Vⱼ>
 D\. G 中有一条从 Vⱼ 到 Vᵢ 的路径
+
+[拓扑排序](/study_methods/tags/408quiz//#%e6%8b%93%e6%89%91%e6%8e%92%e5%ba%8f)
 
 [tag_link]
 

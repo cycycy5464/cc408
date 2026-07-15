@@ -1,5 +1,5 @@
 ---
-title: "模拟卷6 计算机组成原理 第20题"
+title: "模拟卷6 组成原理 第20题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 6
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "总线类型"
 question_type: "choice"
 difficulty: 3
 number: 20
+
 ---
 
 在系统总线中，地址总线的位数与（ ）相关。
@@ -21,6 +22,8 @@ A\. 机器字长
 B\. 实际存储单元个数
 C\. 存储字长
 D\. 存储器地址寄存器
+
+[总线类型](/study_methods/tags/408quiz//#%e6%80%bb%e7%ba%bf%e7%b1%bb%e5%9e%8b)
 
 [tag_link]
 

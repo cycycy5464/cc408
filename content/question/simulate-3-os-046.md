@@ -9,10 +9,11 @@ set: 3
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "文件概念"
 question_type: "comprehensive"
 difficulty: 4
 number: 46
+
 ---
 
 （7 分）在实现文件系统时，为加快文件目录的检索速度，可利用“文件控制块分解法”。假设目录文件存放在磁盘上，每个盘块有 512 字节。文件控制块占 64 字节，其中文件名占 8 个字节。通常将文件控制块分解成两部分，第一部分占 16 字节（包括文件名和文件内部号），第二部分占 48 字节（包括文件内部号和文件其他描述信息）。
@@ -27,6 +28,8 @@ number: 46
 和
 <span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.4306em></span><span class="mord mathnormal">n</span></span></span></span>
 个盘块中都正好装满）
+
+[文件概念](/study_methods/tags/408quiz//#%e6%96%87%e4%bb%b6%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

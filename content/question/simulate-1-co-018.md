@@ -1,5 +1,5 @@
 ---
-title: "模拟卷1 计算机组成原理 第18题"
+title: "模拟卷1 组成原理 第18题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 1
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "寄存器类型"
 question_type: "choice"
 difficulty: 3
 number: 18
+
 ---
 
 指令（ ）从主存中读出：
@@ -21,6 +22,8 @@ A\. 总是根据程序计数器 PC
 B\. 有时根据 PC，有时根据转移指令
 C\. 根据地址寄存器
 D\. 有时根据 PC，有时根据地址寄存器
+
+[寄存器类型](/study_methods/tags/408quiz//#%e5%af%84%e5%ad%98%e5%99%a8%e7%b1%bb%e5%9e%8b)
 
 [tag_link]
 

@@ -9,10 +9,12 @@ set: 3
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "进程和线程"
+  - "进程概念"
 question_type: "choice"
 difficulty: 3
 number: 25
+
 ---
 
 系统拥有一个 CPU、IO1 和 IO2 为两个不同步的输入/输出装置，它们能够同时工作。当使用 CPU 之后控制转向 IO1、IO2 时，或者使用 IO1、IO2 之后控制转向 CPU 时，由控制程序执行中断处理，但这段处理时间忽略不计。有 A、B 两个进程同时被创建，进程 B 的调度优先权比进程 A 高，但是，当进程 A 正在占用 CPU 时，即使进程 B 需要占用 CPU，也不能打断进程 A 的执行。若在同一系统中分别单独执行，则需要占用 CPU、IO1、IO2 的时间如下图所示：
@@ -21,6 +23,9 @@ A\. 进程 A
 B\. 进程 B
 C\. 进程 A 和进程 B 同时
 D\. 不一定
+
+[进程和线程](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e5%92%8c%e7%ba%bf%e7%a8%8b)
+[进程概念](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

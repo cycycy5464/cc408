@@ -9,10 +9,12 @@ set: 8
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "二叉树的遍历"
+  - "二叉树遍历"
 question_type: "choice"
 difficulty: 3
 number: 3
+
 ---
 
 一棵二叉树的前序遍历序列为 1234567，它的中序遍历序列可能是（ ）。
@@ -21,6 +23,9 @@ A\. 3124567
 B\. 1234567
 C\. 4135627
 D\. 2153647
+
+[二叉树的遍历](/study_methods/tags/408quiz//#%e4%ba%8c%e5%8f%89%e6%a0%91%e7%9a%84%e9%81%8d%e5%8e%86)
+[二叉树遍历](/study_methods/tags/408quiz//#%e4%ba%8c%e5%8f%89%e6%a0%91%e9%81%8d%e5%8e%86)
 
 [tag_link]
 

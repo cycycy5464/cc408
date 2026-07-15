@@ -9,10 +9,11 @@ set: 7
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "进程内存空间"
 question_type: "choice"
 difficulty: 3
 number: 39
+
 ---
 
 TCP 的通信双方，有一方发送了带有 FIN 标志的数据段后表示（ ）。
@@ -21,6 +22,8 @@ A\. 将断开通信双方的 TCP 连接
 B\. 单方面释放连接，表示本方已经无数据发送，但是可以接受对方的数据
 C\. 中止数据连接，双方都不能发送数据
 D\. 连接被重新建立
+
+[进程内存空间](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e5%86%85%e5%ad%98%e7%a9%ba%e9%97%b4)
 
 [tag_link]
 

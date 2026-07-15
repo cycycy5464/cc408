@@ -1,5 +1,5 @@
 ---
-title: "模拟卷7 计算机组成原理 第19题"
+title: "模拟卷7 组成原理 第19题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 7
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "流水线概念"
 question_type: "choice"
 difficulty: 3
 number: 19
+
 ---
 
 设指令由取指、分析、执行三个子部件完成，每个子部件的工作周期均为 t，采用常规标量流水线处理。若连续执行 10 条指令，则需要的时间为（ ）。
@@ -21,6 +22,8 @@ A\. <span class=katex><span class=katex-html aria-hidden=true><span class=base><
 B\. <span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6444em></span><span class=mord>10</span><span class="mord mathnormal">t</span></span></span></span>
 C\. <span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6444em></span><span class=mord>12</span><span class="mord mathnormal">t</span></span></span></span>
 D\. <span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6444em></span><span class=mord>14</span><span class="mord mathnormal">t</span></span></span></span>
+
+[流水线概念](/study_methods/tags/408quiz//#%e6%b5%81%e6%b0%b4%e7%ba%bf%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

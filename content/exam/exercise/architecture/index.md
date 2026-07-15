@@ -1,5 +1,5 @@
 ---
-title: "计算机组成原理"
+title: "组成原理"
 date: 2026-07-01
 type: exercise
 subject: computer-org

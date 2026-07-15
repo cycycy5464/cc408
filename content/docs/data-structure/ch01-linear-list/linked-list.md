@@ -19,13 +19,13 @@ chapter_title: "链表"
 
 线性表的 **链式表示** 通常指的是使用 **链表** 来实现线性表。**链表** 是由一系列 **结点** 组成的，每个 **结点** 都包含一个 **数据元素** 和一个指向下一个 **结点** 的 **指针** 。这种结构允许我们 **动态地插入** 和 **删除元素** ，而不需要移动其他元素。
 
-![](/images/docs/data-structure/c393eef441.svg)
+![](/cc408/images/docs/data-structure/c393eef441.svg)
 
 与顺序表不同，单链表中每个 **结点** 的存储空间都是 **动态分配** 的，即使用 c 语言中的 `malloc()` 函数或者 c++ 中的 `new` 操作符。  
 **动态分配** 的空间存储在 **[进程的堆](</operating_system/process/process_thread/#%e8%bf%9b%e7%a8%8b%e5%86%85%e5%ad%98%e7%a9%ba%e9%97%b4>)** 中，这些 **结点** 占用的存储空间不是连续的，而是离散的，如下图所示：
 
 
-![](/images/docs/data-structure/408129203a.svg)
+![](/cc408/images/docs/data-structure/408129203a.svg)
 
 
 
@@ -39,7 +39,7 @@ chapter_title: "链表"
 
 数组（顺序表）与 **链表** 不同，由于数组一般是直接作为函数的局部变量使用 `int a[N]` 定义的，所以数组存储在 **[进程的栈](</operating_system/process/process_thread/#%e8%bf%9b%e7%a8%8b%e5%86%85%e5%ad%98%e7%a9%ba%e9%97%b4>)** 中，数组中的相邻元素是 **连续** 地存储在栈上，如下图所示：
 
-![](/images/docs/data-structure/04cfdb9e2d.svg)
+![](/cc408/images/docs/data-structure/04cfdb9e2d.svg)
 
 由于数组在内存中的存储是 **连续** 的，这有利于程序的 [**空间局部性**](</constitution_principle/storage/cache/#%e7%a9%ba%e9%97%b4%e5%b1%80%e9%83%a8%e6%80%a7>)，当访问一个元素时，相邻的元素也会被加载到 **CPU 缓存** 中，这提高了访问速度。  
 此外，通过数组的起始地址和一个偏移，我们可以快速地定位到某个数组元素在内存中的地址，实现 **随机访问** 。
@@ -71,7 +71,7 @@ typedef struct Node {
 其中结构体中包含两个元素，一个是 **数据** ，另一个 **指向下一个结点的指针** 。  
 通过这种方式，**链表** 可以在内存中以非连续的方式存储数据，每个 **结点** 通过 **指针** 连接起来。
 
-![](/images/docs/data-structure/image-20260612084316358.png)
+![](/cc408/images/docs/data-structure/image-20260612084316358.png)
 
 在这个例子中，`data` 的类型是 `int`，意味着这个 **链表** 用于存储整数。但是，你可以根据需要更改 `data` 的类型，例如 `float`、`char` 或者自定义的结构体类型，以存储不同类型的数据。
 
@@ -114,7 +114,7 @@ return head->next == NULL;
 #### 插入
 
 
-![](/images/docs/data-structure/318a8ad284.svg)
+![](/cc408/images/docs/data-structure/318a8ad284.svg)
 
 
 对于在 **链表** 的一个 **结点** `p` 之后插入一个新 **结点** `n` 可以抽象如下操作：
@@ -224,7 +224,7 @@ void delete_node_after(Node *p) {
 ```
 
 
-![](/images/docs/data-structure/image-20260612084512074.png)
+![](/cc408/images/docs/data-structure/image-20260612084512074.png)
 
 
 如果我们想删除 **单链表** 中的第 `pos` 个 **结点** 的话，可以通过如下代码：
@@ -294,7 +294,7 @@ void ClearList(Node *head) {
 #### 双向链表
 
 
-![](/images/docs/data-structure/image-20260612084550852.png)
+![](/cc408/images/docs/data-structure/image-20260612084550852.png)
 
 
 在 **双向链表** 中，每个节点包含三个部分：**数据** 、**前驱指针** `prev`、**后继指针** `next`。
@@ -360,7 +360,7 @@ free(p);                  // 步骤③：释放 p 节点
 #### 静态链表
 
 
-![](/images/docs/data-structure/image-20260612084637036.png)
+![](/cc408/images/docs/data-structure/image-20260612084637036.png)
 
 **静态链表** 实际上就是用 **顺序表** （一个结构体数组）来模拟 **链表** 。结构体中包含两个元素：`data` 和 `next`，其中 `data` 存储数据，`next` 存储下一个元素的下标（相当于指针的作用）：
 
@@ -385,7 +385,7 @@ SNode list[MAXSIZE];
 **循环链表** 可分为两种类型：
 
 
-![](/images/docs/data-structure/image-20260612084706930.png)
+![](/cc408/images/docs/data-structure/image-20260612084706930.png)
 
 类型| 说明  
 ---|---  

@@ -18,7 +18,7 @@ chapter_title: "DNS"
 ### 层次域名空间
 
 
-![](/images/docs/network/eb545b16e4.svg)
+![](/cc408/images/docs/network/eb545b16e4.svg)
 
 **DNS** 使用 **层次域名空间** 来组织域名，将域名划分为多个级别，每个级别之间以点（.）分隔。域名从右到左逐级递增，最右边是 **顶级域名** （TLD），然后是 **二级域名** ， **三级域名** ，以此类推。
 
@@ -29,7 +29,7 @@ chapter_title: "DNS"
 ### 域名服务器
 
 
-![](/images/docs/network/02d8c9b9ef.svg)
+![](/cc408/images/docs/network/02d8c9b9ef.svg)
 
 在 DNS 体系结构中，服务器按照层级划分，每一层负责不同的职责。下面按照从最高层到最低层的顺序，对四类常见的域名服务器进行说明：
 
@@ -59,7 +59,7 @@ chapter_title: "DNS"
 
 ### 域名解析过程
 
-![](/images/docs/network/65004b9f4b.svg)
+![](/cc408/images/docs/network/65004b9f4b.svg)
 
 域名解析分为 **递归查询** 和 **迭代查询** 两种。
 
@@ -68,7 +68,7 @@ chapter_title: "DNS"
 
 #### 迭代查询
 
-![](/images/docs/network/7b930c2ae1.svg)
+![](/cc408/images/docs/network/7b930c2ae1.svg)
 
 在域名解析过程中，**本地域名服务器** 向根域名服务器发送的通常是迭代查询。
 
@@ -106,7 +106,7 @@ participant Host as 主机
 
 #### 递归查询
 
-![](/images/docs/network/25f0a6c6da.svg)
+![](/cc408/images/docs/network/25f0a6c6da.svg)
 
 递归查询的过程如上图所示，本地域名服务器只需向 **根域名服务器查询一次** （步骤 2），后面的几次查询都是 **递归地** 在其他几个域名服务器之间进行的（步骤 3-7）。在步骤 7 中，本地域名服务器从根域名服务器得到了所需的 IP 地址，最后在步骤 8 中，本地域名服务器把查询结果告诉发起查询的主机。
 

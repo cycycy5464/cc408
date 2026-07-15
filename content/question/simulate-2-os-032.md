@@ -9,10 +9,12 @@ set: 2
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "磁盘概念"
+  - "机械硬盘"
 question_type: "choice"
 difficulty: 3
 number: 32
+
 ---
 
 设一个磁道访问请求序列为 55,58,39,18,90,160,150,38,184，磁头的起始位置为 100。若采用 SSTF（最近寻道时间优先）算法，则磁头移动（ ）个磁道。
@@ -24,6 +26,9 @@ B\. 184
 C\. 200
 
 D\. 248
+
+[磁盘概念](/study_methods/tags/408quiz//#%e7%a3%81%e7%9b%98%e6%a6%82%e5%bf%b5)
+[机械硬盘](/study_methods/tags/408quiz//#%e6%9c%ba%e6%a2%b0%e7%a1%ac%e7%9b%98)
 
 [tag_link]
 

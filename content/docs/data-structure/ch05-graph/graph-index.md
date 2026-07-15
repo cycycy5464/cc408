@@ -14,7 +14,7 @@ chapter_title: "图概述"
 本章在选择题中考察，也有可能作为一道概念题在大题中出现，需要熟练掌握图的存储结构（代码实现），并且要求在概念上理解图的应用，要求能够手工模拟。
 
 学习思维导图：
-![](/images/docs/data-structure/image-20260612103007668.png)
+![](/cc408/images/docs/data-structure/image-20260612103007668.png)
     
 ## 图的基本概念
 

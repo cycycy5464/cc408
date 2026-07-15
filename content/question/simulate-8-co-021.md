@@ -1,5 +1,5 @@
 ---
-title: "模拟卷8 计算机组成原理 第21题"
+title: "模拟卷8 组成原理 第21题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 8
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "总线类型"
 question_type: "choice"
 difficulty: 3
 number: 21
+
 ---
 
 在总线上，（ ）信息的传输为单向传输。
@@ -25,6 +26,8 @@ A\. I、II 和 IV
 B\. III 和 IV
 C\. I 和 II
 D\. I、III 和 IV
+
+[总线类型](/study_methods/tags/408quiz//#%e6%80%bb%e7%ba%bf%e7%b1%bb%e5%9e%8b)
 
 [tag_link]
 

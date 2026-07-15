@@ -220,8 +220,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .side-nav-link{display:block;padding:.45rem 1.5rem .45rem 2.5rem;font-size:var(--fs-sm);color:var(--text-secondary);transition:all .15s;border-left:2px solid transparent;text-decoration:none}
 .side-nav-link:hover{color:var(--text-primary);background:var(--bg-hover);border-left-color:var(--border-light)}
 .side-nav-link.active{color:var(--accent);background:rgba(57,186,230,.06);border-left-color:var(--accent);font-weight:500}
-.content-area{flex:1;max-width:820px;margin:0 auto;padding:2rem}
+.content-area{flex:1;max-width:860px;margin:0 auto;padding:2rem}
+/* 知识点详情页：内容紧贴左侧导航栏，消除导航与正文之间的过大留白 */
+.docs-layout .content-area{margin:0}
 .content-area-wide{max-width:960px}
+/* 知识点正文配图：限制最大宽度不超出内容区，避免超出屏幕；居中并加边框增强可读性 */
+.content-area img,.content-area video{max-width:100%;height:auto;display:block;margin:1.5rem auto;border-radius:var(--radius-md);border:1px solid var(--border-color);background:var(--bg-secondary)}
+.content-area img + em,.content-area figure figcaption{display:block;text-align:center;font-size:var(--fs-xs);color:var(--text-muted);margin-top:.5rem}
 .exam-layout{display:flex;max-width:1240px;margin:0 auto;position:relative}
 .exam-toc{width:260px;flex-shrink:0;position:sticky;top:90px;align-self:flex-start;display:flex;flex-direction:row;gap:.6rem;margin-left:1.25rem;padding:0}
 .exam-toc-body{display:flex;flex-direction:column;min-width:0;flex:1}
@@ -238,11 +243,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .exam-toc-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;background:var(--text-muted)}
 .exam-toc-item.active .exam-toc-dot{background:var(--accent)}
 .exam-toc-item[data-subject="数据结构"] .exam-toc-dot{background:var(--color-ds)}
-.exam-toc-item[data-subject="计算机组成原理"] .exam-toc-dot{background:var(--color-co)}
+.exam-toc-item[data-subject="组成原理"] .exam-toc-dot{background:var(--color-co)}
 .exam-toc-item[data-subject="操作系统"] .exam-toc-dot{background:var(--color-os)}
 .exam-toc-item[data-subject="计算机网络"] .exam-toc-dot{background:var(--color-cn)}
-.exam-toc-num{font-family:var(--font-mono);font-size:.8rem;min-width:1.4rem}
-.exam-toc-subj-label{font-size:.7rem;color:var(--text-muted);margin-left:auto;opacity:.85;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:4rem}
+.exam-toc-num{font-family:var(--font-mono);font-size:.8rem;flex:0 0 1.4rem;min-width:1.4rem;text-align:right}
+.exam-toc-subj-label{font-size:.7rem;color:var(--text-muted);opacity:.85;flex:0 0 3.7rem;width:3.7rem;text-align:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.exam-toc-kp{font-size:.68rem;color:var(--text-secondary);opacity:.6;flex:1 1 auto;min-width:0;text-align:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .exam-year-nav{width:112px;flex-shrink:0;position:sticky;top:90px;align-self:flex-start;padding:0;margin-right:1.25rem}
 .exam-year-nav-header{font-size:var(--fs-sm);font-weight:600;color:var(--text-muted);padding:.25rem .75rem .5rem;text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--border-color);margin-bottom:.5rem}
 .exam-year-nav-list{max-height:calc(100vh - 150px);overflow-y:auto;padding-right:.2rem;display:flex;flex-direction:column;gap:.15rem}

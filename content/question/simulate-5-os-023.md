@@ -9,10 +9,12 @@ set: 5
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "操作系统概念"
+  - "进程和线程"
 question_type: "choice"
 difficulty: 3
 number: 23
+
 ---
 
 相对采用单一内核结构，采用微内核结构设计和实现操作系统有诸多好处，但是（ ）不是微内核的优势。
@@ -21,6 +23,9 @@ A\. 使系统更高效
 B\. 想添加新任务时，不必修改内核
 C\. 使系统更安全
 D\. 使系统更可靠
+
+[操作系统概念](/study_methods/tags/408quiz//#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f%e6%a6%82%e5%bf%b5)
+[进程和线程](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e5%92%8c%e7%ba%bf%e7%a8%8b)
 
 [tag_link]
 

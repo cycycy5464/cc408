@@ -9,10 +9,11 @@ set: 3
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "传输介质"
 question_type: "choice"
 difficulty: 3
 number: 33
+
 ---
 
 正确描述网络体系结构中的分层概念的是（ ）。
@@ -21,6 +22,8 @@ A\. 网络体系结构中的每一层都必须直接与物理传输介质交互
 B\. 所有的网络体系结构都使用相同的层次名称和功能
 C\. 把相关的网络功能组合在同一层中
 D\. 定义各层的功能以及功能的具体实现
+
+[传输介质](/study_methods/tags/408quiz//#%e4%bc%a0%e8%be%93%e4%bb%8b%e8%b4%a8)
 
 [tag_link]
 

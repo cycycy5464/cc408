@@ -9,10 +9,11 @@ set: 6
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "平衡二叉树"
 question_type: "choice"
 difficulty: 3
 number: 5
+
 ---
 
 如图所示为一棵平衡二叉树（字母不是关键字），在结点 D 的右子树上插入结点 F 后，会导致该平衡二叉树失去平衡，则调整后的平衡二叉树中平衡因子的绝对值为 1 的分支结点数为（ ）。
@@ -21,6 +22,8 @@ A\. 0
 B\. 1
 C\. 2
 D\. 3
+
+[平衡二叉树](/study_methods/tags/408quiz//#%e5%b9%b3%e8%a1%a1%e4%ba%8c%e5%8f%89%e6%a0%91)
 
 [tag_link]
 

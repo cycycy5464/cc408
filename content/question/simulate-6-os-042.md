@@ -1,5 +1,5 @@
 ---
-title: "模拟卷6 操作系统 第42题"
+title: "模拟卷6 数据结构 第42题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,14 @@ years:
 source: "模拟题"
 set: 6
 subjects:
-  - "操作系统"
+  - "数据结构"
 knowledge_points:
-  - "操作系统"
+  - "文件概念"
+  - "目录"
 question_type: "comprehensive"
 difficulty: 4
 number: 42
+
 ---
 
 图 1 为某操作系统中文件系统的目录结构。
@@ -22,6 +24,9 @@ number: 42
 (1) 本题中的目录结构可抽象为数据结构中的哪种逻辑结构？
 (2) 请设计合理的链式存储结构，以保存图 1 中的文件目录信息。要求给出链式存储结构的数据类型定义，并画出对应图 1 中根目录部分到目录 A、B 及其子目录和文件的链式存储结构示意图。
 (3) 哈夫曼树是一种特殊的树形结构，请证明哈夫曼树的总结点数总为奇数。
+
+[文件概念](/study_methods/tags/408quiz//#%e6%96%87%e4%bb%b6%e6%a6%82%e5%bf%b5)
+[目录](/study_methods/tags/408quiz//#%e7%9b%ae%e5%bd%95)
 
 [tag_link]
 

@@ -1,5 +1,5 @@
 ---
-title: "模拟卷3 计算机组成原理 第18题"
+title: "模拟卷3 组成原理 第18题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 3
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "栈"
 question_type: "choice"
 difficulty: 3
 number: 18
+
 ---
 
 一条双字长直接寻址的子程序调用 CALL 指令，其第一个字节是操作码和寻址特征，第二个字节是地址码 5000H。假设 PC 当前值为 1000H，SP 的内容为 0100H，栈顶内容为 1234H，存储器按字编址，而且进栈操作是先 (SP) ← (SP)，后存入数据。则 CALL 指令执行后，SP 及栈顶的内容分别为（ ）。
@@ -21,6 +22,8 @@ A\. 00FFH, 1000H
 B\. 0101H, 1000H
 C\. 00FEH, 1002H
 D\. 00FFH, 1002H
+
+[栈](/study_methods/tags/408quiz//#%e6%a0%88)
 
 [tag_link]
 

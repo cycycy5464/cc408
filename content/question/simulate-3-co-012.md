@@ -1,5 +1,5 @@
 ---
-title: "模拟卷3 计算机组成原理 第12题"
+title: "模拟卷3 组成原理 第12题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,14 @@ years:
 source: "模拟题"
 set: 3
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "总线类型"
+  - "寄存器类型"
 question_type: "choice"
 difficulty: 3
 number: 12
+
 ---
 
 下列关于配备 32 位微处理器的计算机说法正确的是（ ）。
@@ -21,6 +23,9 @@ A\. 该机器的通用寄存器一般为 32 位
 B\. 该机器的地址总线宽度为 32 位
 C\. 该机器能支持 64 位操作系统
 D\. 以上说法均不正确
+
+[总线类型](/study_methods/tags/408quiz//#%e6%80%bb%e7%ba%bf%e7%b1%bb%e5%9e%8b)
+[寄存器类型](/study_methods/tags/408quiz//#%e5%af%84%e5%ad%98%e5%99%a8%e7%b1%bb%e5%9e%8b)
 
 [tag_link]
 

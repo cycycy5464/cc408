@@ -9,10 +9,12 @@ set: 7
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "页面置换算法"
+  - "进程和线程"
 question_type: "choice"
 difficulty: 3
 number: 28
+
 ---
 
 下列说法中，正确的是（ ）。
@@ -25,6 +27,9 @@ A\. Ⅰ和Ⅲ
 B\. Ⅰ和Ⅳ
 C\. Ⅱ和Ⅲ
 D\. Ⅱ和Ⅳ
+
+[页面置换算法](/study_methods/tags/408quiz//#%e9%a1%b5%e9%9d%a2%e7%bd%ae%e6%8d%a2%e7%ae%97%e6%b3%95)
+[进程和线程](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e5%92%8c%e7%ba%bf%e7%a8%8b)
 
 [tag_link]
 

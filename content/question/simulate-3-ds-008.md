@@ -9,10 +9,11 @@ set: 3
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "邻接表"
 question_type: "choice"
 difficulty: 3
 number: 8
+
 ---
 
 已知一个有向图的邻接表存储结构如下图所示，根据有向图的深度优先遍历算法，从顶点 1 出发，所得到的顶点序列是（ ）。
@@ -21,6 +22,8 @@ A\. 1,2,3,5,4
 B\. 1,2,3,4,5
 C\. 1,3,4,5,2
 D\. 1,4,3,5,2
+
+[邻接表](/study_methods/tags/408quiz//#%e9%82%bb%e6%8e%a5%e8%a1%a8)
 
 [tag_link]
 

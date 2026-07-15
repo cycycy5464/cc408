@@ -32,7 +32,7 @@ chapter_title: "计算机系统层次结构"
   3. 指令和数据均用 **二进制代码** 表示，指令包含操作码和地址码，操作码指出操作的类型，地址码指出操作数的地址。
   4. 以 **运算器** 为中心，其他部件配合其工作。
 
-![](/images/docs/computer-org/image-20260612221012248.png)
+![](/cc408/images/docs/computer-org/image-20260612221012248.png)
 
 其中 五大部件 的具体功能如下：
 
@@ -95,7 +95,7 @@ chapter_title: "计算机系统层次结构"
 
 三种语言的关系可以参照下图理解：
 
-![](/images/docs/computer-org/956a0fbb65.svg)
+![](/cc408/images/docs/computer-org/956a0fbb65.svg)
 
 ### 计算机系统的工作原理
 

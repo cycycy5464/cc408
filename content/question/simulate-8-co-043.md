@@ -1,5 +1,5 @@
 ---
-title: "模拟卷8 计算机组成原理 第43题"
+title: "模拟卷8 组成原理 第43题"
 date: 2026-07-08
 type: question
 years:
@@ -7,18 +7,21 @@ years:
 source: "模拟题"
 set: 8
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "主存容量的扩展"
 question_type: "comprehensive"
 difficulty: 4
 number: 43
+
 ---
 
 （10 分）设某机中，CPU 的地址总线 A₁₅～A₀，数据总线 D₇～D₀（A₀、D₀为最低位），存储器地址空间为 3000H～67FFH。其中 3000H～4FFFH 为 ROM 区，选用 4K×2 的 ROM 芯片；5000H～67FFH 为 RAM 区，选用 2K×4 的 SRAM 芯片。请问：
 （1）组成该存储器需要多少片 ROM 芯片和 SRAM 芯片？
 （2）ROM 芯片、SRAM 芯片各需连接 CPU 的哪几根地址线和数据线？
 （3）应如何设置片选信号，分别写出各片选信号的逻辑表达式。
+
+[主存容量的扩展](/study_methods/tags/408quiz//#%e4%b8%bb%e5%ad%98%e5%ae%b9%e9%87%8f%e7%9a%84%e6%89%a9%e5%b1%95)
 
 [tag_link]
 

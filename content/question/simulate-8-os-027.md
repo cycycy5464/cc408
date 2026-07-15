@@ -9,10 +9,12 @@ set: 8
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "进程和线程"
+  - "进程概念"
 question_type: "choice"
 difficulty: 3
 number: 27
+
 ---
 
 假设系统有 5 个进程，A、B、C 三类资源。某时刻进程和资源状态如下：
@@ -21,6 +23,9 @@ A\. 系统不安全
 B\. 该时刻，系统安全，安全序列为<P1,P2,P3,P4,P5>
 C\. 该时刻，系统安全，安全序列为<P2,P3,P4,P5,P1>
 D\. 该时刻，系统安全，安全序列为<P4,P5,P1,P2,P3>
+
+[进程和线程](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e5%92%8c%e7%ba%bf%e7%a8%8b)
+[进程概念](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

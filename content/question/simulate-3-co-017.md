@@ -1,5 +1,5 @@
 ---
-title: "模拟卷3 计算机组成原理 第17题"
+title: "模拟卷3 组成原理 第17题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 3
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "寄存器类型"
 question_type: "choice"
 difficulty: 3
 number: 17
+
 ---
 
 假设相对寻址的转移指令占两个字节，第一个字节是操作码，第二个字节是相对��移量，用补码表示。每当 CPU 从存储器取出一个字节时，即自动完成 (PC)+1 → PC。若当前 PC 值为 2000H，2000H 处的指令为 JMP * 9（*为相对寻址特征），则执行完这条指令后，PC 值为（ ）。
@@ -21,6 +22,8 @@ A\. 1FF7H
 B\. 1FF8H
 C\. 1FF9H
 D\. 1FFAH
+
+[寄存器类型](/study_methods/tags/408quiz//#%e5%af%84%e5%ad%98%e5%99%a8%e7%b1%bb%e5%9e%8b)
 
 [tag_link]
 

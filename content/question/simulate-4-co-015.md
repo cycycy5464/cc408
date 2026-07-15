@@ -1,5 +1,5 @@
 ---
-title: "模拟卷4 计算机组成原理 第15题"
+title: "模拟卷4 组成原理 第15题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 4
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "主存容量的扩展"
 question_type: "choice"
 difficulty: 3
 number: 15
+
 ---
 
 设某按字节编址的计算机已配有 00000H～07FFFH 的 ROM 区，MAR 为 20 位，现再用 16K×8 位的 RAM 芯片构成剩下的 RAM 区 08000H～FFFFFH，则需要这样的 RAM 芯片（ ）片。
@@ -21,6 +22,8 @@ A\. 61
 B\. 62
 C\. 63
 D\. 64
+
+[主存容量的扩展](/study_methods/tags/408quiz//#%e4%b8%bb%e5%ad%98%e5%ae%b9%e9%87%8f%e7%9a%84%e6%89%a9%e5%b1%95)
 
 [tag_link]
 

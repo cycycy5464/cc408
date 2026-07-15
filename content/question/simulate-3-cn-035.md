@@ -9,10 +9,11 @@ set: 3
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "窗口大小限制"
 question_type: "choice"
 difficulty: 3
 number: 35
+
 ---
 
 下列关于滑动窗口的说法中，错误的是（ ）。
@@ -28,6 +29,8 @@ A\. Ⅰ和Ⅱ
 B\. 仅Ⅲ
 C\. Ⅰ和Ⅲ
 D\. Ⅰ、Ⅱ和Ⅲ
+
+[窗口大小限制](/study_methods/tags/408quiz//#%e7%aa%97%e5%8f%a3%e5%a4%a7%e5%b0%8f%e9%99%90%e5%88%b6)
 
 [tag_link]
 

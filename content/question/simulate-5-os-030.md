@@ -9,10 +9,11 @@ set: 5
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "信道利用率"
 question_type: "choice"
 difficulty: 3
 number: 30
+
 ---
 
 在某个计算机系统中，内存的分配采用按需调页方式，测得当前 CPU 的利用率为 8%，硬盘交换空间的利用率为 55%，硬盘的繁忙率为 97%，其他设备的利用率可以忽略不计，由此断定系统发生异常，则解决方法是（ ）。
@@ -26,6 +27,8 @@ A\. II、III 和 IV
 B\. II 和 V
 C\. I 和 II
 D\. II、III 和 V
+
+[信道利用率](/study_methods/tags/408quiz//#%e4%bf%a1%e9%81%93%e5%88%a9%e7%94%a8%e7%8e%87)
 
 [tag_link]
 

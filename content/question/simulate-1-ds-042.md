@@ -9,10 +9,12 @@ set: 1
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "复杂度分析"
+  - "图的遍历"
 question_type: "comprehensive"
 difficulty: 4
 number: 42
+
 ---
 
 （12 分）假设二叉树采用二叉链存储结构存储，设计一个算法，求出根结点到给定某结点之间的路径，要求：
@@ -22,6 +24,9 @@ number: 42
 （2）写出二叉树采用的存储结构代码。
 
 （3）根据设计思想，采用 C 或 C++语言描述算法，关键之处给出注释。
+
+[复杂度分析](/study_methods/tags/408quiz//#%e5%a4%8d%e6%9d%82%e5%ba%a6%e5%88%86%e6%9e%90)
+[图的遍历](/study_methods/tags/408quiz//#%e5%9b%be%e7%9a%84%e9%81%8d%e5%8e%86)
 
 [tag_link]
 

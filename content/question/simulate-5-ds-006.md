@@ -9,10 +9,11 @@ set: 5
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "森林的概念"
 question_type: "choice"
 difficulty: 3
 number: 6
+
 ---
 
 由 4 棵树组成的森林中，第一、第二、第三和第四棵树中的结点数分别为 30、10、20、5，当把森林转换成二叉树后，对应二叉树中根结点的右子树的左子树的结点数为（ ）。
@@ -21,6 +22,8 @@ A\. 29
 B\. 9
 C\. 25
 D\. 19
+
+[森林的概念](/study_methods/tags/408quiz//#%e6%a3%ae%e6%9e%97%e7%9a%84%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

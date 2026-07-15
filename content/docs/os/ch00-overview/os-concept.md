@@ -35,11 +35,11 @@ chapter_title: "操作系统概念"
 ### 发展历程
 
 
-![](/images/docs/os/image-20260611215529708.png)
+![](/cc408/images/docs/os/image-20260611215529708.png)
 
 **操作系统** 的发展历程经历了 手工操作、批处理操作、分时操作、实时操作 这四个阶段：
 
-![](/images/docs/os/image-20260611215545519.png)
+![](/cc408/images/docs/os/image-20260611215545519.png)
 
   1. **手工操作** 阶段：
 * 时间背景：计算机的早期阶段。
@@ -85,7 +85,7 @@ chapter_title: "操作系统概念"
 
 #### 引导流程
 
-![](/images/docs/os/e27dcbaac2.png)
+![](/cc408/images/docs/os/e27dcbaac2.png)
 
 **操作系统** 引导的具体流程如下：
 

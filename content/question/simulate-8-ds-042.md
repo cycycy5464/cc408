@@ -9,10 +9,12 @@ set: 8
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "链表"
+  - "复杂度分析"
 question_type: "comprehensive"
 difficulty: 4
 number: 42
+
 ---
 
 单链表有环，是指单链表的最后一个结点的指针指向了链表中的某个结点（通常单链表的最后一个结点的指针域是为空的）。试编写算法判断单链表是否存在环。
@@ -22,6 +24,9 @@ number: 42
 （2）根据设计思想，采用 C 或 C++ 语言描述算法，关键之处给出注释。
 
 （3）说明你所设计算法的时间复杂度和空间复杂度。
+
+[链表](/study_methods/tags/408quiz//#%e9%93%be%e8%a1%a8)
+[复杂度分析](/study_methods/tags/408quiz//#%e5%a4%8d%e6%9d%82%e5%ba%a6%e5%88%86%e6%9e%90)
 
 [tag_link]
 

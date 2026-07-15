@@ -9,10 +9,11 @@ set: 4
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "操作系统概念"
 question_type: "choice"
 difficulty: 3
 number: 23
+
 ---
 
 当中断发生后，进入中断处理的程序属于（ ）。
@@ -21,6 +22,8 @@ A\. 用户程序
 B\. 可能是用户程序，也可能是 OS 程序
 C\. OS 程序
 D\. 单独的程序，既不是用户程序也不是 OS 程序
+
+[操作系统概念](/study_methods/tags/408quiz//#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

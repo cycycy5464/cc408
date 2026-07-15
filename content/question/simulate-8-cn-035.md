@@ -9,10 +9,12 @@ set: 8
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "协议数据单元"
+  - "介质访问控制"
 question_type: "choice"
 difficulty: 3
 number: 35
+
 ---
 
 考虑建立一个 CSMA/CD 网，电缆长度为 1km，不使用中继器，传输速率为 1Gbps，电缆中信号的传播速率是 200000km/s，则该网络中最小帧长是（ ）。
@@ -21,6 +23,9 @@ A\. 10000bit
 B\. 1000bit
 C\. 5000bit
 D\. 20000bit
+
+[协议数据单元](/study_methods/tags/408quiz//#%e5%8d%8f%e8%ae%ae%e6%95%b0%e6%8d%ae%e5%8d%95%e5%85%83)
+[介质访问控制](/study_methods/tags/408quiz//#%e4%bb%8b%e8%b4%a8%e8%ae%bf%e9%97%ae%e6%8e%a7%e5%88%b6)
 
 [tag_link]
 

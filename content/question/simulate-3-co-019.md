@@ -1,5 +1,5 @@
 ---
-title: "模拟卷3 计算机组成原理 第19题"
+title: "模拟卷3 组成原理 第19题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 3
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "寄存器类型"
 question_type: "choice"
 difficulty: 3
 number: 19
+
 ---
 
 假定某计算机系统的 CPU 内部采用总线结构，其指令的取指周期由以下微操作序列实现，即：
@@ -26,6 +27,8 @@ A\. 1
 B\. 2
 C\. 3
 D\. 4
+
+[寄存器类型](/study_methods/tags/408quiz//#%e5%af%84%e5%ad%98%e5%99%a8%e7%b1%bb%e5%9e%8b)
 
 [tag_link]
 

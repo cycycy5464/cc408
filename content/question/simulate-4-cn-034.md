@@ -9,10 +9,11 @@ set: 4
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "协议数据单元"
 question_type: "choice"
 difficulty: 3
 number: 34
+
 ---
 
 采用 GBN 帧协议，接收窗口内的序号为 4 时，接收到正确的 5 号帧应该（ ）。
@@ -21,6 +22,8 @@ A\. 丢弃 5 号帧
 B\. 将窗口滑动到 5 号
 C\. 将 5 号帧缓存下来
 D\. 将 5 号帧交给上层处理
+
+[协议数据单元](/study_methods/tags/408quiz//#%e5%8d%8f%e8%ae%ae%e6%95%b0%e6%8d%ae%e5%8d%95%e5%85%83)
 
 [tag_link]
 

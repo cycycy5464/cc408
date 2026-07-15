@@ -9,10 +9,12 @@ set: 2
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "哈夫曼树"
+  - "满二叉树"
 question_type: "choice"
 difficulty: 3
 number: 7
+
 ---
 
 对于一组权值都相等的 16 个字母，构造相应的哈夫曼树，这棵哈夫曼树是一棵（　）。
@@ -21,6 +23,9 @@ A\. 完全二元树
 B\. 一般二元树
 C\. 满二元树
 D\. 以上都不正确
+
+[哈夫曼树](/study_methods/tags/408quiz//#%e5%93%88%e5%a4%ab%e6%9b%bc%e6%a0%91)
+[满二叉树](/study_methods/tags/408quiz//#%e6%bb%a1%e4%ba%8c%e5%8f%89%e6%a0%91)
 
 [tag_link]
 

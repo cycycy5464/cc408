@@ -9,10 +9,11 @@ set: 2
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "信号量"
 question_type: "comprehensive"
 difficulty: 4
 number: 41
+
 ---
 
 （11 分）如下图所示：
@@ -24,6 +25,8 @@ number: 41
 （3）以 V1 为源点，以 V8 为终点，给出所有事件（和活动）允许发生的最早时间和最晚时间，并给出关键路径。
 
 （4）求 V1 结点到各点的最短路径和距离。
+
+[信号量](/study_methods/tags/408quiz//#%e4%bf%a1%e5%8f%b7%e9%87%8f)
 
 [tag_link]
 

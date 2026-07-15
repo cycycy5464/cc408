@@ -1,5 +1,5 @@
 ---
-title: "模拟卷2 计算机组成原理 第20题"
+title: "模拟卷2 组成原理 第20题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,14 @@ years:
 source: "模拟题"
 set: 2
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "操作系统概念"
+  - "网络协议要素"
 question_type: "choice"
 difficulty: 3
 number: 20
+
 ---
 
 在下列各种情况下，最应采用异步传输方式的是（　）。
@@ -21,6 +23,9 @@ A\. I/O 接口与打印机交换信息
 B\. CPU 与主存交换信息
 C\. CPU 和 PCI 总线交换信息
 D\. 由统一时序信号控制方式下的设备
+
+[操作系统概念](/study_methods/tags/408quiz//#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f%e6%a6%82%e5%bf%b5)
+[网络协议要素](/study_methods/tags/408quiz//#%e7%bd%91%e7%bb%9c%e5%8d%8f%e8%ae%ae%e8%a6%81%e7%b4%a0)
 
 [tag_link]
 

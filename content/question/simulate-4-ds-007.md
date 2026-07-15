@@ -9,10 +9,11 @@ set: 4
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "图的概念"
 question_type: "choice"
 difficulty: 3
 number: 7
+
 ---
 
 以下关于图的表述中，正确的是（ ）。
@@ -33,6 +34,8 @@ D\. 假设有图
 构成
 <span class=katex><span class=katex-html aria-hidden=true><span class=base><span class=strut style=height:.6833em></span><span class="mord mathnormal">G</span></span></span></span>
 的子图。
+
+[图的概念](/study_methods/tags/408quiz//#%e5%9b%be%e7%9a%84%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

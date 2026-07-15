@@ -20,7 +20,7 @@ chapter_title: "串的模式匹配"
 ### 串概念
 
 
-![](/images/docs/data-structure/e72136b857.svg)
+![](/cc408/images/docs/data-structure/e72136b857.svg)
 
 在介绍模式匹配算法之前，需要能够区分关于串的几个概念：
 
@@ -74,7 +74,7 @@ int simplePatternMatching(const char* mainStr, const char* pattern) {
 
 简单模式匹配算法的 **核心思路** 其实就是将主串中的每个字串和模式串进行对比。举个例子，主串 `abaaabc` 和模式串 `abc` 进行简单模式匹配的过程如下：
 
-![](/images/docs/data-structure/95ae6d09ce.gif)
+![](/cc408/images/docs/data-structure/95ae6d09ce.gif)
 
 这个简单模式匹配算法的 **时间复杂度** 是 O\(mn\) ，其中 m 是 **主字符串** 的长度， n 是 **模式字符串** 的长度。
 
@@ -91,7 +91,7 @@ int simplePatternMatching(const char* mainStr, const char* pattern) {
 
 `abc` 是在其 **前缀** 和 **后缀** 中都包含的部分，在字符串匹配时，我们可以充分利用该信息，匹配失败时，我们可以不用从下一个位置开始，而是从 **模式串内部的某个位置** 开始。
 
-![](/images/docs/data-structure/image-20260612092155911.png)这就是 KMP 算法的核心思想！当匹配失败时，我们可以利用这个信息跳过一些不必要的比较
+![](/cc408/images/docs/data-structure/image-20260612092155911.png)这就是 KMP 算法的核心思想！当匹配失败时，我们可以利用这个信息跳过一些不必要的比较
 
 **KMP 算法** 就是基于这个思想，其核心是一个称为 “**部分匹配表** ” 或 “**前缀函数** ” 的辅助数组（通常称为 **next 数组** ），该数组用于确定当 **模式串** 在 **主串** 不匹配时应该如何有效地移动 **模式串** 。
 
@@ -130,11 +130,11 @@ pattern\[0:index\] 的相同前后缀长度| 0| 0| 1| 2| 3| 0
 以下图为例，说明 **主串** “ababcabcabababd” 和 **模式串** “ababd” 的匹配过程。
 
 
-![](/images/docs/data-structure/image-20260612092224304.png)
+![](/cc408/images/docs/data-structure/image-20260612092224304.png)
 
-![](/images/docs/data-structure/image-20260612092241679.png)
+![](/cc408/images/docs/data-structure/image-20260612092241679.png)
 
-![](/images/docs/data-structure/image-20260612092250020.png)
+![](/cc408/images/docs/data-structure/image-20260612092250020.png)
 
 **字符串 "ababd" 对应的next数组**
 
@@ -258,15 +258,15 @@ if (next[i] == -1) {
 
 
 
-需要注意的，`nextval` 的计算过程是迭代向前的，因为我们希望减少无意义的比较，所以要争取找到一个不同的字符。![](/images/docs/data-structure/image-20260612092346077.png)
+需要注意的，`nextval` 的计算过程是迭代向前的，因为我们希望减少无意义的比较，所以要争取找到一个不同的字符。![](/cc408/images/docs/data-structure/image-20260612092346077.png)
 
 以字符串 ababaa 为例，我们首先可以计算出其 **next 数组** ：
 
-![](/images/docs/data-structure/image-20260612092401262.png)
+![](/cc408/images/docs/data-structure/image-20260612092401262.png)
 
 然后计算出 **nextval 数组** ：
 
-![](/images/docs/data-structure/image-20260612092412663.png)
+![](/cc408/images/docs/data-structure/image-20260612092412663.png)
 
   * `nextval[0] = -1`
   * `nextval[1] = 0`

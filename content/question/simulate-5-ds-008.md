@@ -9,10 +9,11 @@ set: 5
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "复杂度分析"
 question_type: "choice"
 difficulty: 3
 number: 8
+
 ---
 
 假设有
@@ -27,6 +28,8 @@ A\. O(n)
 B\. O(e)
 C\. O(n+e)
 D\. O(ne)
+
+[复杂度分析](/study_methods/tags/408quiz//#%e5%a4%8d%e6%9d%82%e5%ba%a6%e5%88%86%e6%9e%90)
 
 [tag_link]
 

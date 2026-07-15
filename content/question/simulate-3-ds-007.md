@@ -9,10 +9,11 @@ set: 3
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "图的概念"
 question_type: "choice"
 difficulty: 3
 number: 7
+
 ---
 
 无向图 G 有 23 条边，度为 4 的顶点有 5 个，度为 3 的顶点有 4 个，其余都是度为 2 的顶点，则图 G 最多有（ ）个顶点。
@@ -21,6 +22,8 @@ A\. 11
 B\. 12
 C\. 15
 D\. 16
+
+[图的概念](/study_methods/tags/408quiz//#%e5%9b%be%e7%9a%84%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

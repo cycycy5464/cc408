@@ -24,7 +24,7 @@ chapter_title: "各层协议总结"
   * **时序** ：定义事件的发生顺序和通信双方的协同工作方式（如请求与响应的先后顺序）
 
 
-![](/images/docs/network/64e00d21ee.svg)
+![](/cc408/images/docs/network/64e00d21ee.svg)
 
 ### 应用层协议
 

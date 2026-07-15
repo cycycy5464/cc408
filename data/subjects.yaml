@@ -7,7 +7,7 @@
 
 - key: computer-org
   icon: "⚙️"
-  label: "计算机组成原理"
+  label: "组成原理"
   desc: "数据表示 · 存储 · CPU · 指令 · I/O"
   cls: co
 

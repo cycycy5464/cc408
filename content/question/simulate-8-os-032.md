@@ -9,10 +9,11 @@ set: 8
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "异常和中断"
 question_type: "choice"
 difficulty: 3
 number: 32
+
 ---
 
 下列有关设备管理概念的叙述中，（ ）是不正确的。 I. 通道可视为一种软件，其作用是提高了 CPU 的利用率 II. 编制好的通道程序是存放在主存储器中的 III. 用户给出的设备编号是设备的物理号 IV. 来自通道的 I/O 中断事件应该由设备管理负责
@@ -24,6 +25,8 @@ B\. I 和 IV
 C\. II、III 和 IV
 
 D\. II 和 IV
+
+[异常和中断](/study_methods/tags/408quiz//#%e5%bc%82%e5%b8%b8%e5%92%8c%e4%b8%ad%e6%96%ad)
 
 [tag_link]
 

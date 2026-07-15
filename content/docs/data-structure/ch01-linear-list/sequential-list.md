@@ -21,7 +21,7 @@ chapter_title: "顺序表"
 
 假设线性表 A 存储的其实位置为 `LOC(A)`，每个元素占用的存储空间的大小为 `sizeof(Elem)`，则 A 所对应的顺序存储结构为：
 
-![](/images/docs/data-structure/69a2847b52.svg)
+![](/cc408/images/docs/data-structure/69a2847b52.svg)
 
   * 顺序表 **优点** ：
 * **随机访问性强** ：顺序表支持通过索引直接访问元素，访问速度快，时间复杂度为 **_O\(1\)_** 。
@@ -42,7 +42,7 @@ chapter_title: "顺序表"
 #### 数据结构定义
 
 
-![](/images/docs/data-structure/0b383715a7.svg)
+![](/cc408/images/docs/data-structure/0b383715a7.svg)
 
 以下代码定义了一个顺序表 `SeqList`，它使用 **固定大小的数组** `data` 来存储元素，`length` 记录当前表的长度。`InitList` 函数初始化顺序表，设置 _长度为 0_ ，表示空表。    
 ```c
@@ -65,7 +65,7 @@ void InitList(SeqList *L) {
 
 #### 插入
 
-![](/images/docs/data-structure/image-20260611231618428.png)
+![](/cc408/images/docs/data-structure/image-20260611231618428.png)
 
 在第 `pos` 个位置 **插入新元素** `e`。首先检查 **插入位置合法性** 和 **空间是否已满** ，然后从尾部向后移动元素，为插入留出位置，最后将元素插入并更新长度。
     
@@ -86,7 +86,7 @@ bool Insert(SeqList *L, int pos, ElementType e) {
 
 #### 删除
 
-![](/images/docs/data-structure/image-20260611231641535.png)
+![](/cc408/images/docs/data-structure/image-20260611231641535.png)
 
 **删除第`pos` 个元素**，并通过指针返回删除的元素值。删除后将该位置后的所有元素 **前移** ，最后更新长度。
 
@@ -103,7 +103,7 @@ bool Delete(SeqList *L, int pos, ElementType *e) {
     return true;
 }bool Delete(SeqList *L, int pos, ElementType *e) {
 
-    ![](/images/docs/data-structure/06a5ee8d55.svg)
+    ![](/cc408/images/docs/data-structure/06a5ee8d55.svg)
 
     *e = L->data[pos - 1];
 ```

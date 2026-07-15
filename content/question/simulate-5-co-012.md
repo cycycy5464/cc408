@@ -1,5 +1,5 @@
 ---
-title: "模拟卷5 计算机组成原理 第12题"
+title: "模拟卷5 组成原理 第12题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 5
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "计算机性能指标"
 question_type: "choice"
 difficulty: 3
 number: 12
+
 ---
 
 计算机中，与 CPU 的 CPI 无关的因素是（ ）。
@@ -21,6 +22,8 @@ A\. 时钟频率
 B\. 系统结构
 C\. 指令集
 D\. 计算机组织
+
+[计算机性能指标](/study_methods/tags/408quiz//#%e8%ae%a1%e7%ae%97%e6%9c%ba%e6%80%a7%e8%83%bd%e6%8c%87%e6%a0%87)
 
 [tag_link]
 

@@ -9,10 +9,11 @@ set: 3
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "操作系统概念"
 question_type: "choice"
 difficulty: 3
 number: 31
+
 ---
 
 操作系统的 I/O 子系统通常由四个层次组成，则检查设备的就绪状态是在（ ）层实现的。
@@ -21,6 +22,8 @@ A\. 设备驱动程序
 B\. 用户级 I/O 软件
 C\. 设备无关软件
 D\. 中断处理程序
+
+[操作系统概念](/study_methods/tags/408quiz//#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

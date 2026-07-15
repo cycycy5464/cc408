@@ -9,10 +9,12 @@ set: 2
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "用户态和内核态"
+  - "系统调用"
 question_type: "choice"
 difficulty: 3
 number: 23
+
 ---
 
 在操作系统中，以下只能在核心态下处理执行的指令是（　）。
@@ -21,6 +23,9 @@ A\. 读时钟
 B\. 寄存器清零
 C\. 系统调用
 D\. 取数
+
+[用户态和内核态](/study_methods/tags/408quiz//#%e7%94%a8%e6%88%b7%e6%80%81%e5%92%8c%e5%86%85%e6%a0%b8%e6%80%81)
+[系统调用](/study_methods/tags/408quiz//#%e7%b3%bb%e7%bb%9f%e8%b0%83%e7%94%a8)
 
 [tag_link]
 

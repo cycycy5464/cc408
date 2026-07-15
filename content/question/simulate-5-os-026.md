@@ -9,10 +9,12 @@ set: 5
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "临界资源"
+  - "进程和线程"
 question_type: "choice"
 difficulty: 3
 number: 26
+
 ---
 
 关于临界区问题（critical section problem）的一个算法（假设只有进程 P0 和 P1 可能会进入该临界区）如下（i 为 0 或 1），该算法（ ）。
@@ -21,6 +23,9 @@ A\. 不能保证进程互斥进入临界区，且会出现“饥饿”
 B\. 不能保证进程互斥进入临界区，但不会出现“饥饿”
 C\. 保证进程互斥进入临界区，但会出现“饥饿”
 D\. 保证进程互斥进入临界区，不会出现“饥饿”
+
+[临界资源](/study_methods/tags/408quiz//#%e4%b8%b4%e7%95%8c%e8%b5%84%e6%ba%90)
+[进程和线程](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e5%92%8c%e7%ba%bf%e7%a8%8b)
 
 [tag_link]
 

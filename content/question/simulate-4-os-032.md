@@ -9,10 +9,11 @@ set: 4
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "异常和中断"
 question_type: "choice"
 difficulty: 3
 number: 32
+
 ---
 
 I/O 中断是 CPU 与通道协调工作的一种手段，所以在（ ）时，便要产生中断。
@@ -24,6 +25,8 @@ B\. 通道接收了 CPU 的启动请求
 C\. 通道完成了通道程序的执行
 
 D\. 通道在执行通道程序的过程中
+
+[异常和中断](/study_methods/tags/408quiz//#%e5%bc%82%e5%b8%b8%e5%92%8c%e4%b8%ad%e6%96%ad)
 
 [tag_link]
 

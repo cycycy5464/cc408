@@ -64,7 +64,7 @@ chapter_title: "指令集种类"
 
 
 
-上图![](/images/docs/computer-org/image-20260612225121300.png)体现了 **CISC** 和 **RISC** 的差别：**RISC** 寄存器数量比 **CISC** 更多，**CISC** 的访存指令比 **RISC** 更加复杂（**CISC** 单条指令完成的工作 **RISC** 需要多条指令才能完成)。
+上图![](/cc408/images/docs/computer-org/image-20260612225121300.png)体现了 **CISC** 和 **RISC** 的差别：**RISC** 寄存器数量比 **CISC** 更多，**CISC** 的访存指令比 **RISC** 更加复杂（**CISC** 单条指令完成的工作 **RISC** 需要多条指令才能完成)。
 
 #### 程序示例
 
@@ -145,7 +145,7 @@ for (i = 0; i < 24; i++)
 ### 不同位数指令
 
 
-![](/images/docs/computer-org/a01240c4eb.svg)
+![](/cc408/images/docs/computer-org/a01240c4eb.svg)
 
 
 从 **8086** （16 位 **intel** 处理器）再到后来的 **32 位** 以及 **64 位** 的 CPU，差异主要体现在以下几个方面：
@@ -171,7 +171,7 @@ Data Segment| DS| -| -| Segment
 
 在 **x86** 汇编指令集中，常有 **AT &T** 和 **Intel** 两种格式，两种格式有较大差异。在考试中主要考察的是 **Intel** 格式，但是 **AT &T** 也需稍作了解，在遇到指令时能辨认出即可。
 
-![](/images/docs/computer-org/image-20260612225701691.png)
+![](/cc408/images/docs/computer-org/image-20260612225701691.png)
 
 ###### Intel 格式
 

@@ -9,10 +9,11 @@ set: 7
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "堆的概念"
 question_type: "choice"
 difficulty: 3
 number: 11
+
 ---
 
 假定我们从下图所示的堆中删除了值为 11 的结点，那么值为 70 的结点将出现在图中哪个指定位置（ ）。
@@ -24,6 +25,8 @@ B\. B
 C\. C
 
 D\. D
+
+[堆的概念](/study_methods/tags/408quiz//#%e5%a0%86%e7%9a%84%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

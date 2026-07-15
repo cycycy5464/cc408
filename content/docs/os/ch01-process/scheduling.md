@@ -36,7 +36,7 @@ chapter_title: "处理机调度"
 从进程视角而言，进程从被创建到执行结束会有一系列时间周期作为指标：
 
 
-![](/images/docs/os/4784e0ed31.svg)
+![](/cc408/images/docs/os/4784e0ed31.svg)
 
 **进程调度指标**|  英文| 含义  
 ---|---|---  
@@ -51,7 +51,7 @@ chapter_title: "处理机调度"
 为了有效地管理和调度进程，操作系统通常采用多级调度机制。这些调度机制分为三个层次：**高级调度** 、**中级调度** 和**初级调度** 。
 
 
-![](/images/docs/os/4621234be8.svg)
+![](/cc408/images/docs/os/4621234be8.svg)
 
 Mid-term...Text is not SVG - cannot display
 
@@ -125,7 +125,7 @@ Mid-term...Text is not SVG - cannot display
   * **抢占型调度算法** ：时间片轮转、多级反馈队列
 
 
-![](/images/docs/os/image-20260611220630915.png)
+![](/cc408/images/docs/os/image-20260611220630915.png)
 
 
 
@@ -134,7 +134,7 @@ Mid-term...Text is not SVG - cannot display
 先来先服务（First-Come, First-Served，FCFS）**按照进程到达的顺序** 分配依次执行。先到达的进程先执行，后续进程等待直到前一个进程执行才能进一步执行。
 
 
-![](/images/docs/os/image-20260611220642346.png)
+![](/cc408/images/docs/os/image-20260611220642346.png)
 
 #### 最短作业优先
 
@@ -143,7 +143,7 @@ Mid-term...Text is not SVG - cannot display
 在题目中进程的运行时间一般都是给定的，所以 SJF 算法比较容易实现。但是在真实的系统中进程的运行时间是不确定的，所以在使用该算法时操作系统需要对进程的运行时间进行预估。
 
 
-![](/images/docs/os/2d58f3fe9e.svg)
+![](/cc408/images/docs/os/2d58f3fe9e.svg)
 
 
 #### 最高响应比优先
@@ -159,7 +159,7 @@ Response Ratio=BTWT+BT​=BTTAT​
 这种计算策略可以有效地避免饥饿现象，即一个进程等待了很长时间但仍没有得到执行。一个进程的等待时间越长，其 **响应比** 就会更大，进而优先得到执行机会。一个进程的执行时间很长，其 **响应比** 就会越小，会优先调度其他进程。
 
 
-![](/images/docs/os/image-20260611220703265.png)
+![](/cc408/images/docs/os/image-20260611220703265.png)
 
   * 时刻 0：只有 P1 到达，执行 P1。
   * 时刻 5：P1 执行完成。P2 的 **响应比** 为 \(4 + 3\) / 3 ≈ 2.33，P3 的 **响应比** 为 \(3 + 8\) / 8 = 1.375，P4 的 **响应比** 为 \(2 + 6\) / 6 ≈ 1.33，此时 P2 的 **响应比** 最大，执行 P2。
@@ -194,7 +194,7 @@ Response Ratio=BTWT+BT​=BTTAT​
 下图给出了两种优先级调度方式的实例对比，其中绿色的进程表示执行态，黄色表示就绪态：
 
 
-![](/images/docs/os/image-20260611220755028.png)
+![](/cc408/images/docs/os/image-20260611220755028.png)
 
 
 #### 时间片轮转
@@ -202,7 +202,7 @@ Response Ratio=BTWT+BT​=BTTAT​
 时间片轮转（Round Robin，RR）这是一种基于 **时间片** 的算法，每个进程被分配一个固定的时间片，当时间片用完时，进程被放回队列尾部，下一个进程开始执行。这样可以实现公平的 CPU 时间分配。
 
 
-![](/images/docs/os/image-20260611220805709.png)
+![](/cc408/images/docs/os/image-20260611220805709.png)
 
 **Process \(Arrival Time, Burst Time\)**
 
@@ -215,7 +215,7 @@ Response Ratio=BTWT+BT​=BTTAT​
 高优先级队列优先调度，时间片较短，适合交互型进程；低优先级队列时间片较长，适合计算密集型任务。新进程通常进入最高优先级队列，若在时间片内未完成，则移到下一级队列；若因 I/O 等待阻塞，完成后可能返回较高优先级队列。
 
 
-![](/images/docs/os/28c23ce805.svg)
+![](/cc408/images/docs/os/28c23ce805.svg)
 
 
 多级反馈队列根据进程行为调整其优先级。例如，占用 CPU 过多的进程会被降级，而频繁等待 I/O 的进程可能被提升。这种设计兼顾了快速响应、公平性和资源利用率。
@@ -225,7 +225,7 @@ Response Ratio=BTWT+BT​=BTTAT​
 进程的上下文是进程执行的环境。在操作系统中，它指的是一个进程在特定时间点上的系统状态，包括多种信息，这些信息使得进程在被中断后可以再次恢复并继续执行。当操作系统从一个进程切换到另一个进程时，它会保存当前进程的上下文并恢复下一个进程的上下文。这个过程被称为 **上下文切换** 。
 
 
-![](/images/docs/os/image-20260611220820053.png)
+![](/cc408/images/docs/os/image-20260611220820053.png)
 
 **进程上下文内容**
 

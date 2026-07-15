@@ -106,7 +106,7 @@
       "subject": "computer-org",
       "year": "2009",
       "number": 11,
-      "title": "2009 计算机组成原理 第11题",
+      "title": "2009 组成原理 第11题",
       "source": "408真题",
       "knowledge_points": [
         "计算机体系结构"
@@ -117,7 +117,7 @@
       "subject": "computer-org",
       "year": "2009",
       "number": 12,
-      "title": "2009 计算机组成原理 第12题",
+      "title": "2009 组成原理 第12题",
       "source": "408真题",
       "knowledge_points": [
         "类型转换",
@@ -129,7 +129,7 @@
       "subject": "computer-org",
       "year": "2009",
       "number": 13,
-      "title": "2009 计算机组成原理 第13题",
+      "title": "2009 组成原理 第13题",
       "source": "408真题",
       "knowledge_points": [
         "浮点数加减"
@@ -140,7 +140,7 @@
       "subject": "computer-org",
       "year": "2009",
       "number": 14,
-      "title": "2009 计算机组成原理 第14题",
+      "title": "2009 组成原理 第14题",
       "source": "408真题",
       "knowledge_points": [
         "cache映射方式"
@@ -151,7 +151,7 @@
       "subject": "computer-org",
       "year": "2009",
       "number": 15,
-      "title": "2009 计算机组成原理 第15题",
+      "title": "2009 组成原理 第15题",
       "source": "408真题",
       "knowledge_points": [
         "主存容量的扩展"
@@ -162,7 +162,7 @@
       "subject": "computer-org",
       "year": "2009",
       "number": 16,
-      "title": "2009 计算机组成原理 第16题",
+      "title": "2009 组成原理 第16题",
       "source": "408真题",
       "knowledge_points": [
         "指令寻址方式"
@@ -173,7 +173,7 @@
       "subject": "computer-org",
       "year": "2009",
       "number": 17,
-      "title": "2009 计算机组成原理 第17题",
+      "title": "2009 组成原理 第17题",
       "source": "408真题",
       "knowledge_points": [
         "复杂和精简指令集",
@@ -185,7 +185,7 @@
       "subject": "computer-org",
       "year": "2009",
       "number": 18,
-      "title": "2009 计算机组成原理 第18题",
+      "title": "2009 组成原理 第18题",
       "source": "408真题",
       "knowledge_points": [
         "流水线概念"
@@ -196,7 +196,7 @@
       "subject": "computer-org",
       "year": "2009",
       "number": 19,
-      "title": "2009 计算机组成原理 第19题",
+      "title": "2009 组成原理 第19题",
       "source": "408真题",
       "knowledge_points": [
         "控制器种类"
@@ -207,7 +207,7 @@
       "subject": "computer-org",
       "year": "2009",
       "number": 20,
-      "title": "2009 计算机组成原理 第20题",
+      "title": "2009 组成原理 第20题",
       "source": "408真题",
       "knowledge_points": [
         "总线指标"
@@ -218,7 +218,7 @@
       "subject": "computer-org",
       "year": "2009",
       "number": 21,
-      "title": "2009 计算机组成原理 第21题",
+      "title": "2009 组成原理 第21题",
       "source": "408真题",
       "knowledge_points": [
         "cache概念"
@@ -229,7 +229,7 @@
       "subject": "computer-org",
       "year": "2009",
       "number": 22,
-      "title": "2009 计算机组成原理 第22题",
+      "title": "2009 组成原理 第22题",
       "source": "408真题",
       "knowledge_points": [
         "异常和中断"
@@ -240,7 +240,7 @@
       "subject": "computer-org",
       "year": "2009",
       "number": 43,
-      "title": "2009 计算机组成原理 第43题",
+      "title": "2009 组成原理 第43题",
       "source": "408真题",
       "knowledge_points": [
         "DMA",
@@ -253,7 +253,7 @@
       "subject": "computer-org",
       "year": "2009",
       "number": 44,
-      "title": "2009 计算机组成原理 第44题",
+      "title": "2009 组成原理 第44题",
       "source": "408真题",
       "knowledge_points": [
         "寄存器传送语言"
@@ -627,7 +627,7 @@
       "subject": "computer-org",
       "year": "2010",
       "number": 12,
-      "title": "2010 计算机组成原理 第12题",
+      "title": "2010 组成原理 第12题",
       "source": "408真题",
       "knowledge_points": [
         "计算机体系结构"
@@ -638,7 +638,7 @@
       "subject": "computer-org",
       "year": "2010",
       "number": 13,
-      "title": "2010 计算机组成原理 第13题",
+      "title": "2010 组成原理 第13题",
       "source": "408真题",
       "knowledge_points": [
         "补码"
@@ -649,7 +649,7 @@
       "subject": "computer-org",
       "year": "2010",
       "number": 14,
-      "title": "2010 计算机组成原理 第14题",
+      "title": "2010 组成原理 第14题",
       "source": "408真题",
       "knowledge_points": [
         "类型转换"
@@ -660,7 +660,7 @@
       "subject": "computer-org",
       "year": "2010",
       "number": 15,
-      "title": "2010 计算机组成原理 第15题",
+      "title": "2010 组成原理 第15题",
       "source": "408真题",
       "knowledge_points": [
         "主存容量的扩展"
@@ -671,7 +671,7 @@
       "subject": "computer-org",
       "year": "2010",
       "number": 16,
-      "title": "2010 计算机组成原理 第16题",
+      "title": "2010 组成原理 第16题",
       "source": "408真题",
       "knowledge_points": [
         "存储器概念"
@@ -682,7 +682,7 @@
       "subject": "computer-org",
       "year": "2010",
       "number": 17,
-      "title": "2010 计算机组成原理 第17题",
+      "title": "2010 组成原理 第17题",
       "source": "408真题",
       "knowledge_points": [
         "访存过程"
@@ -693,7 +693,7 @@
       "subject": "computer-org",
       "year": "2010",
       "number": 18,
-      "title": "2010 计算机组成原理 第18题",
+      "title": "2010 组成原理 第18题",
       "source": "408真题",
       "knowledge_points": [
         "寄存器类型"
@@ -704,7 +704,7 @@
       "subject": "computer-org",
       "year": "2010",
       "number": 19,
-      "title": "2010 计算机组成原理 第19题",
+      "title": "2010 组成原理 第19题",
       "source": "408真题",
       "knowledge_points": [
         "流水线冒险"
@@ -715,7 +715,7 @@
       "subject": "computer-org",
       "year": "2010",
       "number": 20,
-      "title": "2010 计算机组成原理 第20题",
+      "title": "2010 组成原理 第20题",
       "source": "408真题",
       "knowledge_points": [
         "总线类型"
@@ -726,7 +726,7 @@
       "subject": "computer-org",
       "year": "2010",
       "number": 21,
-      "title": "2010 计算机组成原理 第21题",
+      "title": "2010 组成原理 第21题",
       "source": "408真题",
       "knowledge_points": [
         "中断IO"
@@ -737,7 +737,7 @@
       "subject": "computer-org",
       "year": "2010",
       "number": 22,
-      "title": "2010 计算机组成原理 第22题",
+      "title": "2010 组成原理 第22题",
       "source": "408真题",
       "knowledge_points": [
         "存储器概念"
@@ -748,7 +748,7 @@
       "subject": "computer-org",
       "year": "2010",
       "number": 43,
-      "title": "2010 计算机组成原理 第43题",
+      "title": "2010 组成原理 第43题",
       "source": "408真题",
       "knowledge_points": [
         "指令寻址方式",
@@ -760,7 +760,7 @@
       "subject": "computer-org",
       "year": "2010",
       "number": 44,
-      "title": "2010 计算机组成原理 第44题",
+      "title": "2010 组成原理 第44题",
       "source": "408真题",
       "knowledge_points": [
         "cache概念",
@@ -1247,7 +1247,7 @@
       "subject": "computer-org",
       "year": "2011",
       "number": 12,
-      "title": "2011 计算机组成原理 第12题",
+      "title": "2011 组成原理 第12题",
       "source": "408真题",
       "knowledge_points": [
         "指令执行指标"
@@ -1258,7 +1258,7 @@
       "subject": "computer-org",
       "year": "2011",
       "number": 13,
-      "title": "2011 计算机组成原理 第13题",
+      "title": "2011 组成原理 第13题",
       "source": "408真题",
       "knowledge_points": [
         "IEEE浮点数表示"
@@ -1269,7 +1269,7 @@
       "subject": "computer-org",
       "year": "2011",
       "number": 14,
-      "title": "2011 计算机组成原理 第14题",
+      "title": "2011 组成原理 第14题",
       "source": "408真题",
       "knowledge_points": [
         "存储器概念"
@@ -1280,7 +1280,7 @@
       "subject": "computer-org",
       "year": "2011",
       "number": 15,
-      "title": "2011 计算机组成原理 第15题",
+      "title": "2011 组成原理 第15题",
       "source": "408真题",
       "knowledge_points": [
         "存储器概念"
@@ -1291,7 +1291,7 @@
       "subject": "computer-org",
       "year": "2011",
       "number": 16,
-      "title": "2011 计算机组成原理 第16题",
+      "title": "2011 组成原理 第16题",
       "source": "408真题",
       "knowledge_points": [
         "指令寻址方式"
@@ -1302,7 +1302,7 @@
       "subject": "computer-org",
       "year": "2011",
       "number": 17,
-      "title": "2011 计算机组成原理 第17题",
+      "title": "2011 组成原理 第17题",
       "source": "408真题",
       "knowledge_points": [
         "标志寄存器"
@@ -1313,7 +1313,7 @@
       "subject": "computer-org",
       "year": "2011",
       "number": 18,
-      "title": "2011 计算机组成原理 第18题",
+      "title": "2011 组成原理 第18题",
       "source": "408真题",
       "knowledge_points": [
         "流水线概念"
@@ -1324,7 +1324,7 @@
       "subject": "computer-org",
       "year": "2011",
       "number": 19,
-      "title": "2011 计算机组成原理 第19题",
+      "title": "2011 组成原理 第19题",
       "source": "408真题",
       "knowledge_points": [
         "中断屏蔽",
@@ -1336,7 +1336,7 @@
       "subject": "computer-org",
       "year": "2011",
       "number": 20,
-      "title": "2011 计算机组成原理 第20题",
+      "title": "2011 组成原理 第20题",
       "source": "408真题",
       "knowledge_points": [
         "总线概念"
@@ -1347,7 +1347,7 @@
       "subject": "computer-org",
       "year": "2011",
       "number": 21,
-      "title": "2011 计算机组成原理 第21题",
+      "title": "2011 组成原理 第21题",
       "source": "408真题",
       "knowledge_points": [
         "中断屏蔽",
@@ -1359,7 +1359,7 @@
       "subject": "computer-org",
       "year": "2011",
       "number": 22,
-      "title": "2011 计算机组成原理 第22题",
+      "title": "2011 组成原理 第22题",
       "source": "408真题",
       "knowledge_points": [
         "IO方式"
@@ -1370,7 +1370,7 @@
       "subject": "computer-org",
       "year": "2011",
       "number": 43,
-      "title": "2011 计算机组成原理 第43题",
+      "title": "2011 组成原理 第43题",
       "source": "408真题",
       "knowledge_points": [
         "类型转换",
@@ -1382,7 +1382,7 @@
       "subject": "computer-org",
       "year": "2011",
       "number": 44,
-      "title": "2011 计算机组成原理 第44题",
+      "title": "2011 组成原理 第44题",
       "source": "408真题",
       "knowledge_points": [
         "地址翻译",
@@ -1874,7 +1874,7 @@
       "subject": "computer-org",
       "year": "2012",
       "number": 12,
-      "title": "2012 计算机组成原理 第12题",
+      "title": "2012 组成原理 第12题",
       "source": "408真题",
       "knowledge_points": [
         "计算机体系结构"
@@ -1885,7 +1885,7 @@
       "subject": "computer-org",
       "year": "2012",
       "number": 13,
-      "title": "2012 计算机组成原理 第13题",
+      "title": "2012 组成原理 第13题",
       "source": "408真题",
       "knowledge_points": [
         "无符号数",
@@ -1897,7 +1897,7 @@
       "subject": "computer-org",
       "year": "2012",
       "number": 14,
-      "title": "2012 计算机组成原理 第14题",
+      "title": "2012 组成原理 第14题",
       "source": "408真题",
       "knowledge_points": [
         "IEEE浮点数表示"
@@ -1908,7 +1908,7 @@
       "subject": "computer-org",
       "year": "2012",
       "number": 15,
-      "title": "2012 计算机组成原理 第15题",
+      "title": "2012 组成原理 第15题",
       "source": "408真题",
       "knowledge_points": [
         "数据对齐"
@@ -1919,7 +1919,7 @@
       "subject": "computer-org",
       "year": "2012",
       "number": 16,
-      "title": "2012 计算机组成原理 第16题",
+      "title": "2012 组成原理 第16题",
       "source": "408真题",
       "knowledge_points": [],
       "local_file": "2012-co-016.md"
@@ -1928,7 +1928,7 @@
       "subject": "computer-org",
       "year": "2012",
       "number": 17,
-      "title": "2012 计算机组成原理 第17题",
+      "title": "2012 组成原理 第17题",
       "source": "408真题",
       "knowledge_points": [
         "cache映射方式"
@@ -1939,7 +1939,7 @@
       "subject": "computer-org",
       "year": "2012",
       "number": 18,
-      "title": "2012 计算机组成原理 第18题",
+      "title": "2012 组成原理 第18题",
       "source": "408真题",
       "knowledge_points": [
         "控制器种类"
@@ -1950,7 +1950,7 @@
       "subject": "computer-org",
       "year": "2012",
       "number": 19,
-      "title": "2012 计算机组成原理 第19题",
+      "title": "2012 组成原理 第19题",
       "source": "408真题",
       "knowledge_points": [
         "总线事务"
@@ -1961,7 +1961,7 @@
       "subject": "computer-org",
       "year": "2012",
       "number": 20,
-      "title": "2012 计算机组成原理 第20题",
+      "title": "2012 组成原理 第20题",
       "source": "408真题",
       "knowledge_points": [
         "总线类型"
@@ -1972,7 +1972,7 @@
       "subject": "computer-org",
       "year": "2012",
       "number": 21,
-      "title": "2012 计算机组成原理 第21题",
+      "title": "2012 组成原理 第21题",
       "source": "408真题",
       "knowledge_points": [
         "总线概念"
@@ -1983,7 +1983,7 @@
       "subject": "computer-org",
       "year": "2012",
       "number": 22,
-      "title": "2012 计算机组成原理 第22题",
+      "title": "2012 组成原理 第22题",
       "source": "408真题",
       "knowledge_points": [
         "中断IO",
@@ -1995,7 +1995,7 @@
       "subject": "computer-org",
       "year": "2012",
       "number": 43,
-      "title": "2012 计算机组成原理 第43题",
+      "title": "2012 组成原理 第43题",
       "source": "408真题",
       "knowledge_points": [
         "DMA",
@@ -2009,7 +2009,7 @@
       "subject": "computer-org",
       "year": "2012",
       "number": 44,
-      "title": "2012 计算机组成原理 第44题",
+      "title": "2012 组成原理 第44题",
       "source": "408真题",
       "knowledge_points": [
         "流水线冒险",
@@ -2498,7 +2498,7 @@
       "subject": "computer-org",
       "year": "2013",
       "number": 12,
-      "title": "2013 计算机组成原理 第12题",
+      "title": "2013 组成原理 第12题",
       "source": "408真题",
       "knowledge_points": [
         "指令执行指标"
@@ -2509,7 +2509,7 @@
       "subject": "computer-org",
       "year": "2013",
       "number": 13,
-      "title": "2013 计算机组成原理 第13题",
+      "title": "2013 组成原理 第13题",
       "source": "408真题",
       "knowledge_points": [
         "IEEE浮点数表示"
@@ -2520,7 +2520,7 @@
       "subject": "computer-org",
       "year": "2013",
       "number": 14,
-      "title": "2013 计算机组成原理 第14题",
+      "title": "2013 组成原理 第14题",
       "source": "408真题",
       "knowledge_points": [
         "补码"
@@ -2531,7 +2531,7 @@
       "subject": "computer-org",
       "year": "2013",
       "number": 15,
-      "title": "2013 计算机组成原理 第15题",
+      "title": "2013 组成原理 第15题",
       "source": "408真题",
       "knowledge_points": [
         "差错控制",
@@ -2543,7 +2543,7 @@
       "subject": "computer-org",
       "year": "2013",
       "number": 16,
-      "title": "2013 计算机组成原理 第16题",
+      "title": "2013 组成原理 第16题",
       "source": "408真题",
       "knowledge_points": [
         "地址翻译"
@@ -2554,7 +2554,7 @@
       "subject": "computer-org",
       "year": "2013",
       "number": 17,
-      "title": "2013 计算机组成原理 第17题",
+      "title": "2013 组成原理 第17题",
       "source": "408真题",
       "knowledge_points": [
         "指令寻址方式"
@@ -2565,7 +2565,7 @@
       "subject": "computer-org",
       "year": "2013",
       "number": 18,
-      "title": "2013 计算机组成原理 第18题",
+      "title": "2013 组成原理 第18题",
       "source": "408真题",
       "knowledge_points": [
         "流水线概念"
@@ -2576,7 +2576,7 @@
       "subject": "computer-org",
       "year": "2013",
       "number": 19,
-      "title": "2013 计算机组成原理 第19题",
+      "title": "2013 组成原理 第19题",
       "source": "408真题",
       "knowledge_points": [
         "总线类型"
@@ -2587,7 +2587,7 @@
       "subject": "computer-org",
       "year": "2013",
       "number": 20,
-      "title": "2013 计算机组成原理 第20题",
+      "title": "2013 组成原理 第20题",
       "source": "408真题",
       "knowledge_points": [
         "RAID"
@@ -2598,7 +2598,7 @@
       "subject": "computer-org",
       "year": "2013",
       "number": 21,
-      "title": "2013 计算机组成原理 第21题",
+      "title": "2013 组成原理 第21题",
       "source": "408真题",
       "knowledge_points": [
         "磁盘性能指标"
@@ -2609,7 +2609,7 @@
       "subject": "computer-org",
       "year": "2013",
       "number": 22,
-      "title": "2013 计算机组成原理 第22题",
+      "title": "2013 组成原理 第22题",
       "source": "408真题",
       "knowledge_points": [
         "DMA",
@@ -2621,7 +2621,7 @@
       "subject": "computer-org",
       "year": "2013",
       "number": 43,
-      "title": "2013 计算机组成原理 第43题",
+      "title": "2013 组成原理 第43题",
       "source": "408真题",
       "knowledge_points": [
         "cache概念",
@@ -2634,7 +2634,7 @@
       "subject": "computer-org",
       "year": "2013",
       "number": 44,
-      "title": "2013 计算机组成原理 第44题",
+      "title": "2013 组成原理 第44题",
       "source": "408真题",
       "knowledge_points": [
         "指令格式",
@@ -3126,7 +3126,7 @@
       "subject": "computer-org",
       "year": "2014",
       "number": 12,
-      "title": "2014 计算机组成原理 第12题",
+      "title": "2014 组成原理 第12题",
       "source": "408真题",
       "knowledge_points": [
         "计算机性能指标"
@@ -3137,7 +3137,7 @@
       "subject": "computer-org",
       "year": "2014",
       "number": 13,
-      "title": "2014 计算机组成原理 第13题",
+      "title": "2014 组成原理 第13题",
       "source": "408真题",
       "knowledge_points": [
         "补码"
@@ -3148,7 +3148,7 @@
       "subject": "computer-org",
       "year": "2014",
       "number": 14,
-      "title": "2014 计算机组成原理 第14题",
+      "title": "2014 组成原理 第14题",
       "source": "408真题",
       "knowledge_points": [
         "IEEE浮点数表示"
@@ -3159,7 +3159,7 @@
       "subject": "computer-org",
       "year": "2014",
       "number": 15,
-      "title": "2014 计算机组成原理 第15题",
+      "title": "2014 组成原理 第15题",
       "source": "408真题",
       "knowledge_points": [
         "主存容量的扩展"
@@ -3170,7 +3170,7 @@
       "subject": "computer-org",
       "year": "2014",
       "number": 16,
-      "title": "2014 计算机组成原理 第16题",
+      "title": "2014 组成原理 第16题",
       "source": "408真题",
       "knowledge_points": [
         "cache概念"
@@ -3181,7 +3181,7 @@
       "subject": "computer-org",
       "year": "2014",
       "number": 17,
-      "title": "2014 计算机组成原理 第17题",
+      "title": "2014 组成原理 第17题",
       "source": "408真题",
       "knowledge_points": [
         "寄存器类型",
@@ -3193,7 +3193,7 @@
       "subject": "computer-org",
       "year": "2014",
       "number": 18,
-      "title": "2014 计算机组成原理 第18题",
+      "title": "2014 组成原理 第18题",
       "source": "408真题",
       "knowledge_points": [
         "微程序控制器"
@@ -3204,7 +3204,7 @@
       "subject": "computer-org",
       "year": "2014",
       "number": 19,
-      "title": "2014 计算机组成原理 第19题",
+      "title": "2014 组成原理 第19题",
       "source": "408真题",
       "knowledge_points": [
         "总线指标"
@@ -3215,7 +3215,7 @@
       "subject": "computer-org",
       "year": "2014",
       "number": 20,
-      "title": "2014 计算机组成原理 第20题",
+      "title": "2014 组成原理 第20题",
       "source": "408真题",
       "knowledge_points": [
         "总线事务"
@@ -3226,7 +3226,7 @@
       "subject": "computer-org",
       "year": "2014",
       "number": 21,
-      "title": "2014 计算机组成原理 第21题",
+      "title": "2014 组成原理 第21题",
       "source": "408真题",
       "knowledge_points": [
         "IO接口"
@@ -3237,7 +3237,7 @@
       "subject": "computer-org",
       "year": "2014",
       "number": 22,
-      "title": "2014 计算机组成原理 第22题",
+      "title": "2014 组成原理 第22题",
       "source": "408真题",
       "knowledge_points": [
         "中断IO"
@@ -3248,7 +3248,7 @@
       "subject": "computer-org",
       "year": "2014",
       "number": 43,
-      "title": "2014 计算机组成原理 第43题",
+      "title": "2014 组成原理 第43题",
       "source": "408真题",
       "knowledge_points": [
         "最长前缀匹配",
@@ -3260,7 +3260,7 @@
       "subject": "computer-org",
       "year": "2014",
       "number": 44,
-      "title": "2014 计算机组成原理 第44题",
+      "title": "2014 组成原理 第44题",
       "source": "408真题",
       "knowledge_points": [
         "指令寻址方式",
@@ -3662,7 +3662,7 @@
       "subject": "computer-org",
       "year": "2015",
       "number": 12,
-      "title": "2015 计算机组成原理 第12题",
+      "title": "2015 组成原理 第12题",
       "source": "408真题",
       "knowledge_points": [
         "计算机体系结构"
@@ -3673,7 +3673,7 @@
       "subject": "computer-org",
       "year": "2015",
       "number": 13,
-      "title": "2015 计算机组成原理 第13题",
+      "title": "2015 组成原理 第13题",
       "source": "408真题",
       "knowledge_points": [],
       "local_file": "2015-co-013.md"
@@ -3682,7 +3682,7 @@
       "subject": "computer-org",
       "year": "2015",
       "number": 14,
-      "title": "2015 计算机组成原理 第14题",
+      "title": "2015 组成原理 第14题",
       "source": "408真题",
       "knowledge_points": [
         "浮点数加减"
@@ -3693,7 +3693,7 @@
       "subject": "computer-org",
       "year": "2015",
       "number": 15,
-      "title": "2015 计算机组成原理 第15题",
+      "title": "2015 组成原理 第15题",
       "source": "408真题",
       "knowledge_points": [
         "cache写策略",
@@ -3705,7 +3705,7 @@
       "subject": "computer-org",
       "year": "2015",
       "number": 16,
-      "title": "2015 计算机组成原理 第16题",
+      "title": "2015 组成原理 第16题",
       "source": "408真题",
       "knowledge_points": [
         "TLB",
@@ -3717,7 +3717,7 @@
       "subject": "computer-org",
       "year": "2015",
       "number": 17,
-      "title": "2015 计算机组成原理 第17题",
+      "title": "2015 组成原理 第17题",
       "source": "408真题",
       "knowledge_points": [
         "存储器概念"
@@ -3728,7 +3728,7 @@
       "subject": "computer-org",
       "year": "2015",
       "number": 18,
-      "title": "2015 计算机组成原理 第18题",
+      "title": "2015 组成原理 第18题",
       "source": "408真题",
       "knowledge_points": [
         "主存容量的扩展"
@@ -3739,7 +3739,7 @@
       "subject": "computer-org",
       "year": "2015",
       "number": 19,
-      "title": "2015 计算机组成原理 第19题",
+      "title": "2015 组成原理 第19题",
       "source": "408真题",
       "knowledge_points": [
         "总线定时"
@@ -3750,7 +3750,7 @@
       "subject": "computer-org",
       "year": "2015",
       "number": 20,
-      "title": "2015 计算机组成原理 第20题",
+      "title": "2015 组成原理 第20题",
       "source": "408真题",
       "knowledge_points": [
         "磁盘性能指标"
@@ -3761,7 +3761,7 @@
       "subject": "computer-org",
       "year": "2015",
       "number": 21,
-      "title": "2015 计算机组成原理 第21题",
+      "title": "2015 组成原理 第21题",
       "source": "408真题",
       "knowledge_points": [
         "中断IO"
@@ -3772,7 +3772,7 @@
       "subject": "computer-org",
       "year": "2015",
       "number": 22,
-      "title": "2015 计算机组成原理 第22题",
+      "title": "2015 组成原理 第22题",
       "source": "408真题",
       "knowledge_points": [
         "异常和中断"
@@ -3783,7 +3783,7 @@
       "subject": "computer-org",
       "year": "2015",
       "number": 43,
-      "title": "2015 计算机组成原理 第43题",
+      "title": "2015 组成原理 第43题",
       "source": "408真题",
       "knowledge_points": [
         "寄存器类型",
@@ -3795,7 +3795,7 @@
       "subject": "computer-org",
       "year": "2015",
       "number": 44,
-      "title": "2015 计算机组成原理 第44题",
+      "title": "2015 组成原理 第44题",
       "source": "408真题",
       "knowledge_points": [
         "指令格式"
@@ -4287,7 +4287,7 @@
       "subject": "computer-org",
       "year": "2016",
       "number": 12,
-      "title": "2016 计算机组成原理 第12题",
+      "title": "2016 组成原理 第12题",
       "source": "408真题",
       "knowledge_points": [
         "计算机体系结构"
@@ -4298,7 +4298,7 @@
       "subject": "computer-org",
       "year": "2016",
       "number": 13,
-      "title": "2016 计算机组成原理 第13题",
+      "title": "2016 组成原理 第13题",
       "source": "408真题",
       "knowledge_points": [
         "类型转换"
@@ -4309,7 +4309,7 @@
       "subject": "computer-org",
       "year": "2016",
       "number": 14,
-      "title": "2016 计算机组成原理 第14题",
+      "title": "2016 组成原理 第14题",
       "source": "408真题",
       "knowledge_points": [
         "大小端"
@@ -4320,7 +4320,7 @@
       "subject": "computer-org",
       "year": "2016",
       "number": 15,
-      "title": "2016 计算机组成原理 第15题",
+      "title": "2016 组成原理 第15题",
       "source": "408真题",
       "knowledge_points": [
         "cache映射方式",
@@ -4332,7 +4332,7 @@
       "subject": "computer-org",
       "year": "2016",
       "number": 16,
-      "title": "2016 计算机组成原理 第16题",
+      "title": "2016 组成原理 第16题",
       "source": "408真题",
       "knowledge_points": [],
       "local_file": "2016-co-016.md"
@@ -4341,7 +4341,7 @@
       "subject": "computer-org",
       "year": "2016",
       "number": 17,
-      "title": "2016 计算机组成原理 第17题",
+      "title": "2016 组成原理 第17题",
       "source": "408真题",
       "knowledge_points": [
         "指令寻址方式"
@@ -4352,7 +4352,7 @@
       "subject": "computer-org",
       "year": "2016",
       "number": 18,
-      "title": "2016 计算机组成原理 第18题",
+      "title": "2016 组成原理 第18题",
       "source": "408真题",
       "knowledge_points": [
         "寄存器类型"
@@ -4363,7 +4363,7 @@
       "subject": "computer-org",
       "year": "2016",
       "number": 19,
-      "title": "2016 计算机组成原理 第19题",
+      "title": "2016 组成原理 第19题",
       "source": "408真题",
       "knowledge_points": [
         "流水线冒险"
@@ -4374,7 +4374,7 @@
       "subject": "computer-org",
       "year": "2016",
       "number": 20,
-      "title": "2016 计算机组成原理 第20题",
+      "title": "2016 组成原理 第20题",
       "source": "408真题",
       "knowledge_points": [
         "单周期处理器",
@@ -4386,7 +4386,7 @@
       "subject": "computer-org",
       "year": "2016",
       "number": 21,
-      "title": "2016 计算机组成原理 第21题",
+      "title": "2016 组成原理 第21题",
       "source": "408真题",
       "knowledge_points": [
         "总线事务"
@@ -4397,7 +4397,7 @@
       "subject": "computer-org",
       "year": "2016",
       "number": 22,
-      "title": "2016 计算机组成原理 第22题",
+      "title": "2016 组成原理 第22题",
       "source": "408真题",
       "knowledge_points": [
         "异常和中断"
@@ -4408,7 +4408,7 @@
       "subject": "computer-org",
       "year": "2016",
       "number": 43,
-      "title": "2016 计算机组成原理 第43题",
+      "title": "2016 组成原理 第43题",
       "source": "408真题",
       "knowledge_points": [
         "快速排序"
@@ -4419,7 +4419,7 @@
       "subject": "computer-org",
       "year": "2016",
       "number": 44,
-      "title": "2016 计算机组成原理 第44题",
+      "title": "2016 组成原理 第44题",
       "source": "408真题",
       "knowledge_points": [
         "中断IO",
@@ -4915,7 +4915,7 @@
       "subject": "computer-org",
       "year": "2017",
       "number": 12,
-      "title": "2017 计算机组成原理 第12题",
+      "title": "2017 组成原理 第12题",
       "source": "408真题",
       "knowledge_points": [
         "指令体系结构"
@@ -4926,7 +4926,7 @@
       "subject": "computer-org",
       "year": "2017",
       "number": 13,
-      "title": "2017 计算机组成原理 第13题",
+      "title": "2017 组成原理 第13题",
       "source": "408真题",
       "knowledge_points": [
         "主存容量的扩展"
@@ -4937,7 +4937,7 @@
       "subject": "computer-org",
       "year": "2017",
       "number": 14,
-      "title": "2017 计算机组成原理 第14题",
+      "title": "2017 组成原理 第14题",
       "source": "408真题",
       "knowledge_points": [
         "cache概念"
@@ -4948,7 +4948,7 @@
       "subject": "computer-org",
       "year": "2017",
       "number": 15,
-      "title": "2017 计算机组成原理 第15题",
+      "title": "2017 组成原理 第15题",
       "source": "408真题",
       "knowledge_points": [
         "指令寻址方式"
@@ -4959,7 +4959,7 @@
       "subject": "computer-org",
       "year": "2017",
       "number": 16,
-      "title": "2017 计算机组成原理 第16题",
+      "title": "2017 组成原理 第16题",
       "source": "408真题",
       "knowledge_points": [
         "操作码扩展编码"
@@ -4970,7 +4970,7 @@
       "subject": "computer-org",
       "year": "2017",
       "number": 17,
-      "title": "2017 计算机组成原理 第17题",
+      "title": "2017 组成原理 第17题",
       "source": "408真题",
       "knowledge_points": [
         "超流水线"
@@ -4981,7 +4981,7 @@
       "subject": "computer-org",
       "year": "2017",
       "number": 18,
-      "title": "2017 计算机组成原理 第18题",
+      "title": "2017 组成原理 第18题",
       "source": "408真题",
       "knowledge_points": [
         "寄存器类型"
@@ -4992,7 +4992,7 @@
       "subject": "computer-org",
       "year": "2017",
       "number": 19,
-      "title": "2017 计算机组成原理 第19题",
+      "title": "2017 组成原理 第19题",
       "source": "408真题",
       "knowledge_points": [
         "数据通路",
@@ -5004,7 +5004,7 @@
       "subject": "computer-org",
       "year": "2017",
       "number": 20,
-      "title": "2017 计算机组成原理 第20题",
+      "title": "2017 组成原理 第20题",
       "source": "408真题",
       "knowledge_points": [
         "总线类型"
@@ -5015,7 +5015,7 @@
       "subject": "computer-org",
       "year": "2017",
       "number": 21,
-      "title": "2017 计算机组成原理 第21题",
+      "title": "2017 组成原理 第21题",
       "source": "408真题",
       "knowledge_points": [
         "IO接口"
@@ -5026,7 +5026,7 @@
       "subject": "computer-org",
       "year": "2017",
       "number": 22,
-      "title": "2017 计算机组成原理 第22题",
+      "title": "2017 组成原理 第22题",
       "source": "408真题",
       "knowledge_points": [
         "多级中断"
@@ -5037,7 +5037,7 @@
       "subject": "computer-org",
       "year": "2017",
       "number": 43,
-      "title": "2017 计算机组成原理 第43题",
+      "title": "2017 组成原理 第43题",
       "source": "408真题",
       "knowledge_points": [
         "IEEE浮点数表示",
@@ -5049,7 +5049,7 @@
       "subject": "computer-org",
       "year": "2017",
       "number": 44,
-      "title": "2017 计算机组成原理 第44题",
+      "title": "2017 组成原理 第44题",
       "source": "408真题",
       "knowledge_points": [
         "复杂和精简指令集",
@@ -5542,7 +5542,7 @@
       "subject": "computer-org",
       "year": "2018",
       "number": 12,
-      "title": "2018 计算机组成原理 第12题",
+      "title": "2018 组成原理 第12题",
       "source": "408真题",
       "knowledge_points": [
         "计算机体系结构"
@@ -5553,7 +5553,7 @@
       "subject": "computer-org",
       "year": "2018",
       "number": 13,
-      "title": "2018 计算机组成原理 第13题",
+      "title": "2018 组成原理 第13题",
       "source": "408真题",
       "knowledge_points": [
         "类型转换",
@@ -5565,7 +5565,7 @@
       "subject": "computer-org",
       "year": "2018",
       "number": 14,
-      "title": "2018 计算机组成原理 第14题",
+      "title": "2018 组成原理 第14题",
       "source": "408真题",
       "knowledge_points": [
         "IEEE浮点数表示"
@@ -5576,7 +5576,7 @@
       "subject": "computer-org",
       "year": "2018",
       "number": 15,
-      "title": "2018 计算机组成原理 第15题",
+      "title": "2018 组成原理 第15题",
       "source": "408真题",
       "knowledge_points": [
         "大小端"
@@ -5587,7 +5587,7 @@
       "subject": "computer-org",
       "year": "2018",
       "number": 16,
-      "title": "2018 计算机组成原理 第16题",
+      "title": "2018 组成原理 第16题",
       "source": "408真题",
       "knowledge_points": [
         "逻辑移位"
@@ -5598,7 +5598,7 @@
       "subject": "computer-org",
       "year": "2018",
       "number": 17,
-      "title": "2018 计算机组成原理 第17题",
+      "title": "2018 组成原理 第17题",
       "source": "408真题",
       "knowledge_points": [
         "主存容量的扩展"
@@ -5609,7 +5609,7 @@
       "subject": "computer-org",
       "year": "2018",
       "number": 18,
-      "title": "2018 计算机组成原理 第18题",
+      "title": "2018 组成原理 第18题",
       "source": "408真题",
       "knowledge_points": [
         "指令寻址方式"
@@ -5620,7 +5620,7 @@
       "subject": "computer-org",
       "year": "2018",
       "number": 19,
-      "title": "2018 计算机组成原理 第19题",
+      "title": "2018 组成原理 第19题",
       "source": "408真题",
       "knowledge_points": [
         "标志寄存器"
@@ -5631,7 +5631,7 @@
       "subject": "computer-org",
       "year": "2018",
       "number": 20,
-      "title": "2018 计算机组成原理 第20题",
+      "title": "2018 组成原理 第20题",
       "source": "408真题",
       "knowledge_points": [
         "流水线概念"
@@ -5642,7 +5642,7 @@
       "subject": "computer-org",
       "year": "2018",
       "number": 21,
-      "title": "2018 计算机组成原理 第21题",
+      "title": "2018 组成原理 第21题",
       "source": "408真题",
       "knowledge_points": [
         "总线指标"
@@ -5653,7 +5653,7 @@
       "subject": "computer-org",
       "year": "2018",
       "number": 22,
-      "title": "2018 计算机组成原理 第22题",
+      "title": "2018 组成原理 第22题",
       "source": "408真题",
       "knowledge_points": [
         "中断IO",
@@ -5665,7 +5665,7 @@
       "subject": "computer-org",
       "year": "2018",
       "number": 43,
-      "title": "2018 计算机组成原理 第43题",
+      "title": "2018 组成原理 第43题",
       "source": "408真题",
       "knowledge_points": [
         "IO方式",
@@ -5677,7 +5677,7 @@
       "subject": "computer-org",
       "year": "2018",
       "number": 44,
-      "title": "2018 计算机组成原理 第44题",
+      "title": "2018 组成原理 第44题",
       "source": "408真题",
       "knowledge_points": [
         "虚拟页式管理",
@@ -6174,7 +6174,7 @@
       "subject": "computer-org",
       "year": "2019",
       "number": 12,
-      "title": "2019 计算机组成原理 第12题",
+      "title": "2019 组成原理 第12题",
       "source": "408真题",
       "knowledge_points": [
         "计算机体系结构"
@@ -6185,7 +6185,7 @@
       "subject": "computer-org",
       "year": "2019",
       "number": 13,
-      "title": "2019 计算机组成原理 第13题",
+      "title": "2019 组成原理 第13题",
       "source": "408真题",
       "knowledge_points": [
         "类型转换",
@@ -6197,7 +6197,7 @@
       "subject": "computer-org",
       "year": "2019",
       "number": 14,
-      "title": "2019 计算机组成原理 第14题",
+      "title": "2019 组成原理 第14题",
       "source": "408真题",
       "knowledge_points": [
         "缺页异常"
@@ -6208,7 +6208,7 @@
       "subject": "computer-org",
       "year": "2019",
       "number": 15,
-      "title": "2019 计算机组成原理 第15题",
+      "title": "2019 组成原理 第15题",
       "source": "408真题",
       "knowledge_points": [
         "大小端"
@@ -6219,7 +6219,7 @@
       "subject": "computer-org",
       "year": "2019",
       "number": 16,
-      "title": "2019 计算机组成原理 第16题",
+      "title": "2019 组成原理 第16题",
       "source": "408真题",
       "knowledge_points": [
         "计算机性能指标"
@@ -6230,7 +6230,7 @@
       "subject": "computer-org",
       "year": "2019",
       "number": 17,
-      "title": "2019 计算机组成原理 第17题",
+      "title": "2019 组成原理 第17题",
       "source": "408真题",
       "knowledge_points": [
         "寄存器类型",
@@ -6242,7 +6242,7 @@
       "subject": "computer-org",
       "year": "2019",
       "number": 18,
-      "title": "2019 计算机组成原理 第18题",
+      "title": "2019 组成原理 第18题",
       "source": "408真题",
       "knowledge_points": [
         "流水线冒险"
@@ -6253,7 +6253,7 @@
       "subject": "computer-org",
       "year": "2019",
       "number": 19,
-      "title": "2019 计算机组成原理 第19题",
+      "title": "2019 组成原理 第19题",
       "source": "408真题",
       "knowledge_points": [
         "总线指标"
@@ -6264,7 +6264,7 @@
       "subject": "computer-org",
       "year": "2019",
       "number": 20,
-      "title": "2019 计算机组成原理 第20题",
+      "title": "2019 组成原理 第20题",
       "source": "408真题",
       "knowledge_points": [
         "磁盘概念"
@@ -6275,7 +6275,7 @@
       "subject": "computer-org",
       "year": "2019",
       "number": 21,
-      "title": "2019 计算机组成原理 第21题",
+      "title": "2019 组成原理 第21题",
       "source": "408真题",
       "knowledge_points": [
         "中断IO"
@@ -6286,7 +6286,7 @@
       "subject": "computer-org",
       "year": "2019",
       "number": 22,
-      "title": "2019 计算机组成原理 第22题",
+      "title": "2019 组成原理 第22题",
       "source": "408真题",
       "knowledge_points": [
         "DMA"
@@ -6297,7 +6297,7 @@
       "subject": "computer-org",
       "year": "2019",
       "number": 43,
-      "title": "2019 计算机组成原理 第43题",
+      "title": "2019 组成原理 第43题",
       "source": "408真题",
       "knowledge_points": [],
       "local_file": "2019-co-043.md"
@@ -6306,7 +6306,7 @@
       "subject": "computer-org",
       "year": "2019",
       "number": 44,
-      "title": "2019 计算机组成原理 第44题",
+      "title": "2019 组成原理 第44题",
       "source": "408真题",
       "knowledge_points": [
         "CHS地址",
@@ -6811,7 +6811,7 @@
       "subject": "computer-org",
       "year": "2020",
       "number": 12,
-      "title": "2020 计算机组成原理 第12题",
+      "title": "2020 组成原理 第12题",
       "source": "408真题",
       "knowledge_points": [
         "寄存器类型",
@@ -6823,7 +6823,7 @@
       "subject": "computer-org",
       "year": "2020",
       "number": 13,
-      "title": "2020 计算机组成原理 第13题",
+      "title": "2020 组成原理 第13题",
       "source": "408真题",
       "knowledge_points": [
         "IEEE浮点数表示",
@@ -6835,7 +6835,7 @@
       "subject": "computer-org",
       "year": "2020",
       "number": 14,
-      "title": "2020 计算机组成原理 第14题",
+      "title": "2020 组成原理 第14题",
       "source": "408真题",
       "knowledge_points": [
         "大小端",
@@ -6847,7 +6847,7 @@
       "subject": "computer-org",
       "year": "2020",
       "number": 15,
-      "title": "2020 计算机组成原理 第15题",
+      "title": "2020 组成原理 第15题",
       "source": "408真题",
       "knowledge_points": [
         "TLB",
@@ -6859,7 +6859,7 @@
       "subject": "computer-org",
       "year": "2020",
       "number": 16,
-      "title": "2020 计算机组成原理 第16题",
+      "title": "2020 组成原理 第16题",
       "source": "408真题",
       "knowledge_points": [
         "指令寻址方式",
@@ -6871,7 +6871,7 @@
       "subject": "computer-org",
       "year": "2020",
       "number": 17,
-      "title": "2020 计算机组成原理 第17题",
+      "title": "2020 组成原理 第17题",
       "source": "408真题",
       "knowledge_points": [
         "单周期处理器",
@@ -6883,7 +6883,7 @@
       "subject": "computer-org",
       "year": "2020",
       "number": 18,
-      "title": "2020 计算机组成原理 第18题",
+      "title": "2020 组成原理 第18题",
       "source": "408真题",
       "knowledge_points": [
         "陷阱指令"
@@ -6894,7 +6894,7 @@
       "subject": "computer-org",
       "year": "2020",
       "number": 19,
-      "title": "2020 计算机组成原理 第19题",
+      "title": "2020 组成原理 第19题",
       "source": "408真题",
       "knowledge_points": [
         "总线指标"
@@ -6905,7 +6905,7 @@
       "subject": "computer-org",
       "year": "2020",
       "number": 20,
-      "title": "2020 计算机组成原理 第20题",
+      "title": "2020 组成原理 第20题",
       "source": "408真题",
       "knowledge_points": [
         "中断IO",
@@ -6917,7 +6917,7 @@
       "subject": "computer-org",
       "year": "2020",
       "number": 21,
-      "title": "2020 计算机组成原理 第21题",
+      "title": "2020 组成原理 第21题",
       "source": "408真题",
       "knowledge_points": [
         "中断屏蔽",
@@ -6929,7 +6929,7 @@
       "subject": "computer-org",
       "year": "2020",
       "number": 22,
-      "title": "2020 计算机组成原理 第22题",
+      "title": "2020 组成原理 第22题",
       "source": "408真题",
       "knowledge_points": [
         "DMA"
@@ -6940,7 +6940,7 @@
       "subject": "computer-org",
       "year": "2020",
       "number": 43,
-      "title": "2020 计算机组成原理 第43题",
+      "title": "2020 组成原理 第43题",
       "source": "408真题",
       "knowledge_points": [
         "指令种类",
@@ -6952,7 +6952,7 @@
       "subject": "computer-org",
       "year": "2020",
       "number": 44,
-      "title": "2020 计算机组成原理 第44题",
+      "title": "2020 组成原理 第44题",
       "source": "408真题",
       "knowledge_points": [
         "访存过程"
@@ -7442,7 +7442,7 @@
       "subject": "computer-org",
       "year": "2021",
       "number": 12,
-      "title": "2021 计算机组成原理 第12题",
+      "title": "2021 组成原理 第12题",
       "source": "408真题",
       "knowledge_points": [
         "计算机性能指标"
@@ -7453,7 +7453,7 @@
       "subject": "computer-org",
       "year": "2021",
       "number": 13,
-      "title": "2021 计算机组成原理 第13题",
+      "title": "2021 组成原理 第13题",
       "source": "408真题",
       "knowledge_points": [
         "补码"
@@ -7464,7 +7464,7 @@
       "subject": "computer-org",
       "year": "2021",
       "number": 14,
-      "title": "2021 计算机组成原理 第14题",
+      "title": "2021 组成原理 第14题",
       "source": "408真题",
       "knowledge_points": [
         "IEEE浮点数表示"
@@ -7475,7 +7475,7 @@
       "subject": "computer-org",
       "year": "2021",
       "number": 15,
-      "title": "2021 计算机组成原理 第15题",
+      "title": "2021 组成原理 第15题",
       "source": "408真题",
       "knowledge_points": [
         "主存容量的扩展"
@@ -7486,7 +7486,7 @@
       "subject": "computer-org",
       "year": "2021",
       "number": 16,
-      "title": "2021 计算机组成原理 第16题",
+      "title": "2021 组成原理 第16题",
       "source": "408真题",
       "knowledge_points": [
         "cache写策略",
@@ -7498,7 +7498,7 @@
       "subject": "computer-org",
       "year": "2021",
       "number": 17,
-      "title": "2021 计算机组成原理 第17题",
+      "title": "2021 组成原理 第17题",
       "source": "408真题",
       "knowledge_points": [
         "寄存器类型"
@@ -7509,7 +7509,7 @@
       "subject": "computer-org",
       "year": "2021",
       "number": 18,
-      "title": "2021 计算机组成原理 第18题",
+      "title": "2021 组成原理 第18题",
       "source": "408真题",
       "knowledge_points": [
         "数据通路"
@@ -7520,7 +7520,7 @@
       "subject": "computer-org",
       "year": "2021",
       "number": 19,
-      "title": "2021 计算机组成原理 第19题",
+      "title": "2021 组成原理 第19题",
       "source": "408真题",
       "knowledge_points": [
         "总线概念"
@@ -7531,7 +7531,7 @@
       "subject": "computer-org",
       "year": "2021",
       "number": 20,
-      "title": "2021 计算机组成原理 第20题",
+      "title": "2021 组成原理 第20题",
       "source": "408真题",
       "knowledge_points": [
         "IO接口"
@@ -7542,7 +7542,7 @@
       "subject": "computer-org",
       "year": "2021",
       "number": 21,
-      "title": "2021 计算机组成原理 第21题",
+      "title": "2021 组成原理 第21题",
       "source": "408真题",
       "knowledge_points": [
         "异常和中断"
@@ -7553,7 +7553,7 @@
       "subject": "computer-org",
       "year": "2021",
       "number": 22,
-      "title": "2021 计算机组成原理 第22题",
+      "title": "2021 组成原理 第22题",
       "source": "408真题",
       "knowledge_points": [
         "多级中断"
@@ -7564,7 +7564,7 @@
       "subject": "computer-org",
       "year": "2021",
       "number": 43,
-      "title": "2021 计算机组成原理 第43题",
+      "title": "2021 组成原理 第43题",
       "source": "408真题",
       "knowledge_points": [
         "指令操作码",
@@ -7576,7 +7576,7 @@
       "subject": "computer-org",
       "year": "2021",
       "number": 44,
-      "title": "2021 计算机组成原理 第44题",
+      "title": "2021 组成原理 第44题",
       "source": "408真题",
       "knowledge_points": [
         "地址翻译",
@@ -8069,7 +8069,7 @@
       "subject": "computer-org",
       "year": "2022",
       "number": 12,
-      "title": "2022 计算机组成原理 第12题",
+      "title": "2022 组成原理 第12题",
       "source": "408真题",
       "knowledge_points": [
         "计算机性能指标"
@@ -8080,7 +8080,7 @@
       "subject": "computer-org",
       "year": "2022",
       "number": 13,
-      "title": "2022 计算机组成原理 第13题",
+      "title": "2022 组成原理 第13题",
       "source": "408真题",
       "knowledge_points": [
         "补码"
@@ -8091,7 +8091,7 @@
       "subject": "computer-org",
       "year": "2022",
       "number": 14,
-      "title": "2022 计算机组成原理 第14题",
+      "title": "2022 组成原理 第14题",
       "source": "408真题",
       "knowledge_points": [
         "IEEE浮点数表示"
@@ -8102,7 +8102,7 @@
       "subject": "computer-org",
       "year": "2022",
       "number": 15,
-      "title": "2022 计算机组成原理 第15题",
+      "title": "2022 组成原理 第15题",
       "source": "408真题",
       "knowledge_points": [
         "页表"
@@ -8113,7 +8113,7 @@
       "subject": "computer-org",
       "year": "2022",
       "number": 16,
-      "title": "2022 计算机组成原理 第16题",
+      "title": "2022 组成原理 第16题",
       "source": "408真题",
       "knowledge_points": [
         "cache映射方式"
@@ -8124,7 +8124,7 @@
       "subject": "computer-org",
       "year": "2022",
       "number": 17,
-      "title": "2022 计算机组成原理 第17题",
+      "title": "2022 组成原理 第17题",
       "source": "408真题",
       "knowledge_points": [],
       "local_file": "2022-co-017.md"
@@ -8133,7 +8133,7 @@
       "subject": "computer-org",
       "year": "2022",
       "number": 18,
-      "title": "2022 计算机组成原理 第18题",
+      "title": "2022 组成原理 第18题",
       "source": "408真题",
       "knowledge_points": [
         "指令体系结构"
@@ -8144,7 +8144,7 @@
       "subject": "computer-org",
       "year": "2022",
       "number": 19,
-      "title": "2022 计算机组成原理 第19题",
+      "title": "2022 组成原理 第19题",
       "source": "408真题",
       "knowledge_points": [
         "指令种类",
@@ -8156,7 +8156,7 @@
       "subject": "computer-org",
       "year": "2022",
       "number": 20,
-      "title": "2022 计算机组成原理 第20题",
+      "title": "2022 组成原理 第20题",
       "source": "408真题",
       "knowledge_points": [
         "编译过程"
@@ -8167,7 +8167,7 @@
       "subject": "computer-org",
       "year": "2022",
       "number": 21,
-      "title": "2022 计算机组成原理 第21题",
+      "title": "2022 组成原理 第21题",
       "source": "408真题",
       "knowledge_points": [
         "中断IO"
@@ -8178,7 +8178,7 @@
       "subject": "computer-org",
       "year": "2022",
       "number": 22,
-      "title": "2022 计算机组成原理 第22题",
+      "title": "2022 组成原理 第22题",
       "source": "408真题",
       "knowledge_points": [
         "多处理机"
@@ -8189,7 +8189,7 @@
       "subject": "computer-org",
       "year": "2022",
       "number": 43,
-      "title": "2022 计算机组成原理 第43题",
+      "title": "2022 组成原理 第43题",
       "source": "408真题",
       "knowledge_points": [
         "寄存器类型",
@@ -8201,7 +8201,7 @@
       "subject": "computer-org",
       "year": "2022",
       "number": 44,
-      "title": "2022 计算机组成原理 第44题",
+      "title": "2022 组成原理 第44题",
       "source": "408真题",
       "knowledge_points": [
         "CHS地址",
@@ -8595,7 +8595,7 @@
       "subject": "computer-org",
       "year": "2023",
       "number": 12,
-      "title": "2023 计算机组成原理 第12题",
+      "title": "2023 组成原理 第12题",
       "source": "408真题",
       "knowledge_points": [
         "计算机性能指标"
@@ -8606,7 +8606,7 @@
       "subject": "computer-org",
       "year": "2023",
       "number": 13,
-      "title": "2023 计算机组成原理 第13题",
+      "title": "2023 组成原理 第13题",
       "source": "408真题",
       "knowledge_points": [
         "补码"
@@ -8617,7 +8617,7 @@
       "subject": "computer-org",
       "year": "2023",
       "number": 14,
-      "title": "2023 计算机组成原理 第14题",
+      "title": "2023 组成原理 第14题",
       "source": "408真题",
       "knowledge_points": [
         "IEEE浮点数表示"
@@ -8628,7 +8628,7 @@
       "subject": "computer-org",
       "year": "2023",
       "number": 15,
-      "title": "2023 计算机组成原理 第15题",
+      "title": "2023 组成原理 第15题",
       "source": "408真题",
       "knowledge_points": [
         "存储器地址"
@@ -8639,7 +8639,7 @@
       "subject": "computer-org",
       "year": "2023",
       "number": 16,
-      "title": "2023 计算机组成原理 第16题",
+      "title": "2023 组成原理 第16题",
       "source": "408真题",
       "knowledge_points": [
         "标志寄存器"
@@ -8650,7 +8650,7 @@
       "subject": "computer-org",
       "year": "2023",
       "number": 18,
-      "title": "2023 计算机组成原理 第18题",
+      "title": "2023 组成原理 第18题",
       "source": "408真题",
       "knowledge_points": [
         "数据通路"
@@ -8661,7 +8661,7 @@
       "subject": "computer-org",
       "year": "2023",
       "number": 19,
-      "title": "2023 计算机组成原理 第19题",
+      "title": "2023 组成原理 第19题",
       "source": "408真题",
       "knowledge_points": [
         "流水线冒险"
@@ -8672,7 +8672,7 @@
       "subject": "computer-org",
       "year": "2023",
       "number": 21,
-      "title": "2023 计算机组成原理 第21题",
+      "title": "2023 组成原理 第21题",
       "source": "408真题",
       "knowledge_points": [
         "异常和中断"
@@ -8683,7 +8683,7 @@
       "subject": "computer-org",
       "year": "2023",
       "number": 22,
-      "title": "2023 计算机组成原理 第22题",
+      "title": "2023 组成原理 第22题",
       "source": "408真题",
       "knowledge_points": [
         "IO方式"
@@ -8694,7 +8694,7 @@
       "subject": "computer-org",
       "year": "2023",
       "number": 43,
-      "title": "2023 计算机组成原理 第43题",
+      "title": "2023 组成原理 第43题",
       "source": "408真题",
       "knowledge_points": [
         "虚拟页式管理",
@@ -8706,7 +8706,7 @@
       "subject": "computer-org",
       "year": "2023",
       "number": 44,
-      "title": "2023 计算机组成原理 第44题",
+      "title": "2023 组成原理 第44题",
       "source": "408真题",
       "knowledge_points": [
         "缺页异常",
@@ -9205,7 +9205,7 @@
       "subject": "computer-org",
       "year": "2024",
       "number": 12,
-      "title": "2024 计算机组成原理 第12题",
+      "title": "2024 组成原理 第12题",
       "source": "408真题",
       "knowledge_points": [
         "类型转换",
@@ -9217,7 +9217,7 @@
       "subject": "computer-org",
       "year": "2024",
       "number": 13,
-      "title": "2024 计算机组成原理 第13题",
+      "title": "2024 组成原理 第13题",
       "source": "408真题",
       "knowledge_points": [
         "微程序控制器"
@@ -9228,7 +9228,7 @@
       "subject": "computer-org",
       "year": "2024",
       "number": 14,
-      "title": "2024 计算机组成原理 第14题",
+      "title": "2024 组成原理 第14题",
       "source": "408真题",
       "knowledge_points": [
         "IEEE浮点数表示",
@@ -9240,7 +9240,7 @@
       "subject": "computer-org",
       "year": "2024",
       "number": 15,
-      "title": "2024 计算机组成原理 第15题",
+      "title": "2024 组成原理 第15题",
       "source": "408真题",
       "knowledge_points": [
         "运算电路"
@@ -9251,7 +9251,7 @@
       "subject": "computer-org",
       "year": "2024",
       "number": 16,
-      "title": "2024 计算机组成原理 第16题",
+      "title": "2024 组成原理 第16题",
       "source": "408真题",
       "knowledge_points": [
         "虚拟页式管理"
@@ -9262,7 +9262,7 @@
       "subject": "computer-org",
       "year": "2024",
       "number": 17,
-      "title": "2024 计算机组成原理 第17题",
+      "title": "2024 组成原理 第17题",
       "source": "408真题",
       "knowledge_points": [
         "TLB"
@@ -9273,7 +9273,7 @@
       "subject": "computer-org",
       "year": "2024",
       "number": 18,
-      "title": "2024 计算机组成原理 第18题",
+      "title": "2024 组成原理 第18题",
       "source": "408真题",
       "knowledge_points": [
         "虚拟页式管理"
@@ -9284,7 +9284,7 @@
       "subject": "computer-org",
       "year": "2024",
       "number": 19,
-      "title": "2024 计算机组成原理 第19题",
+      "title": "2024 组成原理 第19题",
       "source": "408真题",
       "knowledge_points": [
         "流水线冒险"
@@ -9295,7 +9295,7 @@
       "subject": "computer-org",
       "year": "2024",
       "number": 20,
-      "title": "2024 计算机组成原理 第20题",
+      "title": "2024 组成原理 第20题",
       "source": "408真题",
       "knowledge_points": [
         "总线指标"
@@ -9306,7 +9306,7 @@
       "subject": "computer-org",
       "year": "2024",
       "number": 21,
-      "title": "2024 计算机组成原理 第21题",
+      "title": "2024 组成原理 第21题",
       "source": "408真题",
       "knowledge_points": [
         "中断IO"
@@ -9317,7 +9317,7 @@
       "subject": "computer-org",
       "year": "2024",
       "number": 22,
-      "title": "2024 计算机组成原理 第22题",
+      "title": "2024 组成原理 第22题",
       "source": "408真题",
       "knowledge_points": [
         "DMA"
@@ -9328,7 +9328,7 @@
       "subject": "computer-org",
       "year": "2024",
       "number": 43,
-      "title": "2024 计算机组成原理 第43题",
+      "title": "2024 组成原理 第43题",
       "source": "408真题",
       "knowledge_points": [],
       "local_file": "2024-co-043.md"
@@ -9337,7 +9337,7 @@
       "subject": "computer-org",
       "year": "2024",
       "number": 44,
-      "title": "2024 计算机组成原理 第44题",
+      "title": "2024 组成原理 第44题",
       "source": "408真题",
       "knowledge_points": [
         "虚拟页式管理",
@@ -9833,7 +9833,7 @@
       "subject": "computer-org",
       "year": "2025",
       "number": 12,
-      "title": "2025 计算机组成原理 第12题",
+      "title": "2025 组成原理 第12题",
       "source": "408真题",
       "knowledge_points": [
         "类型转换"
@@ -9844,7 +9844,7 @@
       "subject": "computer-org",
       "year": "2025",
       "number": 13,
-      "title": "2025 计算机组成原理 第13题",
+      "title": "2025 组成原理 第13题",
       "source": "408真题",
       "knowledge_points": [
         "IEEE浮点数表示"
@@ -9855,7 +9855,7 @@
       "subject": "computer-org",
       "year": "2025",
       "number": 14,
-      "title": "2025 计算机组成原理 第14题",
+      "title": "2025 组成原理 第14题",
       "source": "408真题",
       "knowledge_points": [
         "补码"
@@ -9866,7 +9866,7 @@
       "subject": "computer-org",
       "year": "2025",
       "number": 15,
-      "title": "2025 计算机组成原理 第15题",
+      "title": "2025 组成原理 第15题",
       "source": "408真题",
       "knowledge_points": [
         "大小端",
@@ -9878,7 +9878,7 @@
       "subject": "computer-org",
       "year": "2025",
       "number": 16,
-      "title": "2025 计算机组成原理 第16题",
+      "title": "2025 组成原理 第16题",
       "source": "408真题",
       "knowledge_points": [
         "指令体系结构"
@@ -9889,7 +9889,7 @@
       "subject": "computer-org",
       "year": "2025",
       "number": 17,
-      "title": "2025 计算机组成原理 第17题",
+      "title": "2025 组成原理 第17题",
       "source": "408真题",
       "knowledge_points": [
         "复杂和精简指令集"
@@ -9900,7 +9900,7 @@
       "subject": "computer-org",
       "year": "2025",
       "number": 18,
-      "title": "2025 计算机组成原理 第18题",
+      "title": "2025 组成原理 第18题",
       "source": "408真题",
       "knowledge_points": [
         "计算机性能指标"
@@ -9911,7 +9911,7 @@
       "subject": "computer-org",
       "year": "2025",
       "number": 19,
-      "title": "2025 计算机组成原理 第19题",
+      "title": "2025 组成原理 第19题",
       "source": "408真题",
       "knowledge_points": [
         "控制器",
@@ -9923,7 +9923,7 @@
       "subject": "computer-org",
       "year": "2025",
       "number": 20,
-      "title": "2025 计算机组成原理 第20题",
+      "title": "2025 组成原理 第20题",
       "source": "408真题",
       "knowledge_points": [
         "总线指标"
@@ -9934,7 +9934,7 @@
       "subject": "computer-org",
       "year": "2025",
       "number": 21,
-      "title": "2025 计算机组成原理 第21题",
+      "title": "2025 组成原理 第21题",
       "source": "408真题",
       "knowledge_points": [
         "DMA"
@@ -9945,7 +9945,7 @@
       "subject": "computer-org",
       "year": "2025",
       "number": 22,
-      "title": "2025 计算机组成原理 第22题",
+      "title": "2025 组成原理 第22题",
       "source": "408真题",
       "knowledge_points": [
         "异常和中断"
@@ -9956,7 +9956,7 @@
       "subject": "computer-org",
       "year": "2025",
       "number": 43,
-      "title": "2025 计算机组成原理 第43题",
+      "title": "2025 组成原理 第43题",
       "source": "408真题",
       "knowledge_points": [
         "缺页异常",
@@ -9969,7 +9969,7 @@
       "subject": "computer-org",
       "year": "2025",
       "number": 44,
-      "title": "2025 计算机组成原理 第44题",
+      "title": "2025 组成原理 第44题",
       "source": "408真题",
       "knowledge_points": [
         "运算电路"
@@ -10460,7 +10460,7 @@
       "subject": "computer-org",
       "set": 1,
       "number": 12,
-      "title": "模拟卷1 计算机组成原理 第12题",
+      "title": "模拟卷1 组成原理 第12题",
       "source": "模拟题",
       "year": "模拟卷1",
       "knowledge_points": [],
@@ -10470,7 +10470,7 @@
       "subject": "computer-org",
       "set": 1,
       "number": 13,
-      "title": "模拟卷1 计算机组成原理 第13题",
+      "title": "模拟卷1 组成原理 第13题",
       "source": "模拟题",
       "year": "模拟卷1",
       "knowledge_points": [
@@ -10482,7 +10482,7 @@
       "subject": "computer-org",
       "set": 1,
       "number": 14,
-      "title": "模拟卷1 计算机组成原理 第14题",
+      "title": "模拟卷1 组成原理 第14题",
       "source": "模拟题",
       "year": "模拟卷1",
       "knowledge_points": [],
@@ -10492,7 +10492,7 @@
       "subject": "computer-org",
       "set": 1,
       "number": 15,
-      "title": "模拟卷1 计算机组成原理 第15题",
+      "title": "模拟卷1 组成原理 第15题",
       "source": "模拟题",
       "year": "模拟卷1",
       "knowledge_points": [],
@@ -10502,7 +10502,7 @@
       "subject": "computer-org",
       "set": 1,
       "number": 16,
-      "title": "模拟卷1 计算机组成原理 第16题",
+      "title": "模拟卷1 组成原理 第16题",
       "source": "模拟题",
       "year": "模拟卷1",
       "knowledge_points": [],
@@ -10512,7 +10512,7 @@
       "subject": "computer-org",
       "set": 1,
       "number": 17,
-      "title": "模拟卷1 计算机组成原理 第17题",
+      "title": "模拟卷1 组成原理 第17题",
       "source": "模拟题",
       "year": "模拟卷1",
       "knowledge_points": [],
@@ -10522,7 +10522,7 @@
       "subject": "computer-org",
       "set": 1,
       "number": 18,
-      "title": "模拟卷1 计算机组成原理 第18题",
+      "title": "模拟卷1 组成原理 第18题",
       "source": "模拟题",
       "year": "模拟卷1",
       "knowledge_points": [],
@@ -10532,7 +10532,7 @@
       "subject": "computer-org",
       "set": 1,
       "number": 19,
-      "title": "模拟卷1 计算机组成原理 第19题",
+      "title": "模拟卷1 组成原理 第19题",
       "source": "模拟题",
       "year": "模拟卷1",
       "knowledge_points": [
@@ -10546,7 +10546,7 @@
       "subject": "computer-org",
       "set": 1,
       "number": 20,
-      "title": "模拟卷1 计算机组成原理 第20题",
+      "title": "模拟卷1 组成原理 第20题",
       "source": "模拟题",
       "year": "模拟卷1",
       "knowledge_points": [],
@@ -10556,7 +10556,7 @@
       "subject": "computer-org",
       "set": 1,
       "number": 21,
-      "title": "模拟卷1 计算机组成原理 第21题",
+      "title": "模拟卷1 组成原理 第21题",
       "source": "模拟题",
       "year": "模拟卷1",
       "knowledge_points": [],
@@ -10566,7 +10566,7 @@
       "subject": "computer-org",
       "set": 1,
       "number": 22,
-      "title": "模拟卷1 计算机组成原理 第22题",
+      "title": "模拟卷1 组成原理 第22题",
       "source": "模拟题",
       "year": "模拟卷1",
       "knowledge_points": [],
@@ -10576,7 +10576,7 @@
       "subject": "computer-org",
       "set": 1,
       "number": 43,
-      "title": "模拟卷1 计算机组成原理 第43题",
+      "title": "模拟卷1 组成原理 第43题",
       "source": "模拟题",
       "year": "模拟卷1",
       "knowledge_points": [
@@ -10589,7 +10589,7 @@
       "subject": "computer-org",
       "set": 1,
       "number": 44,
-      "title": "模拟卷1 计算机组成原理 第44题",
+      "title": "模拟卷1 组成原理 第44题",
       "source": "模拟题",
       "year": "模拟卷1",
       "knowledge_points": [
@@ -10992,7 +10992,7 @@
       "subject": "computer-org",
       "set": 2,
       "number": 12,
-      "title": "模拟卷2 计算机组成原理 第12题",
+      "title": "模拟卷2 组成原理 第12题",
       "source": "模拟题",
       "year": "模拟卷2",
       "knowledge_points": [
@@ -11004,7 +11004,7 @@
       "subject": "computer-org",
       "set": 2,
       "number": 13,
-      "title": "模拟卷2 计算机组成原理 第13题",
+      "title": "模拟卷2 组成原理 第13题",
       "source": "模拟题",
       "year": "模拟卷2",
       "knowledge_points": [],
@@ -11014,7 +11014,7 @@
       "subject": "computer-org",
       "set": 2,
       "number": 14,
-      "title": "模拟卷2 计算机组成原理 第14题",
+      "title": "模拟卷2 组成原理 第14题",
       "source": "模拟题",
       "year": "模拟卷2",
       "knowledge_points": [],
@@ -11024,7 +11024,7 @@
       "subject": "computer-org",
       "set": 2,
       "number": 15,
-      "title": "模拟卷2 计算机组成原理 第15题",
+      "title": "模拟卷2 组成原理 第15题",
       "source": "模拟题",
       "year": "模拟卷2",
       "knowledge_points": [],
@@ -11034,7 +11034,7 @@
       "subject": "computer-org",
       "set": 2,
       "number": 16,
-      "title": "模拟卷2 计算机组成原理 第16题",
+      "title": "模拟卷2 组成原理 第16题",
       "source": "模拟题",
       "year": "模拟卷2",
       "knowledge_points": [],
@@ -11044,7 +11044,7 @@
       "subject": "computer-org",
       "set": 2,
       "number": 17,
-      "title": "模拟卷2 计算机组成原理 第17题",
+      "title": "模拟卷2 组成原理 第17题",
       "source": "模拟题",
       "year": "模拟卷2",
       "knowledge_points": [
@@ -11056,7 +11056,7 @@
       "subject": "computer-org",
       "set": 2,
       "number": 18,
-      "title": "模拟卷2 计算机组成原理 第18题",
+      "title": "模拟卷2 组成原理 第18题",
       "source": "模拟题",
       "year": "模拟卷2",
       "knowledge_points": [
@@ -11070,7 +11070,7 @@
       "subject": "computer-org",
       "set": 2,
       "number": 19,
-      "title": "模拟卷2 计算机组成原理 第19题",
+      "title": "模拟卷2 组成原理 第19题",
       "source": "模拟题",
       "year": "模拟卷2",
       "knowledge_points": [],
@@ -11080,7 +11080,7 @@
       "subject": "computer-org",
       "set": 2,
       "number": 20,
-      "title": "模拟卷2 计算机组成原理 第20题",
+      "title": "模拟卷2 组成原理 第20题",
       "source": "模拟题",
       "year": "模拟卷2",
       "knowledge_points": [],
@@ -11090,7 +11090,7 @@
       "subject": "computer-org",
       "set": 2,
       "number": 21,
-      "title": "模拟卷2 计算机组成原理 第21题",
+      "title": "模拟卷2 组成原理 第21题",
       "source": "模拟题",
       "year": "模拟卷2",
       "knowledge_points": [],
@@ -11100,7 +11100,7 @@
       "subject": "computer-org",
       "set": 2,
       "number": 22,
-      "title": "模拟卷2 计算机组成原理 第22题",
+      "title": "模拟卷2 组成原理 第22题",
       "source": "模拟题",
       "year": "模拟卷2",
       "knowledge_points": [],
@@ -11110,7 +11110,7 @@
       "subject": "computer-org",
       "set": 2,
       "number": 43,
-      "title": "模拟卷2 计算机组成原理 第43题",
+      "title": "模拟卷2 组成原理 第43题",
       "source": "模拟题",
       "year": "模拟卷2",
       "knowledge_points": [],
@@ -11120,7 +11120,7 @@
       "subject": "computer-org",
       "set": 2,
       "number": 44,
-      "title": "模拟卷2 计算机组成原理 第44题",
+      "title": "模拟卷2 组成原理 第44题",
       "source": "模拟题",
       "year": "模拟卷2",
       "knowledge_points": [
@@ -11533,7 +11533,7 @@
       "subject": "computer-org",
       "set": 3,
       "number": 12,
-      "title": "模拟卷3 计算机组成原理 第12题",
+      "title": "模拟卷3 组成原理 第12题",
       "source": "模拟题",
       "year": "模拟卷3",
       "knowledge_points": [],
@@ -11543,7 +11543,7 @@
       "subject": "computer-org",
       "set": 3,
       "number": 13,
-      "title": "模拟卷3 计算机组成原理 第13题",
+      "title": "模拟卷3 组成原理 第13题",
       "source": "模拟题",
       "year": "模拟卷3",
       "knowledge_points": [],
@@ -11553,7 +11553,7 @@
       "subject": "computer-org",
       "set": 3,
       "number": 14,
-      "title": "模拟卷3 计算机组成原理 第14题",
+      "title": "模拟卷3 组成原理 第14题",
       "source": "模拟题",
       "year": "模拟卷3",
       "knowledge_points": [],
@@ -11563,7 +11563,7 @@
       "subject": "computer-org",
       "set": 3,
       "number": 15,
-      "title": "模拟卷3 计算机组成原理 第15题",
+      "title": "模拟卷3 组成原理 第15题",
       "source": "模拟题",
       "year": "模拟卷3",
       "knowledge_points": [],
@@ -11573,7 +11573,7 @@
       "subject": "computer-org",
       "set": 3,
       "number": 16,
-      "title": "模拟卷3 计算机组成原理 第16题",
+      "title": "模拟卷3 组成原理 第16题",
       "source": "模拟题",
       "year": "模拟卷3",
       "knowledge_points": [],
@@ -11583,7 +11583,7 @@
       "subject": "computer-org",
       "set": 3,
       "number": 17,
-      "title": "模拟卷3 计算机组成原理 第17题",
+      "title": "模拟卷3 组成原理 第17题",
       "source": "模拟题",
       "year": "模拟卷3",
       "knowledge_points": [],
@@ -11593,7 +11593,7 @@
       "subject": "computer-org",
       "set": 3,
       "number": 18,
-      "title": "模拟卷3 计算机组成原理 第18题",
+      "title": "模拟卷3 组成原理 第18题",
       "source": "模拟题",
       "year": "模拟卷3",
       "knowledge_points": [],
@@ -11603,7 +11603,7 @@
       "subject": "computer-org",
       "set": 3,
       "number": 19,
-      "title": "模拟卷3 计算机组成原理 第19题",
+      "title": "模拟卷3 组成原理 第19题",
       "source": "模拟题",
       "year": "模拟卷3",
       "knowledge_points": [],
@@ -11613,7 +11613,7 @@
       "subject": "computer-org",
       "set": 3,
       "number": 20,
-      "title": "模拟卷3 计算机组成原理 第20题",
+      "title": "模拟卷3 组成原理 第20题",
       "source": "模拟题",
       "year": "模拟卷3",
       "knowledge_points": [
@@ -11625,7 +11625,7 @@
       "subject": "computer-org",
       "set": 3,
       "number": 21,
-      "title": "模拟卷3 计算机组成原理 第21题",
+      "title": "模拟卷3 组成原理 第21题",
       "source": "模拟题",
       "year": "模拟卷3",
       "knowledge_points": [],
@@ -11635,7 +11635,7 @@
       "subject": "computer-org",
       "set": 3,
       "number": 22,
-      "title": "模拟卷3 计算机组成原理 第22题",
+      "title": "模拟卷3 组成原理 第22题",
       "source": "模拟题",
       "year": "模拟卷3",
       "knowledge_points": [
@@ -11648,7 +11648,7 @@
       "subject": "computer-org",
       "set": 3,
       "number": 43,
-      "title": "模拟卷3 计算机组成原理 第43题",
+      "title": "模拟卷3 组成原理 第43题",
       "source": "模拟题",
       "year": "模拟卷3",
       "knowledge_points": [
@@ -11661,7 +11661,7 @@
       "subject": "computer-org",
       "set": 3,
       "number": 44,
-      "title": "模拟卷3 计算机组成原理 第44题",
+      "title": "模拟卷3 组成原理 第44题",
       "source": "模拟题",
       "year": "模拟卷3",
       "knowledge_points": [
@@ -12071,7 +12071,7 @@
       "subject": "computer-org",
       "set": 4,
       "number": 12,
-      "title": "模拟卷4 计算机组成原理 第12题",
+      "title": "模拟卷4 组成原理 第12题",
       "source": "模拟题",
       "year": "模拟卷4",
       "knowledge_points": [],
@@ -12081,7 +12081,7 @@
       "subject": "computer-org",
       "set": 4,
       "number": 13,
-      "title": "模拟卷4 计算机组成原理 第13题",
+      "title": "模拟卷4 组成原理 第13题",
       "source": "模拟题",
       "year": "模拟卷4",
       "knowledge_points": [],
@@ -12091,7 +12091,7 @@
       "subject": "computer-org",
       "set": 4,
       "number": 14,
-      "title": "模拟卷4 计算机组成原理 第14题",
+      "title": "模拟卷4 组成原理 第14题",
       "source": "模拟题",
       "year": "模拟卷4",
       "knowledge_points": [],
@@ -12101,7 +12101,7 @@
       "subject": "computer-org",
       "set": 4,
       "number": 15,
-      "title": "模拟卷4 计算机组成原理 第15题",
+      "title": "模拟卷4 组成原理 第15题",
       "source": "模拟题",
       "year": "模拟卷4",
       "knowledge_points": [],
@@ -12111,7 +12111,7 @@
       "subject": "computer-org",
       "set": 4,
       "number": 16,
-      "title": "模拟卷4 计算机组成原理 第16题",
+      "title": "模拟卷4 组成原理 第16题",
       "source": "模拟题",
       "year": "模拟卷4",
       "knowledge_points": [],
@@ -12121,7 +12121,7 @@
       "subject": "computer-org",
       "set": 4,
       "number": 17,
-      "title": "模拟卷4 计算机组成原理 第17题",
+      "title": "模拟卷4 组成原理 第17题",
       "source": "模拟题",
       "year": "模拟卷4",
       "knowledge_points": [],
@@ -12131,7 +12131,7 @@
       "subject": "computer-org",
       "set": 4,
       "number": 18,
-      "title": "模拟卷4 计算机组成原理 第18题",
+      "title": "模拟卷4 组成原理 第18题",
       "source": "模拟题",
       "year": "模拟卷4",
       "knowledge_points": [],
@@ -12141,7 +12141,7 @@
       "subject": "computer-org",
       "set": 4,
       "number": 19,
-      "title": "模拟卷4 计算机组成原理 第19题",
+      "title": "模拟卷4 组成原理 第19题",
       "source": "模拟题",
       "year": "模拟卷4",
       "knowledge_points": [],
@@ -12151,7 +12151,7 @@
       "subject": "computer-org",
       "set": 4,
       "number": 20,
-      "title": "模拟卷4 计算机组成原理 第20题",
+      "title": "模拟卷4 组成原理 第20题",
       "source": "模拟题",
       "year": "模拟卷4",
       "knowledge_points": [],
@@ -12161,7 +12161,7 @@
       "subject": "computer-org",
       "set": 4,
       "number": 21,
-      "title": "模拟卷4 计算机组成原理 第21题",
+      "title": "模拟卷4 组成原理 第21题",
       "source": "模拟题",
       "year": "模拟卷4",
       "knowledge_points": [],
@@ -12171,7 +12171,7 @@
       "subject": "computer-org",
       "set": 4,
       "number": 22,
-      "title": "模拟卷4 计算机组成原理 第22题",
+      "title": "模拟卷4 组成原理 第22题",
       "source": "模拟题",
       "year": "模拟卷4",
       "knowledge_points": [
@@ -12184,7 +12184,7 @@
       "subject": "computer-org",
       "set": 4,
       "number": 43,
-      "title": "模拟卷4 计算机组成原理 第43题",
+      "title": "模拟卷4 组成原理 第43题",
       "source": "模拟题",
       "year": "模拟卷4",
       "knowledge_points": [
@@ -12197,7 +12197,7 @@
       "subject": "computer-org",
       "set": 4,
       "number": 44,
-      "title": "模拟卷4 计算机组成原理 第44题",
+      "title": "模拟卷4 组成原理 第44题",
       "source": "模拟题",
       "year": "模拟卷4",
       "knowledge_points": [
@@ -12604,7 +12604,7 @@
       "subject": "computer-org",
       "set": 5,
       "number": 12,
-      "title": "模拟卷5 计算机组成原理 第12题",
+      "title": "模拟卷5 组成原理 第12题",
       "source": "模拟题",
       "year": "模拟卷5",
       "knowledge_points": [],
@@ -12614,7 +12614,7 @@
       "subject": "computer-org",
       "set": 5,
       "number": 13,
-      "title": "模拟卷5 计算机组成原理 第13题",
+      "title": "模拟卷5 组成原理 第13题",
       "source": "模拟题",
       "year": "模拟卷5",
       "knowledge_points": [],
@@ -12624,7 +12624,7 @@
       "subject": "computer-org",
       "set": 5,
       "number": 14,
-      "title": "模拟卷5 计算机组成原理 第14题",
+      "title": "模拟卷5 组成原理 第14题",
       "source": "模拟题",
       "year": "模拟卷5",
       "knowledge_points": [],
@@ -12634,7 +12634,7 @@
       "subject": "computer-org",
       "set": 5,
       "number": 15,
-      "title": "模拟卷5 计算机组成原理 第15题",
+      "title": "模拟卷5 组成原理 第15题",
       "source": "模拟题",
       "year": "模拟卷5",
       "knowledge_points": [],
@@ -12644,7 +12644,7 @@
       "subject": "computer-org",
       "set": 5,
       "number": 16,
-      "title": "模拟卷5 计算机组成原理 第16题",
+      "title": "模拟卷5 组成原理 第16题",
       "source": "模拟题",
       "year": "模拟卷5",
       "knowledge_points": [],
@@ -12654,7 +12654,7 @@
       "subject": "computer-org",
       "set": 5,
       "number": 17,
-      "title": "模拟卷5 计算机组成原理 第17题",
+      "title": "模拟卷5 组成原理 第17题",
       "source": "模拟题",
       "year": "模拟卷5",
       "knowledge_points": [],
@@ -12664,7 +12664,7 @@
       "subject": "computer-org",
       "set": 5,
       "number": 18,
-      "title": "模拟卷5 计算机组成原理 第18题",
+      "title": "模拟卷5 组成原理 第18题",
       "source": "模拟题",
       "year": "模拟卷5",
       "knowledge_points": [
@@ -12676,7 +12676,7 @@
       "subject": "computer-org",
       "set": 5,
       "number": 19,
-      "title": "模拟卷5 计算机组成原理 第19题",
+      "title": "模拟卷5 组成原理 第19题",
       "source": "模拟题",
       "year": "模拟卷5",
       "knowledge_points": [
@@ -12688,7 +12688,7 @@
       "subject": "computer-org",
       "set": 5,
       "number": 20,
-      "title": "模拟卷5 计算机组成原理 第20题",
+      "title": "模拟卷5 组成原理 第20题",
       "source": "模拟题",
       "year": "模拟卷5",
       "knowledge_points": [],
@@ -12698,7 +12698,7 @@
       "subject": "computer-org",
       "set": 5,
       "number": 21,
-      "title": "模拟卷5 计算机组成原理 第21题",
+      "title": "模拟卷5 组成原理 第21题",
       "source": "模拟题",
       "year": "模拟卷5",
       "knowledge_points": [
@@ -12710,7 +12710,7 @@
       "subject": "computer-org",
       "set": 5,
       "number": 22,
-      "title": "模拟卷5 计算机组成原理 第22题",
+      "title": "模拟卷5 组成原理 第22题",
       "source": "模拟题",
       "year": "模拟卷5",
       "knowledge_points": [],
@@ -12720,7 +12720,7 @@
       "subject": "computer-org",
       "set": 5,
       "number": 43,
-      "title": "模拟卷5 计算机组成原理 第43题",
+      "title": "模拟卷5 组成原理 第43题",
       "source": "模拟题",
       "year": "模拟卷5",
       "knowledge_points": [],
@@ -12730,7 +12730,7 @@
       "subject": "computer-org",
       "set": 5,
       "number": 44,
-      "title": "模拟卷5 计算机组成原理 第44题",
+      "title": "模拟卷5 组成原理 第44题",
       "source": "模拟题",
       "year": "模拟卷5",
       "knowledge_points": [],
@@ -13113,7 +13113,7 @@
       "subject": "computer-org",
       "set": 6,
       "number": 12,
-      "title": "模拟卷6 计算机组成原理 第12题",
+      "title": "模拟卷6 组成原理 第12题",
       "source": "模拟题",
       "year": "模拟卷6",
       "knowledge_points": [
@@ -13125,7 +13125,7 @@
       "subject": "computer-org",
       "set": 6,
       "number": 13,
-      "title": "模拟卷6 计算机组成原理 第13题",
+      "title": "模拟卷6 组成原理 第13题",
       "source": "模拟题",
       "year": "模拟卷6",
       "knowledge_points": [],
@@ -13135,7 +13135,7 @@
       "subject": "computer-org",
       "set": 6,
       "number": 14,
-      "title": "模拟卷6 计算机组成原理 第14题",
+      "title": "模拟卷6 组成原理 第14题",
       "source": "模拟题",
       "year": "模拟卷6",
       "knowledge_points": [],
@@ -13145,7 +13145,7 @@
       "subject": "computer-org",
       "set": 6,
       "number": 15,
-      "title": "模拟卷6 计算机组成原理 第15题",
+      "title": "模拟卷6 组成原理 第15题",
       "source": "模拟题",
       "year": "模拟卷6",
       "knowledge_points": [],
@@ -13155,7 +13155,7 @@
       "subject": "computer-org",
       "set": 6,
       "number": 16,
-      "title": "模拟卷6 计算机组成原理 第16题",
+      "title": "模拟卷6 组成原理 第16题",
       "source": "模拟题",
       "year": "模拟卷6",
       "knowledge_points": [],
@@ -13165,7 +13165,7 @@
       "subject": "computer-org",
       "set": 6,
       "number": 17,
-      "title": "模拟卷6 计算机组成原理 第17题",
+      "title": "模拟卷6 组成原理 第17题",
       "source": "模拟题",
       "year": "模拟卷6",
       "knowledge_points": [
@@ -13177,7 +13177,7 @@
       "subject": "computer-org",
       "set": 6,
       "number": 18,
-      "title": "模拟卷6 计算机组成原理 第18题",
+      "title": "模拟卷6 组成原理 第18题",
       "source": "模拟题",
       "year": "模拟卷6",
       "knowledge_points": [
@@ -13191,7 +13191,7 @@
       "subject": "computer-org",
       "set": 6,
       "number": 19,
-      "title": "模拟卷6 计算机组成原理 第19题",
+      "title": "模拟卷6 组成原理 第19题",
       "source": "模拟题",
       "year": "模拟卷6",
       "knowledge_points": [],
@@ -13201,7 +13201,7 @@
       "subject": "computer-org",
       "set": 6,
       "number": 20,
-      "title": "模拟卷6 计算机组成原理 第20题",
+      "title": "模拟卷6 组成原理 第20题",
       "source": "模拟题",
       "year": "模拟卷6",
       "knowledge_points": [
@@ -13214,7 +13214,7 @@
       "subject": "computer-org",
       "set": 6,
       "number": 21,
-      "title": "模拟卷6 计算机组成原理 第21题",
+      "title": "模拟卷6 组成原理 第21题",
       "source": "模拟题",
       "year": "模拟卷6",
       "knowledge_points": [
@@ -13226,7 +13226,7 @@
       "subject": "computer-org",
       "set": 6,
       "number": 22,
-      "title": "模拟卷6 计算机组成原理 第22题",
+      "title": "模拟卷6 组成原理 第22题",
       "source": "模拟题",
       "year": "模拟卷6",
       "knowledge_points": [],
@@ -13236,7 +13236,7 @@
       "subject": "computer-org",
       "set": 6,
       "number": 43,
-      "title": "模拟卷6 计算机组成原理 第43题",
+      "title": "模拟卷6 组成原理 第43题",
       "source": "模拟题",
       "year": "模拟卷6",
       "knowledge_points": [
@@ -13248,7 +13248,7 @@
       "subject": "computer-org",
       "set": 6,
       "number": 44,
-      "title": "模拟卷6 计算机组成原理 第44题",
+      "title": "模拟卷6 组成原理 第44题",
       "source": "模拟题",
       "year": "模拟卷6",
       "knowledge_points": [
@@ -13658,7 +13658,7 @@
       "subject": "computer-org",
       "set": 7,
       "number": 12,
-      "title": "模拟卷7 计算机组成原理 第12题",
+      "title": "模拟卷7 组成原理 第12题",
       "source": "模拟题",
       "year": "模拟卷7",
       "knowledge_points": [
@@ -13670,7 +13670,7 @@
       "subject": "computer-org",
       "set": 7,
       "number": 13,
-      "title": "模拟卷7 计算机组成原理 第13题",
+      "title": "模拟卷7 组成原理 第13题",
       "source": "模拟题",
       "year": "模拟卷7",
       "knowledge_points": [],
@@ -13680,7 +13680,7 @@
       "subject": "computer-org",
       "set": 7,
       "number": 14,
-      "title": "模拟卷7 计算机组成原理 第14题",
+      "title": "模拟卷7 组成原理 第14题",
       "source": "模拟题",
       "year": "模拟卷7",
       "knowledge_points": [],
@@ -13690,7 +13690,7 @@
       "subject": "computer-org",
       "set": 7,
       "number": 15,
-      "title": "模拟卷7 计算机组成原理 第15题",
+      "title": "模拟卷7 组成原理 第15题",
       "source": "模拟题",
       "year": "模拟卷7",
       "knowledge_points": [],
@@ -13700,7 +13700,7 @@
       "subject": "computer-org",
       "set": 7,
       "number": 16,
-      "title": "模拟卷7 计算机组成原理 第16题",
+      "title": "模拟卷7 组成原理 第16题",
       "source": "模拟题",
       "year": "模拟卷7",
       "knowledge_points": [],
@@ -13710,7 +13710,7 @@
       "subject": "computer-org",
       "set": 7,
       "number": 17,
-      "title": "模拟卷7 计算机组成原理 第17题",
+      "title": "模拟卷7 组成原理 第17题",
       "source": "模拟题",
       "year": "模拟卷7",
       "knowledge_points": [],
@@ -13720,7 +13720,7 @@
       "subject": "computer-org",
       "set": 7,
       "number": 18,
-      "title": "模拟卷7 计算机组成原理 第18题",
+      "title": "模拟卷7 组成原理 第18题",
       "source": "模拟题",
       "year": "模拟卷7",
       "knowledge_points": [
@@ -13732,7 +13732,7 @@
       "subject": "computer-org",
       "set": 7,
       "number": 19,
-      "title": "模拟卷7 计算机组成原理 第19题",
+      "title": "模拟卷7 组成原理 第19题",
       "source": "模拟题",
       "year": "模拟卷7",
       "knowledge_points": [],
@@ -13742,7 +13742,7 @@
       "subject": "computer-org",
       "set": 7,
       "number": 20,
-      "title": "模拟卷7 计算机组成原理 第20题",
+      "title": "模拟卷7 组成原理 第20题",
       "source": "模拟题",
       "year": "模拟卷7",
       "knowledge_points": [],
@@ -13752,7 +13752,7 @@
       "subject": "computer-org",
       "set": 7,
       "number": 21,
-      "title": "模拟卷7 计算机组成原理 第21题",
+      "title": "模拟卷7 组成原理 第21题",
       "source": "模拟题",
       "year": "模拟卷7",
       "knowledge_points": [],
@@ -13762,7 +13762,7 @@
       "subject": "computer-org",
       "set": 7,
       "number": 22,
-      "title": "模拟卷7 计算机组成原理 第22题",
+      "title": "模拟卷7 组成原理 第22题",
       "source": "模拟题",
       "year": "模拟卷7",
       "knowledge_points": [
@@ -13775,7 +13775,7 @@
       "subject": "computer-org",
       "set": 7,
       "number": 43,
-      "title": "模拟卷7 计算机组成原理 第43题",
+      "title": "模拟卷7 组成原理 第43题",
       "source": "模拟题",
       "year": "模拟卷7",
       "knowledge_points": [],
@@ -13785,7 +13785,7 @@
       "subject": "computer-org",
       "set": 7,
       "number": 44,
-      "title": "模拟卷7 计算机组成原理 第44题",
+      "title": "模拟卷7 组成原理 第44题",
       "source": "模拟题",
       "year": "模拟卷7",
       "knowledge_points": [],
@@ -14205,7 +14205,7 @@
       "subject": "computer-org",
       "set": 8,
       "number": 12,
-      "title": "模拟卷8 计算机组成原理 第12题",
+      "title": "模拟卷8 组成原理 第12题",
       "source": "模拟题",
       "year": "模拟卷8",
       "knowledge_points": [],
@@ -14215,7 +14215,7 @@
       "subject": "computer-org",
       "set": 8,
       "number": 13,
-      "title": "模拟卷8 计算机组成原理 第13题",
+      "title": "模拟卷8 组成原理 第13题",
       "source": "模拟题",
       "year": "模拟卷8",
       "knowledge_points": [],
@@ -14225,7 +14225,7 @@
       "subject": "computer-org",
       "set": 8,
       "number": 14,
-      "title": "模拟卷8 计算机组成原理 第14题",
+      "title": "模拟卷8 组成原理 第14题",
       "source": "模拟题",
       "year": "模拟卷8",
       "knowledge_points": [],
@@ -14235,7 +14235,7 @@
       "subject": "computer-org",
       "set": 8,
       "number": 15,
-      "title": "模拟卷8 计算机组成原理 第15题",
+      "title": "模拟卷8 组成原理 第15题",
       "source": "模拟题",
       "year": "模拟卷8",
       "knowledge_points": [],
@@ -14245,7 +14245,7 @@
       "subject": "computer-org",
       "set": 8,
       "number": 16,
-      "title": "模拟卷8 计算机组成原理 第16题",
+      "title": "模拟卷8 组成原理 第16题",
       "source": "模拟题",
       "year": "模拟卷8",
       "knowledge_points": [],
@@ -14255,7 +14255,7 @@
       "subject": "computer-org",
       "set": 8,
       "number": 17,
-      "title": "模拟卷8 计算机组成原理 第17题",
+      "title": "模拟卷8 组成原理 第17题",
       "source": "模拟题",
       "year": "模拟卷8",
       "knowledge_points": [
@@ -14267,7 +14267,7 @@
       "subject": "computer-org",
       "set": 8,
       "number": 18,
-      "title": "模拟卷8 计算机组成原理 第18题",
+      "title": "模拟卷8 组成原理 第18题",
       "source": "模拟题",
       "year": "模拟卷8",
       "knowledge_points": [],
@@ -14277,7 +14277,7 @@
       "subject": "computer-org",
       "set": 8,
       "number": 19,
-      "title": "模拟卷8 计算机组成原理 第19题",
+      "title": "模拟卷8 组成原理 第19题",
       "source": "模拟题",
       "year": "模拟卷8",
       "knowledge_points": [],
@@ -14287,7 +14287,7 @@
       "subject": "computer-org",
       "set": 8,
       "number": 20,
-      "title": "模拟卷8 计算机组成原理 第20题",
+      "title": "模拟卷8 组成原理 第20题",
       "source": "模拟题",
       "year": "模拟卷8",
       "knowledge_points": [
@@ -14299,7 +14299,7 @@
       "subject": "computer-org",
       "set": 8,
       "number": 21,
-      "title": "模拟卷8 计算机组成原理 第21题",
+      "title": "模拟卷8 组成原理 第21题",
       "source": "模拟题",
       "year": "模拟卷8",
       "knowledge_points": [
@@ -14311,7 +14311,7 @@
       "subject": "computer-org",
       "set": 8,
       "number": 22,
-      "title": "模拟卷8 计算机组成原理 第22题",
+      "title": "模拟卷8 组成原理 第22题",
       "source": "模拟题",
       "year": "模拟卷8",
       "knowledge_points": [
@@ -14323,7 +14323,7 @@
       "subject": "computer-org",
       "set": 8,
       "number": 43,
-      "title": "模拟卷8 计算机组成原理 第43题",
+      "title": "模拟卷8 组成原理 第43题",
       "source": "模拟题",
       "year": "模拟卷8",
       "knowledge_points": [
@@ -14335,7 +14335,7 @@
       "subject": "computer-org",
       "set": 8,
       "number": 44,
-      "title": "模拟卷8 计算机组成原理 第44题",
+      "title": "模拟卷8 组成原理 第44题",
       "source": "模拟题",
       "year": "模拟卷8",
       "knowledge_points": [

@@ -18,7 +18,7 @@ chapter_title: "文件"
 ### 文件元信息
 
 
-![](/images/docs/os/5e52aecf90.svg)
+![](/cc408/images/docs/os/5e52aecf90.svg)
 
 在 **UNIX** 和类 **UNIX** 操作系统中， inode （索引节点）用于存储 **文件的元数据** ，它包含了关于该文件的大部分 **元数据** ，但不包括 **文件名** 和 **文件实际内容** 。
 
@@ -106,14 +106,14 @@ write(fd, "Hello", 5);              // offset 从 0 到 5
 
 📊 下表给出了一个进程的 **文件描述符表** 实例：
 
-![](/images/docs/os/image-20260611223249219.png)
+![](/cc408/images/docs/os/image-20260611223249219.png)
 
 #### 总体视角
 
 在进程 1 中执行 `fdA1 = open("fileA.txt", O_RDONLY)` 和 `fdAdup = dup(fdA)` 系统调用，在进程 2 中执行 `fdA2 = open("fileA.txt", O_RDONLY)`，系统中的三种用于进程文件管理的表如下图所示：
 
 
-![](/images/docs/os/image-20260611223302379.png)
+![](/cc408/images/docs/os/image-20260611223302379.png)
 
 
 
@@ -192,7 +192,7 @@ write(fd, "Hello", 5);              // offset 从 0 到 5
 
 文件的物理结构和逻辑结果的 **对应关系** 如下图所示：
 
-![](/images/docs/os/a1b649d725.svg)
+![](/cc408/images/docs/os/a1b649d725.svg)
 
 #### 连续分配
 
@@ -201,7 +201,7 @@ write(fd, "Hello", 5);              // offset 从 0 到 5
 连续分配方案对应的目录包含如下信息：
 
 
-![](/images/docs/os/image-20260611223338366.png)
+![](/cc408/images/docs/os/image-20260611223338366.png)
 
 下图中的文件 “file3” 从区块 19 开始，长度为 6 个区块。因此，它占用 19、20、21、22、23、24 个块。
 
@@ -218,7 +218,7 @@ write(fd, "Hello", 5);              // offset 从 0 到 5
 下图中的文件 “file1” 显示了块是如何随机分布的。最后一个块 \(25\) 包含 **-1** ，表示空指针，不指向任何其他块。
 
 
-![](/images/docs/os/b2b4c7acb4.svg)
+![](/cc408/images/docs/os/b2b4c7acb4.svg)
 
   * **优点** ：可以 **充分利用磁盘空间** ，不会遭遇到碎片的问题。
   * **缺点** ：因为文件是在磁盘上随机分配的，所以访问一个文件的过程需要经历多次磁盘的检索，这使得文件读取的 **速度变慢** 。
@@ -230,7 +230,7 @@ write(fd, "Hello", 5);              // offset 从 0 到 5
 **文件分配表** FAT 也是基于链接的方式，不过文件的 **链接方式是存储在一个表格当中** ，表格包含两列，一列是 **盘块号** ，另一列是在该文件盘块之后的 **下一个盘块号** ，这种方式也叫做 **显式链接** 。
 
 
-![](/images/docs/os/a7cffa5589.svg)
+![](/cc408/images/docs/os/a7cffa5589.svg)
 
 
 
@@ -241,13 +241,13 @@ write(fd, "Hello", 5);              // offset 从 0 到 5
 假设一个文件的大小是 4MB，一个 **盘块的大小** 为 4KB，**盘块编号的大小** 为 4B（32 位）。 在这种情况下，文件需要用 1K 个盘块存储，**索引块** 的内容如下图所示：
 
 
-![](/images/docs/os/image-20260611223354782.png)
+![](/cc408/images/docs/os/image-20260611223354782.png)
 
 
 4KB 的盘块刚好可以存储下 1K 个盘块号作为索引，在读取文件时，操作系统先读取 **索引块** ，确定存储文件的所有盘块号，再去读取所有存储有文件数据的盘块，如下图所示：
 
 
-![](/images/docs/os/31be63e906.svg)
+![](/cc408/images/docs/os/31be63e906.svg)
 
 
 上图给出的索引是 **一级索引** ，索引块的层级只有一层，索引块中直接存储数据块的盘块号。
@@ -255,7 +255,7 @@ write(fd, "Hello", 5);              // offset 从 0 到 5
 在实践中还有 **多级索引** ，其思路与 [多级页表](</constitution_principle/storage/virtual/#%e5%a4%9a%e7%ba%a7%e9%a1%b5%e8%a1%a8>) 一致。一级索引块中存储的是二级索引块的盘块号，最后一级索引块中才存储有数据块的盘块号。
 
 
-![](/images/docs/os/219d1d68a4.svg)
+![](/cc408/images/docs/os/219d1d68a4.svg)
 
 #### 混合索引
 
@@ -269,7 +269,7 @@ write(fd, "Hello", 5);              // offset 从 0 到 5
 **UNIX** 系统正是采用了这种混合索引结构。其 **inode** （如下图）由以下几部分组成：
 
 
-![](/images/docs/os/a312f59dee.svg)
+![](/cc408/images/docs/os/a312f59dee.svg)
 
 
   * **直接块** （Direct blocks）：若文件只有几块数据，则直接在这些条目中存放相应的盘块号，无需额外的索引块。

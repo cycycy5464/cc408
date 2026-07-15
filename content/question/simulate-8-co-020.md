@@ -1,5 +1,5 @@
 ---
-title: "模拟卷8 计算机组成原理 第20题"
+title: "模拟卷8 组成原理 第20题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 8
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "寄存器类型"
 question_type: "choice"
 difficulty: 3
 number: 20
+
 ---
 
 在以下描述 PCI 总线的基本概念中，正确的描述是（ ）。
@@ -25,6 +26,8 @@ A\. 仅 I
 B\. 仅 II
 C\. II、III 和 IV
 D\. I 和 II
+
+[寄存器类型](/study_methods/tags/408quiz//#%e5%af%84%e5%ad%98%e5%99%a8%e7%b1%bb%e5%9e%8b)
 
 [tag_link]
 

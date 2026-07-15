@@ -9,10 +9,12 @@ set: 2
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "信号量"
+  - "操作系统概念"
 question_type: "choice"
 difficulty: 3
 number: 27
+
 ---
 
 有两个优先级相同的并发程序 P1 和 P2，它们的执行过程如下所示，假设当前信号量 s1=0，s2=0。当前的 z=2，进程运行结束后，x、y 和 z 的值分别是（　）。
@@ -21,6 +23,9 @@ A\. 5,9,9
 B\. 5,9,4
 C\. 5,12,9
 D\. 5,12,4
+
+[信号量](/study_methods/tags/408quiz//#%e4%bf%a1%e5%8f%b7%e9%87%8f)
+[操作系统概念](/study_methods/tags/408quiz//#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

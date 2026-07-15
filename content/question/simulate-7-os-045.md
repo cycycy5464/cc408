@@ -9,10 +9,12 @@ set: 7
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "进程和线程"
+  - "进程概念"
 question_type: "comprehensive"
 difficulty: 4
 number: 45
+
 ---
 
 （7 分）兄弟俩共同使用一个账号，每次限存或取 10 元，存钱与取钱的进程分别如下所示：
@@ -21,6 +23,9 @@ number: 45
 
 （1）最后账号 `amount` 上面可能出现的值？
 （2）如何用 P、V 操作实现两并发进程的互斥执行？
+
+[进程和线程](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e5%92%8c%e7%ba%bf%e7%a8%8b)
+[进程概念](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e6%a6%82%e5%bf%b5)
 
 [tag_link]
 

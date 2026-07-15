@@ -1,5 +1,5 @@
 ---
-title: "模拟卷8 计算机组成原理 第18题"
+title: "模拟卷8 组成原理 第18题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,14 @@ years:
 source: "模拟题"
 set: 8
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "寄存器类型"
+  - "运算电路"
 question_type: "choice"
 difficulty: 3
 number: 18
+
 ---
 
 下列部件不属于运算器的是（ ）。
@@ -21,6 +23,9 @@ A\. 状态寄存器
 B\. 通用寄存器
 C\. ALU
 D\. 数据高速缓存
+
+[寄存器类型](/study_methods/tags/408quiz//#%e5%af%84%e5%ad%98%e5%99%a8%e7%b1%bb%e5%9e%8b)
+[运算电路](/study_methods/tags/408quiz//#%e8%bf%90%e7%ae%97%e7%94%b5%e8%b7%af)
 
 [tag_link]
 

@@ -20,7 +20,7 @@ chapter_title: "DHCP协议"
 当你连接到一个网络中时，不管是通过 **无线网** ，还是在电脑上连接了 **以太网线** ，你会发现无需任何配置，你自动获取了一个 **IP 地址** ，并可以通过该 IP 地址进行网络通信。
 
 
-![](/images/docs/network/2fe6b7b7ff.svg)
+![](/cc408/images/docs/network/2fe6b7b7ff.svg)
 
 
 Here is your...Text is not SVG - cannot display

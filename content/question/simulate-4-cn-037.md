@@ -9,10 +9,12 @@ set: 4
 subjects:
   - "计算机网络"
 knowledge_points:
-  - "计算机网络"
+  - "路由表"
+  - "路由器"
 question_type: "choice"
 difficulty: 3
 number: 37
+
 ---
 
 R1 和 R2 是一个自治系统中采用 RIP 路由协议的两个相邻路由器，R1 的路由表如表 1 所示，当 R1 收到 R2 发送的报文（见表 2）后，R1 更新后的 3 个路由表项中距离值从上到下依次为（ ）。
@@ -21,6 +23,9 @@ A\. 0、4、3
 B\. 0、4、4
 C\. 0、5、3
 D\. 0、5、4
+
+[路由表](/study_methods/tags/408quiz//#%e8%b7%af%e7%94%b1%e8%a1%a8)
+[路由器](/study_methods/tags/408quiz//#%e8%b7%af%e7%94%b1%e5%99%a8)
 
 [tag_link]
 

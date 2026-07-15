@@ -9,10 +9,11 @@ set: 7
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "进程和线程"
 question_type: "choice"
 difficulty: 3
 number: 24
+
 ---
 
 在多对一的线程模型中，当一个多线程进程中的某一个线程执行一个需阻塞的系统调用时，（ ）。
@@ -21,6 +22,8 @@ A\. 该进程的其他线程仍将继续运行
 B\. 整个进程都将阻塞
 C\. 该阻塞线程将被撤销
 D\. 该进程将被撤销
+
+[进程和线程](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e5%92%8c%e7%ba%bf%e7%a8%8b)
 
 [tag_link]
 

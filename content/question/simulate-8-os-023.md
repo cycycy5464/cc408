@@ -9,10 +9,11 @@ set: 8
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "进程和线程"
 question_type: "choice"
 difficulty: 3
 number: 23
+
 ---
 
 下列关于进程和线程的叙述中，正确的是（ ）。
@@ -25,6 +26,8 @@ A\. I、II、III
 B\. I、III
 C\. II、III
 D\. II、IV
+
+[进程和线程](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e5%92%8c%e7%ba%bf%e7%a8%8b)
 
 [tag_link]
 

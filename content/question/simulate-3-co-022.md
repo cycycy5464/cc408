@@ -1,5 +1,5 @@
 ---
-title: "模拟卷3 计算机组成原理 第22题"
+title: "模拟卷3 组成原理 第22题"
 date: 2026-07-08
 type: question
 years:
@@ -7,12 +7,13 @@ years:
 source: "模拟题"
 set: 3
 subjects:
-  - "计算机组成原理"
+  - "组成原理"
 knowledge_points:
-  - "计算机组成原理"
+  - "异常和中断"
 question_type: "choice"
 difficulty: 3
 number: 22
+
 ---
 
 下列 I/O 方式中，由软件和硬件相结合的方式实现的是（ ）。 Ⅰ. 程序查询 Ⅱ. 程序中断 Ⅲ. DMA Ⅳ. 通道
@@ -24,6 +25,8 @@ B\. Ⅱ和Ⅲ
 C\. Ⅱ和Ⅳ
 
 D\. Ⅱ、Ⅲ和Ⅳ
+
+[异常和中断](/study_methods/tags/408quiz//#%e5%bc%82%e5%b8%b8%e5%92%8c%e4%b8%ad%e6%96%ad)
 
 [tag_link]
 

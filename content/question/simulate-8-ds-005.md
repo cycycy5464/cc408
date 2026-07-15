@@ -9,10 +9,11 @@ set: 8
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "平衡二叉树"
 question_type: "choice"
 difficulty: 3
 number: 5
+
 ---
 
 含有 20 个结点的平衡二叉树的最大深度为（ ）。
@@ -21,6 +22,8 @@ A\. 4
 B\. 5
 C\. 6
 D\. 7
+
+[平衡二叉树](/study_methods/tags/408quiz//#%e5%b9%b3%e8%a1%a1%e4%ba%8c%e5%8f%89%e6%a0%91)
 
 [tag_link]
 

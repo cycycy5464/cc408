@@ -9,10 +9,11 @@ set: 6
 subjects:
   - "数据结构"
 knowledge_points:
-  - "数据结构"
+  - "栈"
 question_type: "choice"
 difficulty: 3
 number: 1
+
 ---
 
 设有一个递归算法如下：
@@ -21,6 +22,8 @@ A\. 2
 B\. 3
 C\. 4
 D\. 5
+
+[栈](/study_methods/tags/408quiz//#%e6%a0%88)
 
 [tag_link]
 

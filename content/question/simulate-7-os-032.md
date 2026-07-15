@@ -9,10 +9,12 @@ set: 7
 subjects:
   - "操作系统"
 knowledge_points:
-  - "操作系统"
+  - "寄存器类型"
+  - "进程控制块"
 question_type: "choice"
 difficulty: 3
 number: 32
+
 ---
 
 下列关于中断 I/O 方式的描述中，正确的是（ ）
@@ -24,6 +26,9 @@ B\. 中断 I/O 方式下，每传输一个数据块都需要 CPU 进行多次干
 C\. 中断处理过程中，CPU 在响应中断请求后立即保存当前进程的 PCB 信息
 
 D\. 采用中断驱动 I/O 方式时，CPU 与 I/O 设备之间无法实现并行工作
+
+[寄存器类型](/study_methods/tags/408quiz//#%e5%af%84%e5%ad%98%e5%99%a8%e7%b1%bb%e5%9e%8b)
+[进程控制块](/study_methods/tags/408quiz//#%e8%bf%9b%e7%a8%8b%e6%8e%a7%e5%88%b6%e5%9d%97)
 
 [tag_link]
 
