@@ -1,0 +1,36 @@
+# Hugo 本地开发优化配置
+
+# 本地开发专用配置 - 覆盖默认配置中的性能相关选项
+# 使用方法: hugo server -D --config config/_default/hugo.yaml,config/local-dev.yaml
+
+# 基础配置 (覆盖默认值)
+baseURL: 'http://localhost:1313/cc408/'
+title: CC408
+
+# 禁用不必要的功能
+enableGitInfo: false
+enableRobotsTXT: false
+enableEmoji: false
+
+# 输出优化 - 只生成 HTML
+outputs:
+  home: [HTML]
+  section: [HTML]
+
+# 分类优化 - 减少不需要的分类
+taxonomies:
+  tag: tags
+  subject: subjects
+
+# 构建优化
+build:
+  writeStats: true
+
+# 超时优化
+timeout: 300000
+
+# 分页优化
+pagination: 20
+
+# 搜索索引优化 - 禁用全文搜索
+enableSearch: false
