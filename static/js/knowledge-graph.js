@@ -763,7 +763,7 @@
     node.append('text')
       .attr('dy', '0.35em')
       .attr('text-anchor', 'middle')
-      .attr('fill', '#e6edf3')
+      .style('fill', 'var(--text-primary)')
       .attr('font-size', function (d) {
         if (d.type === 'question') return '7px';
         if (d.type === 'kp') return '9px';
@@ -926,13 +926,13 @@
       var file = d.meta;
       var qData = state.mapping.questionIndex ? state.mapping.questionIndex[file] : null;
       if (qData && qData.knowledge_points && qData.knowledge_points.length) {
-        infoTags.innerHTML = '<div style="font-size:0.8rem;color:#8b949e;margin-top:.3rem">知识点: ' +
+        infoTags.innerHTML = '<div style="font-size:0.8rem;color:var(--text-muted);margin-top:.3rem">知识点: ' +
           qData.knowledge_points.join(', ') + '</div>';
       } else {
         infoTags.innerHTML = '<div style="font-size:0.8rem;color:var(--text-muted);margin-top:.3rem">暂无知识点标签</div>';
       }
     } else if (d.prerequisites && d.prerequisites.length) {
-      infoTags.innerHTML = '<div style="font-size:0.8rem;color:#8b949e;">前置: ' + d.prerequisites.join(', ') + '</div>';
+      infoTags.innerHTML = '<div style="font-size:0.8rem;color:var(--text-muted);">前置: ' + d.prerequisites.join(', ') + '</div>';
     } else {
       infoTags.innerHTML = '';
     }

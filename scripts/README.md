@@ -85,6 +85,7 @@ scripts/
 | `watermark-pdf.py` | 给 PDF 添加水印 | `python watermark-pdf.py` |
 | `debug_regex.ps1` | 调试正则表达式 | `.\debug_regex.ps1` |
 | `test_regex.ps1` | 测试正则替换效果 | `.\test_regex.ps1` |
+| `test_script.py` | 测试 batch_fix 函数 | `python test_script.py` |
 
 ---
 

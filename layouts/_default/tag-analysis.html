@@ -149,6 +149,10 @@
 (function() {
   'use strict';
 
+  function themeIsLight() {
+    return document.documentElement.getAttribute('data-theme') === 'light';
+  }
+
   var SUBJECT_COLORS = {
     '数据结构': '#58d6c0',
     '组成原理': '#f59e0b',
@@ -287,6 +291,11 @@
 
     // Initial render
     onFilterChange();
+
+    // 主题切换时重绘图表（轴标签/网格颜色随主题变化）
+    window.addEventListener('cc408:themechange', function() {
+      try { onFilterChange(); } catch (e) {}
+    });
   }
 
   // ── Update Stats ──
@@ -358,10 +367,10 @@
         plugins: {
           legend: { display: false },
           tooltip: {
-            backgroundColor: 'var(--bg-card)',
-            titleColor: 'var(--text-primary)',
-            bodyColor: 'var(--text-secondary)',
-            borderColor: 'var(--border-color)',
+            backgroundColor: themeIsLight() ? '#ffffff' : '#181e28',
+            titleColor: themeIsLight() ? '#1f2a38' : '#e2e8f0',
+            bodyColor: themeIsLight() ? '#44566a' : '#8899a9',
+            borderColor: themeIsLight() ? '#dde3ed' : '#232a35',
             borderWidth: 1,
             callbacks: {
               afterLabel: function(ctx) {
@@ -369,7 +378,8 @@
                 return (SUBJECT_FULL[t.subject] || t.subject) + ' ' + t.yearMin + '~' + t.yearMax;
               }
             }
-          }
+          },
+          datalabels: { color: 'auto', font: { size: 11, weight: '600' } }
         },
         onClick: function(e) {
           var active = chartInstance.getElementsAtEventForMode(e, 'index', { intersect: true });
@@ -380,13 +390,13 @@
         },
         scales: {
           x: {
-            grid: { color: 'rgba(255,255,255,.08)' },
-            ticks: { color: '#8899a9', stepSize: 5, font: { size: 11 } }
+            grid: { color: themeIsLight() ? 'rgba(15,23,42,.08)' : 'rgba(255,255,255,.08)' },
+            ticks: { color: themeIsLight() ? '#66788a' : '#8899a9', stepSize: 5, font: { size: 11 } }
           },
           y: {
             grid: { display: false },
             ticks: {
-              color: '#e2e8f0',
+              color: themeIsLight() ? '#1f2a38' : '#e2e8f0',
               font: { size: 11 },
               autoSkip: false
             }

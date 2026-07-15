@@ -33,7 +33,7 @@
 
   <div class="question-actions" style="margin-top:1.5rem; display:flex; gap:.75rem; align-items:center;">
     <button class="reveal-btn" id="reveal-all-btn">查看全部答案与解析</button>
-    <button class="reveal-btn" style="background:var(--text-muted)" id="hide-all-btn" onclick="document.querySelectorAll('.answer-panel').forEach(function(p){p.style.display='none';});document.querySelectorAll('.exam-option').forEach(function(o){o.classList.remove('correct','wrong');});this.previousElementSibling.textContent='查看全部答案与解析';">隐藏全部答案</button>
+    <button class="reveal-btn" style="background:transparent;color:var(--text-primary);border:1px solid var(--border-color)" id="hide-all-btn" onclick="document.querySelectorAll('.answer-panel').forEach(function(p){p.style.display='none';});document.querySelectorAll('.exam-option').forEach(function(o){o.classList.remove('correct','wrong');});this.previousElementSibling.textContent='查看全部答案与解析';">隐藏全部答案</button>
   </div>
 
   <div class="mt-section" style="margin-top:2rem;">

@@ -136,7 +136,7 @@
       })
       .catch(function (err) {
         console.error('KG: Failed to load mapping:', err);
-        container.innerHTML = '<p style="color:var(--text-muted);padding:2rem;text-align:center">⚠ 无法加载数据文件</p>';
+        container.innerHTML = '<p style="color:#8b949e;padding:2rem;text-align:center">⚠ 无法加载数据文件</p>';
       });
   }
 
@@ -685,7 +685,7 @@
     state.currentLinks = data.links;
 
     if (!data.nodes || !data.nodes.length) {
-      container.innerHTML = '<p style="color:var(--text-muted);padding:2rem;text-align:center">暂无数据' +
+      container.innerHTML = '<p style="color:#8b949e;padding:2rem;text-align:center">暂无数据' +
         (state.searchQuery ? '（未匹配搜索条件）' : '') + '</p>';
       updateBreadcrumb();
       return;
@@ -932,7 +932,7 @@
         infoTags.innerHTML = '<div style="font-size:0.8rem;color:#8b949e;margin-top:.3rem">知识点: ' +
           qData.knowledge_points.join(', ') + '</div>';
       } else {
-        infoTags.innerHTML = '<div style="font-size:0.8rem;color:var(--text-muted);margin-top:.3rem">暂无知识点标签</div>';
+        infoTags.innerHTML = '<div style="font-size:0.8rem;color:#8b949e;margin-top:.3rem">暂无知识点标签</div>';
       }
     } else if (d.prerequisites && d.prerequisites.length) {
       infoTags.innerHTML = '<div style="font-size:0.8rem;color:#8b949e;">前置: ' + d.prerequisites.join(', ') + '</div>';
@@ -984,7 +984,7 @@
       html += '<span class="kp-tag">' + kp +
         '<span class="kp-del" data-kp="' + kp.replace(/"/g, '&quot;') + '">✕</span></span>';
     });
-    if (!kps.length) html = '<span style="font-size:.8rem;color:var(--text-muted)">无标签</span>';
+    if (!kps.length) html = '<span style="font-size:.8rem;color:#8b949e">无标签</span>';
     kpEditor.innerHTML = html;
 
     // Delete handlers

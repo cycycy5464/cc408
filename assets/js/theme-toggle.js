@@ -33,6 +33,8 @@
   function toggle() {
     applyTheme(getCurrent() === 'dark' ? 'light' : 'dark');
     updateButton(document.querySelector('.theme-toggle-btn'));
+    // 通知依赖主题色的组件（如图表）重绘
+    try { window.dispatchEvent(new Event('cc408:themechange')); } catch (e) {}
   }
 
   document.addEventListener('DOMContentLoaded', function () {
