@@ -410,6 +410,9 @@ layouts/exam/year-detail.html          →  查询 content/question/*.md
 | `frontend-uiux-audit.md` | UI/UX 审计 |
 | `verification-checklist.md` | 验证清单 |
 | `svg编辑.md` | SVG 编辑指南 |
+| `CC408代码审查报告.docx` | 代码审查报告 (Word 文档) |
+| `PROJECT_INDEX.md` | 本索引文档 |
+| `current-issues/` | 当前问题追踪 (12个问题文档) |
 
 ---
 

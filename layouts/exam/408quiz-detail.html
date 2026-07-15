@@ -31,23 +31,15 @@
     {{ end }}
   </div>
 
-  <div class="question-actions" style="margin-top:1.5rem; display:flex; gap:.75rem; align-items:center;">
-    <button class="reveal-btn" id="reveal-all-btn">查看全部答案与解析</button>
-    <button class="reveal-btn" style="background:transparent;color:var(--text-primary);border:1px solid var(--border-color)" id="hide-all-btn" onclick="document.querySelectorAll('.answer-panel').forEach(function(p){p.style.display='none';});document.querySelectorAll('.exam-option').forEach(function(o){o.classList.remove('correct','wrong');});this.previousElementSibling.textContent='查看全部答案与解析';">隐藏全部答案</button>
-  </div>
-
   <div class="mt-section" style="margin-top:2rem;">
     <a href="{{ "exam/408quiz/" | relURL }}" class="btn-ghost">← 返回真题列表</a>
   </div>
 </div>
 
 <nav class="exam-toc" id="exam-toc">
+  <button class="toc-reveal-btn toc-reveal-vertical" id="reveal-all-btn-toc" type="button" aria-pressed="false" aria-label="查看全部答案与解析">查看全部解析</button>
   <div class="exam-toc-header">
     题目导航
-    <div class="toc-actions">
-      <button class="toc-reveal-btn" id="reveal-all-btn-toc">查看全部答案与解析</button>
-      <button class="toc-reveal-btn toc-hide-btn" id="hide-all-btn-toc">隐藏全部</button>
-    </div>
   </div>
   <div class="exam-toc-list">
     {{ range $q := $yearQ }}
@@ -94,32 +86,47 @@
 .question-block .favorite-btn:hover { color: var(--accent); border-color: var(--accent); }
 .favorite-btn.collected { color: #f0c040; border-color: #f0c040; }
 .question-actions { margin: 1.5rem 0; display: flex; gap: .75rem; align-items: center; }
-.exam-toc-item { display: flex; align-items: center; gap: .25rem; padding: .2rem .75rem; border-radius: var(--radius-sm); text-decoration: none; color: var(--text-muted); font-size: var(--fs-xs); transition: all .15s; border-left: 2px solid transparent; }
+.exam-toc-item { display: flex; align-items: center; gap: .5rem; padding: .4rem .75rem; border-radius: var(--radius-sm); text-decoration: none; color: var(--text-secondary); font-size: .82rem; transition: all .15s; border-left: 2px solid transparent; }
 .exam-toc-item:hover { color: var(--text-primary); background: var(--bg-hover); }
-.exam-toc-item.active { color: var(--accent); background: rgba(57,186,230,.06); border-left-color: var(--accent); font-weight: 500; }
-.exam-toc-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
-.exam-toc-num { font-family: var(--font-mono); font-size: .7rem; min-width: 1.2rem; }
-.exam-toc-subj-label { font-size: .6rem; opacity: .7; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 3.5rem; }
-.exam-toc-kp { font-size: .6rem; opacity: .5; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 3rem; margin-left: auto; }
-.toc-actions { display: inline-flex; gap: .3rem; margin-left: auto; }
-.toc-reveal-btn {
-  padding: .25rem .6rem; border-radius: var(--radius-sm); cursor: pointer;
-  font-size: .7rem; font-weight: 500; transition: all .2s;
-  background: var(--accent); color: white; border: none;
-  white-space: nowrap;
+.exam-toc-item:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.exam-toc-item.active { color: var(--accent); background: rgba(57,186,230,.08); border-left-color: var(--accent); font-weight: 600; }
+.exam-toc-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.exam-toc-num { font-family: var(--font-mono); font-size: .8rem; min-width: 1.4rem; }
+.exam-toc-subj-label { font-size: .7rem; opacity: .85; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 4rem; }
+.exam-toc-kp { font-size: .68rem; opacity: .55; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 4rem; margin-left: auto; }
+.toc-reveal-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  position: sticky;
+  top: 90px;
+  display: block;
+  width: fit-content;
+  margin: 0 auto .9rem;
+  padding: 1.1rem .4rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .25em;
+  cursor: pointer;
+  box-shadow: var(--shadow-card);
+  transition: all .2s;
 }
-.toc-reveal-btn:hover { opacity: .85; }
-.toc-reveal-btn.toc-hide-btn {
-  background: transparent; border: 1px solid var(--border-color);
-  color: var(--text-muted);
-}
-.toc-reveal-btn.toc-hide-btn:hover {
-  border-color: var(--text-muted); color: var(--text-primary);
+.toc-reveal-vertical:hover { box-shadow: var(--shadow-glow); transform: translateY(-1px); }
+.toc-reveal-vertical:focus-visible { outline: 2px solid var(--text-primary); outline-offset: 2px; }
+.toc-reveal-vertical[aria-pressed="true"] {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  box-shadow: none;
 }
 .exam-toc-header {
   display: flex; align-items: center; gap: .5rem;
-  font-size: .95rem; font-weight: 700; color: var(--accent);
-  padding: .5rem; border-bottom: 1px solid var(--border-color);
+  font-size: 1rem; font-weight: 700; color: var(--text-primary);
+  padding: .25rem .75rem .6rem; border-bottom: 1px solid var(--border-color);
+  margin-bottom: .5rem;
 }
 </style>
 
@@ -305,29 +312,35 @@
   }
 })();
 
-// TOC reveal/hide-all buttons
+// TOC 竖排“查看全部解析”按钮：点击展开 / 收起全部答案
 (function() {
   var tocRevealBtn = document.getElementById('reveal-all-btn-toc');
-  var tocHideBtn = document.getElementById('hide-all-btn-toc');
-  if (!tocRevealBtn || !tocHideBtn) return;
-  
+  if (!tocRevealBtn) return;
+
   tocRevealBtn.addEventListener('click', function() {
-    document.querySelectorAll('.answer-panel').forEach(function(p) { p.style.display = 'block'; });
-    document.querySelectorAll('.question-block').forEach(function(block) {
-      var ap = block.querySelector('.answer-panel');
-      var correct = ap ? ap.getAttribute('data-answer') : null;
-      if (correct) {
-        block.querySelectorAll('.exam-option').forEach(function(opt) {
-          if (opt.getAttribute('data-opt') === correct) opt.classList.add('correct');
-          else if (opt.classList.contains('selected')) opt.classList.add('wrong');
-        });
-      }
-    });
-  });
-  
-  tocHideBtn.addEventListener('click', function() {
-    document.querySelectorAll('.answer-panel').forEach(function(p) { p.style.display = 'none'; });
-    document.querySelectorAll('.exam-option').forEach(function(o) { o.classList.remove('correct','wrong'); });
+    var panels = document.querySelectorAll('.answer-panel');
+    var anyHidden = Array.prototype.some.call(panels, function(p) { return p.style.display === 'none'; });
+    var reveal = anyHidden; // 任一隐藏则展开全部，否则收起全部
+    Array.prototype.forEach.call(panels, function(p) { p.style.display = reveal ? 'block' : 'none'; });
+
+    if (reveal) {
+      document.querySelectorAll('.question-block').forEach(function(block) {
+        var ap = block.querySelector('.answer-panel');
+        var correct = ap ? ap.getAttribute('data-answer') : null;
+        if (correct) {
+          block.querySelectorAll('.exam-option').forEach(function(opt) {
+            if (opt.getAttribute('data-opt') === correct) opt.classList.add('correct');
+            else if (opt.classList.contains('selected')) opt.classList.add('wrong');
+          });
+        }
+      });
+      tocRevealBtn.textContent = '收起全部解析';
+      tocRevealBtn.setAttribute('aria-pressed', 'true');
+    } else {
+      document.querySelectorAll('.exam-option').forEach(function(o) { o.classList.remove('correct', 'wrong'); });
+      tocRevealBtn.textContent = '查看全部解析';
+      tocRevealBtn.setAttribute('aria-pressed', 'false');
+    }
   });
 })();
 

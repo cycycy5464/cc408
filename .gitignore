@@ -25,6 +25,7 @@ package-lock.json
 .claude/
 .codebuddy/
 .reasonix/
+408projet/
 
 # Python
 __pycache__/
