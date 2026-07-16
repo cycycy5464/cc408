@@ -12,6 +12,7 @@
   // 页面状态存储Key前缀
   const STATE_KEY_PREFIX = 'cc408-page-state-';
   const HISTORY_KEY = 'cc408-navigation-history';
+  const CURRENT_PAGE_KEY = 'cc408-current-page';
   
   // 获取baseURL（从页面中的链接推断）
   function getBaseURL() {
@@ -275,7 +276,7 @@
             left: state.scrollX || 0,
             behavior: 'smooth'
           });
-        }, 200);
+        }, 300);
       }
       
       // 恢复筛选条件
@@ -392,6 +393,28 @@
   }
   
   /**
+   * 初始化导航栏链接点击事件
+   */
+  function initNavbarLinks() {
+    const currentPath = window.location.pathname;
+    
+    // 为所有导航栏链接添加点击事件
+    const navLinks = document.querySelectorAll('.navbar a[href]');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        // 保存当前页面状态
+        savePageState(currentPath);
+        
+        // 保存导航历史
+        const targetPath = this.getAttribute('href');
+        if (targetPath && !targetPath.startsWith('http') && !targetPath.startsWith('#')) {
+          saveNavigationHistory(currentPath, targetPath);
+        }
+      });
+    });
+  }
+  
+  /**
    * 页面加载时恢复状态
    */
   function onPageLoad() {
@@ -415,6 +438,9 @@
         // URL解析失败，忽略
       }
     }
+    
+    // 初始化导航栏链接
+    initNavbarLinks();
   }
   
   /**
