@@ -1,0 +1,13 @@
+{{/* 返回按钮组件 - 页面左上角 */}}
+{{/* 使用方法: {{ partial "back-button.html" . }} */}}
+{{/* 注意：此组件不接受参数，所有逻辑由JavaScript处理 */}}
+
+{{/* 如果是首页，则不显示 */}}
+{{ if ne .RelPermalink "/" }}
+  <div class="back-button-container" data-page-path="{{ .RelPermalink }}">
+    <button class="back-button" data-smart-back="true">
+      <span class="back-icon">←</span>
+      <span class="back-text">返回</span>
+    </button>
+  </div>
+{{ end }}

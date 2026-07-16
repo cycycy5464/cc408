@@ -1,4 +1,5 @@
 {{ define "main" }}
+{{ partial "back-button.html" . }}
 {{ if eq .CurrentSection .FirstSection }}
 {{/* Main exam page - entry cards only */}}
 <div class="content-area content-area-wide">
@@ -24,6 +25,11 @@
       <div class="subject-card-icon">💻</div>
       <div class="subject-card-title">算法实现</div>
       <div class="subject-card-desc">经典算法C代码实现</div>
+    </a>
+    <a href="{{ "question/chapterexercises/" | relURL }}" class="card subject-card os">
+      <div class="subject-card-icon">📚</div>
+      <div class="subject-card-title">章节题目</div>
+      <div class="subject-card-desc">按科目/章节刷课后题</div>
     </a>
   </div>
 </div>

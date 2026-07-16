@@ -309,6 +309,7 @@ layouts/exam/year-detail.html          →  查询 content/question/*.md
 |------|------|
 | `navbar.html` | **顶部导航栏** — 品牌 Logo、7个菜单项 (激活状态检测)、主题切换按钮 |
 | `footer.html` | **页脚** — 版权年份插值 |
+| `back-button.html` | **返回按钮** — 页面左上角智能返回按钮，支持历史记录和状态保存 |
 | `knowledge-graph-data.html` | **知识图谱数据** — Hugo 模板生成 JSON (节点+链接)，O(n*k) 优化 |
 | `search-index.html` | **搜索索引** — 生成搜索 JSON |
 | `watermark.html` | **水印** — Canvas 水印覆盖层 (防截图) |
@@ -331,6 +332,7 @@ layouts/exam/year-detail.html          →  查询 content/question/*.md
 |------|------|------|
 | `knowledge-graph.js` | 1220 | **D3.js 知识图谱引擎** — 多选项卡、下钻导航、力导向布局、搜索、管理标签编辑器 |
 | `theme-toggle.js` | - | 主题切换 — 读写 `localStorage('cc408-theme')`，触发 `cc408:themechange` 事件 |
+| `back-button.js` | - | **智能返回按钮** — 支持历史记录导航、页面状态保存与恢复、智能返回目标判断 |
 | `collect-quiz.js` | - | 单题收藏 — 从 DOM 提取题目数据，保存到 `localStorage('quiz_collections')` |
 | `quiz-collection.js` | - | 收藏页面渲染 — 从 localStorage 读取，创建可过滤卡片网格 |
 | `resource-filter.js` | - | 资源页面过滤 |

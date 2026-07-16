@@ -1,7 +1,8 @@
 {{ define "main" }}
+{{ partial "back-button.html" . }}
 <div class="content-area content-area-wide">
   <div class="question-nav">
-    <a href="{{ "question/" | relURL }}" class="btn btn-ghost">← 题目列表</a>
+    <a href="{{ if eq .Params.source "课后题" }}{{ "question/chapterexercises/" | relURL }}{{ else }}{{ "question/" | relURL }}{{ end }}" class="btn btn-ghost">← 题目列表</a>
     <span id="q-navigation" class="nav-links"></span>
   </div>
 
@@ -19,15 +20,23 @@
 
   <div class="question-actions" id="q-actions"></div>
 
+{{ $isCE := eq .Params.source "课后题" }}
 {{ $all := where .Site.RegularPages "Section" "question" }}
 {{ $same := slice }}
-{{ $yr := index (.Params.years | default slice) 0 }}
-{{ range $all }}
-  {{ $py := .Params.years }}{{ $ps := .Params.source }}{{ $pset := .Params.set }}
-  {{ if and $ps (eq $ps $.Params.source) }}
-    {{ if $.Params.set }}
-      {{ if eq $pset $.Params.set }}{{ $same = $same | append . }}{{ end }}
-    {{ else if $py }}{{ if in $py $yr }}{{ $same = $same | append . }}{{ end }}
+{{ if $isCE }}
+  {{ $curDir := .File.Dir }}
+  {{ range $all }}
+    {{ if and (eq .Params.source "课后题") (eq .File.Dir $curDir) }}{{ $same = $same | append . }}{{ end }}
+  {{ end }}
+{{ else }}
+  {{ $yr := index (.Params.years | default slice) 0 }}
+  {{ range $all }}
+    {{ $py := .Params.years }}{{ $ps := .Params.source }}{{ $pset := .Params.set }}
+    {{ if and $ps (eq $ps $.Params.source) }}
+      {{ if $.Params.set }}
+        {{ if eq $pset $.Params.set }}{{ $same = $same | append . }}{{ end }}
+      {{ else if $py }}{{ if in $py $yr }}{{ $same = $same | append . }}{{ end }}
+      {{ end }}
     {{ end }}
   {{ end }}
 {{ end }}

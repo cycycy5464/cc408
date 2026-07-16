@@ -1,4 +1,6 @@
 {{ define "main" }}
+{{ partial "back-button.html" . }}
+{{ $qpages := where (where .Site.RegularPages "Section" "question") "Params.source" "!=" "课后题" }}
 <div class="content-area content-area-wide">
   <h1>{{ .Title }}</h1>
   {{ .Content }}
@@ -6,7 +8,7 @@
   <div class="question-toolbar">
     <select id="filter-year">
       <option value="">全部年份</option>
-      {{ range where .Site.RegularPages "Section" "question" }}
+      {{ range $qpages }}
         {{ range .Params.years }}
           <option value="{{ . }}">{{ . }}</option>
         {{ end }}
@@ -14,7 +16,7 @@
     </select>
     <select id="filter-subject">
       <option value="">全部科目</option>
-      {{ range where .Site.RegularPages "Section" "question" }}
+      {{ range $qpages }}
         {{ range .Params.subjects }}
           <option value="{{ . }}">{{ . }}</option>
         {{ end }}
@@ -29,7 +31,7 @@
   </div>
 
   <div class="question-grid" id="question-grid">
-    {{ range (where .Site.RegularPages "Section" "question").ByParam "number" }}
+    {{ range $qpages.ByParam "number" }}
     <a href="{{ .RelPermalink }}" class="question-card"
        data-year="{{ delimit .Params.years "," }}"
        data-subject="{{ delimit .Params.subjects "," }}"

@@ -45,5 +45,7 @@
   {{ partial "footer.html" . }}
   {{ $themeToggle := resources.Get "js/theme-toggle.js" | resources.Minify | resources.Fingerprint }}
   <script src="{{ $themeToggle.RelPermalink }}" integrity="{{ $themeToggle.Data.Integrity }}" defer></script>
+  {{ $backButton := resources.Get "js/back-button.js" | resources.Minify | resources.Fingerprint }}
+  <script src="{{ $backButton.RelPermalink }}" integrity="{{ $backButton.Data.Integrity }}" defer></script>
 </body>
 </html>
