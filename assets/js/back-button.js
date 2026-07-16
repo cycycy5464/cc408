@@ -13,6 +13,24 @@
   const STATE_KEY_PREFIX = 'cc408-page-state-';
   const HISTORY_KEY = 'cc408-navigation-history';
   
+  // 获取baseURL（从页面中的链接推断）
+  function getBaseURL() {
+    // 尝试从导航栏链接获取baseURL
+    const navLinks = document.querySelectorAll('.navbar a[href]');
+    for (const link of navLinks) {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('/') && !href.startsWith('//')) {
+        // 提取baseURL部分
+        const parts = href.split('/');
+        if (parts.length > 1) {
+          return '/' + parts[1] + '/';
+        }
+      }
+    }
+    // 默认返回/cc408/
+    return '/cc408/';
+  }
+  
   // 页面类型映射
   const PAGE_TYPES = {
     '/': 'home',
@@ -26,7 +44,7 @@
     '/search/': 'search'
   };
   
-  // 默认返回目标映射
+  // 默认返回目标映射（相对于baseURL）
   const DEFAULT_BACK_TARGETS = {
     '/docs/': '/',
     '/exam/': '/',
@@ -42,14 +60,21 @@
    * 获取页面类型
    */
   function getPageType(path) {
+    const baseURL = getBaseURL();
+    // 移除baseURL前缀
+    let relativePath = path;
+    if (path.startsWith(baseURL)) {
+      relativePath = path.substring(baseURL.length - 1);
+    }
+    
     // 精确匹配
-    if (PAGE_TYPES[path]) {
-      return PAGE_TYPES[path];
+    if (PAGE_TYPES[relativePath]) {
+      return PAGE_TYPES[relativePath];
     }
     
     // 前缀匹配
     for (const [prefix, type] of Object.entries(PAGE_TYPES)) {
-      if (prefix !== '/' && path.startsWith(prefix)) {
+      if (prefix !== '/' && relativePath.startsWith(prefix)) {
         return type;
       }
     }
@@ -106,10 +131,17 @@
    * 智能判断返回目标
    */
   function getSmartBackTarget(currentPath) {
+    const baseURL = getBaseURL();
+    
     // 1. 首先检查是否有自定义返回URL
     const backButton = document.querySelector('.back-button[data-back-url]');
     if (backButton) {
-      return backButton.getAttribute('data-back-url');
+      const customUrl = backButton.getAttribute('data-back-url');
+      // 如果是相对路径，添加baseURL
+      if (customUrl && !customUrl.startsWith('http')) {
+        return baseURL + customUrl.replace(/^\//, '');
+      }
+      return customUrl;
     }
     
     // 2. 检查导航历史
@@ -128,25 +160,29 @@
     if (currentType.includes('detail') || currentType.includes('single')) {
       // 详情页返回到对应的列表页
       if (currentPath.includes('/docs/')) {
-        return '/docs/';
+        return baseURL + 'docs/';
       } else if (currentPath.includes('/exam/')) {
-        return '/exam/';
+        return baseURL + 'exam/';
       } else if (currentPath.includes('/question/')) {
-        return '/question/';
+        return baseURL + 'question/';
       } else if (currentPath.includes('/resources/')) {
-        return '/resources/';
+        return baseURL + 'resources/';
       }
     }
     
     // 4. 使用默认映射
     for (const [prefix, target] of Object.entries(DEFAULT_BACK_TARGETS)) {
-      if (currentPath.startsWith(prefix) && currentPath !== prefix) {
-        return target;
+      const fullPrefix = baseURL + prefix.replace(/^\//, '');
+      if (currentPath.startsWith(fullPrefix) && currentPath !== fullPrefix) {
+        if (target === '/') {
+          return baseURL;
+        }
+        return baseURL + target.replace(/^\//, '');
       }
     }
     
     // 5. 最终返回首页
-    return '/';
+    return baseURL;
   }
   
   /**
@@ -163,7 +199,9 @@
         // 保存展开的章节
         expandedSections: [],
         // 保存其他交互状态
-        expanded: []
+        expanded: [],
+        // 保存URL参数
+        searchParams: window.location.search
       };
       
       // 保存筛选条件
@@ -237,7 +275,7 @@
             left: state.scrollX || 0,
             behavior: 'smooth'
           });
-        }, 100);
+        }, 200);
       }
       
       // 恢复筛选条件
@@ -364,9 +402,17 @@
     
     // 保存导航历史
     if (document.referrer) {
-      const referrerPath = new URL(document.referrer).pathname;
-      if (referrerPath !== currentPath) {
-        saveNavigationHistory(referrerPath, currentPath);
+      try {
+        const referrerUrl = new URL(document.referrer);
+        const referrerPath = referrerUrl.pathname;
+        
+        // 只保存站内导航历史
+        const baseURL = getBaseURL();
+        if (referrerPath.startsWith(baseURL) && referrerPath !== currentPath) {
+          saveNavigationHistory(referrerPath, currentPath);
+        }
+      } catch (e) {
+        // URL解析失败，忽略
       }
     }
   }

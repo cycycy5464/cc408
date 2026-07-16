@@ -6,7 +6,7 @@
   {{ .Content }}
 
   <div class="question-toolbar">
-    <select id="filter-year">
+    <select id="filter-year" data-filter="year">
       <option value="">全部年份</option>
       {{ range $qpages }}
         {{ range .Params.years }}
@@ -14,7 +14,7 @@
         {{ end }}
       {{ end }}
     </select>
-    <select id="filter-subject">
+    <select id="filter-subject" data-filter="subject">
       <option value="">全部科目</option>
       {{ range $qpages }}
         {{ range .Params.subjects }}
@@ -22,12 +22,12 @@
         {{ end }}
       {{ end }}
     </select>
-    <select id="filter-type">
+    <select id="filter-type" data-filter="type">
       <option value="">全部题型</option>
       <option value="choice">选择题</option>
       <option value="comprehensive">解答题</option>
     </select>
-    <input type="text" id="filter-search" placeholder="搜索题目…">
+    <input type="text" id="filter-search" data-filter="search" placeholder="搜索题目…">
   </div>
 
   <div class="question-grid" id="question-grid">
