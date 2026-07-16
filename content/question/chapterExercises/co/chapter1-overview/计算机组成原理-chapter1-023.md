@@ -40,4 +40,4 @@ LOAD指令
 
 [tag_link]
 
-【解答】
+C

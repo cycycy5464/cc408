@@ -22,4 +22,4 @@ void           Flag_Arrange(color            a[],int           n){…}
 
 [tag_link]
 
-【解答】
+D

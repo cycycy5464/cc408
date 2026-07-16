@@ -21,4 +21,4 @@ A. 1                             B.n                                 C.log₂n  
 
 [tag_link]
 
-正确答案：B 、C
+正确答案：

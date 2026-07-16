@@ -21,4 +21,4 @@ A. FTP                        B.SMTP                     C.DNS                  
 
 [tag_link]
 
-正确答案：【解答】
+正确答案：C

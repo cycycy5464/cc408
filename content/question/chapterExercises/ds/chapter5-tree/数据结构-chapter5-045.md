@@ -21,4 +21,4 @@ A. ACBED               B.  DECAB                C.  DEABC              D.   CEDB
 
 [tag_link]
 
-正确答案：【解答】
+正确答案：D

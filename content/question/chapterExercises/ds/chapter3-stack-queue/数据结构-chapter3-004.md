@@ -21,4 +21,4 @@ A. a[--top]=x                            B.a[top--]=x      C.a[++top]=x         
 
 [tag_link]
 
-正确答案：【解答】
+正确答案：C

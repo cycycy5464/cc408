@@ -22,4 +22,4 @@ C. R[eax]=FFFFF500H                          D.M[080480F8H]=FFFFF500H
 
 [tag_link]
 
-正确答案：【解答】
+正确答案：C

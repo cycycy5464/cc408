@@ -19,4 +19,4 @@ MIME 与 SMTP 的关系是怎样的?
 
 [tag_link]
 
-【解答】
+A

@@ -23,4 +23,4 @@ A. IOIIOIOO    B.IOOIOIIO             C.IIOIOIO             D.ⅢOOIOO
 
 [tag_link]
 
-【解答】
+B

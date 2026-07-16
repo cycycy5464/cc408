@@ -21,4 +21,4 @@ A. 主时钟频率   B.   主存容量       C.MFLOPS              D.MIPS
 
 [tag_link]
 
-正确答案：【解答】
+正确答案：C

@@ -64,4 +64,4 @@ ALU
 
 [tag_link]
 
-【解答】
+C

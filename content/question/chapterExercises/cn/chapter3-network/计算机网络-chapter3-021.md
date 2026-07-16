@@ -21,4 +21,4 @@ A. 10Base-2              B. 10Base-5                  C.10Base-T             D.1
 
 [tag_link]
 
-正确答案：【解答】
+正确答案：C

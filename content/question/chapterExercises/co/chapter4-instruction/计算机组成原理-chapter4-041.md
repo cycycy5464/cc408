@@ -24,4 +24,4 @@ D. R[bx]=7FCEH,OF=0,SF=0,CF=1,ZF=0
 
 [tag_link]
 
-正确答案：【解答】
+正确答案：C

@@ -22,4 +22,4 @@ C. q->next=s;s->next=p;                                                 D.p->nex
 
 [tag_link]
 
-正确答案：【解答】
+正确答案：C

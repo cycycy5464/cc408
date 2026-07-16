@@ -42,4 +42,4 @@ A. ghbefhca            B.  gbdehcfa              C.  gdbhefca              D.  b
 
 [tag_link]
 
-正确答案：【解答】
+正确答案：C

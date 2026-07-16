@@ -410,10 +410,12 @@ def parse_answers(answer_lines: list[str]) -> dict:
             comprehensive_answers[int(m.group(1))] = "【解答】"
             continue
     
-    # 合并：选择题答案优先
+    # 合并：选择题答案仅在综合题答案不存在时才写入
     answers = {}
     answers.update(comprehensive_answers)
-    answers.update(choice_answers)
+    for k, v in choice_answers.items():
+        if k not in answers:
+            answers[k] = v
     return answers
 
 

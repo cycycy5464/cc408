@@ -21,4 +21,4 @@ A. HTTP                   B.SMTP                   C.FTP                        
 
 [tag_link]
 
-正确答案：【解答】
+正确答案：C

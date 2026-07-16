@@ -26,4 +26,4 @@ C. add  dword  ptr  eax,[edx+esi*2]          D.add   dword   ptr   eax,[esi+edx*
 
 [tag_link]
 
-正确答案：【解答】
+正确答案：A

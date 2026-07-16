@@ -22,4 +22,4 @@ C. data[--top]=x                                              D.data[++top]=x
 
 [tag_link]
 
-正确答案：【解答】
+正确答案：B

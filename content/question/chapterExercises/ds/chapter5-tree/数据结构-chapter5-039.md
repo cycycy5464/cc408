@@ -21,4 +21,4 @@ A. CBDAFEG         B.   ABECDFG           C.  ABCDEFG          D.   无法确定
 
 [tag_link]
 
-正确答案：【解答】
+正确答案：C

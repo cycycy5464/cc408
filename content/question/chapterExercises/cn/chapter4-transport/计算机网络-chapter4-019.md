@@ -22,4 +22,4 @@ C. IP,ICMP,ARP,RARP                              D.UDP,IP,ICMP,RARP
 
 [tag_link]
 
-正确答案：【解答】
+正确答案：C

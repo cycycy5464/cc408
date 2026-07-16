@@ -24,4 +24,4 @@ D. p->next=p->prior->prior;p->prior=p->next->next;
 
 [tag_link]
 
-正确答案：【解答】
+正确答案：A

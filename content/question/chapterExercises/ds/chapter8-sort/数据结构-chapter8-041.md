@@ -22,4 +22,4 @@ C. O(n²),O(  n)                                          D.O(nlog₂n),O(n)
 
 [tag_link]
 
-正确答案：【解答】
+正确答案：C

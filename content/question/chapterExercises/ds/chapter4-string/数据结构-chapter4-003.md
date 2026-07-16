@@ -22,4 +22,4 @@ A. O(m)                      B.O(n)                         C.O(  mn)           
 
 [tag_link]
 
-正确答案：C 、D
+正确答案：

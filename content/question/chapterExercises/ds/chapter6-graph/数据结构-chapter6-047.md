@@ -22,4 +22,4 @@ C. v1,V3,V4,Vs,V₇                                              D.v1,V2,Vs,V4,V
 
 [tag_link]
 
-正确答案：【解答】
+正确答案：B

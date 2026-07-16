@@ -23,4 +23,4 @@ A. n/2                            B.log₂n                         C.log₂n   
 
 [tag_link]
 
-正确答案：【解答】
+正确答案：D

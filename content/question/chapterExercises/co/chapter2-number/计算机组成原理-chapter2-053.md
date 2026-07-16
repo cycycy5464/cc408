@@ -22,4 +22,4 @@ C. double,char→int→long→double           D.double,char→int→double→lo
 
 [tag_link]
 
-正确答案：【解答】
+正确答案：C
