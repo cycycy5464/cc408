@@ -8,7 +8,6 @@
     <button class="graph-tab active" data-graph="docs">📖 知识点</button>
     <button class="graph-tab" data-graph="exam">📝 真题</button>
     <button class="graph-tab" data-graph="simulate">📝 模拟题</button>
-    <button class="graph-tab graph-tab-admin" data-graph="admin">✏️ 管理标签</button>
   </div>
 
   {{/* View mode toggle (only for exam/simulate) */}}
@@ -56,5 +55,6 @@
 <div id="graph-data-simulate" style="display:none">{{ partial "knowledge-graph-data-simulate" . }}</div>
 
 <script src="https://d3js.org/d3.v7.min.js"></script>
-<script src="{{ "js/knowledge-graph.js" | relURL }}"></script>
+{{ $kg := resources.Get "js/knowledge-graph.js" | resources.ExecuteAsTemplate "knowledge-graph.js" . | resources.Minify | resources.Fingerprint }}
+<script src="{{ $kg.RelPermalink }}" integrity="{{ $kg.Data.Integrity }}"></script>
 {{ end }}

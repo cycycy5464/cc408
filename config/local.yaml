@@ -30,7 +30,7 @@ markup:
       autoHeadingID: true     # 自动生成标题 ID
   highlight:
     lineNos: false            # 禁用行号
-    noClasses: true           # 使用内联样式
+    noClasses: false          # 输出 .chroma class（非内联样式），配色由 CSS 控制以适配双主题
 
 # 内存优化
 timeout: 300000               # 5分钟超时

@@ -1,0 +1,15 @@
+name = "cc408-tag-proxy"
+main = "worker.js"
+compatibility_date = "2024-09-23"
+
+# 非敏感配置：直接写在这里即可
+[vars]
+GITHUB_REPO = "cycycy5464/cc408"
+GITHUB_BRANCH = "master"
+MAPPING_PATH = "static/mapping/question-kp-mapping.json"
+
+# 敏感令牌（务必用 secret，不要写进本文件）：
+#   wrangler secret put GITHUB_TOKEN
+# 令牌要求：对 GITHUB_REPO 有 contents:write 权限
+#   - Fine-grained PAT：仅勾选该仓库的 Contents 读写
+#   - 或 Classic PAT：勾选 repo 范围

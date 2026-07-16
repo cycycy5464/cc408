@@ -66,8 +66,10 @@ h1 { font-size: 18px; margin-bottom: 12px; }
   </div>
 
 <script>
-const SVG_BASE = '/cc408/images/questions/';
-const API_BASE = 'http://localhost:1313';
+// 从当前页面路径推导站点挂载基址，避免写死 /cc408/ 导致 baseURL 变化时失效
+const MOUNT = window.location.pathname.replace(/\/svg-editor\.html$/, '');
+const SVG_BASE = window.location.origin + MOUNT + '/images/questions/';
+const API_BASE = 'http://localhost:1313'; // 开发期 hugo server，仅本地使用
 let currentFile = '';
 let currentSvg = '';
 let texts = [];

@@ -1,0 +1,22 @@
+---
+title: "查找 第21题"
+date: 2026-07-16
+type: question
+years:
+  - "课后题"
+subjects:
+  - "数据结构"
+knowledge_points:
+  - "B树和B+树"
+question_type: "choice"
+difficulty: 2
+source: "课后题"
+number: 20
+tags: ['课后题']
+---
+
+将关键字5,4,3,2,1依次插入初始为空的红黑树T,  则 T 的最终形态是()。
+
+[tag_link]
+
+正确答案：D

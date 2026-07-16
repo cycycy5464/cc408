@@ -1,4 +1,5 @@
 <!-- Watermark injection partial -->
 {{ if ne .Section "graph" }}
-<script src="{{ "js/watermark.js" | relURL }}"></script>
+{{ $wm := resources.Get "js/watermark.js" | resources.Minify | resources.Fingerprint }}
+<script src="{{ $wm.RelPermalink }}"></script>
 {{ end }}

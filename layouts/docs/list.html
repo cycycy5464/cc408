@@ -12,7 +12,7 @@
   }}
   <div class="hero-cards mt-section">
     {{ range $subjects }}
-    {{ $count := len (where $.Site.RegularPages "Params.subject" .key) }}
+    {{ $count := len (where (where $.Site.RegularPages "Section" "docs") "Params.subject" .key) }}
     <a href="{{ printf "docs/%s" .key | relURL }}" class="card subject-card {{ if eq .key "data-structure" }}ds{{ else if eq .key "computer-org" }}co{{ else if eq .key "os" }}os{{ else }}cn{{ end }}">
       <div class="subject-card-icon">{{ .icon }}</div>
       <div class="subject-card-title">{{ .label }}</div>
@@ -28,7 +28,7 @@
   <h1>📖 {{ .Title }}</h1>
   {{ .Content }}
   <div class="exam-paper-grid" style="margin-top:2rem">
-    {{ range .RegularPages }}
+    {{ range sort .RegularPages "Params.weight" }}
     <a href="{{ .RelPermalink }}" class="exam-paper-card">
       <div class="title">{{ .Title }}</div>
       <div class="meta">

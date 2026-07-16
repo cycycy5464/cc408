@@ -18,5 +18,225 @@
     </a>
     {{ end }}
   </div>
+
+  {{ if eq .Data.Singular "tag" }}
+  {{/* 题目标签管理面板（迁移自知识图谱「管理标签」） */}}
+  <section class="tag-manager" id="tag-manager">
+    <button class="tm-toggle" id="tm-toggle" type="button">
+      <span class="tm-toggle-title">🛠️ 题目标签管理</span>
+      <span class="tm-chev">▸</span>
+    </button>
+    <div class="tm-body" id="tm-body" style="display:none">
+      <div class="tm-toolbar">
+        <input type="text" id="tm-search" class="tm-input" placeholder="搜索题目或知识点...">
+        <select id="tm-filter-source" class="tm-input">
+          <option value="">全部来源</option>
+          <option value="408真题">真题</option>
+          <option value="模拟题">模拟题</option>
+        </select>
+        <select id="tm-filter-group" class="tm-input">
+          <option value="subject">分科目</option>
+          <option value="year">分年份</option>
+          <option value="untagged">无标签题目</option>
+        </select>
+      </div>
+      <div class="tm-list" id="tm-list"></div>
+      <div class="tm-actions">
+        <button class="btn btn-sm" id="tm-save" type="button">💾 保存</button>
+        <button class="btn btn-sm" id="tm-export" type="button">📥 导出映射</button>
+        <label class="btn btn-sm tm-import-label">📤 导入映射
+          <input type="file" id="tm-import" accept="application/json" hidden>
+        </label>
+        <button class="btn btn-sm" id="tm-sync" type="button" style="display:none">☁ 同步到仓库</button>
+        <span class="tm-status" id="tm-status"></span>
+      </div>
+    </div>
+  </section>
+
+  {{ $store := resources.Get "js/kag-store.js" | resources.ExecuteAsTemplate "kag-store.js" . | resources.Minify }}
+  <script src="{{ $store.RelPermalink }}"></script>
+  <script>
+  (function () {
+    if (!window.KagStore) { console.error('KagStore not loaded'); return; }
+    var toggle = document.getElementById('tm-toggle');
+    var body = document.getElementById('tm-body');
+    var listEl = document.getElementById('tm-list');
+    var searchEl = document.getElementById('tm-search');
+    var filterEl = document.getElementById('tm-filter-source');
+    var groupEl = document.getElementById('tm-filter-group');
+    var subjectNames = { 'data-structure':'数据结构','computer-org':'组成原理','os':'操作系统','network':'计算机网络' };
+    function subjectLabel(code) { return subjectNames[code] || code || '未分类'; }
+    // 分组维度选项随来源变化：真题提供「分年份」，模拟题提供「卷」
+    function updateGroupOptions() {
+      var src = filterEl.value;
+      var opts = (src === '模拟题')
+        ? [['subject','分科目'],['set','卷'],['untagged','无标签题目']]
+        : [['subject','分科目'],['year','分年份'],['untagged','无标签题目']];
+      groupEl.innerHTML = opts.map(function (o) { return '<option value="' + o[0] + '">' + o[1] + '</option>'; }).join('');
+    }
+    updateGroupOptions();
+    var statusEl = document.getElementById('tm-status');
+    var syncBtn = document.getElementById('tm-sync');
+    var all = [];
+
+    // 仅当配置了远端代理端点时，显示「同步到仓库」入口
+    if (KagStore.isRemoteEnabled() && syncBtn) syncBtn.style.display = '';
+
+    function status(msg, ok) {
+      statusEl.textContent = msg || '';
+      statusEl.className = 'tm-status' + (ok === true ? ' ok' : (ok === false ? ' err' : ''));
+    }
+
+    function renderTagsOnly(file) {
+      var el = listEl.querySelector('.tm-tags[data-file="' + file + '"]');
+      if (el) KagStore.renderTags(el, KagStore.getKps(file), function (kp) {
+        KagStore.removeKp(file, kp);
+        renderTagsOnly(file);
+      });
+    }
+
+    function renderItemsHtml(items) {
+      return items.map(function (item) {
+        var kps = KagStore.getKps(item.file);
+        var meta = item.source || '';
+        if (item.source === '模拟题') {
+          if (item.set != null && item.set !== '') meta += ' · 卷' + item.set;
+        } else if (item.year) {
+          meta += ' · ' + item.year;
+        }
+        var h = '';
+        h += '<div class="tm-item" data-file="' + item.file + '">';
+        h += '<div class="tm-item-head"><span class="tm-item-title">' + item.title + '</span>';
+        h += '<span class="tm-item-meta">' + meta + '</span></div>';
+        h += '<div class="tm-tags" data-file="' + item.file + '"></div>';
+        h += '<div class="tm-add"><input type="text" class="tm-add-input tm-input" placeholder="添加知识点..."><button class="btn btn-sm tm-add-btn" type="button">添加</button></div>';
+        h += '</div>';
+        return h;
+      }).join('');
+    }
+
+    function bindItems() {
+      listEl.querySelectorAll('.tm-tags').forEach(function (el) {
+        var file = el.getAttribute('data-file');
+        KagStore.renderTags(el, KagStore.getKps(file), function (kp) {
+          KagStore.removeKp(file, kp);
+          renderTagsOnly(file);
+        });
+      });
+      listEl.querySelectorAll('.tm-item').forEach(function (el) {
+        var file = el.getAttribute('data-file');
+        var input = el.querySelector('.tm-add-input');
+        var btn = el.querySelector('.tm-add-btn');
+        function add() {
+          var v = input.value.trim();
+          if (v) { KagStore.addKp(file, v); input.value = ''; renderTagsOnly(file); }
+        }
+        btn.addEventListener('click', add);
+        input.addEventListener('keydown', function (e) { if (e.key === 'Enter') add(); });
+      });
+    }
+
+    function render() {
+      var q = (searchEl.value || '').toLowerCase();
+      var src = filterEl.value;
+      var group = groupEl.value;
+
+      var items = all.filter(function (item) {
+        var kps = KagStore.getKps(item.file);
+        var hay = (item.title + ' ' + (item.source || '') + ' ' + kps.join(' ')).toLowerCase();
+        if (q && hay.indexOf(q) < 0) return false;
+        if (src && item.source !== src) return false;
+        return true;
+      });
+
+      // 无标签题目：直接筛选未标记题目（仍受来源/搜索约束）
+      if (group === 'untagged') {
+        items = items.filter(function (it) { return KagStore.getKps(it.file).length === 0; });
+        listEl.innerHTML = renderItemsHtml(items) || '<p class="tm-empty">无未标记题目 🎉</p>';
+        bindItems();
+        return;
+      }
+
+      // 分科目 / 分年份 / 卷：按维度分组渲染
+      var groups = {};
+      items.forEach(function (it) {
+        var key;
+        if (group === 'year') key = it.year || '未分类';
+        else if (group === 'set') key = (it.set != null && it.set !== '') ? ('卷' + it.set) : '未分类';
+        else key = subjectLabel(it.subject);
+        if (!groups[key]) groups[key] = [];
+        groups[key].push(it);
+      });
+
+      var keys = Object.keys(groups).sort(function (a, b) { return a.localeCompare(b, 'zh'); });
+      var html = '';
+      keys.forEach(function (k) {
+        html += '<div class="tm-group">';
+        html += '<div class="tm-group-head">' + k + ' <span class="tm-group-count">' + groups[k].length + '</span></div>';
+        html += renderItemsHtml(groups[k]);
+        html += '</div>';
+      });
+      listEl.innerHTML = html || '<p class="tm-empty">无匹配题目</p>';
+      bindItems();
+    }
+
+    function init() {
+      status('加载中...');
+      KagStore.load().then(function () {
+        all = KagStore.getQuestions();
+        status('已加载 ' + all.length + ' 题', true);
+        render();
+      }).catch(function (err) {
+        status('加载失败：' + (err && err.message ? err.message : err), false);
+      });
+    }
+
+    toggle.addEventListener('click', function () {
+      var open = body.style.display === 'none';
+      body.style.display = open ? 'block' : 'none';
+      toggle.querySelector('.tm-chev').textContent = open ? '▾' : '▸';
+      if (open && !all.length) init();
+    });
+
+    searchEl.addEventListener('input', render);
+    filterEl.addEventListener('change', function () { updateGroupOptions(); render(); });
+    groupEl.addEventListener('change', render);
+    document.getElementById('tm-save').addEventListener('click', function () {
+      KagStore.saveEdits();
+      if (KagStore.isRemoteEnabled()) {
+        status('同步到仓库...');
+        KagStore.pushEdits().then(function (j) {
+          status('已保存并同步到仓库（' + (j.changed || 0) + ' 题）', true);
+        }).catch(function (err) {
+          status('本地已保存，但同步失败：' + (err && err.message ? err.message : err), false);
+        });
+      } else {
+        status('已保存到本地浏览器', true);
+      }
+    });
+    if (syncBtn) {
+      syncBtn.addEventListener('click', function () {
+        status('同步到仓库...');
+        KagStore.pushEdits().then(function (j) {
+          status('已同步到仓库（' + (j.changed || 0) + ' 题）', true);
+        }).catch(function (err) {
+          status('同步失败：' + (err && err.message ? err.message : err), false);
+        });
+      });
+    }
+    document.getElementById('tm-export').addEventListener('click', function () {
+      KagStore.exportMapping(); status('已导出 mapping JSON', true);
+    });
+    document.getElementById('tm-import').addEventListener('change', function (e) {
+      var f = e.target.files[0];
+      if (!f) return;
+      KagStore.importMapping(f, function (err) {
+        if (err) { status('导入失败：' + err.message, false); }
+        else { all = KagStore.getQuestions(); render(); status('导入成功', true); }
+      });
+    });
+  })();
+  </script>
+  {{ end }}
 </div>
 {{ end }}

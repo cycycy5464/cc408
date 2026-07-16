@@ -1,0 +1,54 @@
+/* === 代码高亮（Hugo Chroma, noClasses:true）双主题配色 ===
+   背景跟随 --code-bg（深浅主题各自的 --code-bg 已在 :root / :root[data-theme="light"] 定义）。
+   深色用 monokai 调色，浅色用 github 调色。
+   说明：此前 highlight 使用默认 monokai 且未开启 noClasses，导致 <pre> 被注入
+   style="background-color:#272822;color:#f8f8f2" 行内硬色调。浅色模式下未着色的
+   标识符/标点继承 --text-primary（深色），叠在强制暗底上 → 看不见。开启 noClasses
+   后改由本文件控制，深浅模式均清晰可读。 */
+
+/* 容器：覆盖可能的残留行内色，背景跟随主题 */
+.highlight pre {
+  background: var(--code-bg) !important;
+  color: var(--text-primary);
+}
+.highlight pre code {
+  color: inherit;
+  background: transparent;
+}
+
+/* ---- 深色（默认 :root，monokai 调色）---- */
+:root .chroma .err { color:#960050; background-color:#1e0010 }
+:root .chroma .hl { background-color:#3c3d38 }
+:root .chroma .lnt, :root .chroma .ln { color:#7f7f7f }
+:root .chroma .k, :root .chroma .kc, :root .chroma .kd, :root .chroma .kp, :root .chroma .kr, :root .chroma .kt { color:#66d9ef }
+:root .chroma .kn { color:#f92672 }
+:root .chroma .na, :root .chroma .nc, :root .chroma .nd, :root .chroma .ne, :root .chroma .nf, :root .chroma .nx { color:#a6e22e }
+:root .chroma .l { color:#ae81ff }
+:root .chroma .s, :root .chroma .s1, :root .chroma .s2, :root .chroma .sc, :root .chroma .sa, :root .chroma .sb, :root .chroma .sd, :root .chroma .dl, :root .chroma .se, :root .chroma .sh, :root .chroma .si, :root .chroma .sx { color:#e6db74 }
+:root .chroma .sr { color:#ae81ff }
+:root .chroma .m, :root .chroma .mb, :root .chroma .mf, :root .chroma .mh, :root .chroma .mi, :root .chroma .il, :root .chroma .mo, :root .chroma .mx { color:#ae81ff }
+:root .chroma .c, :root .chroma .ch, :root .chroma .cm, :root .chroma .c1, :root .chroma .cs, :root .chroma .cp, :root .chroma .cpf { color:#75715e; font-style:italic }
+
+/* ---- 浅色（github 调色）---- */
+:root[data-theme="light"] .chroma .err { color:#a61717; background-color:#e3d2d2 }
+:root[data-theme="light"] .chroma .hl { background-color:#e5e5e5 }
+:root[data-theme="light"] .chroma .lnt, :root[data-theme="light"] .chroma .ln { color:#7f7f7f }
+:root[data-theme="light"] .chroma .k, :root[data-theme="light"] .chroma .kc, :root[data-theme="light"] .chroma .kd, :root[data-theme="light"] .chroma .kp, :root[data-theme="light"] .chroma .kr { color:#000; font-weight:bold }
+:root[data-theme="light"] .chroma .kn { color:#000; font-weight:bold }
+:root[data-theme="light"] .chroma .kt { color:#458; font-weight:bold }
+:root[data-theme="light"] .chroma .na { color:#008080 }
+:root[data-theme="light"] .chroma .nb { color:#0086b3 }
+:root[data-theme="light"] .chroma .nc { color:#458; font-weight:bold }
+:root[data-theme="light"] .chroma .no { color:#008080 }
+:root[data-theme="light"] .chroma .nd { color:#3c5d5d; font-weight:bold }
+:root[data-theme="light"] .chroma .ni { color:#800080 }
+:root[data-theme="light"] .chroma .ne, :root[data-theme="light"] .chroma .nf, :root[data-theme="light"] .chroma .nl { color:#900; font-weight:bold }
+:root[data-theme="light"] .chroma .nn { color:#555 }
+:root[data-theme="light"] .chroma .nv, :root[data-theme="light"] .chroma .vc, :root[data-theme="light"] .chroma .vg, :root[data-theme="light"] .chroma .vi { color:#008080 }
+:root[data-theme="light"] .chroma .l { color:#ae81ff }
+:root[data-theme="light"] .chroma .s, :root[data-theme="light"] .chroma .s1, :root[data-theme="light"] .chroma .s2, :root[data-theme="light"] .chroma .sc, :root[data-theme="light"] .chroma .sa, :root[data-theme="light"] .chroma .sb, :root[data-theme="light"] .chroma .sd, :root[data-theme="light"] .chroma .dl, :root[data-theme="light"] .chroma .se, :root[data-theme="light"] .chroma .sh, :root[data-theme="light"] .chroma .si, :root[data-theme="light"] .chroma .sx { color:#d14 }
+:root[data-theme="light"] .chroma .sr { color:#009926 }
+:root[data-theme="light"] .chroma .ss { color:#990073 }
+:root[data-theme="light"] .chroma .m, :root[data-theme="light"] .chroma .mb, :root[data-theme="light"] .chroma .mf, :root[data-theme="light"] .chroma .mh, :root[data-theme="light"] .chroma .mi, :root[data-theme="light"] .chroma .il, :root[data-theme="light"] .chroma .mo, :root[data-theme="light"] .chroma .mx { color:#099 }
+:root[data-theme="light"] .chroma .o, :root[data-theme="light"] .chroma .ow { color:#000; font-weight:bold }
+:root[data-theme="light"] .chroma .c, :root[data-theme="light"] .chroma .ch, :root[data-theme="light"] .chroma .cm, :root[data-theme="light"] .chroma .c1, :root[data-theme="light"] .chroma .cs, :root[data-theme="light"] .chroma .cp, :root[data-theme="light"] .chroma .cpf { color:#998; font-style:italic }

@@ -18,7 +18,7 @@
 {{ $subjects := .Site.Data.subjects }}
 <div class="hero-cards">
   {{ range $subjects }}
-  {{ $count := len (where $.Site.RegularPages "Params.subject" .key) }}
+  {{ $count := len (where (where $.Site.RegularPages "Section" "docs") "Params.subject" .key) }}
   <a href="{{ print "docs/" .key "/" | relURL }}" class="card subject-card {{ .cls }}">
     <div class="subject-card-icon">{{ .icon }}</div>
     <div class="subject-card-title">{{ .label }}</div>

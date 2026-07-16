@@ -1,0 +1,24 @@
+---
+title: "数据的表示和运算 第4题"
+date: 2026-07-16
+type: question
+years:
+  - "课后题"
+subjects:
+  - "计算机组成原理"
+knowledge_points:
+  - "数制与编码"
+question_type: "choice"
+difficulty: 2
+source: "课后题"
+number: 4
+tags: ['课后题']
+---
+
+对真值0表示形式唯一 的机器数是()。
+
+A. 原码         B.   补码和移码     C.   反码          D.    以上都不对
+
+[tag_link]
+
+正确答案：B

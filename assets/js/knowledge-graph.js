@@ -102,6 +102,23 @@
     return subjectNameFromCode[code] || code;
   }
 
+  // 模拟题顶层维度取「整卷」：优先用 set 字段，否则从文件名/年份解析
+  function parseSet(q) {
+    var s = q.set;
+    if (s !== undefined && s !== null && s !== '') return String(s);
+    var lf = q.local_file || '';
+    var m = lf.match(/simulate-(\d+)/);
+    if (m) return m[1];
+    var ym = (q.year || '').match(/(\d+)/);
+    if (ym) return ym[1];
+    return '0';
+  }
+
+  // 顶层节点文案：模拟题为「卷N」，真题为「N年」
+  function topLabel(nav, y) {
+    return (nav && nav.topIsSet) ? ('卷' + y) : (y + '年');
+  }
+
   function getDataId(tab) {
     if (tab === 'docs') return 'graph-data-docs';
     if (tab === 'exam') return 'graph-data-exam';
@@ -161,7 +178,7 @@
 
     for (var file in questions) {
       var q = questions[file];
-      var year = q.year;
+      var year = (source === '模拟题') ? parseSet(q) : q.year;
       var subject = q.subject;
       var kps = q.knowledge_points || [];
 
@@ -200,6 +217,7 @@
 
     return {
       questions: questions,
+      topIsSet: (source === '模拟题'),
       years: Object.keys(yearsMap).sort(),
       subjects: Object.keys(subjectsMap),
       yearsMap: yearsMap,
@@ -255,6 +273,12 @@
     if (f.subject !== null && f.year === null && f.qtype === null && f.kp === null) {
       if (state.view === 'subject') return getSubjectYearsLevel(nav, f.subject, searchQ);
     }
+    // Level 1c: subject + year selected (subject view) -> show qtypes
+    // 修复：subject 视图下点“卷/年份”后，若不清空科目则焦点变为 {subject, year}，
+    // 此前没有任何分支匹配该组合，导致返回空（显示“暂无数据”）。
+    if (f.subject !== null && f.year !== null && f.qtype === null && f.kp === null) {
+      if (state.view === 'subject') return getSubjectYearQtypeLevel(nav, f.subject, f.year, searchQ);
+    }
     // Level 2a: year + qtype selected -> show subjects
     if (f.year !== null && f.qtype !== null && f.subject === null && f.kp === null) {
       return getYearQtypeSubjectsLevel(nav, f.year, f.qtype, searchQ);
@@ -279,7 +303,7 @@
       if (searchQ && y.indexOf(searchQ) < 0) return;
       nodes.push({
         id: 'year-' + y,
-        label: y + '年',
+        label: topLabel(nav, y),
         type: 'year',
         subject: 'exam',
         meta: y
@@ -330,7 +354,7 @@
     // Include year node
     nodes.push({
       id: 'year-' + year,
-      label: year + '年',
+      label: topLabel(nav, year),
       type: 'year',
       subject: 'exam',
       meta: year
@@ -347,7 +371,7 @@
       if (searchQ && y.indexOf(searchQ) < 0) return;
       nodes.push({
         id: 'year-' + y + '-' + subject,
-        label: y + '年',
+        label: topLabel(nav, y),
         type: 'year',
         subject: 'exam',
         meta: y,
@@ -387,7 +411,7 @@
     });
     nodes.push({
       id: 'year-' + year,
-      label: year + '年',
+      label: topLabel(nav, year),
       type: 'year',
       subject: 'exam',
       meta: year
@@ -459,7 +483,7 @@
     });
     nodes.push({
       id: 'year-' + year,
-      label: year + '年',
+      label: topLabel(nav, year),
       type: 'year',
       subject: 'exam',
       meta: year
@@ -479,6 +503,63 @@
     return { nodes: nodes, links: links };
   }
 
+  // subject 视图下「科目 + 卷」层：仅统计该科目+卷内存在的题型
+  function getSubjectYearQtypeLevel(nav, subject, year, searchQ) {
+    var nodes = [];
+    var links = [];
+    var sData = nav.yearsMap[year] && nav.yearsMap[year][subject];
+    if (!sData) return { nodes: [], links: [] };
+
+    var hasSel = false, hasCom = false;
+    var kps = sData.kps || {};
+    Object.keys(kps).forEach(function (kp) {
+      kps[kp].forEach(function (f) {
+        var q = nav.questions[f];
+        if (!q) return;
+        if (q.number <= 40 || q.number === undefined) hasSel = true;
+        else hasCom = true;
+      });
+    });
+
+    nodes.push({
+      id: 'year-' + year,
+      label: topLabel(nav, year),
+      type: 'year',
+      subject: 'exam',
+      meta: year
+    });
+    nodes.push({
+      id: 'subj-' + subject,
+      label: subjectName(subject),
+      type: 'subject',
+      subject: subject,
+      meta: subject
+    });
+    if (hasSel) {
+      nodes.push({
+        id: 'qtype-selection-' + year,
+        label: '选择题',
+        type: 'qtype',
+        subject: 'exam',
+        meta: 'selection',
+        _parentYear: year
+      });
+      links.push({ source: 'year-' + year, target: 'qtype-selection-' + year });
+    }
+    if (hasCom) {
+      nodes.push({
+        id: 'qtype-comprehensive-' + year,
+        label: '综合题',
+        type: 'qtype',
+        subject: 'exam',
+        meta: 'comprehensive',
+        _parentYear: year
+      });
+      links.push({ source: 'year-' + year, target: 'qtype-comprehensive-' + year });
+    }
+    return { nodes: nodes, links: links };
+  }
+
   function getKpLevel(nav, year, qtype, subject, searchQ) {
     var nodes = [];
     var links = [];
@@ -488,7 +569,16 @@
 
     Object.keys(kps).forEach(function (kp) {
       if (searchQ && kp.toLowerCase().indexOf(searchQ) < 0) return;
-      var count = kps[kp].length;
+      // 只统计当前题型(qtype)的题目：避免显示只含其它题型的“死”知识球，
+      // 否则双击下钻到题目层会因题型不匹配而为空，表现为“无法跳转”。
+      var count = 0;
+      kps[kp].forEach(function (f) {
+        var q = nav.questions[f];
+        if (!q) return;
+        var qt = (q.number <= 40 || q.number === undefined) ? 'selection' : 'comprehensive';
+        if (qt === qtype) count++;
+      });
+      if (count === 0) return;
       nodes.push({
         id: 'kp-' + kp + '-' + year + '-' + subject + '-' + qtype,
         label: kp,
@@ -509,7 +599,7 @@
     // Include parent nodes
     nodes.push({
       id: 'year-' + year,
-      label: year + '年',
+      label: topLabel(nav, year),
       type: 'year',
       subject: 'exam',
       meta: year
@@ -579,7 +669,7 @@
     // Parent nodes
     nodes.push({
       id: 'year-' + year,
-      label: year + '年',
+      label: topLabel(nav, year),
       type: 'year',
       subject: 'exam',
       meta: year
@@ -603,6 +693,16 @@
       _parentSubject: subject,
       _parentQtype: qtype
     });
+    // 题目层需要补上 qtype 节点，否则其连线会成为悬空链接（filtered invalid links）
+    nodes.push({
+      id: 'qtype-' + qtype + '-' + year,
+      label: qtypeNames[qtype] || qtype,
+      type: 'qtype',
+      subject: 'exam',
+      meta: qtype,
+      _parentYear: year
+    });
+    links.push({ source: 'year-' + year, target: 'qtype-' + qtype + '-' + year });
     links.push({ source: 'qtype-' + qtype + '-' + year, target: 'subj-' + subject + '-' + year + '-' + qtype });
     links.push({ source: 'subj-' + subject + '-' + year + '-' + qtype, target: 'kp-' + kp + '-' + year + '-' + subject + '-' + qtype });
 
@@ -628,7 +728,7 @@
     }
 
     if (f.year) {
-      parts.push({ label: f.year + '年', action: 'year' });
+      parts.push({ label: topLabel(state._nav, f.year), action: 'year' });
     }
     if (f.subject) {
       parts.push({ label: subjectName(f.subject), action: 'subject' });
@@ -656,8 +756,13 @@
           state.focus = { year: null, qtype: null, subject: null, kp: null };
         } else if (action === 'year') {
           state.focus.qtype = null;
-          state.focus.subject = null;
           state.focus.kp = null;
+          if (state.view === 'subject') {
+            // subject 视图：回到“科目→卷”层，保留科目
+            state.focus.year = null;
+          } else {
+            state.focus.subject = null;
+          }
         } else if (action === 'qtype') {
           state.focus.subject = null;
           state.focus.kp = null;
@@ -724,7 +829,6 @@
     var link = _g.selectAll('.link')
       .data(data.links).enter().append('line')
       .attr('class', 'link')
-      .attr('stroke', '#30363d')
       .attr('stroke-width', 1.2)
       .attr('opacity', 0.5);
 
@@ -751,8 +855,11 @@
       .attr('opacity', 0.85)
       .attr('stroke', function (d) {
         if (state.adminMode && d.type === 'question') return '#f0c040';
-        if (d.type === 'year' || d.type === 'subject') return 'rgba(255,255,255,0.15)';
+        if (d.type === 'year' || d.type === 'subject') return null; // 描边改由 CSS .graph-ring 控制，随主题自适应
         return 'none';
+      })
+      .attr('class', function (d) {
+        return (d.type === 'year' || d.type === 'subject') ? 'graph-ring' : '';
       })
       .attr('stroke-width', function (d) {
         return (state.adminMode && d.type === 'question') ? 2 : 1;
@@ -766,7 +873,7 @@
     node.append('text')
       .attr('dy', '0.35em')
       .attr('text-anchor', 'middle')
-      .attr('fill', '#e6edf3')
+      .attr('class', 'graph-node-label')
       .attr('font-size', function (d) {
         if (d.type === 'question') return '7px';
         if (d.type === 'kp') return '9px';
@@ -800,6 +907,9 @@
       e.stopPropagation();
       if (d.url) {
         window.open(d.url, '_blank');
+      } else if (state.tab === 'docs' && d.id) {
+        // 文档视图的知识球：跳转到对应文档页
+        window.open(d.id, '_blank');
       } else if (d.type === 'question' && d.meta) {
         var url = BASE_URL + 'question/' + d.meta.replace('.md', '/');
         window.open(url, '_blank');
@@ -813,13 +923,21 @@
     var chargeStrength = isHierarchical ? -400 : -300;
     var linkDist = isHierarchical ? 140 : 120;
 
-    // Sanitize links: filter out any that reference nodes not in the array
+    // Sanitize links.
+    // d3.forceLink MUTATES each link's source/target from an id string into the
+    // actual node object. When the same link objects are reused on a later render
+    // (e.g. docs view returns state.config.links directly), forceLink would then do
+    // nodeById.get(object) and throw "missing: [object Object]". Restore them to id
+    // strings first so they always resolve, then drop any that reference missing nodes.
+    data.links.forEach(function (l) {
+      if (l.source && typeof l.source === 'object') l.source = l.source.id;
+      if (l.target && typeof l.target === 'object') l.target = l.target.id;
+    });
     var nodeIdSet = {};
     data.nodes.forEach(function (n) { nodeIdSet[n.id] = true; });
     var invalidLinks = 0;
     data.links = data.links.filter(function (l) {
-      var sid = (typeof l.source === 'object') ? l.source.id : l.source;
-      var tid = (typeof l.target === 'object') ? l.target.id : l.target;
+      var sid = l.source, tid = l.target;
       if (!sid || !tid || !nodeIdSet[sid] || !nodeIdSet[tid]) {
         invalidLinks++;
         return false;
@@ -864,13 +982,20 @@
     if (d.type === 'year') {
       state.focus.year = d.meta || d.label.replace('年', '');
       state.focus.qtype = null;
-      state.focus.subject = null;
       state.focus.kp = null;
+      // subject 视图下点击“卷/年份”时保留已选科目，继续在该科目下下钻；
+      // year 视图下则清空科目（year→qtype→科目 的常规流程）。
+      if (!(state.view === 'subject' && state.focus.subject)) {
+        state.focus.subject = null;
+      }
       renderGraph();
     } else if (d.type === 'qtype') {
       state.focus.qtype = d.meta;
-      state.focus.subject = null;
       state.focus.kp = null;
+      // subject 视图下保留已选科目，否则下钻到 KP 层会因 subject 为空而空白
+      if (!(state.view === 'subject' && state.focus.subject)) {
+        state.focus.subject = null;
+      }
       renderGraph();
     } else if (d.type === 'subject') {
       if (state.focus.year === null && state.view === 'subject') {
@@ -945,6 +1070,10 @@
       infoLink.style.display = 'inline-block';
     } else if (d.type === 'question' && d.meta) {
       infoLink.href = BASE_URL + 'question/' + d.meta.replace('.md', '/');
+      infoLink.style.display = 'inline-block';
+    } else if (state.tab === 'docs' && d.id) {
+      // 文档视图知识球：信息面板提供跳转到对应文档页的链接
+      infoLink.href = d.id;
       infoLink.style.display = 'inline-block';
     } else {
       infoLink.style.display = 'none';
@@ -1087,6 +1216,18 @@
     // Show/hide view toggle
     if (viewToggle) {
       viewToggle.style.display = (tab === 'exam' || tab === 'simulate') ? 'flex' : 'none';
+      var yearBtn = viewToggle.querySelector('[data-view="year"]');
+      var subjBtn = viewToggle.querySelector('[data-view="subject"]');
+      if (tab === 'simulate') {
+        // 模拟题顶层为「卷N」（无年份语义），仅保留「按科目」
+        if (yearBtn) { yearBtn.style.display = 'none'; yearBtn.classList.remove('active'); }
+        if (subjBtn) { subjBtn.style.display = ''; subjBtn.classList.add('active'); }
+        state.view = 'subject';
+      } else {
+        if (yearBtn) { yearBtn.style.display = ''; yearBtn.classList.add('active'); }
+        if (subjBtn) { subjBtn.style.display = ''; subjBtn.classList.remove('active'); }
+        state.view = 'year';
+      }
     }
 
     // Highlight tab

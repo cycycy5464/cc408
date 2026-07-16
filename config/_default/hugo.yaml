@@ -53,6 +53,9 @@ markup:
   _merge: deep
   highlight:
     lineNos: false
+    # noClasses:false → 输出 .chroma 等 class（非行内样式），配色由 assets/css/_chroma.scss 控制，
+    # 以跟随浅/深双主题。Hugo 会按 style 自动注入 monokai 样式表，但已被 _chroma.scss 用更高特异性覆盖。
+    noClasses: false
   goldmark:
     renderer:
       unsafe: false
@@ -60,3 +63,10 @@ security:
   _merge: deep
 sitemap:
   _merge: deep
+
+############################
+## 题目标签远端同步（方案 A · Serverless 代理）
+## 留空 = 仅本地（localStorage）；填入 Worker 地址即启用「同步到仓库」
+## 详见 serverless/README.md
+params:
+  tagProxyEndpoint: ''

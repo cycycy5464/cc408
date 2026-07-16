@@ -14,7 +14,7 @@
         <span>{{ .icon }}</span><span>{{ .label }}</span>
       </summary>
       {{ $subject := .key }}
-      {{ range where $.Site.RegularPages "Params.subject" $subject }}
+      {{ range sort (where (where $.Site.RegularPages "Section" "docs") "Params.subject" $subject) "Params.weight" }}
       <a href="{{ .RelPermalink }}" class="side-nav-link {{ if eq .RelPermalink $currentPath }}active{{ end }}">{{ .Title }}</a>
       {{ end }}
     </details>
