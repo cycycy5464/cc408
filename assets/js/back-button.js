@@ -12,9 +12,8 @@
   // 页面状态存储Key前缀
   const STATE_KEY_PREFIX = 'cc408-page-state-';
   const HISTORY_KEY = 'cc408-navigation-history';
-  const CURRENT_PAGE_KEY = 'cc408-current-page';
   
-  // 获取baseURL（从页面中的链接推断）
+  // 获取baseURL
   function getBaseURL() {
     // 尝试从导航栏链接获取baseURL
     const navLinks = document.querySelectorAll('.navbar a[href]');
@@ -30,57 +29,6 @@
     }
     // 默认返回/cc408/
     return '/cc408/';
-  }
-  
-  // 页面类型映射
-  const PAGE_TYPES = {
-    '/': 'home',
-    '/docs/': 'docs-list',
-    '/exam/': 'exam-list',
-    '/exam/quiz-collection/': 'quiz-collection',
-    '/graph/': 'graph',
-    '/tags/': 'tags-list',
-    '/resources/': 'resources-list',
-    '/question/': 'question-list',
-    '/search/': 'search'
-  };
-  
-  // 默认返回目标映射（相对于baseURL）
-  const DEFAULT_BACK_TARGETS = {
-    '/docs/': '/',
-    '/exam/': '/',
-    '/exam/quiz-collection/': '/exam/',
-    '/graph/': '/',
-    '/tags/': '/',
-    '/resources/': '/',
-    '/question/': '/exam/',
-    '/search/': '/'
-  };
-  
-  /**
-   * 获取页面类型
-   */
-  function getPageType(path) {
-    const baseURL = getBaseURL();
-    // 移除baseURL前缀
-    let relativePath = path;
-    if (path.startsWith(baseURL)) {
-      relativePath = path.substring(baseURL.length - 1);
-    }
-    
-    // 精确匹配
-    if (PAGE_TYPES[relativePath]) {
-      return PAGE_TYPES[relativePath];
-    }
-    
-    // 前缀匹配
-    for (const [prefix, type] of Object.entries(PAGE_TYPES)) {
-      if (prefix !== '/' && relativePath.startsWith(prefix)) {
-        return type;
-      }
-    }
-    
-    return 'unknown';
   }
   
   /**
@@ -155,34 +103,24 @@
     }
     
     // 3. 使用默认返回目标
-    const currentType = getPageType(currentPath);
-    
     // 根据页面类型确定返回目标
-    if (currentType.includes('detail') || currentType.includes('single')) {
-      // 详情页返回到对应的列表页
-      if (currentPath.includes('/docs/')) {
-        return baseURL + 'docs/';
-      } else if (currentPath.includes('/exam/')) {
-        return baseURL + 'exam/';
-      } else if (currentPath.includes('/question/')) {
-        return baseURL + 'question/';
-      } else if (currentPath.includes('/resources/')) {
-        return baseURL + 'resources/';
-      }
+    if (currentPath.includes('/docs/')) {
+      return baseURL + 'docs/';
+    } else if (currentPath.includes('/exam/')) {
+      return baseURL + 'exam/';
+    } else if (currentPath.includes('/question/')) {
+      return baseURL + 'question/';
+    } else if (currentPath.includes('/resources/')) {
+      return baseURL + 'resources/';
+    } else if (currentPath.includes('/graph/')) {
+      return baseURL;
+    } else if (currentPath.includes('/tags/')) {
+      return baseURL;
+    } else if (currentPath.includes('/search/')) {
+      return baseURL;
     }
     
-    // 4. 使用默认映射
-    for (const [prefix, target] of Object.entries(DEFAULT_BACK_TARGETS)) {
-      const fullPrefix = baseURL + prefix.replace(/^\//, '');
-      if (currentPath.startsWith(fullPrefix) && currentPath !== fullPrefix) {
-        if (target === '/') {
-          return baseURL;
-        }
-        return baseURL + target.replace(/^\//, '');
-      }
-    }
-    
-    // 5. 最终返回首页
+    // 4. 最终返回首页
     return baseURL;
   }
   
@@ -238,9 +176,6 @@
       
       const stateKey = STATE_KEY_PREFIX + encodeURIComponent(path);
       localStorage.setItem(stateKey, JSON.stringify(state));
-      
-      // 清理过期状态（超过24小时）
-      cleanupOldStates();
       
     } catch (e) {
       console.warn('保存页面状态失败:', e);
@@ -330,35 +265,6 @@
     } catch (e) {
       console.warn('恢复页面状态失败:', e);
       return false;
-    }
-  }
-  
-  /**
-   * 清理过期状态
-   */
-  function cleanupOldStates() {
-    try {
-      const keys = Object.keys(localStorage);
-      const now = Date.now();
-      
-      keys.forEach(key => {
-        if (key.startsWith(STATE_KEY_PREFIX)) {
-          try {
-            const stateStr = localStorage.getItem(key);
-            if (stateStr) {
-              const state = JSON.parse(stateStr);
-              if (now - state.timestamp > 24 * 60 * 60 * 1000) {
-                localStorage.removeItem(key);
-              }
-            }
-          } catch (e) {
-            // 解析失败，删除该key
-            localStorage.removeItem(key);
-          }
-        }
-      });
-    } catch (e) {
-      console.warn('清理过期状态失败:', e);
     }
   }
   
