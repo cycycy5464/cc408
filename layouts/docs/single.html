@@ -1,7 +1,12 @@
 {{ define "main" }}
-{{ partial "back-button.html" . }}
 <div class="docs-layout">
   <aside class="side-nav">
+    <div class="back-button-container" style="position: sticky; top: 0; z-index: 10; padding: 10px; background: var(--bg-secondary); border-bottom: 1px solid var(--border-color);">
+      <button class="back-button" data-smart-back="true">
+        <span class="back-icon">←</span>
+        <span class="back-text">返回</span>
+      </button>
+    </div>
     {{ $baseRel := "" | relURL }}
     {{ $currentPath := .RelPermalink }}
     {{ $currentSubject := "" }}
