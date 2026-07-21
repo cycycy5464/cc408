@@ -31,20 +31,7 @@
   </div>
 
   <div class="question-grid" id="question-grid">
-    {{ range $qpages.ByParam "number" }}
-    <a href="{{ .RelPermalink }}" class="question-card"
-       data-year="{{ delimit .Params.years "," }}"
-       data-subject="{{ delimit .Params.subjects "," }}"
-       data-type="{{ .Params.question_type }}">
-      <div class="meta">
-        <span class="tag">{{ range .Params.years }}{{ . }}{{ end }}</span>
-        <span class="tag tag-accent">{{ range .Params.subjects }}{{ . }}{{ end }}</span>
-        <span class="tag tag-warm">{{ if eq .Params.question_type "comprehensive" }}解答{{ else }}选择{{ end }}</span>
-        <span>{{ $d := default 1 .Params.difficulty }}{{ range seq 1 4 }}{{ if le . $d }}★{{ else }}☆{{ end }}{{ end }}</span>
-      </div>
-      <div class="stem">{{ .Title }}</div>
-    </a>
-    {{ end }}
+    {{ range $qpages.ByParam "number" }}{{ partial "question-card.html" . }}{{ end }}
   </div>
 
   <div class="border-top-section">
@@ -66,15 +53,6 @@
 }
 .question-toolbar input { flex: 1; min-width: 180px; }
 .question-toolbar select:focus, .question-toolbar input:focus { outline: none; border-color: var(--accent); }
-.question-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: .75rem; }
-.question-card {
-  display: block; padding: 1rem; background: var(--bg-card);
-  border: 1px solid var(--border-color); border-radius: var(--radius-md);
-  text-decoration: none; color: var(--text-primary); transition: all .25s;
-}
-.question-card:hover { border-color: var(--accent); box-shadow: var(--shadow-glow); }
-.question-card .meta { display: flex; gap: .35rem; flex-wrap: wrap; margin-bottom: .5rem; }
-.question-card .stem { font-size: var(--fs-sm); line-height: 1.5; }
 </style>
 
 <script>

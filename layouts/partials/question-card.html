@@ -1,0 +1,26 @@
+{{/*
+  Renders a question card link for a single question page.
+  Shared by the question list (/question/) and chapter-exercises pages.
+  The data-* attributes are consumed by each page's client-side filter script.
+  Subject/chapter values are taken straight from front matter / title so the
+  partial stays robust to subjects not present in a fixed lookup table.
+*/}}
+{{ $page := . }}
+{{ $sk := default "" (index $page.Params.subjects 0) }}
+{{ $tp := split $page.Title " 第" }}
+{{ $chapter := index $tp 0 }}
+<a href="{{ $page.RelPermalink }}" class="question-card"
+   data-year="{{ delimit $page.Params.years "," }}"
+   data-subject="{{ $sk }}"
+   data-subject-name="{{ $sk }}"
+   data-chapter="{{ $chapter }}"
+   data-chapter-name="{{ $chapter }}"
+   data-type="{{ $page.Params.question_type }}">
+  <div class="meta">
+    <span class="tag">{{ $sk }}</span>
+    {{ if eq $page.Params.source "课后题" }}<span class="tag tag-accent">{{ $chapter }}</span>{{ end }}
+    <span class="tag tag-warm">{{ if eq $page.Params.question_type "comprehensive" }}解答{{ else }}选择{{ end }}</span>
+    <span>{{ $d := default 1 $page.Params.difficulty }}{{ range seq 1 4 }}{{ if le . $d }}★{{ else }}☆{{ end }}{{ end }}</span>
+  </div>
+  <div class="stem">{{ $page.Title }}</div>
+</a>

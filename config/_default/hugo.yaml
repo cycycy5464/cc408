@@ -40,7 +40,9 @@ build:
     - \.?backup-
     - \.~
   disableAliases: true
-outputs:
+  permalinks:
+    question: '/question/:filename/'
+  outputs:
   home: [HTML]
   section: [HTML]
 imaging:
