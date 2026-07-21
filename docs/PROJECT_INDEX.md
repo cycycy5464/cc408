@@ -1,10 +1,10 @@
-# CC408 项目完整索引
+﻿# CC408 项目完整索引
 
 > **408 考研知识平台** — 基于 Hugo 的静态网站，涵盖数据结构、计算机组成原理、操作系统、计算机网络四门课程的知识点笔记与真题练习。
 
 **仓库**: `github.com/cycycy5464/cc408`  
 **线上地址**: `https://cycycy5464.github.io/cc408/`  
-**技术栈**: Hugo 0.135.0 + Go Modules + D3.js + KaTeX
+**技术栈**: Hugo 0.164.0 + Go Modules + D3.js + KaTeX
 
 ---
 
@@ -20,7 +20,7 @@
 | 修改交互逻辑 | [assets/js/](#assetsjs--交互脚本) |
 | 运行脚本工具 | [scripts/](#scripts--脚本工具) |
 | 了解部署流程 | [GitHub Actions](#github-actions--部署) |
-| 查看经验教训 | [tasks/docs/lessons.md](#经验教训) |
+| 查看经验教训 | [docs/lessons.md](#经验教训) |
 
 ---
 
@@ -39,7 +39,7 @@ cc408/
 │   ├── docs/               #   知识点笔记 (4门课)
 │   ├── exam/               #   考试页面
 │   ├── graph/              #   知识图谱
-│   ├── question/           #   真题题目 (1300+题)
+│   ├── question/           #   真题题目 (1300+题, exam/模拟题/simulate/章节练习)
 │   ├── resources/          #   学习资源
 │   ├── search/             #   搜索页面
 │   └── study-methods/      #   学习方法
@@ -48,7 +48,7 @@ cc408/
 ├── layouts/                # Hugo 模板 (渲染逻辑)
 ├── scripts/                # 工具脚本
 ├── static/                 # 静态文件 (原样复制)
-├── tasks/                  # 任务跟踪与文档
+├── removed_dups/          # 已移除的重复模拟题
 └── test_build/             # 测试构建产物
 ```
 
@@ -151,7 +151,7 @@ subjects: ["data-structure"]
 knowledge_points: ["线性表"]
 question_type: "choice"    # choice (选择题) / comprehensive (综合题)
 difficulty: 2
-source: "csgraduates"
+source: "408真题"
 number: 1
 ---
 ```
@@ -274,7 +274,7 @@ layouts/exam/year-detail.html          →  查询 content/question/*.md
 | `_default/single.html` | **通用单页** — 课程标签、难度星级、标签、文章内容、关联真题 |
 | `_default/list.html` | **通用列表** — 标题 + 内容区域 |
 
-### 题目模板 (`layouts/question/`)
+### 题目模板 (`## layouts/question/`)
 
 | 文件 | 作用 |
 |------|------|
@@ -393,7 +393,7 @@ layouts/exam/year-detail.html          →  查询 content/question/*.md
 
 **构建流程**:
 1. Checkout (完整历史)
-2. 安装 Hugo 0.135.0 extended
+2. 安装 Hugo 0.164.0 extended
 3. 构建: `hugo --minify`
 4. 上传 `./public` 为 artifact
 5. 部署到 GitHub Pages
@@ -520,4 +520,4 @@ hugo --minify
 
 ---
 
-*索引生成于 2026-07-15*
+*索引生成于 2026-07-21*

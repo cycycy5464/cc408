@@ -93,8 +93,8 @@
     const sk = subjSel.value, ck = chapSel.value,
           t = typeSel.value, q = search.value.toLowerCase();
     cards.forEach(function(c) {
-      const matchSubj = !sk || c.dataset.subject === sk;
-      const matchChap = !ck || c.dataset.chapter === ck;
+      const matchSubj = sk && c.dataset.subject === sk;
+      const matchChap = ck && c.dataset.chapter === ck;
       const matchType = !t || c.dataset.type === t;
       const matchSearch = !q || c.textContent.toLowerCase().includes(q);
       c.style.display = (matchSubj && matchChap && matchType && matchSearch) ? 'block' : 'none';
@@ -108,6 +108,8 @@
   chapSel.addEventListener('change', filter);
   typeSel.addEventListener('change', filter);
   search.addEventListener('input', filter);
+
+  filter();
 })();
 </script>
 {{ end }}
