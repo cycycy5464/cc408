@@ -13,6 +13,11 @@
   const STATE_KEY_PREFIX = 'cc408-page-state-';
   const HISTORY_KEY = 'cc408-navigation-history';
   
+  // 防重复保存：同 path 500ms 内跳过
+  var lastSavedPath = '';
+  var lastSavedTime = 0;
+  var globalLinksInitialized = false;
+  
   // 获取baseURL
   function getBaseURL() {
     // 尝试从导航栏链接获取baseURL
@@ -63,7 +68,14 @@
     try {
       const history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
       
-      // 从后往前找，跳过当前页面
+      // 优先：找到"导航到当前页"的记录，返回其 from（真正的上一页）
+      for (let i = history.length - 1; i >= 0; i--) {
+        if (history[i].to === currentPath) {
+          return history[i].from;
+        }
+      }
+      
+      // 备选：返回最近的、不是当前页面的目标页
       for (let i = history.length - 1; i >= 0; i--) {
         if (history[i].to !== currentPath) {
           return history[i].to;
@@ -128,22 +140,24 @@
    * 保存页面状态
    */
   function savePageState(path) {
+    var now = Date.now();
+    if (path === lastSavedPath && (now - lastSavedTime) < 500) {
+      return;
+    }
+    lastSavedPath = path;
+    lastSavedTime = now;
+    
     try {
       const state = {
         scrollY: window.scrollY,
         scrollX: window.scrollX,
         timestamp: Date.now(),
-        // 保存筛选条件
         filters: {},
-        // 保存展开的章节
         expandedSections: [],
-        // 保存其他交互状态
         expanded: [],
-        // 保存URL参数
         searchParams: window.location.search
       };
       
-      // 保存筛选条件
       const filterElements = document.querySelectorAll('select[data-filter], input[data-filter]');
       filterElements.forEach(el => {
         const filterName = el.getAttribute('data-filter');
@@ -158,7 +172,6 @@
         }
       });
       
-      // 保存展开的章节
       const detailsElements = document.querySelectorAll('details[open]');
       detailsElements.forEach(el => {
         if (el.id) {
@@ -166,7 +179,6 @@
         }
       });
       
-      // 保存其他展开状态
       const expandedElements = document.querySelectorAll('.expanded, [aria-expanded="true"]');
       expandedElements.forEach(el => {
         if (el.id) {
@@ -196,32 +208,17 @@
       
       const state = JSON.parse(stateStr);
       
-      // 检查状态是否过期（超过24小时）
       if (Date.now() - state.timestamp > 24 * 60 * 60 * 1000) {
         localStorage.removeItem(stateKey);
         return false;
       }
       
-      // 恢复滚动位置
-      if (state.scrollY !== undefined) {
-        // 延迟执行，确保页面已加载
-        setTimeout(() => {
-          window.scrollTo({
-            top: state.scrollY,
-            left: state.scrollX || 0,
-            behavior: 'smooth'
-          });
-        }, 300);
-      }
-      
-      // 恢复筛选条件
       if (state.filters) {
         Object.entries(state.filters).forEach(([filterName, value]) => {
           const element = document.querySelector(`[data-filter="${filterName}"]`);
           if (element) {
             if (element.tagName === 'SELECT') {
               element.value = value;
-              // 触发change事件
               element.dispatchEvent(new Event('change', { bubbles: true }));
             } else if (element.type === 'checkbox') {
               element.checked = value;
@@ -234,7 +231,6 @@
         });
       }
       
-      // 恢复展开的章节
       if (state.expandedSections) {
         state.expandedSections.forEach(id => {
           const element = document.getElementById(id);
@@ -244,7 +240,6 @@
         });
       }
       
-      // 恢复其他展开状态
       if (state.expanded) {
         state.expanded.forEach(id => {
           const element = document.getElementById(id);
@@ -257,8 +252,11 @@
         });
       }
       
-      // 清除已恢复的状态
-      localStorage.removeItem(stateKey);
+      if (state.scrollY !== undefined) {
+        requestAnimationFrame(function() {
+          window.scrollTo(state.scrollX || 0, state.scrollY);
+        });
+      }
       
       return true;
       
@@ -304,19 +302,38 @@
   function initNavbarLinks() {
     const currentPath = window.location.pathname;
     
-    // 为所有导航栏链接添加点击事件
-    const navLinks = document.querySelectorAll('.navbar a[href]');
+    const navLinks = document.querySelectorAll('.navbar a[href]:not([data-nav-initialized])');
     navLinks.forEach(link => {
+      link.setAttribute('data-nav-initialized', 'true');
       link.addEventListener('click', function(e) {
-        // 保存当前页面状态
         savePageState(currentPath);
         
-        // 保存导航历史
         const targetPath = this.getAttribute('href');
         if (targetPath && !targetPath.startsWith('http') && !targetPath.startsWith('#')) {
           saveNavigationHistory(currentPath, targetPath);
         }
       });
+    });
+  }
+  
+  /**
+   * 全局链接点击委托 — 记录所有内部链接的导航历史
+   */
+  function initGlobalLinks() {
+    if (globalLinksInitialized) return;
+    globalLinksInitialized = true;
+    
+    const currentPath = window.location.pathname;
+    
+    document.addEventListener('click', function(e) {
+      var link = e.target.closest('a[href]');
+      if (!link) return;
+      
+      var href = link.getAttribute('href');
+      if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('javascript:')) return;
+      
+      savePageState(currentPath);
+      saveNavigationHistory(currentPath, href);
     });
   }
   
@@ -345,8 +362,8 @@
       }
     }
     
-    // 初始化导航栏链接
     initNavbarLinks();
+    initGlobalLinks();
   }
   
   /**
@@ -368,10 +385,17 @@
     onPageLoad();
   }
   
-  // 页面卸载前保存状态
-  window.addEventListener('beforeunload', onPageUnload);
+  // 页面卸载时保存状态（比 beforeunload 更可靠）
+  window.addEventListener('pagehide', onPageUnload);
   
-  // 页面可见性变化时保存状态
+  // 从 bfcache 恢复时重新初始化
+  window.addEventListener('pageshow', function(event) {
+    if (event.persisted) {
+      onPageLoad();
+    }
+  });
+  
+  // 页面可见性变化时保存状态（兼顾移动端切后台）
   document.addEventListener('visibilitychange', function() {
     if (document.visibilityState === 'hidden') {
       onPageUnload();

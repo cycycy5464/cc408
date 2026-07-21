@@ -15,7 +15,9 @@
    data-subject-name="{{ $sk }}"
    data-chapter="{{ $chapter }}"
    data-chapter-name="{{ $chapter }}"
-   data-type="{{ $page.Params.question_type }}">
+   data-type="{{ $page.Params.question_type }}"
+   data-source="{{ $page.Params.source }}"
+   data-set="{{ with $page.Params.set }}{{ . }}{{ end }}">
   <div class="meta">
     <span class="tag">{{ $sk }}</span>
     {{ if eq $page.Params.source "课后题" }}<span class="tag tag-accent">{{ $chapter }}</span>{{ end }}

@@ -226,7 +226,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .docs-layout .content-area{margin:0}
 .content-area-wide{max-width:960px}
 /* 知识点正文配图：限制最大宽度不超出内容区，避免超出屏幕；居中并加边框增强可读性 */
-.content-area img,.content-area video{max-width:100%;height:auto;display:block;margin:1.5rem auto;border-radius:var(--radius-md);border:1px solid var(--border-color);background:var(--bg-secondary)}
+.content-area img,.content-area video{max-width:100%;height:auto;display:block;margin:1.5rem auto;border-radius:var(--radius-md);border:1px solid var(--border-color);background:#fff}
 .content-area img + em,.content-area figure figcaption{display:block;text-align:center;font-size:var(--fs-xs);color:var(--text-muted);margin-top:.5rem}
 .exam-layout{display:flex;max-width:1240px;margin:0 auto;position:relative}
 .exam-toc{width:260px;flex-shrink:0;position:sticky;top:90px;align-self:flex-start;display:flex;flex-direction:row;gap:.6rem;margin-left:1.25rem;padding:0}
