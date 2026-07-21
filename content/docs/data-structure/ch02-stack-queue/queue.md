@@ -1,4 +1,4 @@
----
+﻿---
 title: "队列"
 aliases: ["队列"]
 date: 2026-06-25
@@ -292,7 +292,7 @@ return Q.front == Q.rear;
 
 ## 相关笔记
 
-- [[definition|线性表定义与基本操作]]
-- [[linear-list-index|线性表概述]]
-- [[linked-list|链表]]
-- [[sequential-list|顺序表]]
+- 线性表定义与基本操作
+- 线性表概述
+- 链表
+- 顺序表

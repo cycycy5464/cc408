@@ -1,4 +1,4 @@
----
+﻿---
 title: "指令集种类"
 aliases: ["指令集种类"]
 date: 2026-06-25
@@ -40,7 +40,7 @@ chapter_title: "指令集种类"
 
 **CISC** （Complex Instruction Set Computer）和 **RISC** （Reduced Instruction Set Computer）是两种不同的计算机体系结构设计哲学，它们在 **指令集架构** 和 **执行方式** 上有显著的差异。
 
-![csic 和 risc 处理器](../images/2bba1fa824.png)
+![csic 和 risc 处理器](/cc408/images/docs/computer-org/2bba1fa824.png)
 
 #### CISC
 
@@ -211,9 +211,9 @@ movl    3(%ebx),%eax
 
 ## 相关笔记
 
-- [[cache|Cache]]
-- [[external|外存]]
-- [[memory-index|存储系统]]
-- [[overview|存储系统概述]]
-- [[ram|内存]]
-- [[virtual|虚拟存储器]]
+- Cache
+- 外存
+- 存储系统
+- 存储系统概述
+- 内存
+- 虚拟存储器

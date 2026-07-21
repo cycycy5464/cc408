@@ -1,4 +1,4 @@
----
+﻿---
 title: "万维网"
 aliases: ["万维网"]
 date: 2026-06-25
@@ -136,6 +136,6 @@ Cookie: sessionId=abc123
 
 ## 相关笔记
 
-- [[tcp|TCP]]
-- [[tp-index|传输层]]
-- [[udp|UDP]]
+- TCP
+- 传输层
+- UDP

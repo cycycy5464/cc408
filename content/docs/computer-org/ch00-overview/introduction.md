@@ -1,4 +1,4 @@
----
+﻿---
 title: "概论"
 aliases: ["概论"]
 date: 2026-06-25
@@ -39,6 +39,6 @@ chapter_title: "概论"
 
 * * *
 
-##### [计算机系统层次结构](</constitution_principle/overview/structure/>)
+##### [计算机系统层次结构](/docs/computer-org/ch02-memory/overview/)
 
-##### [计算机性能指标](</constitution_principle/overview/performance/>)
+##### [计算机性能指标](/docs/computer-org/ch00-overview/performance/)

@@ -1,4 +1,4 @@
----
+﻿---
 title: "树"
 aliases: ["树"]
 date: 2026-06-25
@@ -67,7 +67,7 @@ chapter_title: "树"
   1. 定义一：从某节点到最远叶子节点的 **结点总数** 。
   2. 定义二：从某节点到最远叶子节点的 **边数** 。
 
-定义一在算法竞赛和教材中更加常用，408 真题也是按照这种方式考查的（[2020 年第 3 题](</study_methods/408quiz/2020/#3>)），在学习和考试中需要按照按照定义一来记忆。
+定义一在算法竞赛和教材中更加常用，408 真题也是按照这种方式考查的（2020 年第 3 题），在学习和考试中需要按照按照定义一来记忆。
 
 #### 路径
 
@@ -221,16 +221,14 @@ typedef struct TreeNode {
 int value;
 int numChildren; // 子结点的数量
 struct TreeNode *children[MAXCHILD]; // 子结点指针数组
+    } TreeNode;
 ```
 
-} TreeNode;
-```
-
-  * 先根遍历
 
 ```c
+
+* 先根遍历
 void preOrderTraversal(TreeNode* root) {
-```c
 if (root == NULL) {
     return;
 }
@@ -238,35 +236,26 @@ printf("%d ", root->value);  // 先访问根结点
 // 然后遍历子结点
 for (int i = 0; i < root->numChildren; ++i) {
     preOrderTraversal(root->children[i]);
+	}
 }
 ```
-
-}
-```
-
-  * 后根遍历
 
 ```c
+ * 后根遍历
 void postOrderTraversal(TreeNode* root) {
-```c
 if (root == NULL) {
     return;
 }
-```
-
-
-```c
 // 先遍历子结点
 for (int i = 0; i < root->numChildren; ++i) {
     postOrderTraversal(root->children[i]);
 }
 printf("%d ", root->value);  // 再访问根结点
-```
-
 }
+
 ```
 
-对于 [上图](</data_structure/tree/tree/#%e6%a0%91%e8%bd%ac%e5%8c%96%e4%b8%ba%e4%ba%8c%e5%8f%89%e6%a0%91>) 所示的树：其 **先根遍历** 为 `A, B, E, F, C, D, G`，**后根遍历** 为`E, F, B, C, G, D, A`。
+对于 上图 所示的树：其 **先根遍历** 为 `A, B, E, F, C, D, G`，**后根遍历** 为`E, F, B, C, G, D, A`。
 
 观察可以得到如下结论：
 
@@ -281,17 +270,9 @@ printf("%d ", root->value);  // 再访问根结点
   2. **后根遍历** （与树的后根遍历相似）：依次 **后根遍历** 森林中的每一棵树。
   3. **中根遍历** （普通的树构成的森林是不存在中序遍历的，这里的中序遍历指代的是二叉树森林）：依次 **中根遍历** 森林中的每一棵二叉树。
 
-对于 [上图](</data_structure/tree/tree/#%e6%a3%ae%e6%9e%97%e8%bd%ac%e4%ba%8c%e5%8f%89%e6%a0%91>) 所示的森林：其 **先根遍历** 为 `A, B, C, D, E, F, G, H, I`，**后根遍历** 为 `B, C, D, A, F, E, H, I, G`，**中根遍历** 为 `B, C, D, A, F, E, H, I, G`
+对于 上图 所示的森林：其 **先根遍历** 为 `A, B, C, D, E, F, G, H, I`，**后根遍历** 为 `B, C, D, A, F, E, H, I, G`，**中根遍历** 为 `B, C, D, A, F, E, H, I, G`
 
 观察可以得到如下结论：
 
   * 森林的 **先根遍历** 和其对应的二叉树的 **先序遍历** 相同
   * 森林的 **中根遍历** 和其对应的二叉树的 **中序遍历** 相同
-
-
-## 相关笔记
-
-- [[array-matrix|数组和特殊矩阵]]
-- [[definition|串的定义与实现]]
-- [[pattern-matching|串的模式匹配]]
-- [[string-index|串概述]]

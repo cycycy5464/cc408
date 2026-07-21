@@ -9,10 +9,9 @@
   </div>
   <article>{{ .Content }}</article>
   <div style="margin-top:2rem;padding:1.5rem;background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);text-align:center">
-    {{ if eq .Params.type "free" }}
-    {{ $filePath := printf "resources/%s" .File.TranslationBaseName }}
-    <a href="{{ $filePath | relURL }}" class="btn btn-primary" download>⬇️ 下载资源（带水印）</a>
-    <p style="color:var(--text-secondary);font-size:var(--fs-sm);margin-top:.75rem">下载的文件将自动添加 CC408 水印</p>
+    {{ if .Params.downloadable }}
+    <a href="{{ .Params.file_url }}" class="btn btn-primary" download>⬇️ 下载 PDF</a>
+    <p style="color:var(--text-secondary);font-size:var(--fs-sm);margin-top:.75rem">原始真题试卷 PDF，可直接打印练习</p>
     {{ else }}
     <p style="color:var(--text-secondary)">🔒 高质量资源仅支持在线预览</p>
     <p style="color:var(--text-secondary);font-size:var(--fs-sm);margin-top:.5rem">（获取下载权限功能即将开放）</p>

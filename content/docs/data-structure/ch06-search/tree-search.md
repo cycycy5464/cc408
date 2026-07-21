@@ -1,4 +1,4 @@
----
+﻿---
 title: "树形查找"
 aliases: ["树形查找"]
 date: 2026-06-25
@@ -17,7 +17,7 @@ chapter_title: "树形查找"
 
 ### 基于 BST 的查找
 
-在 [二叉查找树](</data_structure/tree/btree/#bst>) 以及它的改进版本 [AVL](</data_structure/tree/btree/#avl>) 树、[红黑树](</data_structure/tree/btree/#%e7%ba%a2%e9%bb%91%e6%a0%91>) 中，查找操作 都遵循相同的基本原则：利用 **二叉树的有序性** 来快速定位目标元素。
+在 [二叉查找树](/docs/data-structure/ch04-tree/tree/#bst) 以及它的改进版本 [AVL](/docs/data-structure/ch04-tree/tree/#avl) 树、[红黑树](/docs/data-structure/ch04-tree/tree/#%e7%ba%a2%e9%bb%91%e6%a0%91) 中，查找操作 都遵循相同的基本原则：利用 **二叉树的有序性** 来快速定位目标元素。
 
 复习以下，二叉查找树具备以下特点：
 
@@ -114,7 +114,7 @@ AVL| \\\(O\(\log\_2\{n\}\)\\\)| \\\(O\(\log\_2\{n\}\)\\\)| 通过严格的平衡
 
 提示
 
-关于 **B 树** 的查找、插入、删除操作，可以借助 [B 树交互演示](<https://www.cs.usfca.edu/~galles/visualization/BTree.html>) 来帮助自己理解。
+关于 **B 树** 的查找、插入、删除操作，可以借助 B 树交互演示 来帮助自己理解。
 
 #### 查找
 
@@ -323,6 +323,6 @@ AVL| \\\(O\(\log\_2\{n\}\)\\\)| \\\(O\(\log\_2\{n\}\)\\\)| 通过严格的平衡
 
 ## 相关笔记
 
-- [[algorithms|图的算法和应用]]
-- [[definition|图的定义]]
-- [[graph-index|图概述]]
+- 图的算法和应用
+- 图的定义
+- 图概述

@@ -1,4 +1,4 @@
----
+﻿---
 title: "栈和队列的应用"
 aliases: ["栈和队列的应用"]
 date: 2026-06-25
@@ -31,9 +31,9 @@ ExpressionTreen1/n2\*n1->n2n37n1->n3n4+n2->n4n5-n2->n5n63n4->n6n74n4->n7n85n5->n
 
 前序表达式（Preorder，波兰表示法）、中序表达式（Infix）和后序表达式（Postorder，逆波兰表示法）是根据二叉表达式树的不同遍历方式得到的表达式结果。具体来说：
 
-  * 前序表达式：**[前序遍历](</data_structure/tree/btree/#%e5%89%8d%e5%ba%8f%e9%81%8d%e5%8e%86>)** 得到的序列。
-  * 中序表达式：**[中序遍历](</data_structure/tree/btree/#%e4%b8%ad%e5%ba%8f%e9%81%8d%e5%8e%86>)** 得到的序列。
-  * 后序表达式：**[后序遍历](</data_structure/tree/btree/#%e5%90%8e%e5%ba%8f%e9%81%8d%e5%8e%86>)** 得到的序列。
+  * 前序表达式：**[前序遍历](/docs/data-structure/ch04-tree/tree/#%e5%89%8d%e5%ba%8f%e9%81%8d%e5%8e%86)** 得到的序列。
+  * 中序表达式：**[中序遍历](/docs/data-structure/ch04-tree/tree/#%e4%b8%ad%e5%ba%8f%e9%81%8d%e5%8e%86)** 得到的序列。
+  * 后序表达式：**[后序遍历](/docs/data-structure/ch04-tree/tree/#%e5%90%8e%e5%ba%8f%e9%81%8d%e5%8e%86)** 得到的序列。
 
 这三种表达式的 **操作符** 和 **操作数** 间的相对位置有所不同：
 
@@ -320,7 +320,7 @@ Cn​=n+11​\(n2n​\)
 
 ## 相关笔记
 
-- [[definition|线性表定义与基本操作]]
-- [[linear-list-index|线性表概述]]
-- [[linked-list|链表]]
-- [[sequential-list|顺序表]]
+- 线性表定义与基本操作
+- 线性表概述
+- 链表
+- 顺序表

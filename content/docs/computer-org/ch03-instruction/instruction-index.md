@@ -1,4 +1,4 @@
----
+﻿---
 title: "指令系统"
 aliases: ["指令系统"]
 date: 2026-06-25
@@ -36,22 +36,12 @@ chapter_title: "指令系统"
 
 * * *
 
-##### [格式和寻址方式](</constitution_principle/instruction/format/>)
+##### [格式和寻址方式](/docs/computer-org/ch03-instruction/format-addressing/)
 
-##### [数据对齐方式](</constitution_principle/instruction/alignment/>)
+##### [数据对齐方式](/docs/computer-org/ch03-instruction/data-alignment/)
 
-##### [指令集种类](</constitution_principle/instruction/concepts/>)
+##### [指令集种类](/docs/os/ch02-memory/concepts/)
 
-##### [高级语言和机器码](</constitution_principle/instruction/high_low_language/>)
+##### [高级语言和机器码](/docs/computer-org/ch03-instruction/instruction-index/)
 
-##### [指令操作码](</constitution_principle/instruction/instruction_ops/>)
-
-
-## 相关笔记
-
-- [[cache|Cache]]
-- [[external|外存]]
-- [[memory-index|存储系统]]
-- [[overview|存储系统概述]]
-- [[ram|内存]]
-- [[virtual|虚拟存储器]]
+##### [指令操作码](/docs/computer-org/ch03-instruction/instruction-index/)

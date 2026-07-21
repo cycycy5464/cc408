@@ -1,4 +1,4 @@
----
+﻿---
 title: "数据表示与计算"
 aliases: ["数据表示与计算"]
 date: 2026-06-25
@@ -39,17 +39,10 @@ chapter_title: "数据表示与计算"
 
 * * *
 
-##### [整数的表示](</constitution_principle/representation/integer/>)
+##### [整数的表示](/docs/computer-org/ch01-data-representation/integers/)
 
-##### [浮点数表示](</constitution_principle/representation/floats/>)
+##### 浮点数表示
 
-##### [运算电路](</constitution_principle/representation/circuit/>)
+##### [运算电路](/docs/computer-org/ch01-data-representation/circuits/)
 
-##### [类型转换](</constitution_principle/representation/conversion/>)
-
-
-## 相关笔记
-
-- [[introduction|概论]]
-- [[performance|计算机性能指标]]
-- [[system-hierarchy|计算机系统层次结构]]
+##### [类型转换](/docs/computer-org/ch01-data-representation/type-conversion/)

@@ -1,4 +1,4 @@
----
+﻿---
 title: "计算机性能指标"
 aliases: ["计算机性能指标"]
 date: 2026-06-25
@@ -37,7 +37,7 @@ chapter_title: "计算机性能指标"
 
 #### 主频
 
-**主频** （CPU Frequency），是指中央处理器（**CPU** ）的 时钟频率 （Clock Frequency），表示 **CPU** 每秒可以执行多少个基本 [时钟周期](</constitution_principle/overview/performance/#%e6%97%b6%e9%92%9f%e5%91%a8%e6%9c%9f>)。**时钟周期** 和 **主频** _互为倒数_ ：
+**主频** （CPU Frequency），是指中央处理器（**CPU** ）的 时钟频率 （Clock Frequency），表示 **CPU** 每秒可以执行多少个基本 [时钟周期](/docs/computer-org/ch00-overview/performance/#%e6%97%b6%e9%92%9f%e5%91%a8%e6%9c%9f)。**时钟周期** 和 **主频** _互为倒数_ ：
 
 Frequency=Clock Cycle1​
 

@@ -1,8 +1,8 @@
----
+﻿---
 title: "线性数据结构"
 aliases: ["线性数据结构"]
 date: 2026-06-25
-weight: 10
+weight: 7.5
 tags: []
 difficulty: 2
 prerequisites: ["线性表定义与基本操作", "线性表概述", "链表", "顺序表"]
@@ -16,36 +16,14 @@ chapter_title: "线性数据结构"
 学习思维导图：
 ![](/cc408/images/docs/data-structure/image-20260612084819344.png)
 
-## 栈和队列基本概念
-
-## 栈和队列的顺序存储结构
-
-## 栈和队列的链式存储结构
-
-## 多维数组的存储
-
-## 特殊矩阵的压缩矩阵
-
-## 栈、队列和数据的应用
-
-
-
-
-
-* * *
-
-##### [栈](</data_structure/array/stack/>)
-
-##### [队列](</data_structure/array/queue/>)
-
-##### [栈和队列的应用](</data_structure/array/application/>)
-
-##### [数组和特殊矩阵](</data_structure/array/matrix/>)
-
 
 ## 相关笔记
 
-- [[definition|线性表定义与基本操作]]
-- [[linear-list-index|线性表概述]]
-- [[linked-list|链表]]
-- [[sequential-list|顺序表]]
+
+##### [栈](/docs/data-structure/ch02-stack-queue/stack/)
+
+##### [队列](/docs/data-structure/ch02-stack-queue/queue/)
+
+##### [栈和队列的应用](/docs/data-structure/ch02-stack-queue/application/)
+
+##### [数组和特殊矩阵](/docs/data-structure/ch03-string/array-matrix/)

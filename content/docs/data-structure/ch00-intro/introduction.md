@@ -1,4 +1,4 @@
----
+﻿---
 title: "绪论"
 aliases: ["绪论"]
 date: 2026-06-25
@@ -27,6 +27,6 @@ chapter_title: "绪论"
 
 
 
-##### [数据结构基本概念](</data_structure/basic/ds/>)
+##### [数据结构基本概念](/docs/data-structure/ch00-intro/basic-concepts/)
 
-##### [算法基本概念](</data_structure/basic/algorithm/>)
+##### [算法基本概念](/docs/data-structure/ch00-intro/basic-concepts/)

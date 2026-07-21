@@ -1,4 +1,4 @@
----
+﻿---
 title: "TCP"
 aliases: ["TCP"]
 date: 2026-06-25
@@ -331,7 +331,7 @@ TCP 的 **接收窗口** 可以按照逻辑划分为四个部分：
 
 **拥塞窗口** （cwnd） 是 **发送方** 内部维护的一个控制变量，用来限制未确认数据的数量，以避免在网络中引入过多分组而造成拥塞。
 
-cwnd 是 [拥塞控制](</computer_network/transport/tcp/#%e6%8b%a5%e5%a1%9e%e6%8e%a7%e5%88%b6>) 的核心参数，TCP 的拥塞控制算法会根据 **ACK 返回情况** 和 **丢包信号** 动态调整 cwnd。
+cwnd 是 [拥塞控制](/docs/network/ch04-transport/tcp/#%e6%8b%a5%e5%a1%9e%e6%8e%a7%e5%88%b6) 的核心参数，TCP 的拥塞控制算法会根据 **ACK 返回情况** 和 **丢包信号** 动态调整 cwnd。
 
 发送窗口大小
 
@@ -452,7 +452,7 @@ RTOEstimatedRTTDevRTT​=EstimatedRTT+4∗DevRTT=\(1−α\)∗EstimatedRTT+α∗
 
 TCP 首部包含一个 **校验和** （Checksum）字段，用于检测数据在传输过程中的任何变化。如果 **接收方** 检测到校验和错误，该数据段会被 **丢弃** ，然后接收方会要求发送方 **重传** 该数据段。
 
-TCP 的校验和计算方法和 [IP 校验和计算方法](</computer_network/network/ip/#%e5%b7%ae%e9%94%99%e6%a0%a1%e9%aa%8c%e5%ad%97%e6%ae%b5>) 一致，不过两者校验的范围和目的有所不同。
+TCP 的校验和计算方法和 IP 校验和计算方法 一致，不过两者校验的范围和目的有所不同。
 
 其 IP 校验和只针对 IP 头部进行校验，主要用于检测数据在传输过程中由于网络故障等原因造成的错误。  
 而 TCP 校验和不仅要校验 TCP 头部，还要校验 TCP 载荷（即数据部分）。因此，TCP 校验和能提供 **更全面的错误检测** 。
@@ -602,11 +602,11 @@ sequenceDiagram
 
 ## 相关笔记
 
-- [[arp|ARP协议]]
-- [[devices|网络层设备]]
-- [[dhcp|DHCP协议]]
-- [[icmp|ICMP协议]]
-- [[ip|IP协议]]
-- [[nw-index|网络层]]
-- [[routing|路由算法]]
-- [[sdn|SDN]]
+- ARP协议
+- 网络层设备
+- DHCP协议
+- ICMP协议
+- IP协议
+- 网络层
+- 路由算法
+- SDN

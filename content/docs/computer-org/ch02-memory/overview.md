@@ -1,4 +1,4 @@
----
+﻿---
 title: "存储系统概述"
 aliases: ["存储系统概述"]
 date: 2026-06-25
@@ -61,7 +61,7 @@ chapter_title: "存储系统概述"
   6. **辅助存储** （如硬盘驱动器或固态驱动器）:
 * **辅助存储** 设备提供大量的永久存储。
  * 与 **RAM** 相比，这些设备访问速度较慢，但能够存储更多的数据，并且在断电时不会丢失数据。
- * [机械硬盘](</constitution_principle/storage/storage/#%e6%9c%ba%e6%a2%b0%e7%a1%ac%e7%9b%98>)（HDD）和[固态硬盘](</constitution_principle/storage/storage/#%e5%9b%ba%e6%80%81%e7%a1%ac%e7%9b%98>)（SSD）是常见的 **辅助存储** 设备。
+ * 机械硬盘（HDD）和固态硬盘（SSD）是常见的 **辅助存储** 设备。
 
 
 
@@ -215,12 +215,3 @@ EPROM
 CDROM
 
 **CDROM** 是一种光盘存储设备，数据在生产时一次性写入，不能被修改（只能读取）。
-
-
-## 相关笔记
-
-- [[circuits|运算电路]]
-- [[data-index|数据表示与计算]]
-- [[float|浮点数表示]]
-- [[integers|整数的表示]]
-- [[type-conversion|类型转换]]

@@ -1,4 +1,4 @@
----
+﻿---
 title: "电子邮件"
 aliases: ["电子邮件"]
 date: 2026-06-25
@@ -137,6 +137,6 @@ Please find the meeting schedule attached.
 
 ## 相关笔记
 
-- [[tcp|TCP]]
-- [[tp-index|传输层]]
-- [[udp|UDP]]
+- TCP
+- 传输层
+- UDP

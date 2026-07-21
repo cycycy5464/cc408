@@ -1,4 +1,4 @@
----
+﻿---
 title: "栈"
 aliases: ["栈"]
 date: 2026-06-25
@@ -163,7 +163,7 @@ return stack->top == MAX_SIZE - 1;
 
 #### 链式栈
 
-栈的 **链式存储结构** 利用 **[单链表](</data_structure/linearlist/linked/#%e5%8d%95%e9%93%be%e8%a1%a8%e5%ae%9a%e4%b9%89>)** 来实现栈的功能。
+栈的 **链式存储结构** 利用 **[单链表](/docs/data-structure/ch01-linear-list/linked-list/#%e5%8d%95%e9%93%be%e8%a1%a8%e5%ae%9a%e4%b9%89)** 来实现栈的功能。
 
 ![](/cc408/images/docs/data-structure/159403def3.svg)
 
@@ -284,7 +284,7 @@ return stack->head->next == NULL;
 
 ## 相关笔记
 
-- [[definition|线性表定义与基本操作]]
-- [[linear-list-index|线性表概述]]
-- [[linked-list|链表]]
-- [[sequential-list|顺序表]]
+- 线性表定义与基本操作
+- 线性表概述
+- 链表
+- 顺序表

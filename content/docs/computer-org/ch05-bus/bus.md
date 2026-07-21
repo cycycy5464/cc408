@@ -1,4 +1,4 @@
----
+﻿---
 title: "总线"
 aliases: ["总线"]
 date: 2026-06-25
@@ -109,7 +109,7 @@ chapter_title: "总线"
 **核心特点** ：
 
   * 将总线按速率和用途分层，如高速、中速、低速总线；
-  * 各层通过 [桥接控制器](</constitution_principle/bus/io/#%e7%8e%b0%e4%bb%a3%e6%9e%b6%e6%9e%84>)（如 **PCH** ）进行协调；
+  * 各层通过 [桥接控制器](/docs/computer-org/ch05-bus/bus/#%e7%8e%b0%e4%bb%a3%e6%9e%b6%e6%9e%84)（如 **PCH** ）进行协调；
   * 高速设备尽量绕过中间桥接器，直连 CPU 提高性能。
 
 * * *
@@ -267,7 +267,7 @@ chapter_title: "总线"
 
 ### 总线定时
 
-根据 [时钟周期](</constitution_principle/overview/performance/#%e6%97%b6%e9%92%9f%e5%91%a8%e6%9c%9f>) 一节可知，计算机中的设备也许并不使用相同的时钟周期，但是设备间在交换数据的过程中需要时间上配合。
+根据 [时钟周期](/docs/computer-org/ch00-overview/performance/#%e6%97%b6%e9%92%9f%e5%91%a8%e6%9c%9f) 一节可知，计算机中的设备也许并不使用相同的时钟周期，但是设备间在交换数据的过程中需要时间上配合。
 
 这种时间配合的控制过程就叫做 **总线定时** ，**总线定时** 包含 **同步定时** 和 **异步定时** 两种方式。
 
@@ -299,13 +299,3 @@ chapter_title: "总线"
   * **全互锁** ：从 **半互锁** 的基础上，从设备接收到来自于主设备的回答后停止发送回答。
 
 ![](/cc408/images/docs/computer-org/image-20260612233912845.png)
-
-
-## 相关笔记
-
-- [[controller|控制器]]
-- [[cpu-index|中央处理器]]
-- [[exceptions|异常与中断]]
-- [[function-structure|CPU功能与结构]]
-- [[multiprocessor|多处理器]]
-- [[pipeline|指令流水线]]

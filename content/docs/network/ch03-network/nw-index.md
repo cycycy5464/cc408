@@ -1,4 +1,4 @@
----
+﻿---
 title: "网络层"
 aliases: ["网络层"]
 date: 2026-06-25
@@ -79,27 +79,16 @@ chapter_title: "网络层"
 
 * * *
 
-##### [IP](</computer_network/network/ip/>)
+##### IP
 
-##### [ICMP](</computer_network/network/icmp/>)
+##### [ICMP](/docs/network/ch03-network/icmp/)
 
-##### [DHCP](</computer_network/network/dhcp/>)
+##### [DHCP](/docs/network/ch03-network/dhcp/)
 
-##### [ARP](</computer_network/network/arp/>)
+##### [ARP](/docs/network/ch03-network/arp/)
 
-##### [路由算法](</computer_network/network/route/>)
+##### 路由算法
 
-##### [SDN](</computer_network/network/sdn/>)
+##### [SDN](/docs/network/ch03-network/sdn/)
 
-##### [网络层设备](</computer_network/network/dev/>)
-
-
-## 相关笔记
-
-- [[devices|数据链路层设备]]
-- [[dl-index|数据链路层]]
-- [[error-control|差错控制]]
-- [[flow-control|流量控制]]
-- [[framing|组帧]]
-- [[lan-wan|局域网与广域网]]
-- [[mac|介质访问控制]]
+##### 网络层设备

@@ -1,4 +1,4 @@
----
+﻿---
 title: "应用层"
 aliases: ["应用层"]
 date: 2026-06-25
@@ -48,19 +48,12 @@ chapter_title: "应用层"
 
 * * *
 
-##### [网络应用模型](</computer_network/application/model/>)
+##### [网络应用模型](/docs/network/ch05-application/app-model/)
 
-##### [DNS](</computer_network/application/dns/>)
+##### [DNS](/docs/network/ch05-application/dns/)
 
-##### [FTP](</computer_network/application/ftp/>)
+##### [FTP](/docs/network/ch05-application/ftp/)
 
-##### [电子邮件](</computer_network/application/mail/>)
+##### [电子邮件](/docs/network/ch05-application/email/)
 
-##### [万维网](</computer_network/application/www/>)
-
-
-## 相关笔记
-
-- [[tcp|TCP]]
-- [[tp-index|传输层]]
-- [[udp|UDP]]
+##### [万维网](/docs/network/ch05-application/www/)

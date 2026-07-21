@@ -1,4 +1,4 @@
----
+﻿---
 title: "DHCP协议"
 aliases: ["DHCP协议"]
 date: 2026-06-25
@@ -50,10 +50,10 @@ Here is your...Text is not SVG - cannot display
 
 ## 相关笔记
 
-- [[devices|数据链路层设备]]
-- [[dl-index|数据链路层]]
-- [[error-control|差错控制]]
-- [[flow-control|流量控制]]
-- [[framing|组帧]]
-- [[lan-wan|局域网与广域网]]
-- [[mac|介质访问控制]]
+- 数据链路层设备
+- 数据链路层
+- 差错控制
+- 流量控制
+- 组帧
+- 局域网与广域网
+- 介质访问控制

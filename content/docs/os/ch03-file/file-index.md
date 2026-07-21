@@ -1,4 +1,4 @@
----
+﻿---
 title: "文件管理"
 aliases: ["文件管理"]
 date: 2026-06-25
@@ -42,15 +42,15 @@ chapter_title: "文件管理"
 
 * * *
 
-##### [文件](</operating_system/files/file/>)
+##### [文件](/docs/os/ch03-file/filesystem/)
 
-##### [目录](</operating_system/files/dir/>)
+##### [目录](/docs/os/ch03-file/directory/)
 
-##### [文件系统](</operating_system/files/file_system/>)
+##### [文件系统](/docs/os/ch03-file/filesystem/)
 
 
 ## 相关笔记
 
-- [[concepts|内存管理概念]]
-- [[memory-index|内存管理]]
-- [[virtual|虚拟内存管理]]
+- 内存管理概念
+- 内存管理
+- 虚拟内存管理

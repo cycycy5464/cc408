@@ -1,4 +1,4 @@
----
+﻿---
 title: "数组查找"
 aliases: ["数组查找"]
 date: 2026-06-25
@@ -177,6 +177,6 @@ int BinarySearchRecursive(int A[], int low, int high, int value) {
 
 ## 相关笔记
 
-- [[algorithms|图的算法和应用]]
-- [[definition|图的定义]]
-- [[graph-index|图概述]]
+- 图的算法和应用
+- 图的定义
+- 图概述

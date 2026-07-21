@@ -1,4 +1,4 @@
----
+﻿---
 title: "线性表概述"
 aliases: ["线性表概述"]
 date: 2026-06-25
@@ -20,15 +20,8 @@ chapter_title: "线性表概述"
 
 * * *
 
-##### [定义和基本操作](</data_structure/linearlist/def/>)
+##### [定义和基本操作](/docs/data-structure/ch01-linear-list/linear-list-index/)
 
-##### [顺序表示](</data_structure/linearlist/sequential/>)
+##### [顺序表示](/docs/data-structure/ch01-linear-list/sequential-list/)
 
-##### [链式表示](</data_structure/linearlist/linked/>)
-
-
-## 相关笔记
-
-- [[algorithm-concepts|算法基本概念]]
-- [[basic-concepts|数据结构基本概念]]
-- [[introduction|绪论]]
+##### [链式表示](/docs/data-structure/ch01-linear-list/linked-list/)

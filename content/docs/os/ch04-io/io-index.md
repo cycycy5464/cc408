@@ -1,4 +1,4 @@
----
+﻿---
 title: "I/O管理"
 aliases: ["I/O管理"]
 date: 2026-06-25
@@ -11,7 +11,7 @@ chapter: 2
 chapter_title: "I/O管理"
 ---
 
-内容与[总线和输入输出系统](</constitution_principle/bus/>)关联很大，放在一起对比复习。应熟练掌握磁盘的调度算法。
+内容与[总线和输入输出系统](/docs/computer-org/ch05-bus/bus/)关联很大，放在一起对比复习。应熟练掌握磁盘的调度算法。
 ![](/cc408/images/docs/os/image-20260611223626016.png)
 ## I/O管理基础
 
@@ -38,16 +38,16 @@ chapter_title: "I/O管理"
 
 * * *
 
-##### [I/O 设备](</operating_system/io_device/devices/>)
+##### [I/O 设备](/docs/os/ch04-io/devices/)
 
-##### [设备管理](</operating_system/io_device/management/>)
+##### 设备管理
 
-##### [磁盘](</operating_system/io_device/disks/>)
+##### 磁盘
 
 
 ## 相关笔记
 
-- [[directory|目录]]
-- [[file-basics|文件]]
-- [[file-index|文件管理]]
-- [[filesystem|文件系统]]
+- 目录
+- 文件
+- 文件管理
+- 文件系统

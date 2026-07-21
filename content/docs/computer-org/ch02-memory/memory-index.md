@@ -1,4 +1,4 @@
----
+﻿---
 title: "存储系统"
 aliases: ["存储系统"]
 date: 2026-06-25
@@ -54,21 +54,12 @@ chapter_title: "存储系统"
 
 * * *
 
-##### [存储系统](</constitution_principle/storage/defs/>)
+##### 存储系统
 
-##### [内存](</constitution_principle/storage/memory/>)
+##### 内存
 
-##### [外存](</constitution_principle/storage/storage/>)
+##### 外存
 
-##### [Cache](</constitution_principle/storage/cache/>)
+##### [Cache](/docs/computer-org/ch02-memory/cache/)
 
-##### [虚拟存储器](</constitution_principle/storage/virtual/>)
-
-
-## 相关笔记
-
-- [[circuits|运算电路]]
-- [[data-index|数据表示与计算]]
-- [[float|浮点数表示]]
-- [[integers|整数的表示]]
-- [[type-conversion|类型转换]]
+##### [虚拟存储器](/docs/os/ch02-memory/virtual/)

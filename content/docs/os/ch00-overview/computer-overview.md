@@ -1,4 +1,4 @@
----
+﻿---
 title: "计算机系统概述"
 aliases: ["计算机系统概述"]
 date: 2026-06-25
@@ -41,8 +41,8 @@ chapter_title: "计算机系统概述"
 
 * * *
 
-##### [操作系统概念](</operating_system/concepts/concept/>)
+##### [操作系统概念](/docs/os/ch02-memory/concepts/)
 
-##### [程序运行环境](</operating_system/concepts/environment/>)
+##### [程序运行环境](/docs/os/ch02-memory/concepts/)
 
-##### [操作系统结构](</operating_system/concepts/structure/>)
+##### [操作系统结构](/docs/os/ch02-memory/concepts/)

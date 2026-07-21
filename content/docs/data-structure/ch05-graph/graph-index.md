@@ -1,4 +1,4 @@
----
+﻿---
 title: "图概述"
 aliases: ["图概述"]
 date: 2026-06-25
@@ -42,14 +42,6 @@ chapter_title: "图概述"
 
 * * *
 
-##### [定义](</data_structure/graph/defs/>)
+##### [定义](/docs/data-structure/ch05-graph/graph-index/)
 
-##### [算法和应用](</data_structure/graph/operation/>)
-
-
-## 相关笔记
-
-- [[binary-tree|二叉树]]
-- [[tree-and-binary-tree|树与二叉树]]
-- [[tree-applications|树的应用]]
-- [[tree|树]]
+##### [算法和应用](/docs/data-structure/ch05-graph/graph-index/)

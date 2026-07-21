@@ -1,4 +1,4 @@
----
+﻿---
 title: "二叉树"
 aliases: ["二叉树"]
 date: 2026-06-25
@@ -80,7 +80,7 @@ int rchild(int i) {
 ```
 
 
-顺序存储最常见于 [堆排序](</data_structure/sort/internal/#%e5%a0%86%e6%8e%92%e5%ba%8f>) 中。因为 **堆是一棵完全二叉树** 。
+顺序存储最常见于 [堆排序](/docs/data-structure/ch07-sort/internal-sort/#%e5%a0%86%e6%8e%92%e5%ba%8f) 中。因为 **堆是一棵完全二叉树** 。
 
   * 对完全二叉树而言，顺序存储不会造成空间浪费；
   * 父结点与子结点之间的关系可以直接通过下标计算得到（无需额外指针）；
@@ -104,7 +104,7 @@ int rchild(int i) {
   * 每个节点要么没有子节点，要么有两个子节点。
   * 每一层都被完全填满。
   * 第 n 层的结点数量为 2n （这里假设根结点是第 0 层）。
-  * [高度](</data_structure/tree/tree/#%e9%ab%98%e5%ba%a6>) 为 h 的满二叉树节点数目为 2h−1 。
+  * [高度](/docs/data-structure/ch04-tree/tree/#%e9%ab%98%e5%ba%a6) 为 h 的满二叉树节点数目为 2h−1 。
   * 结点数量为 n 的满二叉树的高度为 log2​\(n+1\) 。
 
 #### 完全二叉树
@@ -113,7 +113,7 @@ int rchild(int i) {
 
   * 由满二叉树通过删除最后一层的一些节点而得到的。
   * 除了最后一层外，所有其他层都是完全填满的，而且最后一层的节点都集中在左侧。
-  * [高度](</data_structure/tree/tree/#%e9%ab%98%e5%ba%a6>) 为 h 的完全二叉树的结点数量范围为 \[ 2h−1 , 2h−1 \]。
+  * [高度](/docs/data-structure/ch04-tree/tree/#%e9%ab%98%e5%ba%a6) 为 h 的完全二叉树的结点数量范围为 \[ 2h−1 , 2h−1 \]。
   * 结点数量为 n 的完全二叉树的高度为 ⌈log2​\(n+1\)⌉ 。
 
 ### 遍历方式
@@ -282,7 +282,7 @@ while (queue->front != NULL) {
 
 **线索二叉树** （Threaded Binary Tree）是一种为了提高二叉树遍历效率而设计的数据结构。它通过利用二叉树中原本为空的指针域来存储指向前驱或后继结点的指针（称为“线索”），从而省去递归或栈的遍历方式。
 
-[普通二叉树](</data_structure/tree/btree/#%e9%93%be%e6%8e%a5%e5%ad%98%e5%82%a8>) 的结点有两个指针：`left` 和 `right`，但在一棵 `n` 个结点的二叉树中，实际的左右子树为空的指针数有很多（约 `2n` 个）。线索二叉树的思想就是把 **这些空指针利用起来** ，指向结点在某种遍历序列中的前驱或后继。
+[普通二叉树](/docs/data-structure/ch04-tree/tree/#%e9%93%be%e6%8e%a5%e5%ad%98%e5%82%a8) 的结点有两个指针：`left` 和 `right`，但在一棵 `n` 个结点的二叉树中，实际的左右子树为空的指针数有很多（约 `2n` 个）。线索二叉树的思想就是把 **这些空指针利用起来** ，指向结点在某种遍历序列中的前驱或后继。
 
 #### 数据结构
 
@@ -825,7 +825,7 @@ return node;
 
 为了保证 **AVL** 的平衡性，插入和删除操作后，非常频繁地调整全树整体拓扑结构，代价很大。为此在 AVL 树的平衡标准上进一步放宽条件，引入 **红黑树** 的结构。
 
-![Red-black_tree_example_with_NIL](../images/a8effcea2e.svg)
+![Red-black_tree_example_with_NIL](/cc408/images/docs/data-structure/a8effcea2e.svg)
 
 红黑树的考察不会很深，了解以下概念即可：
 
@@ -837,7 +837,7 @@ return node;
 
 ## 相关笔记
 
-- [[array-matrix|数组和特殊矩阵]]
-- [[definition|串的定义与实现]]
-- [[pattern-matching|串的模式匹配]]
-- [[string-index|串概述]]
+- 数组和特殊矩阵
+- 串的定义与实现
+- 串的模式匹配
+- 串概述

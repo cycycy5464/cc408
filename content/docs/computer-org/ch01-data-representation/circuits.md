@@ -1,4 +1,4 @@
----
+﻿---
 title: "运算电路"
 aliases: ["运算电路"]
 date: 2026-06-25
@@ -51,7 +51,7 @@ chapter_title: "运算电路"
 
 ![](/cc408/images/docs/computer-org/a836bc1611.svg)
 
-值得一提的是带符号加法器电路是如何输出各个 [标志位](</constitution_principle/cpu/structure/#%e6%9d%a1%e4%bb%b6%e6%a0%87%e5%bf%97>) 的，简单而言，每个 **标志位** 都可以通过 **加法器** 电路中的位信息组合得到。
+值得一提的是带符号加法器电路是如何输出各个 [标志位](/docs/computer-org/ch04-cpu/cpu-index/#%e6%9d%a1%e4%bb%b6%e6%a0%87%e5%bf%97) 的，简单而言，每个 **标志位** 都可以通过 **加法器** 电路中的位信息组合得到。
 
   * **ZF** （zero flag）：当 **A+B** 的结果中的每一位都为 0 时，**ZF** 为 **1** ，所以 ZF=\!\(F0​F1​⋯Fn−1​\) 。
   * **SF** （signed flag）：**A+B** 的结果的正负取决于输出结果的最高位，所以 SF=Fn−1​ 。
@@ -192,6 +192,6 @@ unsigned int multiply(unsigned int a, unsigned int b) {
 
 ## 相关笔记
 
-- [[introduction|概论]]
-- [[performance|计算机性能指标]]
-- [[system-hierarchy|计算机系统层次结构]]
+- 概论
+- 计算机性能指标
+- 计算机系统层次结构

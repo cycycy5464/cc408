@@ -1,4 +1,4 @@
----
+﻿---
 title: "处理机调度"
 aliases: ["处理机调度"]
 date: 2026-06-25
@@ -108,7 +108,7 @@ Mid-term...Text is not SVG - cannot display
 
 在 Windows 系统中，闲逛进程被称为 System Idle Process，同样用于在系统空闲时占据 **CPU** 时间，以维持系统的运行稳定。如下图所示：
 
-![system idle process](../images/689bf0a03d.png)
+![system idle process](/cc408/images/docs/os/689bf0a03d.png)
 
 #### 两种线程的调度
 
@@ -246,7 +246,7 @@ Response Ratio=BTWT+BT​=BTTAT​
 
 ## 相关笔记
 
-- [[computer-overview|计算机系统概述]]
-- [[os-concept|操作系统概念]]
-- [[os-structure|操作系统结构]]
-- [[program-env|程序运行环境]]
+- 计算机系统概述
+- 操作系统概念
+- 操作系统结构
+- 程序运行环境

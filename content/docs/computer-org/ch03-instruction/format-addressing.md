@@ -1,4 +1,4 @@
----
+﻿---
 title: "指令格式与寻址方式"
 aliases: ["指令格式与寻址方式"]
 date: 2026-06-25
@@ -117,12 +117,12 @@ chapter_title: "指令格式与寻址方式"
 指令长度的设计可以分为两类：
 
   * **定长指令集** ：所有指令的长度完全相同  
-→ 典型架构：ARM（[RISC](</constitution_principle/instruction/concepts/#risc>)）  
+→ 典型架构：ARM（[RISC](/docs/os/ch02-memory/concepts/#risc)）  
 → 优点：解码简单、高效  
 → 缺点：指令中可能出现浪费空间的无效字段
 
   * **变长指令集** ：不同指令具有不同长度  
-→ 典型架构：x86（[CISC](</constitution_principle/instruction/concepts/#cisc>)）  
+→ 典型架构：x86（[CISC](/docs/os/ch02-memory/concepts/#cisc)）  
 → 优点：编码更紧凑，能支持更复杂操作  
 → 缺点：解码过程复杂，需要准确识别指令边界
 
@@ -156,7 +156,7 @@ chapter_title: "指令格式与寻址方式"
 为了在统一的指令格式中支持不同 **地址数** 的操作，同时避免指令之间产生歧义，指令系统通常采用：
 
 > **可变长度操作码 + 定长指令字** 的方式，  
-> 并要求这些 **操作码** 遵循 [**前缀码**](</data_structure/tree/app/#%e5%89%8d%e7%bc%80%e7%bc%96%e7%a0%81>) 设计原则。
+> 并要求这些 **操作码** 遵循 [**前缀码**](/docs/data-structure/ch04-tree/tree/#%e5%89%8d%e7%bc%80%e7%bc%96%e7%a0%81) 设计原则。
 
 🌟 **先举个简单的例子：**
 
@@ -343,7 +343,7 @@ chapter_title: "指令格式与寻址方式"
 
 #### 堆栈寻址
 
-**堆栈寻址** （Stack Addressing）是一种通过 **栈指针或基址指针** 来访问 [栈中数据](</operating_system/process/process_thread/#%e5%87%bd%e6%95%b0%e8%b0%83%e7%94%a8%e6%97%b6%e5%86%85%e5%ad%98%e7%bb%93%e6%9e%84>) 的方式，广泛应用于函数调用过程中的参数传递和返回值保存。
+**堆栈寻址** （Stack Addressing）是一种通过 **栈指针或基址指针** 来访问 栈中数据 的方式，广泛应用于函数调用过程中的参数传递和返回值保存。
 
 在 **堆栈寻址** 中，利用 **SP** （栈指针）或 **BP** （基址指针）定位栈中元素，通过栈顶向下或向上偏移来读取或写入局部变量、返回地址等。通常与 **PUSH** 、**POP** 、**CALL** 、**RET** 等指令结合使用。
 
@@ -376,9 +376,9 @@ chapter_title: "指令格式与寻址方式"
 
 ## 相关笔记
 
-- [[cache|Cache]]
-- [[external|外存]]
-- [[memory-index|存储系统]]
-- [[overview|存储系统概述]]
-- [[ram|内存]]
-- [[virtual|虚拟存储器]]
+- Cache
+- 外存
+- 存储系统
+- 存储系统概述
+- 内存
+- 虚拟存储器

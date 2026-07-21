@@ -1,4 +1,4 @@
----
+﻿---
 title: "查找概述"
 aliases: ["查找概述"]
 date: 2026-06-25
@@ -41,15 +41,15 @@ chapter_title: "查找概述"
 
 * * *
 
-##### [数组查找](</data_structure/search/array/>)
+##### [数组查找](/docs/data-structure/ch06-search/search-index/)
 
-##### [树形查找](</data_structure/search/tree/>)
+##### [树形查找](/docs/data-structure/ch04-tree/tree/)
 
-##### [散列表查找](</data_structure/search/hash/>)
+##### [散列表查找](/docs/data-structure/ch06-search/hash-search/)
 
 
 ## 相关笔记
 
-- [[algorithms|图的算法和应用]]
-- [[definition|图的定义]]
-- [[graph-index|图概述]]
+- 图的算法和应用
+- 图的定义
+- 图概述

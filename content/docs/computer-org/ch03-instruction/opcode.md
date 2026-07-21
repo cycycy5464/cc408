@@ -1,4 +1,4 @@
----
+﻿---
 title: "指令操作码"
 aliases: ["指令操作码"]
 date: 2026-06-25
@@ -45,7 +45,7 @@ mov byte ptr [var], 5  ; 只修改 var 指向的 1 字节
 
 #### 栈操作
 
-[堆栈](</operating_system/process/process_thread/#%e5%87%bd%e6%95%b0%e8%b0%83%e7%94%a8%e6%97%b6%e5%86%85%e5%ad%98%e7%bb%93%e6%9e%84>) 指的是程序的运行栈，从高地址向低地址增长。`PUSH` 指令将 **数据** 压入栈顶，`POP` 指令从栈顶取出 **数据** ，并存入 **寄存器** 或者 **内存单元** 。
+堆栈 指的是程序的运行栈，从高地址向低地址增长。`PUSH` 指令将 **数据** 压入栈顶，`POP` 指令从栈顶取出 **数据** ，并存入 **寄存器** 或者 **内存单元** 。
 
   * 语法
 
@@ -201,7 +201,7 @@ idiv ecx       ; → EAX = -6, EDX = -2
 ```
 
 
-除法指令可能会触发 [异常](</constitution_principle/cpu/interrupt/#%e5%bc%82%e5%b8%b8>)：
+除法指令可能会触发 [异常](/docs/computer-org/ch04-cpu/cpu-index/#%e5%bc%82%e5%b8%b8)：
 
   * **除数等于 0** ：无符号或有符号除法中，如果除数是 0，会导致数学上未定义，立即触发异常。
   * **结果溢出** ：特别常见于 `IDIV` 有符号除法中，被除数是最小负数 `0x80000000`，除以 `-1` 会得到 `0x80000000`（超出 `32` 位有符号整数范围）。
@@ -210,9 +210,9 @@ idiv ecx       ; → EAX = -6, EDX = -2
 
 运算类型| 使用的硬件单元| 速度  
 ---|---|---  
-加 / 减| [ALU](</constitution_principle/representation/circuit/#%e5%8a%a0%e6%b3%95%e8%bf%90%e7%ae%97%e7%94%b5%e8%b7%af>)（加法器电路）| 很快  
-乘法| [乘法器](</constitution_principle/representation/circuit/#%e4%b9%98%e6%b3%95%e8%bf%90%e7%ae%97%e7%94%b5%e8%b7%af>)（Multiplier）| 中等  
-除法| [除法器](</constitution_principle/representation/circuit/#%e9%99%a4%e6%b3%95%e8%bf%90%e7%ae%97%e7%94%b5%e8%b7%af>)（Divider）| 很慢  
+加 / 减| [ALU](/docs/computer-org/ch01-data-representation/circuits/#%e5%8a%a0%e6%b3%95%e8%bf%90%e7%ae%97%e7%94%b5%e8%b7%af)（加法器电路）| 很快  
+乘法| [乘法器](/docs/computer-org/ch01-data-representation/circuits/#%e4%b9%98%e6%b3%95%e8%bf%90%e7%ae%97%e7%94%b5%e8%b7%af)（Multiplier）| 中等  
+除法| [除法器](/docs/computer-org/ch01-data-representation/circuits/#%e9%99%a4%e6%b3%95%e8%bf%90%e7%ae%97%e7%94%b5%e8%b7%af)（Divider）| 很慢  
 
 #### 位操作
 
@@ -295,7 +295,7 @@ jl  less_than_zero ; 若 [x] 为负数，跳转
 ```
 
 
-比较运算和加减操作一样，会影响以下 [条件标志](</constitution_principle/cpu/structure/#%e6%9d%a1%e4%bb%b6%e6%a0%87%e5%bf%97>)：
+比较运算和加减操作一样，会影响以下 [条件标志](/docs/computer-org/ch04-cpu/cpu-index/#%e6%9d%a1%e4%bb%b6%e6%a0%87%e5%bf%97)：
 
   * `ZF`（Zero Flag）：结果是否为零
   * `SF`（Sign Flag）：结果是否为负
@@ -304,7 +304,7 @@ jl  less_than_zero ; 若 [x] 为负数，跳转
 
 ![](/cc408/images/docs/computer-org/7f1cc1826b.svg)
 
-这些标志用于后续的 [条件跳转](</constitution_principle/instruction/instruction_ops/#%e6%9d%a1%e4%bb%b6%e8%b7%b3%e8%bd%ac>)，如 `je`、`jg`、`jl` 等。
+这些标志用于后续的 [条件跳转](/docs/computer-org/ch03-instruction/instruction-index/#%e6%9d%a1%e4%bb%b6%e8%b7%b3%e8%bd%ac)，如 `je`、`jg`、`jl` 等。
 
 #### 移位
 
@@ -399,7 +399,7 @@ jmp label
 
 ![](/cc408/images/docs/computer-org/image-20260612230743709.png)
 
-跳转指令编译后通常使用 [相对寻址](</constitution_principle/instruction/format/#%e7%9b%b8%e5%af%b9%e5%af%bb%e5%9d%80>)，也就是 **跳转偏移量** 是相对于下一条指令的地址（即当前 PC + 指令长度） 来计算的。
+跳转指令编译后通常使用 [相对寻址](/docs/computer-org/ch03-instruction/format-addressing/#%e7%9b%b8%e5%af%b9%e5%af%bb%e5%9d%80)，也就是 **跳转偏移量** 是相对于下一条指令的地址（即当前 PC + 指令长度） 来计算的。
 
 对于 `jmp label` 指令，若 label 在距离当前指令之后 N 字节处，则相对寻址的偏移量可以通过以下公式计算：
 ```c
@@ -410,7 +410,7 @@ jmp label
 
 #### 条件跳转
 
-在 `CMP` 指令后常常跟一个 **条件跳转** 指令，**条件跳转** 指令会检查 [标志寄存器](</constitution_principle/cpu/structure/#%e6%a0%87%e5%bf%97%e5%af%84%e5%ad%98%e5%99%a8>)（FLAGS）的标志，从而决定是否跳转到某个标签（条件成立时），如果选择不跳转的话，则继续向后执行。
+在 `CMP` 指令后常常跟一个 **条件跳转** 指令，**条件跳转** 指令会检查 [标志寄存器](/docs/computer-org/ch04-cpu/cpu-index/#%e6%a0%87%e5%bf%97%e5%af%84%e5%ad%98%e5%99%a8)（FLAGS）的标志，从而决定是否跳转到某个标签（条件成立时），如果选择不跳转的话，则继续向后执行。
 
 指令| 全称| 跳转条件  
 ---|---|---  
@@ -489,7 +489,7 @@ INT n  ; n 为中断向量号（0~255）
 
 
 
-执行后，CPU 根据中断向量号 n 查找 [中断向量表](</constitution_principle/bus/io/#%e5%9f%ba%e7%a1%80%e6%a6%82%e5%bf%b5>)（Interrupt Vector Table, IVT）中对应的处理程序地址，并跳转执行。常见用法如下：
+执行后，CPU 根据中断向量号 n 查找 [中断向量表](/docs/computer-org/ch05-bus/bus/#%e5%9f%ba%e7%a1%80%e6%a6%82%e5%bf%b5)（Interrupt Vector Table, IVT）中对应的处理程序地址，并跳转执行。常见用法如下：
 ```c
 mov eax, 1   ; 系统调用：exit
 mov ebx, 0   ; 退出代码
@@ -502,7 +502,7 @@ int 0x80     ; 触发中断
 **陷阱指令** （如 `INT`） ≠ **TF 标志位** 。
 
   * `INT` 指令显式触发陷阱，由程序执行。
-  * [TF](</constitution_principle/cpu/structure/#%e6%8e%a7%e5%88%b6%e6%a0%87%e5%bf%97>) 是 EFLAGS 寄存器中的一个位，设置为 1 后每执行一条指令就引发一次单步中断（INT 1），用于单步调试。
+  * [TF](/docs/computer-org/ch04-cpu/cpu-index/#%e6%8e%a7%e5%88%b6%e6%a0%87%e5%bf%97) 是 EFLAGS 寄存器中的一个位，设置为 1 后每执行一条指令就引发一次单步中断（INT 1），用于单步调试。
   * 二者都能进入内核态，但触发机制不同。
 
 **Trap** 指令一般通过 `INT` 指令执行，**TF** 标志位通过 `PUSHF` 和 `POPF` 修改。
@@ -529,7 +529,7 @@ sti   ; 开启中断
 
 补充
 
-IF 位控制的是 [可屏蔽中断](</constitution_principle/bus/io/#%e5%8f%af%e5%b1%8f%e8%94%bd%e4%b8%ad%e6%96%ad>)（IRQ），但不会影响 [不可屏蔽中断](</constitution_principle/bus/io/#%e4%b8%8d%e5%8f%af%e5%b1%8f%e8%94%bd%e4%b8%ad%e6%96%ad>)（NMI）。
+IF 位控制的是 [可屏蔽中断](/docs/computer-org/ch05-bus/bus/#%e5%8f%af%e5%b1%8f%e8%94%bd%e4%b8%ad%e6%96%ad)（IRQ），但不会影响 [不可屏蔽中断](/docs/computer-org/ch05-bus/bus/#%e4%b8%8d%e5%8f%af%e5%b1%8f%e8%94%bd%e4%b8%ad%e6%96%ad)（NMI）。
 
 ### 输入输出
 
@@ -558,9 +558,9 @@ out port, reg      ; 将 reg 寄存器中的值写入 I/O 端口 port
 ```
 
 
-注意 **I/O 端口** 的 [编址方式](</constitution_principle/bus/io/#%e7%bc%96%e5%9d%80%e6%96%b9%e5%bc%8f>) 有两种：统一编址 和 独立编址，`IN/OUT` 指令仅适用于独立编址，对于统一编址，使用 `MOV` 指令即可完成输入输出。
+注意 **I/O 端口** 的 [编址方式](/docs/computer-org/ch05-bus/bus/#%e7%bc%96%e5%9d%80%e6%96%b9%e5%bc%8f) 有两种：统一编址 和 独立编址，`IN/OUT` 指令仅适用于独立编址，对于统一编址，使用 `MOV` 指令即可完成输入输出。
 
-**输入输出指令** （如 `IN` / `OUT`）常用于 [程序查询方式](</constitution_principle/bus/io/#%e7%a8%8b%e5%ba%8f%e6%9f%a5%e8%af%a2%e6%96%b9%e5%bc%8f>) 和 [程序中断方式](</constitution_principle/bus/io/#%e7%a8%8b%e5%ba%8f%e4%b8%ad%e6%96%ad%e6%96%b9%e5%bc%8f>) 中，由 CPU 发出指令与设备进行数据交换。相比之下，DMA 方式则由硬件控制器自动完成传输，通常不依赖此类指令。
+**输入输出指令** （如 `IN` / `OUT`）常用于 [程序查询方式](/docs/computer-org/ch05-bus/bus/#%e7%a8%8b%e5%ba%8f%e6%9f%a5%e8%af%a2%e6%96%b9%e5%bc%8f) 和 [程序中断方式](/docs/computer-org/ch05-bus/bus/#%e7%a8%8b%e5%ba%8f%e4%b8%ad%e6%96%ad%e6%96%b9%e5%bc%8f) 中，由 CPU 发出指令与设备进行数据交换。相比之下，DMA 方式则由硬件控制器自动完成传输，通常不依赖此类指令。
 
 程序查询方式 和 程序中断方式 这两种 **I/O** 方式的实现的核心逻辑可以参考下述代码：
 
@@ -670,9 +670,9 @@ cmpsd  ; 比较 4 字节
 
 ## 相关笔记
 
-- [[cache|Cache]]
-- [[external|外存]]
-- [[memory-index|存储系统]]
-- [[overview|存储系统概述]]
-- [[ram|内存]]
-- [[virtual|虚拟存储器]]
+- Cache
+- 外存
+- 存储系统
+- 存储系统概述
+- 内存
+- 虚拟存储器

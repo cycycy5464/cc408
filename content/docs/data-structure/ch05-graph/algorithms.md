@@ -1,4 +1,4 @@
----
+﻿---
 title: "图的算法和应用"
 aliases: ["图的算法和应用"]
 date: 2026-06-25
@@ -28,7 +28,7 @@ chapter_title: "图的算法和应用"
 
 ![](/cc408/images/docs/data-structure/image-20260612140738926.png)
 
-图中 **DFS** 实现的框架与 [树的遍历](</data_structure/tree/tree/#%e6%a0%91%e7%9a%84%e9%81%8d%e5%8e%86>) 类似，不同点在于需要使用 `visit` 数组记录已经访问过的节点，避免重复遍历：
+图中 **DFS** 实现的框架与 [树的遍历](/docs/data-structure/ch04-tree/tree/#%e6%a0%91%e7%9a%84%e9%81%8d%e5%8e%86) 类似，不同点在于需要使用 `visit` 数组记录已经访问过的节点，避免重复遍历：
 function DFS(G, v, visited):
     visited[v] ← true
     for each neighbor u of v in G.adjacent[v]:
@@ -301,7 +301,7 @@ Prim 算法的贪心思想就在这里：每次都从这组横切边里挑出一
 
 **Dijkstra** 算法是一种用于计算 **单源最短路径** 的经典算法，适用于 **带非负权重** 的有向或无向图。
 
-![Dijkstra_Animation](../images/72cf95b662.gif)
+![Dijkstra_Animation](/cc408/images/docs/data-structure/72cf95b662.gif)
 
 Dijkstra 算法是一种 **贪心算法** 。它的 **核心思想** 是：从起点出发，不断“扩展”到距离起点最近的节点，并利用这些节点去尝试更新其他节点的最短路径，直到所有节点的最短路径都被确定。
 
@@ -621,7 +621,7 @@ vl\(k\)=vj​∈Succ\(vk​\)min​\{vl\(j\)−weight\(vk​,vj​\)\}
 
 ## 相关笔记
 
-- [[binary-tree|二叉树]]
-- [[tree-and-binary-tree|树与二叉树]]
-- [[tree-applications|树的应用]]
-- [[tree|树]]
+- 二叉树
+- 树与二叉树
+- 树的应用
+- 树

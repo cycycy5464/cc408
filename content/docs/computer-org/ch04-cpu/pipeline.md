@@ -1,4 +1,4 @@
----
+﻿---
 title: "指令流水线"
 aliases: ["指令流水线"]
 date: 2026-06-25
@@ -109,7 +109,7 @@ chapter_title: "指令流水线"
 
 ### 多周期处理器
 
-在 [单周期处理器](</constitution_principle/cpu/pipeline/#%e5%8d%95%e5%91%a8%e6%9c%9f%e5%a4%84%e7%90%86%e5%99%a8>) 中，不对指令的执行过程进行拆分，指令的执行的粒度则是指令本身，如下图所示：
+在 [单周期处理器](/docs/computer-org/ch04-cpu/pipeline/#%e5%8d%95%e5%91%a8%e6%9c%9f%e5%a4%84%e7%90%86%e5%99%a8) 中，不对指令的执行过程进行拆分，指令的执行的粒度则是指令本身，如下图所示：
 
 ![](/cc408/images/docs/computer-org/64b1a94b0b.svg)
 
@@ -123,7 +123,7 @@ chapter_title: "指令流水线"
 ![](/cc408/images/docs/computer-org/image-20260612233134454.png)
 
 
-上图为流水线的 **物理结构** ，指令执行的 [五个阶段](</constitution_principle/cpu/pipeline/#%e6%8c%87%e4%bb%a4%e6%89%a7%e8%a1%8c%e9%98%b6%e6%ae%b5>) 由 CPU 中不同的部件处理，下一阶段的执行部件的执行结果依赖上一个阶段的输入，不同阶段的部件可以并行工作。这样 CPU 中不同部件的利用率就得到了提高，CPU 执行指令的吞吐也会因此提高。
+上图为流水线的 **物理结构** ，指令执行的 [五个阶段](/docs/computer-org/ch04-cpu/pipeline/#%e6%8c%87%e4%bb%a4%e6%89%a7%e8%a1%8c%e9%98%b6%e6%ae%b5) 由 CPU 中不同的部件处理，下一阶段的执行部件的执行结果依赖上一个阶段的输入，不同阶段的部件可以并行工作。这样 CPU 中不同部件的利用率就得到了提高，CPU 执行指令的吞吐也会因此提高。
 
 #### 逻辑结构
 
@@ -438,9 +438,9 @@ S≈k
 
 ## 相关笔记
 
-- [[data-alignment|数据对齐]]
-- [[format-addressing|指令格式与寻址方式]]
-- [[hll-machine|高级语言与机器码]]
-- [[instruction-index|指令系统]]
-- [[opcode|指令操作码]]
-- [[types|指令集种类]]
+- 数据对齐
+- 指令格式与寻址方式
+- 高级语言与机器码
+- 指令系统
+- 指令操作码
+- 指令集种类

@@ -1,4 +1,4 @@
----
+﻿---
 title: "经典同步问题"
 aliases: ["经典同步问题"]
 date: 2026-06-25
@@ -285,7 +285,7 @@ void philosopher(int i) {
 
 ## 相关笔记
 
-- [[computer-overview|计算机系统概述]]
-- [[os-concept|操作系统概念]]
-- [[os-structure|操作系统结构]]
-- [[program-env|程序运行环境]]
+- 计算机系统概述
+- 操作系统概念
+- 操作系统结构
+- 程序运行环境

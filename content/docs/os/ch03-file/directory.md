@@ -1,4 +1,4 @@
----
+﻿---
 title: "目录"
 aliases: ["目录"]
 date: 2026-06-25
@@ -66,7 +66,7 @@ chapter_title: "目录"
 每个 **目录项** 包括：
 
   * 文件名（如 “a.txt”）
-  * 对应的 **inode** 编号（如 123），通过 **inode** 号查询 [inode表](</operating_system/files/file/#inode-%e8%a1%a8>) 可以获取文件的元信息。
+  * 对应的 **inode** 编号（如 123），通过 **inode** 号查询 [inode表](/docs/os/ch03-file/filesystem/#inode-%e8%a1%a8) 可以获取文件的元信息。
 
 这些信息保存在磁盘上的 **目录文件** 中，文件系统通过这些记录来解析 **路径** 。
 
@@ -164,6 +164,6 @@ pwd                   # 显示当前 路径
 
 ## 相关笔记
 
-- [[concepts|内存管理概念]]
-- [[memory-index|内存管理]]
-- [[virtual|虚拟内存管理]]
+- 内存管理概念
+- 内存管理
+- 虚拟内存管理

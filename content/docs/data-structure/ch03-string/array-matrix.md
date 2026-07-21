@@ -1,4 +1,4 @@
----
+﻿---
 title: "数组和特殊矩阵"
 aliases: ["数组和特殊矩阵"]
 date: 2026-06-25
@@ -86,7 +86,7 @@ int a[2][3] = {{1, 2, 3}, {4, 5, 6}};
 
 所以为了 **节省存储空间** ，可以使用一位数组 B 进行存储
 
-![symmtry_matrix_storage](../images/b414d56e66.png)
+![symmtry_matrix_storage](/cc408/images/docs/data-structure/b414d56e66.png)
 
 **如何计算对称矩阵中元素的下标**
 
@@ -242,7 +242,7 @@ $$ \begin{vmatrix} a_{1,1} & a_{1,2} &  &  &  &  \\ a_{2,1} & a_{2,2} & a_{2,3} 
 
 ## 相关笔记
 
-- [[application|栈和队列的应用]]
-- [[linear-data-structure|线性数据结构]]
-- [[queue|队列]]
-- [[stack|栈]]
+- 栈和队列的应用
+- 线性数据结构
+- 队列
+- 栈

@@ -1,4 +1,4 @@
----
+﻿---
 title: "串的定义与实现"
 aliases: ["串的定义与实现"]
 date: 2026-06-25
@@ -152,7 +152,7 @@ void initBlockString(BlockString *s) {
 
 ## 相关笔记
 
-- [[application|栈和队列的应用]]
-- [[linear-data-structure|线性数据结构]]
-- [[queue|队列]]
-- [[stack|栈]]
+- 栈和队列的应用
+- 线性数据结构
+- 队列
+- 栈

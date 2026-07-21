@@ -1,4 +1,4 @@
----
+﻿---
 title: "内存管理"
 aliases: ["内存管理"]
 date: 2026-06-25
@@ -11,7 +11,7 @@ chapter: 2
 chapter_title: "内存管理"
 ---
 
-内容与[存储系统](</constitution_principle/storage/>)关联很大，放在一起对比复习。
+内容与存储系统关联很大，放在一起对比复习。
 ![](/cc408/images/docs/os/image-20260611221932175.png)
     
 
@@ -38,16 +38,16 @@ chapter_title: "内存管理"
 
 * * *
 
-##### [内存管理概念](</operating_system/memory/concepts/>)
+##### [内存管理概念](/docs/os/ch02-memory/concepts/)
 
-##### [虚拟内存管理](</operating_system/memory/management/>)
+##### 虚拟内存管理
 
 
 ## 相关笔记
 
-- [[classic-sync|经典同步问题]]
-- [[deadlock|死锁]]
-- [[process-index|进程管理]]
-- [[process-thread|进程与线程]]
-- [[scheduling|处理机调度]]
-- [[sync-mutex|同步与互斥]]
+- 经典同步问题
+- 死锁
+- 进程管理
+- 进程与线程
+- 处理机调度
+- 同步与互斥

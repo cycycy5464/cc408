@@ -1,4 +1,4 @@
----
+﻿---
 title: "局域网与广域网"
 aliases: ["局域网与广域网"]
 date: 2026-06-25
@@ -65,8 +65,8 @@ chapter_title: "局域网与广域网"
 
 最后是后缀的英文字母，代表的传输介质的类型：
 
-  * 注意字母 `T` 是 `twisted pair` 的首字母，含义是 [**双绞线**](</computer_network/physical/dev/#%e7%94%b5%e7%bc%86>)。
-  * `FL` 是 `Fiber optic` 的缩写，含义是 [**光纤**](</computer_network/physical/dev/#%e7%94%b5%e7%bc%86>)。
+  * 注意字母 `T` 是 `twisted pair` 的首字母，含义是 **双绞线**。
+  * `FL` 是 `Fiber optic` 的缩写，含义是 **光纤**。
 
 ##### 帧格式
 
@@ -198,7 +198,7 @@ HDLC（High-Level Data Link Control，高级数据链路控制）是一种 **面
 
 HDLC 几个特点可以被简单总结为：面向比特、面向连接、提供可靠传输。
 
-需要注意的是 HDLC 使用 [**零比特填充法**](</computer_network/datalink/framing/#%e9%9b%b6%e6%af%94%e7%89%b9%e5%a1%ab%e5%85%85%e6%b3%95>) 来组帧。
+需要注意的是 HDLC 使用 [**零比特填充法**](/docs/network/ch02-datalink/framing/#%e9%9b%b6%e6%af%94%e7%89%b9%e5%a1%ab%e5%85%85%e6%b3%95) 来组帧。
 
 #### PPP 协议
 
@@ -207,8 +207,8 @@ PPP（Point-to-Point Protocol）是一种数据链路层协议，用于在两个
 
 ## 相关笔记
 
-- [[communication|通信概念]]
-- [[devices|物理层设备]]
-- [[encoding|编码与调制]]
-- [[phy-index|物理层]]
-- [[switching|交换方式]]
+- 通信概念
+- 物理层设备
+- 编码与调制
+- 物理层
+- 交换方式

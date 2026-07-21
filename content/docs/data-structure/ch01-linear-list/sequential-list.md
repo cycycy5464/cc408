@@ -1,4 +1,4 @@
----
+﻿---
 title: "顺序表"
 aliases: ["顺序表"]
 date: 2026-06-25
@@ -182,6 +182,6 @@ int Length(SeqList L) {
 
 ## 相关笔记
 
-- [[algorithm-concepts|算法基本概念]]
-- [[basic-concepts|数据结构基本概念]]
-- [[introduction|绪论]]
+- 算法基本概念
+- 数据结构基本概念
+- 绪论

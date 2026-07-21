@@ -1,4 +1,4 @@
----
+﻿---
 title: "多处理器"
 aliases: ["多处理器"]
 date: 2026-06-25
@@ -125,9 +125,9 @@ chapter_title: "多处理器"
 
 ## 相关笔记
 
-- [[data-alignment|数据对齐]]
-- [[format-addressing|指令格式与寻址方式]]
-- [[hll-machine|高级语言与机器码]]
-- [[instruction-index|指令系统]]
-- [[opcode|指令操作码]]
-- [[types|指令集种类]]
+- 数据对齐
+- 指令格式与寻址方式
+- 高级语言与机器码
+- 指令系统
+- 指令操作码
+- 指令集种类

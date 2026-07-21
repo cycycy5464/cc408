@@ -1,4 +1,4 @@
----
+﻿---
 title: "FTP"
 aliases: ["FTP"]
 date: 2026-06-25
@@ -119,6 +119,6 @@ sequenceDiagram
 
 ## 相关笔记
 
-- [[tcp|TCP]]
-- [[tp-index|传输层]]
-- [[udp|UDP]]
+- TCP
+- 传输层
+- UDP

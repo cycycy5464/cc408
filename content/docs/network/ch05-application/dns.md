@@ -1,4 +1,4 @@
----
+﻿---
 title: "DNS"
 aliases: ["DNS"]
 date: 2026-06-25
@@ -151,6 +151,6 @@ DNS 递归查询 和 迭代查询的不同点如下表所示：
 
 ## 相关笔记
 
-- [[tcp|TCP]]
-- [[tp-index|传输层]]
-- [[udp|UDP]]
+- TCP
+- 传输层
+- UDP

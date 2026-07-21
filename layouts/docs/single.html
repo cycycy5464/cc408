@@ -7,23 +7,24 @@
         <span class="back-text">返回</span>
       </button>
     </div>
-    {{ $baseRel := "" | relURL }}
-    {{ $currentPath := .RelPermalink }}
-    {{ $currentSubject := "" }}
+    {{ $currentSubject := .Params.subject }}
     {{ range .Site.Data.subjects }}
-      {{ if hasPrefix $currentPath (print $baseRel .key "/") }}{{ $currentSubject = .key }}{{ end }}
+      {{ if hasPrefix $.RelPermalink (print "/docs/" .key "/") }}{{ $currentSubject = .key }}{{ end }}
     {{ end }}
-    {{ range .Site.Data.subjects }}
-    {{ $expanded := or (eq .key $currentSubject) (not $currentSubject) }}
-    <details class="side-nav-group" {{ if $expanded }}open{{ end }}>
-      <summary style="padding:.5rem 1.5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:.4rem;cursor:pointer;list-style:none;color:var(--text-secondary)">
-        <span>{{ .icon }}</span><span>{{ .label }}</span>
-      </summary>
-      {{ $subject := .key }}
-      {{ range sort (where (where $.Site.RegularPages "Section" "docs") "Params.subject" $subject) "Params.weight" }}
-      <a href="{{ .RelPermalink }}" class="side-nav-link {{ if eq .RelPermalink $currentPath }}active{{ end }}">{{ .Title }}</a>
+    {{ with $currentSubject }}
+    {{ $subjData := index (where $.Site.Data.subjects "key" .) 0 }}
+    <div class="side-nav-group">
+      <div class="side-nav-title">{{ with $subjData }}{{ .icon }} {{ .label }}{{ end }}</div>
+      {{ range (where (where $.Site.RegularPages "Section" "docs") "Params.subject" $currentSubject).GroupByParam "chapter" "asc" }}
+      {{ $chapTitle := (index .Pages 0).Params.chapter_title }}
+      <div class="chapter-group">
+        <div class="chapter-header">第{{ .Key }}章 {{ $chapTitle }}</div>
+        {{ range .Pages.ByParam "weight" }}
+        <a href="{{ .RelPermalink }}" class="side-nav-link {{ if eq .RelPermalink $.RelPermalink }}active{{ end }}">{{ .Title }}</a>
+        {{ end }}
+      </div>
       {{ end }}
-    </details>
+    </div>
     {{ end }}
   </aside>
   <main class="content-area">
@@ -56,11 +57,23 @@
 </div>
 
 <style>
-.side-nav-group[open] summary { color: var(--text-primary); }
-.side-nav-group summary::-webkit-details-marker { display: none; }
-.side-nav-group summary::after {
-  content: '▸'; margin-left: auto; font-size: var(--fs-xs); transition: transform .2s;
+.side-nav-group { margin-bottom: 1rem; }
+.side-nav-title {
+  padding: .75rem 1.5rem .5rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: .5rem;
 }
-.side-nav-group[open] summary::after { transform: rotate(90deg); }
+.chapter-group { margin-bottom: .75rem; }
+.chapter-header {
+  padding: .25rem 1.5rem .25rem 1.25rem;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: .04em;
+}
 </style>
 {{ end }}

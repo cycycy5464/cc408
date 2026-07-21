@@ -1,4 +1,4 @@
----
+﻿---
 title: "树与二叉树"
 aliases: ["树与二叉树"]
 date: 2026-06-25
@@ -42,16 +42,16 @@ chapter_title: "树与二叉树"
 
 * * *
 
-##### [树](</data_structure/tree/tree/>)
+##### [树](/docs/data-structure/ch04-tree/tree/)
 
-##### [二叉树](</data_structure/tree/btree/>)
+##### [二叉树](/docs/data-structure/ch04-tree/tree/)
 
-##### [树的应用](</data_structure/tree/app/>)
+##### [树的应用](/docs/data-structure/ch04-tree/tree/)
 
 
 ## 相关笔记
 
-- [[array-matrix|数组和特殊矩阵]]
-- [[definition|串的定义与实现]]
-- [[pattern-matching|串的模式匹配]]
-- [[string-index|串概述]]
+- 数组和特殊矩阵
+- 串的定义与实现
+- 串的模式匹配
+- 串概述

@@ -1,4 +1,4 @@
----
+﻿---
 title: "计算机网络体系结构"
 aliases: ["计算机网络体系结构"]
 date: 2026-06-25
@@ -25,10 +25,6 @@ chapter_title: "计算机网络体系结构"
 2. 掌握典型计算机网络的结构、协议、应用以及典型网络设备的工作原理。
 3. 能够运用计算机网络的基本概念、基本原理和基本方法进行网络系统的分析、设计和应用。
 
-学习思维导图：
-    
-    
-    
 ## 基本概念
 
 - 定义、组成和功能
@@ -47,8 +43,8 @@ chapter_title: "计算机网络体系结构"
 
 * * *
 
-##### [分层结构](</computer_network/overall/iso/>)
+##### 分层结构
 
-##### [网络设备总结](</computer_network/overall/dev/>)
+##### 网络设备总结
 
-##### [各层协议总结](</computer_network/overall/protocol/>)
+##### [各层协议总结](/docs/network/ch00-overview/protocol-summary/)

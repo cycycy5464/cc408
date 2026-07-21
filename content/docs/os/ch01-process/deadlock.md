@@ -1,4 +1,4 @@
----
+﻿---
 title: "死锁"
 aliases: ["死锁"]
 date: 2026-06-25
@@ -117,7 +117,7 @@ chapter_title: "死锁"
   2. 当一个进程请求资源时，检查请求的资源数量是否 **小于等于** `Need`，如果大于则请求失败。
   3. 检查请求的资源数量是否 **小于等于** `Available`，如果大于则请求失败。
   4. 如果请求合法（满足上述两个条件），则 **模拟分配** 资源给该进程（预分配），即将资源从系统的 `Available` 减去，加到进程的 `Allocation` 中，并从进程的 `Need` 中减去相应数量的资源。
-  5. 然后，进行 [安全性检查](</operating_system/process/deadlock/#%e5%ae%89%e5%85%a8%e6%80%a7%e6%a3%80%e6%9f%a5>)，判断是否存在一种 **安全分配序列** ，使得所有进程都能顺利执行完成。
+  5. 然后，进行 [安全性检查](/docs/os/ch01-process/deadlock/#%e5%ae%89%e5%85%a8%e6%80%a7%e6%a3%80%e6%9f%a5)，判断是否存在一种 **安全分配序列** ，使得所有进程都能顺利执行完成。
   6. 如果存在 **安全分配序列** ，则执行资源分配，否则拒绝请求，因为分配资源可能导致**死锁** ，并且回收预先模拟分配的资源。
   7. 当进程完成任务时，释放已分配的资源，将它们从 `Allocation` 减去，加到 `Available` 中。
 
@@ -167,7 +167,7 @@ BankersAlgorithmcluster\_legend关键概念说明cluster\_example算法逻辑leg
 
 这里还要需要注意的是，在实际的算法中，我们需要用 **work** 替代 **available** 来帮助我们完成 **安全性检查** 的过程，因为检查只是一种“逻辑推演”，我们并不希望实际修改系统中的资源情况，具体的代码实现可以参考如下链接：
 
-[银行家算法代码实现](</code/banker/>)
+[银行家算法代码实现](/docs/computer-org/ch03-instruction/opcode/)
 
 ### 死锁的检测和删除
 
@@ -187,7 +187,7 @@ BankersAlgorithmcluster\_legend关键概念说明cluster\_example算法逻辑leg
 
 ## 相关笔记
 
-- [[computer-overview|计算机系统概述]]
-- [[os-concept|操作系统概念]]
-- [[os-structure|操作系统结构]]
-- [[program-env|程序运行环境]]
+- 计算机系统概述
+- 操作系统概念
+- 操作系统结构
+- 程序运行环境

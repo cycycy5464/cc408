@@ -1,4 +1,4 @@
----
+﻿---
 title: "数据对齐"
 aliases: ["数据对齐"]
 date: 2026-06-25
@@ -123,9 +123,9 @@ _Alignof(size_t)     = 8
 
 ## 相关笔记
 
-- [[cache|Cache]]
-- [[external|外存]]
-- [[memory-index|存储系统]]
-- [[overview|存储系统概述]]
-- [[ram|内存]]
-- [[virtual|虚拟存储器]]
+- Cache
+- 外存
+- 存储系统
+- 存储系统概述
+- 内存
+- 虚拟存储器

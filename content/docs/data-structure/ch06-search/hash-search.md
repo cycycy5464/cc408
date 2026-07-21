@@ -1,4 +1,4 @@
----
+﻿---
 title: "散列表查找"
 aliases: ["散列表查找"]
 date: 2026-06-25
@@ -230,6 +230,6 @@ Hi​=\(Hash1​\(key\)+i×Hash2​\(key\)\)modn
 
 ## 相关笔记
 
-- [[algorithms|图的算法和应用]]
-- [[definition|图的定义]]
-- [[graph-index|图概述]]
+- 图的算法和应用
+- 图的定义
+- 图概述

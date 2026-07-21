@@ -1,4 +1,4 @@
----
+﻿---
 title: "类型转换"
 aliases: ["类型转换"]
 date: 2026-06-25
@@ -151,6 +151,6 @@ int result = (int)f + i; // f 被显式转换为 3，然后与 i 相加
 
 ## 相关笔记
 
-- [[introduction|概论]]
-- [[performance|计算机性能指标]]
-- [[system-hierarchy|计算机系统层次结构]]
+- 概论
+- 计算机性能指标
+- 计算机系统层次结构

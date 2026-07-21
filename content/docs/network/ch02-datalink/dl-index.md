@@ -1,4 +1,4 @@
----
+﻿---
 title: "数据链路层"
 aliases: ["数据链路层"]
 date: 2026-06-25
@@ -93,23 +93,14 @@ chapter_title: "数据链路层"
 
 * * *
 
-##### [组帧](</computer_network/datalink/framing/>)
+##### [组帧](/docs/network/ch02-datalink/framing/)
 
-##### [差错控制](</computer_network/datalink/error/>)
+##### [差错控制](/docs/network/ch02-datalink/error-control/)
 
-##### [流量控制](</computer_network/datalink/flow_control/>)
+##### 流量控制
 
-##### [介质访问控制](</computer_network/datalink/mac/>)
+##### [介质访问控制](/docs/network/ch02-datalink/mac/)
 
-##### [局域网和广域网](</computer_network/datalink/lan/>)
+##### [局域网和广域网](/docs/network/ch02-datalink/lan-wan/)
 
-##### [数据链路层设备](</computer_network/datalink/dev/>)
-
-
-## 相关笔记
-
-- [[communication|通信概念]]
-- [[devices|物理层设备]]
-- [[encoding|编码与调制]]
-- [[phy-index|物理层]]
-- [[switching|交换方式]]
+##### 数据链路层设备

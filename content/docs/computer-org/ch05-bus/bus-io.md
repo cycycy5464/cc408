@@ -1,4 +1,4 @@
----
+﻿---
 title: "总线和I/O系统"
 aliases: ["总线和I/O系统"]
 date: 2026-06-25
@@ -37,16 +37,16 @@ chapter_title: "总线和I/O系统"
 
 * * *
 
-##### [总线](</constitution_principle/bus/bus/>)
+##### [总线](/docs/computer-org/ch05-bus/bus/)
 
-##### [I/O 系统](</constitution_principle/bus/io/>)
+##### [I/O 系统](/docs/computer-org/ch05-bus/bus/)
 
 
 ## 相关笔记
 
-- [[controller|控制器]]
-- [[cpu-index|中央处理器]]
-- [[exceptions|异常与中断]]
-- [[function-structure|CPU功能与结构]]
-- [[multiprocessor|多处理器]]
-- [[pipeline|指令流水线]]
+- 控制器
+- 中央处理器
+- 异常与中断
+- CPU功能与结构
+- 多处理器
+- 指令流水线

@@ -1,4 +1,4 @@
----
+﻿---
 title: "进程管理"
 aliases: ["进程管理"]
 date: 2026-06-25
@@ -51,20 +51,20 @@ chapter_title: "进程管理"
 
 * * *
 
-##### [进程和线程](</operating_system/process/process_thread/>)
+##### 进程和线程
 
-##### [处理机调度](</operating_system/process/scheduling/>)
+##### [处理机调度](/docs/os/ch01-process/scheduling/)
 
-##### [同步和互斥](</operating_system/process/sync/>)
+##### [同步和互斥](/docs/os/ch01-process/sync-mutex/)
 
-##### [经典同步问题](</operating_system/process/problem/>)
+##### 经典同步问题
 
-##### [死锁](</operating_system/process/deadlock/>)
+##### [死锁](/docs/os/ch01-process/deadlock/)
 
 
 ## 相关笔记
 
-- [[computer-overview|计算机系统概述]]
-- [[os-concept|操作系统概念]]
-- [[os-structure|操作系统结构]]
-- [[program-env|程序运行环境]]
+- 计算机系统概述
+- 操作系统概念
+- 操作系统结构
+- 程序运行环境

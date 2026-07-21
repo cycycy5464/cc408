@@ -1,4 +1,4 @@
----
+﻿---
 title: "串概述"
 aliases: ["串概述"]
 date: 2026-06-25
@@ -13,16 +13,9 @@ chapter_title: "串概述"
 
 本章可能在选择题中出现，掌握 KMP 算法的思想，能够手工模拟 KMP 过程即可。
 
-* * *
-
-##### [定义和实现](</data_structure/strings/def/>)
-
-##### [模式匹配](</data_structure/strings/match/>)
+##### 
 
 
 ## 相关笔记
 
-- [[application|栈和队列的应用]]
-- [[linear-data-structure|线性数据结构]]
-- [[queue|队列]]
-- [[stack|栈]]
+- [模式匹配](/docs/data-structure/ch03-string/pattern-matching/)
