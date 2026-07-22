@@ -47,10 +47,3 @@ chapter_title: "文件管理"
 ##### [目录](/docs/os/ch03-file/directory/)
 
 ##### [文件系统](/docs/os/ch03-file/filesystem/)
-
-
-## 相关笔记
-
-- 内存管理概念
-- 内存管理
-- 虚拟内存管理
