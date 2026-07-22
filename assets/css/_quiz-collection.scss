@@ -256,6 +256,22 @@
   margin-bottom: 0.75rem;
 }
 
+.quiz-card-reference {
+  color: var(--accent);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.quiz-card-reference:hover {
+  text-decoration: underline;
+}
+
+.quiz-card-difficulty {
+  color: #f0c040;
+  letter-spacing: 0;
+}
+
 .question-block p {
   margin-bottom: 0.5rem;
   line-height: 1.6;

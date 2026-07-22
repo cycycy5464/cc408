@@ -102,6 +102,8 @@
       type: isChoice ? "choice" : "answer",
       multiple: false,
       subject: subject,
+      source: meta.source || "",
+      years: ensureArray(meta.years),
       quizNumber: meta.quizNumber || 0,
       question: question,
       options: isChoice ? options : undefined,

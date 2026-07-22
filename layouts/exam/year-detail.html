@@ -502,6 +502,8 @@
       type: isChoice ? 'choice' : 'answer',
       multiple: false,
       subject: subject,
+      source: /^\d{4}$/.test(year) ? '408真题' : '模拟题',
+      years: /^\d{4}$/.test(year) ? [year] : [],
       quizNumber: parseInt(qnum) || 0,
       question: question.trim(),
       options: isChoice ? options : undefined,

@@ -261,7 +261,6 @@
     createQuizCard(quiz) {
       var isChoice = quiz.type === "choice";
       var isDisplay = this.mode === "display";
-      var num = quiz.quizNumber || "?";
       var date = new Date(quiz.collectedAt).toLocaleDateString("zh-CN");
 
       var optionsHtml = "";
@@ -285,11 +284,10 @@
         tags = '<div class="qc-card-tags">' + tagList.map(function (t) { return '<span class="tag">' + t + '</span>' }).join("") + '</div>';
       }
 
-      var sourceLabel = quiz.pageTitle || '';
-      var source = sourceLabel ? '<div class="qc-card-source"><a href="' + (quiz.pageUrl || "#") + '" target="_blank" rel="noopener">📎 ' + sourceLabel + "</a><span>" + date + "</span></div>" : "";
+      var sourceLabel = this.formatSourceReference(quiz);
+      var source = sourceLabel ? '<div class="qc-card-source"><a class="quiz-card-reference" href="' + (quiz.pageUrl || "#") + '" target="_blank" rel="noopener">' + sourceLabel + "</a><span>收藏于 " + date + "</span></div>" : "";
 
       return '<div class="question-block" data-quiz-id="' + quiz.id + '">' +
-        '<div class="question-number">' + num + "</div>" +
         source +
         tags +
         questionHtml.split("\n").filter(Boolean).map(function (p) { return "<p>" + p + "</p>"; }).join("") +
@@ -304,6 +302,26 @@
         '<button class="favorite-btn danger" data-action="delete" style="margin-left:auto">🗑 删除</button>' +
         "</div>" +
         "</div>";
+    }
+
+    formatSourceReference(quiz) {
+      var years = Array.isArray(quiz.years) ? quiz.years : [];
+      if (years.length === 0 && quiz.tags) {
+        years = String(quiz.tags).match(/20\d{2}/g) || [];
+      }
+      var number = quiz.quizNumber ? "第" + quiz.quizNumber + "题" : "";
+      var source = quiz.source || "";
+      var label = "";
+      if (source === "408真题" || (!source && years.length > 0)) {
+        label = years.length > 0 ? years[0] + "年真题" : "408真题";
+      } else if (source === "模拟题") {
+        label = quiz.pageTitle || "模拟题";
+      } else if (source === "课后题") {
+        label = quiz.pageTitle || "章节习题";
+      } else {
+        label = quiz.pageTitle || "收藏题目";
+      }
+      return [label, number].filter(Boolean).join(" · ");
     }
 
     bindCardEvents(card, quiz) {

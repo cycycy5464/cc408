@@ -34,115 +34,46 @@
     <input type="text" id="filter-search" data-filter="search" placeholder="搜索题目…">
   </div>
 
-  <div class="question-grid" id="question-grid">
-    {{ range $qpages.ByParam "number" }}{{ partial "question-card.html" . }}{{ end }}
-  </div>
+  <div class="question-list-status" id="question-list-status" aria-live="polite"></div>
+  <div class="question-grid" id="question-grid"></div>
+  <nav class="question-pagination" id="question-pagination" aria-label="题目分页"></nav>
 
   <div class="border-top-section">
     <a href="{{ "exam/" | relURL }}" class="btn btn-ghost">← 返回刷题中心</a>
   </div>
 </div>
 
+<script type="application/json" id="question-data">
+[
+  {{ range $index, $page := $qpages.ByParam "number" }}
+    {{ if $index }},{{ end }}
+    {{ $sk := default "" (index $page.Params.subjects 0) }}
+    {{ $tp := split $page.Title " 第" }}
+    {{ $chapter := index $tp 0 }}
+    {{ $plain := replaceRE "(?s)\\[tag_link\\].*$" "" $page.Plain }}
+    {{ $plain = replaceRE "(?s)\\n\\s*[A-D][.、．].*$" "" $plain }}
+    {{ $plain = strings.TrimSpace $plain }}
+    {{ dict "url" $page.RelPermalink "years" $page.Params.years "subject" $sk "chapter" $chapter "type" $page.Params.question_type "source" $page.Params.source "set" $page.Params.set "number" (default 0 $page.Params.number) "difficulty" (default 1 $page.Params.difficulty) "title" $page.Title "stem" $plain | jsonify | safeJS }}
+  {{ end }}
+]
+</script>
+
 <style>
-.question-toolbar { display: flex; gap: .75rem; flex-wrap: wrap; align-items: center; padding: 1rem; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-md); margin-bottom: 1.5rem; }
+.question-toolbar { display: flex; gap: .75rem; flex-wrap: wrap; align-items: center; padding: 1rem; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-md); margin-bottom: 1rem; }
 .question-toolbar select, .question-toolbar input { padding: .45rem .75rem; background: var(--bg-card); color: var(--text-primary); border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-size: var(--fs-sm); font-family: var(--font-body); }
 .question-toolbar input { flex: 1; min-width: 180px; }
 .question-toolbar select:focus, .question-toolbar input:focus { outline: none; border-color: var(--accent); }
 .source-dependent { display: none; }
 .source-dependent.visible { display: inline-block; }
+.question-list-status { color: var(--text-muted); font-size: var(--fs-sm); margin: 0 0 .75rem; }
+.question-pagination { display: flex; align-items: center; justify-content: center; gap: .5rem; margin: 1.5rem 0; }
+.question-page-gap { color: var(--text-muted); }
+.question-page-btn { min-width: 2.25rem; height: 2.25rem; padding: 0 .6rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); color: var(--text-secondary); background: var(--bg-card); font: inherit; cursor: pointer; }
+.question-page-btn:hover:not(:disabled), .question-page-btn.active { border-color: var(--accent); color: var(--accent); }
+.question-page-btn.active { background: rgba(57,186,230,.1); font-weight: 600; }
+.question-page-btn:disabled { cursor: not-allowed; opacity: .45; }
 </style>
 
-<script>
-(function() {
-  const grid = document.getElementById('question-grid');
-  if (!grid) return;
-  const cards = Array.from(grid.querySelectorAll('.question-card'));
-  const sourceSel = document.getElementById('filter-source');
-  const examYearSel = document.getElementById('filter-exam-year');
-  const setSel = document.getElementById('filter-set');
-  const subjSel = document.getElementById('filter-subject');
-  const chapSel = document.getElementById('filter-chapter');
-  const typeSel = document.getElementById('filter-type');
-  const search = document.getElementById('filter-search');
-
-  function switchSource() {
-    const v = sourceSel.value;
-    document.querySelectorAll('.source-dependent').forEach(function(el) {
-      el.classList.toggle('visible', el.classList.contains('source-' +
-        (v === '408真题' ? 'exam' : v === '模拟题' ? 'simulate' : v === '课后题' ? 'exercise' : 'none')));
-    });
-    if (v !== '课后题') { chapSel.value = ''; }
-    if (v !== '408真题') { examYearSel.value = ''; }
-    if (v !== '模拟题') { setSel.value = ''; }
-    populateSubject();
-    filter();
-  }
-
-  function populateSubject() {
-    const sk = sourceSel.value;
-    const cur = subjSel.value;
-    subjSel.innerHTML = '<option value="">全部科目</option>';
-    const seen = {};
-    cards.forEach(function(c) {
-      if (sk && c.dataset.source !== sk) return;
-      const v = c.dataset.subject;
-      if (v && !seen[v]) {
-        seen[v] = true;
-        const o = document.createElement('option');
-        o.value = v;
-        o.textContent = c.dataset.subjectName || v;
-        subjSel.appendChild(o);
-      }
-    });
-    subjSel.value = (cur && [...subjSel.options].some(function(o) { return o.value === cur; })) ? cur : '';
-  }
-
-  function populateChapter() {
-    const sk = sourceSel.value;
-    if (sk !== '课后题') return;
-    const cur = chapSel.value;
-    chapSel.innerHTML = '<option value="">全部章节</option>';
-    const seen = {};
-    cards.forEach(function(c) {
-      if (c.dataset.source !== '课后题') return;
-      if (subjSel.value && c.dataset.subject !== subjSel.value) return;
-      const v = c.dataset.chapter;
-      if (v && !seen[v]) {
-        seen[v] = true;
-        const o = document.createElement('option');
-        o.value = v;
-        o.textContent = c.dataset.chapterName || v;
-        chapSel.appendChild(o);
-      }
-    });
-    chapSel.value = (cur && [...chapSel.options].some(function(o) { return o.value === cur; })) ? cur : '';
-  }
-
-  function filter() {
-    const sk = sourceSel.value, ey = examYearSel.value, st = setSel.value,
-          sj = subjSel.value, ch = chapSel.value,
-          t = typeSel.value, q = search.value.toLowerCase();
-    cards.forEach(function(c) {
-      const matchSource = !sk || c.dataset.source === sk;
-      const matchYear = !ey || (c.dataset.year || '').split(',').indexOf(ey) >= 0;
-      const matchSet = !st || c.dataset.set === st;
-      const matchSubj = !sj || c.dataset.subject === sj;
-      const matchChap = !ch || c.dataset.chapter === ch;
-      const matchType = !t || c.dataset.type === t;
-      const matchSearch = !q || c.textContent.toLowerCase().includes(q);
-      c.style.display = (matchSource && matchYear && matchSet && matchSubj && matchChap && matchType && matchSearch) ? 'block' : 'none';
-    });
-  }
-
-  sourceSel.addEventListener('change', switchSource);
-  examYearSel.addEventListener('change', filter);
-  setSel.addEventListener('change', filter);
-  subjSel.addEventListener('change', function() { populateChapter(); filter(); });
-  chapSel.addEventListener('change', filter);
-  typeSel.addEventListener('change', filter);
-  search.addEventListener('input', filter);
-
-  switchSource();
-})();
-</script>
+{{ $js := resources.Get "js/question-list.js" | resources.Minify | resources.Fingerprint }}
+<script src="{{ $js.RelPermalink }}"></script>
 {{ end }}

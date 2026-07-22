@@ -496,7 +496,7 @@ function toggleAnswer(btn) {
     tags.push(isChoice ? '选择题' : '解答题');
     return {
       id: id, type: isChoice ? 'choice' : 'answer', multiple: false,
-      subject: subject, quizNumber: parseInt(qnum) || 0,
+      subject: subject, source: '408真题', years: year ? [year] : [], quizNumber: parseInt(qnum) || 0,
       question: question.trim(), options: isChoice ? options : undefined,
       answer: answer, explanation: explanation.trim(), tags: tags.join(','),
       pageUrl: pageUrl, pageTitle: pageTitle, collectedAt: new Date().toISOString()
