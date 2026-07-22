@@ -298,7 +298,7 @@ details[open] summary{margin-bottom:1rem;border-bottom:1px solid var(--border-co
 .graph-page{min-height:calc(100vh - 70px);background:var(--bg-primary);padding-top:1rem;position:relative}
 .graph-search{position:absolute;top:90px;left:1.5rem;z-index:10}
 .graph-search input{padding:.5rem 1rem;background:var(--bg-card);color:var(--text-primary);border:1px solid var(--border-color);border-radius:var(--radius-md);width:250px;font-size:var(--fs-sm)}
-.graph-container{width:100%;height:70vh;position:relative;margin-top:1rem;min-height:500px}
+.graph-container{width:100%;height:clamp(360px,calc(100vh - 280px),680px);position:relative;margin-top:1rem}
 .graph-tabs{display:flex;justify-content:center;gap:.5rem;margin-top:1rem}
 .graph-tab{padding:.5rem 1.5rem;background:var(--bg-card);color:var(--text-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);font-size:var(--fs-sm);font-weight:500;cursor:pointer;transition:all .25s;font-family:var(--font-body)}
 .graph-tab:hover{border-color:var(--accent);color:var(--text-primary)}
@@ -350,6 +350,7 @@ details[open] summary{margin-bottom:1rem;border-bottom:1px solid var(--border-co
   .recent-list{padding:0 1rem 1rem}
   .exam-paper-grid{gap:.5rem}
   .info-panel{right:1rem;width:auto;left:1rem;top:80px}
+  .graph-container{height:clamp(330px,calc(100vh - 250px),520px)}
   .exam-layout{flex-direction:column;max-width:100%}
   .exam-toc{display:none}
   .exam-year-nav{position:static;width:100%;margin:0 0 1rem;order:-1}

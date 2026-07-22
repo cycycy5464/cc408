@@ -779,6 +779,36 @@
   var _svg = null;
   var _g = null;
 
+  function docsSubjectAnchor(subject, width, height) {
+    var anchors = {
+      'data-structure': [0.36, 0.36],
+      'computer-org': [0.64, 0.36],
+      'os': [0.36, 0.64],
+      'network': [0.64, 0.64]
+    };
+    var anchor = anchors[subject] || [0.5, 0.5];
+    return { x: width * anchor[0], y: height * anchor[1] };
+  }
+
+  function graphFitTransform(nodes, width, height) {
+    var padding = 44;
+    var minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+    nodes.forEach(function (node) {
+      var radius = (nodeRadius[node.type] || 12) + 8;
+      minX = Math.min(minX, node.x - radius);
+      maxX = Math.max(maxX, node.x + radius);
+      minY = Math.min(minY, node.y - radius);
+      maxY = Math.max(maxY, node.y + radius);
+    });
+    var graphWidth = Math.max(maxX - minX, 1);
+    var graphHeight = Math.max(maxY - minY, 1);
+    var scale = Math.min((width - padding * 2) / graphWidth, (height - padding * 2) / graphHeight, 1.15);
+    scale = Math.max(0.35, scale);
+    var offsetX = (width - graphWidth * scale) / 2 - minX * scale;
+    var offsetY = (height - graphHeight * scale) / 2 - minY * scale;
+    return d3.zoomIdentity.translate(offsetX, offsetY).scale(scale);
+  }
+
   function renderGraph() {
     console.log('KG: renderGraph, tab:', state.tab, 'nodes:', state.currentNodes.length);
     container.innerHTML = '';
@@ -805,7 +835,7 @@
       .attr('width', width).attr('height', height);
 
     var zoom = d3.zoom()
-      .scaleExtent([0.15, 5])
+      .scaleExtent([0.35, 5])
       .on('zoom', function (e) { if (_g) _g.attr('transform', e.transform); });
     _svg.call(zoom);
 
@@ -920,8 +950,8 @@
     });
 
     // Force simulation
-    var chargeStrength = isHierarchical ? -400 : -300;
-    var linkDist = isHierarchical ? 140 : 120;
+    var chargeStrength = isHierarchical ? -400 : -105;
+    var linkDist = isHierarchical ? 140 : 72;
 
     // Sanitize links.
     // d3.forceLink MUTATES each link's source/target from an id string into the
@@ -947,21 +977,35 @@
     if (invalidLinks) console.warn('KG: filtered', invalidLinks, 'invalid links');
 
     if (_simulation) _simulation.stop();
-    _simulation = d3.forceSimulation(data.nodes)
+    var simulation = d3.forceSimulation(data.nodes)
       .force('link', d3.forceLink(data.links).id(function (d) { return d.id; }).distance(linkDist))
       .force('charge', d3.forceManyBody().strength(chargeStrength))
       .force('center', d3.forceCenter(width / 2, height / 2))
       .force('collision', d3.forceCollide().radius(function (d) {
-        return (nodeRadius[d.type] || 12) + 5;
-      }))
-      .on('tick', function () {
-        link
-          .attr('x1', function (d) { return d.source.x; })
-          .attr('y1', function (d) { return d.source.y; })
-          .attr('x2', function (d) { return d.target.x; })
-          .attr('y2', function (d) { return d.target.y; });
-        node.attr('transform', function (d) { return 'translate(' + d.x + ',' + d.y + ')'; });
-      });
+        return (nodeRadius[d.type] || 12) + 7;
+      }));
+
+    if (state.tab === 'docs') {
+      simulation
+        .force('subject-x', d3.forceX(function (d) { return docsSubjectAnchor(d.subject, width, height).x; }).strength(0.14))
+        .force('subject-y', d3.forceY(function (d) { return docsSubjectAnchor(d.subject, width, height).y; }).strength(0.14));
+    }
+
+    function drawGraph() {
+      link
+        .attr('x1', function (d) { return d.source.x; })
+        .attr('y1', function (d) { return d.source.y; })
+        .attr('x2', function (d) { return d.target.x; })
+        .attr('y2', function (d) { return d.target.y; });
+      node.attr('transform', function (d) { return 'translate(' + d.x + ',' + d.y + ')'; });
+    }
+
+    // Pre-stabilize before the first paint, then fit the whole graph into its viewport.
+    simulation.stop();
+    for (var warmupTick = 0; warmupTick < 180; warmupTick++) simulation.tick();
+    drawGraph();
+    _svg.call(zoom.transform, graphFitTransform(data.nodes, width, height));
+    _simulation = simulation.alpha(0.16).on('tick', drawGraph).restart();
 
     // Background click to clear info
     _svg.on('click', function () {
