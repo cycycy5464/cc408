@@ -723,7 +723,7 @@
     breadcrumbEl.style.display = 'flex';
 
     if (state.view === 'year') {
-      parts.push({ label: '🗓 按年份', action: 'home' });
+      parts.push({ label: state._nav && state._nav.topIsSet ? '📦 按卷' : '🗓 按年份', action: 'home' });
     } else {
       parts.push({ label: '📚 按科目', action: 'home' });
     }
@@ -780,9 +780,17 @@
   var _svg = null;
   var _g = null;
 
-  function selectExamYear(year) {
+  function selectTopLevel(year) {
     state.focus = { year: year, qtype: null, subject: null, kp: null };
     renderGraph();
+  }
+
+  function topLevelLabel(value) {
+    return state._nav && state._nav.topIsSet ? '卷' + value : value;
+  }
+
+  function topLevelTitle(value) {
+    return state._nav && state._nav.topIsSet ? '模拟题第' + value + '套' : value + '年真题';
   }
 
   function yearQuestionCount(year) {
@@ -794,7 +802,7 @@
   }
 
   function updateYearNavigator() {
-    var showNavigator = yearNav && state.tab === 'exam' && state.view === 'year' && state._nav;
+    var showNavigator = yearNav && (state.tab === 'exam' || state.tab === 'simulate') && state.view === 'year' && state._nav;
     if (!yearNav) return;
     if (!showNavigator) {
       yearNav.style.display = 'none';
@@ -808,10 +816,10 @@
       var button = document.createElement('button');
       button.type = 'button';
       button.className = 'graph-year-nav-btn' + (state.focus.year === year ? ' active' : '');
-      button.textContent = year;
-      button.title = year + '年真题';
+      button.textContent = topLevelLabel(year);
+      button.title = topLevelTitle(year);
       if (state.focus.year === year) button.setAttribute('aria-current', 'page');
-      button.addEventListener('click', function () { selectExamYear(year); });
+      button.addEventListener('click', function () { selectTopLevel(year); });
       yearNav.appendChild(button);
     });
   }
@@ -825,16 +833,16 @@
       var card = document.createElement('button');
       card.type = 'button';
       card.className = 'graph-year-card';
-      card.setAttribute('aria-label', '查看' + year + '年真题');
+      card.setAttribute('aria-label', '查看' + topLevelTitle(year));
       var yearLabel = document.createElement('span');
       yearLabel.className = 'graph-year-card-label';
-      yearLabel.textContent = year;
+      yearLabel.textContent = topLevelLabel(year);
       var count = document.createElement('span');
       count.className = 'graph-year-card-count';
       count.textContent = yearQuestionCount(year) + '题';
       card.appendChild(yearLabel);
       card.appendChild(count);
-      card.addEventListener('click', function () { selectExamYear(year); });
+      card.addEventListener('click', function () { selectTopLevel(year); });
       index.appendChild(card);
     });
     container.appendChild(index);
@@ -881,10 +889,10 @@
     state.currentLinks = data.links;
     updateYearNavigator();
 
-    var isExamYearIndex = state.tab === 'exam' && state.view === 'year' &&
+    var isTopLevelIndex = (state.tab === 'exam' || state.tab === 'simulate') && state.view === 'year' &&
       state.focus.year === null && state.focus.qtype === null &&
       state.focus.subject === null && state.focus.kp === null;
-    if (isExamYearIndex) {
+    if (isTopLevelIndex) {
       updateBreadcrumb();
       renderYearIndex(data.nodes);
       return;
@@ -1334,12 +1342,11 @@
       var yearBtn = viewToggle.querySelector('[data-view="year"]');
       var subjBtn = viewToggle.querySelector('[data-view="subject"]');
       if (tab === 'simulate') {
-        // 模拟题顶层为「卷N」（无年份语义），仅保留「按科目」
-        if (yearBtn) { yearBtn.style.display = 'none'; yearBtn.classList.remove('active'); }
-        if (subjBtn) { subjBtn.style.display = ''; subjBtn.classList.add('active'); }
-        state.view = 'subject';
+        if (yearBtn) { yearBtn.style.display = ''; yearBtn.textContent = '📦 按卷'; yearBtn.classList.add('active'); }
+        if (subjBtn) { subjBtn.style.display = ''; subjBtn.classList.remove('active'); }
+        state.view = 'year';
       } else {
-        if (yearBtn) { yearBtn.style.display = ''; yearBtn.classList.add('active'); }
+        if (yearBtn) { yearBtn.style.display = ''; yearBtn.textContent = '🗓 按年份'; yearBtn.classList.add('active'); }
         if (subjBtn) { subjBtn.style.display = ''; subjBtn.classList.remove('active'); }
         state.view = 'year';
       }
