@@ -38,7 +38,7 @@
 <div class="content-area content-area-wide">
   <h1>{{ .Title }}</h1>
   {{ .Content }}
-  {{ $pages := .RegularPages | default .Pages }}
+  {{ $pages := .Sections }}
   <div class="exam-paper-grid">
     {{ range $pages }}
     <a href="{{ .RelPermalink }}" class="exam-paper-card">
