@@ -1,0 +1,89 @@
+{{ $page := .Page }}
+{{ $currentSubject := .Subject | default $page.Params.subject }}
+{{ if not $currentSubject }}
+  {{ $basePath := "docs/" | relURL }}
+  {{ range $page.Site.Data.subjects }}
+    {{ if hasPrefix $page.RelPermalink (print $basePath .key "/") }}{{ $currentSubject = .key }}{{ end }}
+  {{ end }}
+{{ end }}
+{{ with $currentSubject }}
+{{ $subjData := index (where $page.Site.Data.subjects "key" .) 0 }}
+{{ $chapterNames := dict
+  "data-structure" (dict
+    "ch00-intro" "绪论"
+    "ch01-linear-list" "线性表"
+    "ch02-stack-queue" "栈和队列"
+    "ch03-string" "串"
+    "ch04-tree" "树"
+    "ch05-graph" "图"
+    "ch06-search" "查找"
+    "ch07-sort" "排序"
+  )
+  "computer-org" (dict
+    "ch00-overview" "计算机系统概述"
+    "ch01-data-representation" "数据的表示和运算"
+    "ch02-memory" "存储器层次结构"
+    "ch03-instruction" "指令系统"
+    "ch04-cpu" "中央处理器"
+    "ch05-bus" "总线"
+    "ch06-io" "输入输出系统"
+  )
+  "os" (dict
+    "ch00-overview" "操作系统概述"
+    "ch01-process" "进程管理"
+    "ch02-memory" "内存管理"
+    "ch03-file" "文件管理"
+    "ch04-io" "设备管理"
+  )
+  "network" (dict
+    "ch00-overview" "计算机网络概述"
+    "ch01-physical" "物理层"
+    "ch02-datalink" "数据链路层"
+    "ch03-network" "网络层"
+    "ch04-transport" "传输层"
+    "ch05-application" "应用层"
+  )
+}}
+{{ $subjectChapterNames := index $chapterNames $currentSubject | default (dict) }}
+{{ $subjectPages := sort (where (where $page.Site.RegularPages "Section" "docs") "Params.subject" $currentSubject) "File.Path" }}
+{{ $chapterMap := dict }}
+{{ $chapterOrder := slice }}
+{{ range $subjectPages }}
+  {{ $chapterDir := "" }}
+  {{ $normPath := replaceRE "\\\\" "/" .File.Path }}
+  {{ $chapterDir = replaceRE (printf "^.*docs/%s/([^/]+)/.*$" $currentSubject) "$1" $normPath }}
+  {{ if and $chapterDir (ne $chapterDir $normPath) }}
+    {{ if not (in $chapterOrder $chapterDir) }}{{ $chapterOrder = $chapterOrder | append $chapterDir }}{{ end }}
+    {{ $chapterPages := index $chapterMap $chapterDir | default (slice) }}
+    {{ $chapterPages = $chapterPages | append . }}
+    {{ $chapterMap = merge $chapterMap (dict $chapterDir $chapterPages) }}
+  {{ end }}
+{{ end }}
+<aside class="side-nav">
+  <div class="back-button-container" style="position: sticky; top: 0; z-index: 10; padding: 10px; background: var(--bg-secondary); border-bottom: 1px solid var(--border-color);">
+    <button class="back-button" data-smart-back="true">
+      <span class="back-icon">←</span>
+      <span class="back-text">返回</span>
+    </button>
+  </div>
+  <div class="side-nav-group">
+    <div class="side-nav-title">{{ with $subjData }}{{ .icon }} {{ .label }}{{ end }}</div>
+    {{ range $chapterOrder }}
+    {{ $chapterPages := sort (index $chapterMap .) "Params.weight" }}
+    {{ $chapterTitle := index $subjectChapterNames . | default "" }}
+    {{ if not $chapterTitle }}
+      {{ if gt (len $chapterPages) 0 }}
+        {{ $firstPage := index $chapterPages 0 }}
+        {{ $chapterTitle = $firstPage.Params.chapter_title | default $firstPage.Title }}
+      {{ end }}
+    {{ end }}
+    <div class="chapter-group">
+      <div class="chapter-header">{{ $chapterTitle }}</div>
+      {{ range $chapterPages }}
+      <a href="{{ .RelPermalink }}" class="side-nav-link {{ if eq .RelPermalink $page.RelPermalink }}active{{ end }}">{{ .Title }}</a>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+</aside>
+{{ end }}

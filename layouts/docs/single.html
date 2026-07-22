@@ -1,32 +1,6 @@
 {{ define "main" }}
 <div class="docs-layout">
-  <aside class="side-nav">
-    <div class="back-button-container" style="position: sticky; top: 0; z-index: 10; padding: 10px; background: var(--bg-secondary); border-bottom: 1px solid var(--border-color);">
-      <button class="back-button" data-smart-back="true">
-        <span class="back-icon">←</span>
-        <span class="back-text">返回</span>
-      </button>
-    </div>
-    {{ $currentSubject := .Params.subject }}
-    {{ range .Site.Data.subjects }}
-      {{ if hasPrefix $.RelPermalink (print "/docs/" .key "/") }}{{ $currentSubject = .key }}{{ end }}
-    {{ end }}
-    {{ with $currentSubject }}
-    {{ $subjData := index (where $.Site.Data.subjects "key" .) 0 }}
-    <div class="side-nav-group">
-      <div class="side-nav-title">{{ with $subjData }}{{ .icon }} {{ .label }}{{ end }}</div>
-      {{ range (where (where $.Site.RegularPages "Section" "docs") "Params.subject" $currentSubject).GroupByParam "chapter" "asc" }}
-      {{ $chapTitle := (index .Pages 0).Params.chapter_title }}
-      <div class="chapter-group">
-        <div class="chapter-header">第{{ .Key }}章 {{ $chapTitle }}</div>
-        {{ range .Pages.ByParam "weight" }}
-        <a href="{{ .RelPermalink }}" class="side-nav-link {{ if eq .RelPermalink $.RelPermalink }}active{{ end }}">{{ .Title }}</a>
-        {{ end }}
-      </div>
-      {{ end }}
-    </div>
-    {{ end }}
-  </aside>
+  {{ partial "docs-sidebar.html" (dict "Page" .) }}
   <main class="content-area">
     <h1>{{ .Title }}</h1>
     <div class="meta-row">
@@ -55,25 +29,4 @@
     </div>
   </main>
 </div>
-
-<style>
-.side-nav-group { margin-bottom: 1rem; }
-.side-nav-title {
-  padding: .75rem 1.5rem .5rem;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: var(--fs-sm);
-  color: var(--text-primary);
-  border-bottom: 1px solid var(--border-color);
-  margin-bottom: .5rem;
-}
-.chapter-group { margin-bottom: .75rem; }
-.chapter-header {
-  padding: .25rem 1.5rem .25rem 1.25rem;
-  font-size: var(--fs-xs);
-  font-weight: 600;
-  color: var(--accent);
-  letter-spacing: .04em;
-}
-</style>
 {{ end }}

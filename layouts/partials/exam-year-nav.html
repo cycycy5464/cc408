@@ -1,4 +1,5 @@
 <nav class="exam-year-nav" id="exam-year-nav" aria-label="{{ if .Params.set }}模拟卷导航{{ else }}真题年份导航{{ end }}">
+  {{ partial "back-button.html" . }}
   <div class="exam-year-nav-header">{{ if .Params.set }}模拟卷{{ else }}真题年份{{ end }}</div>
   <div class="exam-year-nav-list">
     {{ $cur := . }}

@@ -218,9 +218,14 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .recent-item-meta{font-size:var(--fs-xs);color:var(--text-muted);display:flex;align-items:center;gap:.4rem;flex-wrap:wrap}
 .docs-layout{display:flex;min-height:calc(100vh - 70px)}
 .side-nav{width:260px;flex-shrink:0;background:var(--bg-secondary);border-right:1px solid var(--border-color);overflow-y:auto;height:calc(100vh - 70px);position:sticky;top:70px}
-.side-nav-link{display:block;padding:.45rem 1.5rem .45rem 2.5rem;font-size:var(--fs-sm);color:var(--text-secondary);transition:all .15s;border-left:2px solid transparent;text-decoration:none}
+.side-nav-link{display:block;padding:.45rem 1.5rem .45rem 2.75rem;font-size:var(--fs-sm);color:var(--text-secondary);transition:all .15s;border-left:2px solid transparent;text-decoration:none}
 .side-nav-link:hover{color:var(--text-primary);background:var(--bg-hover);border-left-color:var(--border-light)}
 .side-nav-link.active{color:var(--accent);background:rgba(57,186,230,.06);border-left-color:var(--accent);font-weight:500}
+.side-nav-group{margin-bottom:1rem}
+.side-nav-title{padding:.75rem 1.5rem .5rem;font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);color:var(--text-primary);border-bottom:1px solid var(--border-color);margin-bottom:.5rem}
+.chapter-group{margin-bottom:.5rem;border-top:1px solid var(--border-color);padding-top:.5rem}
+.chapter-group:first-child{border-top:none;padding-top:0}
+.chapter-header{padding:.35rem 1.5rem .3rem 1.25rem;font-size:var(--fs-xs);font-weight:700;color:var(--text-primary);letter-spacing:.04em;text-transform:uppercase}
 .content-area{flex:1;max-width:860px;margin:0 auto;padding:2rem}
 /* 知识点详情页：内容紧贴左侧导航栏，消除导航与正文之间的过大留白 */
 .docs-layout .content-area{margin:0}
@@ -254,7 +259,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .exam-year-nav-header{font-size:var(--fs-sm);font-weight:600;color:var(--text-muted);padding:.25rem .75rem .5rem;text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--border-color);margin-bottom:.5rem}
 .exam-year-nav-list{max-height:calc(100vh - 150px);overflow-y:auto;padding-right:.2rem;display:flex;flex-direction:column;gap:.15rem}
 .exam-year-nav-list::-webkit-scrollbar{width:4px}
-.exam-year-nav-list::-webkit-scrollbar-thumb{background:var(--border-color);border-radius:2px}
+
+.exam-layout>.back-button-container{display:none}
+.exam-year-nav .back-button-container{position:static;left:auto;top:auto;z-index:auto;animation:none;margin:0 0 .5rem;padding:0;background:transparent;border:0;width:100%;display:block}
+.exam-year-nav .back-button{width:100%;justify-content:center}
 .exam-year-nav-item{display:block;padding:.4rem .75rem;border-radius:var(--radius-sm);text-decoration:none;color:var(--text-secondary);font-size:.82rem;font-family:var(--font-mono);transition:all .15s;border-left:2px solid transparent}
 .exam-year-nav-item:hover{color:var(--text-primary);background:var(--bg-hover)}
 .exam-year-nav-item:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}

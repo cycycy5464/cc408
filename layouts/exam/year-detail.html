@@ -1,11 +1,5 @@
 {{ define "main" }}
 <div class="exam-layout">
-<div class="back-button-container" style="position: sticky; top: 0; z-index: 10; padding: 10px; background: var(--bg-secondary); border-bottom: 1px solid var(--border-color); width: fit-content;">
-  <button class="back-button" data-smart-back="true">
-    <span class="back-icon">←</span>
-    <span class="back-text">返回</span>
-  </button>
-</div>
 {{ partial "exam-year-nav.html" . }}
 <div class="content-area content-area-wide">
   <h1>{{ .Title }}</h1>

@@ -4,7 +4,8 @@
 
 {{/* 如果是首页，则不显示 */}}
 {{ if ne .RelPermalink "/" }}
-  <div class="back-button-container" data-page-path="{{ .RelPermalink }}">
+  {{ $inline := hasPrefix .RelPermalink "/exam/" }}
+  <div class="back-button-container{{ if $inline }} back-button-container-inline{{ end }}" data-page-path="{{ .RelPermalink }}"{{ if $inline }} style="position:static;top:auto;left:auto;z-index:auto;animation:none;margin:0 0 .5rem;padding:0;background:transparent;border:0;width:100%;"{{ end }}>
     <button class="back-button" data-smart-back="true">
       <span class="back-icon">←</span>
       <span class="back-text">返回</span>

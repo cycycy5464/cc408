@@ -64,7 +64,7 @@ markup:
     noClasses: false
   goldmark:
     renderer:
-      unsafe: false
+      unsafe: true
 security:
   _merge: deep
 sitemap:
