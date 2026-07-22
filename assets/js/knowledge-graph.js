@@ -86,6 +86,7 @@
   var infoClose = document.getElementById('info-close');
   var breadcrumbEl = document.getElementById('graph-breadcrumb');
   var viewToggle = document.getElementById('graph-view-toggle');
+  var yearNav = document.getElementById('graph-year-nav');
   var infoEdit = document.getElementById('info-edit');
   var kpEditor = document.getElementById('info-kp-editor');
   var kpAddInput = document.getElementById('kp-add-input');
@@ -779,6 +780,66 @@
   var _svg = null;
   var _g = null;
 
+  function selectExamYear(year) {
+    state.focus = { year: year, qtype: null, subject: null, kp: null };
+    renderGraph();
+  }
+
+  function yearQuestionCount(year) {
+    var subjects = state._nav && state._nav.yearsMap ? state._nav.yearsMap[year] : null;
+    var count = 0;
+    if (!subjects) return count;
+    Object.keys(subjects).forEach(function (subject) { count += subjects[subject].count || 0; });
+    return count;
+  }
+
+  function updateYearNavigator() {
+    var showNavigator = yearNav && state.tab === 'exam' && state.view === 'year' && state._nav;
+    if (!yearNav) return;
+    if (!showNavigator) {
+      yearNav.style.display = 'none';
+      yearNav.innerHTML = '';
+      return;
+    }
+
+    yearNav.style.display = 'flex';
+    yearNav.innerHTML = '';
+    state._nav.years.forEach(function (year) {
+      var button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'graph-year-nav-btn' + (state.focus.year === year ? ' active' : '');
+      button.textContent = year;
+      button.title = year + '年真题';
+      if (state.focus.year === year) button.setAttribute('aria-current', 'page');
+      button.addEventListener('click', function () { selectExamYear(year); });
+      yearNav.appendChild(button);
+    });
+  }
+
+  function renderYearIndex(nodes) {
+    container.innerHTML = '';
+    var index = document.createElement('div');
+    index.className = 'graph-year-index';
+    nodes.forEach(function (node) {
+      var year = node.meta;
+      var card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'graph-year-card';
+      card.setAttribute('aria-label', '查看' + year + '年真题');
+      var yearLabel = document.createElement('span');
+      yearLabel.className = 'graph-year-card-label';
+      yearLabel.textContent = year;
+      var count = document.createElement('span');
+      count.className = 'graph-year-card-count';
+      count.textContent = yearQuestionCount(year) + '题';
+      card.appendChild(yearLabel);
+      card.appendChild(count);
+      card.addEventListener('click', function () { selectExamYear(year); });
+      index.appendChild(card);
+    });
+    container.appendChild(index);
+  }
+
   function docsSubjectAnchor(subject, width, height) {
     var anchors = {
       'data-structure': [0.36, 0.36],
@@ -818,6 +879,16 @@
     var data = getCurrentViewData();
     state.currentNodes = data.nodes;
     state.currentLinks = data.links;
+    updateYearNavigator();
+
+    var isExamYearIndex = state.tab === 'exam' && state.view === 'year' &&
+      state.focus.year === null && state.focus.qtype === null &&
+      state.focus.subject === null && state.focus.kp === null;
+    if (isExamYearIndex) {
+      updateBreadcrumb();
+      renderYearIndex(data.nodes);
+      return;
+    }
 
     if (!data.nodes || !data.nodes.length) {
       container.innerHTML = '<p style="color:#8b949e;padding:2rem;text-align:center">暂无数据' +

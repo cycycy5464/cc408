@@ -303,6 +303,14 @@ details[open] summary{margin-bottom:1rem;border-bottom:1px solid var(--border-co
 .graph-tab{padding:.5rem 1.5rem;background:var(--bg-card);color:var(--text-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);font-size:var(--fs-sm);font-weight:500;cursor:pointer;transition:all .25s;font-family:var(--font-body)}
 .graph-tab:hover{border-color:var(--accent);color:var(--text-primary)}
 .graph-tab.active{background:rgba(57,186,230,.12);border-color:var(--accent);color:var(--accent)}
+.graph-year-nav{align-items:center;justify-content:center;gap:.35rem;overflow-x:auto;padding:.6rem 1.25rem 0;scrollbar-width:thin}
+.graph-year-nav-btn{flex:0 0 auto;min-width:3.15rem;padding:.32rem .55rem;background:transparent;border:1px solid var(--border-color);border-radius:var(--radius-sm);color:var(--text-secondary);font:500 var(--fs-xs) var(--font-mono);cursor:pointer;transition:all .15s}
+.graph-year-nav-btn:hover,.graph-year-nav-btn.active{border-color:var(--accent);color:var(--accent);background:rgba(57,186,230,.1)}
+.graph-year-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:.75rem;align-content:center;max-width:860px;height:100%;box-sizing:border-box;margin:0 auto;padding:1.5rem}
+.graph-year-card{min-height:78px;padding:.8rem;background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-md);color:var(--text-primary);font-family:var(--font-body);cursor:pointer;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:.25rem;text-align:left;transition:border-color .2s,transform .2s}
+.graph-year-card:hover{border-color:var(--accent);transform:translateY(-1px)}
+.graph-year-card-label{font:600 1.1rem var(--font-display)}
+.graph-year-card-count{font-size:var(--fs-xs);color:var(--text-muted)}
 .graph-tab-admin{opacity:.7;font-size:.85rem}.graph-tab-admin:hover{opacity:1}
 .graph-view-toggle{display:flex;justify-content:center;gap:.25rem;margin-top:.5rem}
 .graph-view-toggle .view-btn{padding:.3rem 1rem;background:var(--bg-card);color:var(--text-secondary);border:1px solid var(--border-color);border-radius:var(--radius-sm);font-size:.8rem;cursor:pointer;transition:all .2s;font-family:var(--font-body)}
@@ -351,6 +359,9 @@ details[open] summary{margin-bottom:1rem;border-bottom:1px solid var(--border-co
   .exam-paper-grid{gap:.5rem}
   .info-panel{right:1rem;width:auto;left:1rem;top:80px}
   .graph-container{height:clamp(330px,calc(100vh - 250px),520px)}
+  .graph-year-nav{justify-content:flex-start;padding-left:1rem;padding-right:1rem}
+  .graph-year-index{grid-template-columns:repeat(3,minmax(0,1fr));gap:.5rem;padding:1rem}
+  .graph-year-card{min-height:66px;padding:.65rem}
   .exam-layout{flex-direction:column;max-width:100%}
   .exam-toc{display:none}
   .exam-year-nav{position:static;width:100%;margin:0 0 1rem;order:-1}
