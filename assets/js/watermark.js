@@ -2,7 +2,7 @@
 (function() {
   'use strict';
 
-  var WATERMARK_TEXT = 'CC408 · cycycy5464.github.io';
+  var WATERMARK_TEXT = 'CC408';
   var WATERMARK_INTERVAL;
   var observer;
 
