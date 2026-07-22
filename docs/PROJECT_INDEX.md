@@ -135,10 +135,10 @@ knowledge_points: ["线性表的定义", "顺序存储"]  # 关联知识点
 
 ### content/question/ — 真题题目
 
-**数量**: 1300+ 题 (2009-2026年 + 8套模拟题)
+**数量**: 857 道真题 + 376 道模拟题 (2009-2026年 + 8套模拟题)
 
-**文件命名**: `{year}-{subject}-{number}.md`
-- `year`: `2009`-`2026`, `simulate-1` 到 `simulate-8`
+**文件命名**: `{year}-{subject}-{number}.md`, 模拟题在 `simulate/{set}/` 子目录
+- `year`: `2009`-`2026`, 模拟题在子目录 `simulate/1/` 到 `simulate/8/`
 - `subject`: `ds` (数据结构), `co` (组成原理), `os` (操作系统), `cn` (计算机网络)
 - `number`: `001`-`047` (001-040 选择题, 041-047 综合应用题)
 
@@ -365,7 +365,7 @@ layouts/exam/year-detail.html          →  查询 content/question/*.md
 | `question-fix/` | 3 | 选项恢复、重复检测 |
 | `image-processing/` | 6 | SVG 修复、图片重组 |
 | `content-validation/` | 3 | 内容审计、格式验证 |
-| `knowledge-graph/` | 8 | 标签管理、先修关系 |
+| `knowledge-graph/` | 9 | 标签管理、先修关系、标签数据生成 |
 | `utility/` | 6 | 备份、水印、调试 |
 
 ---
@@ -520,4 +520,4 @@ hugo --minify
 
 ---
 
-*索引生成于 2026-07-21*
+*索引生成于 2026-07-22*
