@@ -19,6 +19,7 @@
     set: document.getElementById("filter-set"),
     subject: document.getElementById("filter-subject"),
     chapter: document.getElementById("filter-chapter"),
+    section: document.getElementById("filter-section"),
     type: document.getElementById("filter-type"),
     search: document.getElementById("filter-search"),
     status: document.getElementById("question-list-status"),
@@ -54,9 +55,13 @@
     var type = question.type === "comprehensive" ? "解答题" : "选择题";
     var summary = question.stem || question.title;
     var year = question.years && question.years[0] || "";
+    // Show section+number for chapter exercises
+    var title = question.source === "课后题" && question.section
+      ? question.section + " 第" + question.number + "题"
+      : question.title;
     return '<a class="question-card quiz-summary-card" href="' + escapeHtml(question.url) + '">' +
       '<div class="quiz-card-reference">' + escapeHtml(sourceReference(question)) + '</div>' +
-      '<div class="stem">' + escapeHtml(summary) + '</div>' +
+      '<div class="stem">' + escapeHtml(title) + '</div>' +
       '<div class="meta">' +
       '<span class="tag">' + escapeHtml(question.subject) + '</span>' +
       '<span class="tag tag-warm">' + type + '</span>' +
@@ -151,9 +156,10 @@
       var matchesSet = !set || String(q.set || "") === set;
       var matchesSubject = !subject || q.subject === subject;
       var matchesChapter = !chapter || q.chapter === chapter;
+      var matchesSection = !section || q.section === section;
       var matchesType = !type || q.type === type;
-      var searchText = [q.title, q.stem, q.subject, q.chapter, q.source].filter(Boolean).join(" ").toLowerCase();
-      return matchesSource && matchesYear && matchesSet && matchesSubject && matchesChapter && matchesType && (!search || searchText.indexOf(search) !== -1);
+      var searchText = [q.title, q.stem, q.subject, q.chapter, q.section, q.source].filter(Boolean).join(" ").toLowerCase();
+      return matchesSource && matchesYear && matchesSet && matchesSubject && matchesChapter && matchesSection && matchesType && (!search || searchText.indexOf(search) !== -1);
     });
   }
 
@@ -177,13 +183,28 @@
     if (source !== "408真题") controls.year.value = "";
     if (source !== "模拟题") controls.set.value = "";
     if (source !== "课后题") controls.chapter.value = "";
+    if (source !== "课后题") controls.section.value = "";
+    controls.section.style.display = (source === "课后题" && controls.chapter.value) ? "inline-block" : "none";
 
     var sourceQuestions = questions.filter(function (q) { return !source || q.source === source; });
     var currentSubject = controls.subject.value;
     populateSelect(controls.subject, sourceQuestions.map(function (q) { return q.subject; }), currentSubject, "全部科目");
     var subject = controls.subject.value;
     var chapterQuestions = sourceQuestions.filter(function (q) { return !subject || q.subject === subject; });
-    populateSelect(controls.chapter, chapterQuestions.map(function (q) { return q.chapter; }), controls.chapter.value, "全部章节");
+    populateSelect(controls.chapter, chapterQuestions.map(function (q) { return q.chapter; }), controls.chapter.value, "选择章节");
+
+    // Populate sections
+    var ch = controls.chapter.value;
+    controls.section.innerHTML = "<option value=\"\">全部小节</option>";
+    if (ch) {
+      var secSet = {};
+      chapterQuestions.filter(function (q) { return q.chapter === ch && q.section; }).forEach(function (q) { secSet[q.section] = true; });
+      Object.keys(secSet).sort().forEach(function (s) {
+        var o = document.createElement("option");
+        o.value = s; o.textContent = s;
+        controls.section.appendChild(o);
+      });
+    }
   }
 
   function renderPagination(totalPages) {
@@ -230,7 +251,8 @@
   controls.year.addEventListener("change", function () { currentPage = 1; render(); });
   controls.set.addEventListener("change", function () { currentPage = 1; render(); });
   controls.subject.addEventListener("change", function () { currentPage = 1; updateDependentFilters(); render(); });
-  controls.chapter.addEventListener("change", function () { currentPage = 1; render(); });
+  controls.chapter.addEventListener("change", function () { currentPage = 1; updateDependentFilters(); render(); });
+  controls.section.addEventListener("change", function () { currentPage = 1; render(); });
   controls.type.addEventListener("change", function () { currentPage = 1; render(); });
   controls.search.addEventListener("input", function () { currentPage = 1; render(); });
 

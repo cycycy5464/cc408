@@ -53,7 +53,7 @@
     {{ $plain := replaceRE "(?s)\\[tag_link\\].*$" "" $page.Plain }}
     {{ $plain = replaceRE "(?s)\\n\\s*[A-D][.、．].*$" "" $plain }}
     {{ $plain = trim $plain " \n\r\t" }}
-    {{ dict "url" $page.RelPermalink "years" $page.Params.years "subject" $sk "chapter" $chapter "type" $page.Params.question_type "source" $page.Params.source "set" $page.Params.set "number" (default 0 $page.Params.number) "difficulty" (default 1 $page.Params.difficulty) "title" $page.Title "stem" $plain | jsonify | safeJS }}
+    {{ $section := "" }}{{ with $page.Params.knowledge_points }}{{ if reflect.IsSlice . }}{{ $section = index . 0 | default "" }}{{ else }}{{ $section = . | default "" }}{{ end }}{{ end }}{{ dict "url" $page.RelPermalink "years" $page.Params.years "subject" $sk "chapter" $chapter "section" $section "type" $page.Params.question_type "source" $page.Params.source "set" $page.Params.set "number" (default 0 $page.Params.number) "difficulty" (default 1 $page.Params.difficulty) "title" $page.Title "stem" $plain | jsonify | safeJS }}
   {{ end }}
 ]
 </script>
