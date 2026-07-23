@@ -4,14 +4,12 @@
   <div class="navbar-links" role="menubar">
     {{ $current := .RelPermalink }}
     {{ $baseRel := "" | relURL }}
-    {{ $section := "" }}
-    {{ if hasPrefix $current (print $baseRel "docs/") }}{{ $section = "docs" }}
-    {{ else if hasPrefix $current (print $baseRel "exam/408quiz/") }}{{ $section = "exam" }}
-    {{ else if hasPrefix $current (print $baseRel "exam/quiz-collection/") }}{{ $section = "quiz-collection" }}
-    {{ else if hasPrefix $current (print $baseRel "exam/") }}{{ $section = "exam" }}
-    {{ else if hasPrefix $current (print $baseRel "question/") }}{{ $section = "exam" }}
-    {{ else if hasPrefix $current (print $baseRel "graph/") }}{{ $section = "graph" }}
-    {{ else if hasPrefix $current (print $baseRel "resources/") }}{{ $section = "resources" }}
+    {{ $section := .Section }}
+    {{ if hasPrefix $current (print $baseRel "exam/quiz-collection/") }}{{ $section = "quiz-collection" }}
+    {{ else if eq $current (print $baseRel) }}{{ $section = "home" }}
+    {{ else if hasPrefix $current (print $baseRel "tags/") }}{{ $section = "tags" }}
+    {{ else if hasPrefix $current (print $baseRel "knowledge_points/") }}{{ $section = "tags" }}
+    {{ else if hasPrefix $current (print $baseRel "study-methods/") }}{{ $section = "" }}
     {{ end }}
     {{ range .Site.Menus.main }}
     {{ $menuURL := .URL | relURL }}
@@ -22,10 +20,14 @@
       {{ $isActive = eq $menuURL (print $baseRel "docs/") }}
     {{ else if eq $section "quiz-collection" }}
       {{ $isActive = eq $menuURL (print $baseRel "exam/quiz-collection/") }}
-    {{ else if eq $section "exam" }}
+    {{ else if or (eq $section "exam") (eq $section "question") }}
+      {{ $isActive = eq $menuURL (print $baseRel "exam/") }}
+    {{ else if eq $section "code" }}
       {{ $isActive = eq $menuURL (print $baseRel "exam/") }}
     {{ else if eq $section "graph" }}
       {{ $isActive = eq $menuURL (print $baseRel "graph/") }}
+    {{ else if eq $section "tags" }}
+      {{ $isActive = eq $menuURL (print $baseRel "tags/") }}
     {{ else if eq $section "resources" }}
       {{ $isActive = eq $menuURL (print $baseRel "resources/") }}
     {{ end }}
