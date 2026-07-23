@@ -90,9 +90,15 @@
 }
 </style>
 
+{{ $qi := resources.Get "js/question-interaction.js" | resources.Minify | resources.Fingerprint }}
+</script>
+<script src="{{ $qi.RelPermalink }}"></script>
 <script>
 (function() {
   'use strict';
+
+  // Use shared module
+  initQuestionBlocks();
 
   // ── Filter logic ──
   var grid = document.getElementById('exam-container');
@@ -156,151 +162,6 @@
   search.addEventListener('input', filter);
   filter();
 
-  // ── Interactive question processing ──
-  function processQuestions() {
-    // Hide [tag_link]
-    grid.querySelectorAll('p').forEach(function(p) {
-      if (p.textContent.trim() === '[tag_link]') p.style.display = 'none';
-    });
-
-    grid.querySelectorAll('.question-block').forEach(function(block) {
-      // Find answer
-      var findAnswer = function(el) {
-        for (let child = el.firstChild; child; child = child.nextSibling) {
-          if (child.nodeType === Node.TEXT_NODE) {
-            const m = child.textContent.match(/正确答案[：:]\s*([ABCDabcd])/);
-            if (m) {
-              var answerValue = m[1].toUpperCase();
-              var before = child.textContent.substring(0, m.index);
-              var after = child.textContent.substring(m.index + m[0].length);
-              var panel = document.createElement('div');
-              panel.className = 'answer-panel';
-              panel.style.display = 'none';
-              var title = document.createElement('div');
-              title.className = 'answer-title';
-              title.innerHTML = '正确答案：<strong>' + answerValue + '</strong>';
-              panel.appendChild(title);
-              panel.setAttribute('data-answer', answerValue);
-              if (before.trim()) child.textContent = before;
-              else el.removeChild(child);
-              if (after.trim()) el.insertBefore(document.createTextNode(after), child.nextSibling);
-              el.insertBefore(panel, child.nextSibling);
-              var p = panel.parentNode;
-              if (p && p.tagName === 'P') {
-                var sib = p.nextSibling;
-                while (sib) { var nxt = sib.nextSibling; panel.appendChild(sib); sib = nxt; }
-                p.parentNode.insertBefore(panel, p);
-                p.parentNode.removeChild(p);
-              }
-              return true;
-            }
-          } else if (child.nodeType === Node.ELEMENT_NODE) {
-            if (findAnswer(child)) return true;
-          }
-        }
-        return false;
-      };
-      var foundAnswer = findAnswer(block);
-
-      // Comprehensive fallback
-      if (!foundAnswer) {
-        var anchor = null;
-        var qBody = block.querySelector('.q-body');
-        if (qBody) {
-          var allP2 = qBody.querySelectorAll('p');
-          for (var pi2 = 0; pi2 < allP2.length; pi2++) {
-            var p = allP2[pi2];
-            var txt = p.textContent.trim();
-            if (txt === '[tag_link]') { anchor = p; continue; }
-            var pureTag = p.childNodes.length > 0;
-            if (pureTag) {
-              for (var ci = 0; ci < p.childNodes.length; ci++) {
-                var cn = p.childNodes[ci];
-                if (cn.nodeType === Node.TEXT_NODE) {
-                  if (cn.textContent.trim()) { pureTag = false; break; }
-                } else if (cn.nodeType === Node.ELEMENT_NODE && cn.tagName !== 'A') {
-                  pureTag = false; break;
-                }
-              }
-              if (pureTag) anchor = p;
-            }
-          }
-          if (anchor) {
-            var panel = document.createElement('div');
-            panel.className = 'answer-panel';
-            panel.style.display = 'none';
-            panel.setAttribute('data-answer', '');
-            var title = document.createElement('div');
-            title.className = 'answer-title';
-            title.textContent = '答案与解析：';
-            panel.appendChild(title);
-            var cur = anchor.nextSibling;
-            while (cur) { var nxt = cur.nextSibling; panel.appendChild(cur); cur = nxt; }
-            qBody.appendChild(panel);
-          }
-        }
-      }
-
-      // Convert options
-      var allP3 = [];
-      var qBody2 = block.querySelector('.q-body');
-      for (var pi3c = 0; pi3c < qBody2.children.length; pi3c++) {
-        if (qBody2.children[pi3c].tagName === 'P') allP3.push(qBody2.children[pi3c]);
-      }
-      for (var pi3 = 0; pi3 < allP3.length; pi3++) {
-        var p3 = allP3[pi3];
-        var txt = p3.textContent.trim();
-        var optParts = txt.match(/([A-D])\s*\.\s*(.*?)(?=\s*[A-D]\s*\.|$)/g);
-        if (optParts && optParts.length > 0) {
-          var fragment = document.createDocumentFragment();
-          var firstIdx = txt.search(/[A-D]\s*\./);
-          var stemPrefix = firstIdx > 0 ? txt.slice(0, firstIdx).trim() : '';
-          if (stemPrefix) {
-            var stemP = document.createElement('p');
-            stemP.className = 'exam-stem-text';
-            stemP.textContent = stemPrefix;
-            fragment.appendChild(stemP);
-          }
-          var created = false;
-          for (var oi3 = 0; oi3 < optParts.length; oi3++) {
-            var part = optParts[oi3].trim();
-            var pm = part.match(/^([A-D])\s*\.\s*(.*)/);
-            if (pm) {
-              created = true;
-              var opt2 = document.createElement('div');
-              opt2.className = 'exam-option';
-              opt2.setAttribute('data-opt', pm[1]);
-              opt2.innerHTML = '<span class="opt-label">' + pm[1] + '.</span> <span class="opt-text">' + pm[2] + '</span>';
-              opt2.addEventListener('click', function() {
-                var parent = this.parentElement;
-                if (parent) {
-                  var opts = parent.querySelectorAll('.exam-option');
-                  for (var oix = 0; oix < opts.length; oix++) {
-                    opts[oix].classList.remove('selected');
-                  }
-                }
-                this.classList.add('selected');
-              });
-              fragment.appendChild(opt2);
-            }
-          }
-          if (created) p3.parentNode.replaceChild(fragment, p3);
-        }
-      }
-
-      // Replace 【解析】
-      var rp = function(el) {
-        for (let c = el.firstChild; c; c = c.nextSibling) {
-          if (c.nodeType === Node.TEXT_NODE && c.textContent.includes('【解析】')) {
-            const h = c.textContent.replace(/【解析】/g, '<div class="analysis-title">解析：</div>');
-            const t = document.createElement('div'); t.innerHTML = h;
-            el.replaceChild(t.firstChild, c);
-          } else if (c.nodeType === Node.ELEMENT_NODE) rp(c);
-        }
-      };
-      rp(block);
-    });
-  }
   processQuestions();
 
   // ── Reveal All button ──
@@ -335,127 +196,6 @@
     });
   }
 
-  // ── Favorite buttons ──
-  (function() {
-    var STORAGE_KEY = 'quiz_collections';
-    function loadAll() {
-      try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch(e) { return []; }
-    }
-    function saveAll(items) {
-      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(items)); } catch(e) {}
-    }
-    var allItems = loadAll();
-    var collectedMap = {};
-    for (var ci = 0; ci < allItems.length; ci++) {
-      collectedMap[allItems[ci].id] = allItems[ci];
-    }
-    var pageUrl = window.location.pathname;
-    var pageTitle = document.title;
+    // ── Favorites via shared module ──
+  setupFavorites();
 
-    var favBtns = document.querySelectorAll('.favorite-btn');
-    for (var bi = 0; bi < favBtns.length; bi++) {
-      (function(btn) {
-        var qid = btn.getAttribute('data-qid');
-        var year = btn.getAttribute('data-year');
-        var qnum = btn.getAttribute('data-number');
-        var subject = btn.getAttribute('data-subject');
-        var title = btn.getAttribute('data-title');
-        var id = qid || (year + '-' + qnum);
-        if (collectedMap[id]) { btn.classList.add('collected'); btn.textContent = '已收藏'; }
-        btn.onclick = function(e) {
-          if (collectedMap[id]) {
-            allItems = allItems.filter(function(item) { return item.id !== id; });
-            delete collectedMap[id];
-            btn.classList.remove('collected');
-            btn.textContent = '⭐ 收藏';
-            saveAll(allItems);
-          } else {
-            var block = btn.closest('.question-block');
-            var quizData = extractQuizData(block, id, qnum, year, subject, title);
-            allItems.push(quizData);
-            collectedMap[id] = quizData;
-            btn.classList.add('collected');
-            btn.textContent = '已收藏';
-            saveAll(allItems);
-          }
-        };
-      })(favBtns[bi]);
-    }
-
-    function extractQuizData(block, id, qnum, year, subject, title) {
-      var body = block ? block.querySelector('.q-body') : null;
-      var isChoice = body && body.querySelector('.exam-option') !== null;
-      var question = '';
-      var options = [];
-      var answer = '';
-      var explanation = '';
-      if (body) {
-        var nodes = body.children;
-        var passedTagLink = false;
-        for (var ni = 0; ni < nodes.length; ni++) {
-          var child = nodes[ni];
-          if (child.tagName === 'P') {
-            var txt = child.textContent.trim();
-            if (txt === '[tag_link]') { passedTagLink = true; continue; }
-            if (!passedTagLink) {
-              if (/^[A-D]\s*[.、．]/.test(txt)) break;
-              question += txt + '\n';
-            }
-          }
-          if (child.classList && child.classList.contains('exam-option')) {
-            var optText = child.querySelector('.opt-text');
-            if (optText) options.push(optText.textContent.trim());
-          }
-        }
-        var ap = block.querySelector('.answer-panel');
-        if (ap) {
-          answer = ap.getAttribute('data-answer') || '';
-          var children2 = ap.children;
-          for (var ni2 = 1; ni2 < children2.length; ni2++) {
-            explanation += children2[ni2].textContent || '';
-          }
-        }
-      }
-      return {
-        id: id, type: isChoice ? 'choice' : 'answer', multiple: false,
-        subject: subject, source: '课后题', years: year ? [year] : [], quizNumber: parseInt(qnum) || 0,
-        question: question.trim(), options: isChoice ? options : undefined,
-        answer: answer, explanation: explanation.trim(), tags: ['课后题'].join(','),
-        pageUrl: pageUrl, pageTitle: pageTitle, collectedAt: new Date().toISOString()
-      };
-    }
-  })();
-
-  // ── Re-process when filter changes (new visible blocks) ──
-  // The filter function already toggles .visible class.
-  // The reveal-all button already works on .question-block.visible only.
-})();
-
-// ── Global toggleAnswer ──
-function toggleAnswer(btn) {
-  var block = btn.closest('.question-block');
-  if (!block) return;
-  var panel = block.querySelector('.answer-panel');
-  if (!panel) return;
-  if (panel.style.display === 'none' || panel.style.display === '') {
-    panel.style.display = 'block';
-    btn.textContent = '隐藏答案';
-    var correct = panel.getAttribute('data-answer');
-    if (correct) {
-      var opts = block.querySelectorAll('.exam-option');
-      for (var oi = 0; oi < opts.length; oi++) {
-        if (opts[oi].getAttribute('data-opt') === correct) opts[oi].classList.add('correct');
-        else if (opts[oi].classList.contains('selected')) opts[oi].classList.add('wrong');
-      }
-    }
-  } else {
-    panel.style.display = 'none';
-    btn.textContent = '查看答案与解析';
-    var opts2 = block.querySelectorAll('.exam-option');
-    for (var oi2 = 0; oi2 < opts2.length; oi2++) {
-      opts2[oi2].classList.remove('correct', 'wrong');
-    }
-  }
-}
-</script>
-{{ end }}

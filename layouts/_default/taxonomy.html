@@ -134,24 +134,19 @@
 </style>
 
 <script>
+{{ $qi := resources.Get "js/question-interaction.js" | resources.Minify | resources.Fingerprint }}
+</script>
+<script src="{{ $qi.RelPermalink }}"></script>
+<script>
 (function() {
   'use strict';
   const container = document.getElementById('exam-container');
   if (!container) return;
 
-  // ── 1. Hide [tag_link] paragraphs ──
-  container.querySelectorAll('p').forEach(function(p) {
-    if (p.textContent.trim() === '[tag_link]') p.style.display = 'none';
-  });
+  // Use shared module
+  initQuestionBlocks();
 
-  // ── 2. Process each question block ──
-  container.querySelectorAll('.question-block').forEach(function(block) {
-    // 2a. Find answer panel
-    var findAnswer = function(el) {
-      for (let child = el.firstChild; child; child = child.nextSibling) {
-        if (child.nodeType === Node.TEXT_NODE) {
-          const m = child.textContent.match(/正确答案[：:]\s*([ABCDabcd])/);
-          if (m) {
+  // ── Reveal All buttons ──
             var answerValue = m[1].toUpperCase();
             var before = child.textContent.substring(0, m.index);
             var after = child.textContent.substring(m.index + m[0].length);
@@ -364,146 +359,24 @@
     }
   })();
 
-  // ── 5. Favorite buttons ──
-  (function() {
-    var STORAGE_KEY = 'quiz_collections';
-    function loadAll() {
-      try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch(e) { return []; }
-    }
-    function saveAll(items) {
-      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(items)); } catch(e) {}
-    }
-    var allItems = loadAll();
-    var collectedMap = {};
-    for (var ci = 0; ci < allItems.length; ci++) {
-      collectedMap[allItems[ci].id] = allItems[ci];
-    }
-    var pageUrl = window.location.pathname;
-    var pageTitle = document.title;
+  // ── 5. Setup favorites via shared module ──
+  setupFavorites();
 
-    var favBtns = document.querySelectorAll('.favorite-btn');
-    for (var bi = 0; bi < favBtns.length; bi++) {
-      (function(btn) {
-        var qid = btn.getAttribute('data-qid');
-        var year = btn.getAttribute('data-year');
-        var qnum = btn.getAttribute('data-number');
-        var subject = btn.getAttribute('data-subject');
-        var title = btn.getAttribute('data-title');
-        var id = qid || (year + '-' + qnum);
-
-        if (collectedMap[id]) {
-          btn.classList.add('collected');
-          btn.textContent = '已收藏';
-        }
-
-        btn.onclick = function(e) {
-          if (collectedMap[id]) {
-            allItems = allItems.filter(function(item) { return item.id !== id; });
-            delete collectedMap[id];
-            btn.classList.remove('collected');
-            btn.textContent = '⭐ 收藏';
-            saveAll(allItems);
-          } else {
-            var block = btn.closest('.question-block');
-            var quizData = extractQuizData(block, id, qnum, year, subject, title);
-            allItems.push(quizData);
-            collectedMap[id] = quizData;
-            btn.classList.add('collected');
-            btn.textContent = '已收藏';
-            saveAll(allItems);
-          }
-        };
-      })(favBtns[bi]);
-    }
-
-    function extractQuizData(block, id, qnum, year, subject, title) {
-      var body = block ? block.querySelector('.q-body') : null;
-      var isChoice = body && body.querySelector('.exam-option') !== null;
-      var question = '';
-      var options = [];
-      var answer = '';
-      var explanation = '';
-      if (body) {
-        var nodes = body.children;
-        var passedTagLink = false;
-        for (var ni = 0; ni < nodes.length; ni++) {
-          var child = nodes[ni];
-          if (child.tagName === 'P') {
-            var txt = child.textContent.trim();
-            if (txt === '[tag_link]') { passedTagLink = true; continue; }
-            if (!passedTagLink) {
-              if (/^[A-D]\s*[.、．]/.test(txt)) break;
-              question += txt + '\n';
-            }
-          }
-          if (child.classList && child.classList.contains('exam-option')) {
-            var optText = child.querySelector('.opt-text');
-            if (optText) options.push(optText.textContent.trim());
-          }
-        }
-        var ap = block.querySelector('.answer-panel');
-        if (ap) {
-          answer = ap.getAttribute('data-answer') || '';
-          var children2 = ap.children;
-          for (var ni2 = 1; ni2 < children2.length; ni2++) {
-            explanation += children2[ni2].textContent || '';
-          }
-        }
-      }
-      var tags = [];
-      tags.push(isChoice ? '选择题' : '解答题');
-      return {
-        id: id, type: isChoice ? 'choice' : 'answer', multiple: false,
-        subject: subject, source: '408真题', years: year ? [year] : [], quizNumber: parseInt(qnum) || 0,
-        question: question.trim(), options: isChoice ? options : undefined,
-        answer: answer, explanation: explanation.trim(), tags: tags.join(','),
-        pageUrl: pageUrl, pageTitle: pageTitle, collectedAt: new Date().toISOString()
-      };
-    }
-  })();
-
-  // ── 6. TOC initial position ──
+  // ── 6. TOC initial alignment ──
   (function() {
     function alignToc() {
-      var toc = document.getElementById('exam-toc');
-      var firstQ = document.querySelector('.question-block');
-      if (!toc || !firstQ) return;
-      var tr = toc.getBoundingClientRect(), qr = firstQ.getBoundingClientRect();
-      var delta = qr.top - tr.top;
-      if (delta > 0) toc.style.marginTop = delta + 'px';
+      var tocEl = document.getElementById("exam-toc");
+      var firstQ = document.querySelector(".question-block");
+      if (!tocEl || !firstQ) return;
+      var delta = firstQ.getBoundingClientRect().top - tocEl.getBoundingClientRect().top;
+      if (delta > 0) tocEl.style.marginTop = delta + "px";
     }
-    window.addEventListener('load', alignToc);
-    window.addEventListener('resize', alignToc);
-    if (document.readyState !== 'loading') alignToc();
+    window.addEventListener("load", alignToc);
+    window.addEventListener("resize", alignToc);
+    if (document.readyState !== "loading") alignToc();
   })();
-
 })();
-
-// ── Global toggleAnswer (called from onclick) ──
-function toggleAnswer(btn) {
-  var block = btn.closest('.question-block');
-  if (!block) return;
-  var panel = block.querySelector('.answer-panel');
-  if (!panel) return;
-  if (panel.style.display === 'none' || panel.style.display === '') {
-    panel.style.display = 'block';
-    btn.textContent = '隐藏答案';
-    var correct = panel.getAttribute('data-answer');
-    if (correct) {
-      var opts = block.querySelectorAll('.exam-option');
-      for (var oi = 0; oi < opts.length; oi++) {
-        if (opts[oi].getAttribute('data-opt') === correct) opts[oi].classList.add('correct');
-        else if (opts[oi].classList.contains('selected')) opts[oi].classList.add('wrong');
-      }
-    }
-  } else {
-    panel.style.display = 'none';
-    btn.textContent = '查看答案与解析';
-    var opts2 = block.querySelectorAll('.exam-option');
-    for (var oi2 = 0; oi2 < opts2.length; oi2++) {
-      opts2[oi2].classList.remove('correct', 'wrong');
-    }
-  }
-}
+</script>
+{{ end }}
 </script>
 {{ end }}

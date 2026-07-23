@@ -5,14 +5,16 @@
 ## 🔴 P0 — 必须修复
 
 - [x] **P0-1: 题目交互 JS 抽取为共享模块**
-  - 创建 `assets/js/question-interaction.js` ✅
-  - `exam/408quiz-detail.html` 已迁移 ✅
-  - 待迁移：`exam/year-detail.html`、`exam/single.html`、`_default/taxonomy.html`、`question/chapter-exercises.html`、`question/list.html`
+  - `assets/js/question-interaction.js` ✅
+  - `exam/408quiz-detail.html` ✅ 内联 JS ~400→~60 行
+  - `exam/year-detail.html` ✅ 内联 JS ~500→~70 行
+  - `_default/taxonomy.html` ✅ 已迁移
+  - `question/chapter-exercises.html` ✅ 已迁移
+  - 待迁移：`exam/single.html`（结构特殊，需要独立重构）、`question/list.html`（JS 渲染方式）
 
 - [x] **P0-2: 收藏 ID 统一**
-  - 共享模块中统一使用 `{source}-{year}-{number}` 格式 ✅
-  - taxonomy.html 已添加 `data-source` 属性 ✅
-  - 待迁移模板继承统一逻辑
+  - 共享模块 `buildFavoriteId()` ✅ `{source}-{year}-{number}` 格式
+  - 所有模板 question-block 已添加 `data-source`/`data-set`/`data-year`/`data-number` ✅
 
 ## 🔴 P1 — 功能缺失
 
@@ -22,14 +24,8 @@
 
 ## 🟡 P2 — 代码质量/性能
 
-- [ ] **P2-1: CSS 分区**
-  - 将图谱样式（`.graph-*`）移到 graph 模板
-  - 将标签管理样式（`.tm-*`）移到 terms 模板
-  - 将返回按钮样式移到独立文件或 partial
-
+- [ ] **P2-1: CSS 分区** — 将非通用样式（`.graph-*`、`.tm-*`、`.back-button-*`）移出 `custom.scss`
 - [ ] **P2-2: 题库 JSON 按需加载**（评估后决定是否执行）
-  - 改为翻页时 fetch 单页数据而非一次加载全部 3889 题
-
 - [ ] **P2-3: 导航高亮改用 `.Section` 检测**
 
 ## 🟢 P3 — 体验增强

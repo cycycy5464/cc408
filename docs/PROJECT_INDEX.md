@@ -414,6 +414,9 @@ layouts/exam/year-detail.html          →  查询 content/question/*.md
 | `svg编辑.md` | SVG 编辑指南 |
 | `CC408代码审查报告.docx` | 代码审查报告 (Word 文档) |
 | `PROJECT_INDEX.md` | 本索引文档 |
+| `code-review-2026-07-22.md` | 全维度代码审查报告（交互/架构/性能/Hugo） |
+| `optimization/tasks.md` | 优化 sprint 任务清单 |
+| `optimization/lessons.md` | 优化 sprint 经验教训 |
 | `current-issues/` | 当前问题追踪 (12个问题文档) |
 
 ---
