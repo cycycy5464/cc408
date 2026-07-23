@@ -768,7 +768,7 @@ CSS 分区 (`custom.scss` → 各模板) 移除 `.tm-*` 样式块后，遗留了
 
 ## Lesson 11: Hugo :filename 已废弃
 
-Hugo 0.144.0+ 将  重命名为 。
- 中必须用  否则构建报 deprecated 警告。
+Hugo 0.144.0+ 将 `:filename` 重命名为 `:contentbasename`。
+`permalinks` 中必须用 `:contentbasename` 否则构建报 deprecated 警告。
 
 **教训**: Hugo 版本迭代快，配置语法要跟着 Hugo Release Notes 更新。
