@@ -95,7 +95,9 @@
     question = question.replace(/【解析】.*/s, "").replace(/正确答案[：:].*/s, "").trim();
 
     var subject = meta.subjects && meta.subjects.length > 0 ? meta.subjects[0] : "";
-    var id = (isChoice ? "choice-" : "answer-") + pageUrl.replace(/\//g, "-");
+    var year = meta.years && meta.years.length > 0 ? String(meta.years[0]) : "";
+    var number = meta.quizNumber || 0;
+    var id = year ? year + "-" + number : pageUrl.replace(/\//g, "-");
 
     return {
       id: id,

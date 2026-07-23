@@ -45,3 +45,10 @@
 - [x] back-button.js 返回目标路径过浅（按深度分级）
 - [x] 课后题卡片标题改为小节名+题号
 - [x] question-card.html 添加 `data-section` 属性
+
+
+## 🔧 轻量重构/清理
+- [x] 图片原生 lazy loading（render-image.html hook）
+- [x] 移除 JS 冗余懒加载（baseof.html 精简）
+- [x] 删除未使用 CSS：knowledge-card, filter-bar（custom.scss -8 行）
+- [x] collect-quiz.js ID 统一为 {year}-{number} 格式（与共享模块一致）
