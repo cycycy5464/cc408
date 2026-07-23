@@ -4,7 +4,7 @@
 
 **仓库**: `github.com/cycycy5464/cc408`  
 **线上地址**: `https://cycycy5464.github.io/cc408/`  
-**技术栈**: Hugo 0.164.0 + Go Modules + D3.js + KaTeX
+**技术栈**: Hugo 0.164.0 + Go Modules + D3.js + KaTeX + Chart.js
 
 ---
 
@@ -274,20 +274,22 @@ layouts/exam/year-detail.html          →  查询 content/question/*.md
 | `_default/single.html` | **通用单页** — 课程标签、难度星级、标签、文章内容、关联真题 |
 | `_default/list.html` | **通用列表** — 标题 + 内容区域 |
 
-### 题目模板 (`## layouts/question/`)
+### 题目模板 (`layouts/question/`)
 
 | 文件 | 作用 |
 |------|------|
-| `single.html` | **单题页面** — 题号、元信息行 (年份/课程/难度/知识点/题型)、内容区、答案折叠面板、前后导航、收藏按钮。包含 5 步 JS DOM 转换 |
-| `list.html` | **题库列表** — 过滤工具栏 (年份/课程/题型下拉+搜索)、题目卡片网格、客户端过滤 |
+| `single.html` | **单题页面** — 题号、元信息行 (年份/课程/难度/知识点/题型)、内容区、答案折叠面板、前后导航、收藏按钮。 |
+| `list.html` | **题库列表** — 过滤工具栏 (题源/年份/套数/科目/章节/题型下拉+搜索)、摘要卡片网格、客户端分页。数据 JSON 约 50KB。 |
+| `chapter-exercises.html` | **章节习题** — 交互卡片（选项/答案/收藏），选科目+章节后显示 |
 
 ### 考试模板 (`layouts/exam/`)
 
 | 文件 | 作用 |
 |------|------|
-| `year-detail.html` | **完整试卷** (627行) — 按年份组装所有题目、右侧目录 (滚动监听)、逐题显示/收藏按钮、全局显示所有。包含大量内联 JS |
-| `408quiz-detail.html` | **备选试卷** (496行) — 类似 year-detail，但目录显示知识点 |
-| `quiz-collection.html` | **收藏页面** — 从 localStorage 读取收藏，渲染卡片网格 |
+| `408quiz-detail.html` | **真题整卷** — 按年份组装所有题目、右侧 TOC 导航、交互卡片、逐题收藏、全局显示所有解析 |
+| `year-detail.html` | **模拟卷整卷** — 同上，支持 simulate set 和 408quiz 两类 |
+| `single.html` | **单套题页** — 解析 `<h5>` 标题结构分题，选项/答案/收藏 |
+| `quiz-collection.html` | **收藏页面** — 从 localStorage 读取，支持练习/显示双模式 |
 | `list.html` | **考试中心** — 根目录显示4个入口卡片，子目录显示筛选后的试卷列表 |
 
 ### 知识点模板 (`layouts/docs/`)
@@ -331,6 +333,7 @@ layouts/exam/year-detail.html          →  查询 content/question/*.md
 | 文件 | 行数 | 作用 |
 |------|------|------|
 | `knowledge-graph.js` | 1220 | **D3.js 知识图谱引擎** — 多选项卡、下钻导航、力导向布局、搜索、管理标签编辑器 |
+| `question-interaction.js` | 175 | **题目交互共享模块** — 选项转换、答案折叠、收藏逻辑，供 5 个模板共用 |
 | `theme-toggle.js` | - | 主题切换 — 读写 `localStorage('cc408-theme')`，触发 `cc408:themechange` 事件 |
 | `back-button.js` | - | **智能返回按钮** — 支持历史记录导航、页面状态保存与恢复、智能返回目标判断 |
 | `collect-quiz.js` | - | 单题收藏 — 从 DOM 提取题目数据，保存到 `localStorage('quiz_collections')` |
@@ -414,9 +417,9 @@ layouts/exam/year-detail.html          →  查询 content/question/*.md
 | `svg编辑.md` | SVG 编辑指南 |
 | `CC408代码审查报告.docx` | 代码审查报告 (Word 文档) |
 | `PROJECT_INDEX.md` | 本索引文档 |
-| `code-review-2026-07-22.md` | 全维度代码审查报告（交互/架构/性能/Hugo） |
-| `optimization/tasks.md` | 优化 sprint 任务清单 |
-| `optimization/lessons.md` | 优化 sprint 经验教训 |
+| `code-review-2026-07-22.md` | 全维度代码审查报告 — 交互/架构/性能/Hugo 优化建议 |
+| `optimization/tasks.md` | 优化 sprint 任务清单（P0-P3 进度跟踪） |
+| `optimization/lessons.md` | 优化 sprint 经验教训（5 条） |
 | `current-issues/` | 当前问题追踪 (12个问题文档) |
 
 ---
@@ -526,22 +529,22 @@ static/mapping/question-kp-mapping.json → 题目-知识点映射 (真题选项
 ### 收藏系统
 
 ```
-question/single.html     → collect-quiz.js 保存到 localStorage
-exam/year-detail.html    → 内联 JS 保存同一 key
+exam/408quiz-detail.html / year-detail.html / taxonomy.html / question/single.html / chapter-exercises.html
+    ↓ question-interaction.js / collect-quiz.js 保存到 localStorage (共享模块)
 exam/quiz-collection/    → quiz-collection.js 读取同一 key，渲染卡片
 ```
 
-统一使用 `quiz_collections` localStorage key。
+统一使用 `quiz_collections` localStorage key。收藏 ID 格式：`{year}-{number}`（真题）或 `sim-{set}-{number}`（模拟题）。
 
 ---
 
 ## 经验教训
 
-修改项目前**必须阅读** `tasks/docs/lessons.md`，关键要点:
+修改项目前**必须阅读** `tasks/docs/lessons.md` + `docs/optimization/lessons.md`，关键要点:
 
 1. **Hugo relURL**: 不要前缀 `/` — `"docs/" | relURL` 才正确
 2. **菜单 URL**: Hugo 自动在 menu 配置中解析 baseURL
-3. **导航高亮**: 使用 `$section` 变量 + `else if` 链，不要用 `hasPrefix`
+3. **导航高亮**: 使用 Hugo `.Section` 方法，不要手动 `hasPrefix`
 4. **列表作用域**: 使用 `.CurrentSection` 过滤，不要用全局 `where`
 5. **文件编码**: 始终 UTF-8；不要用 PowerShell `Set-Content` 处理 `.md` 文件
 6. **SVG foreignObject**: 不能在 `<img>` 标签中渲染；必须用 `<object>` 标签
@@ -549,6 +552,9 @@ exam/quiz-collection/    → quiz-collection.js 读取同一 key，渲染卡片
 8. **图片路径**: 从 `content/question/` 使用绝对路径 `/cc408/images/questions/...`
 9. **批量脚本**: 先测试 2-3 个文件，验证后再应用全部
 10. **题目选项**: 必须使用 `A\. text` 格式 (转义点号)，每行一个选项
+11. **共享 JS 早做**: 交互逻辑出现第 2 次时就该抽取模块，不要等到第 5 次
+12. **收藏 ID 统一**: 跨页面共享数据（收藏 ID）必须在设计阶段统一格式
+13. **内网 git**: 用 HTTPS remote + GCM，SSH 端口 22 可能不通
 
 ---
 

@@ -16,459 +16,79 @@
 </div>
 
 <style>
-.exam-section-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 1.5rem 0 1rem;
-  padding-bottom: .5rem;
-  border-bottom: 2px solid var(--border-color);
-}
-.question-block {
-  margin: 1.25rem 0;
-  padding: 1rem;
-  background: var(--bg-card);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border-color);
-}
-.question-number {
-  display: inline-block;
-  background: var(--accent);
-  color: white;
-  padding: .2rem .6rem;
-  border-radius: 4px;
-  font-weight: 600;
-  font-size: var(--fs-sm);
-  margin-bottom: .75rem;
-}
-.question-actions {
-  margin-top: .75rem;
-  display: flex;
-  gap: .75rem;
-  align-items: center;
-}
-.reveal-btn {
-  background: var(--accent);
-  color: white;
-  border: none;
-  padding: .4rem .9rem;
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  font-size: var(--fs-sm);
-  font-weight: 500;
-  transition: all .2s;
-}
+.exam-section-title { font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 1rem; padding-bottom: .5rem; border-bottom: 2px solid var(--border-color); }
+.question-block { margin: 1.25rem 0; padding: 1rem; background: var(--bg-card); border-radius: var(--radius-md); border: 1px solid var(--border-color); }
+.question-number { display: inline-block; background: var(--accent); color: white; padding: .2rem .6rem; border-radius: 4px; font-weight: 600; font-size: var(--fs-sm); margin-bottom: .75rem; }
+.question-actions { margin-top: .75rem; display: flex; gap: .75rem; align-items: center; }
+.reveal-btn { background: var(--accent); color: white; border: none; padding: .4rem .9rem; border-radius: var(--radius-sm); cursor: pointer; font-size: var(--fs-sm); font-weight: 500; transition: all .2s; }
 .reveal-btn:hover { opacity: .9; }
-.favorite-btn {
-  background: transparent;
-  border: 1px solid var(--border-color);
-  padding: .4rem .9rem;
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  font-size: var(--fs-sm);
-  transition: all .2s;
-  color: var(--text-primary);
-}
-.favorite-btn:hover {
-  color: var(--accent);
-  border-color: var(--accent);
-}
-.favorite-btn.active {
-  color: #f0c040;
-  border-color: #f0c040;
-}
-.answer-panel {
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px dashed var(--border-color);
-  display: none;
-}
-.answer-title {
-  font-weight: 600;
-  color: var(--color-ds);
-  margin-bottom: .5rem;
-}
-.analysis-title {
-  font-weight: 600;
-  margin: .75rem 0 .5rem;
-}
-
-/* Exam options */
-.exam-option {
-  display: flex;
-  align-items: center;
-  padding: .7rem .9rem;
-  margin: .4rem 0;
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  transition: all .2s;
-}
-.exam-option:hover {
-  border-color: var(--accent);
-  background: rgba(57,186,230,.06);
-}
-.exam-option.selected {
-  border-color: var(--accent);
-  background: rgba(57,186,230,.12);
-  color: var(--accent);
-  font-weight: 500;
-}
-.exam-option.correct {
-  border-color: #4ade80;
-  background: rgba(74,222,128,.15);
-  color: #4ade80;
-}
-.exam-option.wrong {
-  border-color: #f87171;
-  background: rgba(248,113,113,.15);
-  color: #f87171;
-}
-.opt-label {
-  font-weight: 600;
-  margin-right: .5rem;
-  min-width: 1.5rem;
-}
+.favorite-btn { background: transparent; border: 1px solid var(--border-color); padding: .4rem .9rem; border-radius: var(--radius-sm); cursor: pointer; font-size: var(--fs-sm); transition: all .2s; color: var(--text-primary); }
+.favorite-btn:hover { color: var(--accent); border-color: var(--accent); }
+.favorite-btn.collected { color: #f0c040; border-color: #f0c040; }
+.answer-panel { margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed var(--border-color); display: none; }
+.answer-title { font-weight: 600; color: var(--color-ds); margin-bottom: .5rem; }
+.analysis-title { font-weight: 600; margin: .75rem 0 .5rem; }
+.exam-option { display: flex; align-items: center; padding: .7rem .9rem; margin: .4rem 0; border: 1px solid var(--border-color); border-radius: var(--radius-sm); cursor: pointer; transition: all .2s; }
+.exam-option:hover { border-color: var(--accent); background: rgba(57,186,230,.06); }
+.exam-option.selected { border-color: var(--accent); background: rgba(57,186,230,.12); color: var(--accent); font-weight: 500; }
+.exam-option.correct { border-color: #4ade80; background: rgba(74,222,128,.15); color: #4ade80; }
+.exam-option.wrong { border-color: #f87171; background: rgba(248,113,113,.15); color: #f87171; }
+.opt-label { font-weight: 600; margin-right: .5rem; min-width: 1.5rem; }
 </style>
 
+{{ $qi := resources.Get "js/question-interaction.js" | resources.Minify | resources.Fingerprint }}
+<script src="{{ $qi.RelPermalink }}"></script>
 <script>
 (function() {
   const container = document.getElementById('exam-container');
   if (!container) return;
 
-  // 第一步：找到所有题目编号 <h5>1</h5> 和科目标题
-  let children = Array.from(container.childNodes);
-  let currentQuestionBlock = null;
-  let tempContainer = document.createElement('div');
+  // Restructure: parse <h5> into question-block with q-body wrapper
+  var children = Array.from(container.childNodes);
+  var currentBlock = null;
+  var tempContainer = document.createElement('div');
+  var year = (document.title.match(/(20\d{2})/) || [])[1] || '';
 
-  for (let i = 0; i < children.length; i++) {
-    const node = children[i];
-    
-    // 如果是 <h5> 标题
+  for (var i = 0; i < children.length; i++) {
+    var node = children[i];
     if (node.tagName === 'H5') {
-      const text = node.textContent.trim();
-      
-      // 判断是否是科目标题
+      var text = node.textContent.trim();
       if (['数据结构', '组成原理', '操作系统', '计算机网络'].includes(text)) {
-        if (currentQuestionBlock) {
-          tempContainer.appendChild(currentQuestionBlock);
-        }
+        if (currentBlock) { tempContainer.appendChild(currentBlock); }
         node.className = 'exam-section-title';
         tempContainer.appendChild(node);
-        currentQuestionBlock = null;
-      } 
-      // 判断是否是题目编号
-      else if (/^\d+$/.test(text)) {
-        if (currentQuestionBlock) {
-          tempContainer.appendChild(currentQuestionBlock);
-        }
-        
-        currentQuestionBlock = document.createElement('div');
-        currentQuestionBlock.className = 'question-block';
-        
-        const numEl = document.createElement('div');
+        currentBlock = null;
+      } else if (/^\d+$/.test(text)) {
+        if (currentBlock) { tempContainer.appendChild(currentBlock); }
+        currentBlock = document.createElement('div');
+        currentBlock.className = 'question-block';
+        currentBlock.setAttribute('data-number', text);
+        currentBlock.setAttribute('data-year', year);
+        currentBlock.setAttribute('data-source', '408真题');
+        var qBody = document.createElement('div');
+        qBody.className = 'q-body';
+        currentBlock.appendChild(qBody);
+        var numEl = document.createElement('div');
         numEl.className = 'question-number';
         numEl.textContent = text;
-        currentQuestionBlock.appendChild(numEl);
+        qBody.appendChild(numEl);
       } else {
-        if (currentQuestionBlock) {
-          currentQuestionBlock.appendChild(node);
-        } else {
-          tempContainer.appendChild(node);
-        }
+        if (currentBlock) { currentBlock.querySelector('.q-body').appendChild(node); }
+        else { tempContainer.appendChild(node); }
       }
     } else {
-      // 隐藏 [tag_link] 标记段落（保留在 DOM 中供大题折叠使用）
-      if (node.tagName === 'P' && node.textContent.trim() === '[tag_link]') {
-        node.style.display = 'none';
-      }
-      if (currentQuestionBlock) {
-        currentQuestionBlock.appendChild(node);
-      } else {
-        tempContainer.appendChild(node);
-      }
+      if (node.tagName === 'P' && node.textContent.trim() === '[tag_link]') { node.style.display = 'none'; }
+      if (currentBlock) { currentBlock.querySelector('.q-body').appendChild(node); }
+      else { tempContainer.appendChild(node); }
     }
   }
-  
-  // 把最后一个题目块也加上
-  if (currentQuestionBlock) {
-    tempContainer.appendChild(currentQuestionBlock);
-  }
-  
-  // 替换原内容
+  if (currentBlock) { tempContainer.appendChild(currentBlock); }
+
   container.innerHTML = '';
-  while (tempContainer.firstChild) {
-    container.appendChild(tempContainer.firstChild);
-  }
+  while (tempContainer.firstChild) { container.appendChild(tempContainer.firstChild); }
 
-  // 处理每个题目块
-  const questionBlocks = container.querySelectorAll('.question-block');
-  questionBlocks.forEach(function(qBlock) {
-    let answerEl = null;
-    let answerValue = '';
-    
-    // 查找正确答案
-    const walkNodes = function(el) {
-      for (let child = el.firstChild; child; child = child.nextSibling) {
-        if (child.nodeType === Node.TEXT_NODE) {
-          const match = child.textContent.match(/正确答案[：:]\s*([ABCDabcd])/);
-          if (match) {
-            answerValue = match[1].toUpperCase();
-            const beforeText = child.textContent.substring(0, match.index);
-            const afterText = child.textContent.substring(match.index + match[0].length);
-            
-            const answerContainer = document.createElement('div');
-            answerContainer.className = 'answer-panel';
-            answerContainer.style.display = 'none';
-            
-            const answerTitle = document.createElement('div');
-            answerTitle.className = 'answer-title';
-            answerTitle.innerHTML = '正确答案：<strong>' + answerValue + '</strong>';
-            answerContainer.appendChild(answerTitle);
-            answerContainer.setAttribute('data-answer', answerValue);
-            
-            if (beforeText.trim()) {
-              child.textContent = beforeText;
-            } else {
-              el.removeChild(child);
-            }
-            
-            if (afterText.trim()) {
-              const textNode = document.createTextNode(afterText);
-              el.insertBefore(textNode, child.nextSibling);
-            }
-            
-            // 找到插入位置
-            el.insertBefore(answerContainer, child.nextSibling);
-            answerEl = answerContainer;
-            return true;
-          }
-        } else if (child.nodeType === Node.ELEMENT_NODE) {
-          if (walkNodes(child)) {
-            return true;
-          }
-        }
-      }
-      return false;
-    };
-    
-    walkNodes(qBlock);
-
-    // 将答案后的解析内容（blockquote 等兄弟节点）也折叠到 answer-panel 中
-    // walkNodes 把 answer-panel 插入到 "正确答案" 所在 <p> 内部（JS DOM API 不会自动闭合 <p>），
-    // 后续解析是 <p> 的兄弟节点，需通过 answerEl.parentNode（即该 <p>）取 nextSibling 移入
-    if (answerEl && answerEl.parentNode && answerEl.parentNode.tagName === 'P') {
-      var parentP = answerEl.parentNode;
-      // 将 <p> 后的兄弟节点（blockquote 等解析内容）移入 answer-panel
-      var sib = parentP.nextSibling;
-      while (sib) {
-        var next = sib.nextSibling;
-        answerEl.appendChild(sib);
-        sib = next;
-      }
-      // 把 answer-panel 从空的 <p> 中提升到 question-block 层级，然后删除空 <p>
-      parentP.parentNode.insertBefore(answerEl, parentP);
-      parentP.parentNode.removeChild(parentP);
-    }
-
-    // 大题折叠：没有"正确答案"的大题，找到标签节点后的内容作为答案折叠
-    if (!answerEl) {
-      var allNodes = Array.from(qBlock.childNodes);
-      var tagIdx = -1;
-      for (var i = allNodes.length - 1; i >= 0; i--) {
-        var n = allNodes[i];
-        if (n.nodeType === Node.ELEMENT_NODE && n.tagName === 'A') {
-          tagIdx = i; break;
-        }
-        // Check for hidden [tag_link] marker (大题答案折叠标记)
-        if (n.nodeType === Node.ELEMENT_NODE && n.tagName === 'P' && n.textContent.trim() === '[tag_link]') {
-          tagIdx = i; break;
-        }
-        // Also check for text-only "tags" - short Chinese term isolated in text
-        if (n.nodeType === Node.TEXT_NODE) {
-          var t = n.textContent.trim();
-          if (t.length >= 2 && t.length <= 8 && /[一-鿿]/.test(t) && !t.includes('。') && !t.includes('，') && !t.includes(',')) {
-            tagIdx = i;
-          }
-        }
-      }
-      if (tagIdx > 0 && tagIdx < allNodes.length - 2) {
-        var answerWrap = document.createElement('div');
-        answerWrap.className = 'answer-panel';
-        answerWrap.style.display = 'none';
-        for (var j = tagIdx + 1; j < allNodes.length; j++) {
-          answerWrap.appendChild(allNodes[j].cloneNode(true));
-        }
-        // Remove original nodes
-        for (var j = tagIdx + 1; j < allNodes.length; j++) {
-          if (allNodes[j].parentNode) allNodes[j].parentNode.removeChild(allNodes[j]);
-        }
-        // Only add fold button if there's substantial answer content
-        if (answerWrap.textContent.trim().length > 50) {
-          qBlock.appendChild(document.createElement('br'));
-          qBlock.appendChild(answerWrap);
-          answerEl = answerWrap;
-        }
-      }
-    }
-
-    // 将选项 A./B./C./D. 转为可点击元素
-    qBlock.querySelectorAll('p').forEach(function(p) {
-      var m = p.textContent.trim().match(/^([A-D])\s*[.、．]\s*(.+)/);
-      if (m) {
-        var opt = document.createElement('div');
-        opt.className = 'exam-option';
-        opt.setAttribute('data-opt', m[1]);
-        opt.innerHTML = '<span class="opt-label">' + m[1] + '.</span> <span class="opt-text">' + m[2] + '</span>';
-        opt.addEventListener('click', function() {
-          this.parentElement.querySelectorAll('.exam-option').forEach(function(o) { o.classList.remove('selected'); });
-          this.classList.add('selected');
-        });
-        p.parentNode.replaceChild(opt, p);
-      }
-    });
-    
-    // 替换【解析】
-    const replaceAnalysis = function(el) {
-      for (let child = el.firstChild; child; child = child.nextSibling) {
-        if (child.nodeType === Node.TEXT_NODE && child.textContent.includes('【解析】')) {
-          const html = child.textContent.replace(/【解析】/g, '<div class="analysis-title">解析：</div>');
-          const temp = document.createElement('div');
-          temp.innerHTML = html;
-          el.replaceChild(temp.firstChild, child);
-        } else if (child.nodeType === Node.ELEMENT_NODE) {
-          replaceAnalysis(child);
-        }
-      }
-    };
-    
-    replaceAnalysis(qBlock);
-    
-    // 添加按钮
-    const actionsDiv = document.createElement('div');
-    actionsDiv.className = 'question-actions';
-    
-    const revealBtn = document.createElement('button');
-    revealBtn.className = 'reveal-btn';
-    revealBtn.textContent = '查看答案与解析';
-    revealBtn.onclick = function() {
-      const panels = qBlock.querySelectorAll('.answer-panel');
-      const isHidden = Array.from(panels).some(p => p.style.display === 'none');
-      panels.forEach(p => p.style.display = isHidden ? 'block' : 'none');
-      revealBtn.textContent = isHidden ? '隐藏答案与解析' : '查看答案与解析';
-
-      // 显示/清除选项的正确/错误状态
-      const answer = qBlock.querySelector('.answer-panel');
-      if (answer && isHidden) {
-        var correct = answer.getAttribute('data-answer');
-        if (correct) {
-          qBlock.querySelectorAll('.exam-option').forEach(function(opt) {
-            if (opt.getAttribute('data-opt') === correct) {
-              opt.classList.add('correct');
-            } else if (opt.classList.contains('selected')) {
-              opt.classList.add('wrong');
-            }
-          });
-        }
-      } else {
-        qBlock.querySelectorAll('.exam-option').forEach(function(opt) {
-          opt.classList.remove('correct', 'wrong');
-        });
-      }
-    };
-    
-    var qNum = qBlock.querySelector('.question-number');
-    var qNumber = qNum ? qNum.textContent.trim() : '';
-
-    var subject = '';
-    var prev = qBlock.previousElementSibling;
-    while (prev) {
-      if (prev.classList.contains('exam-section-title')) {
-        subject = prev.textContent.trim();
-        break;
-      }
-      prev = prev.previousElementSibling;
-    }
-
-    var yearMatch = document.title.match(/(20\d{2})/);
-    var year = yearMatch ? yearMatch[1] : '';
-    var tags = [];
-    if (subject) tags.push(subject);
-    if (year) tags.push(year);
-    tags.push('真题');
-
-    var favId = 'fav-' + location.pathname.replace(/\//g, '-') + '-' + qNumber;
-
-    var opts = [];
-    qBlock.querySelectorAll('.exam-option').forEach(function(o) {
-      var t = o.querySelector('.opt-text');
-      if (t) opts.push(t.textContent.trim());
-    });
-    var ap = qBlock.querySelector('.answer-panel');
-    var ans = ap ? ap.getAttribute('data-answer') || '' : '';
-    var exp = ap ? ap.textContent.replace('正确答案：' + ans, '').trim() : '';
-
-    var questionText = '';
-    qBlock.querySelectorAll('p').forEach(function(p) {
-      if (p.closest('.answer-panel')) return;
-      if (p.style.display !== 'none') questionText += p.textContent.trim() + '\n';
-    });
-    questionText = questionText.replace(/【解析】/g, '').replace(/正确答案[：:].*/g, '').trim();
-
-    var favBtn = document.createElement('button');
-    favBtn.className = 'favorite-btn';
-    favBtn.dataset.quizId = favId;
-    favBtn.innerHTML = '⭐ 收藏';
-
-    try {
-      var saved = JSON.parse(localStorage.getItem('quiz_collections') || '[]');
-      if (saved.some(function(s) { return s.id === favId; })) {
-        favBtn.classList.add('active');
-        favBtn.innerHTML = '★ 已收藏';
-      }
-    } catch(e) {}
-
-    favBtn.onclick = function() {
-      try {
-        var all = JSON.parse(localStorage.getItem('quiz_collections') || '[]');
-        var idx = -1;
-        for (var i = 0; i < all.length; i++) {
-          if (all[i].id === favId) { idx = i; break; }
-        }
-        if (idx > -1) {
-          all.splice(idx, 1);
-          favBtn.classList.remove('active');
-          favBtn.innerHTML = '⭐ 收藏';
-        } else {
-          var quizData = {
-            id: favId,
-            type: opts.length > 0 ? 'choice' : 'answer',
-            multiple: false,
-            subject: subject,
-            source: '408真题',
-            years: year ? [year] : [],
-            quizNumber: parseInt(qNumber) || 0,
-            question: questionText,
-            options: opts.length > 0 ? opts : undefined,
-            answer: ans,
-            explanation: exp,
-            tags: tags.join(','),
-            pageUrl: location.pathname,
-            pageTitle: year + (subject ? ' ' + subject : '') + ' 第' + qNumber + '题',
-            collectedAt: new Date().toISOString()
-          };
-          all.push(quizData);
-          favBtn.classList.add('active');
-          favBtn.innerHTML = '★ 已收藏';
-        }
-        localStorage.setItem('quiz_collections', JSON.stringify(all));
-      } catch(e) {}
-    };
-    
-    actionsDiv.appendChild(revealBtn);
-    actionsDiv.appendChild(favBtn);
-    qBlock.appendChild(actionsDiv);
-  });
-
+  // Shared module: process + favorites
+  initQuestionBlocks();
 })();
 </script>
 {{ end }}
