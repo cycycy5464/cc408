@@ -309,11 +309,12 @@ layouts/exam/year-detail.html          →  查询 content/question/*.md
 
 | 文件 | 作用 |
 |------|------|
-| `navbar.html` | **顶部导航栏** — 品牌 Logo、7个菜单项 (激活状态检测)、主题切换按钮 |
+| `navbar.html` | **顶部导航栏** — 品牌 Logo、7个菜单项 (Hugo `.Section` 自动高亮)、主题切换按钮 |
 | `footer.html` | **页脚** — 版权年份插值 |
-| `back-button.html` | **返回按钮** — 页面左上角智能返回按钮，支持历史记录和状态保存 |
+| `back-button.html` | **返回按钮** — 页面左上角智能返回按钮，支持历史记录和状态保存（含内联样式） |
+| `docs-sidebar.html` | **知识点侧边栏** — 手风琴章节导航 + 搜索过滤 |
 | `knowledge-graph-data.html` | **知识图谱数据** — Hugo 模板生成 JSON (节点+链接)，O(n*k) 优化 |
-| `search-index.html` | **搜索索引** — 生成搜索 JSON |
+| `search-index.html` | **搜索索引** — 生成搜索 JSON（含 docs/exam/question 三大区块） |
 | `watermark.html` | **水印** — Canvas 水印覆盖层 (防截图) |
 
 ---

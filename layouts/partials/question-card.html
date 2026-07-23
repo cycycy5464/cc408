@@ -9,18 +9,23 @@
 {{ $chapter := index $tp 0 }}
 {{ $year := index $page.Params.years 0 | default "" }}
 {{ $qn := $page.Params.number | default 0 }}
+{{ $kps := $page.Params.knowledge_points }}
+{{ $section := "" }}
+{{ if reflect.IsSlice $kps }}{{ $section = index $kps 0 | default "" }}{{ else }}{{ $section = $kps | default "" }}{{ end }}
 <div class="question-block"
      data-year="{{ delimit $page.Params.years "," }}"
      data-subject="{{ $sk }}"
      data-subject-name="{{ $sk }}"
      data-chapter="{{ $chapter }}"
      data-chapter-name="{{ $chapter }}"
+     data-section="{{ $section }}"
      data-type="{{ $page.Params.question_type }}"
      data-source="{{ $page.Params.source }}"
      data-set="{{ with $page.Params.set }}{{ . }}{{ end }}">
   <div class="q-number">
-    {{ $page.Title }}
+    {{ if and (eq $page.Params.source "课后题") $section }}{{ $section }} 第{{ $page.Params.number }}题{{ else }}{{ $page.Title }}{{ end }}
     <span class="q-subject-tag">{{ $sk }}</span>
+    {{ if $section }}<span class="q-subject-tag" style="background:rgba(149,230,203,.1);color:var(--accent2)">{{ $section }}</span>{{ end }}
     {{ if eq $page.Params.question_type "comprehensive" }}<span class="q-subject-tag" style="background:rgba(245,158,11,.12);color:#f59e0b">解答题</span>{{ else }}<span class="q-subject-tag" style="background:rgba(57,186,230,.12);color:var(--accent)">选择题</span>{{ end }}
   </div>
   <div class="q-body">{{ $page.Content }}</div>

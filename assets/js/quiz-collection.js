@@ -88,7 +88,12 @@
         exportBtn: document.getElementById("qc-export"),
         importBtn: document.getElementById("qc-import"),
         clearBtn: document.getElementById("qc-clear"),
+        selectAll: document.getElementById("qc-select-all"),
+        deleteSelected: document.getElementById("qc-delete-selected"),
+        batchBar: document.getElementById("qc-batch-bar"),
+        selectCount: document.getElementById("qc-select-count"),
       };
+      this.selectedIds = {};
     }
 
     bindEvents() {
@@ -115,6 +120,13 @@
         input.click();
       });
       this.el.clearBtn.addEventListener("click", () => this.clearAll());
+
+      if (this.el.selectAll) {
+        this.el.selectAll.addEventListener("click", () => this.toggleSelectAll());
+      }
+      if (this.el.deleteSelected) {
+        this.el.deleteSelected.addEventListener("click", () => this.batchDelete());
+      }
     }
 
     async loadQuizzes() {
@@ -288,6 +300,7 @@
       var source = sourceLabel ? '<div class="qc-card-source"><a class="quiz-card-reference" href="' + (quiz.pageUrl || "#") + '" target="_blank" rel="noopener">' + sourceLabel + "</a><span>收藏于 " + date + "</span></div>" : "";
 
       return '<div class="question-block" data-quiz-id="' + quiz.id + '">' +
+        '<label class="qc-select-checkbox"><input type="checkbox" class="qc-card-checkbox" data-id="' + quiz.id + '" onchange="this.closest('.question-block').classList.toggle('qc-selected',this.checked)"><span></span></label>' +
         source +
         tags +
         questionHtml.split("\n").filter(Boolean).map(function (p) { return "<p>" + p + "</p>"; }).join("") +
@@ -479,6 +492,43 @@
       await this.store.clearAll();
       this.showNotification("已清空所有收藏", "info");
       await this.loadQuizzes();
+    }
+
+    toggleSelectAll() {
+      var checkboxes = document.querySelectorAll(".qc-card-checkbox");
+      var allChecked = Array.from(checkboxes).every(function(cb) { return cb.checked; });
+      checkboxes.forEach(function(cb) {
+        cb.checked = !allChecked;
+        cb.closest(".question-block").classList.toggle("qc-selected", !allChecked);
+      });
+      this.el.selectAll.textContent = allChecked ? "全选" : "取消全选";
+      this.updateBatchBar();
+    }
+
+    updateBatchBar() {
+      var count = document.querySelectorAll(".qc-card-checkbox:checked").length;
+      if (this.el.batchBar) {
+        this.el.batchBar.style.display = count > 0 ? "flex" : "none";
+      }
+      if (this.el.selectCount) {
+        this.el.selectCount.textContent = count + " 项选中";
+      }
+    }
+
+    batchDelete() {
+      var ids = [];
+      document.querySelectorAll(".qc-card-checkbox:checked").forEach(function(cb) {
+        ids.push(cb.getAttribute("data-id"));
+      });
+      if (!ids.length) return;
+      if (!confirm("确定删除选中的 " + ids.length + " 项收藏？")) return;
+      var self = this;
+      ids.forEach(async function(id) {
+        await self.store.remove(id);
+      });
+      this.selectedIds = {};
+      this.loadQuizzes();
+      this.showNotification("已删除 " + ids.length + " 项", "info");
     }
 
     showNotification(msg, type) {

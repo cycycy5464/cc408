@@ -60,11 +60,14 @@
   {{ end }}
 {{ end }}
 <aside class="side-nav">
-  <div class="back-button-container" style="position: sticky; top: 0; z-index: 10; padding: 10px; background: var(--bg-secondary); border-bottom: 1px solid var(--border-color);">
-    <button class="back-button" data-smart-back="true">
-      <span class="back-icon">←</span>
-      <span class="back-text">返回</span>
+  <div style="position: sticky; top: 0; z-index: 10; left: auto; padding: .6rem .75rem; background: var(--bg-secondary); border-bottom: 1px solid var(--border-color);">
+    <button data-smart-back="true" style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.4rem 0.8rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); color: var(--text-secondary); font-family: var(--font-display); font-size: var(--fs-sm); font-weight: 500; cursor: pointer; transition: all 0.25s ease; text-decoration: none; box-shadow: var(--shadow-card); backdrop-filter: blur(10px);">
+      <span style="font-size: 1.1em;">←</span>
+      <span style="font-size: var(--fs-sm);">返回</span>
     </button>
+  </div>
+  <div style="padding:.5rem .75rem;border-bottom:1px solid var(--border-color)">
+    <input type="text" id="sidebar-search" placeholder="搜索章节..." style="width:100%;padding:.35rem .6rem;background:var(--bg-card);color:var(--text-primary);border:1px solid var(--border-color);border-radius:var(--radius-sm);font-size:var(--fs-xs);font-family:var(--font-body);outline:none">
   </div>
   <div class="side-nav-group">
     <div class="side-nav-title">{{ with $subjData }}{{ .icon }} {{ .label }}{{ end }}</div>
@@ -85,5 +88,22 @@
     </div>
     {{ end }}
   </div>
+<script>
+(function() {
+  var input = document.getElementById('sidebar-search');
+  if (!input) return;
+  input.addEventListener('input', function() {
+    var q = this.value.toLowerCase().trim();
+    document.querySelectorAll('.side-nav-link').forEach(function(a) {
+      var match = !q || a.textContent.toLowerCase().includes(q);
+      a.style.display = match ? '' : 'none';
+    });
+    document.querySelectorAll('.chapter-group').forEach(function(g) {
+      var visible = Array.from(g.querySelectorAll('.side-nav-link')).some(function(a) { return a.style.display !== 'none'; });
+      g.style.display = visible ? '' : 'none';
+    });
+  });
+})();
+</script>
 </aside>
 {{ end }}

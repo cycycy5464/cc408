@@ -9,6 +9,7 @@
     <div class="qc-stats" id="qc-stats"></div>
     <div class="qc-toolbar" id="qc-toolbar">
       <div class="qc-toolbar-row">
+        <button class="qc-action-btn" id="qc-select-all">☐ 全选</button>
         <input type="text" class="qc-search" id="qc-search" placeholder="搜索题目内容、标签、科目..." />
         <div class="qc-mode-group">
           <button class="qc-mode-btn active" data-mode="practice">练习</button>
@@ -20,9 +21,13 @@
           <button class="qc-layout-btn" data-cols="3">■</button>
         </div>
       </div>
+      <div class="qc-toolbar-row" id="qc-batch-bar" style="display:none">
+        <span id="qc-select-count" style="font-size:var(--fs-sm);color:var(--text-secondary)"></span>
+      </div>
       <div class="qc-toolbar-row">
         <button class="qc-action-btn" id="qc-export">📥 导出</button>
         <button class="qc-action-btn" id="qc-import">📤 导入</button>
+        <button class="qc-action-btn qc-danger" id="qc-delete-selected" style="display:none">🗑 删除选中</button>
         <button class="qc-action-btn qc-danger" id="qc-clear">🗑 清空全部</button>
       </div>
     </div>
@@ -38,6 +43,16 @@
     </div>
   </div>
 </div>
+
+<style>
+.qc-selected { outline: 2px solid var(--accent); outline-offset: -2px; }
+.qc-select-checkbox { display: block; margin-bottom: .5rem; }
+.qc-select-checkbox input { margin-right: .35rem; cursor: pointer; }
+.qc-select-checkbox span { font-size: var(--fs-xs); color: var(--text-muted); }
+#qc-batch-bar { display: none; align-items: center; gap: .5rem; padding: .35rem 0; }
+.qc-select-all { font-size: var(--fs-sm); }
+</style>
+
 {{ $js := resources.Get "js/quiz-collection.js" | resources.Minify | resources.Fingerprint }}
 <script src="{{ $js.RelPermalink }}"></script>
 {{ end }}

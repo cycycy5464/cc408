@@ -12,6 +12,9 @@
     <select id="ce-chapter" data-filter="chapter">
       <option value="">选择章节</option>
     </select>
+    <select id="ce-section" data-filter="section" style="display:none">
+      <option value="">全部小节</option>
+    </select>
     <select id="ce-type" data-filter="type">
       <option value="">全部题型</option>
       <option value="choice">选择题</option>
@@ -106,6 +109,7 @@
   var cards = Array.from(grid.querySelectorAll('.question-block'));
   var subjSel = document.getElementById('ce-subject');
   var chapSel = document.getElementById('ce-chapter');
+  var secSel = document.getElementById('ce-section');
   var typeSel = document.getElementById('ce-type');
   var search = document.getElementById('ce-search');
   var hint = document.getElementById('ce-hint');
@@ -136,28 +140,54 @@
       o.value = k; o.textContent = chapSet[k];
       chapSel.appendChild(o);
     });
+    populateSections();
+  }
+
+  function populateSections() {
+    var ck = chapSel.value;
+    secSel.style.display = ck ? 'inline-block' : 'none';
+    secSel.innerHTML = '<option value="">全部小节</option>';
+    if (!ck) return;
+    var secSet = {};
+    cards.forEach(function(c) {
+      if (c.dataset.chapter === ck && c.dataset.section) {
+        secSet[c.dataset.section] = true;
+      }
+    });
+    Object.keys(secSet).sort().forEach(function(s) {
+      var o = document.createElement('option');
+      o.value = s; o.textContent = s;
+      secSel.appendChild(o);
+    });
   }
 
   function filter() {
-    var sk = subjSel.value, ck = chapSel.value,
-        t = typeSel.value, q = search.value.toLowerCase();
+    var sk = subjSel.value, ck = chapSel.value;
+    // Force subject+chapter selection before showing cards
+    if (!sk || !ck) {
+      cards.forEach(function(c) { c.classList.remove('visible'); });
+      if (!sk) { hint.style.display = 'block'; hint.textContent = '请先选择科目'; }
+      else { hint.style.display = 'block'; hint.textContent = '请选择章节'; }
+      return;
+    }
+    var sk2 = secSel.value, t = typeSel.value, q = search.value.toLowerCase();
     var visibleCount = 0;
     cards.forEach(function(c) {
       var matchSubj = !sk || c.dataset.subject === sk;
       var matchChap = !ck || c.dataset.chapter === ck;
+      var matchSec = !sk2 || c.dataset.section === sk2;
       var matchType = !t || c.dataset.type === t;
       var matchSearch = !q || c.textContent.toLowerCase().includes(q);
-      var show = matchSubj && matchChap && matchType && matchSearch;
+      var show = matchSubj && matchChap && matchSec && matchType && matchSearch;
       c.classList.toggle('visible', show);
       if (show) visibleCount++;
     });
-    if (!sk) { hint.style.display = 'block'; hint.textContent = '请先选择科目'; }
-    else if (!ck) { hint.style.display = 'block'; hint.textContent = '请选择章节'; }
-    else { hint.style.display = 'none'; }
+    hint.style.display = 'none';
   }
 
   subjSel.addEventListener('change', function() { populateChapters(); filter(); });
-  chapSel.addEventListener('change', filter);
+  chapSel.addEventListener('change', function() { populateSections(); filter(); });
+  secSel.addEventListener('change', filter);
   typeSel.addEventListener('change', filter);
   search.addEventListener('input', filter);
   filter();
@@ -192,3 +222,4 @@
   }
 })();
 </script>
+{{ end }}

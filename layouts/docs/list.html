@@ -1,7 +1,7 @@
 {{ define "main" }}
-{{ partial "back-button.html" . }}
 {{ if eq .CurrentSection .FirstSection }}
 {{/* Main docs page - subject entry cards */}}
+{{ partial "back-button.html" . }}
 <div class="content-area content-area-wide">
   <h1>📚 知识点</h1>
   {{ .Content }}

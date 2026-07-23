@@ -89,51 +89,54 @@
   }
   
   /**
+   * 根据路径深度返回默认目标
+   */
+  function getDefaultBackTarget(currentPath, baseURL) {
+    var path = currentPath.replace(baseURL, '').replace(/\/$/, '');
+    var parts = path.split('/').filter(Boolean);
+    
+    if (currentPath.includes('/docs/')) {
+      if (parts.length >= 3) {
+        return baseURL + parts[0] + '/' + parts[1] + '/';
+      }
+      return baseURL + 'docs/';
+    }
+    if (currentPath.includes('/exam/')) {
+      if (parts.length >= 3) {
+        return baseURL + parts[0] + '/' + parts[1] + '/';
+      }
+      return baseURL + 'exam/';
+    }
+    if (currentPath.includes('/question/')) { return baseURL + 'question/'; }
+    if (currentPath.includes('/resources/')) { return baseURL + 'resources/'; }
+    if (currentPath.includes('/graph/') || currentPath.includes('/tags/') || currentPath.includes('/search/')) { return baseURL; }
+    return baseURL;
+  }
+
+  /**
    * 智能判断返回目标
    */
   function getSmartBackTarget(currentPath) {
     const baseURL = getBaseURL();
     
-    // 1. 首先检查是否有自定义返回URL
+    // 1. 自定义返回URL
     const backButton = document.querySelector('.back-button[data-back-url]');
     if (backButton) {
       const customUrl = backButton.getAttribute('data-back-url');
-      // 如果是相对路径，添加baseURL
       if (customUrl && !customUrl.startsWith('http')) {
         return baseURL + customUrl.replace(/^\//, '');
       }
       return customUrl;
     }
     
-    // 2. 检查导航历史
+    // 2. 导航历史
     const previousPage = getPreviousPage(currentPath);
-    if (previousPage) {
-      // 确保上一个页面不是当前页面
-      if (previousPage !== currentPath) {
-        return previousPage;
-      }
+    if (previousPage && previousPage !== currentPath) {
+      return previousPage;
     }
     
-    // 3. 使用默认返回目标
-    // 根据页面类型确定返回目标
-    if (currentPath.includes('/docs/')) {
-      return baseURL + 'docs/';
-    } else if (currentPath.includes('/exam/')) {
-      return baseURL + 'exam/';
-    } else if (currentPath.includes('/question/')) {
-      return baseURL + 'question/';
-    } else if (currentPath.includes('/resources/')) {
-      return baseURL + 'resources/';
-    } else if (currentPath.includes('/graph/')) {
-      return baseURL;
-    } else if (currentPath.includes('/tags/')) {
-      return baseURL;
-    } else if (currentPath.includes('/search/')) {
-      return baseURL;
-    }
-    
-    // 4. 最终返回首页
-    return baseURL;
+    // 3. 默认（按路径深度）
+    return getDefaultBackTarget(currentPath, baseURL);
   }
   
   /**
