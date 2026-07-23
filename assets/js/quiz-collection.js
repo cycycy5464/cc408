@@ -300,7 +300,7 @@
       var source = sourceLabel ? '<div class="qc-card-source"><a class="quiz-card-reference" href="' + (quiz.pageUrl || "#") + '" target="_blank" rel="noopener">' + sourceLabel + "</a><span>收藏于 " + date + "</span></div>" : "";
 
       return '<div class="question-block" data-quiz-id="' + quiz.id + '">' +
-        '<label class="qc-select-checkbox"><input type="checkbox" class="qc-card-checkbox" data-id="' + quiz.id + '" onchange="this.closest('.question-block').classList.toggle('qc-selected',this.checked)"><span></span></label>' +
+        '<label class="qc-select-checkbox"><input type="checkbox" class="qc-card-checkbox" data-id="' + quiz.id + '"><span></span></label>' +
         source +
         tags +
         questionHtml.split("\n").filter(Boolean).map(function (p) { return "<p>" + p + "</p>"; }).join("") +
@@ -349,6 +349,14 @@
       });
 
       var revealBtn = card.querySelector('[data-action="reveal"]');
+      var checkbox = card.querySelector(".qc-card-checkbox");
+      if (checkbox) {
+        checkbox.addEventListener("change", function() {
+          card.classList.toggle("qc-selected", this.checked);
+          if (typeof self.updateBatchBar === 'function') self.updateBatchBar();
+        });
+      }
+
       if (revealBtn && answerPanel) {
         revealBtn.addEventListener("click", function () {
           var hidden = answerPanel.style.display === "none";
