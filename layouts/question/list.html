@@ -53,7 +53,7 @@
     {{ $plain := replaceRE "(?s)\\[tag_link\\].*$" "" $page.Plain }}
     {{ $plain = replaceRE "(?s)\\n\\s*[A-D][.、．].*$" "" $plain }}
     {{ $plain = trim $plain " \n\r\t" }}
-    {{ dict "url" $page.RelPermalink "years" $page.Params.years "subject" $sk "chapter" $chapter "type" $page.Params.question_type "source" $page.Params.source "set" $page.Params.set "number" (default 0 $page.Params.number) "difficulty" (default 1 $page.Params.difficulty) "title" $page.Title "stem" $plain "content_html" ($page.Content | string) | jsonify | safeJS }}
+    {{ dict "url" $page.RelPermalink "years" $page.Params.years "subject" $sk "chapter" $chapter "type" $page.Params.question_type "source" $page.Params.source "set" $page.Params.set "number" (default 0 $page.Params.number) "difficulty" (default 1 $page.Params.difficulty) "title" $page.Title "stem" $plain | jsonify | safeJS }}
   {{ end }}
 ]
 </script>
@@ -73,59 +73,9 @@
 .question-page-btn.active { background: rgba(57,186,230,.1); font-weight: 600; }
 .question-page-btn:disabled { cursor: not-allowed; opacity: .45; }
 
-/* Interactive question card styles */
-.question-grid { display: block; }
-.question-grid .question-block { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); }
-.q-number { font-size: .9rem; font-weight: 700; color: var(--accent); margin-bottom: .5rem; }
-.q-subject-tag { font-size: .75rem; font-weight: 400; color: var(--text-muted); background: var(--bg-secondary); padding: 1px 6px; border-radius: 3px; margin-left: .5rem; }
-.q-body img { background: #fff; padding: 8px; border-radius: 4px; max-width: 100%; }
-.answer-panel { margin-top: .5rem; padding: .75rem; background: var(--bg-secondary); border-radius: 6px; border-left: 3px solid var(--accent); }
-.answer-title { font-weight: 700; margin-bottom: .25rem; }
-.analysis-title { font-weight: 700; color: var(--accent); margin: .5rem 0 .25rem; }
-.exam-option { padding: .4rem .6rem; margin: .2rem 0; border: 1px solid var(--border-color); border-radius: 4px; cursor: pointer; transition: all .15s; }
-.exam-option:hover { background: var(--bg-secondary); }
-.exam-option.selected { border-color: var(--accent); background: rgba(57,186,230,.1); }
-.exam-option.correct { border-color: #4caf50; background: rgba(76,175,80,.15); }
-.exam-option.wrong { border-color: #f44336; background: rgba(244,67,54,.15); }
-.question-block .question-actions { margin-top: .5rem; display: flex; gap: .5rem; align-items: center; }
-.question-block .reveal-btn, .question-block .favorite-btn {
-  padding: .4rem .9rem; border-radius: var(--radius-sm); cursor: pointer;
-  font-size: var(--fs-sm); font-weight: 500; transition: all .2s;
-}
-.question-block .reveal-btn { background: var(--accent); color: white; border: none; }
-.question-block .reveal-btn:hover { opacity: .9; }
-.question-block .favorite-btn {
-  background: transparent; border: 1px solid var(--border-color);
-  color: var(--text-primary);
-}
-.question-block .favorite-btn:hover { color: var(--accent); border-color: var(--accent); }
-.favorite-btn.collected { color: #f0c040; border-color: #f0c040; }
-.question-actions { margin: 1.5rem 0; display: flex; gap: .75rem; align-items: center; }
 </style>
 
-<script>
-function toggleAnswer(btn) {
-  var block = btn.closest('.question-block');
-  if (!block) return;
-  var panel = block.querySelector('.answer-panel');
-  if (!panel) return;
-  if (panel.style.display === 'none' || panel.style.display === '') {
-    panel.style.display = 'block';
-    btn.textContent = '隐藏答案';
-    var correct = panel.getAttribute('data-answer');
-    if (correct) {
-      block.querySelectorAll('.exam-option').forEach(function(opt) {
-        if (opt.getAttribute('data-opt') === correct) opt.classList.add('correct');
-        else if (opt.classList.contains('selected')) opt.classList.add('wrong');
-      });
-    }
-  } else {
-    panel.style.display = 'none';
-    btn.textContent = '查看答案与解析';
-    block.querySelectorAll('.exam-option').forEach(function(o) { o.classList.remove('correct', 'wrong'); });
-  }
-}
-</script>
+
 
 {{ $js := resources.Get "js/question-list.js" | resources.Minify | resources.Fingerprint }}
 <script src="{{ $js.RelPermalink }}"></script>
