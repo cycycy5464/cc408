@@ -12,3 +12,96 @@
     </button>
   </div>
 {{ end }}
+<style>
+/* ==== 返回按钮样式 ==== */
+.back-button-container {
+  position: fixed;
+  top: 80px; /* 导航栏高度 + 间距 */
+  left: 20px;
+  z-index: 100;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.back-button:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(57, 186, 230, 0.08);
+  box-shadow: var(--shadow-glow);
+  transform: translateX(-2px);
+}
+
+.back-button:active {
+  transform: translateX(-1px);
+}
+
+.back-icon {
+  font-size: 1.1em;
+  transition: transform 0.25s ease;
+}
+
+.back-button:hover .back-icon {
+  transform: translateX(-3px);
+}
+
+.back-text {
+  font-size: var(--fs-sm);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .back-button-container {
+    top: 70px;
+    left: 10px;
+  }
+  
+  .back-button {
+    padding: 0.4rem 0.8rem;
+    font-size: var(--fs-xs);
+  }
+}
+
+/* 深色主题下的特殊处理 */
+:root[data-theme="dark"] .back-button {
+  background: rgba(24, 30, 40, 0.9);
+  border-color: rgba(42, 50, 64, 0.8);
+}
+
+/* 浅色主题下的特殊处理 */
+:root[data-theme="light"] .back-button {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(221, 227, 237, 0.8);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+}
+
+:root[data-theme="light"] .back-button:hover {
+  background: rgba(26, 114, 196, 0.08);
+  border-color: rgba(26, 114, 196, 0.3);
+  box-shadow: 0 2px 12px rgba(26, 114, 196, 0.15);
+}
+
+</style>

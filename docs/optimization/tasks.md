@@ -25,7 +25,7 @@
 
 ## 🟡 P2 — 代码质量/性能
 
-- [ ] **P2-1: CSS 分区** — 将非通用样式（`.graph-*`、`.tm-*`、`.back-button-*`）移出 `custom.scss`
+- [x] **P2-1: CSS 分区** — 将非通用样式（`.graph-*`、`.tm-*`、`.back-button-*`）移出 `custom.scss`
 - [ ] **P2-2: 题库 JSON 按需加载**（评估后决定是否执行）
 - [ ] **P2-3: 导航高亮改用 `.Section` 检测**
 
