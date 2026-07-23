@@ -44,6 +44,12 @@
     return [question.chapter || "章节习题", number].filter(Boolean).join(" · ");
   }
 
+  function stars(difficulty) {
+    var result = "";
+    for (var index = 1; index <= 4; index++) result += index <= difficulty ? "★" : "☆";
+    return result;
+  }
+
   function renderCard(question) {
     var type = question.type === "comprehensive" ? "解答题" : "选择题";
     var summary = question.stem || question.title;
