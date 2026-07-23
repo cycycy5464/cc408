@@ -1,7 +1,7 @@
 name: Deploy CC408 to GitHub Pages
 
 env:
-  HUGO_VERSION: '0.135.0'
+  HUGO_VERSION: '0.164.0'
 
 on:
   push:

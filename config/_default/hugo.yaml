@@ -42,7 +42,7 @@ build:
   disableAliases: true
 
 permalinks:
-  question: '/question/:filename/'
+  question: '/question/:contentbasename/'
 
 outputs:
   home: [HTML]
