@@ -54,3 +54,8 @@
 - [x] collect-quiz.js ID 统一为 {year}-{number} 格式（与共享模块一致）
 - [x] **P3-3: JSON API** — generate-questions-json.py 生成 static/data/questions-all.json（3442 题）
 - [x] 构建流程集成 — deploy workflow 中自动运行 generator
+
+
+## 📋 数据修正
+- [x] chapter7-search/005.md 拆分 Q5/Q6（Q5 单独保留，Q6 提取至 .bak）
+- [ ] chapter7-search/006-050.md 编号链整体偏移（Q7→006 等，需后续处理）
