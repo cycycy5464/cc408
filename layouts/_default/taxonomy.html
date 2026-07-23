@@ -5,13 +5,9 @@
   <p class="meta-sm" style="margin-bottom:2rem;color:var(--text-muted)">
     共 {{ len .Pages }} 道相关题目
     <button id="reveal-all-btn-toc-kp" class="toc-reveal-horizontal" style="margin-left:1rem;display:inline-block;vertical-align:middle" type="button" aria-pressed="false">查看全部解析</button>
-    <button id="sort-toggle-kp" class="toc-reveal-horizontal" style="margin-left:.5rem;display:inline-block;vertical-align:middle;background:var(--bg-secondary);color:var(--text-primary);box-shadow:none" type="button" aria-pressed="false">排序：年份</button>
   </p>
 
   {{ $sortedPages := sort .Pages "Params.number" "asc" }}
-  {{ if eq ($.Scratch.Get "sortBy") "year" }}
-    {{ $sortedPages = sort (sort .Pages "Params.number" "asc") "Params.years" "desc" }}
-  {{ end }}
 
   <div class="exam-content" id="exam-container">
     {{ range $idx, $q := $sortedPages }}
@@ -74,7 +70,6 @@
 .question-block { margin-bottom: .5rem; }
 .q-number { font-size: .9rem; font-weight: 700; color: var(--accent); margin-bottom: .5rem; }
 .q-subject-tag { font-size: .75rem; font-weight: 400; color: var(--text-muted); background: var(--bg-secondary); padding: 1px 6px; border-radius: 3px; margin-left: .5rem; }
-.q-kp-tag { font-size: .72rem; font-weight: 400; color: var(--accent); background: rgba(57,186,230,.12); padding: 1px 6px; border-radius: 3px; margin-left: .4rem; }
 .q-body img { background: #fff; padding: 8px; border-radius: 4px; max-width: 100%; }
 .answer-panel { margin-top: .5rem; padding: .75rem; background: var(--bg-secondary); border-radius: 6px; border-left: 3px solid var(--accent); }
 .answer-title { font-weight: 700; margin-bottom: .25rem; }
@@ -89,14 +84,9 @@
   padding: .4rem .9rem; border-radius: var(--radius-sm); cursor: pointer;
   font-size: var(--fs-sm); font-weight: 500; transition: all .2s;
 }
-.question-block .reveal-btn {
-  background: var(--accent); color: white; border: none;
-}
+.question-block .reveal-btn { background: var(--accent); color: white; border: none; }
 .question-block .reveal-btn:hover { opacity: .9; }
-.question-block .favorite-btn {
-  background: transparent; border: 1px solid var(--border-color);
-  color: var(--text-primary);
-}
+.question-block .favorite-btn { background: transparent; border: 1px solid var(--border-color); color: var(--text-primary); }
 .question-block .favorite-btn:hover { color: var(--accent); border-color: var(--accent); }
 .favorite-btn.collected { color: #f0c040; border-color: #f0c040; }
 .question-actions { margin: 1.5rem 0; display: flex; gap: .75rem; align-items: center; }
@@ -108,34 +98,14 @@
 .exam-toc-num { font-family: var(--font-mono); font-size: .75rem; flex: 0 0 4rem; min-width: 4rem; text-align: right; }
 .exam-toc-subj-label { font-size: .7rem; opacity: .85; flex: 0 0 3.7rem; width: 3.7rem; text-align: left; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .exam-toc-kp { font-size: .68rem; opacity: .6; flex: 1 1 auto; min-width: 0; text-align: left; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.toc-reveal-horizontal {
-  margin-left: auto; flex-shrink: 0; padding: .3rem .7rem;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  color: #fff; border: none; border-radius: var(--radius-sm);
-  font-size: .75rem; font-weight: 600; white-space: nowrap;
-  cursor: pointer; box-shadow: var(--shadow-card); transition: all .2s;
-}
+.toc-reveal-horizontal { margin-left: auto; flex-shrink: 0; padding: .3rem .7rem; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; border: none; border-radius: var(--radius-sm); font-size: .75rem; font-weight: 600; white-space: nowrap; cursor: pointer; box-shadow: var(--shadow-card); transition: all .2s; }
 .toc-reveal-horizontal:hover { box-shadow: var(--shadow-glow); transform: translateY(-1px); }
-.toc-reveal-horizontal:focus-visible { outline: 2px solid var(--text-primary); outline-offset: 2px; }
-.toc-reveal-horizontal[aria-pressed="true"] {
-  background: var(--bg-hover); color: var(--text-primary);
-  border: 1px solid var(--border-color); box-shadow: none;
-}
-.exam-toc-header {
-  display: flex; align-items: center; gap: .5rem; justify-content: space-between;
-  font-size: 1rem; font-weight: 700; color: var(--text-primary);
-  padding: .25rem .75rem .6rem; border-bottom: 1px solid var(--border-color);
-  margin-bottom: .5rem;
-}
-@media(max-width:768px){
-  .exam-toc{display:none}
-  .content-area-wide{width:100%;max-width:100%;padding:1rem}
-}
+.toc-reveal-horizontal[aria-pressed="true"] { background: var(--bg-hover); color: var(--text-primary); border: 1px solid var(--border-color); box-shadow: none; }
+.exam-toc-header { display: flex; align-items: center; gap: .5rem; justify-content: space-between; font-size: 1rem; font-weight: 700; color: var(--text-primary); padding: .25rem .75rem .6rem; border-bottom: 1px solid var(--border-color); margin-bottom: .5rem; }
+@media(max-width:768px){ .exam-toc{display:none} .content-area-wide{width:100%;max-width:100%;padding:1rem} }
 </style>
 
-<script>
 {{ $qi := resources.Get "js/question-interaction.js" | resources.Minify | resources.Fingerprint }}
-</script>
 <script src="{{ $qi.RelPermalink }}"></script>
 <script>
 (function() {
@@ -146,156 +116,16 @@
   // Use shared module
   initQuestionBlocks();
 
-  // ── Reveal All buttons ──
-            var answerValue = m[1].toUpperCase();
-            var before = child.textContent.substring(0, m.index);
-            var after = child.textContent.substring(m.index + m[0].length);
-            var panel = document.createElement('div');
-            panel.className = 'answer-panel';
-            panel.style.display = 'none';
-            var title = document.createElement('div');
-            title.className = 'answer-title';
-            title.innerHTML = '正确答案：<strong>' + answerValue + '</strong>';
-            panel.appendChild(title);
-            panel.setAttribute('data-answer', answerValue);
-            if (before.trim()) child.textContent = before;
-            else el.removeChild(child);
-            if (after.trim()) el.insertBefore(document.createTextNode(after), child.nextSibling);
-            el.insertBefore(panel, child.nextSibling);
-            var p = panel.parentNode;
-            if (p && p.tagName === 'P') {
-              var sib = p.nextSibling;
-              while (sib) { var nxt = sib.nextSibling; panel.appendChild(sib); sib = nxt; }
-              p.parentNode.insertBefore(panel, p);
-              p.parentNode.removeChild(p);
-            }
-            return true;
-          }
-        } else if (child.nodeType === Node.ELEMENT_NODE) {
-          if (findAnswer(child)) return true;
-        }
-      }
-      return false;
-    };
-
-    var foundAnswer = findAnswer(block);
-
-    // 2b. Comprehensive question fallback
-    if (!foundAnswer) {
-      var anchor = null;
-      var qBody = block.querySelector('.q-body');
-      if (qBody) {
-        var allP2 = qBody.querySelectorAll('p');
-        for (var pi2 = 0; pi2 < allP2.length; pi2++) {
-          var p = allP2[pi2];
-          var txt = p.textContent.trim();
-          if (txt === '[tag_link]') { anchor = p; continue; }
-          var pureTag = p.childNodes.length > 0;
-          if (pureTag) {
-            for (var ci = 0; ci < p.childNodes.length; ci++) {
-              var cn = p.childNodes[ci];
-              if (cn.nodeType === Node.TEXT_NODE) {
-                if (cn.textContent.trim()) { pureTag = false; break; }
-              } else if (cn.nodeType === Node.ELEMENT_NODE && cn.tagName !== 'A') {
-                pureTag = false; break;
-              }
-            }
-            if (pureTag) anchor = p;
-          }
-        }
-        if (anchor) {
-          var panel = document.createElement('div');
-          panel.className = 'answer-panel';
-          panel.style.display = 'none';
-          panel.setAttribute('data-answer', '');
-          var title = document.createElement('div');
-          title.className = 'answer-title';
-          title.textContent = '答案与解析：';
-          panel.appendChild(title);
-          var cur = anchor.nextSibling;
-          while (cur) {
-            var nxt = cur.nextSibling;
-            panel.appendChild(cur);
-            cur = nxt;
-          }
-          qBody.appendChild(panel);
-        }
-      }
-    }
-
-    // 2c. Convert options to clickable divs
-    var allP3 = [];
-    for (var pi3c = 0; pi3c < block.querySelector('.q-body').children.length; pi3c++) {
-      if (block.querySelector('.q-body').children[pi3c].tagName === 'P') allP3.push(block.querySelector('.q-body').children[pi3c]);
-    }
-    for (var pi3 = 0; pi3 < allP3.length; pi3++) {
-      var p3 = allP3[pi3];
-      var txt = p3.textContent.trim();
-      var optParts = txt.match(/([A-D])\s*\.\s*(.*?)(?=\s*[A-D]\s*\.|$)/g);
-      if (optParts && optParts.length > 0) {
-        var fragment = document.createDocumentFragment();
-        var firstIdx = txt.search(/[A-D]\s*\./);
-        var stemPrefix = firstIdx > 0 ? txt.slice(0, firstIdx).trim() : '';
-        if (stemPrefix) {
-          var stemP = document.createElement('p');
-          stemP.className = 'exam-stem-text';
-          stemP.textContent = stemPrefix;
-          fragment.appendChild(stemP);
-        }
-        var created = false;
-        for (var oi3 = 0; oi3 < optParts.length; oi3++) {
-          var part = optParts[oi3].trim();
-          var pm = part.match(/^([A-D])\s*\.\s*(.*)/);
-          if (pm) {
-            created = true;
-            var opt = document.createElement('div');
-            opt.className = 'exam-option';
-            opt.setAttribute('data-opt', pm[1]);
-            opt.innerHTML = '<span class="opt-label">' + pm[1] + '.</span> <span class="opt-text">' + pm[2] + '</span>';
-            opt.addEventListener('click', function() {
-              var parent = this.parentElement;
-              if (parent) {
-                var opts = parent.querySelectorAll('.exam-option');
-                for (var oix = 0; oix < opts.length; oix++) {
-                  opts[oix].classList.remove('selected');
-                }
-              }
-              this.classList.add('selected');
-            });
-            fragment.appendChild(opt);
-          }
-        }
-        if (created) {
-          p3.parentNode.replaceChild(fragment, p3);
-        }
-      }
-    }
-
-    // 2d. Replace 【解析】 marker
-    var rp = function(el) {
-      for (let c = el.firstChild; c; c = c.nextSibling) {
-        if (c.nodeType === Node.TEXT_NODE && c.textContent.includes('【解析】')) {
-          const h = c.textContent.replace(/【解析】/g, '<div class="analysis-title">解析：</div>');
-          const t = document.createElement('div'); t.innerHTML = h;
-          el.replaceChild(t.firstChild, c);
-        } else if (c.nodeType === Node.ELEMENT_NODE) rp(c);
-      }
-    };
-    rp(block);
-  });
-
-  // ── 3. Reveal All button (top + TOC) ──
+  // Reveal All buttons (top + TOC)
   function setupRevealButtons() {
-    var btnIds = ['reveal-all-btn-toc-kp', 'reveal-all-btn-toc'];
-    btnIds.forEach(function(id) {
+    ['reveal-all-btn-toc-kp', 'reveal-all-btn-toc'].forEach(function(id) {
       var btn = document.getElementById(id);
       if (!btn) return;
       btn.addEventListener('click', function() {
         var panels = container.querySelectorAll('.answer-panel');
         var anyHidden = Array.prototype.some.call(panels, function(p) { return p.style.display === 'none'; });
-        var reveal = anyHidden;
-        Array.prototype.forEach.call(panels, function(p) { p.style.display = reveal ? 'block' : 'none'; });
-        if (reveal) {
+        Array.prototype.forEach.call(panels, function(p) { p.style.display = anyHidden ? 'block' : 'none'; });
+        if (anyHidden) {
           container.querySelectorAll('.question-block').forEach(function(block) {
             var ap = block.querySelector('.answer-panel');
             var correct = ap ? ap.getAttribute('data-answer') : null;
@@ -318,7 +148,7 @@
   }
   setupRevealButtons();
 
-  // ── 4. Scroll spy for TOC ──
+  // Scroll spy for TOC
   (function() {
     var toc = document.getElementById('exam-toc');
     if (!toc) return;
@@ -326,57 +156,41 @@
     var blocks = document.querySelectorAll('.question-block');
     if (!blocks.length) return;
     function updateActive() {
-      var scrollY = window.scrollY + 200;
       var activeIdx = -1;
       for (var i = 0; i < blocks.length; i++) {
-        var rect = blocks[i].getBoundingClientRect();
-        if (rect.top <= 200) activeIdx = i;
+        if (blocks[i].getBoundingClientRect().top <= 200) activeIdx = i;
       }
-      for (var j = 0; j < items.length; j++) {
-        items[j].classList.toggle('active', j === activeIdx);
-      }
+      for (var j = 0; j < items.length; j++) { items[j].classList.toggle('active', j === activeIdx); }
     }
     window.addEventListener('scroll', updateActive, { passive: true });
     updateActive();
 
-    // TOC click → smooth scroll
     var tocList = toc.querySelector('.exam-toc-list');
     if (tocList) {
       tocList.addEventListener('click', function(e) {
         var item = e.target.closest('.exam-toc-item');
-        if (item) {
-          var href = item.getAttribute('href');
-          if (href) {
-            e.preventDefault();
-            var target = document.querySelector(href);
-            if (target) {
-              var top = target.getBoundingClientRect().top + window.scrollY - 90;
-              window.scrollTo({ top: top, behavior: 'smooth' });
-            }
-          }
+        if (item && item.getAttribute('href')) {
+          e.preventDefault();
+          var target = document.querySelector(item.getAttribute('href'));
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
     }
   })();
 
-  // ── 5. Setup favorites via shared module ──
-  setupFavorites();
-
-  // ── 6. TOC initial alignment ──
+  // TOC initial alignment
   (function() {
     function alignToc() {
-      var tocEl = document.getElementById("exam-toc");
-      var firstQ = document.querySelector(".question-block");
+      var tocEl = document.getElementById('exam-toc');
+      var firstQ = document.querySelector('.question-block');
       if (!tocEl || !firstQ) return;
       var delta = firstQ.getBoundingClientRect().top - tocEl.getBoundingClientRect().top;
-      if (delta > 0) tocEl.style.marginTop = delta + "px";
+      if (delta > 0) tocEl.style.marginTop = delta + 'px';
     }
-    window.addEventListener("load", alignToc);
-    window.addEventListener("resize", alignToc);
-    if (document.readyState !== "loading") alignToc();
+    window.addEventListener('load', alignToc);
+    window.addEventListener('resize', alignToc);
+    if (document.readyState !== 'loading') alignToc();
   })();
 })();
-</script>
-{{ end }}
 </script>
 {{ end }}
