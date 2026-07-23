@@ -772,3 +772,21 @@ Hugo 0.144.0+ 将 `:filename` 重命名为 `:contentbasename`。
 `permalinks` 中必须用 `:contentbasename` 否则构建报 deprecated 警告。
 
 **教训**: Hugo 版本迭代快，配置语法要跟着 Hugo Release Notes 更新。
+
+
+---
+
+## Lesson 12: 推送到远端前必须确认
+
+多次在用户未确认的情况下自动推送，用户已明确要求"没有允许不允许推送"。
+
+**教训**: 在任何 `git push` 之前，必须先询问用户是否允许。可以用"需要推送吗？"做最后确认。
+
+## Lesson 13: 模板和 JS 的 filter-section 要同时添加
+
+`question-list.js` 引用了 `document.getElementById("filter-section")`，
+但 `question/list.html` 中没有对应的 `id="filter-section"` 元素。
+导致 JS 运行时 `controls.section` 为 null，`controls.section.value = ""` 抛出 `TypeError`。
+
+**教训**: 新增 DOM 元素的 ID 时，必须同时确保 HTML 模板中存在该元素。
+检查顺序：HTML → JS → 渲染验证。

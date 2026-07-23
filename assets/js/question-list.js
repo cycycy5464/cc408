@@ -148,6 +148,7 @@
     var set = controls.set.value;
     var subject = controls.subject.value;
     var chapter = controls.chapter.value;
+    var section = controls.section.value;
     var type = controls.type.value;
     var search = controls.search.value.trim().toLowerCase();
     return questions.filter(function (q) {
