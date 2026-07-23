@@ -62,7 +62,7 @@ cc408/
 |------|------|---------|
 | `hugo.yaml` | 站点基础配置 | `baseURL`, `title: CC408`, `theme: hugo-theme-stack`, 语言 `zh`, 分类系统 (tags/subjects/years/knowledge_points) |
 | `params.yaml` | 外观与功能开关 | 暗色主题默认, KaTeX 数学公式, 搜索启用, 页脚版权 |
-| `menus.yaml` | 导航菜单 | 首页/知识点/练习/合集/图谱/标签/资源 (7项) |
+| `menus.yaml` | 导航菜单 | 首页/知识点/练习/合集/图谱/真题分析/标签/资源 (8项) |
 | `languages.yaml` | 语言配置 | 中文简体 `zh-CN` |
 | `module.yaml` | Hugo 模块挂载 | 标准路径映射 |
 

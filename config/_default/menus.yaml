@@ -15,6 +15,9 @@ main:
   - name: 知识图谱
     url: /graph/
     weight: 40
+  - name: 真题分析
+    url: /study-methods/tag-analysis/
+    weight: 42
   - name: 标签
     url: /tags/
     weight: 45

@@ -9,7 +9,7 @@
     {{ else if eq $current (print $baseRel) }}{{ $section = "home" }}
     {{ else if hasPrefix $current (print $baseRel "tags/") }}{{ $section = "tags" }}
     {{ else if hasPrefix $current (print $baseRel "knowledge_points/") }}{{ $section = "tags" }}
-    {{ else if hasPrefix $current (print $baseRel "study-methods/") }}{{ $section = "" }}
+    {{ else if hasPrefix $current (print $baseRel "study-methods/") }}{{ $section = "study-methods" }}
     {{ end }}
     {{ range .Site.Menus.main }}
     {{ $menuURL := .URL | relURL }}
@@ -28,6 +28,8 @@
       {{ $isActive = eq $menuURL (print $baseRel "graph/") }}
     {{ else if eq $section "tags" }}
       {{ $isActive = eq $menuURL (print $baseRel "tags/") }}
+    {{ else if eq $section "study-methods" }}
+      {{ $isActive = eq $menuURL (print $baseRel "study-methods/tag-analysis/") }}
     {{ else if eq $section "resources" }}
       {{ $isActive = eq $menuURL (print $baseRel "resources/") }}
     {{ end }}
