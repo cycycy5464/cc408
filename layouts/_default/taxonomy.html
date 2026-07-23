@@ -18,7 +18,7 @@
       {{ $year := index $q.Params.years 0 | default "" }}
       {{ $qn := $q.Params.number | default 0 }}
       {{ $qid := printf "q-%s-%d" (string $year) $qn }}
-      <div class="question-block" id="{{ $qid }}" data-subject="{{ index $q.Params.subjects 0 }}" data-year="{{ $year }}" data-number="{{ $qn }}">
+      <div class="question-block" id="{{ $qid }}" data-subject="{{ index $q.Params.subjects 0 }}" data-year="{{ $year }}" data-number="{{ $qn }}" data-source="408真题">
         <div class="q-number">
           {{ $year }} 年第 {{ $qn }} 题
           <span class="q-subject-tag">{{ index $q.Params.subjects 0 }}</span>
@@ -29,7 +29,7 @@
         </div>
         <div class="question-actions">
           <button class="reveal-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
-          <button class="favorite-btn" data-qid="{{ $qid }}" data-title="{{ $q.Title }}" data-year="{{ $year }}" data-number="{{ $qn }}" data-subject="{{ index $q.Params.subjects 0 }}">⭐ 收藏</button>
+          <button class="favorite-btn">⭐ 收藏</button>
         </div>
       </div>
       {{ if lt (add $idx 1) (len $sortedPages) }}

@@ -16,14 +16,14 @@
 
   <div class="exam-content" id="exam-container">
     {{ range $qIndex, $q := $yearQ }}
-      <div class="question-block" id="q-{{ $q.Params.number }}" data-subject="{{ index $q.Params.subjects 0 }}" data-number="{{ $q.Params.number }}">
+      <div class="question-block" id="q-{{ $q.Params.number }}" data-subject="{{ index $q.Params.subjects 0 }}" data-number="{{ $q.Params.number }}" data-source="408真题" data-year="{{ $year }}">
         <div class="q-number">第 {{ $q.Params.number }} 题 <span class="q-subject-tag">{{ index $q.Params.subjects 0 }}</span>{{ with $q.Params.knowledge_points }}<span class="q-kp-tag">{{ index . 0 }}</span>{{ end }}</div>
         <div class="q-body">
         {{ $q.Content }}
         </div>
         <div class="question-actions">
           <button class="reveal-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
-          <button class="favorite-btn" data-qnum="{{ $q.Params.number }}">⭐ 收藏</button>
+          <button class="favorite-btn">⭐ 收藏</button>
         </div>
       </div>
       {{ if lt (add $qIndex 1) (len $yearQ) }}
@@ -78,14 +78,9 @@
   padding: .4rem .9rem; border-radius: var(--radius-sm); cursor: pointer;
   font-size: var(--fs-sm); font-weight: 500; transition: all .2s;
 }
-.question-block .reveal-btn {
-  background: var(--accent); color: white; border: none;
-}
+.question-block .reveal-btn { background: var(--accent); color: white; border: none; }
 .question-block .reveal-btn:hover { opacity: .9; }
-.question-block .favorite-btn {
-  background: transparent; border: 1px solid var(--border-color);
-  color: var(--text-primary);
-}
+.question-block .favorite-btn { background: transparent; border: 1px solid var(--border-color); color: var(--text-primary); }
 .question-block .favorite-btn:hover { color: var(--accent); border-color: var(--accent); }
 .favorite-btn.collected { color: #f0c040; border-color: #f0c040; }
 .question-actions { margin: 1.5rem 0; display: flex; gap: .75rem; align-items: center; }
@@ -97,202 +92,31 @@
 .exam-toc-num { font-family: var(--font-mono); font-size: .8rem; flex: 0 0 1.4rem; min-width: 1.4rem; text-align: right; }
 .exam-toc-subj-label { font-size: .7rem; opacity: .85; flex: 0 0 3.7rem; width: 3.7rem; text-align: left; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .exam-toc-kp { font-size: .68rem; opacity: .6; flex: 1 1 auto; min-width: 0; text-align: left; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.toc-reveal-horizontal {
-  margin-left: auto;
-  flex-shrink: 0;
-  padding: .3rem .7rem;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  color: #fff;
-  border: none;
-  border-radius: var(--radius-sm);
-  font-size: .75rem;
-  font-weight: 600;
-  white-space: nowrap;
-  cursor: pointer;
-  box-shadow: var(--shadow-card);
-  transition: all .2s;
-}
+.toc-reveal-horizontal { margin-left: auto; flex-shrink: 0; padding: .3rem .7rem; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; border: none; border-radius: var(--radius-sm); font-size: .75rem; font-weight: 600; white-space: nowrap; cursor: pointer; box-shadow: var(--shadow-card); transition: all .2s; }
 .toc-reveal-horizontal:hover { box-shadow: var(--shadow-glow); transform: translateY(-1px); }
 .toc-reveal-horizontal:focus-visible { outline: 2px solid var(--text-primary); outline-offset: 2px; }
-.toc-reveal-horizontal[aria-pressed="true"] {
-  background: var(--bg-hover);
-  color: var(--text-primary);
-  border: 1px solid var(--border-color);
-  box-shadow: none;
-}
-.exam-toc-header {
-  display: flex; align-items: center; gap: .5rem; justify-content: space-between;
-  font-size: 1rem; font-weight: 700; color: var(--text-primary);
-  padding: .25rem .75rem .6rem; border-bottom: 1px solid var(--border-color);
-  margin-bottom: .5rem;
-}
+.toc-reveal-horizontal[aria-pressed="true"] { background: var(--bg-hover); color: var(--text-primary); border: 1px solid var(--border-color); box-shadow: none; }
+.exam-toc-header { display: flex; align-items: center; gap: .5rem; justify-content: space-between; font-size: 1rem; font-weight: 700; color: var(--text-primary); padding: .25rem .75rem .6rem; border-bottom: 1px solid var(--border-color); margin-bottom: .5rem; }
 </style>
 
+{{ $qi := resources.Get "js/question-interaction.js" | resources.Minify | resources.Fingerprint }}
+<script src="{{ $qi.RelPermalink }}"></script>
 <script>
 (function() {
   const container = document.getElementById('exam-container');
   if (!container) return;
 
-  container.querySelectorAll('p').forEach(function(p) {
-    if (p.textContent.trim() === '[tag_link]') p.style.display = 'none';
-  });
+  // Process question blocks via shared module
+  initQuestionBlocks();
 
-  container.querySelectorAll('.question-block').forEach(function(block) {
-    var findAnswer = function(el) {
-      for (let child = el.firstChild; child; child = child.nextSibling) {
-        if (child.nodeType === Node.TEXT_NODE) {
-          const m = child.textContent.match(/正确答案[：:]\s*([ABCDabcd])/);
-          if (m) {
-            var answerValue = m[1].toUpperCase();
-            var before = child.textContent.substring(0, m.index);
-            var after = child.textContent.substring(m.index + m[0].length);
-
-            var panel = document.createElement('div');
-            panel.className = 'answer-panel';
-            panel.style.display = 'none';
-            var title = document.createElement('div');
-            title.className = 'answer-title';
-            title.innerHTML = '正确答案：<strong>' + answerValue + '</strong>';
-            panel.appendChild(title);
-            panel.setAttribute('data-answer', answerValue);
-
-            if (before.trim()) child.textContent = before;
-            else el.removeChild(child);
-            if (after.trim()) el.insertBefore(document.createTextNode(after), child.nextSibling);
-
-            el.insertBefore(panel, child.nextSibling);
-
-            var p = panel.parentNode;
-            if (p && p.tagName === 'P') {
-              var sib = p.nextSibling;
-              while (sib) { var nxt = sib.nextSibling; panel.appendChild(sib); sib = nxt; }
-              p.parentNode.insertBefore(panel, p);
-              p.parentNode.removeChild(p);
-            }
-            return true;
-          }
-        } else if (child.nodeType === Node.ELEMENT_NODE) {
-          if (findAnswer(child)) return true;
-        }
-      }
-      return false;
-    };
-
-    var foundAnswer = findAnswer(block);
-
-    if (!foundAnswer) {
-      var anchor = null;
-      var qBody = block.querySelector('.q-body');
-      if (qBody) {
-        var allP2 = qBody.querySelectorAll('p');
-        for (var pi2 = 0; pi2 < allP2.length; pi2++) {
-          var p = allP2[pi2];
-          var txt = p.textContent.trim();
-          // [tag_link] is always a valid anchor
-          if (txt === '[tag_link]') { anchor = p; continue; }
-          // Pure knowledge-tag paragraph: only <a> elements and whitespace text
-          var pureTag = p.childNodes.length > 0;
-          if (pureTag) {
-            for (var ci = 0; ci < p.childNodes.length; ci++) {
-              var cn = p.childNodes[ci];
-              if (cn.nodeType === Node.TEXT_NODE) {
-                if (cn.textContent.trim()) { pureTag = false; break; }
-              } else if (cn.nodeType === Node.ELEMENT_NODE && cn.tagName !== 'A') {
-                pureTag = false; break;
-              }
-            }
-            if (pureTag) anchor = p;
-          }
-        }
-        if (anchor) {
-          var panel = document.createElement('div');
-          panel.className = 'answer-panel';
-          panel.style.display = 'none';
-          panel.setAttribute('data-answer', '');
-          var title = document.createElement('div');
-          title.className = 'answer-title';
-          title.textContent = '答案与解析：';
-          panel.appendChild(title);
-
-          var cur = anchor.nextSibling;
-          while (cur) {
-            var nxt = cur.nextSibling;
-            panel.appendChild(cur);
-            cur = nxt;
-          }
-          qBody.appendChild(panel);
-        }
-      }
-    }
-
-    var allP3 = [];
-    for (var pi3c = 0; pi3c < block.querySelector('.q-body').children.length; pi3c++) {
-      if (block.querySelector('.q-body').children[pi3c].tagName === 'P') allP3.push(block.querySelector('.q-body').children[pi3c]);
-    }
-    for (var pi3 = 0; pi3 < allP3.length; pi3++) {
-      var p3 = allP3[pi3];
-      var txt = p3.textContent.trim();
-      var optParts = txt.match(/([A-D])\s*\.\s*(.*?)(?=\s*[A-D]\s*\.|$)/g);
-      if (optParts && optParts.length > 0) {
-        var fragment = document.createDocumentFragment();
-        var firstIdx = txt.search(/[A-D]\s*\./);
-        var stemPrefix = firstIdx > 0 ? txt.slice(0, firstIdx).trim() : '';
-        if (stemPrefix) {
-          var stemP = document.createElement('p');
-          stemP.className = 'exam-stem-text';
-          stemP.textContent = stemPrefix;
-          fragment.appendChild(stemP);
-        }
-        var created = false;
-        for (var oi3 = 0; oi3 < optParts.length; oi3++) {
-          var part = optParts[oi3].trim();
-          var pm = part.match(/^([A-D])\s*\.\s*(.*)/);
-          if (pm) {
-            created = true;
-            var opt = document.createElement('div');
-            opt.className = 'exam-option';
-            opt.setAttribute('data-opt', pm[1]);
-            opt.innerHTML = '<span class="opt-label">' + pm[1] + '.</span> <span class="opt-text">' + pm[2] + '</span>';
-            opt.addEventListener('click', function() {
-              var parent = this.parentElement;
-              if (parent) {
-                var opts = parent.querySelectorAll('.exam-option');
-                for (var oix = 0; oix < opts.length; oix++) {
-                  opts[oix].classList.remove('selected');
-                }
-              }
-              this.classList.add('selected');
-            });
-            fragment.appendChild(opt);
-          }
-        }
-        if (created) {
-          p3.parentNode.replaceChild(fragment, p3);
-        }
-      }
-    }
-
-    var rp = function(el) {
-      for (let c = el.firstChild; c; c = c.nextSibling) {
-        if (c.nodeType === Node.TEXT_NODE && c.textContent.includes('【解析】')) {
-          const h = c.textContent.replace(/【解析】/g, '<div class="analysis-title">解析：</div>');
-          const t = document.createElement('div'); t.innerHTML = h;
-          el.replaceChild(t.firstChild, c);
-        } else if (c.nodeType === Node.ELEMENT_NODE) rp(c);
-      }
-    };
-    rp(block);
-  });
-
-  var revealBtn = document.getElementById('reveal-all-btn');
-  if (revealBtn) {
-    revealBtn.onclick = function() {
+  // TOC "查看全部解析"
+  var tocRevealBtn = document.getElementById('reveal-all-btn-toc');
+  if (tocRevealBtn) {
+    tocRevealBtn.addEventListener('click', function() {
       var panels = container.querySelectorAll('.answer-panel');
-      var hidden = Array.from(panels).some(function(p) { return p.style.display === 'none'; });
-      panels.forEach(function(p) { p.style.display = hidden ? 'block' : 'none'; });
-      revealBtn.textContent = hidden ? '隐藏全部答案与解析' : '查看全部答案与解析';
-
-      if (hidden) {
+      var anyHidden = Array.prototype.some.call(panels, function(p) { return p.style.display === 'none'; });
+      Array.prototype.forEach.call(panels, function(p) { p.style.display = anyHidden ? 'block' : 'none'; });
+      if (anyHidden) {
         container.querySelectorAll('.question-block').forEach(function(block) {
           var ap = block.querySelector('.answer-panel');
           var correct = ap ? ap.getAttribute('data-answer') : null;
@@ -303,219 +127,59 @@
             });
           }
         });
+        tocRevealBtn.textContent = '收起全部解析';
+        tocRevealBtn.setAttribute('aria-pressed', 'true');
       } else {
-        container.querySelectorAll('.exam-option').forEach(function(o) { o.classList.remove('correct','wrong'); });
-      }
-    };
-  }
-})();
-
-// TOC 竖排“查看全部解析”按钮：点击展开 / 收起全部答案
-(function() {
-  var tocRevealBtn = document.getElementById('reveal-all-btn-toc');
-  if (!tocRevealBtn) return;
-
-  tocRevealBtn.addEventListener('click', function() {
-    var panels = document.querySelectorAll('.answer-panel');
-    var anyHidden = Array.prototype.some.call(panels, function(p) { return p.style.display === 'none'; });
-    var reveal = anyHidden; // 任一隐藏则展开全部，否则收起全部
-    Array.prototype.forEach.call(panels, function(p) { p.style.display = reveal ? 'block' : 'none'; });
-
-    if (reveal) {
-      document.querySelectorAll('.question-block').forEach(function(block) {
-        var ap = block.querySelector('.answer-panel');
-        var correct = ap ? ap.getAttribute('data-answer') : null;
-        if (correct) {
-          block.querySelectorAll('.exam-option').forEach(function(opt) {
-            if (opt.getAttribute('data-opt') === correct) opt.classList.add('correct');
-            else if (opt.classList.contains('selected')) opt.classList.add('wrong');
-          });
-        }
-      });
-      tocRevealBtn.textContent = '收起全部解析';
-      tocRevealBtn.setAttribute('aria-pressed', 'true');
-    } else {
-      document.querySelectorAll('.exam-option').forEach(function(o) { o.classList.remove('correct', 'wrong'); });
-      tocRevealBtn.textContent = '查看全部解析';
-      tocRevealBtn.setAttribute('aria-pressed', 'false');
-    }
-  });
-})();
-
-// Scroll spy for TOC
-(function() {
-  var toc = document.getElementById('exam-toc');
-  if (!toc) return;
-  var items = toc.querySelectorAll('.exam-toc-item');
-  var blocks = document.querySelectorAll('.question-block');
-  if (!blocks.length) return;
-  var tocList = toc.querySelector('.exam-toc-list');
-  if (tocList) {
-    tocList.addEventListener('click', function(e) {
-      var item = e.target.closest('.exam-toc-item');
-      if (item) {
-        var id = item.getAttribute('href');
-        if (id) {
-          e.preventDefault();
-          var target = document.querySelector(id);
-          if (target) {
-            var top = target.getBoundingClientRect().top + window.scrollY - 90;
-            window.scrollTo({ top: top, behavior: 'smooth' });
-          }
-        }
+        container.querySelectorAll('.exam-option').forEach(function(o) { o.classList.remove('correct', 'wrong'); });
+        tocRevealBtn.textContent = '查看全部解析';
+        tocRevealBtn.setAttribute('aria-pressed', 'false');
       }
     });
   }
-  function updateActive() {
-    var scrollY = window.scrollY + 200;
-    var activeIdx = -1;
-    for (var i = 0; i < blocks.length; i++) {
-      var rect = blocks[i].getBoundingClientRect();
-      if (rect.top <= 200) activeIdx = i;
-    }
-    for (var j = 0; j < items.length; j++) {
-      items[j].classList.toggle('active', j === activeIdx);
-    }
-  }
-  window.addEventListener('scroll', updateActive, { passive: true });
-  updateActive();
-})();
 
-function toggleAnswer(btn) {
-  var block = btn.closest('.question-block');
-  if (!block) return;
-  var panel = block.querySelector('.answer-panel');
-  if (!panel) return;
-  if (panel.style.display === 'none' || panel.style.display === '') {
-    panel.style.display = 'block';
-    btn.textContent = '隐藏答案';
-    var correct = panel.getAttribute('data-answer');
-    if (correct) {
-      var opts = block.querySelectorAll('.exam-option');
-      for (var oi = 0; oi < opts.length; oi++) {
-        if (opts[oi].getAttribute('data-opt') === correct) opts[oi].classList.add('correct');
-        else if (opts[oi].classList.contains('selected')) opts[oi].classList.add('wrong');
-      }
-    }
-  } else {
-    panel.style.display = 'none';
-    btn.textContent = '查看答案与解析';
-    var opts2 = block.querySelectorAll('.exam-option');
-    for (var oi2 = 0; oi2 < opts2.length; oi2++) {
-      opts2[oi2].classList.remove('correct', 'wrong');
-    }
-  }
-}
-
-(function(){
-  var STORAGE_KEY = 'quiz_collections';
-  var yearMatch = document.querySelector('h1').textContent.trim().match(/\d{4}/);
-  var year = yearMatch ? yearMatch[0] : '';
-  var pageUrl = window.location.pathname;
-  var pageTitle = document.title;
-
-  function loadAll() {
-    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch(e) { return []; }
-  }
-  function saveAll(items) {
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(items)); } catch(e) {}
-  }
-  function makeId(qnum) { return year + '-' + qnum; }
-
-  var allItems = loadAll();
-  var collectedMap = {};
-  for (var ci = 0; ci < allItems.length; ci++) {
-    collectedMap[allItems[ci].id] = allItems[ci];
-  }
-
-  var favBtns = document.querySelectorAll('.favorite-btn');
-  for (var bi = 0; bi < favBtns.length; bi++) {
-    (function(btn) {
-      var qnum = btn.getAttribute('data-qnum');
-      var id = makeId(qnum);
-      if (collectedMap[id]) {
-        btn.classList.add('collected');
-        btn.textContent = '已收藏';
-      }
-      btn.onclick = function(e) {
-        if (collectedMap[id]) {
-          allItems = allItems.filter(function(item) { return item.id !== id; });
-          delete collectedMap[id];
-          btn.classList.remove('collected');
-          btn.textContent = '⭐ 收藏';
-          saveAll(allItems);
-        } else {
-          var block = btn.closest('.question-block');
-          var quizData = extractQuizData(block, id, qnum);
-          allItems.push(quizData);
-          collectedMap[id] = quizData;
-          btn.classList.add('collected');
-          btn.textContent = '已收藏';
-          saveAll(allItems);
+  // Scroll spy for TOC
+  var toc = document.getElementById('exam-toc');
+  if (toc) {
+    var items = toc.querySelectorAll('.exam-toc-item');
+    var blocks = document.querySelectorAll('.question-block');
+    if (blocks.length) {
+      function updateActive() {
+        var activeIdx = -1;
+        for (var i = 0; i < blocks.length; i++) {
+          if (blocks[i].getBoundingClientRect().top <= 200) activeIdx = i;
         }
-      };
-    })(favBtns[bi]);
-  }
-
-  function extractQuizData(block, id, qnum) {
-    var body = block ? block.querySelector('.q-body') : null;
-    var subject = block ? (block.getAttribute('data-subject') || '') : '';
-    var isChoice = body && body.querySelector('.exam-option') !== null;
-    var question = '';
-    var options = [];
-    var answer = '';
-    var explanation = '';
-    if (body) {
-      var nodes = body.children;
-      var passedTagLink = false;
-      for (var ni = 0; ni < nodes.length; ni++) {
-        var child = nodes[ni];
-        if (child.tagName === 'P') {
-          var txt = child.textContent.trim();
-          if (txt === '[tag_link]') { passedTagLink = true; continue; }
-          if (!passedTagLink) {
-            if (/^[A-D]\s*[.、．]/.test(txt)) break;
-            question += txt + '\n';
-          }
-        }
-        if (child.classList && child.classList.contains('exam-option')) {
-          var optText = child.querySelector('.opt-text');
-          if (optText) options.push(optText.textContent.trim());
+        for (var j = 0; j < items.length; j++) {
+          items[j].classList.toggle('active', j === activeIdx);
         }
       }
-      var ap = block.querySelector('.answer-panel');
-      if (ap) {
-        answer = ap.getAttribute('data-answer') || '';
-        var children2 = ap.children;
-        for (var ni2 = 1; ni2 < children2.length; ni2++) {
-          explanation += children2[ni2].textContent || '';
-        }
-      }
+      window.addEventListener('scroll', updateActive, { passive: true });
+      updateActive();
     }
-    var tags = [];
-    tags.push(isChoice ? '选择题' : '解答题');
-    return {
-      id: id, type: isChoice ? 'choice' : 'answer', multiple: false,
-      subject: subject, source: '408真题', years: year ? [year] : [], quizNumber: parseInt(qnum) || 0,
-      question: question.trim(), options: isChoice ? options : undefined,
-      answer: answer, explanation: explanation.trim(), tags: tags.join(','),
-      pageUrl: pageUrl, pageTitle: pageTitle, collectedAt: new Date().toISOString()
-    };
+    var tocList = toc.querySelector('.exam-toc-list');
+    if (tocList) {
+      tocList.addEventListener('click', function(e) {
+        var item = e.target.closest('.exam-toc-item');
+        if (item && item.getAttribute('href')) {
+          e.preventDefault();
+          var target = document.querySelector(item.getAttribute('href'));
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    }
   }
-})();
-// 题目导航初始位置与首题顶部平齐
-(function() {
-  function alignToc() {
-    var toc = document.getElementById('exam-toc');
-    var firstQ = document.querySelector('.question-block');
-    if (!toc || !firstQ) return;
-    var tr = toc.getBoundingClientRect(), qr = firstQ.getBoundingClientRect();
-    var delta = qr.top - tr.top;
-    if (delta > 0) toc.style.marginTop = delta + 'px';
-  }
-  window.addEventListener('load', alignToc);
-  window.addEventListener('resize', alignToc);
-  if (document.readyState !== 'loading') alignToc();
+
+  // TOC initial alignment
+  (function() {
+    function alignToc() {
+      var tocEl = document.getElementById('exam-toc');
+      var firstQ = document.querySelector('.question-block');
+      if (!tocEl || !firstQ) return;
+      var delta = firstQ.getBoundingClientRect().top - tocEl.getBoundingClientRect().top;
+      if (delta > 0) tocEl.style.marginTop = delta + 'px';
+    }
+    if (document.readyState !== 'loading') alignToc();
+    else window.addEventListener('load', alignToc);
+  })();
 })();
 </script>
 {{ end }}
