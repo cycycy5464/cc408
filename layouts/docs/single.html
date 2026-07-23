@@ -11,16 +11,32 @@
     </div>
     <article>{{ .Content }}</article>
 
-    {{ $currentPath := .File.Path }}
-    {{ $relatedExam := where (where .Site.RegularPages "Section" "exam") "Params.related_knowledge" "intersect" (slice $currentPath) }}
-    {{ with $relatedExam }}
+    {{ $docKps := .Params.knowledge_points }}
+    {{ $relatedQ := where (where .Site.RegularPages "Section" "question") "Params.knowledge_points" "intersect" $docKps }}
+    {{ $relatedQ = first 5 $relatedQ }}
+    {{ with $relatedQ }}
     <div class="related-section">
-      <h3>📎 相关题目</h3>
-      <div class="related-grid">
+      <h3>📎 相关真题</h3>
+      <div class="related-question-list">
         {{ range . }}
-        <a href="{{ .RelPermalink }}" class="knowledge-card">{{ .Title }}</a>
+        {{ $sk := default "" (index .Params.subjects 0) }}
+        {{ $year := index .Params.years 0 | default "" }}
+        {{ $type := "选择题" }}
+        {{ if eq .Params.question_type "comprehensive" }}{{ $type = "解答题" }}{{ end }}
+        <a href="{{ .RelPermalink }}" class="related-question-card">
+          <span class="related-q-meta">
+            <span class="related-q-year">{{ $year }}</span>
+            <span class="related-q-subject">{{ $sk }}</span>
+            <span class="related-q-type">{{ $type }}</span>
+          </span>
+          <span class="related-q-title">{{ .Title }}</span>
+          <span class="related-q-arrow">→</span>
+        </a>
         {{ end }}
       </div>
+      <p class="meta-sm" style="margin-top:.75rem">
+        <a href="{{ "question/" | relURL }}" class="btn-ghost">→ 查看全部相关题目</a>
+      </p>
     </div>
     {{ end }}
 
@@ -29,4 +45,27 @@
     </div>
   </main>
 </div>
+<style>
+.related-section { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); }
+.related-section h3 { font-size: 1.1rem; margin-bottom: 1rem; }
+.related-question-list { display: flex; flex-direction: column; gap: .5rem; }
+.related-question-card {
+  display: flex; align-items: center; gap: .75rem;
+  padding: .65rem .9rem;
+  background: var(--bg-secondary); border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm); text-decoration: none;
+  color: var(--text-primary); transition: all .15s;
+}
+.related-question-card:hover { border-color: var(--accent); background: var(--bg-card); }
+.related-q-meta { display: flex; gap: .35rem; flex-shrink: 0; }
+.related-q-year, .related-q-subject, .related-q-type {
+  font-size: .7rem; padding: 1px 5px; border-radius: 3px;
+}
+.related-q-year { background: rgba(57,186,230,.12); color: var(--accent); }
+.related-q-subject { background: var(--bg-card); color: var(--text-muted); }
+.related-q-type { background: rgba(245,158,11,.12); color: #f59e0b; }
+.related-q-title { flex: 1; font-size: var(--fs-sm); font-weight: 500; }
+.related-q-arrow { color: var(--text-muted); font-size: .85rem; flex-shrink: 0; }
+.related-question-card:hover .related-q-arrow { color: var(--accent); }
+</style>
 {{ end }}

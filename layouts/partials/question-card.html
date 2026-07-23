@@ -1,28 +1,31 @@
 {{/*
-  Renders a question card link for a single question page.
-  Shared by the question list (/question/) and chapter-exercises pages.
-  The data-* attributes are consumed by each page's client-side filter script.
-  Subject/chapter values are taken straight from front matter / title so the
-  partial stays robust to subjects not present in a fixed lookup table.
+  Renders a full interactive question card for a single question.
+  Used by chapter-exercises page.
+  Data attributes are consumed by the page's client-side filter script.
 */}}
 {{ $page := . }}
 {{ $sk := default "" (index $page.Params.subjects 0) }}
 {{ $tp := split $page.Title " 第" }}
 {{ $chapter := index $tp 0 }}
-<a href="{{ $page.RelPermalink }}" class="question-card"
-   data-year="{{ delimit $page.Params.years "," }}"
-   data-subject="{{ $sk }}"
-   data-subject-name="{{ $sk }}"
-   data-chapter="{{ $chapter }}"
-   data-chapter-name="{{ $chapter }}"
-   data-type="{{ $page.Params.question_type }}"
-   data-source="{{ $page.Params.source }}"
-   data-set="{{ with $page.Params.set }}{{ . }}{{ end }}">
-  <div class="meta">
-    <span class="tag">{{ $sk }}</span>
-    {{ if eq $page.Params.source "课后题" }}<span class="tag tag-accent">{{ $chapter }}</span>{{ end }}
-    <span class="tag tag-warm">{{ if eq $page.Params.question_type "comprehensive" }}解答{{ else }}选择{{ end }}</span>
-    <span>{{ $d := default 1 $page.Params.difficulty }}{{ range seq 1 4 }}{{ if le . $d }}★{{ else }}☆{{ end }}{{ end }}</span>
+{{ $year := index $page.Params.years 0 | default "" }}
+{{ $qn := $page.Params.number | default 0 }}
+<div class="question-block"
+     data-year="{{ delimit $page.Params.years "," }}"
+     data-subject="{{ $sk }}"
+     data-subject-name="{{ $sk }}"
+     data-chapter="{{ $chapter }}"
+     data-chapter-name="{{ $chapter }}"
+     data-type="{{ $page.Params.question_type }}"
+     data-source="{{ $page.Params.source }}"
+     data-set="{{ with $page.Params.set }}{{ . }}{{ end }}">
+  <div class="q-number">
+    {{ $page.Title }}
+    <span class="q-subject-tag">{{ $sk }}</span>
+    {{ if eq $page.Params.question_type "comprehensive" }}<span class="q-subject-tag" style="background:rgba(245,158,11,.12);color:#f59e0b">解答题</span>{{ else }}<span class="q-subject-tag" style="background:rgba(57,186,230,.12);color:var(--accent)">选择题</span>{{ end }}
   </div>
-  <div class="stem">{{ $page.Title }}</div>
-</a>
+  <div class="q-body">{{ $page.Content }}</div>
+  <div class="question-actions">
+    <button class="reveal-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
+    <button class="favorite-btn" data-qid="{{ $page.File.UniqueID }}" data-title="{{ $page.Title }}" data-year="{{ $year }}" data-number="{{ $qn }}" data-subject="{{ $sk }}">⭐ 收藏</button>
+  </div>
+</div>

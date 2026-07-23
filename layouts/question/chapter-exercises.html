@@ -18,17 +18,18 @@
       <option value="comprehensive">解答题</option>
     </select>
     <input type="text" id="ce-search" data-filter="search" placeholder="搜索题目…">
+    <button id="reveal-all-btn-ce" class="toc-reveal-horizontal" style="margin-left:auto" type="button" aria-pressed="false">查看全部解析</button>
   </div>
 
   <div id="ce-hint" class="ce-hint">请先选择科目与章节</div>
 
-  <div class="question-grid" id="question-grid">
+  <div class="exam-content" id="exam-container">
     {{ range ($pages.ByParam "number") }}{{ partial "question-card.html" . }}{{ end }}
   </div>
 
   <div class="border-top-section">
-    <a href="{{ "question/" | relURL }}" class="btn btn-ghost">← 返回题目库</a>
-    <a href="{{ "exam/" | relURL }}" class="btn btn-ghost">← 返回刷题中心</a>
+    <a href="{{ "question/" | relURL }}" class="btn-ghost">← 返回题目库</a>
+    <a href="{{ "exam/" | relURL }}" class="btn-ghost">← 返回刷题中心</a>
   </div>
 </div>
 
@@ -47,57 +48,102 @@
 .question-toolbar input { flex: 1; min-width: 180px; }
 .question-toolbar select:focus, .question-toolbar input:focus { outline: none; border-color: var(--accent); }
 .ce-hint { text-align: center; color: var(--text-muted); padding: 2rem 1rem; font-size: var(--fs-sm); }
+.q-separator { margin: 1.5rem 0; border: none; border-top: 1px solid var(--border-color); }
+.question-block { margin-bottom: .5rem; display:none; }
+.question-block.visible { display:block; }
+.q-number { font-size: .9rem; font-weight: 700; color: var(--accent); margin-bottom: .5rem; }
+.q-subject-tag { font-size: .75rem; font-weight: 400; color: var(--text-muted); background: var(--bg-secondary); padding: 1px 6px; border-radius: 3px; margin-left: .5rem; }
+.q-body img { background: #fff; padding: 8px; border-radius: 4px; max-width: 100%; }
+.answer-panel { margin-top: .5rem; padding: .75rem; background: var(--bg-secondary); border-radius: 6px; border-left: 3px solid var(--accent); }
+.answer-title { font-weight: 700; margin-bottom: .25rem; }
+.analysis-title { font-weight: 700; color: var(--accent); margin: .5rem 0 .25rem; }
+.exam-option { padding: .4rem .6rem; margin: .2rem 0; border: 1px solid var(--border-color); border-radius: 4px; cursor: pointer; transition: all .15s; }
+.exam-option:hover { background: var(--bg-secondary); }
+.exam-option.selected { border-color: var(--accent); background: rgba(57,186,230,.1); }
+.exam-option.correct { border-color: #4caf50; background: rgba(76,175,80,.15); }
+.exam-option.wrong { border-color: #f44336; background: rgba(244,67,54,.15); }
+.question-block .question-actions { margin-top: .5rem; display: flex; gap: .5rem; align-items: center; }
+.question-block .reveal-btn, .question-block .favorite-btn {
+  padding: .4rem .9rem; border-radius: var(--radius-sm); cursor: pointer;
+  font-size: var(--fs-sm); font-weight: 500; transition: all .2s;
+}
+.question-block .reveal-btn { background: var(--accent); color: white; border: none; }
+.question-block .reveal-btn:hover { opacity: .9; }
+.question-block .favorite-btn {
+  background: transparent; border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+.question-block .favorite-btn:hover { color: var(--accent); border-color: var(--accent); }
+.favorite-btn.collected { color: #f0c040; border-color: #f0c040; }
+.question-actions { margin: 1.5rem 0; display: flex; gap: .75rem; align-items: center; }
+.toc-reveal-horizontal {
+  flex-shrink: 0; padding: .3rem .7rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #fff; border: none; border-radius: var(--radius-sm);
+  font-size: .75rem; font-weight: 600; white-space: nowrap;
+  cursor: pointer; box-shadow: var(--shadow-card); transition: all .2s;
+}
+.toc-reveal-horizontal:hover { box-shadow: var(--shadow-glow); transform: translateY(-1px); }
+.toc-reveal-horizontal[aria-pressed="true"] {
+  background: var(--bg-hover); color: var(--text-primary);
+  border: 1px solid var(--border-color); box-shadow: none;
+}
 </style>
 
 <script>
 (function() {
-  const grid = document.getElementById('question-grid');
-  if (!grid) return;
-  const cards = Array.from(grid.querySelectorAll('.question-card'));
-  const subjSel = document.getElementById('ce-subject');
-  const chapSel = document.getElementById('ce-chapter');
-  const typeSel = document.getElementById('ce-type');
-  const search = document.getElementById('ce-search');
-  const hint = document.getElementById('ce-hint');
+  'use strict';
 
-  // Build subject options from rendered cards
-  const subjSet = {};
+  // ── Filter logic ──
+  var grid = document.getElementById('exam-container');
+  if (!grid) return;
+  var cards = Array.from(grid.querySelectorAll('.question-block'));
+  var subjSel = document.getElementById('ce-subject');
+  var chapSel = document.getElementById('ce-chapter');
+  var typeSel = document.getElementById('ce-type');
+  var search = document.getElementById('ce-search');
+  var hint = document.getElementById('ce-hint');
+
+  var subjSet = {};
   cards.forEach(function(c) {
-    const k = c.dataset.subject, n = c.dataset.subjectName;
+    var k = c.dataset.subject, n = c.dataset.subjectName;
     if (k && !subjSet[k]) subjSet[k] = n;
   });
   Object.keys(subjSet).forEach(function(k) {
-    const o = document.createElement('option');
+    var o = document.createElement('option');
     o.value = k; o.textContent = subjSet[k];
     subjSel.appendChild(o);
   });
 
   function populateChapters() {
-    const sk = subjSel.value;
+    var sk = subjSel.value;
     chapSel.innerHTML = '<option value="">选择章节</option>';
-    const chapSet = {};
+    var chapSet = {};
     cards.forEach(function(c) {
       if (c.dataset.subject === sk) {
-        const k = c.dataset.chapter, n = c.dataset.chapterName;
+        var k = c.dataset.chapter, n = c.dataset.chapterName;
         if (k && !chapSet[k]) chapSet[k] = n;
       }
     });
     Object.keys(chapSet).forEach(function(k) {
-      const o = document.createElement('option');
+      var o = document.createElement('option');
       o.value = k; o.textContent = chapSet[k];
       chapSel.appendChild(o);
     });
   }
 
   function filter() {
-    const sk = subjSel.value, ck = chapSel.value,
-          t = typeSel.value, q = search.value.toLowerCase();
+    var sk = subjSel.value, ck = chapSel.value,
+        t = typeSel.value, q = search.value.toLowerCase();
+    var visibleCount = 0;
     cards.forEach(function(c) {
-      const matchSubj = sk && c.dataset.subject === sk;
-      const matchChap = ck && c.dataset.chapter === ck;
-      const matchType = !t || c.dataset.type === t;
-      const matchSearch = !q || c.textContent.toLowerCase().includes(q);
-      c.style.display = (matchSubj && matchChap && matchType && matchSearch) ? 'block' : 'none';
+      var matchSubj = !sk || c.dataset.subject === sk;
+      var matchChap = !ck || c.dataset.chapter === ck;
+      var matchType = !t || c.dataset.type === t;
+      var matchSearch = !q || c.textContent.toLowerCase().includes(q);
+      var show = matchSubj && matchChap && matchType && matchSearch;
+      c.classList.toggle('visible', show);
+      if (show) visibleCount++;
     });
     if (!sk) { hint.style.display = 'block'; hint.textContent = '请先选择科目'; }
     else if (!ck) { hint.style.display = 'block'; hint.textContent = '请选择章节'; }
@@ -108,8 +154,308 @@
   chapSel.addEventListener('change', filter);
   typeSel.addEventListener('change', filter);
   search.addEventListener('input', filter);
-
   filter();
+
+  // ── Interactive question processing ──
+  function processQuestions() {
+    // Hide [tag_link]
+    grid.querySelectorAll('p').forEach(function(p) {
+      if (p.textContent.trim() === '[tag_link]') p.style.display = 'none';
+    });
+
+    grid.querySelectorAll('.question-block').forEach(function(block) {
+      // Find answer
+      var findAnswer = function(el) {
+        for (let child = el.firstChild; child; child = child.nextSibling) {
+          if (child.nodeType === Node.TEXT_NODE) {
+            const m = child.textContent.match(/正确答案[：:]\s*([ABCDabcd])/);
+            if (m) {
+              var answerValue = m[1].toUpperCase();
+              var before = child.textContent.substring(0, m.index);
+              var after = child.textContent.substring(m.index + m[0].length);
+              var panel = document.createElement('div');
+              panel.className = 'answer-panel';
+              panel.style.display = 'none';
+              var title = document.createElement('div');
+              title.className = 'answer-title';
+              title.innerHTML = '正确答案：<strong>' + answerValue + '</strong>';
+              panel.appendChild(title);
+              panel.setAttribute('data-answer', answerValue);
+              if (before.trim()) child.textContent = before;
+              else el.removeChild(child);
+              if (after.trim()) el.insertBefore(document.createTextNode(after), child.nextSibling);
+              el.insertBefore(panel, child.nextSibling);
+              var p = panel.parentNode;
+              if (p && p.tagName === 'P') {
+                var sib = p.nextSibling;
+                while (sib) { var nxt = sib.nextSibling; panel.appendChild(sib); sib = nxt; }
+                p.parentNode.insertBefore(panel, p);
+                p.parentNode.removeChild(p);
+              }
+              return true;
+            }
+          } else if (child.nodeType === Node.ELEMENT_NODE) {
+            if (findAnswer(child)) return true;
+          }
+        }
+        return false;
+      };
+      var foundAnswer = findAnswer(block);
+
+      // Comprehensive fallback
+      if (!foundAnswer) {
+        var anchor = null;
+        var qBody = block.querySelector('.q-body');
+        if (qBody) {
+          var allP2 = qBody.querySelectorAll('p');
+          for (var pi2 = 0; pi2 < allP2.length; pi2++) {
+            var p = allP2[pi2];
+            var txt = p.textContent.trim();
+            if (txt === '[tag_link]') { anchor = p; continue; }
+            var pureTag = p.childNodes.length > 0;
+            if (pureTag) {
+              for (var ci = 0; ci < p.childNodes.length; ci++) {
+                var cn = p.childNodes[ci];
+                if (cn.nodeType === Node.TEXT_NODE) {
+                  if (cn.textContent.trim()) { pureTag = false; break; }
+                } else if (cn.nodeType === Node.ELEMENT_NODE && cn.tagName !== 'A') {
+                  pureTag = false; break;
+                }
+              }
+              if (pureTag) anchor = p;
+            }
+          }
+          if (anchor) {
+            var panel = document.createElement('div');
+            panel.className = 'answer-panel';
+            panel.style.display = 'none';
+            panel.setAttribute('data-answer', '');
+            var title = document.createElement('div');
+            title.className = 'answer-title';
+            title.textContent = '答案与解析：';
+            panel.appendChild(title);
+            var cur = anchor.nextSibling;
+            while (cur) { var nxt = cur.nextSibling; panel.appendChild(cur); cur = nxt; }
+            qBody.appendChild(panel);
+          }
+        }
+      }
+
+      // Convert options
+      var allP3 = [];
+      var qBody2 = block.querySelector('.q-body');
+      for (var pi3c = 0; pi3c < qBody2.children.length; pi3c++) {
+        if (qBody2.children[pi3c].tagName === 'P') allP3.push(qBody2.children[pi3c]);
+      }
+      for (var pi3 = 0; pi3 < allP3.length; pi3++) {
+        var p3 = allP3[pi3];
+        var txt = p3.textContent.trim();
+        var optParts = txt.match(/([A-D])\s*\.\s*(.*?)(?=\s*[A-D]\s*\.|$)/g);
+        if (optParts && optParts.length > 0) {
+          var fragment = document.createDocumentFragment();
+          var firstIdx = txt.search(/[A-D]\s*\./);
+          var stemPrefix = firstIdx > 0 ? txt.slice(0, firstIdx).trim() : '';
+          if (stemPrefix) {
+            var stemP = document.createElement('p');
+            stemP.className = 'exam-stem-text';
+            stemP.textContent = stemPrefix;
+            fragment.appendChild(stemP);
+          }
+          var created = false;
+          for (var oi3 = 0; oi3 < optParts.length; oi3++) {
+            var part = optParts[oi3].trim();
+            var pm = part.match(/^([A-D])\s*\.\s*(.*)/);
+            if (pm) {
+              created = true;
+              var opt2 = document.createElement('div');
+              opt2.className = 'exam-option';
+              opt2.setAttribute('data-opt', pm[1]);
+              opt2.innerHTML = '<span class="opt-label">' + pm[1] + '.</span> <span class="opt-text">' + pm[2] + '</span>';
+              opt2.addEventListener('click', function() {
+                var parent = this.parentElement;
+                if (parent) {
+                  var opts = parent.querySelectorAll('.exam-option');
+                  for (var oix = 0; oix < opts.length; oix++) {
+                    opts[oix].classList.remove('selected');
+                  }
+                }
+                this.classList.add('selected');
+              });
+              fragment.appendChild(opt2);
+            }
+          }
+          if (created) p3.parentNode.replaceChild(fragment, p3);
+        }
+      }
+
+      // Replace 【解析】
+      var rp = function(el) {
+        for (let c = el.firstChild; c; c = c.nextSibling) {
+          if (c.nodeType === Node.TEXT_NODE && c.textContent.includes('【解析】')) {
+            const h = c.textContent.replace(/【解析】/g, '<div class="analysis-title">解析：</div>');
+            const t = document.createElement('div'); t.innerHTML = h;
+            el.replaceChild(t.firstChild, c);
+          } else if (c.nodeType === Node.ELEMENT_NODE) rp(c);
+        }
+      };
+      rp(block);
+    });
+  }
+  processQuestions();
+
+  // ── Reveal All button ──
+  var revealBtn = document.getElementById('reveal-all-btn-ce');
+  if (revealBtn) {
+    revealBtn.addEventListener('click', function() {
+      var visibleBlocks = grid.querySelectorAll('.question-block.visible');
+      var panels = [];
+      visibleBlocks.forEach(function(b) {
+        b.querySelectorAll('.answer-panel').forEach(function(p) { panels.push(p); });
+      });
+      var anyHidden = panels.some(function(p) { return p.style.display === 'none'; });
+      panels.forEach(function(p) { p.style.display = anyHidden ? 'block' : 'none'; });
+      if (anyHidden) {
+        visibleBlocks.forEach(function(block) {
+          var ap = block.querySelector('.answer-panel');
+          var correct = ap ? ap.getAttribute('data-answer') : null;
+          if (correct) {
+            block.querySelectorAll('.exam-option').forEach(function(opt) {
+              if (opt.getAttribute('data-opt') === correct) opt.classList.add('correct');
+              else if (opt.classList.contains('selected')) opt.classList.add('wrong');
+            });
+          }
+        });
+        revealBtn.textContent = '收起全部解析';
+        revealBtn.setAttribute('aria-pressed', 'true');
+      } else {
+        grid.querySelectorAll('.exam-option').forEach(function(o) { o.classList.remove('correct', 'wrong'); });
+        revealBtn.textContent = '查看全部解析';
+        revealBtn.setAttribute('aria-pressed', 'false');
+      }
+    });
+  }
+
+  // ── Favorite buttons ──
+  (function() {
+    var STORAGE_KEY = 'quiz_collections';
+    function loadAll() {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch(e) { return []; }
+    }
+    function saveAll(items) {
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(items)); } catch(e) {}
+    }
+    var allItems = loadAll();
+    var collectedMap = {};
+    for (var ci = 0; ci < allItems.length; ci++) {
+      collectedMap[allItems[ci].id] = allItems[ci];
+    }
+    var pageUrl = window.location.pathname;
+    var pageTitle = document.title;
+
+    var favBtns = document.querySelectorAll('.favorite-btn');
+    for (var bi = 0; bi < favBtns.length; bi++) {
+      (function(btn) {
+        var qid = btn.getAttribute('data-qid');
+        var year = btn.getAttribute('data-year');
+        var qnum = btn.getAttribute('data-number');
+        var subject = btn.getAttribute('data-subject');
+        var title = btn.getAttribute('data-title');
+        var id = qid || (year + '-' + qnum);
+        if (collectedMap[id]) { btn.classList.add('collected'); btn.textContent = '已收藏'; }
+        btn.onclick = function(e) {
+          if (collectedMap[id]) {
+            allItems = allItems.filter(function(item) { return item.id !== id; });
+            delete collectedMap[id];
+            btn.classList.remove('collected');
+            btn.textContent = '⭐ 收藏';
+            saveAll(allItems);
+          } else {
+            var block = btn.closest('.question-block');
+            var quizData = extractQuizData(block, id, qnum, year, subject, title);
+            allItems.push(quizData);
+            collectedMap[id] = quizData;
+            btn.classList.add('collected');
+            btn.textContent = '已收藏';
+            saveAll(allItems);
+          }
+        };
+      })(favBtns[bi]);
+    }
+
+    function extractQuizData(block, id, qnum, year, subject, title) {
+      var body = block ? block.querySelector('.q-body') : null;
+      var isChoice = body && body.querySelector('.exam-option') !== null;
+      var question = '';
+      var options = [];
+      var answer = '';
+      var explanation = '';
+      if (body) {
+        var nodes = body.children;
+        var passedTagLink = false;
+        for (var ni = 0; ni < nodes.length; ni++) {
+          var child = nodes[ni];
+          if (child.tagName === 'P') {
+            var txt = child.textContent.trim();
+            if (txt === '[tag_link]') { passedTagLink = true; continue; }
+            if (!passedTagLink) {
+              if (/^[A-D]\s*[.、．]/.test(txt)) break;
+              question += txt + '\n';
+            }
+          }
+          if (child.classList && child.classList.contains('exam-option')) {
+            var optText = child.querySelector('.opt-text');
+            if (optText) options.push(optText.textContent.trim());
+          }
+        }
+        var ap = block.querySelector('.answer-panel');
+        if (ap) {
+          answer = ap.getAttribute('data-answer') || '';
+          var children2 = ap.children;
+          for (var ni2 = 1; ni2 < children2.length; ni2++) {
+            explanation += children2[ni2].textContent || '';
+          }
+        }
+      }
+      return {
+        id: id, type: isChoice ? 'choice' : 'answer', multiple: false,
+        subject: subject, source: '课后题', years: year ? [year] : [], quizNumber: parseInt(qnum) || 0,
+        question: question.trim(), options: isChoice ? options : undefined,
+        answer: answer, explanation: explanation.trim(), tags: ['课后题'].join(','),
+        pageUrl: pageUrl, pageTitle: pageTitle, collectedAt: new Date().toISOString()
+      };
+    }
+  })();
+
+  // ── Re-process when filter changes (new visible blocks) ──
+  // The filter function already toggles .visible class.
+  // The reveal-all button already works on .question-block.visible only.
 })();
+
+// ── Global toggleAnswer ──
+function toggleAnswer(btn) {
+  var block = btn.closest('.question-block');
+  if (!block) return;
+  var panel = block.querySelector('.answer-panel');
+  if (!panel) return;
+  if (panel.style.display === 'none' || panel.style.display === '') {
+    panel.style.display = 'block';
+    btn.textContent = '隐藏答案';
+    var correct = panel.getAttribute('data-answer');
+    if (correct) {
+      var opts = block.querySelectorAll('.exam-option');
+      for (var oi = 0; oi < opts.length; oi++) {
+        if (opts[oi].getAttribute('data-opt') === correct) opts[oi].classList.add('correct');
+        else if (opts[oi].classList.contains('selected')) opts[oi].classList.add('wrong');
+      }
+    }
+  } else {
+    panel.style.display = 'none';
+    btn.textContent = '查看答案与解析';
+    var opts2 = block.querySelectorAll('.exam-option');
+    for (var oi2 = 0; oi2 < opts2.length; oi2++) {
+      opts2[oi2].classList.remove('correct', 'wrong');
+    }
+  }
+}
 </script>
 {{ end }}
