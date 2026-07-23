@@ -40,11 +40,14 @@ build:
     - \.?backup-
     - \.~
   disableAliases: true
-  permalinks:
-    question: '/question/:filename/'
-  outputs:
+
+permalinks:
+  question: '/question/:filename/'
+
+outputs:
   home: [HTML]
   section: [HTML]
+  page: [HTML]
 imaging:
   resampleFilter: lanczos
   quality: 80

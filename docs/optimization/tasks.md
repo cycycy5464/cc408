@@ -52,3 +52,5 @@
 - [x] 移除 JS 冗余懒加载（baseof.html 精简）
 - [x] 删除未使用 CSS：knowledge-card, filter-bar（custom.scss -8 行）
 - [x] collect-quiz.js ID 统一为 {year}-{number} 格式（与共享模块一致）
+- [x] **P3-3: JSON API** — generate-questions-json.py 生成 static/data/questions-all.json（3442 题）
+- [x] 构建流程集成 — deploy workflow 中自动运行 generator

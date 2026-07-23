@@ -351,6 +351,7 @@ layouts/exam/year-detail.html          →  查询 content/question/*.md
 | `images/questions/` | 题目图片 (SVG/PNG)，按年份-题号组织 |
 | `images/docs/` | 知识点图片 |
 | `data/` | JSON 数据文件 (题目-知识点映射、标签统计) |
+| `data/questions-all.json` | **全量题目 API**（3442 题，CI 自动生成） |
 | `js/` | JS 静态副本 |
 | `css/` | CSS 编译产物 |
 | `mapping/` | 知识点映射数据 |
