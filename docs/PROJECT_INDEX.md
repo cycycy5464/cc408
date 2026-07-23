@@ -435,6 +435,63 @@ layouts/exam/year-detail.html          →  查询 content/question/*.md
 
 ## 关键架构模式
 
+### 页面渲染规则
+
+**URL → 模板路由全表**:
+
+| URL 路径 | 模板文件 | 内容来源 |
+|:---------|:---------|:---------|
+| `/` | `_default/index.html` | `content/_index.md` |
+| `/docs/` | `docs/list.html` | `content/docs/_index.md` |
+| `/docs/{subject}/` | `docs/list.html` | `content/docs/{subject}/_index.md` |
+| `/docs/{subject}/{article}/` | `docs/single.html` | 相应 .md 文章 |
+| `/exam/` | `exam/list.html` | `content/exam/_index.md` |
+| `/exam/408quiz/` | `exam/408quiz/list.html` | `content/exam/408quiz/_index.md` |
+| `/exam/408quiz/{year}/` | `exam/single.html` | `content/exam/408quiz/{year}/_index.md` |
+| `/exam/simulate/` | `exam/list.html` | `content/exam/simulate/_index.md` |
+| `/exam/simulate/set-{n}/` | `exam/year-detail.html` | `content/exam/simulate/set-{n}/_index.md` |
+| `/question/` | `question/list.html` | `content/question/_index.md` |
+| `/question/{id}/` | `question/single.html` | 相应 .md 单题 |
+| `/code/` | `code/list.html` | `content/code/_index.md` |
+| `/graph/` | `graph/list.html` | — (D3.js) |
+| `/search/` | `search/list.html` | — (全文搜索) |
+| `/resources/` | `resources/list.html` | `content/resources/_index.md` |
+| `/study-methods/tag-analysis/` | `_default/tag-analysis.html` | `static/data/tags-data.json` |
+| `/knowledge_points/{tag}/` | `_default/taxonomy.html` | 标签分类页 |
+| `/exam/quiz-collection/` | `exam/quiz-collection.html` | localStorage |
+| `/tags/` | `_default/terms.html` | Hugo 分类系统 |
+
+**模板查找顺序**: `layouts/{section}/{subsection}/list.html` → `layouts/{section}/list.html` → `layouts/_default/list.html`
+
+**题目内容格式 (选择题)**:
+```markdown
+题干文本，可以包含 $LaTeX$ 和 Markdown 链接。
+
+A\. 选项一
+B\. 选项二
+C\. 选项三
+D\. 选项四
+
+[tag_link]
+
+正确答案：A
+
+分析文本...
+```
+- 选项使用 `\.` 转义句点，选项间**无空行**
+- `[tag_link]` 独占一行，前后空行分隔
+- `正确答案：X` 独占一行，后空一行与分析文本分离
+
+**综合题格式**: `question_type: "comprehensive"`。用 `[tag_link]` 切分题干与解析，无 `正确答案` 行。
+
+**筛选举例**:
+| 场景 | Hugo/JS 规则 |
+|:----|:-------------|
+| 真题年份列表排除模拟题 | `hasPrefix .Name "simulate"` 过滤 |
+| 真题整卷过滤 | `in .Params.years $year` |
+| 模拟卷整卷过滤 | `eq .Params.source "模拟题"` AND `eq .Params.set $.Params.set` |
+| 题目库筛选 | 客户端 JS `data-*` 属性匹配 |
+
 ### 题目渲染流程
 
 ```

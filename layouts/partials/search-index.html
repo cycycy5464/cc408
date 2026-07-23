@@ -20,5 +20,22 @@
   }}
   {{ $entries = $entries | append $entry }}
 {{ end }}
+{{/* Include real exam questions */}}
+{{ range where (where .Site.RegularPages "Section" "question") "Params.source" "408真题" }}
+  {{ $stem := .Plain | default "" }}
+  {{ $stem = replaceRE "(?s)\\[tag_link\\].*" "" $stem }}
+  {{ $stem = trim $stem " \n\r\t" }}
+  {{ $entry := dict
+    "title" .Title
+    "url" .RelPermalink
+    "subject" (index .Params.subjects 0 | default "")
+    "tags" (default slice .Params.knowledge_points)
+    "source" .Params.source
+    "year" (index .Params.years 0 | default "")
+    "number" (.Params.number | default 0)
+    "excerpt" ($stem | truncate 120)
+  }}
+  {{ $entries = $entries | append $entry }}
+{{ end }}
 {{ $data := dict "entries" $entries }}
 {{ $data | jsonify | safeJS }}

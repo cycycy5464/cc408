@@ -27,10 +27,27 @@
       '<div class="exam-paper-grid">' +
       hits.map(function(h) {
         var subj = h.subject === 'data-structure' ? '数据结构' : h.subject === 'computer-org' ? '组成原理' : h.subject === 'os' ? '操作系统' : h.subject === 'network' ? '计算机网络' : h.subject || '';
+        var tagsHtml = (h.tags || []).map(function(t){return '<span class="tag">' + t + '</span>';}).join('');
+        // Question results: show more info
+        if (h.source === '408真题') {
+          var year = h.year || '';
+          var num = h.number ? '第' + h.number + '题' : '';
+          return '<a href="' + h.url + '" class="exam-paper-card" style="border-left:3px solid var(--accent)">' +
+            '<div class="title">' + h.title + '</div>' +
+            '<div class="meta">' +
+            (year ? '<span class="tag">' + year + '</span>' : '') +
+            (subj ? '<span class="tag">' + subj + '</span>' : '') +
+            (num ? '<span style="color:var(--text-muted)">' + num + '</span>' : '') +
+            tagsHtml +
+            '</div>' +
+            '<div style="font-size:var(--fs-xs);color:var(--text-muted);margin-top:.3rem">' + (h.excerpt || '') + '</div>' +
+            '</a>';
+        }
+        // Default: docs/exam results
         return '<a href="' + h.url + '" class="exam-paper-card">' +
           '<div class="title">' + h.title + '</div>' +
           '<div class="meta">' + (subj ? '<span class="tag">' + subj + '</span>' : '') +
-          (h.tags ? h.tags.map(function(t){return '<span class="tag">' + t + '</span>';}).join('') : '') +
+          tagsHtml +
           '</div></a>';
       }).join('') + '</div>';
   }
