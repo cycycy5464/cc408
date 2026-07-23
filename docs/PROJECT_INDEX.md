@@ -407,22 +407,38 @@ layouts/exam/year-detail.html          →  查询 content/question/*.md
 
 ## docs/ — 项目文档
 
-| 文件 | 内容 |
-|------|------|
-| `requirements.md` | 完整需求文档: 3个系统 (文档/考试/图谱) + 资源 + 视觉设计约束 + 水印系统 + 已知问题 |
-| `improvement-plan.md` | 前端改进计划: 颜色系统、排版、组件设计、17项技术改进 (P0-P3) |
-| `question-system.md` | 题目渲染系统文档: 文件命名、frontmatter、正文格式、年份页面组装、浏览器端 JS 处理 |
-| `content-migration-guide.md` | 内容迁移流程 |
-| `frontend-issues-report.md` | 前端问题报告 |
-| `frontend-uiux-audit.md` | UI/UX 审计 |
-| `verification-checklist.md` | 验证清单 |
-| `svg编辑.md` | SVG 编辑指南 |
-| `CC408代码审查报告.docx` | 代码审查报告 (Word 文档) |
-| `PROJECT_INDEX.md` | 本索引文档 |
-| `code-review-2026-07-22.md` | 全维度代码审查报告 — 交互/架构/性能/Hugo 优化建议 |
-| `optimization/tasks.md` | 优化 sprint 任务清单（P0-P3 进度跟踪） |
-| `optimization/lessons.md` | 优化 sprint 经验教训（5 条） |
-| `current-issues/` | 当前问题追踪 (12个问题文档) |
+```
+docs/
+├── PROJECT_INDEX.md          # 本索引（唯一入口）
+├── architecture/             # 系统架构与需求
+│   ├── requirements.md       #   完整需求文档
+│   ├── question-system.md    #   题目渲染系统
+│   ├── improvement-plan.md   #   前端改进计划
+│   ├── hugo-knowledge-graph.md
+│   ├── content-migration-guide.md
+│   ├── question-data-sources.md
+│   └── lessons.md            #   经验教训（汇总）
+├── reviews/                  # 代码审查与审计
+│   ├── code-review-2026-07-22.md
+│   ├── CC408代码审查报告.docx
+│   └── frontend-audit.md
+├── optimization/             # 优化 sprint
+│   └── tasks.md              #   P0-P3 任务进度
+├── issues/                   # 当前问题追踪
+│   └── current-issues/       #   14 个问题文档
+├── guides/                   # 开发指南
+│   ├── svg编辑.md
+│   ├── HUGO_PERFORMANCE.md
+│   ├── 题目颗粒化重构方案.md
+│   ├── fix-docs-sidebar.md
+│   └── 按钮修改.md
+└── archive/                  # 已归档（历史备份）
+    ├── backup-整卷/          #   17份真题整卷
+    ├── simulate-backup/      #   8套模拟卷
+    ├── verification-checklist.md
+    ├── session-progress.md
+    └── superpowers/          #   过期计划
+```
 
 ---
 
@@ -542,7 +558,7 @@ exam/quiz-collection/    → quiz-collection.js 读取同一 key，渲染卡片
 
 ## 经验教训
 
-修改项目前**必须阅读** `tasks/docs/lessons.md` + `docs/optimization/lessons.md`，关键要点:
+修改项目前**必须阅读** `docs/architecture/lessons.md`，关键要点:
 
 1. **Hugo relURL**: 不要前缀 `/` — `"docs/" | relURL` 才正确
 2. **菜单 URL**: Hugo 自动在 menu 配置中解析 baseURL
