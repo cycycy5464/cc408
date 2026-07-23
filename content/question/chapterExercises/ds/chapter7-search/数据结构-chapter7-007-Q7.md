@@ -11,7 +11,7 @@ knowledge_points:
 question_type: "choice"
 difficulty: 2
 source: "课后题"
-number: 6
+number: 7
 tags: ['课后题']
 ---
 
