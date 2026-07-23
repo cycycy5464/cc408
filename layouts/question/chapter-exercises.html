@@ -161,22 +161,17 @@
   typeSel.addEventListener('change', filter);
   search.addEventListener('input', filter);
   filter();
+  setupFavorites();
 
-  processQuestions();
-
-  // ── Reveal All button ──
+  // Reveal All button (chapter-exercises specific — only visible blocks)
   var revealBtn = document.getElementById('reveal-all-btn-ce');
   if (revealBtn) {
     revealBtn.addEventListener('click', function() {
-      var visibleBlocks = grid.querySelectorAll('.question-block.visible');
-      var panels = [];
-      visibleBlocks.forEach(function(b) {
-        b.querySelectorAll('.answer-panel').forEach(function(p) { panels.push(p); });
-      });
-      var anyHidden = panels.some(function(p) { return p.style.display === 'none'; });
-      panels.forEach(function(p) { p.style.display = anyHidden ? 'block' : 'none'; });
+      var panels = grid.querySelectorAll('.question-block.visible .answer-panel');
+      var anyHidden = Array.prototype.some.call(panels, function(p) { return p.style.display === 'none'; });
+      Array.prototype.forEach.call(panels, function(p) { p.style.display = anyHidden ? 'block' : 'none'; });
       if (anyHidden) {
-        visibleBlocks.forEach(function(block) {
+        grid.querySelectorAll('.question-block.visible').forEach(function(block) {
           var ap = block.querySelector('.answer-panel');
           var correct = ap ? ap.getAttribute('data-answer') : null;
           if (correct) {
@@ -195,7 +190,5 @@
       }
     });
   }
-
-    // ── Favorites via shared module ──
-  setupFavorites();
-
+})();
+</script>
